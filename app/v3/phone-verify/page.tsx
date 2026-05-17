@@ -154,7 +154,7 @@ export default function PhoneVerify() {
         </div>
 
         {/* Continue action below keypad */}
-        <Link href="/v3/sms-verify" style={{
+        <Link href="/worker/onboarding" style={{
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
