@@ -2,6 +2,8 @@ import Link from 'next/link';
 
 const workerScreens = [
   { label: 'Splash', href: '/worker/splash' },
+  { label: 'Slides', href: '/worker/slides' },
+  { label: 'Role Picker', href: '/worker/role' },
   { label: 'Map', href: '/worker/map' },
   { label: 'Job Detail', href: '/worker/job-detail' },
   { label: 'Locked In', href: '/worker/confirm' },
