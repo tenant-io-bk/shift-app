@@ -27,17 +27,6 @@ const METHODS = [
     title: 'Bank Transfer',
     sub: '1–2 business days',
   },
-  {
-    id: 'check',
-    icon: (
-      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-        <rect x="2" y="4" width="12" height="9" rx="1.5" stroke="#6B6E78" strokeWidth="1.5" />
-        <path d="M5 7h4M5 9.5h2" stroke="#6B6E78" strokeWidth="1.2" strokeLinecap="round" />
-      </svg>
-    ),
-    title: 'Check by mail',
-    sub: '3–5 days · free',
-  },
 ];
 
 export default function PayoutSetup() {
