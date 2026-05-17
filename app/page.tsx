@@ -17,11 +17,16 @@ const workerScreens = [
 ];
 
 const employerScreens = [
-  { label: 'Onboarding', href: '/employer/onboarding' },
+  { label: 'Create Account', href: '/employer/create-account' },
+  { label: 'Find Business', href: '/employer/onboarding' },
+  { label: 'Biz Profile', href: '/employer/business-profile' },
+  { label: 'Billing', href: '/employer/billing' },
+  { label: 'Dashboard', href: '/employer/dashboard' },
   { label: 'Live Map', href: '/employer/live-map' },
   { label: 'Post Shift', href: '/employer/post-shift' },
   { label: 'Roster', href: '/employer/roster' },
   { label: 'Rating', href: '/employer/rating' },
+  { label: 'Account', href: '/employer/account' },
 ];
 
 const phase01 = [

@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
+import EmployerNav from '@/app/components/EmployerNav';
 
 export default function Page() {
   const [count, setCount] = useState(1);
@@ -440,18 +441,12 @@ export default function Page() {
             Post this shift.
           </Link>
 
-          <div
-            style={{
-              fontFamily: 'var(--mono)',
-              fontSize: 11,
-              color: 'var(--mute)',
-              textAlign: 'center',
-            }}
-          >
+          <div style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--mute)', textAlign: 'center' }}>
             $0 posted · billed when filled
           </div>
         </div>
       </div>
+      <EmployerNav active="post" />
     </div>
   );
 }

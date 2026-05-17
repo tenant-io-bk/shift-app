@@ -309,7 +309,7 @@ export default function Page() {
             {/* CTA Button */}
             <div style={{ paddingBottom: 36, paddingTop: 16 }}>
               <Link
-                href="/employer/live-map"
+                href="/employer/business-profile"
                 style={{
                   display: 'block',
                   background: 'var(--ink)',

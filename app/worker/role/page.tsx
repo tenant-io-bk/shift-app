@@ -109,7 +109,7 @@ export default function RolePicker() {
 
         {/* Employer option */}
         <Link
-          href="/employer/onboarding"
+          href="/employer/create-account"
           style={{
             display: 'block',
             padding: '28px 24px',
