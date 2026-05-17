@@ -41,7 +41,7 @@ export default function PhoneVerify() {
         borderBottom: '1px solid var(--line)',
         background: 'var(--paper)',
       }}>
-        <Link href="/worker/onboarding" style={{ fontSize: 20, color: 'var(--ink)', textDecoration: 'none', width: 32 }}>←</Link>
+        <Link href="/worker/splash" style={{ fontSize: 20, color: 'var(--ink)', textDecoration: 'none', width: 32 }}>←</Link>
         <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 16, color: 'var(--ink)' }}>Phone</span>
         <div style={{ width: 32 }} />
       </div>
@@ -154,7 +154,7 @@ export default function PhoneVerify() {
         </div>
 
         {/* Continue action below keypad */}
-        <Link href="/v3/payout-setup" style={{
+        <Link href="/v3/sms-verify" style={{
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',

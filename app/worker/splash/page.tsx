@@ -116,7 +116,7 @@ export default function WorkerSplash() {
       >
         {/* Worker card */}
         <Link
-          href="/worker/map"
+          href="/v3/phone-verify"
           style={{
             flex: 1,
             background: '#5A3CC2',

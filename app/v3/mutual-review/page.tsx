@@ -205,7 +205,8 @@ export default function MutualReview() {
         </div>
 
         {/* CTA */}
-        <button style={{
+        <Link href="/worker/map" style={{
+          display: 'block',
           width: '100%',
           padding: '16px',
           background: 'var(--ink)',
@@ -217,7 +218,9 @@ export default function MutualReview() {
           color: '#fff',
           cursor: 'pointer',
           letterSpacing: '-0.01em',
-        }}>Submit review.</button>
+          textAlign: 'center',
+          textDecoration: 'none',
+        }}>Submit review.</Link>
       </div>
     </div>
   );

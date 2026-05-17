@@ -4,7 +4,7 @@ const workerScreens = [
   { label: 'Splash', href: '/worker/splash' },
   { label: 'Map', href: '/worker/map' },
   { label: 'Job Detail', href: '/worker/job-detail' },
-  { label: 'Locked In', href: '/worker/locked-in' },
+  { label: 'Locked In', href: '/worker/confirm' },
   { label: 'Day Of', href: '/worker/day-of' },
   { label: 'On Shift', href: '/worker/on-shift' },
   { label: 'Paid Out', href: '/worker/paid-out' },
@@ -21,6 +21,8 @@ const employerScreens = [
 
 const phase01 = [
   { label: 'Phone Verify', href: '/v3/phone-verify' },
+  { label: 'SMS Verify', href: '/v3/sms-verify' },
+  { label: 'Availability', href: '/v3/availability' },
   { label: 'Payout Setup', href: '/v3/payout-setup' },
   { label: 'W-9', href: '/v3/w9' },
   { label: 'Cancel Flow', href: '/v3/cancel-flow' },

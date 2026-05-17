@@ -217,7 +217,10 @@ export default function Availability() {
         </div>
 
         {/* CTA */}
-        <button style={{
+        <Link href="/v3/payout-setup" style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
           width: '100%',
           padding: '16px',
           marginTop: 28,
@@ -230,7 +233,8 @@ export default function Availability() {
           color: '#fff',
           cursor: 'pointer',
           letterSpacing: '-0.01em',
-        }}>Save availability.</button>
+          textDecoration: 'none',
+        }}>Save availability.</Link>
       </div>
     </div>
   );

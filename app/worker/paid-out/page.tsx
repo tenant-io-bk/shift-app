@@ -378,7 +378,7 @@ export default function PaidOut() {
         }}
       >
         <Link
-          href="/worker/map"
+          href="/v3/mutual-review"
           style={{
             display: 'block',
             width: '100%',
@@ -394,7 +394,7 @@ export default function PaidOut() {
             letterSpacing: '-0.01em',
           }}
         >
-          Find another shift nearby.
+          Rate Padmore's →
         </Link>
         <p
           style={{

@@ -119,7 +119,7 @@ export default function WorkerOnboarding() {
         </p>
 
         {/* Continue */}
-        <Link href="/v3/phone-verify" style={{
+        <Link href="/v3/availability" style={{
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',

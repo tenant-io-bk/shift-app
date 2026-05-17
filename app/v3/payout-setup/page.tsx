@@ -55,7 +55,7 @@ export default function PayoutSetup() {
         borderBottom: '1px solid var(--line)',
         background: 'var(--paper)',
       }}>
-        <Link href="/v3/phone-verify" style={{ fontSize: 20, color: 'var(--ink)', textDecoration: 'none', width: 32 }}>←</Link>
+        <Link href="/v3/sms-verify" style={{ fontSize: 20, color: 'var(--ink)', textDecoration: 'none', width: 32 }}>←</Link>
         <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 16, color: 'var(--ink)' }}>Get paid</span>
         <div style={{ width: 32 }} />
       </div>
@@ -199,7 +199,7 @@ export default function PayoutSetup() {
         </div>
 
         {/* CTA */}
-        <Link href="#" style={{
+        <Link href="/v3/w9" style={{
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
