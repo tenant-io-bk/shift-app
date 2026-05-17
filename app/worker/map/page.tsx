@@ -502,7 +502,7 @@ export default function WorkerMap() {
           ))}
         </div>
 
-        <BottomNav active="map" />
+        <BottomNav active="shifts" />
       </div>
     </div>
   );

@@ -11,6 +11,9 @@ const workerScreens = [
   { label: 'On Shift', href: '/worker/on-shift' },
   { label: 'Paid Out', href: '/worker/paid-out' },
   { label: 'Wallet', href: '/worker/wallet' },
+  { label: 'Profile', href: '/worker/profile' },
+  { label: 'Notifications', href: '/worker/notifications' },
+  { label: 'Settings', href: '/worker/settings' },
 ];
 
 const employerScreens = [

@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-type Tab = 'shifts' | 'map' | 'wallet' | 'profile';
+type Tab = 'shifts' | 'wallet' | 'notifications' | 'profile';
 
 type BottomNavProps = {
   active: Tab;
@@ -10,27 +10,13 @@ const tabs: { id: Tab; label: string; href: string; icon: React.ReactNode }[] = 
   {
     id: 'shifts',
     label: 'Shifts',
-    href: '/worker/splash',
-    icon: (
-      <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-        <rect x="2" y="2" width="6" height="6" rx="1.5" fill="currentColor" />
-        <rect x="12" y="2" width="6" height="6" rx="1.5" fill="currentColor" />
-        <rect x="2" y="12" width="6" height="6" rx="1.5" fill="currentColor" />
-        <rect x="12" y="12" width="6" height="6" rx="1.5" fill="currentColor" />
-      </svg>
-    ),
-  },
-  {
-    id: 'map',
-    label: 'Map',
     href: '/worker/map',
     icon: (
-      <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-        <path
-          d="M10 2C7.24 2 5 4.24 5 7c0 4.25 5 11 5 11s5-6.75 5-11c0-2.76-2.24-5-5-5Z"
-          fill="currentColor"
-        />
-        <circle cx="10" cy="7" r="2" fill="white" />
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+        <rect x="2" y="2" width="7" height="7" rx="2" fill="currentColor" />
+        <rect x="13" y="2" width="7" height="7" rx="2" fill="currentColor" />
+        <rect x="2" y="13" width="7" height="7" rx="2" fill="currentColor" />
+        <rect x="13" y="13" width="7" height="7" rx="2" fill="currentColor" />
       </svg>
     ),
   },
@@ -39,27 +25,32 @@ const tabs: { id: Tab; label: string; href: string; icon: React.ReactNode }[] = 
     label: 'Wallet',
     href: '/worker/wallet',
     icon: (
-      <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-        <rect x="2" y="5" width="16" height="12" rx="2" stroke="currentColor" strokeWidth="1.5" fill="none" />
-        <path d="M2 8h16" stroke="currentColor" strokeWidth="1.5" />
-        <rect x="13" y="11" width="3" height="3" rx="1" fill="currentColor" />
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+        <rect x="2" y="6" width="18" height="13" rx="2.5" stroke="currentColor" strokeWidth="1.6" fill="none" />
+        <path d="M2 10h18" stroke="currentColor" strokeWidth="1.6" />
+        <rect x="14" y="13" width="4" height="3" rx="1.5" fill="currentColor" />
+      </svg>
+    ),
+  },
+  {
+    id: 'notifications',
+    label: 'Alerts',
+    href: '/worker/notifications',
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+        <path d="M11 3a6 6 0 0 0-6 6v3l-2 3h16l-2-3V9a6 6 0 0 0-6-6Z" stroke="currentColor" strokeWidth="1.6" fill="none" strokeLinejoin="round" />
+        <path d="M9 16a2 2 0 0 0 4 0" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
       </svg>
     ),
   },
   {
     id: 'profile',
     label: 'Profile',
-    href: '/worker/splash',
+    href: '/worker/profile',
     icon: (
-      <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-        <circle cx="10" cy="6.5" r="3.5" stroke="currentColor" strokeWidth="1.5" fill="none" />
-        <path
-          d="M3 17c0-3.31 3.13-6 7-6s7 2.69 7 6"
-          stroke="currentColor"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          fill="none"
-        />
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+        <circle cx="11" cy="7" r="4" stroke="currentColor" strokeWidth="1.6" fill="none" />
+        <path d="M3 19c0-3.87 3.58-7 8-7s8 3.13 8 7" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" fill="none" />
       </svg>
     ),
   },
@@ -67,17 +58,22 @@ const tabs: { id: Tab; label: string; href: string; icon: React.ReactNode }[] = 
 
 export default function BottomNav({ active }: BottomNavProps) {
   return (
-    <div
-      style={{
-        height: 64,
-        background: 'var(--card)',
-        borderTop: '1px solid var(--line)',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-around',
-        paddingBottom: 4,
-      }}
-    >
+    <div style={{
+      position: 'fixed',
+      bottom: 0,
+      left: '50%',
+      transform: 'translateX(-50%)',
+      width: '100%',
+      maxWidth: 390,
+      height: 72,
+      background: 'var(--paper)',
+      borderTop: '1px solid var(--line)',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'space-around',
+      paddingBottom: 8,
+      zIndex: 100,
+    }}>
       {tabs.map((tab) => {
         const isActive = tab.id === active;
         return (
@@ -88,22 +84,21 @@ export default function BottomNav({ active }: BottomNavProps) {
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
-              gap: 3,
+              gap: 4,
               color: isActive ? 'var(--hydrant)' : 'var(--mute)',
               textDecoration: 'none',
-              minWidth: 48,
+              minWidth: 52,
+              paddingTop: 8,
             }}
           >
             {tab.icon}
-            <span
-              style={{
-                fontFamily: 'var(--mono)',
-                fontSize: 9,
-                fontWeight: 600,
-                letterSpacing: '0.1em',
-                textTransform: 'uppercase',
-              }}
-            >
+            <span style={{
+              fontFamily: 'var(--mono)',
+              fontSize: 9,
+              fontWeight: 600,
+              letterSpacing: '0.08em',
+              textTransform: 'uppercase',
+            }}>
               {tab.label}
             </span>
           </Link>

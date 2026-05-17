@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import BottomNav from '@/app/components/BottomNav';
 
 const TRANSACTIONS = [
   { name: "Padmore's Coffee", detail: 'Barista · Mon 12 May', amount: '+$174.00', positive: true },
@@ -134,10 +135,8 @@ export default function WorkerWallet() {
 
       {/* Cash out CTA */}
       <div style={{
-        padding: '16px 22px 32px',
+        padding: '16px 22px 100px',
         background: 'var(--card)',
-        position: 'sticky',
-        bottom: 0,
         borderTop: '1px solid var(--line)',
       }}>
         <button style={{
@@ -161,6 +160,8 @@ export default function WorkerWallet() {
           marginTop: 8,
         }}>$0 fee · direct to debit · 11 min avg</p>
       </div>
+
+      <BottomNav active="wallet" />
     </div>
   );
 }
