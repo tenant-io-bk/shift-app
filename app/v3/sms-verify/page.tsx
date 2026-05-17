@@ -90,7 +90,7 @@ export default function SMSVerify() {
 
         <p style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--mute)', marginBottom: 24 }}>
           Didn&apos;t get it?{' '}
-          <span style={{ color: 'var(--hydrant)', fontDecoration: 'underline', cursor: 'pointer' }}>
+          <span style={{ color: 'var(--hydrant)', textDecoration: 'underline', cursor: 'pointer' }}>
             Resend code
           </span>
         </p>
