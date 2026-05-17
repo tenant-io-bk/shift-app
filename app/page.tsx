@@ -27,9 +27,12 @@ const employerScreens = [
 const phase01 = [
   { label: 'Phone Verify', href: '/v3/phone-verify' },
   { label: 'SMS Verify', href: '/v3/sms-verify' },
+  { label: 'Credentials', href: '/v3/credentials' },
   { label: 'Availability', href: '/v3/availability' },
   { label: 'Payout Setup', href: '/v3/payout-setup' },
   { label: 'W-9', href: '/v3/w9' },
+  { label: 'Profile Setup', href: '/v3/profile-setup' },
+  { label: 'Neighborhood', href: '/v3/neighborhood' },
   { label: 'Cancel Flow', href: '/v3/cancel-flow' },
   { label: 'No-show', href: '/v3/no-show' },
 ];

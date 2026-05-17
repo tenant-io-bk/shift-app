@@ -132,7 +132,7 @@ export default function W9() {
       <div style={{ position: 'fixed', bottom: 0, left: '50%', transform: 'translateX(-50%)', width: '100%', maxWidth: 390, padding: '16px 22px 36px', background: 'linear-gradient(to bottom, transparent, var(--paper) 40%)' }}>
         {complete ? (
           <Link
-            href="/worker/map"
+            href="/v3/profile-setup"
             style={{
               display: 'block', width: '100%', padding: '15px 22px',
               borderRadius: 12, background: 'var(--ink)', color: '#FFFFFF',
