@@ -87,7 +87,7 @@ export default function Availability() {
         <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
           {TIME_BLOCKS.map((block, rowIdx) => (
             <div key={rowIdx} style={{
-              border: '1px solid var(--line)',
+              border: '2px solid var(--ink)',
               borderRadius: 14,
               overflow: 'hidden',
             }}>
