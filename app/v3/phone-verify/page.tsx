@@ -49,9 +49,9 @@ export default function PhoneVerify() {
       {/* Progress bar */}
       <div style={{ padding: '10px 22px 0' }}>
         <div style={{ height: 3, background: 'var(--paper-3)', borderRadius: 99 }}>
-          <div style={{ width: `${(1/7)*100}%`, height: '100%', background: 'var(--hydrant)', borderRadius: 99 }} />
+          <div style={{ width: `${(1/8)*100}%`, height: '100%', background: 'var(--hydrant)', borderRadius: 99 }} />
         </div>
-        <p style={{ fontFamily: 'var(--mono)', fontSize: 10, color: 'var(--mute)', marginTop: 4, textAlign: 'right' }}>1 of 7</p>
+        <p style={{ fontFamily: 'var(--mono)', fontSize: 10, color: 'var(--mute)', marginTop: 4, textAlign: 'right' }}>1 of 8</p>
       </div>
 
       {/* Content */}
@@ -154,7 +154,7 @@ export default function PhoneVerify() {
         </div>
 
         {/* Continue action below keypad */}
-        <Link href="/worker/onboarding" style={{
+        <Link href="/v3/sms-verify" style={{
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',

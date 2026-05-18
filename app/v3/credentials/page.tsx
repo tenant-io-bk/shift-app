@@ -72,10 +72,10 @@ export default function Credentials() {
       {/* Progress */}
       <div style={{ padding: '8px 22px 4px', display: 'flex', alignItems: 'center', gap: 10 }}>
         <div style={{ flex: 1, height: 3, background: 'var(--paper-3)', borderRadius: 99, overflow: 'hidden' }}>
-          <div style={{ width: '28%', height: '100%', background: 'var(--ink)', borderRadius: 99 }} />
+          <div style={{ width: `${(4/8)*100}%`, height: '100%', background: 'var(--ink)', borderRadius: 99 }} />
         </div>
         <span style={{ fontFamily: 'var(--mono)', fontSize: 10, color: 'var(--mute)', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
-          <span style={{ color: 'var(--hydrant)', fontWeight: 600 }}>2</span> / 8
+          <span style={{ color: 'var(--hydrant)', fontWeight: 600 }}>4</span> / 8
         </span>
       </div>
 

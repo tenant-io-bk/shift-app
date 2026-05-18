@@ -31,7 +31,7 @@ export default function PaidOut() {
         }}
       >
         <Link
-          href="/worker/on-shift"
+          href="/worker/map"
           style={{
             width: 36,
             height: 36,

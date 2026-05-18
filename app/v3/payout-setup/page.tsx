@@ -44,7 +44,7 @@ export default function PayoutSetup() {
         borderBottom: '1px solid var(--line)',
         background: 'var(--paper)',
       }}>
-        <Link href="/v3/sms-verify" style={{ fontSize: 20, color: 'var(--ink)', textDecoration: 'none', width: 32 }}>←</Link>
+        <Link href="/v3/availability" style={{ fontSize: 20, color: 'var(--ink)', textDecoration: 'none', width: 32 }}>←</Link>
         <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 16, color: 'var(--ink)' }}>Get paid</span>
         <div style={{ width: 32 }} />
       </div>
@@ -52,9 +52,9 @@ export default function PayoutSetup() {
       {/* Progress */}
       <div style={{ padding: '10px 22px 0' }}>
         <div style={{ height: 3, background: 'var(--paper-3)', borderRadius: 99 }}>
-          <div style={{ width: `${(3/7)*100}%`, height: '100%', background: 'var(--hydrant)', borderRadius: 99 }} />
+          <div style={{ width: `${(6/8)*100}%`, height: '100%', background: 'var(--hydrant)', borderRadius: 99 }} />
         </div>
-        <p style={{ fontFamily: 'var(--mono)', fontSize: 10, color: 'var(--mute)', marginTop: 4, textAlign: 'right' }}>3 of 7</p>
+        <p style={{ fontFamily: 'var(--mono)', fontSize: 10, color: 'var(--mute)', marginTop: 4, textAlign: 'right' }}>6 of 8</p>
       </div>
 
       <div style={{ padding: '18px 22px 32px' }}>

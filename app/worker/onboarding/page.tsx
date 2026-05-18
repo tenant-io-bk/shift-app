@@ -34,7 +34,7 @@ export default function WorkerOnboarding() {
         top: 0,
         zIndex: 10,
       }}>
-        <Link href="/" style={{ fontSize: 20, color: 'var(--ink)', textDecoration: 'none', width: 32 }}>←</Link>
+        <Link href="/v3/phone-verify" style={{ fontSize: 20, color: 'var(--ink)', textDecoration: 'none', width: 32 }}>←</Link>
         <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 16, color: 'var(--ink)' }}>Get started</span>
         <div style={{ width: 32 }} />
       </div>
@@ -44,10 +44,10 @@ export default function WorkerOnboarding() {
         {/* Progress bar */}
         <div style={{ marginBottom: 24 }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 8 }}>
-            <span style={{ fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 600, color: 'var(--mute)', textTransform: 'uppercase', letterSpacing: '0.06em' }}>Step 1 of 4</span>
+            <span style={{ fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 600, color: 'var(--mute)', textTransform: 'uppercase', letterSpacing: '0.06em' }}>Step 3 of 8</span>
           </div>
           <div style={{ height: 3, background: 'var(--paper-3)', borderRadius: 99 }}>
-            <div style={{ width: '25%', height: '100%', background: 'var(--hydrant)', borderRadius: 99 }} />
+            <div style={{ width: `${(3/8)*100}%`, height: '100%', background: 'var(--hydrant)', borderRadius: 99 }} />
           </div>
         </div>
 

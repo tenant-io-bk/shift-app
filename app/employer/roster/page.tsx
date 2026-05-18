@@ -449,25 +449,52 @@ export default function Page() {
             gap: 10,
           }}
         >
-          {['Message both', 'Replace no-show'].map((label) => (
-            <button
-              key={label}
-              style={{
-                border: '1px solid var(--line)',
-                borderRadius: 10,
-                padding: 12,
-                background: 'transparent',
-                fontFamily: 'var(--mono)',
-                fontSize: 13,
-                fontWeight: 600,
-                color: 'var(--ink)',
-                cursor: 'pointer',
-                width: '100%',
-              }}
-            >
-              {label}
-            </button>
-          ))}
+          {[
+            { label: 'Message both', href: null },
+            { label: 'Replace no-show', href: '/v3/no-show' },
+          ].map(({ label, href }) =>
+            href ? (
+              <Link
+                key={label}
+                href={href}
+                style={{
+                  border: '1px solid var(--line)',
+                  borderRadius: 10,
+                  padding: 12,
+                  background: 'transparent',
+                  fontFamily: 'var(--mono)',
+                  fontSize: 13,
+                  fontWeight: 600,
+                  color: 'var(--ink)',
+                  cursor: 'pointer',
+                  width: '100%',
+                  textAlign: 'center',
+                  textDecoration: 'none',
+                  display: 'block',
+                }}
+              >
+                {label}
+              </Link>
+            ) : (
+              <button
+                key={label}
+                style={{
+                  border: '1px solid var(--line)',
+                  borderRadius: 10,
+                  padding: 12,
+                  background: 'transparent',
+                  fontFamily: 'var(--mono)',
+                  fontSize: 13,
+                  fontWeight: 600,
+                  color: 'var(--ink)',
+                  cursor: 'pointer',
+                  width: '100%',
+                }}
+              >
+                {label}
+              </button>
+            )
+          )}
 
           {/* Rate link */}
           <Link

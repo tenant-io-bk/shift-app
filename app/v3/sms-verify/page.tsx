@@ -40,10 +40,10 @@ export default function SMSVerify() {
       {/* Progress */}
       <div style={{ padding: '0 22px 4px', display: 'flex', alignItems: 'center', gap: 10, marginTop: 8 }}>
         <div style={{ flex: 1, height: 3, background: 'var(--paper-3)', borderRadius: 99, overflow: 'hidden' }}>
-          <div style={{ width: '28%', height: '100%', background: 'var(--ink)', borderRadius: 99 }} />
+          <div style={{ width: '25%', height: '100%', background: 'var(--ink)', borderRadius: 99 }} />
         </div>
         <span style={{ fontFamily: 'var(--mono)', fontSize: 10, color: 'var(--mute)', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
-          <span style={{ color: 'var(--hydrant)', fontWeight: 600 }}>2</span> / 7
+          <span style={{ color: 'var(--hydrant)', fontWeight: 600 }}>2</span> / 8
         </span>
       </div>
 

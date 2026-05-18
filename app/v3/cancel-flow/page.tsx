@@ -1,3 +1,5 @@
+'use client';
+
 import Link from 'next/link';
 
 export default function CancelFlow() {
@@ -12,6 +14,21 @@ export default function CancelFlow() {
       display: 'flex',
       flexDirection: 'column',
     }}>
+      {/* Back button */}
+      <div style={{
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        right: 0,
+        height: 44,
+        display: 'flex',
+        alignItems: 'center',
+        padding: '0 16px',
+        zIndex: 20,
+      }}>
+        <Link href="/worker/confirm" style={{ fontSize: 20, color: 'white', textDecoration: 'none', opacity: 0.8 }}>←</Link>
+      </div>
+
       {/* Ghosted on-shift screen behind */}
       <div style={{
         height: 280,

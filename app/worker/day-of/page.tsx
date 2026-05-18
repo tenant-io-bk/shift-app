@@ -29,7 +29,7 @@ export default function DayOf() {
         }}
       >
         <Link
-          href="/worker/confirm"
+          href="/worker/map"
           style={{
             width: 36,
             height: 36,

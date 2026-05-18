@@ -276,17 +276,24 @@ export default function WorkerConfirm() {
         </div>
 
         {/* Back-out notice */}
-        <p
-          style={{
-            fontFamily: 'var(--mono)',
-            fontSize: 13,
-            color: 'var(--mute)',
-            marginTop: 12,
-            lineHeight: 1.5,
-          }}
-        >
-          You can back out within 15 min. No penalty.
-        </p>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginTop: 12 }}>
+          <p style={{ fontFamily: 'var(--mono)', fontSize: 13, color: 'var(--mute)', lineHeight: 1.5 }}>
+            You can back out within 15 min. No penalty.
+          </p>
+          <Link
+            href="/v3/cancel-flow"
+            style={{
+              fontFamily: 'var(--mono)',
+              fontSize: 12,
+              color: 'var(--mute)',
+              textDecoration: 'underline',
+              flexShrink: 0,
+              marginLeft: 12,
+            }}
+          >
+            Cancel
+          </Link>
+        </div>
 
         {/* What's next */}
         <div style={{ marginTop: 20 }}>

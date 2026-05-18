@@ -45,9 +45,19 @@ export default function Availability() {
         borderBottom: '1px solid var(--line)',
         background: 'var(--paper)',
       }}>
-        <Link href="/worker/onboarding" style={{ fontSize: 20, color: 'var(--ink)', textDecoration: 'none', width: 32 }}>←</Link>
+        <Link href="/v3/credentials" style={{ fontSize: 20, color: 'var(--ink)', textDecoration: 'none', width: 32 }}>←</Link>
         <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 16, color: 'var(--ink)' }}>Availability</span>
         <div style={{ width: 32 }} />
+      </div>
+
+      {/* Progress */}
+      <div style={{ padding: '8px 22px 4px', display: 'flex', alignItems: 'center', gap: 10 }}>
+        <div style={{ flex: 1, height: 3, background: 'var(--paper-3)', borderRadius: 99, overflow: 'hidden' }}>
+          <div style={{ width: `${(5/8)*100}%`, height: '100%', background: 'var(--hydrant)', borderRadius: 99 }} />
+        </div>
+        <span style={{ fontFamily: 'var(--mono)', fontSize: 10, color: 'var(--mute)', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
+          <span style={{ color: 'var(--hydrant)', fontWeight: 600 }}>5</span> / 8
+        </span>
       </div>
 
       <div style={{ padding: 22 }}>
