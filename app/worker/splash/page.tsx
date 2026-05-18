@@ -22,19 +22,11 @@ export default function WorkerSplash() {
       <StatusBar dark time="9:41" />
 
       {/* Wordmark */}
-      <h1 style={{
-        fontFamily: 'var(--sans)',
-        fontWeight: 900,
-        fontSize: 96,
-        letterSpacing: '-0.075em',
-        color: 'var(--hydrant)',
-        lineHeight: 1,
-        margin: 0,
-        position: 'relative',
-        zIndex: 1,
-      }}>
-        shift
-      </h1>
+      <img
+        src="/LOGO-green.svg"
+        alt="shift"
+        style={{ width: 160, display: 'block', position: 'relative', zIndex: 1 }}
+      />
 
       {/* Tap hint */}
       <p style={{

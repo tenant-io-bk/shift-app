@@ -15,15 +15,7 @@ export default function RolePicker() {
 
       {/* Wordmark */}
       <div style={{ textAlign: 'center', padding: '20px 0 0' }}>
-        <span style={{
-          fontFamily: 'var(--sans)',
-          fontWeight: 600,
-          fontSize: 24,
-          color: 'var(--ink)',
-          letterSpacing: '-0.075em',
-        }}>
-          shift<span style={{ color: 'var(--hydrant)' }}>.</span>
-        </span>
+        <img src="/LOGO-blsck.svg" alt="shift" style={{ width: 80, display: 'inline-block' }} />
       </div>
 
       {/* Main content */}
