@@ -76,7 +76,7 @@ export default function PostShift() {
       )}
 
       {/* Step content */}
-      <div style={{ flex: 1, display: 'flex', flexDirection: 'column', padding: '32px 22px 32px', ...slideStyle }}>
+      <div style={{ flex: 1, display: 'flex', flexDirection: 'column', padding: '24px 22px 16px', minHeight: 0, ...slideStyle }}>
 
         {/* ROLE */}
         {step === 'role' && (
@@ -100,23 +100,23 @@ export default function PostShift() {
 
         {/* WHEN */}
         {step === 'when' && (
-          <>
-            <div style={{ fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--hydrant)', marginBottom: 12 }}>When</div>
-            <h1 style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 36, letterSpacing: '-0.075em', lineHeight: 1, color: 'var(--ink)', marginBottom: 28 }}>When is the shift?</h1>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10 }}>
-              <div style={{ border: '2px solid var(--ink)', borderRadius: 14, padding: '16px' }}>
-                <div style={{ fontFamily: 'var(--mono)', fontSize: 10, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--ink)', marginBottom: 8 }}>Start</div>
-                <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 20, color: 'var(--ink)', letterSpacing: '-0.03em' }}>Today</div>
-                <div style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 18, color: 'var(--ink)', letterSpacing: '-0.02em' }}>11:00A</div>
-              </div>
-              <div style={{ border: '2px solid var(--ink)', borderRadius: 14, padding: '16px' }}>
-                <div style={{ fontFamily: 'var(--mono)', fontSize: 10, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--ink)', marginBottom: 8 }}>End</div>
-                <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 20, color: 'var(--ink)', letterSpacing: '-0.03em' }}>&nbsp;</div>
-                <div style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 18, color: 'var(--ink)', letterSpacing: '-0.02em' }}>4:00P</div>
+          <div style={{ display: 'flex', flexDirection: 'column', flex: 1, gap: 10 }}>
+            <div style={{ fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--hydrant)', marginBottom: 4 }}>When</div>
+            <div style={{ border: '2px solid var(--ink)', borderRadius: 18, padding: '24px 22px', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+              <div style={{ fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--ink)' }}>Start</div>
+              <div>
+                <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 48, color: 'var(--ink)', letterSpacing: '-0.075em', lineHeight: 1 }}>Today</div>
+                <div style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 40, color: 'var(--ink)', letterSpacing: '-0.06em', lineHeight: 1, marginTop: 4 }}>11:00A</div>
               </div>
             </div>
-            <div style={{ fontFamily: 'var(--mono)', fontSize: 14, color: 'var(--ink)', marginTop: 12 }}>5 hrs</div>
-          </>
+            <div style={{ border: '2px solid var(--ink)', borderRadius: 18, padding: '24px 22px', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+              <div style={{ fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--ink)' }}>End</div>
+              <div>
+                <div style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 40, color: 'var(--ink)', letterSpacing: '-0.06em', lineHeight: 1 }}>4:00P</div>
+                <div style={{ fontFamily: 'var(--mono)', fontSize: 14, color: 'var(--hydrant)', fontWeight: 600, marginTop: 8 }}>5 hrs</div>
+              </div>
+            </div>
+          </div>
         )}
 
         {/* PAY */}
