@@ -138,7 +138,7 @@ export default function Neighborhood() {
 
       {/* CTA */}
       <div style={{ padding: '24px 22px 40px', marginTop: 'auto' }}>
-        <Link href="/v3/payout-setup" style={{
+        <Link href="/worker/map" style={{
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
