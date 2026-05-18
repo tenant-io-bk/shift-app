@@ -12,7 +12,7 @@ const SLIDES = [
     sub: 'Browse hundreds of same-day openings across Brooklyn, Manhattan, and Queens. No resume, no waiting.',
   },
   {
-    img: '/fpo-2.jpg',
+    img: '/fpo-4.jpg',
     imgPosition: 'center top',
     headline: 'Need staff tonight?',
     sub: 'Post a shift and get confirmed, vetted workers before the rush starts. No agencies, no markups.',
@@ -62,7 +62,7 @@ export default function WorkerSlides() {
       {/* Status bar — dark text on green */}
       <StatusBar time="9:41" />
 
-      {/* Squircle image — fills upper green area */}
+      {/* Squircle image — square container preserves shape proportions */}
       <div style={{
         flex: 1,
         display: 'flex',
@@ -70,8 +70,8 @@ export default function WorkerSlides() {
         justifyContent: 'center',
       }}>
         <div style={{
-          width: 368,
-          height: 423,
+          width: 390,
+          height: 390,
           clipPath: 'url(#shift-squircle)',
           overflow: 'hidden',
           flexShrink: 0,
@@ -90,10 +90,11 @@ export default function WorkerSlides() {
         </div>
       </div>
 
-      {/* White bottom sheet */}
+      {/* White bottom sheet — overlaps squircle slightly */}
       <div style={{
         background: '#fff',
         borderRadius: '24px 24px 0 0',
+        marginTop: -40,
         padding: '20px 24px 36px',
         display: 'flex',
         flexDirection: 'column',
