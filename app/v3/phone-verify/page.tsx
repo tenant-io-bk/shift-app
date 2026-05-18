@@ -134,7 +134,7 @@ export default function PhoneVerify() {
                 style={{
                   height: 56,
                   background: isContinue ? 'var(--ink)' : 'var(--card)',
-                  border: isContinue ? 'none' : '1px solid var(--line)',
+                  border: isContinue ? 'none' : '2px solid var(--ink)',
                   borderRadius: 12,
                   fontFamily: 'var(--sans)',
                   fontWeight: 700,

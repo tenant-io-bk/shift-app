@@ -106,7 +106,7 @@ export default function SMSVerify() {
                 style={{
                   height: 56,
                   borderRadius: 12,
-                  border: '1px solid var(--line)',
+                  border: '2px solid var(--ink)',
                   background: key === '⌫' ? 'var(--paper-2)' : 'var(--card)',
                   fontFamily: 'var(--sans)',
                   fontWeight: 700,
