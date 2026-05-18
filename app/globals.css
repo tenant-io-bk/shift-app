@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --paper:    #FFFFFF;
+  --paper:    #fcfcfc;
   --paper-2:  #F4F5F7;
   --paper-3:  #E8EAED;
   --card:     #FFFFFF;
