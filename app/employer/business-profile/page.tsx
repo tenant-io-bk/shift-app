@@ -5,15 +5,13 @@ import Link from 'next/link';
 import StatusBar from '@/app/components/StatusBar';
 
 const TEAM_SIZES = ['1–5', '6–20', '21–50', '50+'];
-const SHIFTS_PER_WEEK = ['1–2', '3–5', '6–10', '10+'];
 
 export default function BusinessProfile() {
   const [hasLogo, setHasLogo] = useState(false);
   const [description, setDescription] = useState('');
   const [teamSize, setTeamSize] = useState('');
-  const [shiftsNeeded, setShiftsNeeded] = useState('');
 
-  const canContinue = description.length > 10 && teamSize && shiftsNeeded;
+  const canContinue = description.length > 10 && teamSize;
 
   return (
     <div style={{ maxWidth: 390, minHeight: '100vh', margin: '0 auto', background: 'var(--paper)', display: 'flex', flexDirection: 'column' }}>
@@ -84,8 +82,7 @@ export default function BusinessProfile() {
             }} />
         </div>
 
-        {/* Team size */}
-        <div style={{ marginBottom: 22 }}>
+        <div style={{ marginBottom: 8 }}>
           <div style={{ fontFamily: 'var(--mono)', fontSize: 10.5, fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--mute)', marginBottom: 10 }}>
             Current team size
           </div>
@@ -97,25 +94,6 @@ export default function BusinessProfile() {
                 background: teamSize === s ? 'var(--ink)' : 'var(--card)',
                 fontFamily: 'var(--mono)', fontSize: 13, fontWeight: 600,
                 color: teamSize === s ? '#fff' : 'var(--mute)',
-                transition: 'all 0.15s',
-              }}>{s}</button>
-            ))}
-          </div>
-        </div>
-
-        {/* Shifts per week */}
-        <div style={{ marginBottom: 8 }}>
-          <div style={{ fontFamily: 'var(--mono)', fontSize: 10.5, fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--mute)', marginBottom: 10 }}>
-            Shifts you'll need per week
-          </div>
-          <div style={{ display: 'flex', gap: 8 }}>
-            {SHIFTS_PER_WEEK.map(s => (
-              <button key={s} onClick={() => setShiftsNeeded(s)} style={{
-                flex: 1, padding: '11px 0', borderRadius: 10, cursor: 'pointer',
-                border: `1px solid ${shiftsNeeded === s ? 'var(--ink)' : 'var(--line)'}`,
-                background: shiftsNeeded === s ? 'var(--ink)' : 'var(--card)',
-                fontFamily: 'var(--mono)', fontSize: 13, fontWeight: 600,
-                color: shiftsNeeded === s ? '#fff' : 'var(--mute)',
                 transition: 'all 0.15s',
               }}>{s}</button>
             ))}
