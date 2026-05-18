@@ -19,16 +19,17 @@ export default function RolePicker() {
       </div>
 
       {/* Main content */}
-      <div style={{ padding: '40px 28px 0', flex: 1, display: 'flex', flexDirection: 'column' }}>
+      <div style={{ padding: '32px 24px 0', flex: 1, display: 'flex', flexDirection: 'column' }}>
         <h1 style={{
           fontFamily: 'var(--sans)',
-          fontWeight: 600,
-          fontSize: 58,
+          fontWeight: 300,
+          fontSize: 80,
           letterSpacing: '-0.075em',
-          lineHeight: 1.05,
+          lineHeight: 1.13,
           color: 'var(--ink)',
-          textAlign: 'center',
-          marginBottom: 24,
+          textAlign: 'left',
+          marginBottom: 0,
+          flex: 1,
         }}>
           Are you<br />
           <Link
@@ -36,11 +37,11 @@ export default function RolePicker() {
             style={{
               background: 'var(--hydrant)',
               borderRadius: 99,
-              padding: '0 20px 4px',
+              padding: '0 22px 6px',
               display: 'inline-block',
               color: 'var(--ink)',
               textDecoration: 'none',
-              lineHeight: 1.15,
+              lineHeight: 1.2,
             }}
           >
             looking
@@ -53,11 +54,11 @@ export default function RolePicker() {
             style={{
               background: 'var(--ink)',
               borderRadius: 99,
-              padding: '0 20px 4px',
+              padding: '0 22px 6px',
               display: 'inline-block',
               color: '#fff',
               textDecoration: 'none',
-              lineHeight: 1.15,
+              lineHeight: 1.2,
             }}
           >
             filling
@@ -71,7 +72,8 @@ export default function RolePicker() {
           fontSize: 13,
           color: 'var(--mute)',
           lineHeight: 1.5,
-          textAlign: 'center',
+          textAlign: 'left',
+          paddingBottom: 48,
         }}>
           Pick your path. You can always switch later.
         </p>
