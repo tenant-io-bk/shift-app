@@ -8,19 +8,19 @@ const SLIDES = [
   {
     img: '/fpo-1.jpg',
     imgPosition: 'center 15%',
-    headline: 'Pick up a shift. Today.',
+    headline: 'Need cash fast?',
     sub: 'Browse hundreds of same-day openings across Brooklyn, Manhattan, and Queens. No resume, no waiting.',
   },
   {
     img: '/fpo-2.jpg',
     imgPosition: 'center top',
-    headline: 'Fill your floor in minutes.',
+    headline: 'Need staff tonight?',
     sub: 'Post a shift and get confirmed, vetted workers before the rush starts. No agencies, no markups.',
   },
   {
     img: '/fpo-3.jpg',
     imgPosition: 'center center',
-    headline: 'Same-day pay. Every time.',
+    headline: 'Paid in minutes.',
     sub: 'Clock out and the money moves. No invoices, no chasing. Straight to your debit card in minutes.',
   },
 ];
@@ -46,7 +46,7 @@ export default function WorkerSlides() {
 
   return (
     <div
-      style={{ maxWidth: 390, minHeight: '100vh', margin: '0 auto', background: 'var(--paper)', display: 'flex', flexDirection: 'column', overflow: 'hidden' }}
+      style={{ maxWidth: 390, minHeight: '100vh', margin: '0 auto', background: 'var(--hydrant)', display: 'flex', flexDirection: 'column', overflow: 'hidden' }}
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
     >
@@ -59,23 +59,23 @@ export default function WorkerSlides() {
         </defs>
       </svg>
 
-      <StatusBar dark time="9:41" />
+      {/* Status bar — dark text on green */}
+      <StatusBar time="9:41" />
 
-      {/* Green panel with squircle photo */}
+      {/* Squircle image — fills upper green area */}
       <div style={{
-        background: 'var(--hydrant)',
-        height: '58vh',
+        flex: 1,
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        flexShrink: 0,
+        paddingTop: 8,
       }}>
         <div style={{
-          width: 310,
-          height: 358,
+          width: 355,
+          height: 410,
           clipPath: 'url(#shift-squircle)',
-          flexShrink: 0,
           overflow: 'hidden',
+          flexShrink: 0,
         }}>
           <img
             src={slide.img}
@@ -93,16 +93,15 @@ export default function WorkerSlides() {
 
       {/* White bottom sheet */}
       <div style={{
-        flex: 1,
         background: '#fff',
         borderRadius: '24px 24px 0 0',
-        marginTop: -24,
-        padding: '28px 24px 36px',
+        padding: '20px 24px 36px',
         display: 'flex',
         flexDirection: 'column',
+        flexShrink: 0,
       }}>
         {/* Dots */}
-        <div style={{ display: 'flex', gap: 6, marginBottom: 20 }}>
+        <div style={{ display: 'flex', gap: 6, marginBottom: 14 }}>
           {SLIDES.map((_, i) => (
             <button
               key={i}
@@ -123,13 +122,12 @@ export default function WorkerSlides() {
 
         <h2 style={{
           fontFamily: 'var(--sans)',
-          fontWeight: 800,
-          fontSize: 32,
-          letterSpacing: '-0.03em',
+          fontWeight: 600,
+          fontSize: 40,
+          letterSpacing: '-0.075em',
           color: 'var(--ink)',
-          lineHeight: 1.05,
-          marginBottom: 12,
-          flex: 1,
+          lineHeight: 1.0,
+          marginBottom: 10,
         }}>
           {slide.headline}
         </h2>
@@ -139,7 +137,7 @@ export default function WorkerSlides() {
           fontSize: 13,
           color: 'var(--mute)',
           lineHeight: 1.6,
-          marginBottom: 24,
+          marginBottom: 20,
         }}>
           {slide.sub}
         </p>
