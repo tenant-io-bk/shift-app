@@ -12,11 +12,11 @@ export default function Page() {
           50% { opacity: 0.4; transform: scale(0.75); }
         }
         .fill-pulse { animation: fill-pulse 1.6s ease-in-out infinite; }
-        @keyframes fill-bar {
+        @keyframes logo-fill {
           from { width: 0%; }
-          to { width: 60%; }
+          to { width: 62%; }
         }
-        .fill-bar { animation: fill-bar 2s ease-out forwards; }
+        .logo-fill { animation: logo-fill 2.8s cubic-bezier(0.25, 1, 0.5, 1) forwards; }
       `}</style>
 
       {/* Dark header */}
@@ -49,13 +49,17 @@ export default function Page() {
           SHIFT<br />POSTED<span style={{ color: 'var(--hydrant)' }}>.</span>
         </h1>
 
-        {/* Fill progress */}
-        <div style={{ marginBottom: 6 }}>
-          <div style={{ height: 3, background: 'rgba(255,255,255,0.12)', borderRadius: 99, overflow: 'hidden' }}>
-            <div
-              className="fill-bar"
-              style={{ height: '100%', background: '#16A34A', borderRadius: 99 }}
-            />
+        {/* Logo fill progress */}
+        <div style={{ position: 'relative', marginBottom: 10, height: 36 }}>
+          {/* Base: dim white logo */}
+          <img
+            src="/LOGO-white.svg"
+            alt=""
+            style={{ position: 'absolute', top: 0, left: 0, height: 36, opacity: 0.15, display: 'block' }}
+          />
+          {/* Fill: green logo clips in left-to-right */}
+          <div className="logo-fill" style={{ position: 'absolute', top: 0, left: 0, overflow: 'hidden', height: 36 }}>
+            <img src="/LOGO-green.svg" alt="shift" style={{ height: 36, display: 'block' }} />
           </div>
         </div>
         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
