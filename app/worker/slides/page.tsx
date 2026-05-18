@@ -62,9 +62,9 @@ export default function WorkerSlides() {
         flexShrink: 0,
       }}>
         <div style={{
-          width: 280,
-          height: 280,
-          borderRadius: '50%',
+          width: 248,
+          height: 296,
+          borderRadius: '50% 50% 50% 50% / 44% 44% 56% 56%',
           overflow: 'hidden',
           flexShrink: 0,
         }}>
