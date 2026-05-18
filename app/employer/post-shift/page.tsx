@@ -8,6 +8,7 @@ export default function Page() {
   const [count, setCount] = useState(1);
   const [notes, setNotes] = useState('');
   const [role, setRole] = useState('Barista');
+  const [rate, setRate] = useState(26);
 
   return (
     <div style={{ maxWidth: 390, minHeight: '100vh', margin: '0 auto', background: 'var(--paper)', display: 'flex', flexDirection: 'column', paddingBottom: 80 }}>
@@ -140,12 +141,42 @@ export default function Page() {
             Pay
           </div>
           <div style={{ background: 'var(--ink)', borderRadius: 14, padding: 20 }}>
-            <div style={{ display: 'flex', alignItems: 'baseline', gap: 6 }}>
-              <span style={{ fontFamily: 'var(--sans)', fontWeight: 800, fontSize: 52, color: 'white', letterSpacing: '-0.03em', lineHeight: 1 }}>$26</span>
-              <span style={{ fontFamily: 'var(--mono)', fontSize: 16, color: 'rgba(255,255,255,0.6)' }}>/hr</span>
-            </div>
-            <div style={{ fontFamily: 'var(--mono)', fontSize: 13, color: 'rgba(255,255,255,0.6)', marginTop: 12 }}>
-              Total for 5h: $130.
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+              <button
+                onClick={() => setRate(r => Math.max(15, r - 1))}
+                style={{
+                  width: 40, height: 40, borderRadius: 10,
+                  border: '1px solid rgba(255,255,255,0.18)',
+                  background: 'rgba(255,255,255,0.08)',
+                  color: 'white', fontSize: 22, fontWeight: 700,
+                  cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  lineHeight: 1, flexShrink: 0,
+                }}
+              >
+                −
+              </button>
+              <div style={{ textAlign: 'center' }}>
+                <div style={{ display: 'flex', alignItems: 'baseline', gap: 4, justifyContent: 'center' }}>
+                  <span style={{ fontFamily: 'var(--sans)', fontWeight: 800, fontSize: 52, color: 'white', letterSpacing: '-0.03em', lineHeight: 1 }}>${rate}</span>
+                  <span style={{ fontFamily: 'var(--mono)', fontSize: 16, color: 'rgba(255,255,255,0.6)' }}>/hr</span>
+                </div>
+                <div style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'rgba(255,255,255,0.45)', marginTop: 4 }}>
+                  Total for 5h: ${rate * 5}.
+                </div>
+              </div>
+              <button
+                onClick={() => setRate(r => Math.min(75, r + 1))}
+                style={{
+                  width: 40, height: 40, borderRadius: 10,
+                  border: '1px solid rgba(255,255,255,0.18)',
+                  background: 'rgba(255,255,255,0.08)',
+                  color: 'white', fontSize: 22, fontWeight: 700,
+                  cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  lineHeight: 1, flexShrink: 0,
+                }}
+              >
+                +
+              </button>
             </div>
           </div>
         </div>
@@ -253,7 +284,7 @@ export default function Page() {
       >
         <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginBottom: 10 }}>
           <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 18, color: 'var(--ink)', letterSpacing: '-0.02em' }}>
-            All in: $130.
+            All in: ${rate * 5}.
           </span>
           <span style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--mute)' }}>$0 to post</span>
         </div>
