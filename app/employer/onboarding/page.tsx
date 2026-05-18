@@ -103,7 +103,7 @@ export default function Page() {
           style={{
             height: 52,
             background: 'var(--card)',
-            border: '1px solid var(--line)',
+            border: '2px solid var(--ink)',
             borderRadius: 10,
             padding: '0 16px',
             display: 'flex',
@@ -169,7 +169,7 @@ export default function Page() {
               key={biz.name}
               style={{
                 background: 'var(--card)',
-                border: '1px solid var(--line)',
+                border: '2px solid var(--ink)',
                 borderRadius: 10,
                 padding: '12px 14px',
                 cursor: 'pointer',

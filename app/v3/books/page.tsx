@@ -185,7 +185,7 @@ export default function Books() {
                 style={{
                   padding: '5px 10px',
                   background: 'transparent',
-                  border: '1px solid var(--line-2)',
+                  border: '2px solid var(--ink)',
                   borderRadius: 99,
                   fontFamily: 'var(--mono)',
                   fontSize: 11,

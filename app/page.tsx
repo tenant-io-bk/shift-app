@@ -62,7 +62,7 @@ function ScreenLink({ label, href }: { label: string; href: string }) {
         padding: '8px 12px',
         borderRadius: 8,
         background: 'var(--card)',
-        border: '1px solid var(--line)',
+        border: '2px solid var(--ink)',
         fontFamily: 'var(--mono)',
         fontSize: 11.5,
         fontWeight: 600,

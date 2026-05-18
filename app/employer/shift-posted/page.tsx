@@ -69,7 +69,7 @@ export default function Page() {
       </div>
 
       {/* Shift summary card */}
-      <div style={{ margin: '16px 22px 0', padding: 20, background: 'var(--card)', border: '1px solid var(--line)', borderRadius: 14 }}>
+      <div style={{ margin: '16px 22px 0', padding: 20, background: 'var(--card)', border: '2px solid var(--ink)', borderRadius: 14 }}>
         <div style={{ fontFamily: 'var(--mono)', fontSize: 10, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--mute)', marginBottom: 14 }}>
           Shift summary
         </div>
@@ -146,7 +146,7 @@ export default function Page() {
           href="/employer/post-shift"
           style={{
             display: 'block',
-            border: '1px solid var(--line)',
+            border: '2px solid var(--ink)',
             borderRadius: 12,
             padding: '14px 22px',
             textAlign: 'center',

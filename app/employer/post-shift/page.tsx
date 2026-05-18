@@ -80,7 +80,7 @@ export default function Page() {
                 style={{
                   padding: '7px 14px',
                   borderRadius: 99,
-                  border: '1px solid var(--line-2)',
+                  border: '2px solid var(--ink)',
                   background: role === r ? 'var(--ink)' : 'transparent',
                   color: role === r ? 'white' : 'var(--ink)',
                   fontFamily: 'var(--mono)',
@@ -113,11 +113,11 @@ export default function Page() {
             When
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10 }}>
-            <div style={{ border: '1px solid var(--line)', borderRadius: 10, padding: '12px 14px', background: 'var(--card)' }}>
+            <div style={{ border: '2px solid var(--ink)', borderRadius: 10, padding: '12px 14px', background: 'var(--card)' }}>
               <div style={{ fontFamily: 'var(--mono)', fontSize: 10, fontWeight: 600, color: 'var(--mute)', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 4 }}>Start</div>
               <div style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 16, color: 'var(--ink)', letterSpacing: '-0.01em' }}>Today · 11:00A</div>
             </div>
-            <div style={{ border: '1px solid var(--line)', borderRadius: 10, padding: '12px 14px', background: 'var(--card)' }}>
+            <div style={{ border: '2px solid var(--ink)', borderRadius: 10, padding: '12px 14px', background: 'var(--card)' }}>
               <div style={{ fontFamily: 'var(--mono)', fontSize: 10, fontWeight: 600, color: 'var(--mute)', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 4 }}>End</div>
               <div style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 16, color: 'var(--ink)', letterSpacing: '-0.01em' }}>4:00P</div>
             </div>
@@ -200,7 +200,7 @@ export default function Page() {
             <button
               onClick={() => setCount(Math.max(1, count - 1))}
               style={{
-                width: 36, height: 36, borderRadius: 8, border: '1px solid var(--line-2)',
+                width: 36, height: 36, borderRadius: 8, border: '2px solid var(--ink)',
                 background: 'var(--card)', fontFamily: 'var(--sans)', fontWeight: 700,
                 fontSize: 20, color: 'var(--ink)', cursor: 'pointer',
                 display: 'flex', alignItems: 'center', justifyContent: 'center', lineHeight: 1,
@@ -214,7 +214,7 @@ export default function Page() {
             <button
               onClick={() => setCount(count + 1)}
               style={{
-                width: 36, height: 36, borderRadius: 8, border: '1px solid var(--line-2)',
+                width: 36, height: 36, borderRadius: 8, border: '2px solid var(--ink)',
                 background: 'var(--card)', fontFamily: 'var(--sans)', fontWeight: 700,
                 fontSize: 20, color: 'var(--ink)', cursor: 'pointer',
                 display: 'flex', alignItems: 'center', justifyContent: 'center', lineHeight: 1,
@@ -252,7 +252,7 @@ export default function Page() {
               width: '100%',
               padding: '14px 16px',
               background: 'var(--card)',
-              border: `1px solid ${notes.length > 0 ? 'var(--ink)' : 'var(--line)'}`,
+              border: '2px solid var(--ink)',
               borderRadius: 10,
               fontFamily: 'var(--mono)',
               fontSize: 13,

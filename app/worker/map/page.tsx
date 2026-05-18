@@ -100,7 +100,7 @@ export default function WorkerMap() {
           <Link href="/" style={{ width: 36, height: 36, display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--ink)', textDecoration: 'none', fontSize: 20 }}>←</Link>
 
           {/* Location pill */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: 8, background: 'var(--paper-2)', border: '1px solid var(--line-2)', borderRadius: 99, padding: '6px 12px 6px 14px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8, background: 'var(--paper-2)', border: '2px solid var(--ink)', borderRadius: 99, padding: '6px 12px 6px 14px' }}>
             <span style={{ fontFamily: 'var(--mono)', fontSize: 12, fontWeight: 600, color: 'var(--ink)' }}>Bed-Stuy · 2 mi</span>
             <div style={{ background: '#72c15f', borderRadius: 99, padding: '3px 8px' }}>
               <span style={{ fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 600, color: '#fff', letterSpacing: '0.06em', textTransform: 'uppercase' }}>18 ready</span>
@@ -294,7 +294,7 @@ export default function WorkerMap() {
                 <div style={{
                   background: 'var(--card)',
                   borderRadius: 14,
-                  border: '1px solid var(--line)',
+                  border: '2px solid var(--ink)',
                   overflow: 'hidden',
                   transition: 'border-color 0.15s',
                 }}>
@@ -305,7 +305,7 @@ export default function WorkerMap() {
                       <div style={{
                         position: 'absolute', bottom: -4, right: -4,
                         background: 'var(--card)', borderRadius: 99,
-                        padding: '1px 5px', border: '1px solid var(--line)',
+                        padding: '1px 5px', border: '2px solid var(--ink)',
                       }}>
                         <span style={{ fontFamily: 'var(--mono)', fontSize: 9, fontWeight: 600, color: 'var(--mute)' }}>{shift.rating}★</span>
                       </div>
@@ -362,7 +362,7 @@ function ShiftList({ shifts }: { shifts: typeof SHIFTS }) {
         <Link key={shift.posting} href="/worker/job-detail" style={{ display: 'flex', gap: 12, padding: '12px 22px', borderBottom: '1px solid var(--line)', alignItems: 'flex-start', textDecoration: 'none', color: 'inherit' }}>
           <div style={{ position: 'relative', flexShrink: 0 }}>
             <div style={{ width: 40, height: 40, borderRadius: 8, background: shift.bg }} />
-            <div style={{ position: 'absolute', bottom: -4, right: -4, background: 'var(--card)', borderRadius: 99, padding: '1px 5px', border: '1px solid var(--line)' }}>
+            <div style={{ position: 'absolute', bottom: -4, right: -4, background: 'var(--card)', borderRadius: 99, padding: '1px 5px', border: '2px solid var(--ink)' }}>
               <span style={{ fontFamily: 'var(--mono)', fontSize: 9, fontWeight: 600, color: 'var(--mute)' }}>{shift.rating}★</span>
             </div>
           </div>

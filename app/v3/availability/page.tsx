@@ -127,7 +127,7 @@ export default function Availability() {
                         style={{
                           height: 40,
                           borderRadius: 8,
-                          border: `1px solid ${enabled ? 'var(--hydrant)' : 'var(--line-2)'}`,
+                          border: `2px solid ${enabled ? 'var(--hydrant)' : 'var(--ink)'}`,
                           background: enabled ? 'var(--hydrant-soft)' : 'var(--paper-2)',
                           cursor: 'pointer',
                           display: 'flex',

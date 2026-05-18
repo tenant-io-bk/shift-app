@@ -42,7 +42,7 @@ export default function BusinessProfile() {
         </p>
 
         {/* Logo */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 28, padding: '16px', background: 'var(--card)', borderRadius: 12, border: '1px solid var(--line)' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 28, padding: '16px', background: 'var(--card)', borderRadius: 12, border: '2px solid var(--ink)' }}>
           <div style={{
             width: 64, height: 64, borderRadius: 12, flexShrink: 0,
             background: hasLogo ? 'var(--hydrant)' : 'var(--paper-3)',
@@ -76,7 +76,7 @@ export default function BusinessProfile() {
             placeholder="What's the vibe? What do workers need to know before showing up?"
             style={{
               width: '100%', padding: '14px 16px', background: 'var(--card)',
-              border: `1px solid ${description.length > 10 ? 'var(--ink)' : 'var(--line)'}`,
+              border: '2px solid var(--ink)',
               borderRadius: 10, fontFamily: 'var(--mono)', fontSize: 13, color: 'var(--ink)',
               outline: 'none', resize: 'none', lineHeight: 1.6, transition: 'border-color 0.15s',
             }} />
@@ -90,7 +90,7 @@ export default function BusinessProfile() {
             {TEAM_SIZES.map(s => (
               <button key={s} onClick={() => setTeamSize(s)} style={{
                 flex: 1, padding: '11px 0', borderRadius: 10, cursor: 'pointer',
-                border: `1px solid ${teamSize === s ? 'var(--ink)' : 'var(--line)'}`,
+                border: '2px solid var(--ink)',
                 background: teamSize === s ? 'var(--ink)' : 'var(--card)',
                 fontFamily: 'var(--mono)', fontSize: 13, fontWeight: 600,
                 color: teamSize === s ? '#fff' : 'var(--mute)',

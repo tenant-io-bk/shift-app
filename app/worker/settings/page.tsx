@@ -71,7 +71,7 @@ export default function Settings() {
         </Section>
 
         {/* Sign out */}
-        <div style={{ background: 'var(--paper)', borderRadius: 14, overflow: 'hidden', border: '1px solid var(--line)' }}>
+        <div style={{ background: 'var(--paper)', borderRadius: 14, overflow: 'hidden', border: '2px solid var(--ink)' }}>
           <Link
             href="/worker/splash"
             style={{
@@ -96,7 +96,7 @@ function Section({ title, children }: { title: string; children: React.ReactNode
   return (
     <div>
       <div style={{ fontFamily: 'var(--mono)', fontSize: 10, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--mute)', padding: '0 4px', marginBottom: 6 }}>{title}</div>
-      <div style={{ background: 'var(--paper)', borderRadius: 14, overflow: 'hidden', border: '1px solid var(--line)' }}>
+      <div style={{ background: 'var(--paper)', borderRadius: 14, overflow: 'hidden', border: '2px solid var(--ink)' }}>
         {children}
       </div>
     </div>

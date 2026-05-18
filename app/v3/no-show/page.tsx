@@ -167,7 +167,7 @@ export default function NoShow() {
             width: '100%',
             padding: '15px',
             background: 'transparent',
-            border: '1.5px solid var(--line-2)',
+            border: '2px solid var(--ink)',
             borderRadius: 12,
             fontFamily: 'var(--sans)',
             fontWeight: 600,

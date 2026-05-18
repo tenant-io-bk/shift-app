@@ -71,7 +71,7 @@ export default function EmployerAccount() {
           <RowLink label="Privacy policy" href="#" />
         </Section>
 
-        <div style={{ background: 'var(--paper)', borderRadius: 14, overflow: 'hidden', border: '1px solid var(--line)' }}>
+        <div style={{ background: 'var(--paper)', borderRadius: 14, overflow: 'hidden', border: '2px solid var(--ink)' }}>
           <Link href="/worker/role" style={{ display: 'block', padding: '16px 18px', fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 16, color: '#EA4B2A', textDecoration: 'none', textAlign: 'center' }}>
             Sign out
           </Link>
@@ -89,7 +89,7 @@ function Section({ title, children }: { title: string; children: React.ReactNode
   return (
     <div>
       <div style={{ fontFamily: 'var(--mono)', fontSize: 10, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--mute)', padding: '0 4px', marginBottom: 6 }}>{title}</div>
-      <div style={{ background: 'var(--paper)', borderRadius: 14, overflow: 'hidden', border: '1px solid var(--line)' }}>{children}</div>
+      <div style={{ background: 'var(--paper)', borderRadius: 14, overflow: 'hidden', border: '2px solid var(--ink)' }}>{children}</div>
     </div>
   );
 }

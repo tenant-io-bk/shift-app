@@ -51,7 +51,7 @@ export default function EmployerCreateAccount() {
               <button key={t} onClick={() => setBizType(t)} style={{
                 padding: '8px 14px', borderRadius: 99, cursor: 'pointer',
                 fontFamily: 'var(--sans)', fontWeight: 500, fontSize: 14,
-                border: bizType === t ? 'none' : '1px solid var(--line)',
+                border: bizType === t ? 'none' : '2px solid var(--ink)',
                 background: bizType === t ? 'var(--ink)' : 'var(--card)',
                 color: bizType === t ? '#fff' : 'var(--ink)',
                 transition: 'all 0.15s',
@@ -64,25 +64,25 @@ export default function EmployerCreateAccount() {
         <div style={{ marginBottom: 16 }}>
           <div style={{ fontFamily: 'var(--mono)', fontSize: 10.5, fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--mute)', marginBottom: 8 }}>Business name</div>
           <input type="text" value={name} onChange={e => setName(e.target.value)} placeholder="e.g. Padmore's Coffee"
-            style={{ width: '100%', height: 52, padding: '0 16px', background: 'var(--card)', border: '1px solid var(--line)', borderRadius: 10, fontFamily: 'var(--sans)', fontSize: 16, color: 'var(--ink)', outline: 'none' }} />
+            style={{ width: '100%', height: 52, padding: '0 16px', background: 'var(--card)', border: '2px solid var(--ink)', borderRadius: 10, fontFamily: 'var(--sans)', fontSize: 16, color: 'var(--ink)', outline: 'none' }} />
         </div>
 
         {/* Email */}
         <div style={{ marginBottom: 16 }}>
           <div style={{ fontFamily: 'var(--mono)', fontSize: 10.5, fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--mute)', marginBottom: 8 }}>Work email</div>
           <input type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="you@yourbusiness.com"
-            style={{ width: '100%', height: 52, padding: '0 16px', background: 'var(--card)', border: '1px solid var(--line)', borderRadius: 10, fontFamily: 'var(--sans)', fontSize: 16, color: 'var(--ink)', outline: 'none' }} />
+            style={{ width: '100%', height: 52, padding: '0 16px', background: 'var(--card)', border: '2px solid var(--ink)', borderRadius: 10, fontFamily: 'var(--sans)', fontSize: 16, color: 'var(--ink)', outline: 'none' }} />
         </div>
 
         {/* Phone */}
         <div style={{ marginBottom: 24 }}>
           <div style={{ fontFamily: 'var(--mono)', fontSize: 10.5, fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--mute)', marginBottom: 8 }}>Phone number</div>
           <div style={{ display: 'flex', gap: 8 }}>
-            <div style={{ background: 'var(--paper-2)', border: '1px solid var(--line)', borderRadius: 10, padding: '0 14px', display: 'flex', alignItems: 'center', flexShrink: 0 }}>
+            <div style={{ background: 'var(--paper-2)', border: '2px solid var(--ink)', borderRadius: 10, padding: '0 14px', display: 'flex', alignItems: 'center', flexShrink: 0 }}>
               <span style={{ fontFamily: 'var(--mono)', fontSize: 15, fontWeight: 600, color: 'var(--ink)' }}>+1</span>
             </div>
             <input type="tel" value={phone} onChange={e => setPhone(e.target.value.replace(/\D/g, '').slice(0, 10))} placeholder="347 514 2898"
-              style={{ flex: 1, height: 52, padding: '0 16px', background: 'var(--card)', border: '1px solid var(--line)', borderRadius: 10, fontFamily: 'var(--sans)', fontSize: 16, color: 'var(--ink)', outline: 'none', letterSpacing: '0.04em' }} />
+              style={{ flex: 1, height: 52, padding: '0 16px', background: 'var(--card)', border: '2px solid var(--ink)', borderRadius: 10, fontFamily: 'var(--sans)', fontSize: 16, color: 'var(--ink)', outline: 'none', letterSpacing: '0.04em' }} />
           </div>
         </div>
 
@@ -90,7 +90,7 @@ export default function EmployerCreateAccount() {
         <button onClick={() => setAgreed(!agreed)} style={{ display: 'flex', alignItems: 'flex-start', gap: 12, padding: 0, background: 'none', border: 'none', cursor: 'pointer', width: '100%', textAlign: 'left' }}>
           <div style={{
             width: 22, height: 22, borderRadius: 6, flexShrink: 0, marginTop: 1,
-            border: `2px solid ${agreed ? 'var(--ink)' : 'var(--line-2)'}`,
+            border: '2px solid var(--ink)',
             background: agreed ? 'var(--ink)' : 'transparent',
             display: 'flex', alignItems: 'center', justifyContent: 'center',
           }}>

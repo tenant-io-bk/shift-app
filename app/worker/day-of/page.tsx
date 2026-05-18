@@ -97,7 +97,7 @@ export default function DayOf() {
             margin: '14px 22px',
             padding: 16,
             background: 'var(--card)',
-            border: '1px solid var(--line)',
+            border: '2px solid var(--ink)',
             borderRadius: 12,
           }}
         >
@@ -238,7 +238,7 @@ export default function DayOf() {
                   height: 22,
                   borderRadius: 6,
                   background: item.checked ? 'var(--ink)' : 'transparent',
-                  border: item.checked ? 'none' : '1.5px solid var(--line-2)',
+                  border: item.checked ? 'none' : '2px solid var(--ink)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
@@ -297,7 +297,7 @@ export default function DayOf() {
             margin: '14px 22px',
             padding: 16,
             background: 'var(--card)',
-            border: '1px solid var(--line)',
+            border: '2px solid var(--ink)',
             borderRadius: 12,
           }}
         >

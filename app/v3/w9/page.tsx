@@ -54,7 +54,7 @@ export default function W9() {
             placeholder="As it appears on your ID"
             style={{
               width: '100%', height: 52, padding: '0 16px',
-              background: 'var(--card)', border: '1px solid var(--line)',
+              background: 'var(--card)', border: '2px solid var(--ink)',
               borderRadius: 10, fontFamily: 'var(--sans)', fontSize: 16,
               color: 'var(--ink)', outline: 'none',
             }}
@@ -73,7 +73,7 @@ export default function W9() {
             placeholder="•••  ••  ••••"
             style={{
               width: '100%', height: 52, padding: '0 16px',
-              background: 'var(--card)', border: '1px solid var(--line)',
+              background: 'var(--card)', border: '2px solid var(--ink)',
               borderRadius: 10, fontFamily: 'var(--sans)', fontSize: 20,
               letterSpacing: '0.2em', color: 'var(--ink)', outline: 'none',
             }}
@@ -95,7 +95,7 @@ export default function W9() {
             placeholder="Street, City, State, ZIP"
             style={{
               width: '100%', height: 52, padding: '0 16px',
-              background: 'var(--card)', border: '1px solid var(--line)',
+              background: 'var(--card)', border: '2px solid var(--ink)',
               borderRadius: 10, fontFamily: 'var(--sans)', fontSize: 15,
               color: 'var(--ink)', outline: 'none',
             }}
@@ -103,7 +103,7 @@ export default function W9() {
         </div>
 
         {/* Trust block */}
-        <div style={{ padding: '14px 16px', background: 'var(--paper-2)', borderRadius: 10, border: '1px solid var(--line)', marginBottom: 20 }}>
+        <div style={{ padding: '14px 16px', background: 'var(--paper-2)', borderRadius: 10, border: '2px solid var(--ink)', marginBottom: 20 }}>
           <p style={{ fontFamily: 'var(--mono)', fontSize: 11.5, color: 'var(--ink)', lineHeight: 1.6 }}>
             <strong>Why SHIFT needs this:</strong> You&apos;re an independent contractor. If you earn $600+ in a year, the IRS requires us to file a 1099-NEC with your name and SSN. We don&apos;t share this with employers — ever.
           </p>
@@ -115,7 +115,7 @@ export default function W9() {
           style={{ display: 'flex', alignItems: 'flex-start', gap: 12, padding: 0, background: 'none', border: 'none', cursor: 'pointer', width: '100%', marginBottom: 28, textAlign: 'left' }}
         >
           <div style={{
-            width: 22, height: 22, borderRadius: 6, border: `2px solid ${agreed ? 'var(--ink)' : 'var(--line-2)'}`,
+            width: 22, height: 22, borderRadius: 6, border: '2px solid var(--ink)',
             background: agreed ? 'var(--ink)' : 'transparent',
             flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center',
             marginTop: 1,

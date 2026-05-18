@@ -58,7 +58,7 @@ export default function EmployerBilling() {
           {(['card', 'bank'] as const).map(m => (
             <button key={m} onClick={() => setMethod(m)} style={{
               flex: 1, padding: '14px', borderRadius: 12, cursor: 'pointer',
-              border: `1px solid ${method === m ? 'var(--ink)' : 'var(--line)'}`,
+              border: '2px solid var(--ink)',
               background: method === m ? 'var(--ink)' : 'var(--card)',
               display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6,
             }}>
@@ -83,7 +83,7 @@ export default function EmployerBilling() {
               <div style={{ fontFamily: 'var(--mono)', fontSize: 10.5, fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--mute)', marginBottom: 8 }}>Card number</div>
               <input type="text" inputMode="numeric" value={cardNum} onChange={e => setCardNum(formatCard(e.target.value))}
                 placeholder="1234 5678 9012 3456"
-                style={{ width: '100%', height: 52, padding: '0 16px', background: 'var(--card)', border: '1px solid var(--line)', borderRadius: 10, fontFamily: 'var(--mono)', fontSize: 16, letterSpacing: '0.1em', color: 'var(--ink)', outline: 'none' }} />
+                style={{ width: '100%', height: 52, padding: '0 16px', background: 'var(--card)', border: '2px solid var(--ink)', borderRadius: 10, fontFamily: 'var(--mono)', fontSize: 16, letterSpacing: '0.1em', color: 'var(--ink)', outline: 'none' }} />
             </div>
 
             {/* Expiry + CVV */}
@@ -92,13 +92,13 @@ export default function EmployerBilling() {
                 <div style={{ fontFamily: 'var(--mono)', fontSize: 10.5, fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--mute)', marginBottom: 8 }}>Expiry</div>
                 <input type="text" inputMode="numeric" value={expiry} onChange={e => setExpiry(formatExpiry(e.target.value))}
                   placeholder="MM / YY"
-                  style={{ width: '100%', height: 52, padding: '0 16px', background: 'var(--card)', border: '1px solid var(--line)', borderRadius: 10, fontFamily: 'var(--mono)', fontSize: 16, letterSpacing: '0.08em', color: 'var(--ink)', outline: 'none' }} />
+                  style={{ width: '100%', height: 52, padding: '0 16px', background: 'var(--card)', border: '2px solid var(--ink)', borderRadius: 10, fontFamily: 'var(--mono)', fontSize: 16, letterSpacing: '0.08em', color: 'var(--ink)', outline: 'none' }} />
               </div>
               <div>
                 <div style={{ fontFamily: 'var(--mono)', fontSize: 10.5, fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--mute)', marginBottom: 8 }}>CVV</div>
                 <input type="password" value={cvv} onChange={e => setCvv(e.target.value.replace(/\D/g, '').slice(0, 4))}
                   placeholder="•••"
-                  style={{ width: '100%', height: 52, padding: '0 16px', background: 'var(--card)', border: '1px solid var(--line)', borderRadius: 10, fontFamily: 'var(--mono)', fontSize: 20, color: 'var(--ink)', outline: 'none' }} />
+                  style={{ width: '100%', height: 52, padding: '0 16px', background: 'var(--card)', border: '2px solid var(--ink)', borderRadius: 10, fontFamily: 'var(--mono)', fontSize: 20, color: 'var(--ink)', outline: 'none' }} />
               </div>
             </div>
 
@@ -106,13 +106,13 @@ export default function EmployerBilling() {
             <div>
               <div style={{ fontFamily: 'var(--mono)', fontSize: 10.5, fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--mute)', marginBottom: 8 }}>Name on card</div>
               <input type="text" value={name} onChange={e => setName(e.target.value)} placeholder="As it appears on the card"
-                style={{ width: '100%', height: 52, padding: '0 16px', background: 'var(--card)', border: '1px solid var(--line)', borderRadius: 10, fontFamily: 'var(--sans)', fontSize: 16, color: 'var(--ink)', outline: 'none' }} />
+                style={{ width: '100%', height: 52, padding: '0 16px', background: 'var(--card)', border: '2px solid var(--ink)', borderRadius: 10, fontFamily: 'var(--sans)', fontSize: 16, color: 'var(--ink)', outline: 'none' }} />
             </div>
           </div>
         )}
 
         {method === 'bank' && (
-          <div style={{ padding: '20px', background: 'var(--card)', borderRadius: 12, border: '1px solid var(--line)', textAlign: 'center' }}>
+          <div style={{ padding: '20px', background: 'var(--card)', borderRadius: 12, border: '2px solid var(--ink)', textAlign: 'center' }}>
             <div style={{ fontSize: 32, marginBottom: 12 }}>🏦</div>
             <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 16, color: 'var(--ink)', marginBottom: 8 }}>Connect via Plaid</div>
             <p style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--mute)', lineHeight: 1.5 }}>
@@ -122,7 +122,7 @@ export default function EmployerBilling() {
         )}
 
         {/* Trust */}
-        <div style={{ marginTop: 20, padding: '12px 16px', background: 'var(--paper-2)', borderRadius: 10, border: '1px solid var(--line)' }}>
+        <div style={{ marginTop: 20, padding: '12px 16px', background: 'var(--paper-2)', borderRadius: 10, border: '2px solid var(--ink)' }}>
           <p style={{ fontFamily: 'var(--mono)', fontSize: 11.5, color: 'var(--ink)', lineHeight: 1.6 }}>
             <strong>$0 to post a shift.</strong> You're only charged when a worker is confirmed and completes their shift.
           </p>

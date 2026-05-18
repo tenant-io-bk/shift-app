@@ -72,7 +72,7 @@ export default function Dispute() {
                 style={{
                   padding: 14,
                   background: 'var(--card)',
-                  border: isSelected ? '1.5px solid var(--ink)' : '1px solid var(--line)',
+                  border: '2px solid var(--ink)',
                   borderRadius: 10,
                   display: 'flex',
                   alignItems: 'center',
@@ -129,7 +129,7 @@ export default function Dispute() {
               width: '100%',
               height: 100,
               background: 'var(--card)',
-              border: '1px solid var(--line)',
+              border: '2px solid var(--ink)',
               borderRadius: 10,
               padding: '14px 16px',
               fontFamily: 'var(--mono)',

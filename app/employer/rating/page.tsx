@@ -240,7 +240,7 @@ export default function Page() {
               style={{
                 padding: '7px 12px',
                 borderRadius: 99,
-                border: tag.selected ? '1px solid var(--hydrant)' : '1px solid var(--line)',
+                border: tag.selected ? '2px solid var(--hydrant)' : '2px solid var(--ink)',
                 background: tag.selected ? 'var(--hydrant-soft)' : 'var(--paper-2)',
                 color: tag.selected ? 'var(--hydrant)' : 'var(--ink)',
                 fontFamily: 'var(--mono)',
@@ -280,7 +280,7 @@ export default function Page() {
           style={{
             display: 'block',
             background: 'transparent',
-            border: '1px solid var(--line-2)',
+            border: '2px solid var(--ink)',
             color: 'var(--ink)',
             borderRadius: 12,
             padding: '14px 22px',

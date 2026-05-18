@@ -96,7 +96,7 @@ export default function Credentials() {
             return (
               <div key={cred.id} style={{
                 borderRadius: 12,
-                border: `1px solid ${on ? 'var(--ink)' : 'var(--line)'}`,
+                border: '2px solid var(--ink)',
                 background: on ? 'var(--paper-2)' : 'var(--card)',
                 overflow: 'hidden',
                 transition: 'border-color 0.15s',
@@ -112,7 +112,7 @@ export default function Credentials() {
                   {/* Checkbox */}
                   <div style={{
                     width: 22, height: 22, borderRadius: 6, flexShrink: 0,
-                    border: `2px solid ${on ? 'var(--ink)' : 'var(--line-2)'}`,
+                    border: '2px solid var(--ink)',
                     background: on ? 'var(--ink)' : 'transparent',
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
                   }}>
@@ -142,7 +142,7 @@ export default function Credentials() {
                         onChange={e => setExpiry(cred.id, e.target.value)}
                         style={{
                           height: 40, padding: '0 12px', background: 'var(--paper)',
-                          border: '1px solid var(--line)', borderRadius: 8,
+                          border: '2px solid var(--ink)', borderRadius: 8,
                           fontFamily: 'var(--mono)', fontSize: 13, color: 'var(--ink)',
                           outline: 'none', width: '100%',
                         }}
@@ -151,7 +151,7 @@ export default function Credentials() {
                     <div style={{ flexShrink: 0, paddingTop: 22 }}>
                       <button style={{
                         height: 40, padding: '0 14px', background: 'var(--paper-2)',
-                        border: '1px solid var(--line)', borderRadius: 8,
+                        border: '2px solid var(--ink)', borderRadius: 8,
                         fontFamily: 'var(--mono)', fontSize: 12, fontWeight: 600,
                         color: 'var(--mute)', cursor: 'pointer', whiteSpace: 'nowrap',
                       }}>

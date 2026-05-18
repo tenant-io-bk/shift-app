@@ -78,7 +78,7 @@ export default function EmployerDashboard() {
           <div style={{ fontFamily: 'var(--mono)', fontSize: 10, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--mute)', marginBottom: 10, padding: '0 4px' }}>Active now</div>
           {ACTIVE_SHIFTS.map((s, i) => (
             <Link key={i} href="/employer/roster" style={{ textDecoration: 'none' }}>
-              <div style={{ background: 'var(--paper)', borderRadius: 14, border: '1px solid var(--line)', padding: '14px 16px', display: 'flex', alignItems: 'center', gap: 12 }}>
+              <div style={{ background: 'var(--paper)', borderRadius: 14, border: '2px solid var(--ink)', padding: '14px 16px', display: 'flex', alignItems: 'center', gap: 12 }}>
                 <div style={{ width: 10, height: 10, borderRadius: '50%', background: '#16A34A', flexShrink: 0, boxShadow: '0 0 0 3px rgba(22,163,74,0.2)' }} />
                 <div style={{ flex: 1 }}>
                   <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 15, color: 'var(--ink)' }}>{s.role} · {s.workers} workers</div>
@@ -102,7 +102,7 @@ export default function EmployerDashboard() {
         </div>
         <div style={{ display: 'flex', gap: 10 }}>
           {SAVED_WORKERS.map((w, i) => (
-            <div key={i} style={{ flex: 1, background: 'var(--paper)', borderRadius: 12, border: '1px solid var(--line)', padding: '14px 10px', textAlign: 'center' }}>
+            <div key={i} style={{ flex: 1, background: 'var(--paper)', borderRadius: 12, border: '2px solid var(--ink)', padding: '14px 10px', textAlign: 'center' }}>
               <div style={{ width: 44, height: 44, borderRadius: '50%', background: w.bg, display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 8px' }}>
                 <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 15, color: '#fff' }}>{w.initials}</span>
               </div>
@@ -117,7 +117,7 @@ export default function EmployerDashboard() {
       {/* Recent shifts */}
       <div style={{ padding: '20px 16px 0' }}>
         <div style={{ fontFamily: 'var(--mono)', fontSize: 10, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--mute)', marginBottom: 10, padding: '0 4px' }}>Recent shifts</div>
-        <div style={{ background: 'var(--paper)', borderRadius: 14, border: '1px solid var(--line)', overflow: 'hidden' }}>
+        <div style={{ background: 'var(--paper)', borderRadius: 14, border: '2px solid var(--ink)', overflow: 'hidden' }}>
           {RECENT.map((r, i) => (
             <div key={i} style={{ display: 'flex', alignItems: 'center', padding: '12px 16px', borderBottom: i < RECENT.length - 1 ? '1px solid var(--line)' : 'none' }}>
               <div style={{ flex: 1 }}>

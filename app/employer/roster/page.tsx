@@ -458,7 +458,7 @@ export default function Page() {
                 key={label}
                 href={href}
                 style={{
-                  border: '1px solid var(--line)',
+                  border: '2px solid var(--ink)',
                   borderRadius: 10,
                   padding: 12,
                   background: 'transparent',
@@ -479,7 +479,7 @@ export default function Page() {
               <button
                 key={label}
                 style={{
-                  border: '1px solid var(--line)',
+                  border: '2px solid var(--ink)',
                   borderRadius: 10,
                   padding: 12,
                   background: 'transparent',

@@ -351,7 +351,7 @@ export default function WorkerConfirm() {
           style={{
             width: '100%',
             padding: '14px 22px',
-            border: '1px solid var(--line)',
+            border: '2px solid var(--ink)',
             borderRadius: 12,
             background: 'transparent',
             fontFamily: 'var(--sans)',

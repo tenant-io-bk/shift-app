@@ -183,7 +183,7 @@ export default function WorkerProfile() {
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
           {REVIEWS.map((review, i) => (
-            <div key={i} style={{ padding: '14px 16px', background: 'var(--card)', borderRadius: 12, border: '1px solid var(--line)' }}>
+            <div key={i} style={{ padding: '14px 16px', background: 'var(--card)', borderRadius: 12, border: '2px solid var(--ink)' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 8 }}>
                 <div style={{ width: 32, height: 32, borderRadius: 8, background: review.avatar, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
                   <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 11, color: '#fff' }}>

@@ -113,16 +113,16 @@ export default function Page() {
         </div>
 
         {/* Neighborhood labels */}
-        <div style={{ position: 'absolute', top: 50, left: 10, background: 'var(--card)', border: '1px solid var(--line)', borderRadius: 6, padding: '4px 8px', fontFamily: 'var(--mono)', fontSize: 10, fontWeight: 600, color: 'var(--mute)' }}>
+        <div style={{ position: 'absolute', top: 50, left: 10, background: 'var(--card)', border: '2px solid var(--ink)', borderRadius: 6, padding: '4px 8px', fontFamily: 'var(--mono)', fontSize: 10, fontWeight: 600, color: 'var(--mute)' }}>
           Bushwick · 11
         </div>
-        <div style={{ position: 'absolute', top: 50, right: 10, background: 'var(--card)', border: '1px solid var(--line)', borderRadius: 6, padding: '4px 8px', fontFamily: 'var(--mono)', fontSize: 10, fontWeight: 600, color: 'var(--hydrant)' }}>
+        <div style={{ position: 'absolute', top: 50, right: 10, background: 'var(--card)', border: '2px solid var(--ink)', borderRadius: 6, padding: '4px 8px', fontFamily: 'var(--mono)', fontSize: 10, fontWeight: 600, color: 'var(--hydrant)' }}>
           Crown Hts · 19
         </div>
-        <div style={{ position: 'absolute', bottom: 16, left: 10, background: 'var(--card)', border: '1px solid var(--line)', borderRadius: 6, padding: '4px 8px', fontFamily: 'var(--mono)', fontSize: 10, fontWeight: 600, color: 'var(--mute)' }}>
+        <div style={{ position: 'absolute', bottom: 16, left: 10, background: 'var(--card)', border: '2px solid var(--ink)', borderRadius: 6, padding: '4px 8px', fontFamily: 'var(--mono)', fontSize: 10, fontWeight: 600, color: 'var(--mute)' }}>
           Bed-Stuy · 42
         </div>
-        <div style={{ position: 'absolute', bottom: 16, right: 10, background: 'var(--card)', border: '1px solid var(--line)', borderRadius: 6, padding: '4px 8px', fontFamily: 'var(--mono)', fontSize: 10, fontWeight: 600, color: 'var(--mute)' }}>
+        <div style={{ position: 'absolute', bottom: 16, right: 10, background: 'var(--card)', border: '2px solid var(--ink)', borderRadius: 6, padding: '4px 8px', fontFamily: 'var(--mono)', fontSize: 10, fontWeight: 600, color: 'var(--mute)' }}>
           Clinton Hill · 7
         </div>
 
@@ -134,7 +134,7 @@ export default function Page() {
             left: 22,
             right: 22,
             background: 'var(--card)',
-            border: '1px solid var(--line)',
+            border: '2px solid var(--ink)',
             borderRadius: 12,
             padding: 14,
             boxShadow: '0 4px 12px rgba(13,14,18,0.10)',
@@ -192,7 +192,7 @@ export default function Page() {
               style={{
                 padding: '6px 12px',
                 borderRadius: 99,
-                border: chip.active ? '1px solid var(--hydrant)' : '1px solid var(--line)',
+                border: chip.active ? '2px solid var(--hydrant)' : '2px solid var(--ink)',
                 background: chip.active ? 'var(--hydrant-soft)' : 'var(--paper-2)',
                 color: chip.active ? 'var(--hydrant)' : 'var(--ink)',
                 fontFamily: 'var(--mono)',
@@ -244,7 +244,7 @@ export default function Page() {
                   padding: '0 12px',
                   height: 30,
                   borderRadius: 8,
-                  border: '1px solid var(--line-2)',
+                  border: '2px solid var(--ink)',
                   background: 'transparent',
                   fontFamily: 'var(--mono)',
                   fontSize: 12,

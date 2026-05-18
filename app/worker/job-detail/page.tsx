@@ -58,7 +58,7 @@ export default function JobDetail() {
             style={{
               width: 36,
               height: 36,
-              border: '1px solid var(--line)',
+              border: '2px solid var(--ink)',
               borderRadius: 8,
               background: 'transparent',
               display: 'flex',
@@ -80,7 +80,7 @@ export default function JobDetail() {
             style={{
               width: 36,
               height: 36,
-              border: '1px solid var(--line)',
+              border: '2px solid var(--ink)',
               borderRadius: 8,
               background: 'transparent',
               display: 'flex',
@@ -325,7 +325,7 @@ export default function JobDetail() {
             margin: '16px 22px 0',
             padding: 16,
             background: 'var(--card)',
-            border: '1px solid var(--line)',
+            border: '2px solid var(--ink)',
             borderRadius: 12,
             display: 'flex',
             gap: 12,

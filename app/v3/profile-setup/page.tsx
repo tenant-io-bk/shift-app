@@ -93,7 +93,7 @@ export default function ProfileSetup() {
             placeholder="e.g. Fast barista, 6 yrs experience, bilingual"
             style={{
               width: '100%', height: 52, padding: '0 16px',
-              background: 'var(--card)', border: '1px solid var(--line)',
+              background: 'var(--card)', border: '2px solid var(--ink)',
               borderRadius: 10, fontFamily: 'var(--sans)', fontSize: 15,
               color: 'var(--ink)', outline: 'none',
             }}
@@ -115,7 +115,7 @@ export default function ProfileSetup() {
             placeholder="Describe your experience, work style, and what makes you reliable..."
             style={{
               width: '100%', padding: '14px 16px',
-              background: 'var(--card)', border: `1px solid ${bio.length > 10 ? 'var(--ink)' : 'var(--line)'}`,
+              background: 'var(--card)', border: '2px solid var(--ink)',
               borderRadius: 10, fontFamily: 'var(--mono)', fontSize: 13,
               color: 'var(--ink)', outline: 'none', resize: 'none', lineHeight: 1.6,
               transition: 'border-color 0.15s',
@@ -125,7 +125,7 @@ export default function ProfileSetup() {
 
         {/* Preview card */}
         {canContinue && (
-          <div style={{ padding: '14px 16px', background: 'var(--paper-2)', borderRadius: 12, border: '1px solid var(--line)', marginBottom: 8 }}>
+          <div style={{ padding: '14px 16px', background: 'var(--paper-2)', borderRadius: 12, border: '2px solid var(--ink)', marginBottom: 8 }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 8 }}>
               <div style={{ width: 36, height: 36, borderRadius: '50%', background: 'var(--hydrant)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
                 <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 13, color: '#fff' }}>MR</span>

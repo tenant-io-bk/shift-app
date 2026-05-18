@@ -168,7 +168,7 @@ export default function WorkerSlides() {
                 flex: 1,
                 padding: '16px',
                 background: 'var(--paper-2)',
-                border: '1px solid var(--line)',
+                border: '2px solid var(--ink)',
                 borderRadius: 14,
                 fontFamily: 'var(--sans)',
                 fontWeight: 600,
