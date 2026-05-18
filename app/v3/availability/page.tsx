@@ -139,7 +139,7 @@ export default function Availability() {
                   >
                     {enabled && (
                       <svg width="10" height="8" viewBox="0 0 10 8" fill="none">
-                        <path d="M1 4L3.5 6.5L9 1" stroke="#3DD87C" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                        <path d="M1 4L3.5 6.5L9 1" stroke="#72c15f" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
                       </svg>
                     )}
                   </button>
@@ -174,8 +174,8 @@ export default function Availability() {
             marginBottom: 14,
           }}>
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style={{ flexShrink: 0 }}>
-              <path d="M8 1.5C5.51 1.5 3.5 3.51 3.5 6c0 3.75 4.5 8.5 4.5 8.5s4.5-4.75 4.5-8.5c0-2.49-2.01-4.5-4.5-4.5z" stroke="#3DD87C" strokeWidth="1.3" />
-              <circle cx="8" cy="6" r="1.5" fill="#3DD87C" />
+              <path d="M8 1.5C5.51 1.5 3.5 3.51 3.5 6c0 3.75 4.5 8.5 4.5 8.5s4.5-4.75 4.5-8.5c0-2.49-2.01-4.5-4.5-4.5z" stroke="#72c15f" strokeWidth="1.3" />
+              <circle cx="8" cy="6" r="1.5" fill="#72c15f" />
             </svg>
             <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 15, color: 'var(--ink)', flex: 1 }}>Bed-Stuy detected</span>
             <span style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--mute)' }}>auto-set from your address</span>

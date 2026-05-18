@@ -8,7 +8,7 @@ const METHODS = [
     id: 'debit',
     icon: (
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-        <path d="M8 1L10.5 5.5H14L11 8.5L12 13L8 10.5L4 13L5 8.5L2 5.5H5.5L8 1Z" fill="#3DD87C" />
+        <path d="M8 1L10.5 5.5H14L11 8.5L12 13L8 10.5L4 13L5 8.5L2 5.5H5.5L8 1Z" fill="#72c15f" />
       </svg>
     ),
     title: 'Debit Card',

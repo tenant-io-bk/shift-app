@@ -71,8 +71,8 @@ export default function WorkerSlides() {
         flexShrink: 0,
       }}>
         <div style={{
-          width: 248,
-          height: 296,
+          width: 310,
+          height: 358,
           clipPath: 'url(#shift-squircle)',
           flexShrink: 0,
           overflow: 'hidden',

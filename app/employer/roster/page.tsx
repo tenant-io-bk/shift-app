@@ -160,11 +160,11 @@ export default function Page() {
             </text>
 
             {/* Worker A pin at bottom-left */}
-            <circle cx="90" cy="130" r="8" fill="#3DD87C" stroke="white" strokeWidth="2" />
+            <circle cx="90" cy="130" r="8" fill="#72c15f" stroke="white" strokeWidth="2" />
             <text x="90" y="134" textAnchor="middle" fill="white" fontSize="7" fontWeight="700" fontFamily="system-ui">M</text>
 
             {/* Worker B pin at top-right */}
-            <circle cx="310" cy="40" r="8" fill="#3DD87C" stroke="white" strokeWidth="2" />
+            <circle cx="310" cy="40" r="8" fill="#72c15f" stroke="white" strokeWidth="2" />
             <text x="310" y="44" textAnchor="middle" fill="white" fontSize="7" fontWeight="700" fontFamily="system-ui">S</text>
           </svg>
 

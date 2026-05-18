@@ -157,7 +157,7 @@ export default function DayOf() {
             {/* G train route — dashed purple line */}
             <path
               d="M 80 125 L 80 90 L 100 75 L 160 75 L 160 40 L 180 22 L 240 22"
-              stroke="#3DD87C"
+              stroke="#72c15f"
               strokeWidth="2.5"
               strokeDasharray="6 4"
               strokeLinecap="round"
@@ -166,19 +166,19 @@ export default function DayOf() {
             />
 
             {/* DeKalb stop (start) */}
-            <circle cx="80" cy="100" r="5" fill="white" stroke="#3DD87C" strokeWidth="2" />
-            <circle cx="80" cy="100" r="2.5" fill="#3DD87C" />
+            <circle cx="80" cy="100" r="5" fill="white" stroke="#72c15f" strokeWidth="2" />
+            <circle cx="80" cy="100" r="2.5" fill="#72c15f" />
 
             {/* Bedford-Nostrand stop (end/destination) */}
-            <circle cx="240" cy="22" r="6" fill="white" stroke="#3DD87C" strokeWidth="2" />
-            <circle cx="240" cy="22" r="3" fill="#3DD87C" />
+            <circle cx="240" cy="22" r="6" fill="white" stroke="#72c15f" strokeWidth="2" />
+            <circle cx="240" cy="22" r="3" fill="#72c15f" />
 
             {/* Station labels */}
             <text x="90" y="104" fontFamily="monospace" fontSize="9" fill="#6B6E78">DeKalb Av</text>
-            <text x="250" y="26" fontFamily="monospace" fontSize="9" fill="#3DD87C">Bedford-Nostrand</text>
+            <text x="250" y="26" fontFamily="monospace" fontSize="9" fill="#72c15f">Bedford-Nostrand</text>
 
             {/* You are here dot */}
-            <circle cx="80" cy="125" r="5" fill="#3DD87C" opacity="0.9" />
+            <circle cx="80" cy="125" r="5" fill="#72c15f" opacity="0.9" />
             <circle cx="80" cy="125" r="2" fill="white" />
           </svg>
         </div>

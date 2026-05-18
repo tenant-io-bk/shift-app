@@ -138,8 +138,8 @@ export default function MutualReview() {
               <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
                 <path
                   d="M16 3l3.8 7.7 8.5 1.2-6.1 6 1.4 8.5L16 22.4l-7.6 4-0.3.2 1.4-8.5-6.1-6 8.5-1.2z"
-                  fill={star <= displayRating ? '#3DD87C' : 'var(--paper-3)'}
-                  stroke={star <= displayRating ? '#3DD87C' : 'var(--paper-3)'}
+                  fill={star <= displayRating ? '#72c15f' : 'var(--paper-3)'}
+                  stroke={star <= displayRating ? '#72c15f' : 'var(--paper-3)'}
                   strokeWidth="1"
                 />
               </svg>

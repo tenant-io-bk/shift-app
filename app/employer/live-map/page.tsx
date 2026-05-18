@@ -85,11 +85,11 @@ export default function Page() {
           <circle cx="210" cy="310" r="6" fill="#16A34A" stroke="white" strokeWidth="2" />
 
           {/* Purple favorited worker dots */}
-          <circle cx="170" cy="168" r="6" fill="#3DD87C" stroke="white" strokeWidth="2" />
-          <circle cx="230" cy="255" r="6" fill="#3DD87C" stroke="white" strokeWidth="2" />
-          <circle cx="148" cy="225" r="6" fill="#3DD87C" stroke="white" strokeWidth="2" />
-          <text x="170" y="158" textAnchor="middle" fontSize="8" fill="#3DD87C">♥</text>
-          <text x="230" y="245" textAnchor="middle" fontSize="8" fill="#3DD87C">♥</text>
+          <circle cx="170" cy="168" r="6" fill="#72c15f" stroke="white" strokeWidth="2" />
+          <circle cx="230" cy="255" r="6" fill="#72c15f" stroke="white" strokeWidth="2" />
+          <circle cx="148" cy="225" r="6" fill="#72c15f" stroke="white" strokeWidth="2" />
+          <text x="170" y="158" textAnchor="middle" fontSize="8" fill="#72c15f">♥</text>
+          <text x="230" y="245" textAnchor="middle" fontSize="8" fill="#72c15f">♥</text>
         </svg>
 
         {/* Density chip */}

@@ -157,7 +157,7 @@ export default function OnShift() {
               letterSpacing: '-0.02em',
             }}
           >
-            $62<span style={{ color: '#3DD87C' }}>.</span>
+            $62<span style={{ color: '#72c15f' }}>.</span>
           </span>
           <span
             style={{

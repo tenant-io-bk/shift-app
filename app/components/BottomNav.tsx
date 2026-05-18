@@ -85,7 +85,7 @@ export default function BottomNav({ active }: BottomNavProps) {
               flexDirection: 'column',
               alignItems: 'center',
               gap: 4,
-              color: isActive ? '#3DD87C' : 'rgba(255,255,255,0.35)',
+              color: isActive ? '#72c15f' : 'rgba(255,255,255,0.35)',
               textDecoration: 'none',
               minWidth: 52,
               paddingTop: 8,

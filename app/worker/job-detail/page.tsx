@@ -260,7 +260,7 @@ export default function JobDetail() {
                 fontFamily: 'var(--sans)',
                 fontWeight: 800,
                 fontSize: 64,
-                color: '#3DD87C',
+                color: '#72c15f',
                 letterSpacing: '-0.04em',
                 lineHeight: 1,
               }}
