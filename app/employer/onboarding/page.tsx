@@ -202,7 +202,7 @@ export default function Page() {
       {/* CTA Button */}
       <div style={{ padding: '16px 22px 36px', borderTop: '1px solid var(--line)', background: 'var(--paper)' }}>
         <Link
-          href="/employer/business-profile"
+          href="/employer/verify"
           style={{
             display: 'block',
             background: 'var(--ink)',
