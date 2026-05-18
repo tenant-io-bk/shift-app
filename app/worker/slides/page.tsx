@@ -52,33 +52,43 @@ export default function WorkerSlides() {
     >
       <StatusBar dark time="9:41" />
 
-      {/* Photo panel */}
+      {/* Green panel with circle photo */}
       <div style={{
-        height: '55vh',
-        margin: '8px 16px 0',
-        borderRadius: 6,
-        overflow: 'hidden',
-        background: '#111',
+        background: 'var(--hydrant)',
+        height: '58vh',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
         flexShrink: 0,
       }}>
-        <img
-          src={slide.img}
-          alt=""
-          style={{
-            width: '100%',
-            height: '100%',
-            objectFit: 'cover',
-            objectPosition: slide.imgPosition,
-            display: 'block',
-          }}
-        />
+        <div style={{
+          width: 280,
+          height: 280,
+          borderRadius: '50%',
+          overflow: 'hidden',
+          flexShrink: 0,
+        }}>
+          <img
+            src={slide.img}
+            alt=""
+            style={{
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+              objectPosition: slide.imgPosition,
+              display: 'block',
+            }}
+          />
+        </div>
       </div>
 
-      {/* Text panel */}
+      {/* White bottom sheet */}
       <div style={{
         flex: 1,
-        background: 'var(--paper)',
-        padding: '20px 24px 36px',
+        background: '#fff',
+        borderRadius: '24px 24px 0 0',
+        marginTop: -24,
+        padding: '28px 24px 36px',
         display: 'flex',
         flexDirection: 'column',
       }}>
