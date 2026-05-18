@@ -57,7 +57,7 @@ export default function MutualReview() {
         <div>
           <div style={{
             fontFamily: 'var(--sans)',
-            fontWeight: 800,
+            fontWeight: 600,
             fontSize: 32,
             color: '#fff',
             letterSpacing: '-0.02em',

@@ -71,7 +71,7 @@ export default function DayOf() {
           <div
             style={{
               fontFamily: 'var(--sans)',
-              fontWeight: 800,
+              fontWeight: 600,
               fontSize: 48,
               color: 'var(--hydrant)',
               lineHeight: 1,

@@ -30,7 +30,7 @@ export default function EmployerAccount() {
       <div style={{ padding: '16px 16px 0' }}>
         <div style={{ background: 'var(--ink)', borderRadius: 16, padding: '20px', display: 'flex', alignItems: 'center', gap: 14 }}>
           <div style={{ width: 56, height: 56, borderRadius: 12, background: 'var(--hydrant)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-            <span style={{ fontFamily: 'var(--sans)', fontWeight: 800, fontSize: 20, color: '#fff' }}>PC</span>
+            <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 20, color: '#fff' }}>PC</span>
           </div>
           <div style={{ flex: 1 }}>
             <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 18, color: '#fff', letterSpacing: '-0.02em' }}>Padmore's Coffee</div>

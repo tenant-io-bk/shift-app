@@ -34,7 +34,7 @@ export default function BusinessProfile() {
 
       <div style={{ padding: '20px 22px 140px', flex: 1, overflowY: 'auto' }}>
         <div style={{ fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 600, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--hydrant)', marginBottom: 10 }}>YOUR BUSINESS</div>
-        <h1 style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 34, letterSpacing: '-0.03em', lineHeight: 0.95, color: 'var(--ink)', marginBottom: 10 }}>
+        <h1 style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 34, letterSpacing: '-0.075em', lineHeight: 0.95, color: 'var(--ink)', marginBottom: 10 }}>
           Make a great first impression.
         </h1>
         <p style={{ fontFamily: 'var(--mono)', fontSize: 13, color: 'var(--mute)', marginBottom: 28, lineHeight: 1.5 }}>
@@ -50,7 +50,7 @@ export default function BusinessProfile() {
             border: '2px dashed var(--line-2)',
           }}>
             {hasLogo
-              ? <span style={{ fontFamily: 'var(--sans)', fontWeight: 800, fontSize: 20, color: '#fff' }}>PC</span>
+              ? <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 20, color: '#fff' }}>PC</span>
               : <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="4" stroke="var(--mute)" strokeWidth="1.5"/><path d="M3 15l5-5 4 4 3-3 6 6" stroke="var(--mute)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
             }
           </div>

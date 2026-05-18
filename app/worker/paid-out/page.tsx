@@ -246,10 +246,10 @@ export default function PaidOut() {
             <span
               style={{
                 fontFamily: 'var(--sans)',
-                fontWeight: 800,
+                fontWeight: 600,
                 fontSize: 40,
                 color: '#FFFFFF',
-                letterSpacing: '-0.03em',
+                letterSpacing: '-0.075em',
                 lineHeight: 1,
               }}
             >

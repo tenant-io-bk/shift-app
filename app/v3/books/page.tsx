@@ -44,10 +44,10 @@ export default function Books() {
 
         <div style={{
           fontFamily: 'var(--sans)',
-          fontWeight: 800,
+          fontWeight: 600,
           fontSize: 48,
           color: 'var(--ink)',
-          letterSpacing: '-0.04em',
+          letterSpacing: '-0.075em',
           lineHeight: 1,
           marginBottom: 6,
         }}>$2,847.00</div>

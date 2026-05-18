@@ -17,10 +17,10 @@ export default function RolePicker() {
       <div style={{ padding: '28px 28px 0' }}>
         <span style={{
           fontFamily: 'var(--sans)',
-          fontWeight: 800,
+          fontWeight: 600,
           fontSize: 28,
           color: '#FFFFFF',
-          letterSpacing: '-0.03em',
+          letterSpacing: '-0.075em',
         }}>
           shift<span style={{ color: '#72c15f' }}>.</span>
         </span>
@@ -30,7 +30,7 @@ export default function RolePicker() {
       <div style={{ padding: '36px 28px 0', flex: 1, display: 'flex', flexDirection: 'column' }}>
         <h1 style={{
           fontFamily: 'var(--sans)',
-          fontWeight: 800,
+          fontWeight: 600,
           fontSize: 42,
           letterSpacing: '-0.035em',
           lineHeight: 1.0,
@@ -88,7 +88,7 @@ export default function RolePicker() {
           </div>
           <div style={{
             fontFamily: 'var(--sans)',
-            fontWeight: 800,
+            fontWeight: 600,
             fontSize: 28,
             color: '#FFFFFF',
             letterSpacing: '-0.02em',
@@ -142,7 +142,7 @@ export default function RolePicker() {
           </div>
           <div style={{
             fontFamily: 'var(--sans)',
-            fontWeight: 800,
+            fontWeight: 600,
             fontSize: 28,
             color: '#0D0E12',
             letterSpacing: '-0.02em',

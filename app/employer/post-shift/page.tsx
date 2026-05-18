@@ -157,7 +157,7 @@ export default function Page() {
               </button>
               <div style={{ textAlign: 'center' }}>
                 <div style={{ display: 'flex', alignItems: 'baseline', gap: 4, justifyContent: 'center' }}>
-                  <span style={{ fontFamily: 'var(--sans)', fontWeight: 800, fontSize: 52, color: 'white', letterSpacing: '-0.03em', lineHeight: 1 }}>${rate}</span>
+                  <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 52, color: 'white', letterSpacing: '-0.075em', lineHeight: 1 }}>${rate}</span>
                   <span style={{ fontFamily: 'var(--mono)', fontSize: 16, color: 'rgba(255,255,255,0.6)' }}>/hr</span>
                 </div>
                 <div style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'rgba(255,255,255,0.45)', marginTop: 4 }}>

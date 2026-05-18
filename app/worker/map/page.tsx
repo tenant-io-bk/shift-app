@@ -320,7 +320,7 @@ export default function WorkerMap() {
                     </div>
 
                     <div style={{ textAlign: 'right', flexShrink: 0 }}>
-                      <div style={{ fontFamily: 'var(--sans)', fontWeight: 800, fontSize: 22, color: 'var(--ink)', letterSpacing: '-0.03em', lineHeight: 1 }}>{shift.pay}</div>
+                      <div style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 22, color: 'var(--ink)', letterSpacing: '-0.075em', lineHeight: 1 }}>{shift.pay}</div>
                       <div style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--mute)', marginTop: 2 }}>{shift.rate}</div>
                     </div>
                   </div>

@@ -29,11 +29,11 @@ export default function EmployerDashboard() {
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 20 }}>
           <div>
             <div style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'rgba(255,255,255,0.45)', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 4 }}>Good morning</div>
-            <div style={{ fontFamily: 'var(--sans)', fontWeight: 800, fontSize: 26, color: '#fff', letterSpacing: '-0.02em', lineHeight: 1 }}>Padmore's Coffee</div>
+            <div style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 26, color: '#fff', letterSpacing: '-0.02em', lineHeight: 1 }}>Padmore's Coffee</div>
             <div style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'rgba(255,255,255,0.45)', marginTop: 4 }}>172 Tompkins Ave · Bed-Stuy</div>
           </div>
           <div style={{ width: 44, height: 44, borderRadius: 12, background: 'var(--hydrant)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-            <span style={{ fontFamily: 'var(--sans)', fontWeight: 800, fontSize: 16, color: '#fff' }}>PC</span>
+            <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 16, color: '#fff' }}>PC</span>
           </div>
         </div>
 
@@ -61,7 +61,7 @@ export default function EmployerDashboard() {
           textDecoration: 'none',
         }}>
           <div>
-            <div style={{ fontFamily: 'var(--sans)', fontWeight: 800, fontSize: 20, color: '#fff', letterSpacing: '-0.02em' }}>Post a shift</div>
+            <div style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 20, color: '#fff', letterSpacing: '-0.02em' }}>Post a shift</div>
             <div style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'rgba(255,255,255,0.65)', marginTop: 3 }}>Workers confirmed in minutes</div>
           </div>
           <div style={{ width: 44, height: 44, borderRadius: 99, background: 'rgba(255,255,255,0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
@@ -104,7 +104,7 @@ export default function EmployerDashboard() {
           {SAVED_WORKERS.map((w, i) => (
             <div key={i} style={{ flex: 1, background: 'var(--paper)', borderRadius: 12, border: '1px solid var(--line)', padding: '14px 10px', textAlign: 'center' }}>
               <div style={{ width: 44, height: 44, borderRadius: '50%', background: w.bg, display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 8px' }}>
-                <span style={{ fontFamily: 'var(--sans)', fontWeight: 800, fontSize: 15, color: '#fff' }}>{w.initials}</span>
+                <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 15, color: '#fff' }}>{w.initials}</span>
               </div>
               <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 13, color: 'var(--ink)' }}>{w.name}</div>
               <div style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--mute)', marginTop: 2 }}>{w.role}</div>

@@ -64,9 +64,10 @@ export default function WorkerSlides() {
           src={slide.img}
           alt=""
           style={{
-            width: 390,
+            width: '100%',
             height: 'auto',
             display: 'block',
+            margin: '0 auto',
           }}
         />
       </div>

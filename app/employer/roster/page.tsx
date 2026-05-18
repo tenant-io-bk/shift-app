@@ -24,10 +24,10 @@ export default function Page() {
           <h1
             style={{
               fontFamily: 'var(--sans)',
-              fontWeight: 800,
+              fontWeight: 600,
               fontSize: 52,
               color: 'white',
-              letterSpacing: '-0.03em',
+              letterSpacing: '-0.075em',
               lineHeight: 0.9,
               marginBottom: 12,
             }}

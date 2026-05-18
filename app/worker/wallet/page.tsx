@@ -46,10 +46,10 @@ export default function WorkerWallet() {
 
         <div style={{
           fontFamily: 'var(--sans)',
-          fontWeight: 800,
+          fontWeight: 600,
           fontSize: 56,
           color: '#fff',
-          letterSpacing: '-0.04em',
+          letterSpacing: '-0.075em',
           lineHeight: 1,
         }}>$247.50</div>
 

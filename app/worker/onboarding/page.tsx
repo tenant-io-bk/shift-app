@@ -67,7 +67,7 @@ export default function WorkerOnboarding() {
           fontWeight: 700,
           fontSize: 36,
           color: 'var(--ink)',
-          letterSpacing: '-0.03em',
+          letterSpacing: '-0.075em',
           lineHeight: 1,
           marginBottom: 10,
         }}>What can you do?</h1>

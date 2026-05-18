@@ -142,7 +142,7 @@ export default function JobDetail() {
               fontWeight: 700,
               fontSize: 32,
               color: 'var(--ink)',
-              letterSpacing: '-0.03em',
+              letterSpacing: '-0.075em',
               lineHeight: 1.1,
             }}
           >
@@ -246,10 +246,10 @@ export default function JobDetail() {
             <span
               style={{
                 fontFamily: 'var(--sans)',
-                fontWeight: 800,
+                fontWeight: 600,
                 fontSize: 64,
                 color: '#FFFFFF',
-                letterSpacing: '-0.04em',
+                letterSpacing: '-0.075em',
                 lineHeight: 1,
               }}
             >
@@ -258,10 +258,10 @@ export default function JobDetail() {
             <span
               style={{
                 fontFamily: 'var(--sans)',
-                fontWeight: 800,
+                fontWeight: 600,
                 fontSize: 64,
                 color: '#72c15f',
-                letterSpacing: '-0.04em',
+                letterSpacing: '-0.075em',
                 lineHeight: 1,
               }}
             >

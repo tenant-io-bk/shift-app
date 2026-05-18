@@ -71,7 +71,7 @@ export default function WorkerProfile() {
               display: 'flex', alignItems: 'center', justifyContent: 'center',
               flexShrink: 0,
             }}>
-              <span style={{ fontFamily: 'var(--sans)', fontWeight: 800, fontSize: 26, color: '#fff' }}>MR</span>
+              <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 26, color: '#fff' }}>MR</span>
             </div>
             {editing && (
               <div style={{

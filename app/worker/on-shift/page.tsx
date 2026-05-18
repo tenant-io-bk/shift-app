@@ -109,7 +109,7 @@ export default function OnShift() {
         <div
           style={{
             fontFamily: 'var(--sans)',
-            fontWeight: 800,
+            fontWeight: 600,
             fontSize: 80,
             color: '#FFFFFF',
             letterSpacing: '-0.05em',

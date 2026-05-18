@@ -38,7 +38,7 @@ export default function ProfileSetup() {
         <div style={{ fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 600, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--hydrant)', marginBottom: 10 }}>
           PROFILE
         </div>
-        <h1 style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 34, letterSpacing: '-0.03em', lineHeight: 0.95, color: 'var(--ink)', marginBottom: 10 }}>
+        <h1 style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 34, letterSpacing: '-0.075em', lineHeight: 0.95, color: 'var(--ink)', marginBottom: 10 }}>
           Put your best foot forward.
         </h1>
         <p style={{ fontFamily: 'var(--mono)', fontSize: 13, color: 'var(--mute)', marginBottom: 28, lineHeight: 1.5 }}>
@@ -55,7 +55,7 @@ export default function ProfileSetup() {
               border: '2px dashed var(--line-2)',
             }}>
               {hasPhoto
-                ? <span style={{ fontFamily: 'var(--sans)', fontWeight: 800, fontSize: 28, color: '#fff' }}>MR</span>
+                ? <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 28, color: '#fff' }}>MR</span>
                 : <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="10" r="5" stroke="var(--mute)" strokeWidth="1.5" /><path d="M4 24c0-5.52 4.48-10 10-10s10 4.48 10 10" stroke="var(--mute)" strokeWidth="1.5" strokeLinecap="round"/></svg>
               }
             </div>
@@ -128,7 +128,7 @@ export default function ProfileSetup() {
           <div style={{ padding: '14px 16px', background: 'var(--paper-2)', borderRadius: 12, border: '1px solid var(--line)', marginBottom: 8 }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 8 }}>
               <div style={{ width: 36, height: 36, borderRadius: '50%', background: 'var(--hydrant)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                <span style={{ fontFamily: 'var(--sans)', fontWeight: 800, fontSize: 13, color: '#fff' }}>MR</span>
+                <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 13, color: '#fff' }}>MR</span>
               </div>
               <div>
                 <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 14, color: 'var(--ink)' }}>Marcus Rivera</div>

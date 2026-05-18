@@ -123,10 +123,10 @@ export default function NoShow() {
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 12 }}>
             <span style={{
               fontFamily: 'var(--sans)',
-              fontWeight: 800,
+              fontWeight: 600,
               fontSize: 52,
               color: '#fff',
-              letterSpacing: '-0.04em',
+              letterSpacing: '-0.075em',
               lineHeight: 1,
             }}>04:52</span>
             <span style={{

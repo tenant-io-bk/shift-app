@@ -77,7 +77,7 @@ export default function Availability() {
           fontWeight: 700,
           fontSize: 36,
           color: 'var(--ink)',
-          letterSpacing: '-0.03em',
+          letterSpacing: '-0.075em',
           lineHeight: 1,
           marginBottom: 8,
         }}>Set your availability.</h1>

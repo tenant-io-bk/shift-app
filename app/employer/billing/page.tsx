@@ -46,7 +46,7 @@ export default function EmployerBilling() {
 
       <div style={{ padding: '20px 22px 140px', flex: 1, overflowY: 'auto' }}>
         <div style={{ fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 600, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--hydrant)', marginBottom: 10 }}>PAYMENT</div>
-        <h1 style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 34, letterSpacing: '-0.03em', lineHeight: 0.95, color: 'var(--ink)', marginBottom: 10 }}>
+        <h1 style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 34, letterSpacing: '-0.075em', lineHeight: 0.95, color: 'var(--ink)', marginBottom: 10 }}>
           How do you want to pay workers?
         </h1>
         <p style={{ fontFamily: 'var(--mono)', fontSize: 13, color: 'var(--mute)', marginBottom: 24, lineHeight: 1.5 }}>

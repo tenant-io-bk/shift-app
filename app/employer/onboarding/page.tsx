@@ -89,7 +89,7 @@ export default function Page() {
             fontWeight: 700,
             fontSize: 38,
             color: 'var(--ink)',
-            letterSpacing: '-0.03em',
+            letterSpacing: '-0.075em',
             lineHeight: 0.95,
             marginBottom: 24,
             whiteSpace: 'pre-line',

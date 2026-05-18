@@ -131,9 +131,9 @@ export default function Home() {
             <h1
               style={{
                 fontFamily: 'var(--sans)',
-                fontWeight: 800,
+                fontWeight: 600,
                 fontSize: 72,
-                letterSpacing: '-0.04em',
+                letterSpacing: '-0.075em',
                 color: '#FFFFFF',
                 lineHeight: 1,
               }}
