@@ -37,10 +37,10 @@ export default function EmployerDashboard() {
       </div>
 
       {/* Post a shift CTA */}
-      <div style={{ padding: '0 16px 0' }}>
+      <div>
         <Link href="/employer/post-shift" style={{
           display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-          padding: '20px 22px', background: 'var(--ink)', borderRadius: 14,
+          padding: '20px 22px', background: 'var(--ink)', borderRadius: '14px 14px 0 0',
           textDecoration: 'none',
         }}>
           <div>
