@@ -37,8 +37,7 @@ export default function RolePicker() {
           color: 'var(--ink)',
           marginBottom: 8,
         }}>
-          Are you here to work a shift
-          <span style={{ color: 'rgba(13,14,18,0.3)' }}> or fill one?</span>
+          Are you here to work a shift or fill one?
         </h1>
 
         <p style={{
