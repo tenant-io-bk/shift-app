@@ -56,7 +56,7 @@ export default function Neighborhood() {
       <div style={{ position: 'relative', margin: '0 22px', borderRadius: 14, overflow: 'hidden', height: 260, flexShrink: 0 }}>
         <iframe
           src="https://www.openstreetmap.org/export/embed.html?bbox=-73.9618%2C40.6772%2C-73.9218%2C40.6972&layer=mapnik"
-          style={{ width: '100%', height: '100%', border: 'none' }}
+          style={{ width: '100%', height: '100%', border: 'none', filter: 'grayscale(100%)' }}
           title="Map"
         />
         {/* Target button */}
