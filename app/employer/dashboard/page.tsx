@@ -14,7 +14,7 @@ const RECENT = [
 ];
 
 const SAVED_WORKERS = [
-  { initials: 'MR', name: 'Marco R.', role: 'Barista', rating: '4.9', bg: '#5A3CC2' },
+  { initials: 'MR', name: 'Marco R.', role: 'Barista', rating: '4.9', bg: '#3DD87C' },
   { initials: 'SO', name: 'Sam O.', role: 'Server', rating: '4.8', bg: '#2D6A4F' },
   { initials: 'JL', name: 'Jules L.', role: 'Host', rating: '4.9', bg: '#0D0E12' },
 ];

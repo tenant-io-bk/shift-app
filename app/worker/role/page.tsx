@@ -22,7 +22,7 @@ export default function RolePicker() {
           color: '#FFFFFF',
           letterSpacing: '-0.03em',
         }}>
-          shift<span style={{ color: '#5A3CC2' }}>.</span>
+          shift<span style={{ color: '#3DD87C' }}>.</span>
         </span>
       </div>
 
@@ -58,7 +58,7 @@ export default function RolePicker() {
           style={{
             display: 'block',
             padding: '28px 24px',
-            background: '#5A3CC2',
+            background: '#3DD87C',
             borderRadius: 18,
             textDecoration: 'none',
             marginBottom: 12,

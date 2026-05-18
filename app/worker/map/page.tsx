@@ -88,7 +88,7 @@ export default function WorkerMap() {
         }
         .me-pulse-ring {
           position: absolute; inset: -4px; border-radius: 50%;
-          background: #5A3CC2; animation: me-pulse 2s ease-out infinite;
+          background: #3DD87C; animation: me-pulse 2s ease-out infinite;
         }
       `}</style>
 
@@ -102,7 +102,7 @@ export default function WorkerMap() {
           {/* Location pill */}
           <div style={{ display: 'flex', alignItems: 'center', gap: 8, background: 'var(--paper-2)', border: '1px solid var(--line-2)', borderRadius: 99, padding: '6px 12px 6px 14px' }}>
             <span style={{ fontFamily: 'var(--mono)', fontSize: 12, fontWeight: 600, color: 'var(--ink)' }}>Bed-Stuy · 2 mi</span>
-            <div style={{ background: '#5A3CC2', borderRadius: 99, padding: '3px 8px' }}>
+            <div style={{ background: '#3DD87C', borderRadius: 99, padding: '3px 8px' }}>
               <span style={{ fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 600, color: '#fff', letterSpacing: '0.06em', textTransform: 'uppercase' }}>18 ready</span>
             </div>
           </div>
@@ -194,9 +194,9 @@ export default function WorkerMap() {
               <rect x="150" y="192" width="68" height="68" rx="2" fill="#D4D6E0" />
               <rect x="230" y="192" width="68" height="68" rx="2" fill="#DADBEB" />
               <rect x="310" y="192" width="53" height="68" rx="2" fill="#D8DAE4" />
-              <path d="M 40 260 Q 80 220 120 180 Q 160 140 195 110 Q 220 88 240 70" stroke="#5A3CC2" strokeWidth="2.5" strokeDasharray="6 4" strokeLinecap="round" opacity="0.85" />
+              <path d="M 40 260 Q 80 220 120 180 Q 160 140 195 110 Q 220 88 240 70" stroke="#3DD87C" strokeWidth="2.5" strokeDasharray="6 4" strokeLinecap="round" opacity="0.85" />
               <circle cx="110" cy="155" r="8" fill="white" opacity="0.9" />
-              <circle cx="110" cy="155" r="5" fill="#5A3CC2" />
+              <circle cx="110" cy="155" r="5" fill="#3DD87C" />
               <circle cx="110" cy="155" r="2" fill="white" />
             </svg>
 
@@ -208,7 +208,7 @@ export default function WorkerMap() {
               <div key={shift.posting} className="shift-pin" style={{ left: shift.pinX, top: shift.pinY }}>
                 <div className="pin-card" style={{
                   background: shift.pinDark ? '#0D0E12' : undefined,
-                  borderColor: shift.pinDark ? '#0D0E12' : shift.pinAccent ? '#5A3CC2' : undefined,
+                  borderColor: shift.pinDark ? '#0D0E12' : shift.pinAccent ? '#3DD87C' : undefined,
                   minWidth: 58,
                 }}>
                   <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 13, color: shift.pinDark ? '#fff' : 'var(--ink)' }}>
@@ -220,7 +220,7 @@ export default function WorkerMap() {
                 </div>
                 <div className="pin-tail" style={{
                   background: shift.pinDark ? '#0D0E12' : undefined,
-                  borderColor: shift.pinDark ? '#0D0E12' : shift.pinAccent ? '#5A3CC2' : undefined,
+                  borderColor: shift.pinDark ? '#0D0E12' : shift.pinAccent ? '#3DD87C' : undefined,
                 }} />
               </div>
             ))}

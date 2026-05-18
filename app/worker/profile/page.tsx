@@ -13,7 +13,7 @@ const REVIEWS = [
     date: 'Mon 12 May',
     rating: 5,
     text: 'Jumped right in during a busy brunch. No hand-holding needed. Would rebook immediately.',
-    avatar: '#5A3CC2',
+    avatar: '#3DD87C',
   },
   {
     business: 'The Wren',

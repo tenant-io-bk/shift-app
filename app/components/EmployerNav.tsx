@@ -68,7 +68,7 @@ export default function EmployerNav({ active }: { active: Tab }) {
         return (
           <Link key={tab.id} href={tab.href} style={{
             display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 4,
-            color: isActive ? '#5A3CC2' : 'rgba(255,255,255,0.35)',
+            color: isActive ? '#3DD87C' : 'rgba(255,255,255,0.35)',
             textDecoration: 'none', minWidth: 52, paddingTop: 8,
           }}>
             {tab.icon}

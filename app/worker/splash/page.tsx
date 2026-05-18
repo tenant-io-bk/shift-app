@@ -9,7 +9,7 @@ export default function WorkerSplash() {
         maxWidth: 390,
         minHeight: '100vh',
         margin: '0 auto',
-        background: '#5A3CC2',
+        background: 'var(--ink)',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
@@ -67,7 +67,7 @@ export default function WorkerSplash() {
           lineHeight: 1,
           margin: 0,
         }}>
-          shift<span style={{ color: 'rgba(255,255,255,0.35)' }}>.</span>
+          shift<span style={{ color: 'var(--hydrant)' }}>.</span>
         </h1>
         <p style={{
           fontFamily: 'var(--mono)',

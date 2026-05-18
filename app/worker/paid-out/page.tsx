@@ -253,7 +253,7 @@ export default function PaidOut() {
                 lineHeight: 1,
               }}
             >
-              $174<span style={{ color: '#5A3CC2' }}>.</span>
+              $174<span style={{ color: '#3DD87C' }}>.</span>
             </span>
           </div>
 

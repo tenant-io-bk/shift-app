@@ -11,9 +11,9 @@
   --mute-2:   #B0B4BD;
   --line:     rgba(13,14,18,0.10);
   --line-2:   rgba(13,14,18,0.16);
-  --hydrant:  #5A3CC2;
-  --hydrant-deep: #3F239E;
-  --hydrant-soft: #EAE3FB;
+  --hydrant:      #3DD87C;
+  --hydrant-deep: #22A85E;
+  --hydrant-soft: #ECFBF2;
   --red:      #B83227;
   --red-soft: #FBE6E2;
   --amber:    #B8741E;
@@ -45,10 +45,7 @@ html, body {
   border-radius: 44px;
   position: relative;
   overflow: hidden;
-  box-shadow:
-    0 0 0 1px rgba(13,14,18,0.08),
-    0 30px 60px -20px rgba(13,14,18,0.22),
-    0 12px 24px -10px rgba(13,14,18,0.14);
+  border: 1px solid var(--line);
 }
 
 /* Status bar */
@@ -140,7 +137,7 @@ html, body {
   right: 0;
   background: var(--card);
   border-radius: 18px 18px 0 0;
-  box-shadow: 0 -4px 32px rgba(13,14,18,0.12);
+  border-top: 1px solid var(--line);
 }
 
 .sheet-handle {
@@ -247,7 +244,6 @@ html, body {
   display: flex;
   flex-direction: column;
   gap: 1px;
-  box-shadow: 0 2px 8px rgba(13,14,18,0.12);
   min-width: 72px;
 }
 
@@ -279,7 +275,6 @@ html, body {
   border-radius: 50%;
   background: var(--online);
   border: 2px solid white;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.2);
 }
 
 .worker-dot.fav {

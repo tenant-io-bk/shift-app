@@ -14,7 +14,7 @@ const SLIDES = [
             fontFamily: 'var(--sans)',
             fontWeight: 800,
             fontSize: 88,
-            color: '#5A3CC2',
+            color: '#3DD87C',
             letterSpacing: '-0.04em',
             lineHeight: 1,
           }}>237</div>
@@ -54,7 +54,7 @@ const SLIDES = [
   },
   {
     visual: {
-      bg: '#5A3CC2',
+      bg: '#3DD87C',
       content: (
         <div style={{ textAlign: 'center' }}>
           <div style={{
@@ -126,7 +126,7 @@ const SLIDES = [
             color: '#FFFFFF',
             letterSpacing: '-0.04em',
             lineHeight: 1,
-          }}>$174<span style={{ color: '#5A3CC2' }}>.</span></div>
+          }}>$174<span style={{ color: '#3DD87C' }}>.</span></div>
           <div style={{
             fontFamily: 'var(--mono)',
             fontSize: 12,
@@ -178,7 +178,7 @@ export default function WorkerSlides() {
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
     >
-      <StatusBar dark={slide.visual.bg === '#0D0E12' || slide.visual.bg === '#5A3CC2'} time="9:41" />
+      <StatusBar dark={slide.visual.bg === '#0D0E12' || slide.visual.bg === '#3DD87C'} time="9:41" />
 
       {/* Visual panel */}
       <div style={{
