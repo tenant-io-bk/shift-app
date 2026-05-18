@@ -25,14 +25,15 @@ export default function EmployerDashboard() {
       <StatusBar time="10:12" />
 
       {/* Header */}
-      <div style={{ padding: '20px 22px 16px', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+      <div style={{ padding: '16px 22px 16px', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
         <div>
-          <div style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--ink)', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 4 }}>Good morning</div>
-          <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 26, color: 'var(--ink)', letterSpacing: '-0.03em', lineHeight: 1 }}>Padmore's Coffee</div>
-          <div style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--ink)', marginTop: 4 }}>172 Tompkins Ave · Bed-Stuy</div>
+          <div style={{ fontFamily: 'var(--sans)', fontWeight: 200, fontSize: 38, color: 'var(--ink)', letterSpacing: '-0.075em', lineHeight: 0.88 }}>Good Morning</div>
+          <div style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 38, color: 'var(--ink)', letterSpacing: '-0.075em', lineHeight: 0.95 }}>Padmore's Coffee</div>
+          <div style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--ink)', marginTop: 8 }}>172 Tompkins Ave | Bed-Stuy</div>
         </div>
-        <div style={{ width: 52, height: 52, background: 'var(--hydrant)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, clipPath: 'path("M26 0C40 0 52 12 52 26C52 40 40 52 26 52C12 52 0 40 0 26C0 12 12 0 26 0Z")', borderRadius: '38%' }}>
-          <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 16, color: '#fff' }}>PC</span>
+        <div style={{ textAlign: 'right', flexShrink: 0, paddingTop: 4 }}>
+          <div style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 15, color: 'var(--ink)', letterSpacing: '-0.02em' }}>78°F</div>
+          <div style={{ fontSize: 22, lineHeight: 1.2 }}>☀️</div>
         </div>
       </div>
 
@@ -40,14 +41,12 @@ export default function EmployerDashboard() {
       <div>
         <Link href="/employer/post-shift" style={{
           display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-          padding: '20px 22px', background: 'var(--ink)', borderRadius: '14px 14px 0 0',
+          padding: '18px 20px', background: 'var(--ink)', borderRadius: '14px 14px 0 0', alignItems: 'center',
           textDecoration: 'none',
         }}>
-          <div>
-            <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 28, color: '#fff', letterSpacing: '-0.04em', lineHeight: 1 }}>Post A Shift.</div>
-            <div style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'rgba(255,255,255,0.5)', marginTop: 6 }}>Workers confirmed in minutes</div>
-          </div>
-          <span style={{ fontFamily: 'var(--sans)', fontWeight: 300, fontSize: 36, color: '#fff', lineHeight: 1 }}>+</span>
+          <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 24, color: '#fff', letterSpacing: '-0.04em' }}>Post A Shift.</span>
+          <span style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'rgba(255,255,255,0.55)', flex: 1, paddingLeft: 12 }}>Workers confirmed in minutes</span>
+          <span style={{ fontFamily: 'var(--sans)', fontWeight: 300, fontSize: 32, color: '#fff', lineHeight: 1 }}>+</span>
         </Link>
       </div>
 
