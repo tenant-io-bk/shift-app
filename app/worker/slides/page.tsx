@@ -50,9 +50,18 @@ export default function WorkerSlides() {
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
     >
+      {/* SVG clip path — exact brand squircle from Illustrator */}
+      <svg width="0" height="0" style={{ position: 'absolute', overflow: 'hidden' }}>
+        <defs>
+          <clipPath id="shift-squircle" clipPathUnits="objectBoundingBox">
+            <path transform="scale(0.001)" d="M934.82,504.18c0,166.59-35.28,290.68-105.7,372.36-70.42,81.68-179.35,122.52-326.72,122.52-150.52,0-261.03-40.84-331.52-122.52-70.42-81.68-105.71-205.77-105.71-372.36,0-169.74,35.29-296.24,105.71-379.57C241.37,41.36,351.88-.3,502.4-.3c288.28,0,432.42,168.16,432.42,504.49Z" />
+          </clipPath>
+        </defs>
+      </svg>
+
       <StatusBar dark time="9:41" />
 
-      {/* Green panel with circle photo */}
+      {/* Green panel with squircle photo */}
       <div style={{
         background: 'var(--hydrant)',
         height: '58vh',
@@ -64,9 +73,9 @@ export default function WorkerSlides() {
         <div style={{
           width: 248,
           height: 296,
-          borderRadius: '50% 50% 50% 50% / 44% 44% 56% 56%',
-          overflow: 'hidden',
+          clipPath: 'url(#shift-squircle)',
           flexShrink: 0,
+          overflow: 'hidden',
         }}>
           <img
             src={slide.img}
