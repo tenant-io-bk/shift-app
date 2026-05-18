@@ -33,7 +33,7 @@ export default function RolePicker() {
         }}>
           Are you<br />
           <Link
-            href="/worker/slides"
+            href="/v3/phone-verify"
             style={{
               background: 'var(--hydrant)',
               borderRadius: 99,
