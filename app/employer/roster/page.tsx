@@ -1,30 +1,10 @@
 import Link from 'next/link';
+import EmployerNav from '@/app/components/EmployerNav';
 
 export default function Page() {
   return (
-    <div
-      style={{
-        minHeight: '100vh',
-        background: 'var(--paper-2)',
-        display: 'flex',
-        alignItems: 'flex-start',
-        justifyContent: 'center',
-        padding: '40px 0 60px',
-      }}
-    >
-      <div
-        style={{
-          width: 390,
-          minHeight: 844,
-          background: 'var(--paper)',
-          position: 'relative',
-          overflow: 'hidden',
-          boxShadow: '0 0 0 1px rgba(13,14,18,0.08), 0 30px 60px -20px rgba(13,14,18,0.22)',
-          borderRadius: 44,
-          display: 'flex',
-          flexDirection: 'column',
-        }}
-      >
+    <div style={{ maxWidth: 390, minHeight: '100vh', margin: '0 auto', background: 'var(--paper)', display: 'flex', flexDirection: 'column', paddingBottom: 80 }}>
+      <div style={{ display: 'flex', flexDirection: 'column', flex: 1 }}>
         <style>{`
           @keyframes roster-pulse {
             0%, 100% { opacity: 1; transform: scale(1); }
@@ -505,6 +485,7 @@ export default function Page() {
           </Link>
         </div>
       </div>
+      <EmployerNav active="shifts" />
     </div>
   );
 }
