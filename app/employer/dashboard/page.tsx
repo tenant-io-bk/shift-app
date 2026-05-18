@@ -31,7 +31,7 @@ export default function EmployerDashboard() {
           <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 26, color: 'var(--ink)', letterSpacing: '-0.03em', lineHeight: 1 }}>Padmore's Coffee</div>
           <div style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--ink)', marginTop: 4, opacity: 0.45 }}>172 Tompkins Ave · Bed-Stuy</div>
         </div>
-        <div style={{ width: 44, height: 44, borderRadius: 12, background: 'var(--hydrant)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+        <div style={{ width: 52, height: 52, background: 'var(--hydrant)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, clipPath: 'path("M26 0C40 0 52 12 52 26C52 40 40 52 26 52C12 52 0 40 0 26C0 12 12 0 26 0Z")', borderRadius: '38%' }}>
           <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 16, color: '#fff' }}>PC</span>
         </div>
       </div>
@@ -40,18 +40,14 @@ export default function EmployerDashboard() {
       <div style={{ padding: '0 16px 0' }}>
         <Link href="/employer/post-shift" style={{
           display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-          padding: '18px 20px', background: 'var(--hydrant)', borderRadius: 14,
+          padding: '20px 22px', background: 'var(--ink)', borderRadius: 14,
           textDecoration: 'none',
         }}>
           <div>
-            <div style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 20, color: '#fff', letterSpacing: '-0.02em' }}>Post a shift</div>
-            <div style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'rgba(255,255,255,0.65)', marginTop: 3 }}>Workers confirmed in minutes</div>
+            <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 28, color: '#fff', letterSpacing: '-0.04em', lineHeight: 1 }}>Post A Shift.</div>
+            <div style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'rgba(255,255,255,0.5)', marginTop: 6 }}>Workers confirmed in minutes</div>
           </div>
-          <div style={{ width: 44, height: 44, borderRadius: 99, background: 'rgba(255,255,255,0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-              <path d="M10 4v12M4 10h12" stroke="white" strokeWidth="2" strokeLinecap="round" />
-            </svg>
-          </div>
+          <span style={{ fontFamily: 'var(--sans)', fontWeight: 300, fontSize: 36, color: '#fff', lineHeight: 1 }}>+</span>
         </Link>
       </div>
 
