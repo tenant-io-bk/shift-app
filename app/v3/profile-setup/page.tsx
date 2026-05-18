@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import StatusBar from '@/app/components/StatusBar';
+import StepProgress from '@/app/components/StepProgress';
 
 export default function ProfileSetup() {
   const router = useRouter();
@@ -24,14 +25,8 @@ export default function ProfileSetup() {
         <div style={{ width: 20 }} />
       </div>
 
-      {/* Progress */}
-      <div style={{ padding: '8px 22px 4px', display: 'flex', alignItems: 'center', gap: 10 }}>
-        <div style={{ flex: 1, height: 3, background: 'var(--paper-3)', borderRadius: 99, overflow: 'hidden' }}>
-          <div style={{ width: '87%', height: '100%', background: 'var(--ink)', borderRadius: 99 }} />
-        </div>
-        <span style={{ fontFamily: 'var(--mono)', fontSize: 10, color: 'var(--mute)', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
-          <span style={{ color: 'var(--hydrant)', fontWeight: 600 }}>7</span> / 8
-        </span>
+      <div style={{ padding: '12px 22px 4px' }}>
+        <StepProgress step={7} total={8} />
       </div>
 
       <div style={{ padding: '16px 22px 140px', flex: 1, overflowY: 'auto' }}>

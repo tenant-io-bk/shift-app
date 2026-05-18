@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
+import StepProgress from '@/app/components/StepProgress';
 
 const METHODS = [
   {
@@ -49,12 +50,8 @@ export default function PayoutSetup() {
         <div style={{ width: 32 }} />
       </div>
 
-      {/* Progress */}
-      <div style={{ padding: '10px 22px 0' }}>
-        <div style={{ height: 3, background: 'var(--paper-3)', borderRadius: 99 }}>
-          <div style={{ width: `${(6/8)*100}%`, height: '100%', background: 'var(--hydrant)', borderRadius: 99 }} />
-        </div>
-        <p style={{ fontFamily: 'var(--mono)', fontSize: 10, color: 'var(--mute)', marginTop: 4, textAlign: 'right' }}>6 of 8</p>
+      <div style={{ padding: '12px 22px 4px' }}>
+        <StepProgress step={6} total={8} />
       </div>
 
       <div style={{ padding: '18px 22px 32px' }}>

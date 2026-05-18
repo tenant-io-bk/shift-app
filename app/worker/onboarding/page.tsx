@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
+import StepProgress from '@/app/components/StepProgress';
 
 const ALL_SKILLS = [
   'barista', 'host', 'server', 'bartender', 'barback', 'cashier',
@@ -41,14 +42,8 @@ export default function WorkerOnboarding() {
 
       {/* Step 1 */}
       <div style={{ padding: 22 }}>
-        {/* Progress bar */}
         <div style={{ marginBottom: 24 }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 8 }}>
-            <span style={{ fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 600, color: 'var(--mute)', textTransform: 'uppercase', letterSpacing: '0.06em' }}>Step 3 of 8</span>
-          </div>
-          <div style={{ height: 3, background: 'var(--paper-3)', borderRadius: 99 }}>
-            <div style={{ width: `${(3/8)*100}%`, height: '100%', background: 'var(--hydrant)', borderRadius: 99 }} />
-          </div>
+          <StepProgress step={3} total={8} />
         </div>
 
         <span style={{
