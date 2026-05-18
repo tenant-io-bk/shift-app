@@ -68,11 +68,10 @@ export default function WorkerSlides() {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        paddingTop: 8,
       }}>
         <div style={{
-          width: 355,
-          height: 410,
+          width: 368,
+          height: 423,
           clipPath: 'url(#shift-squircle)',
           overflow: 'hidden',
           flexShrink: 0,
