@@ -4,11 +4,11 @@ import Link from 'next/link';
 import { useState } from 'react';
 
 const ALL_SKILLS = [
-  'Barista', 'Bartender', 'Line Cook', 'Server', 'Host', 'Barback',
-  'Cashier', 'Prep Cook', 'Dishwasher', 'Retail', 'Security', 'Catering', 'Delivery',
+  'barista', 'host', 'server', 'bartender', 'barback', 'cashier',
+  'prep cook', 'dish', 'security', 'pop-ups', 'catering', 'baking',
 ];
 
-const DEFAULT_SELECTED = ['Barista', 'Bartender', 'Line Cook'];
+const DEFAULT_SELECTED = ['host', 'server', 'prep cook', 'baking'];
 
 export default function WorkerOnboarding() {
   const [selected, setSelected] = useState<string[]>(DEFAULT_SELECTED);
@@ -72,16 +72,8 @@ export default function WorkerOnboarding() {
           marginBottom: 10,
         }}>What can you do?</h1>
 
-        <p style={{
-          fontFamily: 'var(--mono)',
-          fontSize: 13,
-          color: 'var(--mute)',
-          lineHeight: 1.5,
-          marginBottom: 20,
-        }}>Pick everything that fits. More skills = more shifts.</p>
-
-        {/* Chip grid */}
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginTop: 16 }}>
+        {/* Chip grid — 2 columns */}
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10, marginTop: 16 }}>
           {ALL_SKILLS.map((skill) => {
             const isSelected = selected.includes(skill);
             return (
@@ -89,16 +81,18 @@ export default function WorkerOnboarding() {
                 key={skill}
                 onClick={() => toggle(skill)}
                 style={{
-                  padding: '8px 14px',
+                  padding: '14px 16px',
                   borderRadius: 99,
                   fontFamily: 'var(--sans)',
-                  fontWeight: 500,
-                  fontSize: 14,
+                  fontWeight: 600,
+                  fontSize: 22,
+                  letterSpacing: '-0.02em',
                   cursor: 'pointer',
-                  border: isSelected ? 'none' : '1px solid var(--line)',
-                  background: isSelected ? 'var(--ink)' : 'var(--card)',
-                  color: isSelected ? '#fff' : 'var(--ink)',
+                  border: isSelected ? 'none' : '2px solid var(--ink)',
+                  background: isSelected ? 'var(--hydrant)' : 'transparent',
+                  color: 'var(--ink)',
                   transition: 'all 0.15s ease',
+                  textAlign: 'center',
                 }}
               >
                 {skill}
@@ -107,17 +101,6 @@ export default function WorkerOnboarding() {
           })}
         </div>
 
-        {/* Counter */}
-        <p style={{
-          fontFamily: 'var(--mono)',
-          fontSize: 12,
-          color: 'var(--hydrant)',
-          fontWeight: 500,
-          marginTop: 14,
-        }}>
-          28× more shifts with 3+ skills
-        </p>
-
         {/* Continue */}
         <Link href="/v3/credentials" style={{
           display: 'flex',
@@ -125,7 +108,7 @@ export default function WorkerOnboarding() {
           justifyContent: 'center',
           width: '100%',
           padding: '16px',
-          marginTop: 28,
+          marginTop: 24,
           background: 'var(--ink)',
           color: '#fff',
           borderRadius: 12,
@@ -135,6 +118,15 @@ export default function WorkerOnboarding() {
           textDecoration: 'none',
           letterSpacing: '-0.01em',
         }}>→</Link>
+
+        <p style={{
+          fontFamily: 'var(--mono)',
+          fontSize: 13,
+          color: 'var(--mute)',
+          lineHeight: 1.5,
+          marginTop: 14,
+          textAlign: 'left',
+        }}>Pick everything that fits. More skills = more shifts.</p>
       </div>
     </div>
   );
