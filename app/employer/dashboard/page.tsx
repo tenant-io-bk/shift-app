@@ -41,7 +41,7 @@ export default function EmployerDashboard() {
       <div>
         <Link href="/employer/post-shift" style={{
           display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-          padding: '18px 20px', background: 'var(--ink)', borderRadius: '14px 14px 0 0', alignItems: 'center',
+          padding: '18px 20px', background: 'var(--ink)', borderRadius: '14px 14px 0 0',
           textDecoration: 'none',
         }}>
           <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 24, color: '#fff', letterSpacing: '-0.04em' }}>Post A Shift.</span>
