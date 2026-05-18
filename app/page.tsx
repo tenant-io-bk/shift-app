@@ -24,6 +24,7 @@ const employerScreens = [
   { label: 'Dashboard', href: '/employer/dashboard' },
   { label: 'Live Map', href: '/employer/live-map' },
   { label: 'Post Shift', href: '/employer/post-shift' },
+  { label: 'Shift Posted', href: '/employer/shift-posted' },
   { label: 'Roster', href: '/employer/roster' },
   { label: 'Rating', href: '/employer/rating' },
   { label: 'Account', href: '/employer/account' },

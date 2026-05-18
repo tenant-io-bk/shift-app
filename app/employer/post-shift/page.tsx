@@ -6,6 +6,8 @@ import EmployerNav from '@/app/components/EmployerNav';
 
 export default function Page() {
   const [count, setCount] = useState(1);
+  const [notes, setNotes] = useState('');
+  const [role, setRole] = useState('Barista');
 
   return (
     <div style={{ maxWidth: 390, minHeight: '100vh', margin: '0 auto', background: 'var(--paper)', display: 'flex', flexDirection: 'column', paddingBottom: 80 }}>
@@ -70,15 +72,16 @@ export default function Page() {
             Role
           </div>
           <div style={{ display: 'flex', gap: 8, overflowX: 'auto', scrollbarWidth: 'none', paddingBottom: 4 }}>
-            {['Barista', 'Server', 'Barback', 'Host', 'Bartender', 'Cook'].map((role) => (
-              <div
-                key={role}
+            {['Barista', 'Server', 'Barback', 'Host', 'Bartender', 'Cook'].map((r) => (
+              <button
+                key={r}
+                onClick={() => setRole(r)}
                 style={{
                   padding: '7px 14px',
                   borderRadius: 99,
                   border: '1px solid var(--line-2)',
-                  background: role === 'Barista' ? 'var(--ink)' : 'transparent',
-                  color: role === 'Barista' ? 'white' : 'var(--ink)',
+                  background: role === r ? 'var(--ink)' : 'transparent',
+                  color: role === r ? 'white' : 'var(--ink)',
                   fontFamily: 'var(--mono)',
                   fontSize: 11,
                   fontWeight: 600,
@@ -87,8 +90,8 @@ export default function Page() {
                   flexShrink: 0,
                 }}
               >
-                {role}
-              </div>
+                {r}
+              </button>
             ))}
           </div>
         </div>
@@ -193,6 +196,46 @@ export default function Page() {
             Back-up: 1 standby auto-invited
           </div>
         </div>
+
+        {/* NOTES section */}
+        <div style={{ marginBottom: 20 }}>
+          <div
+            style={{
+              fontFamily: 'var(--mono)',
+              fontSize: 11,
+              fontWeight: 600,
+              textTransform: 'uppercase',
+              letterSpacing: '0.12em',
+              color: 'var(--hydrant)',
+              marginBottom: 10,
+            }}
+          >
+            Notes for the worker
+          </div>
+          <textarea
+            value={notes}
+            onChange={e => setNotes(e.target.value)}
+            rows={4}
+            placeholder="Dress code, entrance location, what to bring, anything they need to know before showing up..."
+            style={{
+              width: '100%',
+              padding: '14px 16px',
+              background: 'var(--card)',
+              border: `1px solid ${notes.length > 0 ? 'var(--ink)' : 'var(--line)'}`,
+              borderRadius: 10,
+              fontFamily: 'var(--mono)',
+              fontSize: 13,
+              color: 'var(--ink)',
+              outline: 'none',
+              resize: 'none',
+              lineHeight: 1.6,
+              transition: 'border-color 0.15s',
+            }}
+          />
+          <div style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--mute)', marginTop: 6 }}>
+            Workers see this before accepting. Keep it short and useful.
+          </div>
+        </div>
       </div>
 
       {/* Sticky CTA */}
@@ -215,7 +258,7 @@ export default function Page() {
           <span style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--mute)' }}>$0 to post</span>
         </div>
         <Link
-          href="/employer/roster"
+          href="/employer/shift-posted"
           style={{
             display: 'block',
             background: 'var(--ink)',
