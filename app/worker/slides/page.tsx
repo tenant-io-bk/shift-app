@@ -57,7 +57,7 @@ export default function WorkerSlides() {
       <div style={{
         flex: 1,
         display: 'flex',
-        alignItems: 'center',
+        alignItems: 'flex-start',
         justifyContent: 'center',
       }}>
         <img
