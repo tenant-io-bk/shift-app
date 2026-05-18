@@ -55,10 +55,11 @@ export default function WorkerSlides() {
       {/* Photo panel */}
       <div style={{
         height: '55vh',
-        position: 'relative',
-        flexShrink: 0,
+        margin: '8px 16px 0',
+        borderRadius: 6,
         overflow: 'hidden',
         background: '#111',
+        flexShrink: 0,
       }}>
         <img
           src={slide.img}
@@ -69,26 +70,15 @@ export default function WorkerSlides() {
             objectFit: 'cover',
             objectPosition: slide.imgPosition,
             display: 'block',
-            transition: 'opacity 0.3s ease',
           }}
         />
-        {/* Bottom fade into white panel */}
-        <div style={{
-          position: 'absolute',
-          bottom: 0,
-          left: 0,
-          right: 0,
-          height: 80,
-          background: 'linear-gradient(to bottom, transparent, var(--paper))',
-        }} />
       </div>
 
       {/* Text panel */}
       <div style={{
         flex: 1,
         background: 'var(--paper)',
-        marginTop: -20,
-        padding: '8px 24px 36px',
+        padding: '20px 24px 36px',
         display: 'flex',
         flexDirection: 'column',
       }}>
