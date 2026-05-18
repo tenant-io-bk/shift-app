@@ -6,19 +6,19 @@ import StatusBar from '@/app/components/StatusBar';
 
 const SLIDES = [
   {
-    img: '/fpo-1.jpg',
+    img: '/circle-1.png',
     imgPosition: 'center 15%',
     headline: 'Need cash fast?',
     sub: 'Browse hundreds of same-day openings across Brooklyn, Manhattan, and Queens. No resume, no waiting.',
   },
   {
-    img: '/fpo-4.jpg',
+    img: '/circle-2.png',
     imgPosition: 'center top',
     headline: 'Need staff tonight?',
     sub: 'Post a shift and get confirmed, vetted workers before the rush starts. No agencies, no markups.',
   },
   {
-    img: '/fpo-3.jpg',
+    img: '/circle-3.png',
     imgPosition: 'center center',
     headline: 'Paid in minutes.',
     sub: 'Clock out and the money moves. No invoices, no chasing. Straight to your debit card in minutes.',
