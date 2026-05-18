@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import StatusBar from '@/app/components/StatusBar';
 
@@ -28,7 +28,23 @@ const SLIDES = [
 export default function WorkerSlides() {
   const [current, setCurrent] = useState(0);
   const touchStartX = useRef(0);
+  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const router = useRouter();
+
+  function resetTimer() {
+    if (timerRef.current) clearTimeout(timerRef.current);
+    timerRef.current = setTimeout(() => {
+      setCurrent(c => {
+        if (c < SLIDES.length - 1) return c + 1;
+        return c;
+      });
+    }, 3000);
+  }
+
+  useEffect(() => {
+    resetTimer();
+    return () => { if (timerRef.current) clearTimeout(timerRef.current); };
+  }, [current]);
 
   function handleTouchStart(e: React.TouchEvent) {
     touchStartX.current = e.touches[0].clientX;
