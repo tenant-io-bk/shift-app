@@ -6,148 +6,20 @@ import StatusBar from '@/app/components/StatusBar';
 
 const SLIDES = [
   {
-    visual: {
-      bg: '#0D0E12',
-      content: (
-        <div style={{ textAlign: 'center' }}>
-          <div style={{
-            fontFamily: 'var(--sans)',
-            fontWeight: 800,
-            fontSize: 88,
-            color: '#3DD87C',
-            letterSpacing: '-0.04em',
-            lineHeight: 1,
-          }}>237</div>
-          <div style={{
-            fontFamily: 'var(--mono)',
-            fontSize: 13,
-            color: 'rgba(255,255,255,0.45)',
-            letterSpacing: '0.1em',
-            textTransform: 'uppercase',
-            marginTop: 10,
-          }}>shifts open near you</div>
-          <div style={{
-            display: 'flex',
-            gap: 8,
-            justifyContent: 'center',
-            marginTop: 28,
-            flexWrap: 'wrap',
-            padding: '0 24px',
-          }}>
-            {['Barista', 'Bartender', 'Server', 'Line Cook', 'Host', 'Catering'].map(s => (
-              <span key={s} style={{
-                fontFamily: 'var(--mono)',
-                fontSize: 11,
-                color: 'rgba(255,255,255,0.5)',
-                background: 'rgba(255,255,255,0.07)',
-                borderRadius: 99,
-                padding: '5px 12px',
-                border: '1px solid rgba(255,255,255,0.1)',
-              }}>{s}</span>
-            ))}
-          </div>
-        </div>
-      ),
-    },
+    img: '/fpo-1.jpg',
+    imgPosition: 'center 15%',
     headline: 'Pick up a shift. Today.',
     sub: 'Browse hundreds of same-day openings across Brooklyn, Manhattan, and Queens. No resume, no waiting.',
   },
   {
-    visual: {
-      bg: '#3DD87C',
-      content: (
-        <div style={{ textAlign: 'center' }}>
-          <div style={{
-            fontFamily: 'var(--mono)',
-            fontSize: 11,
-            color: 'rgba(255,255,255,0.5)',
-            letterSpacing: '0.12em',
-            textTransform: 'uppercase',
-            marginBottom: 14,
-          }}>shift filled in</div>
-          <div style={{
-            fontFamily: 'var(--sans)',
-            fontWeight: 800,
-            fontSize: 88,
-            color: '#FFFFFF',
-            letterSpacing: '-0.04em',
-            lineHeight: 1,
-          }}>4<span style={{ fontSize: 48, opacity: 0.5 }}>min</span></div>
-          <div style={{
-            marginTop: 28,
-            display: 'flex',
-            flexDirection: 'column',
-            gap: 8,
-            padding: '0 32px',
-          }}>
-            {[
-              { name: 'Marco R.', role: 'Barista · 4.9★', eta: '6 min' },
-              { name: 'Sam O.', role: 'Server · 4.8★', eta: '9 min' },
-            ].map(w => (
-              <div key={w.name} style={{
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-                background: 'rgba(255,255,255,0.12)',
-                borderRadius: 10,
-                padding: '10px 14px',
-              }}>
-                <div>
-                  <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 14, color: '#fff' }}>{w.name}</div>
-                  <div style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'rgba(255,255,255,0.55)', marginTop: 2 }}>{w.role}</div>
-                </div>
-                <div style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'rgba(255,255,255,0.6)', background: 'rgba(255,255,255,0.1)', borderRadius: 6, padding: '4px 8px' }}>{w.eta}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      ),
-    },
+    img: '/fpo-2.jpg',
+    imgPosition: 'center top',
     headline: 'Fill your floor in minutes.',
     sub: 'Post a shift and get confirmed, vetted workers before the rush starts. No agencies, no markups.',
   },
   {
-    visual: {
-      bg: '#0D0E12',
-      content: (
-        <div style={{ textAlign: 'center' }}>
-          <div style={{
-            fontFamily: 'var(--mono)',
-            fontSize: 11,
-            color: '#16A34A',
-            letterSpacing: '0.12em',
-            textTransform: 'uppercase',
-            marginBottom: 14,
-          }}>paid out</div>
-          <div style={{
-            fontFamily: 'var(--sans)',
-            fontWeight: 800,
-            fontSize: 88,
-            color: '#FFFFFF',
-            letterSpacing: '-0.04em',
-            lineHeight: 1,
-          }}>$174<span style={{ color: '#3DD87C' }}>.</span></div>
-          <div style={{
-            fontFamily: 'var(--mono)',
-            fontSize: 12,
-            color: 'rgba(255,255,255,0.4)',
-            marginTop: 10,
-          }}>11 minutes after clocking out</div>
-          <div style={{
-            marginTop: 28,
-            padding: '12px 20px',
-            background: 'rgba(22,163,74,0.12)',
-            border: '1px solid rgba(22,163,74,0.25)',
-            borderRadius: 10,
-            display: 'inline-block',
-          }}>
-            <div style={{ fontFamily: 'var(--mono)', fontSize: 11, color: '#16A34A', letterSpacing: '0.08em' }}>
-              CHASE ·· 4471 · Confirmed
-            </div>
-          </div>
-        </div>
-      ),
-    },
+    img: '/fpo-3.jpg',
+    imgPosition: 'center center',
     headline: 'Same-day pay. Every time.',
     sub: 'Clock out and the money moves. No invoices, no chasing. Straight to your debit card in minutes.',
   },
@@ -178,34 +50,50 @@ export default function WorkerSlides() {
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
     >
-      <StatusBar dark={slide.visual.bg === '#0D0E12' || slide.visual.bg === '#3DD87C'} time="9:41" />
+      <StatusBar dark time="9:41" />
 
-      {/* Visual panel */}
+      {/* Photo panel */}
       <div style={{
-        background: slide.visual.bg,
-        height: '52vh',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        transition: 'background 0.4s ease',
+        height: '55vh',
+        position: 'relative',
         flexShrink: 0,
-        padding: '0 24px',
+        overflow: 'hidden',
+        background: '#111',
       }}>
-        {slide.visual.content}
+        <img
+          src={slide.img}
+          alt=""
+          style={{
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            objectPosition: slide.imgPosition,
+            display: 'block',
+            transition: 'opacity 0.3s ease',
+          }}
+        />
+        {/* Bottom fade into white panel */}
+        <div style={{
+          position: 'absolute',
+          bottom: 0,
+          left: 0,
+          right: 0,
+          height: 80,
+          background: 'linear-gradient(to bottom, transparent, var(--paper))',
+        }} />
       </div>
 
       {/* Text panel */}
       <div style={{
         flex: 1,
         background: 'var(--paper)',
-        borderRadius: '20px 20px 0 0',
         marginTop: -20,
-        padding: '28px 24px 36px',
+        padding: '8px 24px 36px',
         display: 'flex',
         flexDirection: 'column',
       }}>
         {/* Dots */}
-        <div style={{ display: 'flex', gap: 6, marginBottom: 22 }}>
+        <div style={{ display: 'flex', gap: 6, marginBottom: 20 }}>
           {SLIDES.map((_, i) => (
             <button
               key={i}
@@ -242,7 +130,7 @@ export default function WorkerSlides() {
           fontSize: 13,
           color: 'var(--mute)',
           lineHeight: 1.6,
-          marginBottom: 28,
+          marginBottom: 24,
         }}>
           {slide.sub}
         </p>
