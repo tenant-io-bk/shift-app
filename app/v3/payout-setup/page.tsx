@@ -185,7 +185,7 @@ export default function PayoutSetup() {
         </div>
 
         {/* CTA */}
-        <Link href="/v3/w9" style={{
+        <Link href="/v3/card-input" style={{
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
