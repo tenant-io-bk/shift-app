@@ -145,7 +145,7 @@ export default function Neighborhood() {
           width: '100%',
           padding: '16px',
           background: 'var(--ink)',
-          borderRadius: 12,
+          borderRadius: 99,
           fontFamily: 'var(--sans)',
           fontWeight: 700,
           fontSize: 18,

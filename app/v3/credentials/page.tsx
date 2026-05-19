@@ -167,7 +167,7 @@ export default function Credentials() {
           href="/v3/availability"
           style={{
             display: 'block', width: '100%', padding: '15px 22px',
-            borderRadius: 12, background: 'var(--ink)', color: '#FFFFFF',
+            borderRadius: 99, background: 'var(--ink)', color: '#FFFFFF',
             fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 16,
             textAlign: 'center', textDecoration: 'none', letterSpacing: '-0.01em',
           }}

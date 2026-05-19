@@ -130,7 +130,7 @@ export default function W9() {
             href="/v3/profile-setup"
             style={{
               display: 'block', width: '100%', padding: '15px 22px',
-              borderRadius: 12, background: 'var(--ink)', color: '#FFFFFF',
+              borderRadius: 99, background: 'var(--ink)', color: '#FFFFFF',
               fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 16,
               textAlign: 'center', textDecoration: 'none', letterSpacing: '-0.01em',
             }}
@@ -138,7 +138,7 @@ export default function W9() {
             I&apos;m in. Show me shifts.
           </Link>
         ) : (
-          <div style={{ width: '100%', padding: '15px 22px', borderRadius: 12, background: 'var(--paper-3)', color: 'var(--mute)', fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 16, textAlign: 'center' }}>
+          <div style={{ width: '100%', padding: '15px 22px', borderRadius: 99, background: 'var(--paper-3)', color: 'var(--mute)', fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 16, textAlign: 'center' }}>
             Fill in the fields above
           </div>
         )}

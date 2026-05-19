@@ -181,7 +181,7 @@ export default function Dispute() {
           marginTop: 24,
           background: 'var(--ink)',
           border: 'none',
-          borderRadius: 12,
+          borderRadius: 99,
           fontFamily: 'var(--sans)',
           fontWeight: 700,
           fontSize: 18,

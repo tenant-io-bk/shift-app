@@ -211,7 +211,7 @@ export default function MutualReview() {
           padding: '16px',
           background: 'var(--ink)',
           border: 'none',
-          borderRadius: 12,
+          borderRadius: 99,
           fontFamily: 'var(--sans)',
           fontWeight: 700,
           fontSize: 18,

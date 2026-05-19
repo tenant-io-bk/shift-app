@@ -207,7 +207,7 @@ export default function Page() {
             display: 'block',
             background: 'var(--ink)',
             color: 'white',
-            borderRadius: 12,
+            borderRadius: 99,
             padding: '16px 22px',
             textAlign: 'center',
             textDecoration: 'none',

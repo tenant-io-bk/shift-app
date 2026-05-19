@@ -169,7 +169,7 @@ export default function Home() {
             href="/worker/splash"
             style={{
               background: 'var(--ink)',
-              borderRadius: 14,
+              borderRadius: 99,
               padding: '20px 18px',
               textDecoration: 'none',
               display: 'flex',
@@ -217,7 +217,7 @@ export default function Home() {
             style={{
               background: '#FFFFFF',
               border: '1px solid var(--ink)',
-              borderRadius: 14,
+              borderRadius: 99,
               padding: '20px 18px',
               textDecoration: 'none',
               display: 'flex',

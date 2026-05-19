@@ -128,7 +128,7 @@ export default function SMSVerify() {
                 display: 'block',
                 width: '100%',
                 padding: '15px 22px',
-                borderRadius: 12,
+                borderRadius: 99,
                 background: 'var(--ink)',
                 color: '#FFFFFF',
                 fontFamily: 'var(--sans)',
@@ -145,7 +145,7 @@ export default function SMSVerify() {
             <div style={{
               width: '100%',
               padding: '15px 22px',
-              borderRadius: 12,
+              borderRadius: 99,
               background: 'var(--paper-3)',
               color: 'var(--mute)',
               fontFamily: 'var(--sans)',

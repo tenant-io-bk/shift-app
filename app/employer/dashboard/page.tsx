@@ -296,7 +296,7 @@ export default function EmployerDashboard() {
                   </div>
                   <button
                     onClick={() => router.push('/employer/posting')}
-                    style={{ width: '100%', padding: '15px', background: 'var(--ink)', border: 'none', borderRadius: 12, fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 16, color: '#fff', cursor: 'pointer', letterSpacing: '-0.02em' }}
+                    style={{ width: '100%', padding: '15px', background: 'var(--ink)', border: 'none', borderRadius: 99, fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 16, color: '#fff', cursor: 'pointer', letterSpacing: '-0.02em' }}
                   >
                     Post this shift.
                   </button>
@@ -308,14 +308,14 @@ export default function EmployerDashboard() {
             {step !== 'confirm' && (
               <div style={{ display: 'flex', gap: 8, marginTop: 18 }}>
                 {stepIdx > 0 && (
-                  <button onClick={back} style={{ flex: 1, padding: '13px', borderRadius: 12, border: '2px solid var(--ink)', background: 'transparent', fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 15, color: 'var(--ink)', cursor: 'pointer' }}>← Back</button>
+                  <button onClick={back} style={{ flex: 1, padding: '13px', borderRadius: 99, border: '2px solid var(--ink)', background: 'transparent', fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 15, color: 'var(--ink)', cursor: 'pointer' }}>← Back</button>
                 )}
                 {step === 'notes' && (
-                  <button onClick={next} style={{ flex: 1, padding: '13px', borderRadius: 12, border: '2px solid var(--ink)', background: 'transparent', fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 15, color: 'var(--ink)', cursor: 'pointer' }}>Skip</button>
+                  <button onClick={next} style={{ flex: 1, padding: '13px', borderRadius: 99, border: '2px solid var(--ink)', background: 'transparent', fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 15, color: 'var(--ink)', cursor: 'pointer' }}>Skip</button>
                 )}
                 <button
                   onClick={next} disabled={!canNext}
-                  style={{ flex: 2, padding: '13px', borderRadius: 12, border: 'none', background: canNext ? 'var(--ink)' : 'var(--paper-3)', fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 16, color: canNext ? '#fff' : 'var(--ink)', cursor: canNext ? 'pointer' : 'default', transition: 'all 0.2s', letterSpacing: '-0.02em' }}
+                  style={{ flex: 2, padding: '13px', borderRadius: 99, border: 'none', background: canNext ? 'var(--ink)' : 'var(--paper-3)', fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 16, color: canNext ? '#fff' : 'var(--ink)', cursor: canNext ? 'pointer' : 'default', transition: 'all 0.2s', letterSpacing: '-0.02em' }}
                 >
                   Next →
                 </button>

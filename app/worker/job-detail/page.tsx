@@ -590,7 +590,7 @@ export default function JobDetail() {
               fontWeight: 700,
               fontSize: 16,
               padding: '14px 22px',
-              borderRadius: 12,
+              borderRadius: 99,
               textAlign: 'center',
               textDecoration: 'none',
               letterSpacing: '-0.01em',

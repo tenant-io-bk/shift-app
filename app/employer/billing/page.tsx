@@ -57,7 +57,7 @@ export default function EmployerBilling() {
         <div style={{ display: 'flex', gap: 10, marginBottom: 24 }}>
           {(['card', 'bank'] as const).map(m => (
             <button key={m} onClick={() => setMethod(m)} style={{
-              flex: 1, padding: '14px', borderRadius: 12, cursor: 'pointer',
+              flex: 1, padding: '14px', borderRadius: 99, cursor: 'pointer',
               border: '2px solid var(--ink)',
               background: method === m ? 'var(--ink)' : 'var(--card)',
               display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6,
@@ -132,12 +132,12 @@ export default function EmployerBilling() {
       <div style={{ position: 'fixed', bottom: 0, left: '50%', transform: 'translateX(-50%)', width: '100%', maxWidth: 390, padding: '16px 22px 36px', background: 'linear-gradient(to bottom, transparent, var(--paper) 40%)' }}>
         {canContinue ? (
           <Link href="/employer/dashboard" style={{
-            display: 'block', width: '100%', padding: '15px 22px', borderRadius: 12,
+            display: 'block', width: '100%', padding: '15px 22px', borderRadius: 99,
             background: 'var(--ink)', color: '#fff', fontFamily: 'var(--sans)',
             fontWeight: 700, fontSize: 16, textAlign: 'center', textDecoration: 'none',
           }}>Let's go. Post a shift →</Link>
         ) : (
-          <div style={{ width: '100%', padding: '15px 22px', borderRadius: 12, background: 'var(--paper-3)', color: 'var(--mute)', fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 16, textAlign: 'center' }}>
+          <div style={{ width: '100%', padding: '15px 22px', borderRadius: 99, background: 'var(--paper-3)', color: 'var(--mute)', fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 16, textAlign: 'center' }}>
             {method === 'card' ? 'Enter card details' : 'Connect bank account'}
           </div>
         )}

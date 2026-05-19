@@ -104,12 +104,12 @@ export default function BusinessProfile() {
       <div style={{ position: 'fixed', bottom: 0, left: '50%', transform: 'translateX(-50%)', width: '100%', maxWidth: 390, padding: '16px 22px 36px', background: 'linear-gradient(to bottom, transparent, var(--paper) 40%)' }}>
         {canContinue ? (
           <Link href="/employer/billing" style={{
-            display: 'block', width: '100%', padding: '15px 22px', borderRadius: 12,
+            display: 'block', width: '100%', padding: '15px 22px', borderRadius: 99,
             background: 'var(--ink)', color: '#fff', fontFamily: 'var(--sans)',
             fontWeight: 700, fontSize: 16, textAlign: 'center', textDecoration: 'none',
           }}>Continue →</Link>
         ) : (
-          <div style={{ width: '100%', padding: '15px 22px', borderRadius: 12, background: 'var(--paper-3)', color: 'var(--mute)', fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 16, textAlign: 'center' }}>
+          <div style={{ width: '100%', padding: '15px 22px', borderRadius: 99, background: 'var(--paper-3)', color: 'var(--mute)', fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 16, textAlign: 'center' }}>
             Fill in all fields
           </div>
         )}

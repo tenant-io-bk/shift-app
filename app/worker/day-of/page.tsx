@@ -389,7 +389,7 @@ export default function DayOf() {
             width: '100%',
             padding: '16px 22px',
             background: 'var(--ink)',
-            borderRadius: 12,
+            borderRadius: 99,
             fontFamily: 'var(--sans)',
             fontWeight: 700,
             fontSize: 16,

@@ -144,7 +144,7 @@ export default function ProfileSetup() {
             href="/v3/neighborhood"
             style={{
               display: 'block', width: '100%', padding: '15px 22px',
-              borderRadius: 12, background: 'var(--ink)', color: '#FFFFFF',
+              borderRadius: 99, background: 'var(--ink)', color: '#FFFFFF',
               fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 16,
               textAlign: 'center', textDecoration: 'none', letterSpacing: '-0.01em',
             }}
@@ -152,7 +152,7 @@ export default function ProfileSetup() {
             Looking good. Next →
           </Link>
         ) : (
-          <div style={{ width: '100%', padding: '15px 22px', borderRadius: 12, background: 'var(--paper-3)', color: 'var(--mute)', fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 16, textAlign: 'center' }}>
+          <div style={{ width: '100%', padding: '15px 22px', borderRadius: 99, background: 'var(--paper-3)', color: 'var(--mute)', fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 16, textAlign: 'center' }}>
             Write something about yourself
           </div>
         )}

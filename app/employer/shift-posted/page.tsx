@@ -134,7 +134,7 @@ export default function Page() {
             display: 'block',
             background: 'var(--ink)',
             color: 'white',
-            borderRadius: 12,
+            borderRadius: 99,
             padding: '16px 22px',
             textAlign: 'center',
             textDecoration: 'none',
@@ -151,7 +151,7 @@ export default function Page() {
           style={{
             display: 'block',
             border: '2px solid var(--ink)',
-            borderRadius: 12,
+            borderRadius: 99,
             padding: '14px 22px',
             textAlign: 'center',
             textDecoration: 'none',

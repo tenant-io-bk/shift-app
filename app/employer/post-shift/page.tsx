@@ -257,7 +257,7 @@ export default function PostShift() {
               </div>
               <button
                 onClick={() => router.push('/employer/posting')}
-                style={{ width: '100%', padding: '18px', background: 'var(--ink)', border: 'none', borderRadius: 14, fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 18, color: '#fff', cursor: 'pointer', letterSpacing: '-0.02em' }}
+                style={{ width: '100%', padding: '18px', background: 'var(--ink)', border: 'none', borderRadius: 99, fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 18, color: '#fff', cursor: 'pointer', letterSpacing: '-0.02em' }}
               >
                 Post this shift.
               </button>
@@ -271,14 +271,14 @@ export default function PostShift() {
       {step !== 'confirm' && (
         <div style={{ padding: '0 22px 40px', display: 'flex', gap: 10 }}>
           {step === 'notes' && (
-            <button onClick={next} style={{ flex: 1, padding: '16px', borderRadius: 14, border: '2px solid var(--ink)', background: 'transparent', fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 16, color: 'var(--ink)', cursor: 'pointer' }}>
+            <button onClick={next} style={{ flex: 1, padding: '16px', borderRadius: 99, border: '2px solid var(--ink)', background: 'transparent', fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 16, color: 'var(--ink)', cursor: 'pointer' }}>
               Skip
             </button>
           )}
           <button
             onClick={next}
             disabled={!canNext}
-            style={{ flex: 2, padding: '16px', borderRadius: 14, border: 'none', background: canNext ? 'var(--ink)' : 'var(--paper-3)', fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 18, color: canNext ? '#fff' : 'var(--ink)', cursor: canNext ? 'pointer' : 'default', transition: 'all 0.2s', letterSpacing: '-0.02em' }}
+            style={{ flex: 2, padding: '16px', borderRadius: 99, border: 'none', background: canNext ? 'var(--ink)' : 'var(--paper-3)', fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 18, color: canNext ? '#fff' : 'var(--ink)', cursor: canNext ? 'pointer' : 'default', transition: 'all 0.2s', letterSpacing: '-0.02em' }}
           >
             Next →
           </button>

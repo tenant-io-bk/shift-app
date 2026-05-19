@@ -144,7 +144,7 @@ export default function WorkerWallet() {
           padding: '16px',
           background: 'var(--ink)',
           color: '#fff',
-          borderRadius: 12,
+          borderRadius: 99,
           fontFamily: 'var(--sans)',
           fontWeight: 700,
           fontSize: 16,
