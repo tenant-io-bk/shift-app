@@ -100,21 +100,29 @@ export default function PostShift() {
 
         {/* WHEN */}
         {step === 'when' && (
-          <div style={{ display: 'flex', flexDirection: 'column', flex: 1, gap: 10 }}>
-            <div style={{ fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--hydrant)', marginBottom: 4 }}>When</div>
-            <div style={{ border: '2px solid var(--ink)', borderRadius: 18, padding: '24px 22px', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
-              <div style={{ fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--ink)' }}>Start</div>
-              <div>
-                <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 48, color: 'var(--ink)', letterSpacing: '-0.075em', lineHeight: 1 }}>Today</div>
-                <div style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 40, color: 'var(--ink)', letterSpacing: '-0.06em', lineHeight: 1, marginTop: 4 }}>11:00A</div>
+          <div style={{ display: 'flex', flexDirection: 'column', flex: 1 }}>
+            <div style={{ fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--hydrant)', marginBottom: 12 }}>When</div>
+            <p style={{ fontFamily: 'var(--sans)', fontWeight: 400, fontSize: 18, color: 'var(--ink)', letterSpacing: '-0.02em', marginBottom: 16, lineHeight: 1.2 }}>When do you need a shift filled?</p>
+
+            {/* Date pill */}
+            <div style={{ marginBottom: 28 }}>
+              <div style={{ display: 'inline-block', background: 'var(--ink)', borderRadius: 99, padding: '10px 20px' }}>
+                <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 17, color: '#fff', letterSpacing: '-0.02em' }}>Monday, May 19th</span>
               </div>
             </div>
-            <div style={{ border: '2px solid var(--ink)', borderRadius: 18, padding: '24px 22px', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
-              <div style={{ fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--ink)' }}>End</div>
-              <div>
-                <div style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 40, color: 'var(--ink)', letterSpacing: '-0.06em', lineHeight: 1 }}>4:00P</div>
-                <div style={{ fontFamily: 'var(--mono)', fontSize: 14, color: 'var(--hydrant)', fontWeight: 600, marginTop: 8 }}>5 hrs</div>
-              </div>
+
+            {/* Start */}
+            <div style={{ marginBottom: 20 }}>
+              <div style={{ fontFamily: 'var(--sans)', fontWeight: 300, fontSize: 56, color: 'var(--ink)', letterSpacing: '-0.055em', lineHeight: 1 }}>Start</div>
+              <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 72, color: 'var(--ink)', letterSpacing: '-0.06em', lineHeight: 1 }}>11:00A</div>
+            </div>
+
+            <div style={{ height: 1, background: 'var(--line)', marginBottom: 20 }} />
+
+            {/* End */}
+            <div>
+              <div style={{ fontFamily: 'var(--sans)', fontWeight: 300, fontSize: 56, color: 'var(--ink)', letterSpacing: '-0.055em', lineHeight: 1 }}>End</div>
+              <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 72, color: 'var(--ink)', letterSpacing: '-0.06em', lineHeight: 1 }}>4:00P</div>
             </div>
           </div>
         )}
