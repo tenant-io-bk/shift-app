@@ -299,14 +299,15 @@ export default function WorkerMap() {
 
           {/* Header */}
           <div style={{ padding: '20px 20px 16px' }}>
-            <div style={{ fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 600, color: 'var(--mute)', letterSpacing: '0.06em', marginBottom: 12 }}>
-              BedStuy, Brooklyn · 78F Sunny
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 14 }}>
+              <span style={{ fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 600, color: 'var(--mute)', letterSpacing: '0.04em' }}>BedStuy, Brooklyn</span>
+              <span style={{ fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 600, color: 'var(--mute)', letterSpacing: '0.04em' }}>78F Sunny</span>
             </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
-              <div style={{ width: 52, height: 52, borderRadius: 99, background: 'var(--hydrant)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 22, color: '#fff', letterSpacing: '-0.04em' }}>18</span>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
+              <div style={{ width: 66, height: 66, borderRadius: 99, background: 'var(--hydrant)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 28, color: '#fff', letterSpacing: '-0.04em' }}>18</span>
               </div>
-              <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 32, color: 'var(--ink)', letterSpacing: '-0.04em', lineHeight: 1 }}>Shifts Available</span>
+              <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 44, color: 'var(--ink)', letterSpacing: '-0.04em', lineHeight: 0.95 }}>Shifts Available</span>
             </div>
           </div>
 
@@ -321,49 +322,45 @@ export default function WorkerMap() {
                   onClick={() => setExpandedId(isExpanded ? null : shift.posting)}
                   style={{
                     background: isPriority ? 'var(--ink)' : 'var(--paper)',
-                    borderRadius: 14,
-                    border: `1.5px solid ${isPriority ? 'var(--ink)' : 'var(--line)'}`,
+                    borderRadius: 16,
+                    border: isPriority ? '2px solid var(--hydrant)' : '1.5px solid var(--line)',
                     overflow: 'hidden',
                     cursor: 'pointer',
                   }}
                 >
-                  {/* Priority label */}
-                  {isPriority && (
-                    <div style={{ padding: '10px 16px 0' }}>
-                      <span style={{ fontFamily: 'var(--mono)', fontSize: 9, fontWeight: 700, color: 'var(--hydrant)', textTransform: 'uppercase', letterSpacing: '0.12em' }}>Priority Fill</span>
-                    </div>
-                  )}
-
                   {/* Main row */}
-                  <div style={{ display: 'flex', alignItems: 'center', padding: '12px 14px', gap: 10 }}>
-                    {/* Left: name + neighborhood */}
+                  <div style={{ display: 'flex', alignItems: 'center', padding: '16px 16px', gap: 10 }}>
+                    {/* Left: name + neighborhood + optional priority label */}
                     <div style={{ flex: 1, minWidth: 0 }}>
-                      <div style={{ fontFamily: 'var(--sans)', fontWeight: 400, fontSize: 18, color: isPriority ? '#fff' : 'var(--ink)', letterSpacing: '-0.03em', lineHeight: 1.1, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                      <div style={{ fontFamily: 'var(--sans)', fontWeight: 400, fontSize: 26, color: isPriority ? '#fff' : 'var(--ink)', letterSpacing: '-0.04em', lineHeight: 1.05, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
                         {shift.shortName}
                       </div>
-                      <div style={{ fontFamily: 'var(--mono)', fontSize: 9, fontWeight: 600, color: isPriority ? 'rgba(255,255,255,0.4)' : 'var(--mute)', letterSpacing: '0.06em', textTransform: 'uppercase', marginTop: 3 }}>
+                      <div style={{ fontFamily: 'var(--mono)', fontSize: 9, fontWeight: 600, color: isPriority ? 'rgba(255,255,255,0.4)' : 'var(--mute)', letterSpacing: '0.06em', textTransform: 'uppercase', marginTop: 4 }}>
                         {shift.neighborhood} · {shift.distance}
                       </div>
+                      {isPriority && (
+                        <div style={{ fontFamily: 'var(--mono)', fontSize: 9, fontWeight: 700, color: 'var(--hydrant)', textTransform: 'uppercase', letterSpacing: '0.12em', marginTop: 3 }}>Priority Fill</div>
+                      )}
                     </div>
 
                     {/* Center: role pill */}
                     <div style={{
                       background: isPriority ? 'var(--hydrant)' : 'var(--ink)',
                       borderRadius: 99,
-                      padding: '5px 10px',
+                      padding: '7px 12px',
                       flexShrink: 0,
                     }}>
-                      <span style={{ fontFamily: 'var(--mono)', fontSize: 10, fontWeight: 600, color: '#fff', whiteSpace: 'nowrap' }}>
+                      <span style={{ fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 600, color: '#fff', whiteSpace: 'nowrap' }}>
                         {shift.type} {shift.hours}
                       </span>
                     </div>
 
                     {/* Right: pay */}
                     <div style={{ textAlign: 'right', flexShrink: 0 }}>
-                      <div style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 22, color: isPriority ? '#fff' : 'var(--ink)', letterSpacing: '-0.05em', lineHeight: 1 }}>
+                      <div style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 28, color: isPriority ? '#fff' : 'var(--ink)', letterSpacing: '-0.05em', lineHeight: 1 }}>
                         {shift.pay}
                       </div>
-                      <div style={{ fontFamily: 'var(--mono)', fontSize: 9, fontWeight: 600, color: isPriority ? 'rgba(255,255,255,0.4)' : 'var(--mute)', textTransform: 'uppercase', marginTop: 3 }}>
+                      <div style={{ fontFamily: 'var(--mono)', fontSize: 9, fontWeight: 600, color: isPriority ? 'rgba(255,255,255,0.4)' : 'var(--mute)', textTransform: 'uppercase', marginTop: 4 }}>
                         {shift.rate}
                       </div>
                     </div>
