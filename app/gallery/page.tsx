@@ -23,6 +23,7 @@ const SCREENS = [
       { label: 'Credentials',   path: '/v3/credentials' },
       { label: 'Profile Setup', path: '/v3/profile-setup' },
       { label: 'Payout Setup',  path: '/v3/payout-setup' },
+      { label: 'Card Input',    path: '/v3/card-input' },
       { label: 'W9',            path: '/v3/w9' },
     ],
   },
