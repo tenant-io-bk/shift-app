@@ -100,7 +100,7 @@ export default function SMSVerify() {
                 onClick={() => key === '⌫' ? handleDelete() : handleDigit(key)}
                 style={{
                   height: 56,
-                  borderRadius: 12,
+                  borderRadius: 99,
                   border: '2px solid var(--ink)',
                   background: key === '⌫' ? 'var(--paper-2)' : 'var(--card)',
                   fontFamily: 'var(--sans)',
