@@ -303,11 +303,11 @@ export default function WorkerMap() {
               <span style={{ fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 600, color: 'var(--mute)', letterSpacing: '0.04em' }}>BedStuy, Brooklyn</span>
               <span style={{ fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 600, color: 'var(--mute)', letterSpacing: '0.04em' }}>78F Sunny</span>
             </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
-              <div style={{ width: 66, height: 66, borderRadius: 99, background: 'var(--hydrant)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 28, color: '#fff', letterSpacing: '-0.04em' }}>18</span>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
+              <div style={{ width: 60, height: 60, borderRadius: 99, background: 'var(--hydrant)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 26, color: '#fff', letterSpacing: '-0.04em' }}>18</span>
               </div>
-              <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 44, color: 'var(--ink)', letterSpacing: '-0.04em', lineHeight: 0.95 }}>Shifts Available</span>
+              <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 36, color: 'var(--ink)', letterSpacing: '-0.04em', lineHeight: 1, whiteSpace: 'nowrap' }}>Shifts Available</span>
             </div>
           </div>
 
@@ -332,7 +332,7 @@ export default function WorkerMap() {
                   <div style={{ display: 'flex', alignItems: 'center', padding: '16px 16px', gap: 10 }}>
                     {/* Left: name + neighborhood + optional priority label */}
                     <div style={{ flex: 1, minWidth: 0 }}>
-                      <div style={{ fontFamily: 'var(--sans)', fontWeight: 400, fontSize: 26, color: isPriority ? '#fff' : 'var(--ink)', letterSpacing: '-0.04em', lineHeight: 1.05, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                      <div style={{ fontFamily: 'var(--sans)', fontWeight: 400, fontSize: 26, color: isPriority ? '#fff' : 'var(--ink)', letterSpacing: '-0.04em', lineHeight: 1.05 }}>
                         {shift.shortName}
                       </div>
                       <div style={{ fontFamily: 'var(--mono)', fontSize: 9, fontWeight: 600, color: isPriority ? 'rgba(255,255,255,0.4)' : 'var(--mute)', letterSpacing: '0.06em', textTransform: 'uppercase', marginTop: 4 }}>
