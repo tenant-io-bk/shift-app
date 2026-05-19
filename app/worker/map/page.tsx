@@ -311,87 +311,86 @@ export default function WorkerMap() {
             </div>
           </div>
 
-          {/* Cards */}
-          <div style={{ padding: '0 16px 16px', display: 'flex', flexDirection: 'column', gap: 8 }}>
-            {SHIFTS.map(shift => {
-              const isExpanded = expandedId === shift.posting;
-              const isPriority = shift.priority;
-              return (
-                <div
-                  key={shift.posting}
-                  onClick={() => setExpandedId(isExpanded ? null : shift.posting)}
-                  style={{
-                    background: isPriority ? 'var(--ink)' : 'var(--paper)',
-                    borderRadius: 16,
-                    border: isPriority ? '2px solid var(--hydrant)' : '1.5px solid var(--line)',
-                    overflow: 'hidden',
-                    cursor: 'pointer',
-                  }}
-                >
-                  {/* Main row */}
-                  <div style={{ display: 'flex', alignItems: 'center', padding: '16px 16px', gap: 10 }}>
-                    {/* Left: name + neighborhood + optional priority label */}
-                    <div style={{ flex: 1, minWidth: 0 }}>
-                      <div style={{ fontFamily: 'var(--sans)', fontWeight: 400, fontSize: 26, color: isPriority ? '#fff' : 'var(--ink)', letterSpacing: '-0.04em', lineHeight: 1.05 }}>
-                        {shift.shortName}
+          {/* Stacked wallet cards */}
+          {(() => {
+            const PEEK = 76; // px visible per card
+            const CARD_FULL = 200; // expanded card height estimate
+            const n = SHIFTS.length;
+            const containerH = PEEK * (n - 1) + CARD_FULL;
+            return (
+              <div style={{ position: 'relative', height: containerH, margin: '0 16px 80px' }}>
+                {SHIFTS.map((shift, i) => {
+                  const isExpanded = expandedId === shift.posting;
+                  const isPriority = shift.priority;
+                  return (
+                    <div
+                      key={shift.posting}
+                      onClick={() => setExpandedId(isExpanded ? null : shift.posting)}
+                      style={{
+                        position: 'absolute',
+                        top: i * PEEK,
+                        left: 0, right: 0,
+                        zIndex: isExpanded ? 99 : i + 1,
+                        background: isPriority ? 'var(--ink)' : 'var(--paper)',
+                        borderRadius: 18,
+                        border: isPriority ? '2px solid var(--hydrant)' : '1.5px solid rgba(0,0,0,0.1)',
+                        boxShadow: '0 4px 20px rgba(0,0,0,0.10)',
+                        cursor: 'pointer',
+                        overflow: 'hidden',
+                      }}
+                    >
+                      {/* Main row */}
+                      <div style={{ display: 'flex', alignItems: 'center', padding: '18px 18px', gap: 10 }}>
+                        <div style={{ flex: 1, minWidth: 0 }}>
+                          <div style={{ fontFamily: 'var(--sans)', fontWeight: 400, fontSize: 26, color: isPriority ? '#fff' : 'var(--ink)', letterSpacing: '-0.04em', lineHeight: 1.05 }}>
+                            {shift.shortName}
+                          </div>
+                          <div style={{ fontFamily: 'var(--mono)', fontSize: 9, fontWeight: 600, color: isPriority ? 'rgba(255,255,255,0.4)' : 'var(--mute)', letterSpacing: '0.06em', textTransform: 'uppercase', marginTop: 4 }}>
+                            {shift.neighborhood} · {shift.distance}
+                          </div>
+                          {isPriority && (
+                            <div style={{ fontFamily: 'var(--mono)', fontSize: 9, fontWeight: 700, color: 'var(--hydrant)', textTransform: 'uppercase', letterSpacing: '0.12em', marginTop: 3 }}>Priority Fill</div>
+                          )}
+                        </div>
+
+                        <div style={{ background: isPriority ? 'var(--hydrant)' : 'var(--ink)', borderRadius: 99, padding: '7px 12px', flexShrink: 0 }}>
+                          <span style={{ fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 600, color: '#fff', whiteSpace: 'nowrap' }}>
+                            {shift.type} {shift.hours}
+                          </span>
+                        </div>
+
+                        <div style={{ textAlign: 'right', flexShrink: 0 }}>
+                          <div style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 28, color: isPriority ? '#fff' : 'var(--ink)', letterSpacing: '-0.05em', lineHeight: 1 }}>
+                            {shift.pay}
+                          </div>
+                          <div style={{ fontFamily: 'var(--mono)', fontSize: 9, fontWeight: 600, color: isPriority ? 'rgba(255,255,255,0.4)' : 'var(--mute)', textTransform: 'uppercase', marginTop: 4 }}>
+                            {shift.rate}
+                          </div>
+                        </div>
                       </div>
-                      <div style={{ fontFamily: 'var(--mono)', fontSize: 9, fontWeight: 600, color: isPriority ? 'rgba(255,255,255,0.4)' : 'var(--mute)', letterSpacing: '0.06em', textTransform: 'uppercase', marginTop: 4 }}>
-                        {shift.neighborhood} · {shift.distance}
-                      </div>
-                      {isPriority && (
-                        <div style={{ fontFamily: 'var(--mono)', fontSize: 9, fontWeight: 700, color: 'var(--hydrant)', textTransform: 'uppercase', letterSpacing: '0.12em', marginTop: 3 }}>Priority Fill</div>
+
+                      {/* Expanded */}
+                      {isExpanded && (
+                        <div style={{ padding: '0 18px 18px' }}>
+                          <div style={{ height: 1, background: isPriority ? 'rgba(255,255,255,0.1)' : 'var(--line)', marginBottom: 14 }} />
+                          <p style={{ fontFamily: 'var(--sans)', fontWeight: 300, fontSize: 18, color: isPriority ? 'rgba(255,255,255,0.85)' : 'var(--ink)', letterSpacing: '-0.03em', lineHeight: 1.35, margin: '0 0 16px' }}>
+                            {shift.description}
+                          </p>
+                          <Link
+                            href="/worker/job-detail"
+                            onClick={e => e.stopPropagation()}
+                            style={{ display: 'block', textAlign: 'center', padding: '13px', background: isPriority ? 'var(--hydrant)' : 'var(--ink)', color: '#fff', borderRadius: 99, fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 16, textDecoration: 'none', letterSpacing: '-0.02em' }}
+                          >
+                            View shift →
+                          </Link>
+                        </div>
                       )}
                     </div>
-
-                    {/* Center: role pill */}
-                    <div style={{
-                      background: isPriority ? 'var(--hydrant)' : 'var(--ink)',
-                      borderRadius: 99,
-                      padding: '7px 12px',
-                      flexShrink: 0,
-                    }}>
-                      <span style={{ fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 600, color: '#fff', whiteSpace: 'nowrap' }}>
-                        {shift.type} {shift.hours}
-                      </span>
-                    </div>
-
-                    {/* Right: pay */}
-                    <div style={{ textAlign: 'right', flexShrink: 0 }}>
-                      <div style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 28, color: isPriority ? '#fff' : 'var(--ink)', letterSpacing: '-0.05em', lineHeight: 1 }}>
-                        {shift.pay}
-                      </div>
-                      <div style={{ fontFamily: 'var(--mono)', fontSize: 9, fontWeight: 600, color: isPriority ? 'rgba(255,255,255,0.4)' : 'var(--mute)', textTransform: 'uppercase', marginTop: 4 }}>
-                        {shift.rate}
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Expanded: description + CTA */}
-                  {isExpanded && (
-                    <div style={{ padding: '0 16px 16px' }}>
-                      <div style={{ height: 1, background: isPriority ? 'rgba(255,255,255,0.1)' : 'var(--line)', marginBottom: 14 }} />
-                      <p style={{ fontFamily: 'var(--sans)', fontWeight: 300, fontSize: 18, color: isPriority ? 'rgba(255,255,255,0.85)' : 'var(--ink)', letterSpacing: '-0.03em', lineHeight: 1.35, margin: '0 0 16px' }}>
-                        {shift.description}
-                      </p>
-                      <Link
-                        href="/worker/job-detail"
-                        onClick={e => e.stopPropagation()}
-                        style={{
-                          display: 'block', textAlign: 'center', padding: '13px',
-                          background: isPriority ? 'var(--hydrant)' : 'var(--ink)',
-                          color: '#fff', borderRadius: 99,
-                          fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 16,
-                          textDecoration: 'none', letterSpacing: '-0.02em',
-                        }}
-                      >
-                        View shift →
-                      </Link>
-                    </div>
-                  )}
-                </div>
-              );
-            })}
-          </div>
+                  );
+                })}
+              </div>
+            );
+          })()}
         </div>
       )}
 
