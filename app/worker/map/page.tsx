@@ -8,7 +8,7 @@ import BottomNav from '@/app/components/BottomNav';
 const SHIFTS = [
   {
     name: "Padmore's Coffee",
-    role: 'Needs a barista for the lunch rush',
+    role: 'Barista for the lunch rush',
     type: 'Barista',
     meta: 'G · 25 MIN · 0.6 MI',
     pay: '$140.',
@@ -17,6 +17,7 @@ const SHIFTS = [
     date: 'Today',
     posting: '#4471',
     bg: 'linear-gradient(135deg, #c4a577 0%, #8b6545 60%, #5c3d22 100%)',
+    cardBg: '#EAD5B8',
     rating: '4.9',
     urgent: false,
     pinX: 185, pinY: 120,
@@ -24,7 +25,7 @@ const SHIFTS = [
   },
   {
     name: 'The Wren',
-    role: 'Covering the floor for lunch service',
+    role: 'Server for lunch service',
     type: 'Server',
     meta: 'G · 18 MIN · 0.4 MI',
     pay: '$96.',
@@ -33,6 +34,7 @@ const SHIFTS = [
     date: 'Today',
     posting: '#4468',
     bg: 'linear-gradient(135deg, #a8c4a0 0%, #6b9e62 60%, #4a7040 100%)',
+    cardBg: '#C2DCC0',
     rating: '4.7',
     urgent: false,
     pinX: 270, pinY: 90,
@@ -40,7 +42,7 @@ const SHIFTS = [
   },
   {
     name: 'Bar Blondeau',
-    role: 'Barback for dinner service tonight',
+    role: 'Barback for dinner service',
     type: 'Barback',
     meta: 'L · 22 MIN · 1.1 MI',
     pay: '$120.',
@@ -49,6 +51,7 @@ const SHIFTS = [
     date: 'Today',
     posting: '#4469',
     bg: 'linear-gradient(135deg, #b8a0c8 0%, #8060a0 60%, #5a3c78 100%)',
+    cardBg: '#D0C0E4',
     rating: '4.8',
     urgent: true,
     pinX: 340, pinY: 140,
@@ -57,7 +60,7 @@ const SHIFTS = [
   },
   {
     name: 'Peoples Wine',
-    role: 'Retail floor help this afternoon',
+    role: 'Retail floor this afternoon',
     type: 'Retail',
     meta: 'A/C · 14 MIN · 0.3 MI',
     pay: '$85.',
@@ -66,6 +69,7 @@ const SHIFTS = [
     date: 'Today',
     posting: '#4462',
     bg: 'linear-gradient(135deg, #f0c080 0%, #c88040 60%, #906020 100%)',
+    cardBg: '#F2E0A0',
     rating: '4.6',
     urgent: false,
     pinX: 60, pinY: 205,
@@ -284,7 +288,7 @@ export default function WorkerMap() {
           </div>
 
           {/* Full list cards */}
-          <div style={{ padding: '12px 16px', display: 'flex', flexDirection: 'column', gap: 10 }}>
+          <div style={{ padding: '12px 16px', display: 'flex', flexDirection: 'column', gap: 12 }}>
             {SHIFTS.map(shift => (
               <Link
                 key={shift.posting}
@@ -292,55 +296,45 @@ export default function WorkerMap() {
                 style={{ textDecoration: 'none', display: 'block' }}
               >
                 <div style={{
-                  background: 'var(--card)',
-                  borderRadius: 14,
-                  border: '2px solid var(--ink)',
+                  background: shift.cardBg,
+                  borderRadius: 20,
                   overflow: 'hidden',
-                  transition: 'border-color 0.15s',
+                  padding: '20px 20px 18px',
+                  minHeight: 160,
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'space-between',
+                  position: 'relative',
                 }}>
-                  {/* Top: logo + name + pay */}
-                  <div style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '14px 16px 10px' }}>
-                    <div style={{ position: 'relative', flexShrink: 0 }}>
-                      <div style={{ width: 48, height: 48, borderRadius: 10, background: shift.bg }} />
-                      <div style={{
-                        position: 'absolute', bottom: -4, right: -4,
-                        background: 'var(--card)', borderRadius: 99,
-                        padding: '1px 5px', border: '2px solid var(--ink)',
-                      }}>
-                        <span style={{ fontFamily: 'var(--mono)', fontSize: 9, fontWeight: 600, color: 'var(--mute)' }}>{shift.rating}★</span>
+                  {/* Top row: logo + name + pay */}
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 16 }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+                      <div style={{ width: 36, height: 36, borderRadius: 10, background: shift.bg, flexShrink: 0 }} />
+                      <div>
+                        <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 14, color: 'var(--ink)', lineHeight: 1.1 }}>{shift.name}</div>
+                        {shift.urgent && (
+                          <span style={{ fontFamily: 'var(--mono)', fontSize: 9, fontWeight: 700, color: '#c0392b', textTransform: 'uppercase', letterSpacing: '0.08em' }}>urgent</span>
+                        )}
                       </div>
                     </div>
-
-                    <div style={{ flex: 1 }}>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-                        <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 16, color: 'var(--ink)' }}>{shift.name}</span>
-                        {shift.urgent && <span className="tag red" style={{ fontSize: 9, padding: '2px 6px' }}>urgent</span>}
-                      </div>
-                      <span style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--mute)' }}>{shift.type}</span>
-                    </div>
-
-                    <div style={{ textAlign: 'right', flexShrink: 0 }}>
-                      <div style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 22, color: 'var(--ink)', letterSpacing: '-0.075em', lineHeight: 1 }}>{shift.pay}</div>
-                      <div style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--mute)', marginTop: 2 }}>{shift.rate}</div>
+                    <div style={{ textAlign: 'right' }}>
+                      <div style={{ fontFamily: 'var(--sans)', fontWeight: 800, fontSize: 26, color: 'var(--ink)', letterSpacing: '-0.06em', lineHeight: 1 }}>{shift.pay}</div>
+                      <div style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'rgba(13,14,18,0.5)', marginTop: 1 }}>{shift.rate}</div>
                     </div>
                   </div>
 
-                  {/* Divider */}
-                  <div style={{ height: 1, background: 'var(--line)', margin: '0 16px' }} />
+                  {/* Hero role text */}
+                  <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 30, color: 'var(--ink)', letterSpacing: '-0.04em', lineHeight: 0.95, marginBottom: 18 }}>
+                    {shift.role}
+                  </div>
 
-                  {/* Bottom: meta row */}
-                  <div style={{ display: 'flex', gap: 16, padding: '10px 16px', alignItems: 'center' }}>
-                    <div>
-                      <div style={{ fontFamily: 'var(--mono)', fontSize: 10, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--mute)', marginBottom: 2 }}>When</div>
-                      <div style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 13, color: 'var(--ink)' }}>{shift.date} · {shift.hours}</div>
+                  {/* Bottom meta */}
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                    <div style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'rgba(13,14,18,0.55)', fontWeight: 600, letterSpacing: '0.04em' }}>
+                      {shift.date} · {shift.hours}
                     </div>
-                    <div style={{ width: 1, height: 28, background: 'var(--line)', flexShrink: 0 }} />
-                    <div>
-                      <div style={{ fontFamily: 'var(--mono)', fontSize: 10, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--mute)', marginBottom: 2 }}>Transit</div>
-                      <div style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 13, color: 'var(--ink)' }}>{shift.meta}</div>
-                    </div>
-                    <div style={{ marginLeft: 'auto' }}>
-                      <div style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--hydrant)', fontWeight: 600 }}>View →</div>
+                    <div style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'rgba(13,14,18,0.55)', fontWeight: 600 }}>
+                      {shift.meta}
                     </div>
                   </div>
                 </div>
@@ -357,28 +351,42 @@ export default function WorkerMap() {
 
 function ShiftList({ shifts }: { shifts: typeof SHIFTS }) {
   return (
-    <div style={{ padding: '4px 0' }}>
+    <div style={{ padding: '10px 16px 16px', display: 'flex', flexDirection: 'column', gap: 10 }}>
       {shifts.map(shift => (
-        <Link key={shift.posting} href="/worker/job-detail" style={{ display: 'flex', gap: 12, padding: '12px 22px', borderBottom: '1px solid var(--line)', alignItems: 'flex-start', textDecoration: 'none', color: 'inherit' }}>
-          <div style={{ position: 'relative', flexShrink: 0 }}>
-            <div style={{ width: 40, height: 40, borderRadius: 8, background: shift.bg }} />
-            <div style={{ position: 'absolute', bottom: -4, right: -4, background: 'var(--card)', borderRadius: 99, padding: '1px 5px', border: '2px solid var(--ink)' }}>
-              <span style={{ fontFamily: 'var(--mono)', fontSize: 9, fontWeight: 600, color: 'var(--mute)' }}>{shift.rating}★</span>
+        <Link key={shift.posting} href="/worker/job-detail" style={{ textDecoration: 'none', display: 'block' }}>
+          <div style={{
+            background: shift.cardBg,
+            borderRadius: 18,
+            padding: '16px 16px 14px',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: 10,
+          }}>
+            {/* Top: logo + name + pay */}
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                <div style={{ width: 30, height: 30, borderRadius: 8, background: shift.bg, flexShrink: 0 }} />
+                <div>
+                  <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 13, color: 'var(--ink)' }}>{shift.name}</div>
+                  {shift.urgent && (
+                    <span style={{ fontFamily: 'var(--mono)', fontSize: 9, fontWeight: 700, color: '#c0392b', textTransform: 'uppercase', letterSpacing: '0.08em' }}>urgent</span>
+                  )}
+                </div>
+              </div>
+              <div style={{ textAlign: 'right' }}>
+                <div style={{ fontFamily: 'var(--sans)', fontWeight: 800, fontSize: 22, color: 'var(--ink)', letterSpacing: '-0.05em', lineHeight: 1 }}>{shift.pay}</div>
+                <div style={{ fontFamily: 'var(--mono)', fontSize: 10, color: 'rgba(13,14,18,0.5)' }}>{shift.rate}</div>
+              </div>
             </div>
-          </div>
-
-          <div style={{ flex: 1, minWidth: 0 }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-              <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 15, color: 'var(--ink)' }}>{shift.name}</span>
-              {shift.urgent && <span className="tag red" style={{ fontSize: 9, padding: '2px 6px' }}>urgent</span>}
+            {/* Role */}
+            <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 22, color: 'var(--ink)', letterSpacing: '-0.03em', lineHeight: 1 }}>
+              {shift.role}
             </div>
-            <p style={{ fontFamily: 'var(--mono)', fontStyle: 'italic', fontSize: 13, color: 'var(--mute)', marginTop: 2, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{shift.role}</p>
-            <p style={{ fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 600, color: 'var(--mute-2)', marginTop: 4, letterSpacing: '0.06em' }}>{shift.meta}</p>
-          </div>
-
-          <div style={{ flexShrink: 0, textAlign: 'right' }}>
-            <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 20, color: 'var(--ink)', letterSpacing: '-0.02em' }}>{shift.pay}</div>
-            <div style={{ fontFamily: 'var(--mono)', fontSize: 9, color: 'var(--mute)', marginTop: 2 }}>Posting {shift.posting}</div>
+            {/* Meta */}
+            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+              <span style={{ fontFamily: 'var(--mono)', fontSize: 10, color: 'rgba(13,14,18,0.55)', fontWeight: 600 }}>{shift.date} · {shift.hours}</span>
+              <span style={{ fontFamily: 'var(--mono)', fontSize: 10, color: 'rgba(13,14,18,0.55)', fontWeight: 600 }}>{shift.meta}</span>
+            </div>
           </div>
         </Link>
       ))}
