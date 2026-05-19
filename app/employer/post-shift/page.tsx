@@ -178,23 +178,23 @@ export default function PostShift() {
         {step === 'pay' && (
           <>
             <div style={{ fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--hydrant)', marginBottom: 12 }}>Pay</div>
-            <h1 style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 36, letterSpacing: '-0.075em', lineHeight: 1, color: 'var(--ink)', marginBottom: 28 }}>How much per hour?</h1>
-            <div style={{ background: 'var(--ink)', borderRadius: 18, padding: '28px 20px' }}>
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                <button onClick={() => setRate(r => Math.max(15, r - 1))} style={{ width: 48, height: 48, borderRadius: 12, border: '1px solid rgba(255,255,255,0.18)', background: 'rgba(255,255,255,0.08)', color: 'white', fontSize: 28, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>−</button>
-                <div style={{ textAlign: 'center' }}>
-                  <div style={{ display: 'flex', alignItems: 'baseline', gap: 4, justifyContent: 'center' }}>
-                    <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 64, color: 'white', letterSpacing: '-0.075em', lineHeight: 1 }}>${rate}</span>
-                    <span style={{ fontFamily: 'var(--mono)', fontSize: 18, color: 'rgba(255,255,255,0.5)' }}>/hr</span>
-                  </div>
-                  <div style={{ fontFamily: 'var(--mono)', fontSize: 13, color: 'rgba(255,255,255,0.4)', marginTop: 6 }}>
-                    {hrs > 0 ? `Total for ${fmtHrs(hrs)}: $${(rate * hrs).toFixed(0)}.` : 'Set times to see total.'}
-                  </div>
+            <h1 style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 36, letterSpacing: '-0.075em', lineHeight: 1, color: 'var(--ink)', marginBottom: 32 }}>How much per hour?</h1>
+
+            <div style={{ display: 'flex', alignItems: 'center', gap: 24, marginBottom: 16 }}>
+              <button onClick={() => setRate(r => Math.max(15, r - 1))} style={{ width: 52, height: 52, borderRadius: 14, border: '2px solid var(--ink)', background: 'transparent', fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 28, color: 'var(--ink)', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>−</button>
+              <div style={{ flex: 1 }}>
+                <div style={{ display: 'flex', alignItems: 'baseline', gap: 6 }}>
+                  <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 72, color: 'var(--ink)', letterSpacing: '-0.06em', lineHeight: 1 }}>${rate}</span>
+                  <span style={{ fontFamily: 'var(--mono)', fontSize: 18, color: 'var(--ink)' }}>/hr</span>
                 </div>
-                <button onClick={() => setRate(r => Math.min(75, r + 1))} style={{ width: 48, height: 48, borderRadius: 12, border: '1px solid rgba(255,255,255,0.18)', background: 'rgba(255,255,255,0.08)', color: 'white', fontSize: 28, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>+</button>
+                <div style={{ fontFamily: 'var(--mono)', fontSize: 13, color: 'var(--ink)', marginTop: 6 }}>
+                  {hrs > 0 ? `Total for ${fmtHrs(hrs)}: $${(rate * hrs).toFixed(0)}.` : 'Set times to see total.'}
+                </div>
               </div>
+              <button onClick={() => setRate(r => Math.min(75, r + 1))} style={{ width: 52, height: 52, borderRadius: 14, border: '2px solid var(--ink)', background: 'transparent', fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 28, color: 'var(--ink)', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>+</button>
             </div>
-            <p style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--ink)', marginTop: 12 }}>NYC minimum is $16/hr. Market rate for {role || 'this role'} is ~$22–28/hr.</p>
+
+            <p style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--ink)', marginTop: 4 }}>NYC minimum is $16/hr. Market rate for {role || 'this role'} is ~$22–28/hr.</p>
           </>
         )}
 
