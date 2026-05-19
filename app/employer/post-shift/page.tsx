@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef, useEffect } from 'react';
+import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import StepProgress from '@/app/components/StepProgress';
 
@@ -8,110 +8,21 @@ const ROLES = ['Barista', 'Server', 'Barback', 'Host', 'Bartender', 'Cook', 'Dis
 const STEPS = ['role', 'when', 'pay', 'count', 'notes', 'confirm'] as const;
 type Step = typeof STEPS[number];
 
-const ITEM_H = 64;
-const HOURS = ['1','2','3','4','5','6','7','8','9','10','11','12'];
-const MINS = ['00','15','30','45'];
-const PERIODS = ['A','P'];
-
-function DrumColumn({ items, selectedIdx, onSelect, wide }: {
-  items: string[];
-  selectedIdx: number;
-  onSelect: (i: number) => void;
-  wide?: boolean;
-}) {
-  const ref = useRef<HTMLDivElement>(null);
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const timer = useRef<any>(null);
-  const isUserScroll = useRef(false);
-
-  useEffect(() => {
-    if (ref.current) {
-      ref.current.scrollTop = selectedIdx * ITEM_H;
-    }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  function handleScroll() {
-    if (!isUserScroll.current) return;
-    clearTimeout(timer.current);
-    timer.current = setTimeout(() => {
-      if (!ref.current) return;
-      const idx = Math.round(ref.current.scrollTop / ITEM_H);
-      const clamped = Math.max(0, Math.min(items.length - 1, idx));
-      isUserScroll.current = false;
-      ref.current.scrollTo({ top: clamped * ITEM_H, behavior: 'smooth' });
-      onSelect(clamped);
-    }, 80);
-  }
-
-  return (
-    <div style={{ position: 'relative', flex: wide ? 1.2 : 1 }}>
-      {/* center selection band */}
-      <div style={{
-        position: 'absolute', top: ITEM_H, left: 4, right: 4, height: ITEM_H,
-        borderTop: '1.5px solid var(--ink)', borderBottom: '1.5px solid var(--ink)',
-        pointerEvents: 'none', zIndex: 1, borderRadius: 2,
-      }} />
-      {/* top/bottom fade */}
-      <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: ITEM_H, background: 'linear-gradient(to bottom, var(--paper), transparent)', pointerEvents: 'none', zIndex: 2 }} />
-      <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: ITEM_H, background: 'linear-gradient(to top, var(--paper), transparent)', pointerEvents: 'none', zIndex: 2 }} />
-      <div
-        ref={ref}
-        onPointerDown={() => { isUserScroll.current = true; }}
-        onScroll={handleScroll}
-        style={{
-          height: ITEM_H * 3,
-          overflowY: 'scroll',
-          scrollSnapType: 'y mandatory',
-          scrollbarWidth: 'none',
-          WebkitOverflowScrolling: 'touch' as never,
-        }}
-      >
-        <div style={{ height: ITEM_H, flexShrink: 0 }} />
-        {items.map((item, i) => (
-          <div
-            key={i}
-            style={{
-              height: ITEM_H,
-              scrollSnapAlign: 'center',
-              display: 'flex', alignItems: 'center', justifyContent: 'center',
-              fontFamily: 'var(--sans)',
-              fontWeight: i === selectedIdx ? 700 : 300,
-              fontSize: wide ? 44 : 40,
-              color: i === selectedIdx ? 'var(--ink)' : 'rgba(13,14,18,0.18)',
-              letterSpacing: '-0.04em',
-              userSelect: 'none',
-              cursor: 'pointer',
-              transition: 'color 0.12s, font-weight 0.12s',
-            }}
-            onClick={() => {
-              isUserScroll.current = false;
-              ref.current?.scrollTo({ top: i * ITEM_H, behavior: 'smooth' });
-              onSelect(i);
-            }}
-          >
-            {item}
-          </div>
-        ))}
-        <div style={{ height: ITEM_H, flexShrink: 0 }} />
-      </div>
-    </div>
-  );
+function fmtDisplay(t: string) {
+  const [h, m] = t.split(':').map(Number);
+  const period = h >= 12 ? 'P' : 'A';
+  const dh = h === 0 ? 12 : h > 12 ? h - 12 : h;
+  return `${dh}:${String(m).padStart(2, '0')}${period}`;
 }
 
-function toTotalMinutes(hourIdx: number, minIdx: number, periodIdx: number) {
-  let h = hourIdx + 1;
-  if (periodIdx === 0 && h === 12) h = 0;
-  if (periodIdx === 1 && h !== 12) h += 12;
-  return h * 60 + minIdx * 15;
-}
-
-function fmtTime(hourIdx: number, minIdx: number, periodIdx: number) {
-  return `${HOURS[hourIdx]}:${MINS[minIdx]}${PERIODS[periodIdx]}`;
+function timeDiffHrs(start: string, end: string) {
+  const [sh, sm] = start.split(':').map(Number);
+  const [eh, em] = end.split(':').map(Number);
+  return Math.max(0, (eh * 60 + em - sh * 60 - sm) / 60);
 }
 
 function fmtHrs(h: number) {
-  if (h <= 0) return '—';
+  if (h <= 0) return '';
   const whole = Math.floor(h);
   const mins = Math.round((h - whole) * 60);
   if (mins === 0) return `${whole}h`;
@@ -125,36 +36,23 @@ export default function PostShift() {
   const [animating, setAnimating] = useState(false);
 
   const [role, setRole] = useState('');
+  const [startTime, setStartTime] = useState('11:00');
+  const [endTime, setEndTime] = useState('16:00');
   const [rate, setRate] = useState(26);
   const [count, setCount] = useState(1);
   const [notes, setNotes] = useState('');
 
-  const [startHourIdx, setStartHourIdx] = useState(10); // 11
-  const [startMinIdx, setStartMinIdx] = useState(0);    // 00
-  const [startPeriodIdx, setStartPeriodIdx] = useState(0); // A
-  const [endHourIdx, setEndHourIdx] = useState(3);      // 4
-  const [endMinIdx, setEndMinIdx] = useState(0);        // 00
-  const [endPeriodIdx, setEndPeriodIdx] = useState(1);  // P
-
   const step = STEPS[stepIdx];
   const total = STEPS.length - 1;
-
-  const startMins = toTotalMinutes(startHourIdx, startMinIdx, startPeriodIdx);
-  const endMins = toTotalMinutes(endHourIdx, endMinIdx, endPeriodIdx);
-  const hrs = Math.max(0, (endMins - startMins) / 60);
+  const hrs = timeDiffHrs(startTime, endTime);
   const total$ = rate * hrs * count;
-  const startStr = fmtTime(startHourIdx, startMinIdx, startPeriodIdx);
-  const endStr = fmtTime(endHourIdx, endMinIdx, endPeriodIdx);
-  const whenStr = `Today · ${startStr} – ${endStr}${hrs > 0 ? ` (${fmtHrs(hrs)})` : ''}`;
+  const whenStr = `Today · ${fmtDisplay(startTime)} – ${fmtDisplay(endTime)}${hrs > 0 ? ` (${fmtHrs(hrs)})` : ''}`;
 
   function go(delta: 1 | -1) {
     if (animating) return;
     setDir(delta);
     setAnimating(true);
-    setTimeout(() => {
-      setStepIdx(i => i + delta);
-      setAnimating(false);
-    }, 180);
+    setTimeout(() => { setStepIdx(i => i + delta); setAnimating(false); }, 180);
   }
 
   function next() { if (stepIdx < STEPS.length - 1) go(1); }
@@ -222,32 +120,39 @@ export default function PostShift() {
             <div style={{ fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--hydrant)', marginBottom: 12 }}>When</div>
             <p style={{ fontFamily: 'var(--sans)', fontWeight: 400, fontSize: 18, color: 'var(--ink)', letterSpacing: '-0.02em', marginBottom: 16, lineHeight: 1.2 }}>When do you need a shift filled?</p>
 
-            <div style={{ marginBottom: 24 }}>
+            {/* Date pill */}
+            <div style={{ marginBottom: 32 }}>
               <div style={{ display: 'inline-block', background: 'var(--ink)', borderRadius: 99, padding: '10px 20px' }}>
                 <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 17, color: '#fff', letterSpacing: '-0.02em' }}>Monday, May 19th</span>
               </div>
             </div>
 
             {/* Start */}
-            <div style={{ fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--ink)', marginBottom: 4 }}>Start</div>
-            <div style={{ display: 'flex', alignItems: 'center' }}>
-              <DrumColumn wide items={HOURS} selectedIdx={startHourIdx} onSelect={setStartHourIdx} />
-              <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 40, color: 'var(--ink)', padding: '0 2px', flexShrink: 0, marginBottom: 4 }}>:</span>
-              <DrumColumn items={MINS} selectedIdx={startMinIdx} onSelect={setStartMinIdx} />
-              <DrumColumn items={PERIODS} selectedIdx={startPeriodIdx} onSelect={setStartPeriodIdx} />
+            <div style={{ position: 'relative', marginBottom: 24 }}>
+              <div style={{ fontFamily: 'var(--sans)', fontWeight: 300, fontSize: 56, color: 'var(--ink)', letterSpacing: '-0.055em', lineHeight: 1 }}>Start</div>
+              <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 72, color: 'var(--ink)', letterSpacing: '-0.06em', lineHeight: 1 }}>{fmtDisplay(startTime)}</div>
+              <input
+                type="time"
+                value={startTime}
+                onChange={e => setStartTime(e.target.value)}
+                style={{ position: 'absolute', inset: 0, opacity: 0, cursor: 'pointer', width: '100%', height: '100%' }}
+              />
             </div>
 
-            <div style={{ height: 1, background: 'var(--line)', margin: '12px 0' }} />
+            <div style={{ height: 1, background: 'var(--line)', marginBottom: 24 }} />
 
             {/* End */}
-            <div style={{ fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--ink)', marginBottom: 4 }}>
-              End{hrs > 0 ? <span style={{ color: 'var(--hydrant)', marginLeft: 8 }}>{fmtHrs(hrs)}</span> : null}
-            </div>
-            <div style={{ display: 'flex', alignItems: 'center' }}>
-              <DrumColumn wide items={HOURS} selectedIdx={endHourIdx} onSelect={setEndHourIdx} />
-              <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 40, color: 'var(--ink)', padding: '0 2px', flexShrink: 0, marginBottom: 4 }}>:</span>
-              <DrumColumn items={MINS} selectedIdx={endMinIdx} onSelect={setEndMinIdx} />
-              <DrumColumn items={PERIODS} selectedIdx={endPeriodIdx} onSelect={setEndPeriodIdx} />
+            <div style={{ position: 'relative' }}>
+              <div style={{ fontFamily: 'var(--sans)', fontWeight: 300, fontSize: 56, color: 'var(--ink)', letterSpacing: '-0.055em', lineHeight: 1 }}>
+                End{hrs > 0 && <span style={{ fontFamily: 'var(--mono)', fontWeight: 600, fontSize: 16, color: 'var(--hydrant)', marginLeft: 14, verticalAlign: 'middle' }}>{fmtHrs(hrs)}</span>}
+              </div>
+              <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 72, color: 'var(--ink)', letterSpacing: '-0.06em', lineHeight: 1 }}>{fmtDisplay(endTime)}</div>
+              <input
+                type="time"
+                value={endTime}
+                onChange={e => setEndTime(e.target.value)}
+                style={{ position: 'absolute', inset: 0, opacity: 0, cursor: 'pointer', width: '100%', height: '100%' }}
+              />
             </div>
           </div>
         )}
