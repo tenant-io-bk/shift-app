@@ -144,7 +144,7 @@ export default function EmployerDashboard() {
       </div>
 
       {/* ── Post A Shift card ─────────────────────────────────────────────── */}
-      <div style={{ borderRadius: 14, overflow: 'hidden', margin: '0 0 4px' }}>
+      <div style={{ borderRadius: '14px 14px 0 0', overflow: 'hidden', margin: '0 0 4px' }}>
 
         {/* Black bar / toggle */}
         <button
