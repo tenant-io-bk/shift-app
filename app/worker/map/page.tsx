@@ -313,12 +313,14 @@ export default function WorkerMap() {
 
           {/* Stacked wallet cards */}
           {(() => {
-            const PEEK = 76; // px visible per card
-            const CARD_FULL = 200; // expanded card height estimate
+            const PEEK = 90;
+            const EXPANDED_H = 300;
             const n = SHIFTS.length;
-            const containerH = PEEK * (n - 1) + CARD_FULL;
+            const containerH = expandedId
+              ? PEEK * (n - 1) + EXPANDED_H
+              : PEEK * (n - 1) + PEEK + 40;
             return (
-              <div style={{ position: 'relative', height: containerH, margin: '0 16px 80px' }}>
+              <div style={{ position: 'relative', height: containerH, margin: '0 16px 80px', transition: 'height 0.3s ease' }}>
                 {SHIFTS.map((shift, i) => {
                   const isExpanded = expandedId === shift.posting;
                   const isPriority = shift.priority;
@@ -332,31 +334,33 @@ export default function WorkerMap() {
                         left: 0, right: 0,
                         zIndex: isExpanded ? 99 : i + 1,
                         background: isPriority ? 'var(--ink)' : 'var(--paper)',
-                        borderRadius: 18,
+                        borderRadius: '18px 18px 0 0',
                         border: isPriority ? '2px solid var(--hydrant)' : '1.5px solid rgba(0,0,0,0.1)',
-                        boxShadow: '0 4px 20px rgba(0,0,0,0.10)',
+                        boxShadow: '0 -2px 12px rgba(0,0,0,0.07)',
                         cursor: 'pointer',
                         overflow: 'hidden',
                       }}
                     >
                       {/* Main row */}
-                      <div style={{ display: 'flex', alignItems: 'center', padding: '18px 18px', gap: 10 }}>
+                      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '22px 20px', gap: 12 }}>
                         <div style={{ flex: 1, minWidth: 0 }}>
-                          <div style={{ fontFamily: 'var(--sans)', fontWeight: 400, fontSize: 26, color: isPriority ? '#fff' : 'var(--ink)', letterSpacing: '-0.04em', lineHeight: 1.05 }}>
+                          <div style={{ fontFamily: 'var(--sans)', fontWeight: 400, fontSize: 20, color: isPriority ? '#fff' : 'var(--ink)', letterSpacing: '-0.03em', lineHeight: 1.1 }}>
                             {shift.shortName}
                           </div>
-                          <div style={{ fontFamily: 'var(--mono)', fontSize: 9, fontWeight: 600, color: isPriority ? 'rgba(255,255,255,0.4)' : 'var(--mute)', letterSpacing: '0.06em', textTransform: 'uppercase', marginTop: 4 }}>
+                          <div style={{ fontFamily: 'var(--mono)', fontSize: 9, fontWeight: 600, color: isPriority ? 'rgba(255,255,255,0.4)' : 'var(--mute)', letterSpacing: '0.06em', textTransform: 'uppercase', marginTop: 5 }}>
                             {shift.neighborhood} · {shift.distance}
                           </div>
                           {isPriority && (
-                            <div style={{ fontFamily: 'var(--mono)', fontSize: 9, fontWeight: 700, color: 'var(--hydrant)', textTransform: 'uppercase', letterSpacing: '0.12em', marginTop: 3 }}>Priority Fill</div>
+                            <div style={{ fontFamily: 'var(--mono)', fontSize: 9, fontWeight: 700, color: 'var(--hydrant)', textTransform: 'uppercase', letterSpacing: '0.12em', marginTop: 4 }}>Priority Fill</div>
                           )}
                         </div>
 
-                        <div style={{ background: isPriority ? 'var(--hydrant)' : 'var(--ink)', borderRadius: 99, padding: '7px 12px', flexShrink: 0 }}>
-                          <span style={{ fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 600, color: '#fff', whiteSpace: 'nowrap' }}>
-                            {shift.type} {shift.hours}
-                          </span>
+                        <div style={{ display: 'flex', justifyContent: 'center', flexShrink: 0 }}>
+                          <div style={{ background: isPriority ? 'var(--hydrant)' : 'var(--ink)', borderRadius: 99, padding: '8px 14px' }}>
+                            <span style={{ fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 600, color: '#fff', whiteSpace: 'nowrap' }}>
+                              {shift.type} {shift.hours}
+                            </span>
+                          </div>
                         </div>
 
                         <div style={{ textAlign: 'right', flexShrink: 0 }}>
@@ -371,15 +375,15 @@ export default function WorkerMap() {
 
                       {/* Expanded */}
                       {isExpanded && (
-                        <div style={{ padding: '0 18px 18px' }}>
-                          <div style={{ height: 1, background: isPriority ? 'rgba(255,255,255,0.1)' : 'var(--line)', marginBottom: 14 }} />
-                          <p style={{ fontFamily: 'var(--sans)', fontWeight: 300, fontSize: 18, color: isPriority ? 'rgba(255,255,255,0.85)' : 'var(--ink)', letterSpacing: '-0.03em', lineHeight: 1.35, margin: '0 0 16px' }}>
+                        <div style={{ padding: '0 20px 20px' }}>
+                          <div style={{ height: 1, background: isPriority ? 'rgba(255,255,255,0.1)' : 'var(--line)', marginBottom: 16 }} />
+                          <p style={{ fontFamily: 'var(--sans)', fontWeight: 300, fontSize: 18, color: isPriority ? 'rgba(255,255,255,0.85)' : 'var(--ink)', letterSpacing: '-0.03em', lineHeight: 1.35, margin: '0 0 18px' }}>
                             {shift.description}
                           </p>
                           <Link
                             href="/worker/job-detail"
                             onClick={e => e.stopPropagation()}
-                            style={{ display: 'block', textAlign: 'center', padding: '13px', background: isPriority ? 'var(--hydrant)' : 'var(--ink)', color: '#fff', borderRadius: 99, fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 16, textDecoration: 'none', letterSpacing: '-0.02em' }}
+                            style={{ display: 'block', textAlign: 'center', padding: '14px', background: isPriority ? 'var(--hydrant)' : 'var(--ink)', color: '#fff', borderRadius: 99, fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 16, textDecoration: 'none', letterSpacing: '-0.02em' }}
                           >
                             View shift →
                           </Link>
