@@ -8,6 +8,16 @@ const ROLES = ['Barista', 'Server', 'Barback', 'Host', 'Bartender', 'Cook', 'Dis
 const STEPS = ['role', 'when', 'pay', 'count', 'notes', 'confirm'] as const;
 type Step = typeof STEPS[number];
 
+function fmtDate(dateStr: string) {
+  const [y, m, d] = dateStr.split('-').map(Number);
+  const date = new Date(y, m - 1, d);
+  const days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+  const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  const day = date.getDate();
+  const suffix = [11,12,13].includes(day) ? 'th' : day % 10 === 1 ? 'st' : day % 10 === 2 ? 'nd' : day % 10 === 3 ? 'rd' : 'th';
+  return `${days[date.getDay()]}, ${months[date.getMonth()]} ${day}${suffix}`;
+}
+
 function fmtDisplay(t: string) {
   const [h, m] = t.split(':').map(Number);
   const period = h >= 12 ? 'P' : 'A';
@@ -36,6 +46,7 @@ export default function PostShift() {
   const [animating, setAnimating] = useState(false);
 
   const [role, setRole] = useState('');
+  const [date, setDate] = useState('2026-05-19');
   const [startTime, setStartTime] = useState('11:00');
   const [endTime, setEndTime] = useState('16:00');
   const [rate, setRate] = useState(26);
@@ -46,7 +57,7 @@ export default function PostShift() {
   const total = STEPS.length - 1;
   const hrs = timeDiffHrs(startTime, endTime);
   const total$ = rate * hrs * count;
-  const whenStr = `Today · ${fmtDisplay(startTime)} – ${fmtDisplay(endTime)}${hrs > 0 ? ` (${fmtHrs(hrs)})` : ''}`;
+  const whenStr = `${fmtDate(date)} · ${fmtDisplay(startTime)} – ${fmtDisplay(endTime)}${hrs > 0 ? ` (${fmtHrs(hrs)})` : ''}`;
 
   function go(delta: 1 | -1) {
     if (animating) return;
@@ -121,10 +132,16 @@ export default function PostShift() {
             <p style={{ fontFamily: 'var(--sans)', fontWeight: 400, fontSize: 18, color: 'var(--ink)', letterSpacing: '-0.02em', marginBottom: 16, lineHeight: 1.2 }}>When do you need a shift filled?</p>
 
             {/* Date pill */}
-            <div style={{ marginBottom: 32 }}>
-              <div style={{ display: 'inline-block', background: 'var(--ink)', borderRadius: 99, padding: '10px 20px' }}>
-                <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 17, color: '#fff', letterSpacing: '-0.02em' }}>Monday, May 19th</span>
+            <div style={{ marginBottom: 32, position: 'relative', display: 'inline-block' }}>
+              <div style={{ background: 'var(--ink)', borderRadius: 99, padding: '10px 20px' }}>
+                <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 17, color: '#fff', letterSpacing: '-0.02em' }}>{fmtDate(date)}</span>
               </div>
+              <input
+                type="date"
+                value={date}
+                onChange={e => setDate(e.target.value)}
+                style={{ position: 'absolute', inset: 0, opacity: 0, cursor: 'pointer', width: '100%', height: '100%' }}
+              />
             </div>
 
             {/* Start */}
