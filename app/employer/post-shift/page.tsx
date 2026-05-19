@@ -1,13 +1,122 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import StepProgress from '@/app/components/StepProgress';
 
 const ROLES = ['Barista', 'Server', 'Barback', 'Host', 'Bartender', 'Cook', 'Dishwasher', 'Cashier'];
-
 const STEPS = ['role', 'when', 'pay', 'count', 'notes', 'confirm'] as const;
 type Step = typeof STEPS[number];
+
+const ITEM_H = 64;
+const HOURS = ['1','2','3','4','5','6','7','8','9','10','11','12'];
+const MINS = ['00','15','30','45'];
+const PERIODS = ['A','P'];
+
+function DrumColumn({ items, selectedIdx, onSelect, wide }: {
+  items: string[];
+  selectedIdx: number;
+  onSelect: (i: number) => void;
+  wide?: boolean;
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const timer = useRef<any>(null);
+  const isUserScroll = useRef(false);
+
+  useEffect(() => {
+    if (ref.current) {
+      ref.current.scrollTop = selectedIdx * ITEM_H;
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  function handleScroll() {
+    if (!isUserScroll.current) return;
+    clearTimeout(timer.current);
+    timer.current = setTimeout(() => {
+      if (!ref.current) return;
+      const idx = Math.round(ref.current.scrollTop / ITEM_H);
+      const clamped = Math.max(0, Math.min(items.length - 1, idx));
+      isUserScroll.current = false;
+      ref.current.scrollTo({ top: clamped * ITEM_H, behavior: 'smooth' });
+      onSelect(clamped);
+    }, 80);
+  }
+
+  return (
+    <div style={{ position: 'relative', flex: wide ? 1.2 : 1 }}>
+      {/* center selection band */}
+      <div style={{
+        position: 'absolute', top: ITEM_H, left: 4, right: 4, height: ITEM_H,
+        borderTop: '1.5px solid var(--ink)', borderBottom: '1.5px solid var(--ink)',
+        pointerEvents: 'none', zIndex: 1, borderRadius: 2,
+      }} />
+      {/* top/bottom fade */}
+      <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: ITEM_H, background: 'linear-gradient(to bottom, var(--paper), transparent)', pointerEvents: 'none', zIndex: 2 }} />
+      <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: ITEM_H, background: 'linear-gradient(to top, var(--paper), transparent)', pointerEvents: 'none', zIndex: 2 }} />
+      <div
+        ref={ref}
+        onPointerDown={() => { isUserScroll.current = true; }}
+        onScroll={handleScroll}
+        style={{
+          height: ITEM_H * 3,
+          overflowY: 'scroll',
+          scrollSnapType: 'y mandatory',
+          scrollbarWidth: 'none',
+          WebkitOverflowScrolling: 'touch' as never,
+        }}
+      >
+        <div style={{ height: ITEM_H, flexShrink: 0 }} />
+        {items.map((item, i) => (
+          <div
+            key={i}
+            style={{
+              height: ITEM_H,
+              scrollSnapAlign: 'center',
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              fontFamily: 'var(--sans)',
+              fontWeight: i === selectedIdx ? 700 : 300,
+              fontSize: wide ? 44 : 40,
+              color: i === selectedIdx ? 'var(--ink)' : 'rgba(13,14,18,0.18)',
+              letterSpacing: '-0.04em',
+              userSelect: 'none',
+              cursor: 'pointer',
+              transition: 'color 0.12s, font-weight 0.12s',
+            }}
+            onClick={() => {
+              isUserScroll.current = false;
+              ref.current?.scrollTo({ top: i * ITEM_H, behavior: 'smooth' });
+              onSelect(i);
+            }}
+          >
+            {item}
+          </div>
+        ))}
+        <div style={{ height: ITEM_H, flexShrink: 0 }} />
+      </div>
+    </div>
+  );
+}
+
+function toTotalMinutes(hourIdx: number, minIdx: number, periodIdx: number) {
+  let h = hourIdx + 1;
+  if (periodIdx === 0 && h === 12) h = 0;
+  if (periodIdx === 1 && h !== 12) h += 12;
+  return h * 60 + minIdx * 15;
+}
+
+function fmtTime(hourIdx: number, minIdx: number, periodIdx: number) {
+  return `${HOURS[hourIdx]}:${MINS[minIdx]}${PERIODS[periodIdx]}`;
+}
+
+function fmtHrs(h: number) {
+  if (h <= 0) return '—';
+  const whole = Math.floor(h);
+  const mins = Math.round((h - whole) * 60);
+  if (mins === 0) return `${whole}h`;
+  return whole > 0 ? `${whole}h ${mins}m` : `${mins}m`;
+}
 
 export default function PostShift() {
   const router = useRouter();
@@ -20,8 +129,23 @@ export default function PostShift() {
   const [count, setCount] = useState(1);
   const [notes, setNotes] = useState('');
 
+  const [startHourIdx, setStartHourIdx] = useState(10); // 11
+  const [startMinIdx, setStartMinIdx] = useState(0);    // 00
+  const [startPeriodIdx, setStartPeriodIdx] = useState(0); // A
+  const [endHourIdx, setEndHourIdx] = useState(3);      // 4
+  const [endMinIdx, setEndMinIdx] = useState(0);        // 00
+  const [endPeriodIdx, setEndPeriodIdx] = useState(1);  // P
+
   const step = STEPS[stepIdx];
-  const total = STEPS.length - 1; // confirm is not a "progress" step
+  const total = STEPS.length - 1;
+
+  const startMins = toTotalMinutes(startHourIdx, startMinIdx, startPeriodIdx);
+  const endMins = toTotalMinutes(endHourIdx, endMinIdx, endPeriodIdx);
+  const hrs = Math.max(0, (endMins - startMins) / 60);
+  const total$ = rate * hrs * count;
+  const startStr = fmtTime(startHourIdx, startMinIdx, startPeriodIdx);
+  const endStr = fmtTime(endHourIdx, endMinIdx, endPeriodIdx);
+  const whenStr = `Today · ${startStr} – ${endStr}${hrs > 0 ? ` (${fmtHrs(hrs)})` : ''}`;
 
   function go(delta: 1 | -1) {
     if (animating) return;
@@ -33,17 +157,11 @@ export default function PostShift() {
     }, 180);
   }
 
-  function next() {
-    if (stepIdx < STEPS.length - 1) go(1);
-  }
-
+  function next() { if (stepIdx < STEPS.length - 1) go(1); }
   function back() {
     if (stepIdx > 0) go(-1);
     else router.push('/employer/dashboard');
   }
-
-  const hrs = 5;
-  const total$ = rate * hrs * count;
 
   const canNext =
     (step === 'role' && role !== '') ||
@@ -85,7 +203,7 @@ export default function PostShift() {
             <h1 style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 36, letterSpacing: '-0.075em', lineHeight: 1, color: 'var(--ink)', marginBottom: 28 }}>What role do you need?</h1>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10 }}>
               {ROLES.map(r => (
-                <button key={r} onClick={() => { setRole(r); }} style={{
+                <button key={r} onClick={() => setRole(r)} style={{
                   padding: '14px 16px', borderRadius: 99, cursor: 'pointer', textAlign: 'center',
                   fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 18, letterSpacing: '-0.02em',
                   border: '2px solid var(--ink)',
@@ -104,25 +222,32 @@ export default function PostShift() {
             <div style={{ fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--hydrant)', marginBottom: 12 }}>When</div>
             <p style={{ fontFamily: 'var(--sans)', fontWeight: 400, fontSize: 18, color: 'var(--ink)', letterSpacing: '-0.02em', marginBottom: 16, lineHeight: 1.2 }}>When do you need a shift filled?</p>
 
-            {/* Date pill */}
-            <div style={{ marginBottom: 28 }}>
+            <div style={{ marginBottom: 24 }}>
               <div style={{ display: 'inline-block', background: 'var(--ink)', borderRadius: 99, padding: '10px 20px' }}>
                 <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 17, color: '#fff', letterSpacing: '-0.02em' }}>Monday, May 19th</span>
               </div>
             </div>
 
             {/* Start */}
-            <div style={{ marginBottom: 20 }}>
-              <div style={{ fontFamily: 'var(--sans)', fontWeight: 300, fontSize: 56, color: 'var(--ink)', letterSpacing: '-0.055em', lineHeight: 1 }}>Start</div>
-              <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 72, color: 'var(--ink)', letterSpacing: '-0.06em', lineHeight: 1 }}>11:00A</div>
+            <div style={{ fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--ink)', marginBottom: 4 }}>Start</div>
+            <div style={{ display: 'flex', alignItems: 'center' }}>
+              <DrumColumn wide items={HOURS} selectedIdx={startHourIdx} onSelect={setStartHourIdx} />
+              <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 40, color: 'var(--ink)', padding: '0 2px', flexShrink: 0, marginBottom: 4 }}>:</span>
+              <DrumColumn items={MINS} selectedIdx={startMinIdx} onSelect={setStartMinIdx} />
+              <DrumColumn items={PERIODS} selectedIdx={startPeriodIdx} onSelect={setStartPeriodIdx} />
             </div>
 
-            <div style={{ height: 1, background: 'var(--line)', marginBottom: 20 }} />
+            <div style={{ height: 1, background: 'var(--line)', margin: '12px 0' }} />
 
             {/* End */}
-            <div>
-              <div style={{ fontFamily: 'var(--sans)', fontWeight: 300, fontSize: 56, color: 'var(--ink)', letterSpacing: '-0.055em', lineHeight: 1 }}>End</div>
-              <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 72, color: 'var(--ink)', letterSpacing: '-0.06em', lineHeight: 1 }}>4:00P</div>
+            <div style={{ fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--ink)', marginBottom: 4 }}>
+              End{hrs > 0 ? <span style={{ color: 'var(--hydrant)', marginLeft: 8 }}>{fmtHrs(hrs)}</span> : null}
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center' }}>
+              <DrumColumn wide items={HOURS} selectedIdx={endHourIdx} onSelect={setEndHourIdx} />
+              <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 40, color: 'var(--ink)', padding: '0 2px', flexShrink: 0, marginBottom: 4 }}>:</span>
+              <DrumColumn items={MINS} selectedIdx={endMinIdx} onSelect={setEndMinIdx} />
+              <DrumColumn items={PERIODS} selectedIdx={endPeriodIdx} onSelect={setEndPeriodIdx} />
             </div>
           </div>
         )}
@@ -140,7 +265,9 @@ export default function PostShift() {
                     <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 64, color: 'white', letterSpacing: '-0.075em', lineHeight: 1 }}>${rate}</span>
                     <span style={{ fontFamily: 'var(--mono)', fontSize: 18, color: 'rgba(255,255,255,0.5)' }}>/hr</span>
                   </div>
-                  <div style={{ fontFamily: 'var(--mono)', fontSize: 13, color: 'rgba(255,255,255,0.4)', marginTop: 6 }}>Total for {hrs}h: ${rate * hrs}.</div>
+                  <div style={{ fontFamily: 'var(--mono)', fontSize: 13, color: 'rgba(255,255,255,0.4)', marginTop: 6 }}>
+                    {hrs > 0 ? `Total for ${fmtHrs(hrs)}: $${(rate * hrs).toFixed(0)}.` : 'Set times to see total.'}
+                  </div>
                 </div>
                 <button onClick={() => setRate(r => Math.min(75, r + 1))} style={{ width: 48, height: 48, borderRadius: 12, border: '1px solid rgba(255,255,255,0.18)', background: 'rgba(255,255,255,0.08)', color: 'white', fontSize: 28, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>+</button>
               </div>
@@ -189,7 +316,7 @@ export default function PostShift() {
             <div style={{ display: 'flex', flexDirection: 'column', gap: 8, marginBottom: 28 }}>
               {[
                 { label: 'Role', value: role },
-                { label: 'When', value: 'Today · 11:00A – 4:00P (5 hrs)' },
+                { label: 'When', value: whenStr },
                 { label: 'Pay', value: `$${rate}/hr` },
                 { label: 'Workers', value: `${count} worker${count > 1 ? 's' : ''} + 1 backup` },
                 ...(notes ? [{ label: 'Notes', value: notes }] : []),
@@ -203,7 +330,7 @@ export default function PostShift() {
 
             <div style={{ marginTop: 'auto', paddingTop: 16 }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 12 }}>
-                <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 24, color: 'var(--ink)', letterSpacing: '-0.04em' }}>All in: ${total$}.</span>
+                <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 24, color: 'var(--ink)', letterSpacing: '-0.04em' }}>All in: ${total$.toFixed(0)}.</span>
                 <span style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--ink)' }}>$0 to post</span>
               </div>
               <button
