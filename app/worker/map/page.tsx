@@ -313,7 +313,7 @@ export default function WorkerMap() {
 
           {/* Stacked wallet cards */}
           {(() => {
-            const PEEK = 90;
+            const PEEK = 82;
             const EXPANDED_H = 300;
             const n = SHIFTS.length;
             const containerH = expandedId
@@ -335,8 +335,8 @@ export default function WorkerMap() {
                         zIndex: isExpanded ? 99 : i + 1,
                         background: isPriority ? 'var(--ink)' : 'var(--paper)',
                         borderRadius: '18px 18px 0 0',
-                        border: isPriority ? '2px solid var(--hydrant)' : '1.5px solid rgba(0,0,0,0.1)',
-                        boxShadow: '0 -2px 12px rgba(0,0,0,0.07)',
+                        border: isPriority ? '2px solid var(--hydrant)' : '2px solid var(--ink)',
+                        boxShadow: 'none',
                         cursor: 'pointer',
                         overflow: 'hidden',
                       }}
