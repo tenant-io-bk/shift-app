@@ -8,70 +8,90 @@ import BottomNav from '@/app/components/BottomNav';
 const SHIFTS = [
   {
     name: "Padmore's Coffee",
+    shortName: "Padmore's",
+    neighborhood: 'BedStuy',
+    distance: '0.6 MI',
+    description: 'Coffee bar needs a skilled barista for the lunch rush. Latte art experience preferred. Wear all black.',
     role: 'Barista for the lunch rush',
     type: 'Barista',
     meta: 'G · 25 MIN · 0.6 MI',
-    pay: '$140.',
-    rate: '$28/hr',
-    hours: '11A – 4P',
+    pay: '$140',
+    rate: '$28/HR',
+    hours: '11A–4P',
     date: 'Today',
     posting: '#4471',
     bg: 'linear-gradient(135deg, #c4a577 0%, #8b6545 60%, #5c3d22 100%)',
     cardBg: '#EAD5B8',
     rating: '4.9',
     urgent: false,
+    priority: false,
     pinX: 185, pinY: 120,
     pinDark: true,
   },
   {
     name: 'The Wren',
+    shortName: 'The Wren',
+    neighborhood: 'BedStuy',
+    distance: '0.4 MI',
+    description: 'Upscale bistro needs a server for a full lunch service. 2+ years fine dining experience required.',
     role: 'Server for lunch service',
     type: 'Server',
     meta: 'G · 18 MIN · 0.4 MI',
-    pay: '$96.',
-    rate: '$24/hr',
-    hours: '11A – 3P',
+    pay: '$96',
+    rate: '$24/HR',
+    hours: '11A–3P',
     date: 'Today',
     posting: '#4468',
     bg: 'linear-gradient(135deg, #a8c4a0 0%, #6b9e62 60%, #4a7040 100%)',
     cardBg: '#C2DCC0',
     rating: '4.7',
     urgent: false,
+    priority: false,
     pinX: 270, pinY: 90,
     pinDark: false,
   },
   {
     name: 'Bar Blondeau',
+    shortName: 'Bar Blondeau',
+    neighborhood: 'Williamsburg',
+    distance: '1.1 MI',
+    description: 'Barista to cover for private event. Wear all black, no logos. 2–3 years experience preferred.',
     role: 'Barback for dinner service',
     type: 'Barback',
     meta: 'L · 22 MIN · 1.1 MI',
-    pay: '$120.',
-    rate: '$24/hr',
-    hours: '6P – 12A',
+    pay: '$120',
+    rate: '$24/HR',
+    hours: '6P–12A',
     date: 'Today',
     posting: '#4469',
     bg: 'linear-gradient(135deg, #b8a0c8 0%, #8060a0 60%, #5a3c78 100%)',
     cardBg: '#D0C0E4',
     rating: '4.8',
     urgent: true,
+    priority: true,
     pinX: 340, pinY: 140,
     pinDark: false,
     pinAccent: true,
   },
   {
     name: 'Peoples Wine',
+    shortName: 'Peoples Wine',
+    neighborhood: 'Crown Heights',
+    distance: '0.3 MI',
+    description: 'Wine shop needs floor staff for afternoon retail coverage. Knowledge of natural wine is a plus.',
     role: 'Retail floor this afternoon',
     type: 'Retail',
     meta: 'A/C · 14 MIN · 0.3 MI',
-    pay: '$85.',
-    rate: '$22/hr',
-    hours: '2P – 6P',
+    pay: '$85',
+    rate: '$22/HR',
+    hours: '2P–6P',
     date: 'Today',
     posting: '#4462',
     bg: 'linear-gradient(135deg, #f0c080 0%, #c88040 60%, #906020 100%)',
     cardBg: '#F2E0A0',
     rating: '4.6',
     urgent: false,
+    priority: false,
     pinX: 60, pinY: 205,
     pinDark: false,
   },
@@ -80,6 +100,7 @@ const SHIFTS = [
 export default function WorkerMap() {
   const [sheetCollapsed, setSheetCollapsed] = useState(false);
   const [viewMode, setViewMode] = useState<'map' | 'list'>('map');
+  const [expandedId, setExpandedId] = useState<string | null>(null);
 
   const mapHeight = sheetCollapsed ? 'calc(100vh - 148px)' : 280;
 
@@ -216,7 +237,7 @@ export default function WorkerMap() {
                   minWidth: 58,
                 }}>
                   <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 13, color: shift.pinDark ? '#fff' : 'var(--ink)' }}>
-                    {shift.pay.replace('.', '')}
+                    {shift.pay}
                   </span>
                   <span style={{ fontFamily: 'var(--mono)', fontSize: 10, color: shift.pinDark ? 'rgba(255,255,255,0.6)' : 'var(--mute)' }}>
                     {shift.rating}★
@@ -274,72 +295,105 @@ export default function WorkerMap() {
 
       {/* ─── LIST VIEW ─── */}
       {viewMode === 'list' && (
-        <div style={{ flex: 1, overflowY: 'auto', paddingBottom: 80 }}>
-          {/* Summary bar */}
-          <div style={{ padding: '12px 22px', borderBottom: '1px solid var(--line)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-            <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 18, letterSpacing: '-0.02em', color: 'var(--ink)' }}>18 shifts open</span>
-            <span style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--mute)' }}>avg $23/hr</span>
+        <div style={{ flex: 1, overflowY: 'auto', paddingBottom: 80, background: 'var(--paper)' }}>
+
+          {/* Header */}
+          <div style={{ padding: '20px 20px 16px' }}>
+            <div style={{ fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 600, color: 'var(--mute)', letterSpacing: '0.06em', marginBottom: 12 }}>
+              BedStuy, Brooklyn · 78F Sunny
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
+              <div style={{ width: 52, height: 52, borderRadius: 99, background: 'var(--hydrant)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 22, color: '#fff', letterSpacing: '-0.04em' }}>18</span>
+              </div>
+              <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 32, color: 'var(--ink)', letterSpacing: '-0.04em', lineHeight: 1 }}>Shifts Available</span>
+            </div>
           </div>
 
-          {/* Rank strip */}
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: 'var(--ink)', padding: '10px 22px' }}>
-            <span style={{ fontFamily: 'var(--mono)', fontSize: 12, fontWeight: 600, color: '#fff' }}>#4. You</span>
-            <span style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--mute)' }}>2 more shifts to climb to #2</span>
-          </div>
+          {/* Cards */}
+          <div style={{ padding: '0 16px 16px', display: 'flex', flexDirection: 'column', gap: 8 }}>
+            {SHIFTS.map(shift => {
+              const isExpanded = expandedId === shift.posting;
+              const isPriority = shift.priority;
+              return (
+                <div
+                  key={shift.posting}
+                  onClick={() => setExpandedId(isExpanded ? null : shift.posting)}
+                  style={{
+                    background: isPriority ? 'var(--ink)' : 'var(--paper)',
+                    borderRadius: 14,
+                    border: `1.5px solid ${isPriority ? 'var(--ink)' : 'var(--line)'}`,
+                    overflow: 'hidden',
+                    cursor: 'pointer',
+                  }}
+                >
+                  {/* Priority label */}
+                  {isPriority && (
+                    <div style={{ padding: '10px 16px 0' }}>
+                      <span style={{ fontFamily: 'var(--mono)', fontSize: 9, fontWeight: 700, color: 'var(--hydrant)', textTransform: 'uppercase', letterSpacing: '0.12em' }}>Priority Fill</span>
+                    </div>
+                  )}
 
-          {/* Full list cards */}
-          <div style={{ padding: '12px 16px', display: 'flex', flexDirection: 'column', gap: 12 }}>
-            {SHIFTS.map(shift => (
-              <Link
-                key={shift.posting}
-                href="/worker/job-detail"
-                style={{ textDecoration: 'none', display: 'block' }}
-              >
-                <div style={{
-                  background: shift.cardBg,
-                  borderRadius: 20,
-                  overflow: 'hidden',
-                  padding: '20px 20px 18px',
-                  minHeight: 160,
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'space-between',
-                  position: 'relative',
-                }}>
-                  {/* Top row: logo + name + pay */}
-                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 16 }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-                      <div style={{ width: 36, height: 36, borderRadius: 10, background: shift.bg, flexShrink: 0 }} />
-                      <div>
-                        <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 14, color: 'var(--ink)', lineHeight: 1.1 }}>{shift.name}</div>
-                        {shift.urgent && (
-                          <span style={{ fontFamily: 'var(--mono)', fontSize: 9, fontWeight: 700, color: '#c0392b', textTransform: 'uppercase', letterSpacing: '0.08em' }}>urgent</span>
-                        )}
+                  {/* Main row */}
+                  <div style={{ display: 'flex', alignItems: 'center', padding: '12px 14px', gap: 10 }}>
+                    {/* Left: name + neighborhood */}
+                    <div style={{ flex: 1, minWidth: 0 }}>
+                      <div style={{ fontFamily: 'var(--sans)', fontWeight: 400, fontSize: 18, color: isPriority ? '#fff' : 'var(--ink)', letterSpacing: '-0.03em', lineHeight: 1.1, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                        {shift.shortName}
+                      </div>
+                      <div style={{ fontFamily: 'var(--mono)', fontSize: 9, fontWeight: 600, color: isPriority ? 'rgba(255,255,255,0.4)' : 'var(--mute)', letterSpacing: '0.06em', textTransform: 'uppercase', marginTop: 3 }}>
+                        {shift.neighborhood} · {shift.distance}
                       </div>
                     </div>
-                    <div style={{ textAlign: 'right' }}>
-                      <div style={{ fontFamily: 'var(--sans)', fontWeight: 800, fontSize: 26, color: 'var(--ink)', letterSpacing: '-0.06em', lineHeight: 1 }}>{shift.pay}</div>
-                      <div style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'rgba(13,14,18,0.5)', marginTop: 1 }}>{shift.rate}</div>
+
+                    {/* Center: role pill */}
+                    <div style={{
+                      background: isPriority ? 'var(--hydrant)' : 'var(--ink)',
+                      borderRadius: 99,
+                      padding: '5px 10px',
+                      flexShrink: 0,
+                    }}>
+                      <span style={{ fontFamily: 'var(--mono)', fontSize: 10, fontWeight: 600, color: '#fff', whiteSpace: 'nowrap' }}>
+                        {shift.type} {shift.hours}
+                      </span>
+                    </div>
+
+                    {/* Right: pay */}
+                    <div style={{ textAlign: 'right', flexShrink: 0 }}>
+                      <div style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 22, color: isPriority ? '#fff' : 'var(--ink)', letterSpacing: '-0.05em', lineHeight: 1 }}>
+                        {shift.pay}
+                      </div>
+                      <div style={{ fontFamily: 'var(--mono)', fontSize: 9, fontWeight: 600, color: isPriority ? 'rgba(255,255,255,0.4)' : 'var(--mute)', textTransform: 'uppercase', marginTop: 3 }}>
+                        {shift.rate}
+                      </div>
                     </div>
                   </div>
 
-                  {/* Hero role text */}
-                  <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 30, color: 'var(--ink)', letterSpacing: '-0.04em', lineHeight: 0.95, marginBottom: 18 }}>
-                    {shift.role}
-                  </div>
-
-                  {/* Bottom meta */}
-                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                    <div style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'rgba(13,14,18,0.55)', fontWeight: 600, letterSpacing: '0.04em' }}>
-                      {shift.date} · {shift.hours}
+                  {/* Expanded: description + CTA */}
+                  {isExpanded && (
+                    <div style={{ padding: '0 16px 16px' }}>
+                      <div style={{ height: 1, background: isPriority ? 'rgba(255,255,255,0.1)' : 'var(--line)', marginBottom: 14 }} />
+                      <p style={{ fontFamily: 'var(--sans)', fontWeight: 300, fontSize: 18, color: isPriority ? 'rgba(255,255,255,0.85)' : 'var(--ink)', letterSpacing: '-0.03em', lineHeight: 1.35, margin: '0 0 16px' }}>
+                        {shift.description}
+                      </p>
+                      <Link
+                        href="/worker/job-detail"
+                        onClick={e => e.stopPropagation()}
+                        style={{
+                          display: 'block', textAlign: 'center', padding: '13px',
+                          background: isPriority ? 'var(--hydrant)' : 'var(--ink)',
+                          color: '#fff', borderRadius: 99,
+                          fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 16,
+                          textDecoration: 'none', letterSpacing: '-0.02em',
+                        }}
+                      >
+                        View shift →
+                      </Link>
                     </div>
-                    <div style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'rgba(13,14,18,0.55)', fontWeight: 600 }}>
-                      {shift.meta}
-                    </div>
-                  </div>
+                  )}
                 </div>
-              </Link>
-            ))}
+              );
+            })}
           </div>
         </div>
       )}
