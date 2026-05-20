@@ -139,11 +139,9 @@ export default function WorkerProfile() {
         </div>
 
         {/* Online now */}
-        <div style={{ marginBottom: 20 }}>
-          <span style={{ display: 'inline-flex', alignItems: 'center', gap: 7, fontFamily: 'var(--mono)', fontSize: 12, fontWeight: 600, color: 'var(--ink)', border: '2px solid var(--ink)', borderRadius: 99, padding: '5px 12px' }}>
-            <span style={{ width: 8, height: 8, borderRadius: '50%', background: 'var(--hydrant)', flexShrink: 0 }} />
-            Online now
-          </span>
+        <div style={{ display: 'inline-flex', alignItems: 'center', gap: 7, marginBottom: 20 }}>
+          <span style={{ width: 8, height: 8, borderRadius: '50%', background: 'var(--hydrant)', flexShrink: 0 }} />
+          <span style={{ fontFamily: 'var(--mono)', fontSize: 12, fontWeight: 600, color: 'var(--ink)' }}>Online now</span>
         </div>
       </div>
 
