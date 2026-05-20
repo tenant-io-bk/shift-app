@@ -101,6 +101,7 @@ export default function WorkerMap() {
   const [sheetCollapsed, setSheetCollapsed] = useState(false);
   const [viewMode, setViewMode] = useState<'map' | 'list'>('map');
   const [expandedId, setExpandedId] = useState<string | null>(null);
+  const [tappedPin, setTappedPin] = useState<string | null>(null);
 
   const mapHeight = sheetCollapsed ? 'calc(100vh - 148px)' : 280;
 
@@ -182,7 +183,7 @@ export default function WorkerMap() {
       {viewMode === 'map' && (
         <>
           {/* Map canvas */}
-          <div style={{
+          <div onClick={() => setTappedPin(null)} style={{
             height: mapHeight,
             position: 'relative',
             flexShrink: 0,
@@ -230,23 +231,52 @@ export default function WorkerMap() {
             </div>
 
             {SHIFTS.map(shift => (
-              <div key={shift.posting} className="shift-pin" style={{ left: shift.pinX, top: shift.pinY }}>
-                <div className="pin-card" style={{
-                  background: shift.pinDark ? '#0D0E12' : undefined,
-                  borderColor: shift.pinDark ? '#0D0E12' : shift.pinAccent ? '#72c15f' : undefined,
-                  minWidth: 58,
-                }}>
-                  <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 13, color: shift.pinDark ? '#fff' : 'var(--ink)' }}>
-                    {shift.pay}
-                  </span>
-                  <span style={{ fontFamily: 'var(--mono)', fontSize: 10, color: shift.pinDark ? 'rgba(255,255,255,0.6)' : 'var(--mute)' }}>
-                    {shift.rating}★
-                  </span>
-                </div>
-                <div className="pin-tail" style={{
-                  background: shift.pinDark ? '#0D0E12' : undefined,
-                  borderColor: shift.pinDark ? '#0D0E12' : shift.pinAccent ? '#72c15f' : undefined,
+              <div
+                key={shift.posting}
+                onClick={e => { e.stopPropagation(); setTappedPin(tappedPin === shift.posting ? null : shift.posting); }}
+                style={{
+                  position: 'absolute',
+                  left: shift.pinX,
+                  top: shift.pinY,
+                  transform: 'translate(-50%, -50%)',
+                  cursor: 'pointer',
+                  zIndex: tappedPin === shift.posting ? 20 : 10,
+                }}
+              >
+                {/* Dot */}
+                <div style={{
+                  width: 14, height: 14, borderRadius: '50%',
+                  background: shift.priority ? 'var(--hydrant)' : 'var(--ink)',
+                  border: '2.5px solid #fff',
+                  boxShadow: '0 1px 4px rgba(0,0,0,0.25)',
                 }} />
+
+                {/* Mini card on tap */}
+                {tappedPin === shift.posting && (
+                  <div style={{
+                    position: 'absolute',
+                    bottom: 22,
+                    left: '50%',
+                    transform: 'translateX(-50%)',
+                    background: 'var(--paper)',
+                    border: '2px solid var(--ink)',
+                    borderRadius: 12,
+                    padding: '10px 14px',
+                    minWidth: 160,
+                    zIndex: 30,
+                    boxShadow: '0 4px 16px rgba(0,0,0,0.15)',
+                    whiteSpace: 'nowrap',
+                  }}>
+                    <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 13, color: 'var(--ink)', marginBottom: 4 }}>{shift.name}</div>
+                    <div style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--mute)', marginBottom: 2 }}>{shift.type} · {shift.hours}</div>
+                    <div style={{ display: 'flex', alignItems: 'baseline', gap: 6 }}>
+                      <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 16, color: 'var(--ink)', letterSpacing: '-0.04em' }}>{shift.pay}</span>
+                      <span style={{ fontFamily: 'var(--mono)', fontSize: 10, color: 'var(--mute)' }}>{shift.rate}</span>
+                    </div>
+                    {/* Tail */}
+                    <div style={{ position: 'absolute', bottom: -7, left: '50%', transform: 'translateX(-50%)', width: 12, height: 12, background: 'var(--paper)', border: '2px solid var(--ink)', borderTop: 'none', borderLeft: 'none', rotate: '45deg' }} />
+                  </div>
+                )}
               </div>
             ))}
           </div>

@@ -37,8 +37,68 @@ const REVIEWS = [
   },
 ];
 
+const PAST_SHIFTS = [
+  {
+    posting: '#4401',
+    shortName: "Padmore's",
+    neighborhood: 'BedStuy',
+    distance: '0.6 MI',
+    type: 'Barista',
+    hours: '11A–4P',
+    pay: '$140',
+    rate: '$28/HR',
+    date: 'Mon 12 May',
+    rating: 5,
+    bg: 'linear-gradient(135deg, #c4a577 0%, #8b6545 60%, #5c3d22 100%)',
+    cardBg: '#EAD5B8',
+  },
+  {
+    posting: '#4389',
+    shortName: 'The Wren',
+    neighborhood: 'BedStuy',
+    distance: '0.4 MI',
+    type: 'Server',
+    hours: '11A–3P',
+    pay: '$96',
+    rate: '$24/HR',
+    date: 'Sat 10 May',
+    rating: 5,
+    bg: 'linear-gradient(135deg, #a8c4a0 0%, #6b9e62 60%, #4a7040 100%)',
+    cardBg: '#C2DCC0',
+  },
+  {
+    posting: '#4362',
+    shortName: 'Bar Blondeau',
+    neighborhood: 'Williamsburg',
+    distance: '1.1 MI',
+    type: 'Barback',
+    hours: '6P–12A',
+    pay: '$120',
+    rate: '$24/HR',
+    date: 'Thu 8 May',
+    rating: 4,
+    bg: 'linear-gradient(135deg, #b8a0c8 0%, #8060a0 60%, #5a3c78 100%)',
+    cardBg: '#D0C0E4',
+  },
+  {
+    posting: '#4310',
+    shortName: 'Peoples Wine',
+    neighborhood: 'Crown Heights',
+    distance: '0.3 MI',
+    type: 'Retail',
+    hours: '2P–6P',
+    pay: '$85',
+    rate: '$22/HR',
+    date: 'Tue 6 May',
+    rating: 4,
+    bg: 'linear-gradient(135deg, #f0c080 0%, #c88040 60%, #906020 100%)',
+    cardBg: '#F2E0A0',
+  },
+];
+
 export default function WorkerProfile() {
   const [tab, setTab] = useState<'profile' | 'history'>('profile');
+  const [historyExpanded, setHistoryExpanded] = useState<string | null>(null);
   const [editing, setEditing] = useState(false);
   const [name, setName] = useState('Marcus Rivera');
   const [bio, setBio] = useState('Hospitality pro. 6 years bar + floor experience across Brooklyn and Manhattan. Fast learner, fast learner, fast when it counts.');
@@ -52,7 +112,7 @@ export default function WorkerProfile() {
   }
 
   return (
-    <div style={{ maxWidth: 390, minHeight: '100vh', margin: '0 auto', background: 'var(--paper)', display: 'flex', flexDirection: 'column', paddingBottom: 80 }}>
+    <div style={{ maxWidth: 390, minHeight: '100vh', margin: '0 auto', background: 'var(--paper)', display: 'flex', flexDirection: 'column' }}>
 
       {/* Dark header */}
       <div style={{ background: 'var(--ink)', paddingTop: 0 }}>
@@ -90,6 +150,103 @@ export default function WorkerProfile() {
         </div>
       </div>
 
+      {tab === 'history' && (
+        <div style={{ flex: 1, overflowY: 'auto', paddingBottom: 80, background: 'var(--paper)' }}>
+          {/* Summary */}
+          <div style={{ padding: '20px 20px 16px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
+              <div style={{ width: 52, height: 52, borderRadius: 99, background: 'var(--hydrant)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 22, color: '#fff', letterSpacing: '-0.04em' }}>12</span>
+              </div>
+              <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 32, color: 'var(--ink)', letterSpacing: '-0.04em', lineHeight: 1 }}>Shifts Worked</span>
+            </div>
+            <div style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--mute)', marginTop: 12 }}>$1.8k earned · 4.9★ avg rating</div>
+          </div>
+
+          {/* Stacked wallet cards */}
+          {(() => {
+            const PEEK = 82;
+            const EXPANDED_H = 280;
+            const n = PAST_SHIFTS.length;
+            const containerH = historyExpanded
+              ? PEEK * (n - 1) + EXPANDED_H
+              : PEEK * (n - 1) + PEEK + 40;
+            return (
+              <div style={{ position: 'relative', height: containerH, margin: '0 16px 80px', transition: 'height 0.3s ease' }}>
+                {PAST_SHIFTS.map((shift, i) => {
+                  const isExpanded = historyExpanded === shift.posting;
+                  return (
+                    <div
+                      key={shift.posting}
+                      onClick={() => setHistoryExpanded(isExpanded ? null : shift.posting)}
+                      style={{
+                        position: 'absolute',
+                        top: i * PEEK,
+                        left: 0, right: 0,
+                        zIndex: isExpanded ? 99 : i + 1,
+                        background: shift.cardBg,
+                        borderRadius: '18px 18px 0 0',
+                        border: '2px solid var(--ink)',
+                        cursor: 'pointer',
+                        overflow: 'hidden',
+                      }}
+                    >
+                      {/* Main row */}
+                      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '22px 20px', gap: 12 }}>
+                        <div style={{ flex: 1, minWidth: 0 }}>
+                          <div style={{ fontFamily: 'var(--sans)', fontWeight: 400, fontSize: 20, color: 'var(--ink)', letterSpacing: '-0.03em', lineHeight: 1.1 }}>
+                            {shift.shortName}
+                          </div>
+                          <div style={{ fontFamily: 'var(--mono)', fontSize: 9, fontWeight: 600, color: 'rgba(13,14,18,0.5)', letterSpacing: '0.06em', textTransform: 'uppercase', marginTop: 5 }}>
+                            {shift.date} · {shift.neighborhood}
+                          </div>
+                        </div>
+
+                        <div style={{ display: 'flex', justifyContent: 'center', flexShrink: 0 }}>
+                          <div style={{ background: 'var(--ink)', borderRadius: 99, padding: '8px 14px' }}>
+                            <span style={{ fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 600, color: '#fff', whiteSpace: 'nowrap' }}>
+                              {shift.type} {shift.hours}
+                            </span>
+                          </div>
+                        </div>
+
+                        <div style={{ textAlign: 'right', flexShrink: 0 }}>
+                          <div style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 28, color: 'var(--ink)', letterSpacing: '-0.05em', lineHeight: 1 }}>
+                            {shift.pay}
+                          </div>
+                          <div style={{ fontFamily: 'var(--mono)', fontSize: 9, fontWeight: 600, color: 'rgba(13,14,18,0.5)', textTransform: 'uppercase', marginTop: 4 }}>
+                            {shift.rate}
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Expanded: rating + review link */}
+                      {isExpanded && (
+                        <div style={{ padding: '0 20px 20px' }}>
+                          <div style={{ height: 1, background: 'rgba(13,14,18,0.1)', marginBottom: 14 }} />
+                          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 16 }}>
+                            <span style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--mute)' }}>Your rating</span>
+                            <span style={{ color: 'var(--hydrant)', fontSize: 16 }}>{'★'.repeat(shift.rating)}{'☆'.repeat(5 - shift.rating)}</span>
+                          </div>
+                          <Link
+                            href="/worker/job-detail"
+                            onClick={e => e.stopPropagation()}
+                            style={{ display: 'block', textAlign: 'center', padding: '13px', background: 'var(--ink)', color: '#fff', borderRadius: 99, fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 15, textDecoration: 'none', letterSpacing: '-0.02em' }}
+                          >
+                            View details →
+                          </Link>
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+            );
+          })()}
+        </div>
+      )}
+
+      {tab === 'profile' && <>
       {/* Full-bleed photo */}
       <div style={{ position: 'relative', width: '100%', height: 300, background: 'linear-gradient(160deg, #1a1c22 0%, #2a3828 60%, #3a4a3c 100%)', flexShrink: 0 }}>
         <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
@@ -218,6 +375,8 @@ export default function WorkerProfile() {
           <span style={{ color: 'var(--mute)', fontSize: 18 }}>→</span>
         </Link>
       </div>
+
+      </>}
 
       <BottomNav active="profile" />
     </div>
