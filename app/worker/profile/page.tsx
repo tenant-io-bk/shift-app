@@ -60,52 +60,43 @@ export default function WorkerProfile() {
         </button>
       </div>
 
-      {/* Avatar + name */}
-      <div style={{ padding: '28px 22px 20px', borderBottom: '1px solid var(--line)' }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
-          {/* Avatar */}
-          <div style={{ position: 'relative' }}>
-            <div style={{
-              width: 72, height: 72, borderRadius: '50%',
-              background: 'var(--hydrant)',
-              display: 'flex', alignItems: 'center', justifyContent: 'center',
-              flexShrink: 0,
-            }}>
-              <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 26, color: '#fff' }}>MR</span>
+      {/* Full-bleed photo card */}
+      <div style={{ position: 'relative', width: '100%', height: 200, background: 'linear-gradient(160deg, #1a1c22 0%, #2d3a2e 60%, #3a4a3c 100%)', flexShrink: 0 }}>
+        <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 56, color: 'rgba(255,255,255,0.15)', letterSpacing: '-0.04em' }}>MR</span>
+        </div>
+        {editing && (
+          <div style={{ position: 'absolute', inset: 0, background: 'rgba(0,0,0,0.45)', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8 }}>
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                <circle cx="14" cy="14" r="13" stroke="white" strokeWidth="1.5" />
+                <path d="M14 9v10M9 14h10" stroke="white" strokeWidth="1.5" strokeLinecap="round" />
+              </svg>
+              <span style={{ fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 600, color: '#fff', letterSpacing: '0.06em' }}>Change photo</span>
             </div>
-            {editing && (
-              <div style={{
-                position: 'absolute', bottom: 0, right: 0,
-                width: 22, height: 22, borderRadius: '50%',
-                background: 'var(--ink)', border: '2px solid var(--paper)',
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                cursor: 'pointer',
-              }}>
-                <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
-                  <path d="M1 7.5L7.5 1 9 2.5 2.5 9H1V7.5Z" stroke="white" strokeWidth="1.2" strokeLinejoin="round" />
-                </svg>
-              </div>
-            )}
           </div>
+        )}
+      </div>
 
+      {/* Name + badges + bio */}
+      <div style={{ padding: '20px 22px', borderBottom: '1px solid var(--line)' }}>
+        <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: 12 }}>
           <div style={{ flex: 1 }}>
             {editing ? (
               <input
                 value={nameInput}
                 onChange={e => setNameInput(e.target.value)}
                 style={{
-                  width: '100%', fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 22,
+                  width: '100%', fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 26,
                   color: 'var(--ink)', border: 'none', borderBottom: '2px solid var(--hydrant)',
-                  background: 'transparent', outline: 'none', letterSpacing: '-0.02em', marginBottom: 4,
+                  background: 'transparent', outline: 'none', letterSpacing: '-0.03em', marginBottom: 4,
                 }}
               />
             ) : (
-              <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 22, color: 'var(--ink)', letterSpacing: '-0.02em' }}>{name}</div>
+              <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 26, color: 'var(--ink)', letterSpacing: '-0.03em' }}>{name}</div>
             )}
-            <div style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--mute)', marginTop: 3 }}>Bed-Stuy, Brooklyn · Since May 2025</div>
-
-            {/* Badges */}
-            <div style={{ display: 'flex', gap: 6, marginTop: 8, flexWrap: 'wrap' }}>
+            <div style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--mute)', marginTop: 4 }}>Bed-Stuy, Brooklyn · Since May 2025</div>
+            <div style={{ display: 'flex', gap: 6, marginTop: 10, flexWrap: 'wrap' }}>
               {['ID Verified', 'Tax Info'].map(badge => (
                 <span key={badge} style={{
                   fontFamily: 'var(--mono)', fontSize: 10, fontWeight: 600,
@@ -118,7 +109,7 @@ export default function WorkerProfile() {
         </div>
 
         {/* Bio */}
-        <div style={{ marginTop: 16 }}>
+        <div style={{ marginTop: 14 }}>
           {editing ? (
             <textarea
               value={bioInput}
