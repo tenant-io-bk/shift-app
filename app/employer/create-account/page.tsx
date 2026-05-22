@@ -6,7 +6,16 @@ import { useRouter } from 'next/navigation';
 import StatusBar from '@/app/components/StatusBar';
 import StepProgress from '@/app/components/StepProgress';
 
-const BIZ_TYPES = ['Restaurant', 'Bar / Lounge', 'Café', 'Retail', 'Venue / Event', 'Hotel', 'Catering', 'Other'];
+const BIZ_TYPES = [
+  { label: 'Restaurant',    r: -14, delay: 0   },
+  { label: 'Bar / Lounge', r:  11, delay: 60  },
+  { label: 'Café',          r: -18, delay: 120 },
+  { label: 'Retail',        r:   8, delay: 80  },
+  { label: 'Venue / Event', r: -10, delay: 180 },
+  { label: 'Hotel',         r:  16, delay: 140 },
+  { label: 'Catering',      r:  -8, delay: 220 },
+  { label: 'Other',         r:  20, delay: 200 },
+];
 
 export default function EmployerCreateAccount() {
   const router = useRouter();
@@ -20,6 +29,19 @@ export default function EmployerCreateAccount() {
 
   return (
     <div style={{ maxWidth: 390, minHeight: '100vh', margin: '0 auto', background: 'var(--paper)', display: 'flex', flexDirection: 'column' }}>
+      <style>{`
+        @keyframes pill-land {
+          0%   { opacity: 0; transform: translateY(-50px) rotate(var(--r)) scale(0.80); }
+          55%  { opacity: 1; transform: translateY(6px)   rotate(calc(var(--r) * -0.1)) scale(1.04); }
+          75%  { transform: translateY(-3px) rotate(calc(var(--r) * 0.04)) scale(0.98); }
+          90%  { transform: translateY(1px)  rotate(0deg); }
+          100% { opacity: 1; transform: translateY(0)     rotate(0deg) scale(1); }
+        }
+        .pill-anim {
+          animation: pill-land 0.75s cubic-bezier(0.22,1,0.36,1) both;
+          opacity: 0;
+        }
+      `}</style>
       <StatusBar />
 
       <div style={{ height: 44, padding: '0 16px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderBottom: '1px solid var(--line)' }}>
@@ -47,20 +69,26 @@ export default function EmployerCreateAccount() {
         }}>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10, marginBottom: 8 }}>
             {BIZ_TYPES.map(t => (
-              <button key={t} onClick={() => setBizType(t)} style={{
-                padding: '14px 16px',
-                borderRadius: 99,
-                cursor: 'pointer',
-                fontFamily: 'var(--sans)',
-                fontWeight: 600,
-                fontSize: 18,
-                letterSpacing: '-0.02em',
-                border: '2px solid var(--ink)',
-                background: 'transparent',
-                color: 'var(--ink)',
-                transition: 'all 0.15s',
-                textAlign: 'center',
-              }}>{t}</button>
+              <button
+                key={t.label}
+                className="pill-anim"
+                onClick={() => setBizType(t.label)}
+                style={{
+                  '--r': `${t.r}deg`,
+                  animationDelay: `${t.delay}ms`,
+                  padding: '14px 16px',
+                  borderRadius: 99,
+                  cursor: 'pointer',
+                  fontFamily: 'var(--sans)',
+                  fontWeight: 600,
+                  fontSize: 18,
+                  letterSpacing: '-0.02em',
+                  border: '2px solid var(--ink)',
+                  background: 'transparent',
+                  color: 'var(--ink)',
+                  textAlign: 'center',
+                } as React.CSSProperties}
+              >{t.label}</button>
             ))}
           </div>
         </div>
