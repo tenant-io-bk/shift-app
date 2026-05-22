@@ -90,24 +90,36 @@ const SCREENS = [
 const SCALE = 0.28;
 const PHONE_W = 390;
 const PHONE_H = 844;
-const STORAGE_KEY = 'shift-gallery-comments';
+const COMMENTS_KEY  = 'shift-gallery-comments';
+const ADDRESSED_KEY = 'shift-gallery-addressed';
 
 function loadComments(): Record<string, string> {
   if (typeof window === 'undefined') return {};
-  try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}'); } catch { return {}; }
+  try { return JSON.parse(localStorage.getItem(COMMENTS_KEY) || '{}'); } catch { return {}; }
+}
+function saveComments(c: Record<string, string>) {
+  localStorage.setItem(COMMENTS_KEY, JSON.stringify(c));
 }
 
-function saveComments(c: Record<string, string>) {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(c));
+function loadAddressed(): Set<string> {
+  if (typeof window === 'undefined') return new Set();
+  try { return new Set(JSON.parse(localStorage.getItem(ADDRESSED_KEY) || '[]')); } catch { return new Set(); }
+}
+function saveAddressed(a: Set<string>) {
+  localStorage.setItem(ADDRESSED_KEY, JSON.stringify([...a]));
 }
 
 export default function Gallery() {
-  const [focused, setFocused] = useState<string | null>(null);
-  const [search, setSearch] = useState('');
-  const [comments, setComments] = useState<Record<string, string>>({});
-  const [draft, setDraft] = useState('');
+  const [focused, setFocused]     = useState<string | null>(null);
+  const [search, setSearch]       = useState('');
+  const [comments, setComments]   = useState<Record<string, string>>({});
+  const [addressed, setAddressed] = useState<Set<string>>(new Set());
+  const [draft, setDraft]         = useState('');
 
-  useEffect(() => { setComments(loadComments()); }, []);
+  useEffect(() => {
+    setComments(loadComments());
+    setAddressed(loadAddressed());
+  }, []);
 
   function openScreen(path: string) {
     setFocused(path);
@@ -120,19 +132,39 @@ export default function Gallery() {
     else delete next[focused!];
     setComments(next);
     saveComments(next);
+    // clear addressed state if note is edited
+    if (addressed.has(focused!)) {
+      const nextA = new Set(addressed);
+      nextA.delete(focused!);
+      setAddressed(nextA);
+      saveAddressed(nextA);
+    }
   }
 
-  const totalComments = Object.keys(comments).length;
+  function toggleAddressed(path: string) {
+    const next = new Set(addressed);
+    if (next.has(path)) next.delete(path);
+    else next.add(path);
+    setAddressed(next);
+    saveAddressed(next);
+  }
 
   function exportComments() {
     const lines = SCREENS.flatMap(g =>
       g.screens
         .filter(s => comments[s.path])
-        .map(s => `[${s.label}] ${s.path}\n${comments[s.path]}`)
+        .map(s => {
+          const done = addressed.has(s.path) ? ' [ADDRESSED]' : '';
+          return `[${s.label}]${done} ${s.path}\n${comments[s.path]}`;
+        })
     );
     if (!lines.length) return;
     navigator.clipboard.writeText(lines.join('\n\n'));
   }
+
+  const allWithNotes  = Object.keys(comments).length;
+  const openCount     = allWithNotes - [...addressed].filter(p => comments[p]).length;
+  const doneCount     = [...addressed].filter(p => comments[p]).length;
 
   const query = search.toLowerCase();
   const filtered = SCREENS.map(g => ({
@@ -141,6 +173,8 @@ export default function Gallery() {
       s.label.toLowerCase().includes(query) || s.path.toLowerCase().includes(query)
     ),
   })).filter(g => g.screens.length > 0);
+
+  const isAddressed = (path: string) => addressed.has(path) && !!comments[path];
 
   return (
     <div style={{ minHeight: '100vh', background: '#0D0E12', fontFamily: 'monospace' }}>
@@ -156,10 +190,13 @@ export default function Gallery() {
         />
         <span style={{ fontSize: 12, color: 'rgba(255,255,255,0.3)', flexShrink: 0, display: 'flex', alignItems: 'center', gap: 12 }}>
           {SCREENS.flatMap(g => g.screens).length} screens
-          {totalComments > 0 && (
-            <span style={{ color: '#72c15f' }}>· {totalComments} comment{totalComments !== 1 ? 's' : ''}</span>
+          {openCount > 0 && (
+            <span style={{ color: '#72c15f' }}>· {openCount} open</span>
           )}
-          {totalComments > 0 && (
+          {doneCount > 0 && (
+            <span style={{ color: 'rgba(255,255,255,0.3)' }}>· {doneCount} done</span>
+          )}
+          {allWithNotes > 0 && (
             <button
               onClick={exportComments}
               style={{ fontSize: 12, color: 'rgba(255,255,255,0.5)', background: 'rgba(255,255,255,0.07)', border: '1px solid rgba(255,255,255,0.15)', borderRadius: 99, padding: '4px 12px', cursor: 'pointer', fontFamily: 'monospace' }}
@@ -181,8 +218,13 @@ export default function Gallery() {
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 16 }}>
               {group.screens.map(screen => {
                 const hasComment = !!comments[screen.path];
+                const done = isAddressed(screen.path);
+                const borderColor = done
+                  ? 'rgba(255,255,255,0.2)'
+                  : hasComment ? '#72c15f' : 'rgba(255,255,255,0.1)';
+
                 return (
-                  <div key={screen.path} style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+                  <div key={screen.path} style={{ display: 'flex', flexDirection: 'column', gap: 8, opacity: done ? 0.5 : 1, transition: 'opacity 0.2s' }}>
 
                     {/* Phone frame */}
                     <div
@@ -194,7 +236,7 @@ export default function Gallery() {
                         borderRadius: 14,
                         overflow: 'hidden',
                         cursor: 'pointer',
-                        border: hasComment ? '1.5px solid #72c15f' : '1.5px solid rgba(255,255,255,0.1)',
+                        border: `1.5px solid ${borderColor}`,
                         transition: 'border-color 0.15s, transform 0.15s',
                         flexShrink: 0,
                       }}
@@ -212,8 +254,15 @@ export default function Gallery() {
                         style={{ width: PHONE_W, height: PHONE_H, border: 'none', transformOrigin: 'top left', transform: `scale(${SCALE})`, pointerEvents: 'none', background: '#fcfcfc' }}
                         scrolling="no"
                       />
-                      {/* Comment indicator */}
-                      {hasComment && (
+                      {/* Badge */}
+                      {done && (
+                        <div style={{ position: 'absolute', top: 6, right: 6, width: 18, height: 18, borderRadius: '50%', background: 'rgba(255,255,255,0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                          <svg width="9" height="9" viewBox="0 0 9 9" fill="none">
+                            <path d="M1.5 4.5l2 2 4-4" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                          </svg>
+                        </div>
+                      )}
+                      {!done && hasComment && (
                         <div style={{ position: 'absolute', top: 6, right: 6, width: 18, height: 18, borderRadius: '50%', background: '#72c15f', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                           <svg width="9" height="9" viewBox="0 0 9 9" fill="none">
                             <path d="M1 1h7v5H5L3 8V6H1V1Z" fill="white" />
@@ -224,10 +273,10 @@ export default function Gallery() {
 
                     {/* Label */}
                     <div style={{ textAlign: 'center', maxWidth: PHONE_W * SCALE }}>
-                      <div style={{ fontSize: 11, fontWeight: 600, color: 'rgba(255,255,255,0.7)' }}>{screen.label}</div>
-                      <div style={{ fontSize: 10, color: 'rgba(255,255,255,0.25)', marginTop: 1 }}>{screen.path}</div>
+                      <div style={{ fontSize: 11, fontWeight: 600, color: done ? 'rgba(255,255,255,0.3)' : 'rgba(255,255,255,0.7)' }}>{screen.label}</div>
+                      <div style={{ fontSize: 10, color: 'rgba(255,255,255,0.2)', marginTop: 1 }}>{screen.path}</div>
                       {hasComment && (
-                        <div style={{ fontSize: 10, color: 'rgba(114,193,95,0.7)', marginTop: 4, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                        <div style={{ fontSize: 10, color: done ? 'rgba(255,255,255,0.2)' : 'rgba(114,193,95,0.7)', marginTop: 4, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', textDecoration: done ? 'line-through' : 'none' }}>
                           {comments[screen.path]}
                         </div>
                       )}
@@ -280,12 +329,14 @@ export default function Gallery() {
                 placeholder="Add feedback or edits needed..."
                 autoFocus
                 style={{
-                  width: '100%', height: 180, padding: '12px 14px',
+                  width: '100%', height: 160, padding: '12px 14px',
                   background: 'rgba(255,255,255,0.06)',
                   border: '1px solid rgba(255,255,255,0.15)',
                   borderRadius: 12, color: '#fff', fontSize: 13,
                   fontFamily: 'monospace', resize: 'none', outline: 'none',
                   lineHeight: 1.6, boxSizing: 'border-box',
+                  textDecoration: isAddressed(focused) ? 'line-through' : 'none',
+                  opacity: isAddressed(focused) ? 0.5 : 1,
                 }}
               />
               <button
@@ -300,7 +351,35 @@ export default function Gallery() {
               >
                 {draft.trim() ? 'Save note' : 'Clear note'}
               </button>
+
+              {/* Addressed toggle — only show when note exists */}
               {comments[focused] && (
+                <button
+                  onClick={() => toggleAddressed(focused)}
+                  style={{
+                    width: '100%', padding: '10px', borderRadius: 99,
+                    background: isAddressed(focused) ? 'rgba(255,255,255,0.08)' : 'transparent',
+                    color: isAddressed(focused) ? 'rgba(255,255,255,0.5)' : '#72c15f',
+                    border: isAddressed(focused) ? '1px solid rgba(255,255,255,0.15)' : '1px solid #72c15f',
+                    fontFamily: 'monospace', fontWeight: 700,
+                    fontSize: 13, cursor: 'pointer', transition: 'all 0.15s',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8,
+                  }}
+                >
+                  {isAddressed(focused) ? (
+                    <>↩ Reopen</>
+                  ) : (
+                    <>
+                      <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                        <path d="M2 6l3 3 5-5" stroke="#72c15f" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                      Mark as addressed
+                    </>
+                  )}
+                </button>
+              )}
+
+              {comments[focused] && !isAddressed(focused) && (
                 <button
                   onClick={() => { setDraft(''); }}
                   style={{ fontSize: 11, color: 'rgba(255,255,255,0.25)', background: 'none', border: 'none', cursor: 'pointer', fontFamily: 'monospace', textAlign: 'left' }}
@@ -309,7 +388,7 @@ export default function Gallery() {
                 </button>
               )}
               <div style={{ marginTop: 8, fontSize: 11, color: 'rgba(255,255,255,0.2)', lineHeight: 1.5 }}>
-                Notes are saved in your browser. Screens with notes show a green border and comment icon.
+                Notes are saved in your browser. Mark as addressed to track progress.
               </div>
             </div>
           </div>
