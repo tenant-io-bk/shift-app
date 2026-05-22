@@ -7,14 +7,14 @@ import StatusBar from '@/app/components/StatusBar';
 import StepProgress from '@/app/components/StepProgress';
 
 const BIZ_TYPES = [
-  { label: 'Restaurant',    r: -14, delay: 0   },
-  { label: 'Bar / Lounge', r:  11, delay: 60  },
-  { label: 'Café',          r: -18, delay: 120 },
-  { label: 'Retail',        r:   8, delay: 80  },
-  { label: 'Venue / Event', r: -10, delay: 180 },
-  { label: 'Hotel',         r:  16, delay: 140 },
-  { label: 'Catering',      r:  -8, delay: 220 },
-  { label: 'Other',         r:  20, delay: 200 },
+  { label: 'Restaurant',    r:  -9, delay: 0   },
+  { label: 'Bar / Lounge', r:   7, delay: 60  },
+  { label: 'Café',          r: -11, delay: 120 },
+  { label: 'Retail',        r:   5, delay: 80  },
+  { label: 'Venue / Event', r:  -7, delay: 180 },
+  { label: 'Hotel',         r:  10, delay: 140 },
+  { label: 'Catering',      r:  -5, delay: 220 },
+  { label: 'Other',         r:  12, delay: 200 },
 ];
 
 export default function EmployerCreateAccount() {
@@ -31,11 +31,11 @@ export default function EmployerCreateAccount() {
     <div style={{ maxWidth: 390, minHeight: '100vh', margin: '0 auto', background: 'var(--paper)', display: 'flex', flexDirection: 'column' }}>
       <style>{`
         @keyframes pill-land {
-          0%   { opacity: 0; transform: translateY(-50px) rotate(var(--r)) scale(0.80); }
-          55%  { opacity: 1; transform: translateY(6px)   rotate(calc(var(--r) * -0.1)) scale(1.04); }
-          75%  { transform: translateY(-3px) rotate(calc(var(--r) * 0.04)) scale(0.98); }
-          90%  { transform: translateY(1px)  rotate(0deg); }
-          100% { opacity: 1; transform: translateY(0)     rotate(0deg) scale(1); }
+          0%   { opacity: 0; transform: translateY(40px) rotate(var(--r)) scale(0.82); }
+          55%  { opacity: 1; transform: translateY(-5px) rotate(calc(var(--r) * -0.1)) scale(1.04); }
+          75%  { transform: translateY(2px)  rotate(calc(var(--r) * 0.03)) scale(0.98); }
+          90%  { transform: translateY(-1px) rotate(0deg); }
+          100% { opacity: 1; transform: translateY(0)    rotate(0deg) scale(1); }
         }
         .pill-anim {
           animation: pill-land 0.75s cubic-bezier(0.22,1,0.36,1) both;
@@ -63,7 +63,7 @@ export default function EmployerCreateAccount() {
         {/* Business type pills — collapse once selected */}
         <div style={{
           maxHeight: bizType ? 0 : 400,
-          overflow: 'hidden',
+          overflow: bizType ? 'hidden' : 'visible',
           opacity: bizType ? 0 : 1,
           transition: 'max-height 0.4s ease, opacity 0.25s ease',
         }}>
