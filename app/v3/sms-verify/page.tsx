@@ -60,7 +60,7 @@ export default function SMSVerify() {
             <div key={i} style={{
               flex: 1,
               height: 56,
-              borderRadius: 10,
+              borderRadius: 12,
               border: `2px solid ${i === filled ? 'var(--ink)' : digit ? 'var(--hydrant)' : 'var(--paper-3)'}`,
               background: digit ? 'var(--hydrant-soft)' : 'var(--card)',
               display: 'flex',

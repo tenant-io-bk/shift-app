@@ -66,7 +66,7 @@ export default function ProfileSetup() {
               style={{
                 fontFamily: 'var(--mono)', fontSize: 12, fontWeight: 600,
                 color: 'var(--hydrant)', background: 'var(--hydrant-soft)',
-                border: '1px solid var(--hydrant)', borderRadius: 8,
+                border: '1px solid var(--hydrant)', borderRadius: 99,
                 padding: '6px 12px', cursor: 'pointer',
               }}
             >
@@ -89,7 +89,7 @@ export default function ProfileSetup() {
             style={{
               width: '100%', height: 52, padding: '0 16px',
               background: 'var(--card)', border: '2px solid var(--ink)',
-              borderRadius: 10, fontFamily: 'var(--sans)', fontSize: 15,
+              borderRadius: 14, fontFamily: 'var(--sans)', fontSize: 15,
               color: 'var(--ink)', outline: 'none',
             }}
           />
@@ -111,7 +111,7 @@ export default function ProfileSetup() {
             style={{
               width: '100%', padding: '14px 16px',
               background: 'var(--card)', border: '2px solid var(--ink)',
-              borderRadius: 10, fontFamily: 'var(--mono)', fontSize: 13,
+              borderRadius: 14, fontFamily: 'var(--mono)', fontSize: 13,
               color: 'var(--ink)', outline: 'none', resize: 'none', lineHeight: 1.6,
               transition: 'border-color 0.15s',
             }}

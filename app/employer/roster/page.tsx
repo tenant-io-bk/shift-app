@@ -459,7 +459,7 @@ export default function Page() {
                 href={href}
                 style={{
                   border: '2px solid var(--ink)',
-                  borderRadius: 10,
+                  borderRadius: 14,
                   padding: 12,
                   background: 'transparent',
                   fontFamily: 'var(--mono)',
@@ -480,7 +480,7 @@ export default function Page() {
                 key={label}
                 style={{
                   border: '2px solid var(--ink)',
-                  borderRadius: 10,
+                  borderRadius: 14,
                   padding: 12,
                   background: 'transparent',
                   fontFamily: 'var(--mono)',

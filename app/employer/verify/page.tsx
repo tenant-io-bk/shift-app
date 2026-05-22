@@ -84,7 +84,7 @@ export default function EmployerVerify() {
               style={{
                 width: '100%', height: 52, padding: '0 16px',
                 background: 'var(--card)', border: `2px solid ${einComplete ? 'var(--hydrant)' : 'var(--ink)'}`,
-                borderRadius: 10, fontFamily: 'var(--mono)', fontSize: 20,
+                borderRadius: 14, fontFamily: 'var(--mono)', fontSize: 20,
                 letterSpacing: '0.12em', color: 'var(--ink)', outline: 'none',
                 boxSizing: 'border-box',
                 transition: 'border-color 0.2s',
@@ -128,7 +128,7 @@ export default function EmployerVerify() {
             <button
               onClick={() => setUploaded(!uploaded)}
               style={{
-                width: '100%', height: 72, borderRadius: 10, cursor: 'pointer',
+                width: '100%', height: 72, borderRadius: 14, cursor: 'pointer',
                 border: `2px dashed ${uploaded ? 'var(--hydrant)' : 'var(--ink)'}`,
                 background: uploaded ? 'var(--hydrant-soft)' : 'transparent',
                 display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8,

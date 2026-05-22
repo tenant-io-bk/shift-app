@@ -85,7 +85,7 @@ export default function PhoneVerify() {
         <div style={{ display: 'flex', gap: 10, alignItems: 'flex-end', marginBottom: 28 }}>
           <div style={{
             background: 'var(--paper-2)',
-            borderRadius: 8,
+            borderRadius: 14,
             padding: '14px 16px',
             flexShrink: 0,
           }}>

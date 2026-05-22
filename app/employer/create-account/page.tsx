@@ -100,23 +100,23 @@ export default function EmployerCreateAccount() {
           <div style={{ marginBottom: 16 }}>
             <div style={{ fontFamily: 'var(--mono)', fontSize: 10.5, fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--ink)', marginBottom: 8 }}>Business name</div>
             <input type="text" value={name} onChange={e => setName(e.target.value)} placeholder="e.g. Padmore's Coffee"
-              style={{ width: '100%', height: 52, padding: '0 16px', background: 'var(--card)', border: '2px solid var(--ink)', borderRadius: 10, fontFamily: 'var(--sans)', fontSize: 16, color: 'var(--ink)', outline: 'none', boxSizing: 'border-box' }} />
+              style={{ width: '100%', height: 52, padding: '0 16px', background: 'var(--card)', border: '2px solid var(--ink)', borderRadius: 14, fontFamily: 'var(--sans)', fontSize: 16, color: 'var(--ink)', outline: 'none', boxSizing: 'border-box' }} />
           </div>
 
           <div style={{ marginBottom: 16 }}>
             <div style={{ fontFamily: 'var(--mono)', fontSize: 10.5, fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--ink)', marginBottom: 8 }}>Work email</div>
             <input type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="you@yourbusiness.com"
-              style={{ width: '100%', height: 52, padding: '0 16px', background: 'var(--card)', border: '2px solid var(--ink)', borderRadius: 10, fontFamily: 'var(--sans)', fontSize: 16, color: 'var(--ink)', outline: 'none', boxSizing: 'border-box' }} />
+              style={{ width: '100%', height: 52, padding: '0 16px', background: 'var(--card)', border: '2px solid var(--ink)', borderRadius: 14, fontFamily: 'var(--sans)', fontSize: 16, color: 'var(--ink)', outline: 'none', boxSizing: 'border-box' }} />
           </div>
 
           <div style={{ marginBottom: 24 }}>
             <div style={{ fontFamily: 'var(--mono)', fontSize: 10.5, fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--ink)', marginBottom: 8 }}>Phone number</div>
             <div style={{ display: 'flex', gap: 8 }}>
-              <div style={{ background: 'var(--paper-2)', border: '2px solid var(--ink)', borderRadius: 10, padding: '0 14px', display: 'flex', alignItems: 'center', flexShrink: 0 }}>
+              <div style={{ background: 'var(--paper-2)', border: '2px solid var(--ink)', borderRadius: 14, padding: '0 14px', display: 'flex', alignItems: 'center', flexShrink: 0 }}>
                 <span style={{ fontFamily: 'var(--mono)', fontSize: 15, fontWeight: 600, color: 'var(--ink)' }}>+1</span>
               </div>
               <input type="tel" value={phone} onChange={e => setPhone(e.target.value.replace(/\D/g, '').slice(0, 10))} placeholder="347 514 2898"
-                style={{ flex: 1, height: 52, padding: '0 16px', background: 'var(--card)', border: '2px solid var(--ink)', borderRadius: 10, fontFamily: 'var(--sans)', fontSize: 16, color: 'var(--ink)', outline: 'none', letterSpacing: '0.04em' }} />
+                style={{ flex: 1, height: 52, padding: '0 16px', background: 'var(--card)', border: '2px solid var(--ink)', borderRadius: 14, fontFamily: 'var(--sans)', fontSize: 16, color: 'var(--ink)', outline: 'none', letterSpacing: '0.04em' }} />
             </div>
           </div>
 

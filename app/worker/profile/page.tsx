@@ -324,7 +324,7 @@ export default function WorkerProfile() {
             value={bioInput}
             onChange={e => setBioInput(e.target.value)}
             rows={4}
-            style={{ width: '100%', fontFamily: 'var(--mono)', fontSize: 14, color: 'var(--ink)', border: '2px solid var(--hydrant)', borderRadius: 10, padding: '10px 12px', background: 'var(--card)', outline: 'none', resize: 'none', lineHeight: 1.6, boxSizing: 'border-box' }}
+            style={{ width: '100%', fontFamily: 'var(--mono)', fontSize: 14, color: 'var(--ink)', border: '2px solid var(--hydrant)', borderRadius: 14, padding: '10px 12px', background: 'var(--card)', outline: 'none', resize: 'none', lineHeight: 1.6, boxSizing: 'border-box' }}
           />
         ) : (
           <p style={{ fontFamily: 'var(--mono)', fontSize: 14, color: 'var(--ink)', lineHeight: 1.65, margin: 0 }}>{bio}</p>

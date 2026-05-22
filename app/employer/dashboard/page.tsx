@@ -284,7 +284,7 @@ export default function EmployerDashboard() {
                       { label: 'Workers', value: `${count} worker${count>1?'s':''} + 1 backup` },
                       ...(notes ? [{ label: 'Notes', value: notes }] : []),
                     ].map(row => (
-                      <div key={row.label} style={{ display: 'flex', gap: 10, padding: '10px 14px', border: '2px solid var(--ink)', borderRadius: 10 }}>
+                      <div key={row.label} style={{ display: 'flex', gap: 10, padding: '10px 14px', border: '2px solid var(--ink)', borderRadius: 14 }}>
                         <span style={{ fontFamily: 'var(--mono)', fontSize: 10, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--ink)', width: 52, flexShrink: 0 }}>{row.label}</span>
                         <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 13, color: 'var(--ink)' }}>{row.value}</span>
                       </div>

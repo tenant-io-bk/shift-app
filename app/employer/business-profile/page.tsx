@@ -60,7 +60,7 @@ export default function BusinessProfile() {
             <button onClick={() => setHasLogo(true)} style={{
               fontFamily: 'var(--mono)', fontSize: 12, fontWeight: 600, color: 'var(--hydrant)',
               background: 'var(--hydrant-soft)', border: '1px solid var(--hydrant)',
-              borderRadius: 8, padding: '6px 12px', cursor: 'pointer',
+              borderRadius: 99, padding: '6px 12px', cursor: 'pointer',
             }}>
               {hasLogo ? '✓ Logo added' : 'Upload logo'}
             </button>
@@ -77,7 +77,7 @@ export default function BusinessProfile() {
             style={{
               width: '100%', padding: '14px 16px', background: 'var(--card)',
               border: '2px solid var(--ink)',
-              borderRadius: 10, fontFamily: 'var(--mono)', fontSize: 13, color: 'var(--ink)',
+              borderRadius: 14, fontFamily: 'var(--mono)', fontSize: 13, color: 'var(--ink)',
               outline: 'none', resize: 'none', lineHeight: 1.6, transition: 'border-color 0.15s',
             }} />
         </div>
@@ -89,7 +89,7 @@ export default function BusinessProfile() {
           <div style={{ display: 'flex', gap: 8 }}>
             {TEAM_SIZES.map(s => (
               <button key={s} onClick={() => setTeamSize(s)} style={{
-                flex: 1, padding: '11px 0', borderRadius: 10, cursor: 'pointer',
+                flex: 1, padding: '11px 0', borderRadius: 99, cursor: 'pointer',
                 border: '2px solid var(--ink)',
                 background: teamSize === s ? 'var(--ink)' : 'var(--card)',
                 fontFamily: 'var(--mono)', fontSize: 13, fontWeight: 600,

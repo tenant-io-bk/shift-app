@@ -192,7 +192,7 @@ export default function MutualReview() {
           marginTop: 16,
           padding: 12,
           background: 'var(--paper-2)',
-          borderRadius: 8,
+          borderRadius: 14,
           marginBottom: 24,
         }}>
           <p style={{

@@ -146,7 +146,7 @@ export default function PayoutSetup() {
           marginTop: 20,
           padding: 14,
           background: 'var(--paper-2)',
-          borderRadius: 10,
+          borderRadius: 14,
           border: '2px solid var(--ink)',
         }}>
           <div style={{ display: 'flex', alignItems: 'flex-start', gap: 8 }}>
@@ -171,7 +171,7 @@ export default function PayoutSetup() {
           marginTop: 16,
           padding: '14px 16px',
           background: 'var(--ink)',
-          borderRadius: 10,
+          borderRadius: 14,
         }}>
           <p style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'rgba(255,255,255,0.5)', marginBottom: 4 }}>
             if you'd worked today

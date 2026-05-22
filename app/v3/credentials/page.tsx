@@ -137,7 +137,7 @@ export default function Credentials() {
                         onChange={e => setExpiry(cred.id, e.target.value)}
                         style={{
                           height: 40, padding: '0 12px', background: 'var(--paper)',
-                          border: '2px solid var(--ink)', borderRadius: 8,
+                          border: '2px solid var(--ink)', borderRadius: 12,
                           fontFamily: 'var(--mono)', fontSize: 13, color: 'var(--ink)',
                           outline: 'none', width: '100%',
                         }}
@@ -146,7 +146,7 @@ export default function Credentials() {
                     <div style={{ flexShrink: 0, paddingTop: 22 }}>
                       <button style={{
                         height: 40, padding: '0 14px', background: 'var(--paper-2)',
-                        border: '2px solid var(--ink)', borderRadius: 8,
+                        border: '2px solid var(--ink)', borderRadius: 99,
                         fontFamily: 'var(--mono)', fontSize: 12, fontWeight: 600,
                         color: 'var(--mute)', cursor: 'pointer', whiteSpace: 'nowrap',
                       }}>

@@ -50,7 +50,7 @@ export default function W9() {
             style={{
               width: '100%', height: 52, padding: '0 16px',
               background: 'var(--card)', border: '2px solid var(--ink)',
-              borderRadius: 10, fontFamily: 'var(--sans)', fontSize: 16,
+              borderRadius: 14, fontFamily: 'var(--sans)', fontSize: 16,
               color: 'var(--ink)', outline: 'none',
             }}
           />
@@ -69,7 +69,7 @@ export default function W9() {
             style={{
               width: '100%', height: 52, padding: '0 16px',
               background: 'var(--card)', border: '2px solid var(--ink)',
-              borderRadius: 10, fontFamily: 'var(--sans)', fontSize: 20,
+              borderRadius: 14, fontFamily: 'var(--sans)', fontSize: 20,
               letterSpacing: '0.2em', color: 'var(--ink)', outline: 'none',
             }}
           />
@@ -91,14 +91,14 @@ export default function W9() {
             style={{
               width: '100%', height: 52, padding: '0 16px',
               background: 'var(--card)', border: '2px solid var(--ink)',
-              borderRadius: 10, fontFamily: 'var(--sans)', fontSize: 15,
+              borderRadius: 14, fontFamily: 'var(--sans)', fontSize: 15,
               color: 'var(--ink)', outline: 'none',
             }}
           />
         </div>
 
         {/* Trust block */}
-        <div style={{ padding: '14px 16px', background: 'var(--paper-2)', borderRadius: 10, border: '2px solid var(--ink)', marginBottom: 20 }}>
+        <div style={{ padding: '14px 16px', background: 'var(--paper-2)', borderRadius: 14, border: '2px solid var(--ink)', marginBottom: 20 }}>
           <p style={{ fontFamily: 'var(--mono)', fontSize: 11.5, color: 'var(--ink)', lineHeight: 1.6 }}>
             <strong>Why SHIFT needs this:</strong> You&apos;re an independent contractor. If you earn $600+ in a year, the IRS requires us to file a 1099-NEC with your name and SSN. We don&apos;t share this with employers — ever.
           </p>
