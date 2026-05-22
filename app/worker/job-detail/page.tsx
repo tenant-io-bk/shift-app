@@ -59,7 +59,7 @@ export default function JobDetail() {
               width: 36,
               height: 36,
               border: '2px solid var(--ink)',
-              borderRadius: 8,
+              borderRadius: 99,
               background: 'transparent',
               display: 'flex',
               alignItems: 'center',
@@ -81,7 +81,7 @@ export default function JobDetail() {
               width: 36,
               height: 36,
               border: '2px solid var(--ink)',
-              borderRadius: 8,
+              borderRadius: 99,
               background: 'transparent',
               display: 'flex',
               alignItems: 'center',
@@ -152,7 +152,6 @@ export default function JobDetail() {
             style={{
               fontFamily: 'var(--sans)',
               fontWeight: 400,
-              fontStyle: 'italic',
               fontSize: 18,
               color: 'var(--ink)',
               marginTop: 4,
@@ -221,101 +220,22 @@ export default function JobDetail() {
         </div>
 
         {/* Pay block */}
-        <div
-          style={{
-            margin: '0 22px',
-            padding: 20,
-            background: 'var(--ink)',
-            borderRadius: 14,
-          }}
-        >
-          <p
-            style={{
-              fontFamily: 'var(--mono)',
-              fontSize: 10.5,
-              fontWeight: 600,
-              letterSpacing: '0.10em',
-              textTransform: 'uppercase',
-              color: 'rgba(255,255,255,0.50)',
-              marginBottom: 4,
-            }}
-          >
+        <div style={{ margin: '0 22px', padding: '20px 22px', borderTop: '1px solid var(--line)', borderBottom: '1px solid var(--line)' }}>
+          <p style={{ fontFamily: 'var(--mono)', fontSize: 10.5, fontWeight: 600, letterSpacing: '0.10em', textTransform: 'uppercase', color: 'var(--mute)', marginBottom: 4 }}>
             You take home
           </p>
           <div style={{ lineHeight: 1 }}>
-            <span
-              style={{
-                fontFamily: 'var(--sans)',
-                fontWeight: 600,
-                fontSize: 64,
-                color: '#FFFFFF',
-                letterSpacing: '-0.075em',
-                lineHeight: 1,
-              }}
-            >
-              $140
-            </span>
-            <span
-              style={{
-                fontFamily: 'var(--sans)',
-                fontWeight: 600,
-                fontSize: 64,
-                color: '#72c15f',
-                letterSpacing: '-0.075em',
-                lineHeight: 1,
-              }}
-            >
-              .
-            </span>
+            <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 64, color: 'var(--ink)', letterSpacing: '-0.075em', lineHeight: 1 }}>$140</span>
+            <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 64, color: '#72c15f', letterSpacing: '-0.075em', lineHeight: 1 }}>.</span>
           </div>
-          <p
-            style={{
-              fontFamily: 'var(--mono)',
-              fontSize: 13,
-              color: 'rgba(255,255,255,0.60)',
-              marginTop: 8,
-            }}
-          >
-            $28/hr · pre-tips
-          </p>
-          <p
-            style={{
-              fontFamily: 'var(--mono)',
-              fontSize: 12,
-              color: 'rgba(255,255,255,0.50)',
-              marginTop: 4,
-            }}
-          >
-            Tips avg $32 cash / shift
-          </p>
-          <div
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: 8,
-              paddingTop: 14,
-              borderTop: '1px solid rgba(255,255,255,0.10)',
-              marginTop: 14,
-            }}
-          >
+          <p style={{ fontFamily: 'var(--mono)', fontSize: 13, color: 'var(--mute)', marginTop: 8 }}>$28/hr · pre-tips</p>
+          <p style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--mute)', marginTop: 4 }}>Tips avg $32 cash / shift</p>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8, paddingTop: 14, borderTop: '1px solid var(--line)', marginTop: 14 }}>
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-              <path
-                d="M8 1.5L2 4v4c0 3.31 2.69 6 6 6s6-2.69 6-6V4L8 1.5Z"
-                stroke="white"
-                strokeWidth="1.4"
-                strokeLinejoin="round"
-              />
-              <path d="M5.5 8l1.5 1.5L10.5 6" stroke="white" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
+              <path d="M8 1.5L2 4v4c0 3.31 2.69 6 6 6s6-2.69 6-6V4L8 1.5Z" stroke="var(--ink)" strokeWidth="1.4" strokeLinejoin="round" />
+              <path d="M5.5 8l1.5 1.5L10.5 6" stroke="var(--ink)" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
-            <span
-              style={{
-                fontFamily: 'var(--mono)',
-                fontSize: 12,
-                color: '#FFFFFF',
-              }}
-            >
-              Paid same-day — straight to your debit
-            </span>
+            <span style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--ink)' }}>Paid same-day — straight to your debit</span>
           </div>
         </div>
 
@@ -397,8 +317,7 @@ export default function JobDetail() {
             </p>
             <p
               style={{
-                fontFamily: 'var(--mono)',
-                fontStyle: 'italic',
+                fontFamily: 'var(--sans)',
                 fontSize: 14,
                 color: 'var(--ink)',
                 marginTop: 8,

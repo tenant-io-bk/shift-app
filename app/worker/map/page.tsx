@@ -181,146 +181,67 @@ export default function WorkerMap() {
 
       {/* ─── MAP VIEW ─── */}
       {viewMode === 'map' && (
-        <>
-          {/* Map canvas */}
-          <div onClick={() => setTappedPin(null)} style={{
-            height: mapHeight,
-            position: 'relative',
-            flexShrink: 0,
-            transition: 'height 0.35s cubic-bezier(0.4,0,0.2,1)',
-            overflow: 'hidden',
-          }}>
-            <svg width="390" height="100%" viewBox="0 0 390 260" preserveAspectRatio="xMidYMid slice" fill="none" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%' }}>
-              <rect width="390" height="260" fill="#E8EAF0" />
-              <rect x="0" y="58" width="390" height="12" fill="white" opacity="0.8" />
-              <rect x="0" y="120" width="390" height="10" fill="white" opacity="0.8" />
-              <rect x="0" y="182" width="390" height="10" fill="white" opacity="0.8" />
-              <rect x="60" y="0" width="10" height="260" fill="white" opacity="0.8" />
-              <rect x="140" y="0" width="10" height="260" fill="white" opacity="0.8" />
-              <rect x="220" y="0" width="10" height="260" fill="white" opacity="0.8" />
-              <rect x="300" y="0" width="10" height="260" fill="white" opacity="0.8" />
-              <rect x="365" y="0" width="10" height="260" fill="white" opacity="0.8" />
-              <rect x="0" y="0" width="58" height="56" rx="2" fill="#D8DAE4" />
-              <rect x="72" y="0" width="66" height="56" rx="2" fill="#D4D6E0" />
-              <rect x="150" y="0" width="68" height="56" rx="2" fill="#DADBEB" />
-              <rect x="230" y="0" width="68" height="56" rx="2" fill="#D8DAE4" />
-              <rect x="310" y="0" width="53" height="56" rx="2" fill="#D4D6E0" />
-              <rect x="0" y="70" width="58" height="48" rx="2" fill="#D4D6E4" />
-              <rect x="72" y="70" width="66" height="48" rx="2" fill="#DDE4D8" />
-              <rect x="150" y="70" width="68" height="48" rx="2" fill="#D8DAE4" />
-              <rect x="230" y="70" width="68" height="48" rx="2" fill="#D4D6E0" />
-              <rect x="310" y="70" width="53" height="48" rx="2" fill="#DDE4D8" />
-              <rect x="0" y="130" width="58" height="50" rx="2" fill="#D8DAE4" />
-              <rect x="72" y="130" width="66" height="50" rx="2" fill="#D4D6E0" />
-              <rect x="150" y="130" width="68" height="50" rx="2" fill="#DADBEB" />
-              <rect x="230" y="130" width="68" height="50" rx="2" fill="#DDE4D8" />
-              <rect x="310" y="130" width="53" height="50" rx="2" fill="#D4D6E0" />
-              <rect x="0" y="192" width="58" height="68" rx="2" fill="#D4D6E0" />
-              <rect x="72" y="192" width="66" height="68" rx="2" fill="#D8DAE4" />
-              <rect x="150" y="192" width="68" height="68" rx="2" fill="#D4D6E0" />
-              <rect x="230" y="192" width="68" height="68" rx="2" fill="#DADBEB" />
-              <rect x="310" y="192" width="53" height="68" rx="2" fill="#D8DAE4" />
-              <path d="M 40 260 Q 80 220 120 180 Q 160 140 195 110 Q 220 88 240 70" stroke="#72c15f" strokeWidth="2.5" strokeDasharray="6 4" strokeLinecap="round" opacity="0.85" />
-              <circle cx="110" cy="155" r="8" fill="white" opacity="0.9" />
-              <circle cx="110" cy="155" r="5" fill="#72c15f" />
-              <circle cx="110" cy="155" r="2" fill="white" />
-            </svg>
+        <div onClick={() => setTappedPin(null)} style={{ flex: 1, position: 'relative', overflow: 'hidden' }}>
+          {/* Real map */}
+          <iframe
+            src="https://www.openstreetmap.org/export/embed.html?bbox=-73.9618%2C40.6772%2C-73.9218%2C40.6972&layer=mapnik"
+            style={{ width: '100%', height: '100%', border: 'none', filter: 'grayscale(50%)' }}
+            title="Map"
+          />
 
-            <div style={{ position: 'absolute', left: 110, top: 155, transform: 'translate(-50%,-50%)', width: 10, height: 10 }}>
-              <div className="me-pulse-ring" />
-            </div>
-
-            {SHIFTS.map(shift => (
-              <div
-                key={shift.posting}
-                onClick={e => { e.stopPropagation(); setTappedPin(tappedPin === shift.posting ? null : shift.posting); }}
-                style={{
-                  position: 'absolute',
-                  left: shift.pinX,
-                  top: shift.pinY,
-                  transform: 'translate(-50%, -50%)',
-                  cursor: 'pointer',
-                  zIndex: tappedPin === shift.posting ? 20 : 10,
-                }}
-              >
-                {/* Dot */}
-                <div style={{
-                  width: 14, height: 14, borderRadius: '50%',
-                  background: shift.priority ? 'var(--hydrant)' : 'var(--ink)',
-                  border: '2.5px solid #fff',
-                  boxShadow: '0 1px 4px rgba(0,0,0,0.25)',
-                }} />
-
-                {/* Mini card on tap */}
-                {tappedPin === shift.posting && (
-                  <div style={{
-                    position: 'absolute',
-                    bottom: 22,
-                    left: '50%',
-                    transform: 'translateX(-50%)',
-                    background: 'var(--paper)',
-                    border: '2px solid var(--ink)',
-                    borderRadius: 12,
-                    padding: '10px 14px',
-                    minWidth: 160,
-                    zIndex: 30,
-                    boxShadow: '0 4px 16px rgba(0,0,0,0.15)',
-                    whiteSpace: 'nowrap',
-                  }}>
-                    <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 13, color: 'var(--ink)', marginBottom: 4 }}>{shift.name}</div>
-                    <div style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--mute)', marginBottom: 2 }}>{shift.type} · {shift.hours}</div>
-                    <div style={{ display: 'flex', alignItems: 'baseline', gap: 6 }}>
-                      <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 16, color: 'var(--ink)', letterSpacing: '-0.04em' }}>{shift.pay}</span>
-                      <span style={{ fontFamily: 'var(--mono)', fontSize: 10, color: 'var(--mute)' }}>{shift.rate}</span>
-                    </div>
-                    {/* Tail */}
-                    <div style={{ position: 'absolute', bottom: -7, left: '50%', transform: 'translateX(-50%)', width: 12, height: 12, background: 'var(--paper)', border: '2px solid var(--ink)', borderTop: 'none', borderLeft: 'none', rotate: '45deg' }} />
-                  </div>
-                )}
-              </div>
-            ))}
+          {/* Me dot */}
+          <div style={{ position: 'absolute', left: '28%', top: '60%', transform: 'translate(-50%,-50%)', width: 10, height: 10 }}>
+            <div className="me-pulse-ring" />
+            <div style={{ position: 'relative', width: 10, height: 10, borderRadius: '50%', background: 'var(--hydrant)', border: '2px solid #fff', boxShadow: '0 1px 4px rgba(0,0,0,0.3)', zIndex: 1 }} />
           </div>
 
-          {/* Bottom sheet */}
-          <div style={{
-            background: 'var(--card)',
-            borderRadius: '18px 18px 0 0',
-            boxShadow: '0 -4px 32px rgba(13,14,18,0.12)',
-            flex: sheetCollapsed ? '0 0 auto' : 1,
-            transition: 'flex 0.35s cubic-bezier(0.4,0,0.2,1)',
-            minHeight: sheetCollapsed ? 0 : undefined,
-            paddingBottom: 80,
-          }}>
-            {/* Tappable handle */}
-            <button
-              onClick={() => setSheetCollapsed(c => !c)}
-              style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%', padding: '10px 0 6px', background: 'none', border: 'none', cursor: 'pointer' }}
+          {SHIFTS.map(shift => (
+            <div
+              key={shift.posting}
+              onClick={e => { e.stopPropagation(); setTappedPin(tappedPin === shift.posting ? null : shift.posting); }}
+              style={{
+                position: 'absolute',
+                left: shift.pinX,
+                top: shift.pinY,
+                transform: 'translate(-50%, -50%)',
+                cursor: 'pointer',
+                zIndex: tappedPin === shift.posting ? 20 : 10,
+              }}
             >
-              <div style={{ width: 36, height: 4, borderRadius: 99, background: 'var(--line-2)' }} />
-            </button>
+              <div style={{
+                width: 14, height: 14, borderRadius: '50%',
+                background: shift.priority ? 'var(--hydrant)' : 'var(--ink)',
+                border: '2.5px solid #fff',
+                boxShadow: '0 1px 4px rgba(0,0,0,0.25)',
+              }} />
 
-            {/* Header row */}
-            <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', padding: '4px 22px 8px' }}>
-              <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 22, letterSpacing: '-0.02em', color: 'var(--ink)' }}>
-                18 ready now.
-              </span>
-              <span style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--mute)' }}>avg $23/hr</span>
-            </div>
-
-            {!sheetCollapsed && (
-              <>
-                {/* Rank strip */}
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: 'var(--ink)', padding: '10px 22px' }}>
-                  <span style={{ fontFamily: 'var(--mono)', fontSize: 12, fontWeight: 600, color: '#fff' }}>#4. You</span>
-                  <span style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--mute)' }}>2 more shifts to climb to #2</span>
+              {tappedPin === shift.posting && (
+                <div style={{
+                  position: 'absolute',
+                  bottom: 22,
+                  left: '50%',
+                  transform: 'translateX(-50%)',
+                  background: 'var(--paper)',
+                  border: '2px solid var(--ink)',
+                  borderRadius: 12,
+                  padding: '10px 14px',
+                  minWidth: 160,
+                  zIndex: 30,
+                  boxShadow: '0 4px 16px rgba(0,0,0,0.15)',
+                  whiteSpace: 'nowrap',
+                }}>
+                  <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 13, color: 'var(--ink)', marginBottom: 4 }}>{shift.name}</div>
+                  <div style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--mute)', marginBottom: 2 }}>{shift.type} · {shift.hours}</div>
+                  <div style={{ display: 'flex', alignItems: 'baseline', gap: 6 }}>
+                    <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 16, color: 'var(--ink)', letterSpacing: '-0.04em' }}>{shift.pay}</span>
+                    <span style={{ fontFamily: 'var(--mono)', fontSize: 10, color: 'var(--mute)' }}>{shift.rate}</span>
+                  </div>
+                  <div style={{ position: 'absolute', bottom: -7, left: '50%', transform: 'translateX(-50%)', width: 12, height: 12, background: 'var(--paper)', border: '2px solid var(--ink)', borderTop: 'none', borderLeft: 'none', rotate: '45deg' }} />
                 </div>
-
-                {/* Shift list */}
-                <ShiftList shifts={SHIFTS} />
-              </>
-            )}
-          </div>
-        </>
+              )}
+            </div>
+          ))}
+        </div>
       )}
 
       {/* ─── LIST VIEW ─── */}
