@@ -20,19 +20,22 @@ export default function WorkerSplash() {
       }}
     >
       <style>{`
-        @keyframes logo-in {
-          0%   { opacity: 0; transform: scale(0.82); }
-          65%  { opacity: 1; transform: scale(1.04); }
-          100% { opacity: 1; transform: scale(1); }
+        @keyframes logo-jump {
+          0%   { opacity: 0; transform: translateY(110px) scale(0.88); }
+          55%  { opacity: 1; transform: translateY(-18px) scale(1.06); }
+          72%  { transform: translateY(9px)  scale(0.97); }
+          85%  { transform: translateY(-5px) scale(1.02); }
+          93%  { transform: translateY(2px)  scale(0.99); }
+          100% { opacity: 1; transform: translateY(0)    scale(1); }
         }
         @keyframes logo-glow {
           0%, 100% { filter: drop-shadow(0 0 0px rgba(114,193,95,0)); }
-          50%       { filter: drop-shadow(0 0 18px rgba(114,193,95,0.45)); }
+          50%       { filter: drop-shadow(0 0 20px rgba(114,193,95,0.5)); }
         }
         .splash-logo {
           animation:
-            logo-in   0.75s cubic-bezier(0.34,1.56,0.64,1) forwards,
-            logo-glow 3.2s ease-in-out 0.75s infinite;
+            logo-jump 0.9s cubic-bezier(0.22,1,0.36,1) forwards,
+            logo-glow 3.2s ease-in-out 0.9s infinite;
           opacity: 0;
         }
         @keyframes hint-in {
