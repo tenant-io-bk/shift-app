@@ -124,6 +124,16 @@ export default function Gallery() {
 
   const totalComments = Object.keys(comments).length;
 
+  function exportComments() {
+    const lines = SCREENS.flatMap(g =>
+      g.screens
+        .filter(s => comments[s.path])
+        .map(s => `[${s.label}] ${s.path}\n${comments[s.path]}`)
+    );
+    if (!lines.length) return;
+    navigator.clipboard.writeText(lines.join('\n\n'));
+  }
+
   const query = search.toLowerCase();
   const filtered = SCREENS.map(g => ({
     ...g,
@@ -144,10 +154,18 @@ export default function Gallery() {
           placeholder="Search screens..."
           style={{ flex: 1, maxWidth: 320, height: 36, padding: '0 14px', background: 'rgba(255,255,255,0.07)', border: '1px solid rgba(255,255,255,0.12)', borderRadius: 99, color: '#fff', fontSize: 13, outline: 'none', fontFamily: 'monospace' }}
         />
-        <span style={{ fontSize: 12, color: 'rgba(255,255,255,0.3)', flexShrink: 0 }}>
+        <span style={{ fontSize: 12, color: 'rgba(255,255,255,0.3)', flexShrink: 0, display: 'flex', alignItems: 'center', gap: 12 }}>
           {SCREENS.flatMap(g => g.screens).length} screens
           {totalComments > 0 && (
-            <span style={{ marginLeft: 10, color: '#72c15f' }}>· {totalComments} comment{totalComments !== 1 ? 's' : ''}</span>
+            <span style={{ color: '#72c15f' }}>· {totalComments} comment{totalComments !== 1 ? 's' : ''}</span>
+          )}
+          {totalComments > 0 && (
+            <button
+              onClick={exportComments}
+              style={{ fontSize: 12, color: 'rgba(255,255,255,0.5)', background: 'rgba(255,255,255,0.07)', border: '1px solid rgba(255,255,255,0.15)', borderRadius: 99, padding: '4px 12px', cursor: 'pointer', fontFamily: 'monospace' }}
+            >
+              Copy all notes
+            </button>
           )}
         </span>
       </div>
