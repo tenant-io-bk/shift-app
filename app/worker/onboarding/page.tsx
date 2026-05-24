@@ -5,14 +5,22 @@ import { useState } from 'react';
 import StepProgress from '@/app/components/StepProgress';
 
 const ALL_SKILLS = [
-  'barista', 'host', 'server', 'bartender', 'barback', 'cashier',
-  'prep cook', 'dish', 'security', 'pop-ups', 'catering', 'baking',
+  { label: 'barista',    r:  -8, delay: 0   },
+  { label: 'host',       r:  10, delay: 50  },
+  { label: 'server',     r: -12, delay: 100 },
+  { label: 'bartender',  r:   7, delay: 60  },
+  { label: 'barback',    r:  -6, delay: 150 },
+  { label: 'cashier',    r:   9, delay: 110 },
+  { label: 'prep cook',  r: -10, delay: 200 },
+  { label: 'dish',       r:   6, delay: 160 },
+  { label: 'security',   r:  -7, delay: 250 },
+  { label: 'pop-ups',    r:  11, delay: 210 },
+  { label: 'catering',   r:  -9, delay: 300 },
+  { label: 'baking',     r:   8, delay: 260 },
 ];
 
-const DEFAULT_SELECTED = ['host', 'server', 'prep cook', 'baking'];
-
 export default function WorkerOnboarding() {
-  const [selected, setSelected] = useState<string[]>(DEFAULT_SELECTED);
+  const [selected, setSelected] = useState<string[]>([]);
 
   function toggle(skill: string) {
     setSelected((prev) =>
@@ -22,6 +30,19 @@ export default function WorkerOnboarding() {
 
   return (
     <div style={{ maxWidth: 390, minHeight: '100vh', margin: '0 auto', background: 'var(--paper)' }}>
+      <style>{`
+        @keyframes pill-land {
+          0%   { opacity: 0; transform: translateY(40px) rotate(var(--r)) scale(0.82); }
+          55%  { opacity: 1; transform: translateY(-5px) rotate(calc(var(--r) * -0.1)) scale(1.04); }
+          75%  { transform: translateY(2px)  rotate(calc(var(--r) * 0.03)) scale(0.98); }
+          90%  { transform: translateY(-1px) rotate(0deg); }
+          100% { opacity: 1; transform: translateY(0)    rotate(0deg) scale(1); }
+        }
+        .pill-anim {
+          animation: pill-land 0.75s cubic-bezier(0.22,1,0.36,1) both;
+          opacity: 0;
+        }
+      `}</style>
       {/* Nav */}
       <div style={{
         height: 44,
@@ -69,13 +90,16 @@ export default function WorkerOnboarding() {
 
         {/* Chip grid — 2 columns */}
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10, marginTop: 16 }}>
-          {ALL_SKILLS.map((skill) => {
-            const isSelected = selected.includes(skill);
+          {ALL_SKILLS.map((s) => {
+            const isSelected = selected.includes(s.label);
             return (
               <button
-                key={skill}
-                onClick={() => toggle(skill)}
+                key={s.label}
+                className="pill-anim"
+                onClick={() => toggle(s.label)}
                 style={{
+                  '--r': `${s.r}deg`,
+                  animationDelay: `${s.delay}ms`,
                   padding: '14px 16px',
                   borderRadius: 99,
                   fontFamily: 'var(--sans)',
@@ -86,11 +110,11 @@ export default function WorkerOnboarding() {
                   border: isSelected ? 'none' : '2px solid var(--ink)',
                   background: isSelected ? 'var(--hydrant)' : 'transparent',
                   color: 'var(--ink)',
-                  transition: 'all 0.15s ease',
+                  transition: 'background 0.15s ease, border 0.15s ease',
                   textAlign: 'center',
-                }}
+                } as React.CSSProperties}
               >
-                {skill}
+                {s.label}
               </button>
             );
           })}
