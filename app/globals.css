@@ -1,26 +1,46 @@
 @import "tailwindcss";
 
 :root {
+  /* Surfaces */
+  --bg:       #fcfcfc;
   --paper:    #fcfcfc;
   --paper-2:  #F4F5F7;
   --paper-3:  #E8EAED;
   --card:     #FFFFFF;
   --ink:      #0D0E12;
   --ink-2:    #1F2128;
-  --mute:     #0D0E12;
-  --mute-2:   #0D0E12;
+  --mute:     rgba(13,14,18,0.55);
+  --mute-2:   rgba(13,14,18,0.35);
   --line:     rgba(13,14,18,0.10);
-  --line-2:   rgba(13,14,18,0.16);
+  --line-2:   rgba(13,14,18,0.18);
+
+  /* v4 functional palette */
+  --green:        #72c15f;   /* active · confirmed · on shift · paid · earned */
+  --green-soft:   #E2F1DD;
+  --lilac:        #9A7CE0;   /* discovery · browse · onboarding */
+  --lilac-soft:   #E8E0FA;
+  --red:          #E5391F;   /* urgent · priority · countdown */
+  --red-soft:     #FAD6CE;
+  --pink:         #F2B6E0;   /* human · hospitality · social */
+  --pink-soft:    #FBE4F3;
+  --yellow:       #f7dd6d;   /* pending · applied · waiting */
+  --yellow-soft:  #FCEFB7;
+  --steel:        #c7d8f2;   /* counter family · uniformed */
+  --steel-soft:   #EAF1FA;
+  --grey:         #E0E0E0;   /* dormant · past · disabled */
+  --grey-soft:    #F0F0F0;
+
+  /* Legacy aliases (keep for backward compat) */
   --hydrant:      #72c15f;
   --hydrant-deep: #5a9e4a;
-  --hydrant-soft: #eef7eb;
-  --red:      #B83227;
-  --red-soft: #FBE6E2;
-  --amber:    #B8741E;
-  --green:    #2B6E3D;
-  --online:   #16A34A;
+  --hydrant-soft: #E2F1DD;
+  --amber:        #B8741E;
+  --online:       #16A34A;
+
+  /* Type */
   --sans: var(--font-bricolage), system-ui, sans-serif;
-  --mono: var(--font-inter-tight), system-ui, sans-serif;
+  --body: var(--font-inter-tight), system-ui, sans-serif;
+  --mono: var(--font-geist-mono), ui-monospace, monospace;
 }
 
 * {
