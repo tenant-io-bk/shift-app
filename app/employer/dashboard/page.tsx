@@ -170,9 +170,19 @@ export default function EmployerDashboard() {
           <div style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 38, color: 'var(--ink)', letterSpacing: '-0.075em', lineHeight: 0.95 }}>Padmore&apos;s Coffee</div>
           <div style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--ink)', marginTop: 8 }}>172 Tompkins Ave | Bed-Stuy</div>
         </div>
-        <div style={{ textAlign: 'right', flexShrink: 0, paddingTop: 4 }}>
-          <div style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 15, color: 'var(--ink)', letterSpacing: '-0.02em' }}>78°F</div>
-          <div style={{ fontSize: 22, lineHeight: 1.2 }}>☀️</div>
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: 8, flexShrink: 0, paddingTop: 4 }}>
+          <Link href="/employer/notifications" style={{
+            position: 'relative', width: 36, height: 36, borderRadius: '50%',
+            background: 'var(--card)', border: '1.5px solid var(--line)',
+            display: 'flex', alignItems: 'center', justifyContent: 'center', textDecoration: 'none',
+          }}>
+            <svg width="18" height="18" viewBox="0 0 22 22" fill="none">
+              <path d="M11 3a6 6 0 0 0-6 6v3l-2 3h16l-2-3V9a6 6 0 0 0-6-6Z" stroke="var(--ink)" strokeWidth="1.6" fill="none" strokeLinejoin="round" />
+              <path d="M9 16a2 2 0 0 0 4 0" stroke="var(--ink)" strokeWidth="1.6" strokeLinecap="round" />
+            </svg>
+            <div style={{ position: 'absolute', top: 7, right: 7, width: 8, height: 8, borderRadius: '50%', background: 'var(--hydrant)', border: '1.5px solid var(--paper)' }} />
+          </Link>
+          <div style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 13, color: 'var(--ink)', letterSpacing: '-0.02em' }}>78°F ☀️</div>
         </div>
       </div>
 

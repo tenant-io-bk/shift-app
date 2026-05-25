@@ -1,8 +1,35 @@
 'use client';
 
+import { useState } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 export default function CancelFlow() {
+  const router = useRouter();
+  const [cancelled, setCancelled] = useState(false);
+
+  if (cancelled) {
+    return (
+      <div style={{ maxWidth: 390, minHeight: '100vh', margin: '0 auto', background: 'var(--paper)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '0 32px', textAlign: 'center', gap: 16 }}>
+        <div style={{ width: 64, height: 64, borderRadius: '50%', background: 'rgba(234,75,42,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 8 }}>
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+            <path d="M7 7l14 14M21 7L7 21" stroke="#EA4B2A" strokeWidth="2.2" strokeLinecap="round" />
+          </svg>
+        </div>
+        <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 32, color: 'var(--ink)', letterSpacing: '-0.05em' }}>Shift cancelled.</div>
+        <p style={{ fontFamily: 'var(--mono)', fontSize: 13, color: 'var(--mute)', lineHeight: 1.6 }}>
+          Padmore&apos;s has been notified. A standby worker is being contacted.
+        </p>
+        <div style={{ padding: '10px 16px', background: 'rgba(234,75,42,0.08)', borderRadius: 10, fontFamily: 'var(--mono)', fontSize: 11, color: '#EA4B2A', lineHeight: 1.5 }}>
+          7-day block from Padmore&apos;s · −6 spots in Bed-Stuy standing
+        </div>
+        <Link href="/worker/home" style={{ marginTop: 16, display: 'block', width: '100%', padding: '15px', background: 'var(--ink)', color: '#fff', borderRadius: 99, fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 16, textAlign: 'center', textDecoration: 'none', letterSpacing: '-0.01em' }}>
+          Back to home
+        </Link>
+      </div>
+    );
+  }
+
   return (
     <div style={{
       maxWidth: 390,
@@ -26,7 +53,7 @@ export default function CancelFlow() {
         padding: '0 16px',
         zIndex: 20,
       }}>
-        <Link href="/worker/confirm" style={{ fontSize: 20, color: 'white', textDecoration: 'none', opacity: 0.8 }}>←</Link>
+        <Link href="/worker/day-of" style={{ fontSize: 20, color: 'white', textDecoration: 'none', opacity: 0.8 }}>←</Link>
       </div>
 
       {/* Ghosted on-shift screen behind */}
@@ -111,6 +138,7 @@ export default function CancelFlow() {
             desc: "Tell Padmore's when to expect you. No penalty.",
             titleColor: 'var(--ink)',
             descColor: 'var(--mute)',
+            action: () => router.push('/worker/messages'),
           },
           {
             icon: (
@@ -122,6 +150,7 @@ export default function CancelFlow() {
             desc: 'Ask before you decide',
             titleColor: 'var(--ink)',
             descColor: 'var(--mute)',
+            action: () => router.push('/worker/messages'),
           },
           {
             icon: (
@@ -134,17 +163,25 @@ export default function CancelFlow() {
             desc: "7-day block from Padmore's · −6 spots in Bed-Stuy",
             titleColor: 'var(--red)',
             descColor: 'var(--red)',
+            action: () => setCancelled(true),
           },
         ].map((opt, i) => (
-          <div
+          <button
             key={i}
+            onClick={opt.action}
             style={{
+              width: '100%',
               display: 'flex',
               alignItems: 'center',
               gap: 12,
               padding: '14px 0',
-              borderBottom: '1px solid var(--line)',
               cursor: 'pointer',
+              background: 'none',
+              borderTop: 'none',
+              borderLeft: 'none',
+              borderRight: 'none',
+              borderBottom: '1px solid var(--line)',
+              textAlign: 'left',
             }}
           >
             <div style={{ flexShrink: 0, marginTop: 1 }}>{opt.icon}</div>
@@ -166,7 +203,7 @@ export default function CancelFlow() {
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style={{ flexShrink: 0 }}>
               <path d="M6 3l5 5-5 5" stroke="var(--mute-2)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
-          </div>
+          </button>
         ))}
 
         <p style={{

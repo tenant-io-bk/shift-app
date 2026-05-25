@@ -77,11 +77,27 @@ function PinSheet({ shift, onClose }: { shift: Shift; onClose: () => void }) {
   );
 }
 
-const FILTER_CHIPS = ['All', '♥ Faves', 'Today', '$25+/hr', 'Barista'];
+const ROLES = ['All', 'Barista', 'Bartender', 'Server', 'Barback', 'Host', 'Cook'];
 
 export default function WorkerMap() {
   const [viewMode, setViewMode] = useState<'map' | 'list'>('map');
   const [selectedShift, setSelectedShift] = useState<Shift | null>(null);
+  const [filterRole, setFilterRole] = useState('All');
+  const [filterHighPay, setFilterHighPay] = useState(false);
+
+  const filteredShifts = SHIFTS.filter(s => {
+    if (filterRole !== 'All') {
+      const match = filterRole === 'Cook'
+        ? (s.type === 'Cook' || s.type === 'Prep Cook')
+        : s.type === filterRole;
+      if (!match) return false;
+    }
+    if (filterHighPay) {
+      const rate = parseInt(s.rate.replace(/[^0-9]/g, ''));
+      if (rate < 25) return false;
+    }
+    return true;
+  });
 
   const topBar = (floating: boolean) => (
     <div style={{
@@ -95,8 +111,8 @@ export default function WorkerMap() {
         <Link href="/" style={{ width: 36, height: 36, display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--ink)', textDecoration: 'none', fontSize: 20 }}>←</Link>
         <div style={{ display: 'flex', alignItems: 'center', gap: 8, background: floating ? '#fff' : 'var(--paper-2)', border: '2px solid var(--ink)', borderRadius: 99, padding: '6px 12px 6px 14px' }}>
           <span style={{ fontFamily: 'var(--mono)', fontSize: 12, fontWeight: 600, color: 'var(--ink)' }}>Bed-Stuy · 2 mi</span>
-          <div style={{ background: '#72c15f', borderRadius: 99, padding: '3px 8px' }}>
-            <span style={{ fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 700, color: '#fff', letterSpacing: '0.06em', textTransform: 'uppercase' }}>18 READY</span>
+          <div style={{ background: filteredShifts.length > 0 ? '#72c15f' : 'var(--mute)', borderRadius: 99, padding: '3px 8px' }}>
+            <span style={{ fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 700, color: '#fff', letterSpacing: '0.06em', textTransform: 'uppercase' }}>{filteredShifts.length} READY</span>
           </div>
         </div>
         <div style={{ display: 'flex', background: floating ? 'rgba(0,0,0,0.08)' : 'var(--paper-3)', borderRadius: 8, padding: 2, gap: 2 }}>
@@ -126,10 +142,48 @@ export default function WorkerMap() {
           ))}
         </div>
       </div>
-      <div className="chip-row" style={{ padding: '8px 16px 10px', gap: 6 }}>
-        {FILTER_CHIPS.map(label => (
-          <div key={label} className={`chip${label === 'All' ? ' active' : ''}`} style={{ flexShrink: 0 }}>{label}</div>
+      <div style={{ display: 'flex', gap: 6, padding: '8px 16px 10px', overflowX: 'auto', scrollbarWidth: 'none' }}>
+        {ROLES.map(role => (
+          <button
+            key={role}
+            onClick={() => setFilterRole(role)}
+            style={{
+              flexShrink: 0,
+              padding: '5px 12px',
+              borderRadius: 99,
+              border: '1.5px solid',
+              borderColor: filterRole === role ? 'var(--ink)' : 'var(--line)',
+              background: filterRole === role ? 'var(--ink)' : 'transparent',
+              fontFamily: 'var(--mono)',
+              fontSize: 11,
+              fontWeight: 600,
+              color: filterRole === role ? '#fff' : 'var(--ink)',
+              cursor: 'pointer',
+              transition: 'all 0.15s',
+            }}
+          >
+            {role}
+          </button>
         ))}
+        <button
+          onClick={() => setFilterHighPay(p => !p)}
+          style={{
+            flexShrink: 0,
+            padding: '5px 12px',
+            borderRadius: 99,
+            border: '1.5px solid',
+            borderColor: filterHighPay ? 'var(--hydrant)' : 'var(--line)',
+            background: filterHighPay ? 'var(--hydrant-soft)' : 'transparent',
+            fontFamily: 'var(--mono)',
+            fontSize: 11,
+            fontWeight: 600,
+            color: filterHighPay ? 'var(--hydrant)' : 'var(--ink)',
+            cursor: 'pointer',
+            transition: 'all 0.15s',
+          }}
+        >
+          $25+/hr
+        </button>
       </div>
     </div>
   );
@@ -161,7 +215,7 @@ export default function WorkerMap() {
         </div>
 
         {/* Shift pins */}
-        {SHIFTS.map((shift, i) => {
+        {filteredShifts.map((shift, i) => {
           const isSelected = selectedShift?.name === shift.name;
           return (
             <div
@@ -222,7 +276,7 @@ export default function WorkerMap() {
             <span style={{ fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 600, color: 'var(--mute)', letterSpacing: '0.06em', textTransform: 'uppercase' }}>78F Sunny</span>
           </div>
           <div style={{ display: 'flex', alignItems: 'baseline', gap: 8 }}>
-            <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 48, color: 'var(--ink)', letterSpacing: '-0.05em', lineHeight: 1 }}>18</span>
+            <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 48, color: 'var(--ink)', letterSpacing: '-0.05em', lineHeight: 1 }}>{filteredShifts.length}</span>
             <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 28, color: 'var(--ink)', letterSpacing: '-0.035em', lineHeight: 1 }}>shifts ready.</span>
           </div>
         </div>
@@ -245,7 +299,7 @@ export default function WorkerMap() {
             rate="$24/h + tips"
             statusLabel="Pending"
           />
-          {SHIFTS.map((shift, i) => (
+          {filteredShifts.map((shift, i) => (
             <ShiftCard
               key={i}
               family={familyFor(shift.type)}
