@@ -9,14 +9,11 @@ type BottomNavProps = {
 const tabs: { id: Tab; label: string; href: string; icon: React.ReactNode }[] = [
   {
     id: 'shifts',
-    label: 'Shifts',
-    href: '/worker/map',
+    label: 'Home',
+    href: '/worker/home',
     icon: (
       <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
-        <rect x="2" y="2" width="7" height="7" rx="2" fill="currentColor" />
-        <rect x="13" y="2" width="7" height="7" rx="2" fill="currentColor" />
-        <rect x="2" y="13" width="7" height="7" rx="2" fill="currentColor" />
-        <rect x="13" y="13" width="7" height="7" rx="2" fill="currentColor" />
+        <path d="M3 9.5L11 3l8 6.5V19a1 1 0 0 1-1 1H14v-5h-4v5H4a1 1 0 0 1-1-1V9.5Z" stroke="currentColor" strokeWidth="1.6" fill="none" strokeLinejoin="round" />
       </svg>
     ),
   },
@@ -34,12 +31,11 @@ const tabs: { id: Tab; label: string; href: string; icon: React.ReactNode }[] = 
   },
   {
     id: 'notifications',
-    label: 'Alerts',
-    href: '/worker/notifications',
+    label: 'Messages',
+    href: '/worker/messages',
     icon: (
       <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
-        <path d="M11 3a6 6 0 0 0-6 6v3l-2 3h16l-2-3V9a6 6 0 0 0-6-6Z" stroke="currentColor" strokeWidth="1.6" fill="none" strokeLinejoin="round" />
-        <path d="M9 16a2 2 0 0 0 4 0" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+        <path d="M3 4h16a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H7l-4 3V5a1 1 0 0 1 1-1Z" stroke="currentColor" strokeWidth="1.6" fill="none" strokeLinejoin="round" />
       </svg>
     ),
   },

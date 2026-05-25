@@ -455,7 +455,7 @@ export default function Page() {
           }}
         >
           {[
-            { label: 'Message both', href: null },
+            { label: 'Message both', href: '/employer/messages' },
             { label: 'Replace no-show', href: '/v3/no-show' },
           ].map(({ label, href }) =>
             href ? (

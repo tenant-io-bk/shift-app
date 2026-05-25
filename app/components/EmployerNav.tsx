@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import StatusBar from '@/app/components/StatusBar';
 
-type Tab = 'dashboard' | 'post' | 'shifts' | 'account';
+type Tab = 'dashboard' | 'post' | 'shifts' | 'messages' | 'account';
 
 export default function EmployerNav({ active }: { active: Tab }) {
   const tabs: { id: Tab; label: string; href: string; icon: React.ReactNode }[] = [
@@ -39,6 +39,16 @@ export default function EmployerNav({ active }: { active: Tab }) {
           <path d="M7 2v4M15 2v4M3 9h16" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
           <rect x="6" y="13" width="3" height="3" rx="1" fill="currentColor" />
           <rect x="13" y="13" width="3" height="3" rx="1" fill="currentColor" />
+        </svg>
+      ),
+    },
+    {
+      id: 'messages',
+      label: 'Messages',
+      href: '/employer/messages',
+      icon: (
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+          <path d="M3 4h16a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H7l-4 3V5a1 1 0 0 1 1-1Z" stroke="currentColor" strokeWidth="1.6" fill="none" strokeLinejoin="round" />
         </svg>
       ),
     },
