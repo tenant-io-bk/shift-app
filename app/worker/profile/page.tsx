@@ -407,6 +407,10 @@ export default function WorkerProfile() {
           <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 15, color: 'var(--ink)' }}>Settings & account</span>
           <span style={{ color: 'var(--mute)', fontSize: 18 }}>→</span>
         </Link>
+        <Link href="/worker/report" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '16px 0', borderTop: '1px solid var(--line)', textDecoration: 'none' }}>
+          <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 15, color: 'var(--ink)' }}>File a report</span>
+          <span style={{ color: 'var(--mute)', fontSize: 18 }}>→</span>
+        </Link>
       </div>
 
       </>}

@@ -345,6 +345,9 @@ export default function JobDetail() {
         <p style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--mute)', textAlign: 'center', marginTop: 12 }}>
           15 min to confirm · no application, no interview
         </p>
+        <p style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--mute)', textAlign: 'center', marginTop: 6 }}>
+          <Link href="/worker/report" style={{ color: 'var(--mute)', textDecoration: 'underline' }}>Report an issue with this posting</Link>
+        </p>
       </div>
 
       {gateOpen && <ProfileGate onClose={() => setGateOpen(false)} />}
