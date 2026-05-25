@@ -115,7 +115,7 @@ export default function Notifications() {
         {earlier.map(n => <NotifRow key={n.id} n={n} onRead={markRead} />)}
       </div>
 
-      <BottomNav active="notifications" />
+      <BottomNav active="menu" />
     </div>
   );
 }

@@ -520,7 +520,7 @@ export default function WorkerHome() {
         ))}
       </div>
 
-      <BottomNav active="shifts" />
+      <BottomNav active="home" />
     </div>
   );
 }

@@ -411,7 +411,7 @@ export default function WorkerProfile() {
 
       </>}
 
-      <BottomNav active="profile" />
+      <BottomNav active="menu" />
     </div>
   );
 }

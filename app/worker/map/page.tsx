@@ -203,7 +203,7 @@ export default function WorkerMap() {
         {/* Pin sheet */}
         {selectedShift && <PinSheet shift={selectedShift} onClose={() => setSelectedShift(null)} />}
 
-        <BottomNav active="shifts" />
+        <BottomNav active="map" />
       </div>
     );
   }
@@ -263,7 +263,7 @@ export default function WorkerMap() {
         </div>
       </div>
 
-      <BottomNav active="shifts" />
+      <BottomNav active="map" />
     </div>
   );
 }

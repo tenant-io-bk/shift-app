@@ -540,7 +540,7 @@ export default function WorkerMessages() {
         ))}
       </div>
 
-      <BottomNav active="notifications" />
+      <BottomNav active="messages" />
     </div>
   );
 }
