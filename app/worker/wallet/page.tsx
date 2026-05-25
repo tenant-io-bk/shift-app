@@ -39,9 +39,10 @@ export default function WorkerWallet() {
 
       {/* Balance header */}
       <div style={{
-        padding: '24px 22px 20px',
+        padding: '28px 22px 24px',
         background: 'var(--ink)',
         color: '#fff',
+        textAlign: 'center',
       }}>
         <p style={{
           fontFamily: 'var(--mono)',
@@ -50,40 +51,45 @@ export default function WorkerWallet() {
           textTransform: 'uppercase',
           letterSpacing: '0.1em',
           color: 'rgba(255,255,255,0.5)',
-          marginBottom: 4,
+          marginBottom: 8,
         }}>AVAILABLE</p>
 
         <div style={{
           fontFamily: 'var(--sans)',
           fontWeight: 600,
-          fontSize: 56,
+          fontSize: 64,
           color: '#fff',
           letterSpacing: '-0.075em',
           lineHeight: 1,
         }}>$247.50</div>
 
-        <p style={{
-          fontFamily: 'var(--mono)',
-          fontSize: 12,
-          color: 'rgba(255,255,255,0.5)',
-          marginTop: 6,
-          marginBottom: 16,
-        }}>Settled · updated just now</p>
+        {/* Progress ring — replaces "Settled" */}
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, marginTop: 14, marginBottom: 20 }}>
+          <svg width="20" height="20" viewBox="0 0 20 20" style={{ transform: 'rotate(-90deg)', flexShrink: 0 }}>
+            <circle cx="10" cy="10" r="7" fill="none" stroke="rgba(255,255,255,0.15)" strokeWidth="2.5" />
+            <circle cx="10" cy="10" r="7" fill="none" stroke="#72c15f" strokeWidth="2.5"
+              strokeDasharray={`${2 * Math.PI * 7 * goalPct / 100} ${2 * Math.PI * 7}`}
+              strokeLinecap="round" />
+          </svg>
+          <span style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'rgba(255,255,255,0.5)' }}>
+            {goalPct}% of weekly goal
+          </span>
+        </div>
 
-        {/* Action buttons */}
-        <div style={{ display: 'flex', gap: 8 }}>
+        {/* Pill buttons */}
+        <div style={{ display: 'flex', gap: 8, justifyContent: 'center' }}>
           {['Add bank', 'Cash out →'].map((label) => (
             <button
               key={label}
               style={{
                 background: 'rgba(255,255,255,0.10)',
-                border: '1px solid rgba(255,255,255,0.15)',
+                border: '1px solid rgba(255,255,255,0.2)',
                 color: '#fff',
                 fontFamily: 'var(--mono)',
                 fontSize: 12,
                 fontWeight: 600,
-                borderRadius: 10,
-                padding: '8px 14px',
+                borderRadius: 99,
+                padding: '9px 20px',
                 cursor: 'pointer',
               }}
             >

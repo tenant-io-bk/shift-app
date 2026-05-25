@@ -57,7 +57,8 @@ function SlideToClockOut({ onComplete }: { onComplete: () => void }) {
         position: 'relative',
         width: '100%',
         height: 60,
-        background: '#EA4B2A',
+        background: '#fff',
+        border: '2px solid var(--ink)',
         borderRadius: 99,
         overflow: 'hidden',
         touchAction: 'none',
@@ -68,7 +69,7 @@ function SlideToClockOut({ onComplete }: { onComplete: () => void }) {
       <div style={{
         position: 'absolute', top: 0, left: 0, bottom: 0,
         width: `${GUTTER + THUMB + progress * range}px`,
-        background: 'rgba(0,0,0,0.2)',
+        background: 'var(--ink)',
         transition: dragging ? 'none' : 'width 0.28s cubic-bezier(0.22,1,0.36,1)',
       }} />
       {/* Label */}
@@ -77,7 +78,7 @@ function SlideToClockOut({ onComplete }: { onComplete: () => void }) {
         display: 'flex', alignItems: 'center', justifyContent: 'center',
         fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 700,
         letterSpacing: '0.14em', textTransform: 'uppercase',
-        color: done ? 'transparent' : `rgba(255,255,255,${Math.max(0, 0.75 - progress * 1.5)})`,
+        color: `rgba(13,14,18,${Math.max(0, 0.45 - progress * 1.5)})`,
         paddingLeft: THUMB,
         pointerEvents: 'none',
         transition: dragging ? 'none' : 'color 0.25s',
@@ -101,18 +102,17 @@ function SlideToClockOut({ onComplete }: { onComplete: () => void }) {
         onPointerUp={onPointerUp}
         onPointerCancel={onPointerUp}
         style={{
-          position: 'absolute', top: GUTTER, left: GUTTER,
+          position: 'absolute', top: GUTTER - 2, left: GUTTER - 2,
           width: THUMB, height: THUMB,
-          background: '#fff', borderRadius: 99,
+          background: 'var(--ink)', borderRadius: 99,
           transform: `translateX(${progress * range}px)`,
           transition: dragging ? 'none' : 'transform 0.28s cubic-bezier(0.22,1,0.36,1)',
           display: 'flex', alignItems: 'center', justifyContent: 'center',
           cursor: dragging ? 'grabbing' : 'grab',
-          boxShadow: '0 2px 8px rgba(0,0,0,0.22)',
           touchAction: 'none',
         }}
       >
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#EA4B2A" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
           <path d="M5 12h14M13 6l6 6-6 6" />
         </svg>
       </div>
@@ -164,8 +164,8 @@ export default function OnShift() {
           alignItems: 'center',
           alignSelf: 'flex-start',
           padding: '5px 12px',
-          background: 'var(--paper-2)',
-          border: '1px solid var(--line)',
+          background: '#fff',
+          border: '2px solid var(--ink)',
           borderRadius: 99,
           marginTop: 8,
         }}
@@ -197,7 +197,7 @@ export default function OnShift() {
       </div>
 
       {/* Earned box */}
-      <div style={{ padding: '16px 18px', background: 'var(--paper-2)', border: '2px solid var(--ink)', borderRadius: 14 }}>
+      <div style={{ padding: '16px 18px', background: '#fff', border: '2px solid var(--ink)', borderRadius: 14 }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 12 }}>
           <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 36, color: 'var(--ink)', letterSpacing: '-0.02em' }}>
             $62<span style={{ color: '#72c15f' }}>.</span>

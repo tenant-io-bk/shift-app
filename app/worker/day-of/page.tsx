@@ -124,19 +124,29 @@ export default function DayOf() {
       <div style={{ flex: 1, overflowY: 'auto', paddingBottom: 120 }}>
 
         {/* Countdown banner */}
-        <div style={{ background: 'var(--green-soft)', padding: '14px 22px 18px' }}>
+        <div style={{ background: 'var(--paper)', padding: '20px 22px 18px', textAlign: 'center' }}>
           <div style={{
-            fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 56,
+            fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 64,
             color: 'var(--ink)', lineHeight: 1, letterSpacing: '-0.05em',
           }}>
             23 min.
           </div>
-          <p style={{
-            fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--ink)',
-            opacity: 0.65, marginTop: 6, letterSpacing: '0.06em', textTransform: 'uppercase',
-          }}>
-            Head out by 10:35A · starts at 11A
-          </p>
+          <div style={{ display: 'flex', gap: 8, marginTop: 14, justifyContent: 'center', flexWrap: 'wrap' }}>
+            <span style={{
+              background: 'var(--ink)', borderRadius: 99, padding: '7px 16px',
+              fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 600,
+              color: '#fff', letterSpacing: '0.04em',
+            }}>
+              Head out by 10:35A
+            </span>
+            <span style={{
+              background: 'transparent', border: '1.5px solid var(--ink)', borderRadius: 99, padding: '7px 16px',
+              fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 600,
+              color: 'var(--ink)', letterSpacing: '0.04em',
+            }}>
+              Starts at 11A
+            </span>
+          </div>
         </div>
 
         {/* Confirmed shift card */}

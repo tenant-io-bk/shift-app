@@ -101,17 +101,13 @@ export default function Notifications() {
         ) : <div style={{ width: 60 }} />}
       </div>
 
-      <div style={{ flex: 1, overflowY: 'auto' }}>
+      <div style={{ flex: 1, overflowY: 'auto', padding: '8px 16px 16px' }}>
         {/* Today */}
-        <div style={{ padding: '14px 22px 6px' }}>
-          <div style={{ fontFamily: 'var(--mono)', fontSize: 10, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--mute)' }}>Today</div>
-        </div>
+        <div style={{ fontFamily: 'var(--mono)', fontSize: 10, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--mute)', padding: '10px 4px 8px' }}>Today</div>
         {today.map(n => <NotifRow key={n.id} n={n} onRead={markRead} />)}
 
         {/* Earlier */}
-        <div style={{ padding: '14px 22px 6px', marginTop: 4 }}>
-          <div style={{ fontFamily: 'var(--mono)', fontSize: 10, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--mute)' }}>Earlier</div>
-        </div>
+        <div style={{ fontFamily: 'var(--mono)', fontSize: 10, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--mute)', padding: '16px 4px 8px' }}>Earlier</div>
         {earlier.map(n => <NotifRow key={n.id} n={n} onRead={markRead} />)}
       </div>
 
@@ -128,26 +124,26 @@ function NotifRow({ n, onRead }: { n: Notification; onRead: (id: number) => void
       onClick={() => onRead(n.id)}
       style={{
         display: 'flex', alignItems: 'flex-start', gap: 12,
-        padding: '12px 22px',
-        background: n.read ? 'transparent' : 'var(--hydrant-soft)',
-        borderBottom: '1px solid var(--line)',
+        padding: '14px 16px',
+        background: 'var(--paper)',
+        border: `2px solid ${n.read ? 'var(--line)' : 'var(--ink)'}`,
+        borderRadius: 14,
         textDecoration: 'none',
-        transition: 'background 0.2s',
+        marginBottom: 10,
       }}
     >
       {/* Icon */}
       <div style={{
-        width: 38, height: 38, borderRadius: 10, flexShrink: 0,
+        width: 40, height: 40, borderRadius: 10, flexShrink: 0,
         background: cfg.bg, display: 'flex', alignItems: 'center', justifyContent: 'center',
         fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 16, color: cfg.color,
-        marginTop: 2,
       }}>
         {cfg.icon}
       </div>
 
       {/* Text */}
-      <div style={{ flex: 1 }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 8 }}>
+      <div style={{ flex: 1, minWidth: 0 }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 8, marginBottom: 3 }}>
           <span style={{ fontFamily: 'var(--sans)', fontWeight: n.read ? 500 : 700, fontSize: 14, color: 'var(--ink)', lineHeight: 1.3 }}>
             {n.title}
           </span>
@@ -155,7 +151,7 @@ function NotifRow({ n, onRead }: { n: Notification; onRead: (id: number) => void
             <div style={{ width: 7, height: 7, borderRadius: '50%', background: 'var(--hydrant)', flexShrink: 0, marginTop: 4 }} />
           )}
         </div>
-        <div style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--mute)', marginTop: 3, lineHeight: 1.4 }}>{n.sub}</div>
+        <div style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--mute)', lineHeight: 1.4 }}>{n.sub}</div>
         <div style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--mute)', marginTop: 4, opacity: 0.7 }}>{n.time}</div>
       </div>
     </Link>
