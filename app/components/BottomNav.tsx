@@ -6,18 +6,16 @@ import Link from 'next/link';
 type Tab = 'home' | 'map' | 'messages' | 'wallet' | 'menu';
 
 const ACTIVE = '#72c15f';
-const INACTIVE = 'rgba(255,255,255,0.38)';
+const INACTIVE = 'rgba(13,14,18,0.45)';
 
 const TABS = [
   {
     id: 'home' as Tab,
     label: 'Home',
     href: '/worker/home',
-    icon: (active: boolean) => (
-      <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
-        <path d="M3 10.5L12 3l9 7.5V21a1 1 0 0 1-1 1H15v-6h-6v6H4a1 1 0 0 1-1-1V10.5Z"
-          stroke="currentColor" strokeWidth="1.7" fill={active ? 'currentColor' : 'none'}
-          strokeLinejoin="round" />
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
       </svg>
     ),
   },
@@ -25,12 +23,10 @@ const TABS = [
     id: 'map' as Tab,
     label: 'Map',
     href: '/worker/map',
-    icon: (active: boolean) => (
-      <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
-        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7Z"
-          stroke="currentColor" strokeWidth="1.7" fill={active ? 'currentColor' : 'none'}
-          strokeLinejoin="round" />
-        <circle cx="12" cy="9" r="2.5" fill={active ? '#fff' : 'none'} stroke={active ? 'none' : 'currentColor'} strokeWidth="1.5" />
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+        <path fillRule="evenodd" clipRule="evenodd"
+          d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5z" />
       </svg>
     ),
   },
@@ -38,15 +34,9 @@ const TABS = [
     id: 'messages' as Tab,
     label: 'Messages',
     href: '/worker/messages',
-    icon: (active: boolean) => (
-      <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
-        <path d="M3 5h18a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1H7.5L3 21V6a1 1 0 0 1 1-1Z"
-          stroke="currentColor" strokeWidth="1.7" fill={active ? 'currentColor' : 'none'}
-          strokeLinejoin="round" />
-        {active && <>
-          <line x1="8" y1="10" x2="16" y2="10" stroke="#fff" strokeWidth="1.5" strokeLinecap="round" />
-          <line x1="8" y1="13.5" x2="13" y2="13.5" stroke="rgba(255,255,255,0.6)" strokeWidth="1.5" strokeLinecap="round" />
-        </>}
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z" />
       </svg>
     ),
   },
@@ -54,12 +44,10 @@ const TABS = [
     id: 'wallet' as Tab,
     label: 'Wallet',
     href: '/worker/wallet',
-    icon: (active: boolean) => (
-      <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
-        <rect x="2" y="6" width="20" height="14" rx="2.5"
-          stroke="currentColor" strokeWidth="1.7" fill={active ? 'currentColor' : 'none'} />
-        <path d="M2 10h20" stroke={active ? '#fff' : 'currentColor'} strokeWidth="1.7" opacity={active ? 0.5 : 1} />
-        <rect x="15" y="13.5" width="4" height="3" rx="1.5" fill={active ? '#fff' : 'currentColor'} />
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+        <path fillRule="evenodd" clipRule="evenodd"
+          d="M22 9V7a2 2 0 00-2-2H4a2 2 0 00-2 2v10a2 2 0 002 2h16a2 2 0 002-2v-2a2 2 0 000-4zM15 13a1 1 0 110-2 1 1 0 010 2z" />
       </svg>
     ),
   },
@@ -83,7 +71,7 @@ export default function BottomNav({ active }: { active: Tab }) {
         <>
           <div
             onClick={() => setMenuOpen(false)}
-            style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.55)', zIndex: 150 }}
+            style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.45)', zIndex: 150 }}
           />
           <div style={{
             position: 'fixed', bottom: 80, left: '50%', transform: 'translateX(-50%)',
@@ -91,9 +79,8 @@ export default function BottomNav({ active }: { active: Tab }) {
             background: 'var(--paper)',
             borderRadius: '20px 20px 0 0',
             zIndex: 160,
-            borderTop: '2px solid var(--ink)',
-            borderLeft: '2px solid var(--ink)',
-            borderRight: '2px solid var(--ink)',
+            border: '2px solid var(--ink)',
+            borderBottom: 'none',
             overflow: 'hidden',
           }}>
             <div style={{ display: 'flex', justifyContent: 'center', padding: '12px 0 8px' }}>
@@ -129,7 +116,7 @@ export default function BottomNav({ active }: { active: Tab }) {
         </>
       )}
 
-      {/* Gradient nav — transparent at top, solid at bottom */}
+      {/* White gradient nav */}
       <div
         style={{
           position: 'fixed',
@@ -139,7 +126,7 @@ export default function BottomNav({ active }: { active: Tab }) {
           width: '100%',
           maxWidth: 390,
           height: 112,
-          background: 'linear-gradient(to bottom, transparent 0%, rgba(13,14,18,0.82) 38%, #0D0E12 62%)',
+          background: 'linear-gradient(to bottom, transparent 0%, rgba(247,248,250,0.88) 40%, #F7F8FA 64%)',
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'flex-end',
@@ -173,7 +160,7 @@ export default function BottomNav({ active }: { active: Tab }) {
                   minWidth: 52,
                 }}
               >
-                {tab.icon(isActive)}
+                {tab.icon}
                 <span style={{
                   fontFamily: 'var(--sans)',
                   fontSize: 11,
@@ -186,7 +173,7 @@ export default function BottomNav({ active }: { active: Tab }) {
             );
           })}
 
-          {/* Avatar / More button */}
+          {/* Avatar / More */}
           <button
             onClick={() => setMenuOpen((o) => !o)}
             style={{
@@ -203,17 +190,17 @@ export default function BottomNav({ active }: { active: Tab }) {
             }}
           >
             <div style={{
-              width: 30,
-              height: 30,
+              width: 28,
+              height: 28,
               borderRadius: '50%',
-              background: 'rgba(255,255,255,0.12)',
-              border: `2px solid ${menuOpen || active === 'menu' ? ACTIVE : 'rgba(255,255,255,0.22)'}`,
+              background: 'var(--ink)',
+              border: `2px solid ${menuOpen || active === 'menu' ? ACTIVE : 'transparent'}`,
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
               transition: 'border-color 0.15s ease',
             }}>
-              <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 13, color: menuOpen || active === 'menu' ? ACTIVE : 'rgba(255,255,255,0.6)' }}>J</span>
+              <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 12, color: '#fff' }}>J</span>
             </div>
             <span style={{
               fontFamily: 'var(--sans)',
