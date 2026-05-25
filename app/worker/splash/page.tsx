@@ -9,7 +9,7 @@ export default function WorkerSplash() {
         maxWidth: 390,
         minHeight: '100vh',
         margin: '0 auto',
-        background: 'var(--green)',
+        background: 'var(--ink)',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
@@ -33,7 +33,9 @@ export default function WorkerSplash() {
           50%       { filter: drop-shadow(0 0 20px rgba(114,193,95,0.5)); }
         }
         .splash-logo {
-          animation: logo-jump 0.9s cubic-bezier(0.22,1,0.36,1) forwards;
+          animation:
+            logo-jump 0.9s cubic-bezier(0.22,1,0.36,1) forwards,
+            logo-glow 3.2s ease-in-out 0.9s infinite;
           opacity: 0;
         }
         @keyframes hint-in {
@@ -46,10 +48,10 @@ export default function WorkerSplash() {
         }
       `}</style>
 
-      <StatusBar time="9:41" />
+      <StatusBar dark time="9:41" />
 
       <img
-        src="/LOGO-blsck.svg"
+        src="/LOGO-green.svg"
         alt="shift"
         className="splash-logo"
         style={{ width: 160, display: 'block', position: 'relative', zIndex: 1 }}
@@ -60,7 +62,7 @@ export default function WorkerSplash() {
         bottom: 52,
         fontFamily: 'var(--mono)',
         fontSize: 11,
-        color: 'rgba(13,14,18,0.55)',
+        color: 'rgba(255,255,255,0.25)',
         letterSpacing: '0.1em',
         textTransform: 'uppercase',
         margin: 0,
