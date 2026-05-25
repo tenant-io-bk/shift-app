@@ -33,9 +33,7 @@ export default function WorkerSplash() {
           50%       { filter: drop-shadow(0 0 20px rgba(114,193,95,0.5)); }
         }
         .splash-logo {
-          animation:
-            logo-jump 0.9s cubic-bezier(0.22,1,0.36,1) forwards,
-            logo-glow 3.2s ease-in-out 0.9s infinite;
+          animation: logo-jump 0.9s cubic-bezier(0.22,1,0.36,1) forwards;
           opacity: 0;
         }
         @keyframes hint-in {
@@ -48,7 +46,7 @@ export default function WorkerSplash() {
         }
       `}</style>
 
-      <StatusBar dark time="9:41" />
+      <StatusBar time="9:41" />
 
       <img
         src="/LOGO-blsck.svg"
