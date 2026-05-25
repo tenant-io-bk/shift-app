@@ -36,6 +36,15 @@ const UPCOMING = [
 
 const PROFILE_COMPLETE = false;
 
+function roleStyle(role: string): { bg: string; color: string } {
+  const r = role.toLowerCase();
+  if (/bartend|barback|barista/.test(r)) return { bg: 'var(--steel)', color: 'var(--ink)' };
+  if (/cook|prep|dish|line/.test(r)) return { bg: 'var(--yellow)', color: 'var(--ink)' };
+  if (/server|host/.test(r)) return { bg: 'var(--pink)', color: 'var(--ink)' };
+  if (/cater|event|pop/.test(r)) return { bg: 'var(--lilac-soft)', color: 'var(--lilac)' };
+  return { bg: 'var(--grey)', color: 'var(--ink)' };
+}
+
 export default function WorkerHome() {
   const next = UPCOMING[0];
   const rest = UPCOMING.slice(1);
@@ -354,25 +363,39 @@ export default function WorkerHome() {
               }}
             >
               <div style={{ flex: 1 }}>
-                <div
-                  style={{
-                    fontFamily: 'var(--sans)',
-                    fontWeight: 600,
-                    fontSize: 14,
-                    color: 'var(--ink)',
-                  }}
-                >
-                  {shift.venue}
+                <div style={{ display: 'flex', alignItems: 'center', gap: 7, marginBottom: 3 }}>
+                  <span
+                    style={{
+                      fontFamily: 'var(--sans)',
+                      fontWeight: 600,
+                      fontSize: 14,
+                      color: 'var(--ink)',
+                    }}
+                  >
+                    {shift.venue}
+                  </span>
+                  <span style={{
+                    fontFamily: 'var(--mono)',
+                    fontSize: 10,
+                    fontWeight: 700,
+                    padding: '2px 7px',
+                    borderRadius: 99,
+                    background: roleStyle(shift.role).bg,
+                    color: roleStyle(shift.role).color,
+                    letterSpacing: '0.03em',
+                    flexShrink: 0,
+                  }}>
+                    {shift.role}
+                  </span>
                 </div>
                 <div
                   style={{
                     fontFamily: 'var(--mono)',
                     fontSize: 12,
                     color: 'var(--mute)',
-                    marginTop: 2,
                   }}
                 >
-                  {shift.role} · {shift.date}
+                  {shift.date}
                 </div>
               </div>
               <div style={{ textAlign: 'right', flexShrink: 0 }}>
@@ -412,8 +435,8 @@ export default function WorkerHome() {
           alignItems: 'center',
           justifyContent: 'space-between',
           padding: '15px 18px',
-          background: 'var(--hydrant-soft)',
-          border: '2px solid var(--hydrant)',
+          background: 'var(--lilac-soft)',
+          border: '2px solid var(--lilac)',
           borderRadius: 14,
           textDecoration: 'none',
         }}
@@ -426,7 +449,7 @@ export default function WorkerHome() {
               fontWeight: 700,
               textTransform: 'uppercase',
               letterSpacing: '0.1em',
-              color: 'var(--hydrant)',
+              color: 'var(--lilac)',
               opacity: 0.7,
               marginBottom: 4,
             }}
@@ -438,7 +461,7 @@ export default function WorkerHome() {
               fontFamily: 'var(--sans)',
               fontWeight: 700,
               fontSize: 17,
-              color: 'var(--hydrant)',
+              color: 'var(--lilac)',
               letterSpacing: '-0.02em',
             }}
           >
@@ -448,7 +471,7 @@ export default function WorkerHome() {
             style={{
               fontFamily: 'var(--mono)',
               fontSize: 12,
-              color: 'var(--hydrant)',
+              color: 'var(--lilac)',
               opacity: 0.75,
               marginTop: 2,
             }}
@@ -463,10 +486,10 @@ export default function WorkerHome() {
           fill="none"
           style={{ flexShrink: 0 }}
         >
-          <circle cx="14" cy="14" r="13" stroke="var(--hydrant)" strokeWidth="1.5" opacity="0.35" />
+          <circle cx="14" cy="14" r="13" stroke="var(--lilac)" strokeWidth="1.5" opacity="0.35" />
           <path
             d="M11 14h6M14 11l3 3-3 3"
-            stroke="var(--hydrant)"
+            stroke="var(--lilac)"
             strokeWidth="1.8"
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -477,16 +500,16 @@ export default function WorkerHome() {
       {/* Quick stats */}
       <div style={{ margin: '0 16px', display: 'flex', gap: 8 }}>
         {[
-          { label: 'This week', value: '$408.' },
-          { label: 'Shifts', value: '3 booked' },
-          { label: 'Rating', value: '4.9★' },
+          { label: 'This week', value: '$408.', bg: 'var(--green-soft)', accent: 'var(--green)' },
+          { label: 'Shifts', value: '3 booked', bg: 'var(--steel-soft)', accent: 'var(--steel)' },
+          { label: 'Rating', value: '4.9★', bg: 'var(--lilac-soft)', accent: 'var(--lilac)' },
         ].map((stat) => (
           <div
             key={stat.label}
             style={{
               flex: 1,
-              background: 'var(--card)',
-              border: '2px solid var(--ink)',
+              background: stat.bg,
+              border: `2px solid ${stat.accent}`,
               borderRadius: 12,
               padding: '12px 8px',
               textAlign: 'center',

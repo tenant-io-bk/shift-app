@@ -79,6 +79,16 @@ function PinSheet({ shift, onClose }: { shift: Shift; onClose: () => void }) {
 
 const ROLES = ['All', 'Barista', 'Bartender', 'Server', 'Barback', 'Host', 'Cook'];
 
+const ROLE_COLORS: Record<string, { bg: string; color: string }> = {
+  'All':       { bg: 'var(--ink)',    color: '#fff' },
+  'Barista':   { bg: 'var(--steel)',  color: 'var(--ink)' },
+  'Bartender': { bg: 'var(--steel)',  color: 'var(--ink)' },
+  'Server':    { bg: 'var(--pink)',   color: 'var(--ink)' },
+  'Barback':   { bg: 'var(--steel)',  color: 'var(--ink)' },
+  'Host':      { bg: 'var(--pink)',   color: 'var(--ink)' },
+  'Cook':      { bg: 'var(--yellow)', color: 'var(--ink)' },
+};
+
 export default function WorkerMap() {
   const [viewMode, setViewMode] = useState<'map' | 'list'>('map');
   const [selectedShift, setSelectedShift] = useState<Shift | null>(null);
@@ -143,28 +153,31 @@ export default function WorkerMap() {
         </div>
       </div>
       <div style={{ display: 'flex', gap: 6, padding: '8px 16px 10px', overflowX: 'auto', scrollbarWidth: 'none' }}>
-        {ROLES.map(role => (
-          <button
-            key={role}
-            onClick={() => setFilterRole(role)}
-            style={{
-              flexShrink: 0,
-              padding: '5px 12px',
-              borderRadius: 99,
-              border: '1.5px solid',
-              borderColor: filterRole === role ? 'var(--ink)' : 'var(--line)',
-              background: filterRole === role ? 'var(--ink)' : 'transparent',
-              fontFamily: 'var(--mono)',
-              fontSize: 11,
-              fontWeight: 600,
-              color: filterRole === role ? '#fff' : 'var(--ink)',
-              cursor: 'pointer',
-              transition: 'all 0.15s',
-            }}
-          >
-            {role}
-          </button>
-        ))}
+        {ROLES.map(role => {
+          const rc = ROLE_COLORS[role] ?? { bg: 'var(--ink)', color: '#fff' };
+          return (
+            <button
+              key={role}
+              onClick={() => setFilterRole(role)}
+              style={{
+                flexShrink: 0,
+                padding: '5px 12px',
+                borderRadius: 99,
+                border: '1.5px solid',
+                borderColor: filterRole === role ? rc.bg : 'var(--line)',
+                background: filterRole === role ? rc.bg : 'transparent',
+                fontFamily: 'var(--mono)',
+                fontSize: 11,
+                fontWeight: 600,
+                color: filterRole === role ? rc.color : 'var(--ink)',
+                cursor: 'pointer',
+                transition: 'all 0.15s',
+              }}
+            >
+              {role}
+            </button>
+          );
+        })}
         <button
           onClick={() => setFilterHighPay(p => !p)}
           style={{

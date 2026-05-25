@@ -61,11 +61,11 @@ const INITIAL: Notification[] = [
 ];
 
 const TYPE_CONFIG = {
-  match: { bg: 'var(--hydrant-soft)', color: 'var(--hydrant)', icon: '⚡' },
-  payment: { bg: 'rgba(22,163,74,0.1)', color: '#16A34A', icon: '$' },
-  reminder: { bg: 'rgba(234,75,42,0.1)', color: '#EA4B2A', icon: '!' },
-  review: { bg: 'rgba(90,60,194,0.1)', color: 'var(--hydrant)', icon: '★' },
-  rebook: { bg: 'rgba(13,14,18,0.06)', color: 'var(--ink)', icon: '↩' },
+  match:   { bg: 'var(--steel)',      color: '#1e3d7a', icon: '⚡' },
+  payment: { bg: 'var(--green)',      color: 'var(--ink)', icon: '$' },
+  reminder:{ bg: 'var(--yellow)',     color: 'var(--ink)', icon: '!' },
+  review:  { bg: 'var(--lilac)',      color: '#fff', icon: '★' },
+  rebook:  { bg: 'var(--pink)',       color: 'var(--ink)', icon: '↩' },
 };
 
 export default function Notifications() {

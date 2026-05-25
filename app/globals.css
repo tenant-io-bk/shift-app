@@ -423,15 +423,15 @@ html, body {
 }
 
 /* Family tints */
-.scard.bar     { background: var(--green-soft); }
-.scard.kitchen { background: var(--red-soft); }
-.scard.floor   { background: var(--pink-soft); }
+.scard.bar     { background: var(--steel); }
+.scard.kitchen { background: var(--yellow); }
+.scard.floor   { background: var(--pink); }
 .scard.event   { background: var(--lilac-soft); }
-.scard.counter { background: var(--steel); }
+.scard.counter { background: var(--grey); }
 
-.scard.bar     .pill-role { background: var(--green); }
-.scard.kitchen .pill-role { background: var(--red); color: var(--paper); }
-.scard.floor   .pill-role { background: var(--pink); }
+.scard.bar     .pill-role { background: #1e3d7a; color: var(--paper); }
+.scard.kitchen .pill-role { background: var(--ink); color: var(--paper); }
+.scard.floor   .pill-role { background: #a02b80; color: var(--paper); }
 .scard.event   .pill-role { background: var(--lilac); color: var(--paper); }
 .scard.counter .pill-role { background: #3d5478; color: var(--paper); }
 
