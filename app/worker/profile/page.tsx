@@ -302,6 +302,39 @@ export default function WorkerProfile() {
         </div>
       </div>
 
+      {/* Profile completion checklist */}
+      <div style={{ margin: '0 20px 20px', padding: '16px', background: 'var(--card)', borderRadius: 14, border: '2px solid var(--ink)' }}>
+        <div style={{ fontFamily: 'var(--mono)', fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--hydrant)', marginBottom: 12 }}>Finish setting up</div>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+          {[
+            { label: 'Add a photo to get booked faster', href: '#', done: false },
+            { label: 'Add credentials to unlock higher-paying shifts', href: '/v3/credentials', done: false },
+            { label: 'Set availability so we only show shifts that fit', href: '/v3/availability', done: false },
+            { label: 'W-9 required once you earn $600', href: '/v3/w9', done: false },
+          ].map((item, i) => (
+            <Link key={i} href={item.href} style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: 10,
+              textDecoration: 'none',
+            }}>
+              <div style={{
+                width: 20,
+                height: 20,
+                borderRadius: '50%',
+                border: '2px solid var(--line-2)',
+                flexShrink: 0,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }} />
+              <span style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--ink)', lineHeight: 1.4 }}>{item.label}</span>
+              <span style={{ marginLeft: 'auto', color: 'var(--mute)', fontSize: 14, flexShrink: 0 }}>→</span>
+            </Link>
+          ))}
+        </div>
+      </div>
+
       {/* Skills */}
       <div style={{ padding: '0 20px 20px', borderBottom: '1px solid var(--line)' }}>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>

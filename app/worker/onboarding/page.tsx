@@ -64,7 +64,7 @@ export default function WorkerOnboarding() {
       {/* Step 1 */}
       <div style={{ padding: 22 }}>
         <div style={{ marginBottom: 24 }}>
-          <StepProgress step={3} total={8} />
+          <StepProgress step={3} total={4} />
         </div>
 
         <span style={{
@@ -76,7 +76,7 @@ export default function WorkerOnboarding() {
           letterSpacing: '0.08em',
           display: 'block',
           marginBottom: 10,
-        }}>YOUR SKILLS</span>
+        }}>STEP 3 OF 4</span>
 
         <h1 style={{
           fontFamily: 'var(--sans)',
@@ -121,7 +121,7 @@ export default function WorkerOnboarding() {
         </div>
 
         {/* Continue */}
-        <Link href="/v3/credentials" style={{
+        <Link href="/v3/neighborhood" style={{
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
@@ -145,7 +145,7 @@ export default function WorkerOnboarding() {
           lineHeight: 1.5,
           marginTop: 14,
           textAlign: 'left',
-        }}>Pick everything that fits. More skills = more shifts.</p>
+        }}>Pick everything. More profile = more shifts.</p>
       </div>
     </div>
   );

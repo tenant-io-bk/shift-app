@@ -18,17 +18,18 @@ export default function Neighborhood() {
         padding: '0 16px',
         borderBottom: '1px solid var(--line)',
       }}>
-        <Link href="/v3/availability" style={{ fontSize: 20, color: 'var(--ink)', textDecoration: 'none', width: 32 }}>←</Link>
-        <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 16, color: 'var(--ink)' }}>Availability</span>
+        <Link href="/worker/onboarding" style={{ fontSize: 20, color: 'var(--ink)', textDecoration: 'none', width: 32 }}>←</Link>
+        <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 16, color: 'var(--ink)' }}>Your area</span>
         <div style={{ width: 32 }} />
       </div>
 
       <div style={{ padding: '12px 22px 4px' }}>
-        <StepProgress step={5} total={8} />
+        <StepProgress step={4} total={4} />
       </div>
 
       {/* Headline */}
       <div style={{ padding: '16px 22px 0' }}>
+        <span style={{ fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 600, color: 'var(--hydrant)', textTransform: 'uppercase', letterSpacing: '0.08em', display: 'block', marginBottom: 10 }}>STEP 4 OF 4</span>
         <h1 style={{
           fontFamily: 'var(--sans)',
           fontWeight: 700,
@@ -37,14 +38,14 @@ export default function Neighborhood() {
           letterSpacing: '-0.075em',
           lineHeight: 1,
           marginBottom: 8,
-        }}>Select your 'hood.</h1>
+        }}>Where do you work?</h1>
         <p style={{
           fontFamily: 'var(--mono)',
           fontSize: 13,
           color: 'var(--mute)',
           marginBottom: 16,
           lineHeight: 1.5,
-        }}>Only the neighborhood will show in your profile.</p>
+        }}>We&apos;ll show shifts within your radius. You can change this any time.</p>
       </div>
 
       {/* Map */}
@@ -138,7 +139,7 @@ export default function Neighborhood() {
 
       {/* CTA */}
       <div style={{ padding: '24px 22px 40px', marginTop: 'auto' }}>
-        <Link href="/worker/map" style={{
+        <Link href="/v3/payout-setup" style={{
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
@@ -152,7 +153,10 @@ export default function Neighborhood() {
           color: '#fff',
           letterSpacing: '-0.01em',
           textDecoration: 'none',
-        }}>Save availability.</Link>
+        }}>One more step →</Link>
+        <p style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--mute)', textAlign: 'center', marginTop: 12 }}>
+          Just payout info, then you&apos;re in.
+        </p>
       </div>
     </div>
   );

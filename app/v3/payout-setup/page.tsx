@@ -45,13 +45,9 @@ export default function PayoutSetup() {
         borderBottom: '1px solid var(--line)',
         background: 'var(--paper)',
       }}>
-        <Link href="/v3/availability" style={{ fontSize: 20, color: 'var(--ink)', textDecoration: 'none', width: 32 }}>←</Link>
+        <Link href="/v3/neighborhood" style={{ fontSize: 20, color: 'var(--ink)', textDecoration: 'none', width: 32 }}>←</Link>
         <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 16, color: 'var(--ink)' }}>Get paid</span>
         <div style={{ width: 32 }} />
-      </div>
-
-      <div style={{ padding: '12px 22px 4px' }}>
-        <StepProgress step={6} total={8} />
       </div>
 
       <div style={{ padding: '18px 22px 32px' }}>
@@ -64,7 +60,7 @@ export default function PayoutSetup() {
           letterSpacing: '0.08em',
           display: 'block',
           marginBottom: 10,
-        }}>GET PAID</span>
+        }}>LAST STEP</span>
 
         <h1 style={{
           fontFamily: 'var(--sans)',
@@ -81,7 +77,7 @@ export default function PayoutSetup() {
           fontSize: 13,
           color: 'var(--mute)',
           marginBottom: 20,
-        }}>Your pay goes here after each shift.</p>
+        }}>Set this up before your first shift. Tax info comes later.</p>
 
         {/* Method options */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
@@ -185,7 +181,7 @@ export default function PayoutSetup() {
         </div>
 
         {/* CTA */}
-        <Link href="/v3/card-input" style={{
+        <Link href="/worker/map" style={{
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
@@ -200,7 +196,11 @@ export default function PayoutSetup() {
           fontSize: 18,
           textDecoration: 'none',
           letterSpacing: '-0.01em',
-        }}>Continue.</Link>
+        }}>Start earning →</Link>
+
+        <p style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--mute)', textAlign: 'center', marginTop: 12 }}>
+          W-9 required once you earn $600. We&apos;ll remind you.
+        </p>
       </div>
     </div>
   );

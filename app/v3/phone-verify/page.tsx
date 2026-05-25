@@ -48,7 +48,7 @@ export default function PhoneVerify() {
       </div>
 
       <div style={{ padding: '12px 22px 4px' }}>
-        <StepProgress step={1} total={8} />
+        <StepProgress step={1} total={4} />
       </div>
 
       {/* Content */}
@@ -62,7 +62,7 @@ export default function PhoneVerify() {
           letterSpacing: '0.08em',
           display: 'block',
           marginBottom: 10,
-        }}>VERIFY YOUR NUMBER</span>
+        }}>STEP 1 OF 4</span>
 
         <h1 style={{
           fontFamily: 'var(--sans)',
@@ -72,14 +72,14 @@ export default function PhoneVerify() {
           letterSpacing: '-0.075em',
           lineHeight: 0.95,
           marginBottom: 12,
-        }}>What's your number?</h1>
+        }}>What&apos;s your number?</h1>
 
         <p style={{
           fontFamily: 'var(--mono)',
           fontSize: 13,
           color: 'var(--mute)',
           marginBottom: 24,
-        }}>We'll send a code. No spam.</p>
+        }}>Just your number to start. Nothing else for now.</p>
 
         {/* Phone input */}
         <div style={{ display: 'flex', gap: 10, alignItems: 'flex-end', marginBottom: 28 }}>
@@ -174,7 +174,7 @@ export default function PhoneVerify() {
           color: 'var(--mute)',
           textAlign: 'center',
           marginTop: 12,
-        }}>Used only for account security.</p>
+        }}>Used only for account security. No spam, ever.</p>
       </div>
     </div>
   );

@@ -39,13 +39,13 @@ export default function SMSVerify() {
       </div>
 
       <div style={{ padding: '12px 22px 4px' }}>
-        <StepProgress step={2} total={8} />
+        <StepProgress step={2} total={4} />
       </div>
 
       {/* Content */}
       <div style={{ padding: '20px 22px 0', flex: 1 }}>
         <div style={{ fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 600, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--hydrant)', marginBottom: 10 }}>
-          VERIFY YOUR NUMBER
+          STEP 2 OF 4
         </div>
         <h1 style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 36, letterSpacing: '-0.075em', lineHeight: 0.95, color: 'var(--ink)', marginBottom: 10 }}>
           Enter the code.
