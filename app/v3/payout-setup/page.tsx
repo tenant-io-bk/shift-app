@@ -162,24 +162,6 @@ export default function PayoutSetup() {
           </div>
         </div>
 
-        {/* Preview block */}
-        <div style={{
-          marginTop: 16,
-          padding: '14px 16px',
-          background: 'var(--ink)',
-          borderRadius: 14,
-        }}>
-          <p style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'rgba(255,255,255,0.5)', marginBottom: 4 }}>
-            if you'd worked today
-          </p>
-          <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 28, color: '#fff' }}>
-            $174<span style={{ color: 'var(--hydrant)' }}>.</span>
-          </div>
-          <p style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'rgba(255,255,255,0.5)', marginTop: 2 }}>
-            already in your account
-          </p>
-        </div>
-
         {/* CTA */}
         <Link href="/worker/map" style={{
           display: 'flex',
