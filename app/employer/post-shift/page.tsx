@@ -5,8 +5,20 @@ import { useRouter } from 'next/navigation';
 import StepProgress from '@/app/components/StepProgress';
 
 const ROLES = ['Barista', 'Server', 'Barback', 'Host', 'Bartender', 'Cook', 'Dishwasher', 'Cashier'];
-const STEPS = ['role', 'when', 'pay', 'count', 'notes', 'confirm'] as const;
+const STEPS = ['role', 'when', 'pay', 'count', 'brief', 'review', 'confirm'] as const;
 type Step = typeof STEPS[number];
+
+interface DraftData { tasks: string[]; bring: { key: string; value: string }[] }
+const DRAFTS: Record<string, DraftData> = {
+  Barista:   { tasks: ['Espresso and pour-over service','Bar setup and breakdown','Stock and mise en place',"Team communication — it's busy"], bring: [{ key:'Attire', value:'All black, closed-toe shoes' }, { key:'Experience', value:'2+ years espresso' }, { key:'Cert', value:'Food handler (optional)' }] },
+  Bartender: { tasks: ['Full bar service and cocktail prep','Speed rail and beer setup','POS, tabs, and cash handling','End-of-night breakdown and close'], bring: [{ key:'Attire', value:'All black' }, { key:'Experience', value:'3+ years bartending' }, { key:'Cert', value:'NY liquor cert preferred' }] },
+  Server:    { tasks: ['Full table service, food and beverage','POS order entry and payment','Sidework and station reset','Communicate with kitchen'], bring: [{ key:'Attire', value:'All black' }, { key:'Experience', value:'2+ years restaurant' }, { key:'Cert', value:'Food handler card' }] },
+  Host:      { tasks: ['Greet and seat guests','Manage waitlist and reservations','Coordinate with floor team','Keep front-of-house organized'], bring: [{ key:'Attire', value:'Smart casual or all black' }, { key:'Experience', value:'1+ years FOH' }, { key:'Vibe', value:'Warm, confident presence' }] },
+  Cook:      { tasks: ['Station prep and mise en place','Line cooking during service','Keep station clean and organized','Follow food safety protocols'], bring: [{ key:'Attire', value:'Chef whites or black apron' }, { key:'Experience', value:'2+ years line experience' }, { key:'Cert', value:'Food handler required' }] },
+  Barback:   { tasks: ['Keep bar fully stocked','Ice, garnish, and glassware','Support bartenders during service','Breakdown and clean at close'], bring: [{ key:'Attire', value:'All black' }, { key:'Experience', value:'1+ year bar experience' }, { key:'Note', value:'Must be 21+' }] },
+};
+const DEFAULT_DRAFT: DraftData = { tasks: ['Main service duties for the shift','Setup and breakdown','Team coordination','Keep your area clean'], bring: [{ key:'Attire', value:'All black, closed-toe shoes' }, { key:'Experience', value:'1+ year relevant' }, { key:'Cert', value:'Food handler preferred' }] };
+function getDraft(r: string): DraftData { return DRAFTS[r] ?? DEFAULT_DRAFT; }
 
 function fmtDate(dateStr: string) {
   const [y, m, d] = dateStr.split('-').map(Number);
@@ -51,7 +63,13 @@ export default function PostShift() {
   const [endTime, setEndTime] = useState('16:00');
   const [rate, setRate] = useState(26);
   const [count, setCount] = useState(1);
-  const [notes, setNotes] = useState('');
+  const [brief, setBrief] = useState('');
+  const [isDrafting, setIsDrafting] = useState(false);
+  const [draftDots, setDraftDots] = useState(1);
+  const [draftTasks, setDraftTasks] = useState<string[]>([]);
+  const [draftBring, setDraftBring] = useState<{ key: string; value: string }[]>([]);
+  const [editingTasks, setEditingTasks] = useState(false);
+  const [editingBring, setEditingBring] = useState(false);
 
   const step = STEPS[stepIdx];
   const total = STEPS.length - 1;
@@ -66,7 +84,17 @@ export default function PostShift() {
     setTimeout(() => { setStepIdx(i => i + delta); setAnimating(false); }, 180);
   }
 
-  function next() { if (stepIdx < STEPS.length - 1) go(1); }
+  function next() {
+    if (step === 'brief') {
+      const d = getDraft(role);
+      setDraftTasks([...d.tasks]); setDraftBring([...d.bring]);
+      setIsDrafting(true); setDraftDots(1);
+      const iv = setInterval(() => setDraftDots(x => x === 3 ? 1 : x + 1), 380);
+      setTimeout(() => { clearInterval(iv); setIsDrafting(false); go(1); }, 2000);
+      return;
+    }
+    if (stepIdx < STEPS.length - 1) go(1);
+  }
   function back() {
     if (stepIdx > 0) go(-1);
     else router.push('/employer/dashboard');
@@ -74,10 +102,8 @@ export default function PostShift() {
 
   const canNext =
     (step === 'role' && role !== '') ||
-    step === 'when' ||
-    step === 'pay' ||
-    step === 'count' ||
-    step === 'notes';
+    step === 'when' || step === 'pay' || step === 'count' ||
+    step === 'brief' || step === 'review';
 
   const slideStyle = {
     opacity: animating ? 0 : 1,
@@ -209,20 +235,91 @@ export default function PostShift() {
           </>
         )}
 
-        {/* NOTES */}
-        {step === 'notes' && (
+        {/* BRIEF */}
+        {step === 'brief' && !isDrafting && (
           <>
-            <div style={{ fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--hydrant)', marginBottom: 12 }}>Notes</div>
-            <h1 style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 36, letterSpacing: '-0.075em', lineHeight: 1, color: 'var(--ink)', marginBottom: 8 }}>Anything they need to know?</h1>
-            <p style={{ fontFamily: 'var(--mono)', fontSize: 13, color: 'var(--ink)', marginBottom: 20 }}>Dress code, entrance, what to bring. Optional but helpful.</p>
+            <div style={{ fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--hydrant)', marginBottom: 12 }}>Brief</div>
+            <h1 style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 36, letterSpacing: '-0.075em', lineHeight: 1, color: 'var(--ink)', marginBottom: 8 }}>Describe the shift in one line</h1>
+            <p style={{ fontFamily: 'var(--mono)', fontSize: 13, color: 'var(--ink)', marginBottom: 20 }}>SHIFT will write the full posting from this.</p>
             <textarea
-              value={notes}
-              onChange={e => setNotes(e.target.value)}
-              rows={5}
-              placeholder="e.g. Black apron required, use side entrance on Bergen St, bring your own tools..."
-              style={{ width: '100%', padding: '14px 16px', background: 'var(--card)', border: '2px solid var(--ink)', borderRadius: 14, fontFamily: 'var(--mono)', fontSize: 13, color: 'var(--ink)', outline: 'none', resize: 'none', lineHeight: 1.6, boxSizing: 'border-box' }}
+              value={brief}
+              onChange={e => setBrief(e.target.value)}
+              rows={3}
               autoFocus
+              placeholder={`e.g. "${role.toLowerCase()}, lunch rush, all black, busy"`}
+              style={{ width: '100%', padding: '14px 16px', background: 'var(--card)', border: '2px solid var(--ink)', borderRadius: 14, fontFamily: 'var(--mono)', fontSize: 13, color: 'var(--ink)', outline: 'none', resize: 'none', lineHeight: 1.6, boxSizing: 'border-box' }}
             />
+          </>
+        )}
+
+        {/* DRAFTING */}
+        {step === 'brief' && isDrafting && (
+          <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 16 }}>
+            <div style={{ display: 'flex', gap: 7 }}>
+              {[0,1,2].map(i => <div key={i} style={{ width: 8, height: 8, borderRadius: '50%', background: i < draftDots ? 'var(--hydrant)' : 'var(--line)', transition: 'background 0.2s' }} />)}
+            </div>
+            <p style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 22, color: 'var(--ink)', letterSpacing: '-0.04em' }}>Writing your posting…</p>
+            <p style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--mute)' }}>Task list, attire, and rate — 2 sec</p>
+          </div>
+        )}
+
+        {/* REVIEW */}
+        {step === 'review' && (
+          <>
+            <div style={{ fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--hydrant)', marginBottom: 12 }}>Review</div>
+            <h1 style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 36, letterSpacing: '-0.075em', lineHeight: 1, color: 'var(--ink)', marginBottom: 16 }}>SHIFT drafted this.</h1>
+
+            <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 16, padding: '8px 12px', background: 'var(--hydrant-soft)', borderRadius: 8 }}>
+              <svg width="9" height="9" viewBox="0 0 10 10" fill="none"><path d="M5 0L6.18 3.82L10 5L6.18 6.18L5 10L3.82 6.18L0 5L3.82 3.82L5 0Z" fill="var(--hydrant)" /></svg>
+              <span style={{ fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 600, color: 'var(--ink)' }}>Auto-drafted from your one-liner · edit anything</span>
+            </div>
+
+            {/* The work */}
+            <div style={{ marginBottom: 14 }}>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 8 }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                  <span style={{ fontFamily: 'var(--mono)', fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--mute)' }}>The work</span>
+                  <svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M5 0L6.18 3.82L10 5L6.18 6.18L5 10L3.82 6.18L0 5L3.82 3.82L5 0Z" fill="var(--hydrant)" /></svg>
+                  <span style={{ fontFamily: 'var(--mono)', fontSize: 9, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--hydrant)' }}>Auto-drafted</span>
+                </div>
+                <button onClick={() => setEditingTasks(t => !t)} style={{ fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 700, color: 'var(--hydrant)', background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}>{editingTasks ? 'Done' : 'Edit'}</button>
+              </div>
+              <div style={{ background: 'var(--card)', border: '2px solid var(--ink)', borderRadius: 12, padding: '2px 14px' }}>
+                {editingTasks ? draftTasks.map((t, i) => (
+                  <input key={i} value={t} onChange={e => setDraftTasks(ts => ts.map((x, j) => j === i ? e.target.value : x))} style={{ display: 'block', width: '100%', fontFamily: 'var(--sans)', fontSize: 14, color: 'var(--ink)', padding: '9px 0', background: 'none', border: 'none', borderBottom: i < draftTasks.length-1 ? '1px solid var(--line)' : 'none', outline: 'none', boxSizing: 'border-box' }} />
+                )) : draftTasks.map((t, i) => (
+                  <div key={i} style={{ display: 'flex', gap: 14, padding: '9px 0', borderBottom: i < draftTasks.length-1 ? '1px solid var(--line)' : 'none' }}>
+                    <span style={{ fontFamily: 'var(--mono)', fontSize: 10, color: 'var(--mute)', flexShrink: 0, paddingTop: 2 }}>{String(i+1).padStart(2,'0')}</span>
+                    <span style={{ fontFamily: 'var(--sans)', fontSize: 14, color: 'var(--ink)' }}>{t}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Bring */}
+            <div>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 8 }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                  <span style={{ fontFamily: 'var(--mono)', fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--mute)' }}>Bring</span>
+                  <svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M5 0L6.18 3.82L10 5L6.18 6.18L5 10L3.82 6.18L0 5L3.82 3.82L5 0Z" fill="var(--hydrant)" /></svg>
+                  <span style={{ fontFamily: 'var(--mono)', fontSize: 9, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--hydrant)' }}>Auto-drafted</span>
+                </div>
+                <button onClick={() => setEditingBring(b => !b)} style={{ fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 700, color: 'var(--hydrant)', background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}>{editingBring ? 'Done' : 'Edit'}</button>
+              </div>
+              <div style={{ background: 'var(--card)', border: '2px solid var(--ink)', borderRadius: 12, padding: '2px 14px' }}>
+                {editingBring ? draftBring.map((b, i) => (
+                  <div key={i} style={{ display: 'flex', gap: 8, padding: '7px 0', borderBottom: i < draftBring.length-1 ? '1px solid var(--line)' : 'none' }}>
+                    <input value={b.key} onChange={e => setDraftBring(br => br.map((x,j) => j===i ? {...x, key: e.target.value} : x))} style={{ width: 80, fontFamily: 'var(--mono)', fontSize: 10, color: 'var(--mute)', textTransform: 'uppercase', background: 'none', border: 'none', outline: 'none' }} />
+                    <input value={b.value} onChange={e => setDraftBring(br => br.map((x,j) => j===i ? {...x, value: e.target.value} : x))} style={{ flex: 1, fontFamily: 'var(--mono)', fontSize: 13, color: 'var(--ink)', background: 'none', border: 'none', outline: 'none', textAlign: 'right' }} />
+                  </div>
+                )) : draftBring.map((b, i) => (
+                  <div key={i} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '9px 0', borderBottom: i < draftBring.length-1 ? '1px solid var(--line)' : 'none' }}>
+                    <span style={{ fontFamily: 'var(--mono)', fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', color: 'var(--mute)' }}>{b.key}</span>
+                    <span style={{ fontFamily: 'var(--mono)', fontSize: 13, color: 'var(--ink)' }}>{b.value}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
           </>
         )}
 
@@ -238,7 +335,7 @@ export default function PostShift() {
                 { label: 'When', value: whenStr },
                 { label: 'Pay', value: `$${rate}/hr` },
                 { label: 'Workers', value: `${count} worker${count > 1 ? 's' : ''} + 1 backup` },
-                ...(notes ? [{ label: 'Notes', value: notes }] : []),
+                ...(draftTasks.length ? [{ label: 'Tasks', value: `${draftTasks.length} items auto-drafted` }] : []),
               ].map(row => (
                 <div key={row.label} style={{ display: 'flex', gap: 12, padding: '14px 16px', border: '2px solid var(--ink)', borderRadius: 12 }}>
                   <span style={{ fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--ink)', width: 60, flexShrink: 0, paddingTop: 1 }}>{row.label}</span>
@@ -264,20 +361,15 @@ export default function PostShift() {
         )}
       </div>
 
-      {/* Next / Skip buttons */}
-      {step !== 'confirm' && (
+      {/* Next / Back buttons */}
+      {step !== 'confirm' && !isDrafting && (
         <div style={{ padding: '0 22px 40px', display: 'flex', gap: 10 }}>
-          {step === 'notes' && (
-            <button onClick={next} style={{ flex: 1, padding: '16px', borderRadius: 99, border: '2px solid var(--ink)', background: 'transparent', fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 16, color: 'var(--ink)', cursor: 'pointer' }}>
-              Skip
-            </button>
-          )}
           <button
             onClick={next}
             disabled={!canNext}
             style={{ flex: 2, padding: '16px', borderRadius: 99, border: 'none', background: canNext ? 'var(--ink)' : 'var(--paper-3)', fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 18, color: canNext ? '#fff' : 'var(--ink)', cursor: canNext ? 'pointer' : 'default', transition: 'all 0.2s', letterSpacing: '-0.02em' }}
           >
-            Next →
+            {step === 'brief' ? 'Draft it →' : 'Next →'}
           </button>
         </div>
       )}
