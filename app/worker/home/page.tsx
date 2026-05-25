@@ -421,6 +421,20 @@ export default function WorkerHome() {
         <div>
           <div
             style={{
+              fontFamily: 'var(--mono)',
+              fontSize: 10,
+              fontWeight: 700,
+              textTransform: 'uppercase',
+              letterSpacing: '0.1em',
+              color: 'var(--hydrant)',
+              opacity: 0.7,
+              marginBottom: 4,
+            }}
+          >
+            Browse shifts
+          </div>
+          <div
+            style={{
               fontFamily: 'var(--sans)',
               fontWeight: 700,
               fontSize: 17,
@@ -428,7 +442,7 @@ export default function WorkerHome() {
               letterSpacing: '-0.02em',
             }}
           >
-            18 shifts near you
+            18 near you on the map
           </div>
           <div
             style={{
