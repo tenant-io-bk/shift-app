@@ -40,8 +40,23 @@ function hrsLabel(h: number) {
 // ── data ─────────────────────────────────────────────────────────────────────
 
 const ROLES = ['Barista','Server','Barback','Host','Bartender','Cook','Dishwasher','Cashier'];
-const STEPS = ['role','when','pay','count','notes','confirm'] as const;
+const STEPS = ['role','when','pay','count','brief','review','confirm'] as const;
 type Step = typeof STEPS[number];
+
+// ── AI draft data ─────────────────────────────────────────────────────────────
+
+interface DraftData { tasks: string[]; bring: { key: string; value: string }[] }
+
+const DRAFTS: Record<string, DraftData> = {
+  Barista:   { tasks: ['Espresso and pour-over service','Bar setup and breakdown','Stock and mise en place',"Team communication — it's busy"], bring: [{ key:'Attire', value:'All black, closed-toe shoes' }, { key:'Experience', value:'2+ years espresso' }, { key:'Cert', value:'Food handler (optional)' }] },
+  Bartender: { tasks: ['Full bar service and cocktail prep','Speed rail and beer setup','POS, tabs, and cash handling','End-of-night breakdown and close'], bring: [{ key:'Attire', value:'All black' }, { key:'Experience', value:'3+ years bartending' }, { key:'Cert', value:'NY liquor cert preferred' }] },
+  Server:    { tasks: ['Full table service, food and beverage','POS order entry and payment','Sidework and station reset','Communicate with kitchen'], bring: [{ key:'Attire', value:'All black' }, { key:'Experience', value:'2+ years restaurant' }, { key:'Cert', value:'Food handler card' }] },
+  Host:      { tasks: ['Greet and seat guests','Manage waitlist and reservations','Coordinate with floor team','Keep front-of-house organized'], bring: [{ key:'Attire', value:'Smart casual or all black' }, { key:'Experience', value:'1+ years FOH' }, { key:'Vibe', value:'Warm, confident presence' }] },
+  Cook:      { tasks: ['Station prep and mise en place','Line cooking during service','Keep station clean and organized','Follow food safety protocols'], bring: [{ key:'Attire', value:'Chef whites or black apron' }, { key:'Experience', value:'2+ years line experience' }, { key:'Cert', value:'Food handler required' }] },
+  Barback:   { tasks: ['Keep bar fully stocked','Ice, garnish, and glassware','Support bartenders during service','Breakdown and clean at close'], bring: [{ key:'Attire', value:'All black' }, { key:'Experience', value:'1+ year bar experience' }, { key:'Note', value:'Must be 21+' }] },
+};
+const DEFAULT_DRAFT: DraftData = { tasks: ['Main service duties for the shift','Setup and breakdown of your station','Team coordination and communication','Keep your area clean and organized'], bring: [{ key:'Attire', value:'All black, closed-toe shoes' }, { key:'Experience', value:'1+ year relevant experience' }, { key:'Cert', value:'Food handler preferred' }] };
+function getDraft(role: string): DraftData { return DRAFTS[role] ?? DEFAULT_DRAFT; }
 
 const ACTIVE_SHIFTS = [
   { role: 'Barista', time: 'Today · 11A–4P', workers: 2, status: 'En route', eta: '6 min' },
@@ -74,7 +89,13 @@ export default function EmployerDashboard() {
   const [endTime,   setEndTime]     = useState('16:00');
   const [rate,      setRate]        = useState(26);
   const [count,     setCount]       = useState(1);
-  const [notes,     setNotes]       = useState('');
+  const [brief,     setBrief]       = useState('');
+  const [isDrafting,setIsDrafting]  = useState(false);
+  const [draftDots, setDraftDots]   = useState(1);
+  const [draftTasks,setDraftTasks]  = useState<string[]>([]);
+  const [draftBring,setDraftBring]  = useState<{key:string;value:string}[]>([]);
+  const [editingTasks, setEditingTasks] = useState(false);
+  const [editingBring, setEditingBring] = useState(false);
 
   // collapsible sections
   const [open, setOpen] = useState({ active: true, workers: true, recent: true });
@@ -87,7 +108,8 @@ export default function EmployerDashboard() {
   function startPosting() {
     setIsPosting(true);
     setOpen({ active: false, workers: false, recent: false });
-    setStepIdx(0); setRole('');
+    setStepIdx(0); setRole(''); setBrief('');
+    setEditingTasks(false); setEditingBring(false);
   }
   function cancelPosting() {
     setIsPosting(false);
@@ -98,12 +120,23 @@ export default function EmployerDashboard() {
     setDir(delta); setAnimating(true);
     setTimeout(() => { setStepIdx(i => i + delta); setAnimating(false); }, 160);
   }
-  function next() { if (stepIdx < STEPS.length - 1) go(1); }
+  function next() {
+    if (step === 'brief') {
+      const d = getDraft(role);
+      setDraftTasks([...d.tasks]); setDraftBring([...d.bring]);
+      setIsDrafting(true); setDraftDots(1);
+      const iv = setInterval(() => setDraftDots(x => x === 3 ? 1 : x + 1), 380);
+      setTimeout(() => { clearInterval(iv); setIsDrafting(false); go(1); }, 2000);
+      return;
+    }
+    if (stepIdx < STEPS.length - 1) go(1);
+  }
   function back() { if (stepIdx > 0) go(-1); else cancelPosting(); }
 
   const canNext =
     (step === 'role' && role !== '') ||
-    step === 'when' || step === 'pay' || step === 'count' || step === 'notes';
+    step === 'when' || step === 'pay' || step === 'count' ||
+    step === 'brief' || step === 'review';
 
   const slide = {
     opacity: animating ? 0 : 1,
@@ -259,16 +292,84 @@ export default function EmployerDashboard() {
                 </>
               )}
 
-              {/* NOTES */}
-              {step === 'notes' && (
+              {/* BRIEF */}
+              {step === 'brief' && !isDrafting && (
                 <>
-                  <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 20, letterSpacing: '-0.04em', color: 'var(--ink)', marginBottom: 6 }}>Anything they need to know?</div>
-                  <p style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--ink)', marginBottom: 12 }}>Dress code, entrance, what to bring. Optional.</p>
+                  <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 20, letterSpacing: '-0.04em', color: 'var(--ink)', marginBottom: 6 }}>Describe the shift in one line</div>
+                  <p style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--ink)', marginBottom: 12 }}>SHIFT will write the full posting from this.</p>
                   <textarea
-                    value={notes} onChange={e => setNotes(e.target.value)} rows={4} autoFocus
-                    placeholder="e.g. Black apron required, side entrance on Bergen St..."
+                    value={brief} onChange={e => setBrief(e.target.value)} rows={3} autoFocus
+                    placeholder={`e.g. "${role.toLowerCase()}, lunch rush, all black, busy"`}
                     style={{ width: '100%', padding: '12px 14px', background: 'var(--card)', border: '2px solid var(--ink)', borderRadius: 12, fontFamily: 'var(--mono)', fontSize: 13, color: 'var(--ink)', outline: 'none', resize: 'none', lineHeight: 1.6, boxSizing: 'border-box' }}
                   />
+                </>
+              )}
+
+              {/* DRAFTING overlay */}
+              {step === 'brief' && isDrafting && (
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: 120, gap: 14 }}>
+                  <div style={{ display: 'flex', gap: 6 }}>
+                    {[0,1,2].map(i => <div key={i} style={{ width: 7, height: 7, borderRadius: '50%', background: i < draftDots ? 'var(--hydrant)' : 'var(--line)', transition: 'background 0.2s' }} />)}
+                  </div>
+                  <p style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 16, color: 'var(--ink)', letterSpacing: '-0.02em' }}>Writing your posting…</p>
+                  <p style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--mute)' }}>Task list, attire, and rate — 2 sec</p>
+                </div>
+              )}
+
+              {/* REVIEW */}
+              {step === 'review' && (
+                <>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 12, padding: '8px 10px', background: 'var(--hydrant-soft)', borderRadius: 8 }}>
+                    <svg width="9" height="9" viewBox="0 0 10 10" fill="none"><path d="M5 0L6.18 3.82L10 5L6.18 6.18L5 10L3.82 6.18L0 5L3.82 3.82L5 0Z" fill="var(--hydrant)" /></svg>
+                    <span style={{ fontFamily: 'var(--mono)', fontSize: 10, fontWeight: 600, color: 'var(--ink)' }}>SHIFT drafted this · edit anything</span>
+                  </div>
+
+                  {/* The work */}
+                  <div style={{ marginBottom: 10 }}>
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 8 }}>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                        <span style={{ fontFamily: 'var(--mono)', fontSize: 9, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--mute)' }}>The work</span>
+                        <svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M5 0L6.18 3.82L10 5L6.18 6.18L5 10L3.82 6.18L0 5L3.82 3.82L5 0Z" fill="var(--hydrant)" /></svg>
+                        <span style={{ fontFamily: 'var(--mono)', fontSize: 9, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--hydrant)' }}>Auto-drafted</span>
+                      </div>
+                      <button onClick={() => setEditingTasks(t => !t)} style={{ fontFamily: 'var(--mono)', fontSize: 10, fontWeight: 700, color: 'var(--hydrant)', background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}>{editingTasks ? 'Done' : 'Edit'}</button>
+                    </div>
+                    <div style={{ background: 'var(--card)', border: '2px solid var(--ink)', borderRadius: 10, padding: '4px 10px' }}>
+                      {editingTasks ? draftTasks.map((t, i) => (
+                        <input key={i} value={t} onChange={e => setDraftTasks(tasks => tasks.map((x, j) => j === i ? e.target.value : x))} style={{ display: 'block', width: '100%', fontFamily: 'var(--sans)', fontSize: 13, color: 'var(--ink)', padding: '7px 0', background: 'none', border: 'none', borderBottom: i < draftTasks.length-1 ? '1px solid var(--line)' : 'none', outline: 'none', boxSizing: 'border-box' }} />
+                      )) : draftTasks.map((t, i) => (
+                        <div key={i} style={{ display: 'flex', gap: 10, padding: '7px 0', borderBottom: i < draftTasks.length-1 ? '1px solid var(--line)' : 'none' }}>
+                          <span style={{ fontFamily: 'var(--mono)', fontSize: 9, color: 'var(--mute)', flexShrink: 0, paddingTop: 2 }}>{String(i+1).padStart(2,'0')}</span>
+                          <span style={{ fontFamily: 'var(--sans)', fontSize: 13, color: 'var(--ink)' }}>{t}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Bring */}
+                  <div>
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 8 }}>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                        <span style={{ fontFamily: 'var(--mono)', fontSize: 9, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--mute)' }}>Bring</span>
+                        <svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M5 0L6.18 3.82L10 5L6.18 6.18L5 10L3.82 6.18L0 5L3.82 3.82L5 0Z" fill="var(--hydrant)" /></svg>
+                        <span style={{ fontFamily: 'var(--mono)', fontSize: 9, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--hydrant)' }}>Auto-drafted</span>
+                      </div>
+                      <button onClick={() => setEditingBring(b => !b)} style={{ fontFamily: 'var(--mono)', fontSize: 10, fontWeight: 700, color: 'var(--hydrant)', background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}>{editingBring ? 'Done' : 'Edit'}</button>
+                    </div>
+                    <div style={{ background: 'var(--card)', border: '2px solid var(--ink)', borderRadius: 10, padding: '4px 10px' }}>
+                      {editingBring ? draftBring.map((b, i) => (
+                        <div key={i} style={{ display: 'flex', gap: 6, padding: '6px 0', borderBottom: i < draftBring.length-1 ? '1px solid var(--line)' : 'none' }}>
+                          <input value={b.key} onChange={e => setDraftBring(br => br.map((x,j) => j===i ? {...x, key: e.target.value} : x))} style={{ width: 70, fontFamily: 'var(--mono)', fontSize: 9, color: 'var(--mute)', textTransform: 'uppercase', background: 'none', border: 'none', outline: 'none' }} />
+                          <input value={b.value} onChange={e => setDraftBring(br => br.map((x,j) => j===i ? {...x, value: e.target.value} : x))} style={{ flex: 1, fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--ink)', background: 'none', border: 'none', outline: 'none', textAlign: 'right' }} />
+                        </div>
+                      )) : draftBring.map((b, i) => (
+                        <div key={i} style={{ display: 'flex', justifyContent: 'space-between', padding: '7px 0', borderBottom: i < draftBring.length-1 ? '1px solid var(--line)' : 'none' }}>
+                          <span style={{ fontFamily: 'var(--mono)', fontSize: 9, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', color: 'var(--mute)' }}>{b.key}</span>
+                          <span style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--ink)' }}>{b.value}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
                 </>
               )}
 
@@ -282,7 +383,7 @@ export default function EmployerDashboard() {
                       { label: 'When',    value: `${fmtDatePill(date)} · ${fmtTime(startTime)}–${fmtTime(endTime)}${hrs>0 ? ` (${hrsLabel(hrs)})` : ''}` },
                       { label: 'Pay',     value: `$${rate}/hr` },
                       { label: 'Workers', value: `${count} worker${count>1?'s':''} + 1 backup` },
-                      ...(notes ? [{ label: 'Notes', value: notes }] : []),
+                      { label: 'Tasks', value: `${draftTasks.length} items drafted` },
                     ].map(row => (
                       <div key={row.label} style={{ display: 'flex', gap: 10, padding: '10px 14px', border: '2px solid var(--ink)', borderRadius: 14 }}>
                         <span style={{ fontFamily: 'var(--mono)', fontSize: 10, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--ink)', width: 52, flexShrink: 0 }}>{row.label}</span>
@@ -305,19 +406,16 @@ export default function EmployerDashboard() {
             </div>
 
             {/* Nav buttons */}
-            {step !== 'confirm' && (
+            {step !== 'confirm' && !isDrafting && (
               <div style={{ display: 'flex', gap: 8, marginTop: 18 }}>
                 {stepIdx > 0 && (
                   <button onClick={back} style={{ flex: 1, padding: '13px', borderRadius: 99, border: '2px solid var(--ink)', background: 'transparent', fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 15, color: 'var(--ink)', cursor: 'pointer' }}>← Back</button>
-                )}
-                {step === 'notes' && (
-                  <button onClick={next} style={{ flex: 1, padding: '13px', borderRadius: 99, border: '2px solid var(--ink)', background: 'transparent', fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 15, color: 'var(--ink)', cursor: 'pointer' }}>Skip</button>
                 )}
                 <button
                   onClick={next} disabled={!canNext}
                   style={{ flex: 2, padding: '13px', borderRadius: 99, border: 'none', background: canNext ? 'var(--ink)' : 'var(--paper-3)', fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 16, color: canNext ? '#fff' : 'var(--ink)', cursor: canNext ? 'pointer' : 'default', transition: 'all 0.2s', letterSpacing: '-0.02em' }}
                 >
-                  Next →
+                  {step === 'brief' ? 'Draft it →' : 'Next →'}
                 </button>
               </div>
             )}
