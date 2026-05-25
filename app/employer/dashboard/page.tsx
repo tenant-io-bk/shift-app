@@ -98,7 +98,7 @@ export default function EmployerDashboard() {
   const [editingBring, setEditingBring] = useState(false);
 
   // collapsible sections
-  const [open, setOpen] = useState({ active: true, workers: true, recent: true });
+  const [open, setOpen] = useState({ active: true, workers: true, recent: true, spend: false });
 
   const step  = STEPS[stepIdx] as Step;
   const total = STEPS.length - 1;
@@ -107,13 +107,13 @@ export default function EmployerDashboard() {
 
   function startPosting() {
     setIsPosting(true);
-    setOpen({ active: false, workers: false, recent: false });
+    setOpen({ active: false, workers: false, recent: false, spend: false });
     setStepIdx(0); setRole(''); setBrief('');
     setEditingTasks(false); setEditingBring(false);
   }
   function cancelPosting() {
     setIsPosting(false);
-    setOpen({ active: true, workers: true, recent: true });
+    setOpen({ active: true, workers: true, recent: true, spend: false });
   }
   function go(delta: 1|-1) {
     if (animating) return;
@@ -469,6 +469,46 @@ export default function EmployerDashboard() {
               <div style={{ textAlign: 'right', flexShrink: 0 }}>
                 <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 16, color: 'var(--ink)', letterSpacing: '-0.02em' }}>{r.total}</div>
                 <div style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--hydrant)', marginTop: 1 }}>{r.rating}★</div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      <Section id="spend" label="Labor spend">
+        {/* Stats row */}
+        <div style={{ display: 'flex', gap: 8, marginBottom: 14 }}>
+          {[
+            { label: 'This week', value: '$696.' },
+            { label: 'This month', value: '$2,408.' },
+            { label: 'YTD', value: '$12,940.' },
+          ].map((stat) => (
+            <div key={stat.label} style={{ flex: 1, background: 'var(--paper)', border: '2px solid var(--ink)', borderRadius: 12, padding: '12px 10px', textAlign: 'center' }}>
+              <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 17, color: 'var(--ink)', letterSpacing: '-0.04em', lineHeight: 1 }}>{stat.value}</div>
+              <div style={{ fontFamily: 'var(--mono)', fontSize: 10, color: 'var(--mute)', marginTop: 4, textTransform: 'uppercase', letterSpacing: '0.06em' }}>{stat.label}</div>
+            </div>
+          ))}
+        </div>
+
+        {/* Role breakdown */}
+        <div style={{ background: 'var(--paper)', border: '2px solid var(--ink)', borderRadius: 12, padding: '14px 16px' }}>
+          <div style={{ fontFamily: 'var(--mono)', fontSize: 10, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--mute)', marginBottom: 12 }}>By role · this month</div>
+          {[
+            { role: 'Barista', pct: 40, amount: '$963.' },
+            { role: 'Server', pct: 28, amount: '$674.' },
+            { role: 'Bartender', pct: 20, amount: '$482.' },
+            { role: 'Other', pct: 12, amount: '$289.' },
+          ].map((row) => (
+            <div key={row.role} style={{ marginBottom: 10 }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 4 }}>
+                <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 13, color: 'var(--ink)' }}>{row.role}</span>
+                <div style={{ display: 'flex', gap: 8, alignItems: 'baseline' }}>
+                  <span style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--mute)' }}>{row.pct}%</span>
+                  <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 13, color: 'var(--ink)', letterSpacing: '-0.02em' }}>{row.amount}</span>
+                </div>
+              </div>
+              <div style={{ height: 5, background: 'var(--line)', borderRadius: 99, overflow: 'hidden' }}>
+                <div style={{ height: '100%', width: `${row.pct}%`, background: 'var(--ink)', borderRadius: 99 }} />
               </div>
             </div>
           ))}

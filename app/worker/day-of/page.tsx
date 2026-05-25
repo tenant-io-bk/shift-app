@@ -1,8 +1,17 @@
+'use client';
+
+import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import StatusBar from '@/app/components/StatusBar';
 import ShiftCard from '@/app/components/ShiftCard';
 
 export default function DayOf() {
+  const router = useRouter();
+  const [subwayDismissed, setSubwayDismissed] = useState(false);
+  const [proximity, setProximity] = useState<'far' | 'near'>('far');
+  const isNear = proximity === 'near';
+
   return (
     <div
       style={{
@@ -15,6 +24,58 @@ export default function DayOf() {
       }}
     >
       <StatusBar time="10:12" />
+
+      {/* Subway disruption alert */}
+      {!subwayDismissed && (
+        <div
+          style={{
+            background: '#FEF3C7',
+            borderBottom: '2px solid #F59E0B',
+            padding: '10px 16px',
+            display: 'flex',
+            alignItems: 'center',
+            gap: 10,
+          }}
+        >
+          <span style={{ fontSize: 15, flexShrink: 0 }}>⚠</span>
+          <div style={{ flex: 1 }}>
+            <span
+              style={{
+                fontFamily: 'var(--mono)',
+                fontSize: 12,
+                fontWeight: 700,
+                color: '#92400E',
+              }}
+            >
+              G train delays —{' '}
+            </span>
+            <span
+              style={{
+                fontFamily: 'var(--mono)',
+                fontSize: 12,
+                color: '#92400E',
+              }}
+            >
+              allow 10 extra min
+            </span>
+          </div>
+          <button
+            onClick={() => setSubwayDismissed(true)}
+            style={{
+              background: 'none',
+              border: 'none',
+              cursor: 'pointer',
+              color: '#92400E',
+              fontSize: 18,
+              padding: '2px 4px',
+              lineHeight: 1,
+              flexShrink: 0,
+            }}
+          >
+            ×
+          </button>
+        </div>
+      )}
 
       {/* Top nav */}
       <div
@@ -102,7 +163,6 @@ export default function DayOf() {
             borderRadius: 12,
           }}
         >
-          {/* Route row */}
           <div
             style={{
               display: 'flex',
@@ -111,13 +171,7 @@ export default function DayOf() {
               marginBottom: 14,
             }}
           >
-            <span
-              style={{
-                fontFamily: 'var(--mono)',
-                fontSize: 13,
-                color: 'var(--ink)',
-              }}
-            >
+            <span style={{ fontFamily: 'var(--mono)', fontSize: 13, color: 'var(--ink)' }}>
               G train · DeKalb Av → Bedford-Nostrand
             </span>
             <span
@@ -134,28 +188,14 @@ export default function DayOf() {
             </span>
           </div>
 
-          {/* Mini-map SVG */}
-          <svg
-            width="100%"
-            height="130"
-            viewBox="0 0 346 130"
-            fill="none"
-            style={{ display: 'block' }}
-          >
-            {/* Background */}
+          <svg width="100%" height="130" viewBox="0 0 346 130" fill="none" style={{ display: 'block' }}>
             <rect width="346" height="130" rx="8" fill="#F0F2F5" />
-
-            {/* Horizontal road lines */}
             <rect x="0" y="35" width="346" height="6" fill="white" opacity="0.7" />
             <rect x="0" y="75" width="346" height="6" fill="white" opacity="0.7" />
             <rect x="0" y="110" width="346" height="6" fill="white" opacity="0.7" />
-
-            {/* Vertical road lines */}
             <rect x="60" y="0" width="6" height="130" fill="white" opacity="0.7" />
             <rect x="150" y="0" width="6" height="130" fill="white" opacity="0.7" />
             <rect x="240" y="0" width="6" height="130" fill="white" opacity="0.7" />
-
-            {/* G train route — dashed purple line */}
             <path
               d="M 80 125 L 80 90 L 100 75 L 160 75 L 160 40 L 180 22 L 240 22"
               stroke="#72c15f"
@@ -165,27 +205,80 @@ export default function DayOf() {
               strokeLinejoin="round"
               opacity="0.85"
             />
-
-            {/* DeKalb stop (start) */}
             <circle cx="80" cy="100" r="5" fill="white" stroke="#72c15f" strokeWidth="2" />
             <circle cx="80" cy="100" r="2.5" fill="#72c15f" />
-
-            {/* Bedford-Nostrand stop (end/destination) */}
             <circle cx="240" cy="22" r="6" fill="white" stroke="#72c15f" strokeWidth="2" />
             <circle cx="240" cy="22" r="3" fill="#72c15f" />
-
-            {/* Station labels */}
             <text x="90" y="104" fontFamily="monospace" fontSize="9" fill="#6B6E78">DeKalb Av</text>
             <text x="250" y="26" fontFamily="monospace" fontSize="9" fill="#72c15f">Bedford-Nostrand</text>
-
-            {/* You are here dot */}
             <circle cx="80" cy="125" r="5" fill="#72c15f" opacity="0.9" />
             <circle cx="80" cy="125" r="2" fill="white" />
           </svg>
         </div>
 
+        {/* Clock-in radius */}
+        <div
+          style={{
+            margin: '0 22px 14px',
+            padding: '14px 16px',
+            background: isNear ? 'var(--hydrant-soft)' : 'var(--card)',
+            border: `2px solid ${isNear ? 'var(--hydrant)' : 'var(--line)'}`,
+            borderRadius: 12,
+            display: 'flex',
+            alignItems: 'center',
+            gap: 12,
+            transition: 'all 0.3s ease',
+          }}
+        >
+          {/* Radius ring visual */}
+          <div style={{ position: 'relative', width: 38, height: 38, flexShrink: 0 }}>
+            <svg width="38" height="38" viewBox="0 0 38 38">
+              <circle cx="19" cy="19" r="17" fill="none" stroke={isNear ? 'var(--hydrant)' : 'var(--mute)'} strokeWidth="1.5" opacity="0.3" />
+              <circle cx="19" cy="19" r="10" fill="none" stroke={isNear ? 'var(--hydrant)' : 'var(--mute)'} strokeWidth="1.5" opacity="0.5" />
+              <circle cx="19" cy="19" r={isNear ? 6 : 4} fill={isNear ? 'var(--hydrant)' : 'var(--mute)'} />
+              {isNear && (
+                <text x="19" y="23" textAnchor="middle" fill="white" fontSize="7" fontWeight="700" fontFamily="system-ui">✓</text>
+              )}
+            </svg>
+          </div>
+
+          <div style={{ flex: 1 }}>
+            <div
+              style={{
+                fontFamily: 'var(--sans)',
+                fontWeight: 700,
+                fontSize: 14,
+                color: isNear ? 'var(--hydrant)' : 'var(--ink)',
+              }}
+            >
+              {isNear ? "You're here." : '0.4 mi from venue'}
+            </div>
+            <div style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--mute)', marginTop: 2 }}>
+              {isNear ? 'Clock-in is unlocked' : 'Unlocks within 500 ft of venue'}
+            </div>
+          </div>
+
+          {/* Demo proximity toggle */}
+          <button
+            onClick={() => setProximity(p => p === 'far' ? 'near' : 'far')}
+            style={{
+              background: 'none',
+              border: '1px solid var(--line)',
+              borderRadius: 8,
+              padding: '4px 8px',
+              fontFamily: 'var(--mono)',
+              fontSize: 10,
+              color: 'var(--mute)',
+              cursor: 'pointer',
+              flexShrink: 0,
+            }}
+          >
+            {isNear ? '← away' : 'arrive →'}
+          </button>
+        </div>
+
         {/* Checklist */}
-        <div style={{ padding: '0 22px', marginTop: 16 }}>
+        <div style={{ padding: '0 22px', marginTop: 4 }}>
           <div
             style={{
               display: 'flex',
@@ -205,13 +298,7 @@ export default function DayOf() {
             >
               Before you go
             </span>
-            <span
-              style={{
-                fontFamily: 'var(--mono)',
-                fontSize: 11,
-                color: 'var(--mute)',
-              }}
-            >
+            <span style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--mute)' }}>
               2 of 4
             </span>
           </div>
@@ -232,7 +319,6 @@ export default function DayOf() {
                 borderBottom: '1px solid var(--line)',
               }}
             >
-              {/* Checkbox */}
               <div
                 style={{
                   width: 22,
@@ -248,13 +334,7 @@ export default function DayOf() {
               >
                 {item.checked && (
                   <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-                    <path
-                      d="M2 6l2.5 2.5L10 4"
-                      stroke="white"
-                      strokeWidth="1.8"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
+                    <path d="M2 6l2.5 2.5L10 4" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 )}
               </div>
@@ -310,7 +390,6 @@ export default function DayOf() {
               marginBottom: 10,
             }}
           >
-            {/* Small avatar */}
             <div
               style={{
                 width: 32,
@@ -323,50 +402,37 @@ export default function DayOf() {
                 flexShrink: 0,
               }}
             >
-              <span
-                style={{
-                  fontFamily: 'var(--sans)',
-                  fontWeight: 700,
-                  fontSize: 14,
-                  color: 'white',
-                }}
-              >
-                T
-              </span>
+              <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 14, color: 'white' }}>T</span>
             </div>
             <div>
-              <span
-                style={{
-                  fontFamily: 'var(--sans)',
-                  fontWeight: 600,
-                  fontSize: 14,
-                  color: 'var(--ink)',
-                }}
-              >
+              <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 14, color: 'var(--ink)' }}>
                 Tomás
               </span>
-              <span
-                style={{
-                  fontFamily: 'var(--mono)',
-                  fontSize: 11,
-                  color: 'var(--mute)',
-                  marginLeft: 8,
-                }}
-              >
+              <span style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--mute)', marginLeft: 8 }}>
                 sent this morning
               </span>
             </div>
           </div>
-          <p
+          <p style={{ fontFamily: 'var(--mono)', fontSize: 14, color: 'var(--ink)', lineHeight: 1.5 }}>
+            Door&apos;s on Tompkins, ring the bell — I&apos;ll be downstairs. Coffee&apos;s already going.
+          </p>
+        </div>
+
+        {/* Report link */}
+        <div style={{ padding: '0 22px 8px', textAlign: 'center' }}>
+          <Link
+            href="/worker/report"
             style={{
               fontFamily: 'var(--mono)',
-              fontSize: 14,
-              color: 'var(--ink)',
-              lineHeight: 1.5,
+              fontSize: 11,
+              color: 'var(--mute)',
+              textDecoration: 'none',
+              borderBottom: '1px solid var(--line)',
+              paddingBottom: 2,
             }}
           >
-            Door's on Tompkins, ring the bell — I'll be downstairs. Coffee's already going.
-          </p>
+            Report an issue with this shift
+          </Link>
         </div>
       </div>
 
@@ -383,25 +449,48 @@ export default function DayOf() {
           background: 'linear-gradient(to bottom, transparent, var(--paper) 35%)',
         }}
       >
-        <Link
-          href="/worker/on-shift"
-          style={{
-            display: 'block',
-            width: '100%',
-            padding: '16px 22px',
-            background: 'var(--ink)',
-            borderRadius: 99,
-            fontFamily: 'var(--sans)',
-            fontWeight: 700,
-            fontSize: 16,
-            color: '#FFFFFF',
-            textAlign: 'center',
-            textDecoration: 'none',
-            letterSpacing: '-0.01em',
-          }}
-        >
-          I'm heading there.
-        </Link>
+        {isNear ? (
+          <button
+            onClick={() => router.push('/worker/on-shift')}
+            style={{
+              display: 'block',
+              width: '100%',
+              padding: '16px 22px',
+              background: 'var(--hydrant)',
+              borderRadius: 99,
+              fontFamily: 'var(--sans)',
+              fontWeight: 700,
+              fontSize: 16,
+              color: '#FFFFFF',
+              textAlign: 'center',
+              border: 'none',
+              cursor: 'pointer',
+              letterSpacing: '-0.01em',
+            }}
+          >
+            Clock in now. →
+          </button>
+        ) : (
+          <Link
+            href="/worker/on-shift"
+            style={{
+              display: 'block',
+              width: '100%',
+              padding: '16px 22px',
+              background: 'var(--ink)',
+              borderRadius: 99,
+              fontFamily: 'var(--sans)',
+              fontWeight: 700,
+              fontSize: 16,
+              color: '#FFFFFF',
+              textAlign: 'center',
+              textDecoration: 'none',
+              letterSpacing: '-0.01em',
+            }}
+          >
+            I&apos;m heading there.
+          </Link>
+        )}
       </div>
     </div>
   );

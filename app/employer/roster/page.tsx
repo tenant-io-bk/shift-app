@@ -255,6 +255,7 @@ export default function Page() {
                 name: 'Marco Reyes',
                 meta: 'Barista · 4.9★ · en route',
                 eta: '6 min',
+                reliable: 97,
               },
               {
                 initial: 'S',
@@ -262,6 +263,7 @@ export default function Page() {
                 name: 'Sam Ortiz',
                 meta: 'Barista · 4.8★ · en route',
                 eta: '8 min',
+                reliable: 94,
               },
             ].map((worker) => (
               <div
@@ -317,6 +319,9 @@ export default function Page() {
                     }}
                   >
                     {worker.meta}
+                  </div>
+                  <div style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--hydrant)', marginTop: 3, fontWeight: 600 }}>
+                    {worker.reliable}% reliable
                   </div>
                 </div>
                 {/* ETA pill */}

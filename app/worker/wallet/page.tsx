@@ -1,3 +1,6 @@
+'use client';
+
+import { useState } from 'react';
 import Link from 'next/link';
 import BottomNav from '@/app/components/BottomNav';
 
@@ -10,7 +13,13 @@ const TRANSACTIONS = [
   { name: "Greene's Bar", detail: 'Server · Tue 6 May', amount: '+$88.00', positive: true },
 ];
 
+const WEEKLY_GOAL = 600;
+const WEEKLY_EARNED = 408;
+
 export default function WorkerWallet() {
+  const [withholding, setWithholding] = useState(true);
+  const goalPct = Math.round((WEEKLY_EARNED / WEEKLY_GOAL) * 100);
+
   return (
     <div style={{ maxWidth: 390, minHeight: '100vh', margin: '0 auto', background: 'var(--paper)' }}>
       {/* Nav */}
@@ -84,6 +93,92 @@ export default function WorkerWallet() {
         </div>
       </div>
 
+      {/* Weekly goal */}
+      <div style={{ background: 'var(--card)', padding: '16px 22px', borderBottom: '1px solid var(--line)' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 10 }}>
+          <span style={{ fontFamily: 'var(--mono)', fontSize: 10, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--mute)' }}>
+            Weekly goal
+          </span>
+          <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 14, color: 'var(--ink)', letterSpacing: '-0.02em' }}>
+            ${WEEKLY_EARNED} <span style={{ fontFamily: 'var(--mono)', fontWeight: 400, fontSize: 12, color: 'var(--mute)' }}>of ${WEEKLY_GOAL}</span>
+          </span>
+        </div>
+        <div style={{ height: 8, background: 'var(--line)', borderRadius: 99, overflow: 'hidden' }}>
+          <div
+            style={{
+              height: '100%',
+              width: `${goalPct}%`,
+              background: 'var(--hydrant)',
+              borderRadius: 99,
+              transition: 'width 0.4s ease',
+            }}
+          />
+        </div>
+        <div style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--mute)', marginTop: 6 }}>
+          {goalPct}% there · ${WEEKLY_GOAL - WEEKLY_EARNED} to go this week
+        </div>
+      </div>
+
+      {/* Tax withholding */}
+      <div style={{ background: 'var(--card)', padding: '14px 22px', borderBottom: '1px solid var(--line)' }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+          <div>
+            <div style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 14, color: 'var(--ink)' }}>
+              Tax withholding
+            </div>
+            <div style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--mute)', marginTop: 2 }}>
+              {withholding ? '25% auto-held · ~$61.88 this week' : 'Off · you handle quarterly'}
+            </div>
+          </div>
+
+          {/* Toggle */}
+          <button
+            onClick={() => setWithholding(w => !w)}
+            style={{
+              width: 46,
+              height: 26,
+              borderRadius: 99,
+              background: withholding ? 'var(--hydrant)' : 'var(--line)',
+              border: 'none',
+              cursor: 'pointer',
+              position: 'relative',
+              transition: 'background 0.2s',
+              flexShrink: 0,
+            }}
+          >
+            <div
+              style={{
+                position: 'absolute',
+                top: 3,
+                left: withholding ? 23 : 3,
+                width: 20,
+                height: 20,
+                borderRadius: '50%',
+                background: 'white',
+                transition: 'left 0.2s',
+                boxShadow: '0 1px 3px rgba(0,0,0,0.2)',
+              }}
+            />
+          </button>
+        </div>
+
+        {withholding && (
+          <div
+            style={{
+              marginTop: 10,
+              padding: '8px 12px',
+              background: 'var(--hydrant-soft)',
+              borderRadius: 8,
+              fontFamily: 'var(--mono)',
+              fontSize: 11,
+              color: 'var(--hydrant)',
+            }}
+          >
+            Held funds transfer to your tax account on Jan 15, Apr 15, Jun 15, Sep 15.
+          </div>
+        )}
+      </div>
+
       {/* Ledger */}
       <div style={{ background: 'var(--card)', padding: '0 22px' }}>
         <p style={{
@@ -109,25 +204,14 @@ export default function WorkerWallet() {
             }}
           >
             <div>
-              <div style={{
-                fontFamily: 'var(--sans)',
-                fontWeight: 600,
-                fontSize: 15,
-                color: 'var(--ink)',
-              }}>{tx.name}</div>
-              <div style={{
-                fontFamily: 'var(--mono)',
-                fontSize: 12,
-                color: 'var(--mute)',
-                marginTop: 2,
-              }}>{tx.detail}</div>
+              <div style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 15, color: 'var(--ink)' }}>{tx.name}</div>
+              <div style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--mute)', marginTop: 2 }}>{tx.detail}</div>
             </div>
             <div style={{
               fontFamily: 'var(--sans)',
               fontWeight: 700,
               fontSize: 15,
               color: tx.positive ? '#16A34A' : 'var(--mute)',
-              textDecoration: tx.zero ? 'none' : undefined,
             }}>{tx.amount}</div>
           </div>
         ))}
