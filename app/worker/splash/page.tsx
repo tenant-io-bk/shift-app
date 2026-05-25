@@ -9,7 +9,7 @@ export default function WorkerSplash() {
         maxWidth: 390,
         minHeight: '100vh',
         margin: '0 auto',
-        background: 'var(--ink)',
+        background: 'var(--green)',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
@@ -51,7 +51,7 @@ export default function WorkerSplash() {
       <StatusBar dark time="9:41" />
 
       <img
-        src="/LOGO-green.svg"
+        src="/LOGO-blsck.svg"
         alt="shift"
         className="splash-logo"
         style={{ width: 160, display: 'block', position: 'relative', zIndex: 1 }}
@@ -62,7 +62,7 @@ export default function WorkerSplash() {
         bottom: 52,
         fontFamily: 'var(--mono)',
         fontSize: 11,
-        color: 'rgba(255,255,255,0.25)',
+        color: 'rgba(13,14,18,0.55)',
         letterSpacing: '0.1em',
         textTransform: 'uppercase',
         margin: 0,

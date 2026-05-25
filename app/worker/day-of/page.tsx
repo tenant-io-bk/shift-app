@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import StatusBar from '@/app/components/StatusBar';
+import ShiftCard from '@/app/components/ShiftCard';
 
 export default function DayOf() {
   return (
@@ -61,34 +62,34 @@ export default function DayOf() {
       {/* Scrollable content */}
       <div style={{ flex: 1, overflowY: 'auto', paddingBottom: 120 }}>
 
-        {/* Top alert bar */}
-        <div
-          style={{
-            background: 'var(--hydrant-soft)',
-            padding: '14px 22px 18px',
-          }}
-        >
-          <div
-            style={{
-              fontFamily: 'var(--sans)',
-              fontWeight: 600,
-              fontSize: 48,
-              color: 'var(--hydrant)',
-              lineHeight: 1,
-            }}
-          >
+        {/* Countdown banner */}
+        <div style={{ background: 'var(--green-soft)', padding: '14px 22px 18px' }}>
+          <div style={{
+            fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 56,
+            color: 'var(--ink)', lineHeight: 1, letterSpacing: '-0.05em',
+          }}>
             23 min.
           </div>
-          <p
-            style={{
-              fontFamily: 'var(--mono)',
-              fontSize: 13,
-              color: 'var(--ink)',
-              marginTop: 4,
-            }}
-          >
+          <p style={{
+            fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--ink)',
+            opacity: 0.65, marginTop: 6, letterSpacing: '0.06em', textTransform: 'uppercase',
+          }}>
             Head out by 10:35A · starts at 11A
           </p>
+        </div>
+
+        {/* Confirmed shift card */}
+        <div style={{ padding: '14px 14px 0' }}>
+          <ShiftCard
+            state="confirmed"
+            role="Barista"
+            time="11A — 4P"
+            loc="Bedstuy, BK"
+            venue="Padmore's Coffee"
+            brief={['Confirmed · on shift in 23 min.', 'Tap to check in when you arrive.']}
+            pay="$140"
+            rate="Locked · clock in to start"
+          />
         </div>
 
         {/* Commute card */}

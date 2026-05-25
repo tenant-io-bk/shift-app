@@ -356,6 +356,144 @@ html, body {
   gap: 2px;
 }
 
+/* ── ShiftCard ─── editorial classified ──────────────────────────────────── */
+.scard {
+  border-radius: 18px;
+  padding: 16px 18px 18px;
+  position: relative;
+  font-family: var(--body);
+  color: var(--ink);
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px 14px;
+  align-items: start;
+  cursor: pointer;
+  text-decoration: none;
+}
+.scard-pills {
+  grid-column: 1 / 2;
+  display: flex; flex-wrap: wrap; gap: 6px; align-items: center;
+}
+.scard-loc {
+  grid-column: 2 / 3;
+  justify-self: end;
+}
+.scard .pill {
+  display: inline-flex; align-items: center;
+  padding: 4px 10px; border-radius: 99px;
+  font-family: var(--sans); font-weight: 700; font-size: 10.5px;
+  letter-spacing: 0.02em; text-transform: uppercase;
+  line-height: 1; white-space: nowrap;
+}
+.scard .pill-role { color: var(--ink); }
+.scard .pill-time {
+  background: transparent; border: 1.5px solid var(--ink); color: var(--ink); font-weight: 600;
+}
+.scard .pill-loc { background: var(--card); border: 1.5px solid var(--ink); color: var(--ink); }
+.scard-body { grid-column: 1 / 2; display: flex; flex-direction: column; gap: 6px; }
+.scard-name {
+  font-family: var(--sans); font-weight: 700;
+  font-size: 28px; letter-spacing: -0.035em; line-height: 0.96;
+  color: var(--ink); text-wrap: balance; margin: 0;
+}
+.scard-brief {
+  font-family: var(--body); font-size: 13px; line-height: 1.4;
+  color: var(--ink); opacity: 0.82; max-width: 38ch; margin: 0;
+}
+.scard-price {
+  grid-column: 2 / 3; grid-row: 2 / 3;
+  justify-self: end; text-align: right;
+  display: flex; flex-direction: column; gap: 4px; align-items: flex-end;
+  padding-top: 2px;
+}
+.scard-price .big {
+  font-family: var(--sans); font-weight: 700;
+  font-size: 44px; letter-spacing: -0.055em; line-height: 0.9;
+  color: var(--ink); display: inline-flex; align-items: baseline;
+}
+.scard-price .big .d {
+  font-size: 0.55em; font-weight: 700; letter-spacing: -0.04em;
+  margin-right: 1px; transform: translateY(-3px); display: inline-block;
+}
+.scard-price .rate {
+  font-family: var(--mono); font-size: 9.5px; font-weight: 700;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  line-height: 1.4; color: var(--ink); opacity: 0.78;
+}
+
+/* Family tints */
+.scard.bar     { background: var(--green-soft); }
+.scard.kitchen { background: var(--red-soft); }
+.scard.floor   { background: var(--pink-soft); }
+.scard.event   { background: var(--lilac-soft); }
+.scard.counter { background: var(--steel); }
+
+.scard.bar     .pill-role { background: var(--green); }
+.scard.kitchen .pill-role { background: var(--red); color: var(--paper); }
+.scard.floor   .pill-role { background: var(--pink); }
+.scard.event   .pill-role { background: var(--lilac); color: var(--paper); }
+.scard.counter .pill-role { background: #3d5478; color: var(--paper); }
+
+/* State overrides */
+.scard.confirmed { background: var(--green); }
+.scard.confirmed .pill-role { background: var(--ink); color: var(--paper); }
+
+.scard.pending { background: var(--yellow); box-shadow: inset 0 0 0 1px var(--ink); }
+.scard.pending .pill-role { background: var(--ink); color: var(--paper); }
+.scard.pending .pill-status { background: var(--ink); color: var(--paper); letter-spacing: 0.08em; }
+
+.scard.urgent { background: var(--ink); color: var(--paper); }
+.scard.urgent .scard-name,
+.scard.urgent .scard-brief,
+.scard.urgent .scard-price .big { color: var(--paper); }
+.scard.urgent .scard-brief,
+.scard.urgent .scard-price .rate { opacity: 0.78; color: var(--paper); }
+.scard.urgent .pill-role { background: var(--red); color: var(--paper); }
+.scard.urgent .pill-time { border-color: var(--paper); color: var(--paper); }
+.scard.urgent .pill-loc { background: transparent; border-color: var(--paper); color: var(--paper); }
+
+.scard.past { background: var(--grey-soft); }
+.scard.past .scard-name,
+.scard.past .scard-brief,
+.scard.past .scard-price .big { color: rgba(13,14,18,0.55); }
+.scard.past .pill-role { background: rgba(13,14,18,0.4); color: var(--paper); }
+.scard.past .pill-time,
+.scard.past .pill-loc { border-color: rgba(13,14,18,0.3); color: rgba(13,14,18,0.55); }
+.scard.past .scard-price .rate { color: rgba(13,14,18,0.55); }
+
+/* Compact row — invites / booked */
+.scard.compact {
+  background: var(--card); border: 1px solid var(--line);
+  padding: 12px 14px;
+  grid-template-columns: auto 1fr auto;
+  gap: 12px; align-items: center;
+}
+.scard.compact .compact-ico {
+  width: 34px; height: 34px; border-radius: 50%;
+  background: var(--green); color: var(--ink);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--sans); font-weight: 700; font-size: 13px; flex-shrink: 0;
+}
+.scard.compact .compact-text { line-height: 1.25; min-width: 0; }
+.scard.compact .compact-text b {
+  font-family: var(--sans); font-weight: 700; font-size: 13.5px;
+  letter-spacing: -0.015em; display: block;
+}
+.scard.compact .compact-text span {
+  font-family: var(--body); font-size: 11.5px; opacity: 0.65; display: block;
+}
+.scard.compact .compact-cta {
+  background: var(--green); color: var(--ink);
+  border: none; padding: 6px 12px; border-radius: 99px;
+  font-family: var(--sans); font-weight: 700; font-size: 11.5px; letter-spacing: -0.01em;
+  cursor: pointer; flex-shrink: 0;
+  text-decoration: none; display: inline-flex; align-items: center;
+}
+.scard.compact .compact-cta.ghost {
+  background: transparent; color: var(--ink); border: 1.5px solid var(--ink);
+}
+
 /* Slide to clock out */
 .slide-control {
   background: rgba(255,255,255,0.08);

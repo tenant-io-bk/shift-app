@@ -7,21 +7,21 @@ import StatusBar from '@/app/components/StatusBar';
 const SLIDES = [
   {
     img: '/CIRCLE_1.png',
-    imgPosition: 'center 15%',
     headline: 'Need cash fast?',
     sub: 'Browse hundreds of same-day openings across Brooklyn, Manhattan, and Queens. No resume, no waiting.',
+    bg: 'var(--red)',
   },
   {
     img: '/CIRCLE_2.png',
-    imgPosition: 'center top',
     headline: 'Need staff tonight?',
     sub: 'Post a shift and get confirmed, vetted workers before the rush starts. No agencies, no markups.',
+    bg: 'var(--steel)',
   },
   {
     img: '/CIRCLE_3.png',
-    imgPosition: 'center center',
     headline: 'Paid in minutes.',
     sub: 'Clock out and the money moves. No invoices, no chasing. Straight to your debit card in minutes.',
+    bg: 'var(--green)',
   },
 ];
 
@@ -62,7 +62,7 @@ export default function WorkerSlides() {
 
   return (
     <div
-      style={{ maxWidth: 390, minHeight: '100vh', margin: '0 auto', background: 'var(--hydrant)', display: 'flex', flexDirection: 'column', overflow: 'hidden' }}
+      style={{ maxWidth: 390, minHeight: '100vh', margin: '0 auto', background: slide.bg, display: 'flex', flexDirection: 'column', overflow: 'hidden', transition: 'background 0.4s ease' }}
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
     >
