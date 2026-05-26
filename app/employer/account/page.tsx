@@ -17,7 +17,7 @@ export default function EmployerAccount() {
   function toggle(k: ToggleKey) { setToggles(p => ({ ...p, [k]: !p[k] })); }
 
   return (
-    <div style={{ maxWidth: 390, minHeight: '100vh', margin: '0 auto', background: 'var(--paper-2)', paddingBottom: 80 }}>
+    <div style={{ maxWidth: 390, minHeight: '100vh', margin: '0 auto', background: 'var(--paper)', paddingBottom: 80 }}>
       <StatusBar time="10:12" />
 
       <div style={{ height: 44, display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 16px', borderBottom: '1px solid var(--line)', background: 'var(--paper)' }}>
@@ -26,18 +26,24 @@ export default function EmployerAccount() {
         <div style={{ width: 32 }} />
       </div>
 
-      {/* Business card */}
-      <div style={{ padding: '16px 16px 0' }}>
-        <div style={{ background: 'var(--ink)', borderRadius: 16, padding: '20px', display: 'flex', alignItems: 'center', gap: 14 }}>
-          <div style={{ width: 56, height: 56, borderRadius: 12, background: 'var(--hydrant)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-            <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 20, color: '#fff' }}>PC</span>
-          </div>
-          <div style={{ flex: 1 }}>
-            <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 18, color: '#fff', letterSpacing: '-0.02em' }}>Padmore's Coffee</div>
-            <div style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'rgba(255,255,255,0.45)', marginTop: 3 }}>Café · Bed-Stuy, Brooklyn</div>
-          </div>
-          <Link href="/employer/business-profile" style={{ fontFamily: 'var(--body)', fontSize: 12, fontWeight: 600, color: 'rgba(255,255,255,0.5)', textDecoration: 'none' }}>Edit →</Link>
+      {/* Greeting + edit profile */}
+      <div style={{ padding: '20px 16px 8px', display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between' }}>
+        <div>
+          <div style={{ fontFamily: 'var(--sans)', fontWeight: 200, fontSize: 32, color: 'var(--ink)', letterSpacing: '-0.06em', lineHeight: 0.9 }}>Good morning</div>
+          <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 32, color: 'var(--ink)', letterSpacing: '-0.06em', lineHeight: 1 }}>Padmore&apos;s Coffee</div>
+          <div style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--mute)', marginTop: 4 }}>Café · Bed-Stuy, Brooklyn</div>
         </div>
+        <Link
+          href="/employer/business-profile"
+          style={{
+            display: 'flex', alignItems: 'center', gap: 5,
+            background: 'var(--ink)', borderRadius: 99, padding: '8px 14px',
+            fontFamily: 'var(--body)', fontSize: 12, fontWeight: 600,
+            color: '#fff', textDecoration: 'none', flexShrink: 0,
+          }}
+        >
+          Edit profile →
+        </Link>
       </div>
 
       <div style={{ padding: '16px 16px 0', display: 'flex', flexDirection: 'column', gap: 12 }}>

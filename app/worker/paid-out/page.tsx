@@ -127,7 +127,8 @@ export default function PaidOut() {
           style={{
             margin: '16px 22px',
             padding: 20,
-            background: 'var(--ink)',
+            background: 'var(--paper)',
+            border: '2px solid var(--ink)',
             borderRadius: 14,
           }}
         >
@@ -139,7 +140,7 @@ export default function PaidOut() {
               fontWeight: 700,
               letterSpacing: '0.12em',
               textTransform: 'uppercase',
-              color: 'rgba(255,255,255,0.80)',
+              color: 'var(--ink)',
               marginBottom: 4,
             }}
           >
@@ -149,7 +150,7 @@ export default function PaidOut() {
             style={{
               fontFamily: 'var(--body)',
               fontSize: 13,
-              color: 'rgba(255,255,255,0.60)',
+              color: 'var(--mute)',
               marginBottom: 16,
             }}
           >
@@ -159,16 +160,16 @@ export default function PaidOut() {
           {/* Dashed separator */}
           <div
             style={{
-              borderTop: '1.5px dashed rgba(255,255,255,0.15)',
+              borderTop: '1.5px dashed var(--line)',
               marginBottom: 0,
             }}
           />
 
           {/* KV rows */}
           {[
-            { label: 'Base', value: '5h × $28', amount: '$140.00', color: '#FFFFFF', bold: true },
-            { label: 'Tips', value: null, amount: '+$34.00', color: '#16A34A', bold: false },
-            { label: 'Shift fee', value: null, amount: '$0.00', color: 'rgba(255,255,255,0.50)', bold: false },
+            { label: 'Base', value: '5h × $28', amount: '$140.00', green: false, muted: false, bold: true },
+            { label: 'Tips', value: null, amount: '+$34.00', green: true, muted: false, bold: false },
+            { label: 'Shift fee', value: null, amount: '$0.00', green: false, muted: true, bold: false },
           ].map((row) => (
             <div
               key={row.label}
@@ -177,7 +178,7 @@ export default function PaidOut() {
                 justifyContent: 'space-between',
                 alignItems: 'center',
                 padding: '10px 0',
-                borderBottom: '1px solid rgba(255,255,255,0.10)',
+                borderBottom: '1px solid var(--line)',
               }}
             >
               <div>
@@ -188,7 +189,7 @@ export default function PaidOut() {
                     fontWeight: 600,
                     letterSpacing: '0.08em',
                     textTransform: 'uppercase',
-                    color: 'rgba(255,255,255,0.50)',
+                    color: 'var(--mute)',
                   }}
                 >
                   {row.label}
@@ -198,7 +199,7 @@ export default function PaidOut() {
                     style={{
                       fontFamily: 'var(--body)',
                       fontSize: 11,
-                      color: 'rgba(255,255,255,0.40)',
+                      color: 'var(--mute)',
                       marginLeft: 8,
                     }}
                   >
@@ -211,7 +212,7 @@ export default function PaidOut() {
                   fontFamily: 'var(--sans)',
                   fontWeight: row.bold ? 600 : 400,
                   fontSize: 15,
-                  color: row.color,
+                  color: row.green ? '#16A34A' : row.muted ? 'var(--mute)' : 'var(--ink)',
                   letterSpacing: '-0.01em',
                 }}
               >
@@ -227,7 +228,7 @@ export default function PaidOut() {
               justifyContent: 'space-between',
               alignItems: 'baseline',
               paddingTop: 14,
-              borderTop: '1.5px dashed rgba(255,255,255,0.15)',
+              borderTop: '1.5px dashed var(--line)',
               marginTop: 4,
             }}
           >
@@ -238,7 +239,7 @@ export default function PaidOut() {
                 fontWeight: 600,
                 letterSpacing: '0.10em',
                 textTransform: 'uppercase',
-                color: 'rgba(255,255,255,0.50)',
+                color: 'var(--mute)',
               }}
             >
               Total
@@ -248,7 +249,7 @@ export default function PaidOut() {
                 fontFamily: 'var(--sans)',
                 fontWeight: 600,
                 fontSize: 40,
-                color: '#FFFFFF',
+                color: 'var(--ink)',
                 letterSpacing: '-0.075em',
                 lineHeight: 1,
               }}
@@ -260,7 +261,7 @@ export default function PaidOut() {
           {/* Card row */}
           <div
             style={{
-              borderTop: '1px solid rgba(255,255,255,0.10)',
+              borderTop: '1px solid var(--line)',
               marginTop: 14,
               paddingTop: 12,
             }}
@@ -269,7 +270,7 @@ export default function PaidOut() {
               style={{
                 fontFamily: 'var(--body)',
                 fontSize: 11,
-                color: 'rgba(255,255,255,0.50)',
+                color: 'var(--mute)',
                 letterSpacing: '0.04em',
               }}
             >

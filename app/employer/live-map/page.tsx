@@ -113,16 +113,16 @@ export default function Page() {
         </div>
 
         {/* Neighborhood labels */}
-        <div style={{ position: 'absolute', top: 50, left: 10, background: 'var(--card)', border: '2px solid var(--ink)', borderRadius: 6, padding: '4px 8px', fontFamily: 'var(--body)', fontSize: 10, fontWeight: 600, color: 'var(--mute)' }}>
+        <div style={{ position: 'absolute', top: 50, left: 10, background: 'var(--card)', border: '2px solid var(--ink)', borderRadius: 99, padding: '4px 10px', fontFamily: 'var(--body)', fontSize: 10, fontWeight: 600, color: 'var(--mute)' }}>
           Bushwick · 11
         </div>
-        <div style={{ position: 'absolute', top: 50, right: 10, background: 'var(--card)', border: '2px solid var(--ink)', borderRadius: 6, padding: '4px 8px', fontFamily: 'var(--body)', fontSize: 10, fontWeight: 600, color: 'var(--hydrant)' }}>
+        <div style={{ position: 'absolute', top: 50, right: 10, background: 'var(--card)', border: '2px solid var(--ink)', borderRadius: 99, padding: '4px 10px', fontFamily: 'var(--body)', fontSize: 10, fontWeight: 600, color: 'var(--hydrant)' }}>
           Crown Hts · 19
         </div>
-        <div style={{ position: 'absolute', bottom: 16, left: 10, background: 'var(--card)', border: '2px solid var(--ink)', borderRadius: 6, padding: '4px 8px', fontFamily: 'var(--body)', fontSize: 10, fontWeight: 600, color: 'var(--mute)' }}>
+        <div style={{ position: 'absolute', bottom: 16, left: 10, background: 'var(--card)', border: '2px solid var(--ink)', borderRadius: 99, padding: '4px 10px', fontFamily: 'var(--body)', fontSize: 10, fontWeight: 600, color: 'var(--mute)' }}>
           Bed-Stuy · 42
         </div>
-        <div style={{ position: 'absolute', bottom: 16, right: 10, background: 'var(--card)', border: '2px solid var(--ink)', borderRadius: 6, padding: '4px 8px', fontFamily: 'var(--body)', fontSize: 10, fontWeight: 600, color: 'var(--mute)' }}>
+        <div style={{ position: 'absolute', bottom: 16, right: 10, background: 'var(--card)', border: '2px solid var(--ink)', borderRadius: 99, padding: '4px 10px', fontFamily: 'var(--body)', fontSize: 10, fontWeight: 600, color: 'var(--mute)' }}>
           Clinton Hill · 7
         </div>
 
@@ -130,31 +130,42 @@ export default function Page() {
         <div
           style={{
             position: 'absolute',
-            top: 50,
+            top: 8,
             left: 22,
             right: 22,
             background: 'var(--card)',
             border: '2px solid var(--ink)',
-            borderRadius: 12,
-            padding: 14,
-            boxShadow: '0 4px 12px rgba(13,14,18,0.10)',
-            display: 'flex',
-            alignItems: 'center',
-            gap: 12,
+            borderRadius: 16,
+            padding: '12px 14px',
+            boxShadow: '0 4px 16px rgba(13,14,18,0.14)',
           }}
         >
-          <div style={{ width: 48, height: 48, borderRadius: 8, background: 'linear-gradient(135deg, #b8c4d0, #8a9ba8)', flexShrink: 0 }} />
-          <div style={{ flex: 1 }}>
-            <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 16, color: 'var(--ink)', letterSpacing: '-0.01em' }}>
-              Padmore&apos;s Coffee
+          <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 10 }}>
+            <div style={{ width: 40, height: 40, borderRadius: 10, background: 'linear-gradient(135deg, #b8c4d0, #8a9ba8)', flexShrink: 0 }} />
+            <div style={{ flex: 1 }}>
+              <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 15, color: 'var(--ink)', letterSpacing: '-0.01em' }}>
+                Padmore&apos;s Coffee
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 5, marginTop: 2 }}>
+                <div className="green-pulse" style={{ width: 5, height: 5, borderRadius: '50%', background: '#16A34A', flexShrink: 0 }} />
+                <span style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, color: 'var(--ink)' }}>18 qualified workers nearby</span>
+              </div>
             </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginTop: 3 }}>
-              <div className="green-pulse" style={{ width: 6, height: 6, borderRadius: '50%', background: '#16A34A', flexShrink: 0 }} />
-              <span style={{ fontFamily: 'var(--body)', fontSize: 12, fontWeight: 600, color: 'var(--ink)' }}>18 ready now</span>
+            <div style={{ background: 'var(--ink)', borderRadius: 99, padding: '4px 10px', flexShrink: 0 }}>
+              <span style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 700, color: '#fff' }}>avg 2 min</span>
             </div>
-            <div style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)', marginTop: 2 }}>
-              Live · avg 2 min to fill
-            </div>
+          </div>
+          <div style={{ display: 'flex', gap: 6 }}>
+            {[
+              { label: 'Baristas', value: '7' },
+              { label: 'Servers', value: '5' },
+              { label: 'Favorites', value: '3' },
+            ].map((s) => (
+              <div key={s.label} style={{ flex: 1, background: 'var(--paper-2)', borderRadius: 8, padding: '6px 8px', textAlign: 'center' }}>
+                <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 16, color: 'var(--ink)' }}>{s.value}</div>
+                <div style={{ fontFamily: 'var(--body)', fontSize: 9, color: 'var(--mute)', textTransform: 'uppercase', letterSpacing: '0.06em' }}>{s.label}</div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
@@ -217,10 +228,10 @@ export default function Page() {
           ].map((worker) => (
             <div
               key={worker.name}
-              style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '10px 22px', borderBottom: '1px solid var(--line)' }}
+              style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '10px 22px' }}
             >
               <div style={{ position: 'relative', flexShrink: 0 }}>
-                <div style={{ width: 36, height: 36, borderRadius: '50%', background: worker.gradient, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <div style={{ width: 44, height: 44, borderRadius: '50%', background: worker.gradient, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                   <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 14, color: 'white' }}>{worker.initial}</span>
                 </div>
                 <div style={{ position: 'absolute', bottom: -1, right: -1, width: 10, height: 10, borderRadius: '50%', background: worker.fav ? 'var(--hydrant)' : '#16A34A', border: '2px solid white' }} />

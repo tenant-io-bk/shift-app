@@ -273,13 +273,12 @@ export default function Page() {
                   alignItems: 'center',
                   gap: 12,
                   padding: '10px 0',
-                  borderBottom: '1px solid var(--line)',
                 }}
               >
                 <div
                   style={{
-                    width: 36,
-                    height: 36,
+                    width: 44,
+                    height: 44,
                     borderRadius: '50%',
                     background: worker.gradient,
                     display: 'flex',
@@ -378,8 +377,8 @@ export default function Page() {
             >
               <div
                 style={{
-                  width: 36,
-                  height: 36,
+                  width: 44,
+                  height: 44,
                   borderRadius: '50%',
                   background: 'linear-gradient(135deg, #f0c080, #c88040)',
                   display: 'flex',

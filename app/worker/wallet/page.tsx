@@ -37,91 +37,64 @@ export default function WorkerWallet() {
         <div style={{ width: 32 }} />
       </div>
 
-      {/* Balance header */}
-      <div style={{
-        padding: '28px 22px 24px',
-        background: 'var(--ink)',
-        color: '#fff',
-        textAlign: 'center',
-      }}>
-        <p style={{
-          fontFamily: 'var(--body)',
-          fontSize: 10,
-          fontWeight: 600,
-          textTransform: 'uppercase',
-          letterSpacing: '0.1em',
-          color: 'rgba(255,255,255,0.5)',
-          marginBottom: 8,
-        }}>AVAILABLE</p>
-
+      {/* Wallet card */}
+      <div style={{ padding: '16px 16px 0' }}>
         <div style={{
-          fontFamily: 'var(--sans)',
-          fontWeight: 600,
-          fontSize: 64,
+          background: 'var(--ink)',
+          borderRadius: 20,
+          padding: '24px 22px 20px',
           color: '#fff',
-          letterSpacing: '-0.075em',
-          lineHeight: 1,
-        }}>$247.50</div>
+          position: 'relative',
+          overflow: 'hidden',
+        }}>
+          {/* Card texture lines */}
+          <div style={{ position: 'absolute', top: 0, right: -20, width: 120, height: '100%', background: 'rgba(255,255,255,0.03)', transform: 'skewX(-12deg)' }} />
+          <div style={{ position: 'absolute', top: 0, right: 40, width: 60, height: '100%', background: 'rgba(255,255,255,0.02)', transform: 'skewX(-12deg)' }} />
 
-        {/* Progress ring — replaces "Settled" */}
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, marginTop: 14, marginBottom: 20 }}>
-          <svg width="20" height="20" viewBox="0 0 20 20" style={{ transform: 'rotate(-90deg)', flexShrink: 0 }}>
-            <circle cx="10" cy="10" r="7" fill="none" stroke="rgba(255,255,255,0.15)" strokeWidth="2.5" />
-            <circle cx="10" cy="10" r="7" fill="none" stroke="#72c15f" strokeWidth="2.5"
-              strokeDasharray={`${2 * Math.PI * 7 * goalPct / 100} ${2 * Math.PI * 7}`}
-              strokeLinecap="round" />
-          </svg>
-          <span style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'rgba(255,255,255,0.5)' }}>
-            {goalPct}% of weekly goal
-          </span>
-        </div>
+          <p style={{
+            fontFamily: 'var(--body)',
+            fontSize: 10,
+            fontWeight: 600,
+            textTransform: 'uppercase',
+            letterSpacing: '0.1em',
+            color: 'rgba(255,255,255,0.45)',
+            marginBottom: 6,
+          }}>Available balance</p>
 
-        {/* Pill buttons */}
-        <div style={{ display: 'flex', gap: 8, justifyContent: 'center' }}>
-          {['Add bank', 'Cash out →'].map((label) => (
-            <button
-              key={label}
-              style={{
-                background: 'rgba(255,255,255,0.10)',
-                border: '1px solid rgba(255,255,255,0.2)',
-                color: '#fff',
-                fontFamily: 'var(--body)',
-                fontSize: 12,
-                fontWeight: 600,
-                borderRadius: 99,
-                padding: '9px 20px',
-                cursor: 'pointer',
-              }}
-            >
-              {label}
-            </button>
-          ))}
-        </div>
-      </div>
+          <div style={{
+            fontFamily: 'var(--sans)',
+            fontWeight: 600,
+            fontSize: 56,
+            color: '#fff',
+            letterSpacing: '-0.075em',
+            lineHeight: 1,
+            marginBottom: 20,
+          }}>$247<span style={{ color: '#72c15f' }}>.</span><span style={{ fontSize: 32 }}>50</span></div>
 
-      {/* Weekly goal */}
-      <div style={{ background: 'var(--card)', padding: '16px 22px', borderBottom: '1px solid var(--line)' }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 10 }}>
-          <span style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--mute)' }}>
-            Weekly goal
-          </span>
-          <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 14, color: 'var(--ink)', letterSpacing: '-0.02em' }}>
-            ${WEEKLY_EARNED} <span style={{ fontFamily: 'var(--body)', fontWeight: 400, fontSize: 12, color: 'var(--mute)' }}>of ${WEEKLY_GOAL}</span>
-          </span>
-        </div>
-        <div style={{ height: 8, background: 'var(--line)', borderRadius: 99, overflow: 'hidden' }}>
-          <div
-            style={{
-              height: '100%',
-              width: `${goalPct}%`,
-              background: 'var(--hydrant)',
-              borderRadius: 99,
-              transition: 'width 0.4s ease',
-            }}
-          />
-        </div>
-        <div style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)', marginTop: 6 }}>
-          {goalPct}% there · ${WEEKLY_GOAL - WEEKLY_EARNED} to go this week
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+            <span style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'rgba(255,255,255,0.4)', letterSpacing: '0.08em' }}>CHASE ·· 4471</span>
+            {/* Pill buttons */}
+            <div style={{ display: 'flex', gap: 8 }}>
+              {['Add bank', 'Cash out →'].map((label) => (
+                <button
+                  key={label}
+                  style={{
+                    background: 'rgba(255,255,255,0.10)',
+                    border: '1px solid rgba(255,255,255,0.2)',
+                    color: '#fff',
+                    fontFamily: 'var(--body)',
+                    fontSize: 11,
+                    fontWeight: 600,
+                    borderRadius: 99,
+                    padding: '7px 14px',
+                    cursor: 'pointer',
+                  }}
+                >
+                  {label}
+                </button>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
 

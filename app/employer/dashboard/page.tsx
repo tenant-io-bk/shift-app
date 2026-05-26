@@ -454,15 +454,15 @@ export default function EmployerDashboard() {
       </Section>
 
       <Section id="workers" label="Your go-to workers">
-        <div style={{ display: 'flex', gap: 10 }}>
+        <div style={{ display: 'flex', gap: 16, paddingBottom: 4 }}>
           {SAVED_WORKERS.map((w, i) => (
-            <div key={i} style={{ flex: 1, background: 'var(--paper)', borderRadius: 12, border: '2px solid var(--ink)', padding: '14px 10px', textAlign: 'center' }}>
-              <div style={{ width: 44, height: 44, borderRadius: '50%', background: w.bg, display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 8px' }}>
-                <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 15, color: '#fff' }}>{w.initials}</span>
+            <div key={i} style={{ flex: 1, textAlign: 'center' }}>
+              <div style={{ width: 52, height: 52, borderRadius: '50%', background: w.bg, display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 8px' }}>
+                <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 17, color: '#fff' }}>{w.initials}</span>
               </div>
               <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 13, color: 'var(--ink)' }}>{w.name}</div>
-              <div style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--ink)', marginTop: 2 }}>{w.role}</div>
-              <div style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--hydrant)', fontWeight: 600, marginTop: 4 }}>{w.rating}★</div>
+              <div style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--ink)', marginTop: 1 }}>{w.role}</div>
+              <div style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--hydrant)', fontWeight: 600, marginTop: 3 }}>{w.rating}★</div>
             </div>
           ))}
         </div>

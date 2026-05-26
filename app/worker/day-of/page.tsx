@@ -25,55 +25,60 @@ export default function DayOf() {
     >
       <StatusBar time="10:12" />
 
-      {/* Subway disruption alert */}
+      {/* Subway disruption alert — card style */}
       {!subwayDismissed && (
-        <div
-          style={{
-            background: '#FEF3C7',
-            borderBottom: '2px solid #F59E0B',
-            padding: '10px 16px',
-            display: 'flex',
-            alignItems: 'center',
-            gap: 10,
-          }}
-        >
-          <span style={{ fontSize: 15, flexShrink: 0 }}>⚠</span>
-          <div style={{ flex: 1 }}>
-            <span
-              style={{
-                fontFamily: 'var(--body)',
-                fontSize: 12,
-                fontWeight: 700,
-                color: '#92400E',
-              }}
-            >
-              G train delays —{' '}
-            </span>
-            <span
-              style={{
-                fontFamily: 'var(--body)',
-                fontSize: 12,
-                color: '#92400E',
-              }}
-            >
-              allow 10 extra min
-            </span>
-          </div>
-          <button
-            onClick={() => setSubwayDismissed(true)}
+        <div style={{ padding: '12px 16px 0' }}>
+          <div
             style={{
-              background: 'none',
-              border: 'none',
-              cursor: 'pointer',
-              color: '#92400E',
-              fontSize: 18,
-              padding: '2px 4px',
-              lineHeight: 1,
-              flexShrink: 0,
+              background: '#FFFBEB',
+              border: '2px solid #F59E0B',
+              borderRadius: 12,
+              padding: '10px 14px',
+              display: 'flex',
+              alignItems: 'center',
+              gap: 10,
             }}
           >
-            ×
-          </button>
+            <div style={{ width: 28, height: 28, borderRadius: 8, background: '#F59E0B', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+              <span style={{ fontSize: 13, color: '#fff', fontWeight: 700 }}>!</span>
+            </div>
+            <div style={{ flex: 1 }}>
+              <span
+                style={{
+                  fontFamily: 'var(--body)',
+                  fontSize: 12,
+                  fontWeight: 700,
+                  color: '#92400E',
+                }}
+              >
+                G train delays —{' '}
+              </span>
+              <span
+                style={{
+                  fontFamily: 'var(--body)',
+                  fontSize: 12,
+                  color: '#92400E',
+                }}
+              >
+                allow 10 extra min
+              </span>
+            </div>
+            <button
+              onClick={() => setSubwayDismissed(true)}
+              style={{
+                background: 'none',
+                border: 'none',
+                cursor: 'pointer',
+                color: '#92400E',
+                fontSize: 18,
+                padding: '2px 4px',
+                lineHeight: 1,
+                flexShrink: 0,
+              }}
+            >
+              ×
+            </button>
+          </div>
         </div>
       )}
 
@@ -115,7 +120,7 @@ export default function DayOf() {
             textTransform: 'uppercase',
           }}
         >
-          Day of
+          Your Shift
         </span>
         <div style={{ width: 36 }} />
       </div>
@@ -166,64 +171,35 @@ export default function DayOf() {
         {/* Commute card */}
         <div
           style={{
-            margin: '14px 22px',
-            padding: 16,
+            margin: '14px 14px',
+            padding: '14px 16px',
             background: 'var(--card)',
             border: '2px solid var(--ink)',
             borderRadius: 12,
+            display: 'flex',
+            alignItems: 'center',
+            gap: 12,
           }}
         >
-          <div
+          <div style={{ width: 36, height: 36, borderRadius: 10, background: '#16A34A', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+            <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 13, color: '#fff' }}>G</span>
+          </div>
+          <div style={{ flex: 1 }}>
+            <div style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 14, color: 'var(--ink)' }}>DeKalb Av → Bedford-Nostrand</div>
+            <div style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--mute)', marginTop: 2 }}>Leave by 10:35A · 25 min ride</div>
+          </div>
+          <span
             style={{
-              display: 'flex',
-              justifyContent: 'space-between',
-              alignItems: 'center',
-              marginBottom: 14,
+              fontFamily: 'var(--sans)',
+              fontWeight: 700,
+              fontSize: 18,
+              color: 'var(--ink)',
+              letterSpacing: '-0.03em',
+              flexShrink: 0,
             }}
           >
-            <span style={{ fontFamily: 'var(--body)', fontSize: 13, color: 'var(--ink)' }}>
-              G train · DeKalb Av → Bedford-Nostrand
-            </span>
-            <span
-              style={{
-                fontFamily: 'var(--sans)',
-                fontWeight: 700,
-                fontSize: 15,
-                color: 'var(--ink)',
-                flexShrink: 0,
-                marginLeft: 8,
-              }}
-            >
-              25 min
-            </span>
-          </div>
-
-          <svg width="100%" height="130" viewBox="0 0 346 130" fill="none" style={{ display: 'block' }}>
-            <rect width="346" height="130" rx="8" fill="#F0F2F5" />
-            <rect x="0" y="35" width="346" height="6" fill="white" opacity="0.7" />
-            <rect x="0" y="75" width="346" height="6" fill="white" opacity="0.7" />
-            <rect x="0" y="110" width="346" height="6" fill="white" opacity="0.7" />
-            <rect x="60" y="0" width="6" height="130" fill="white" opacity="0.7" />
-            <rect x="150" y="0" width="6" height="130" fill="white" opacity="0.7" />
-            <rect x="240" y="0" width="6" height="130" fill="white" opacity="0.7" />
-            <path
-              d="M 80 125 L 80 90 L 100 75 L 160 75 L 160 40 L 180 22 L 240 22"
-              stroke="#72c15f"
-              strokeWidth="2.5"
-              strokeDasharray="6 4"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              opacity="0.85"
-            />
-            <circle cx="80" cy="100" r="5" fill="white" stroke="#72c15f" strokeWidth="2" />
-            <circle cx="80" cy="100" r="2.5" fill="#72c15f" />
-            <circle cx="240" cy="22" r="6" fill="white" stroke="#72c15f" strokeWidth="2" />
-            <circle cx="240" cy="22" r="3" fill="#72c15f" />
-            <text x="90" y="104" fontFamily="monospace" fontSize="9" fill="#6B6E78">DeKalb Av</text>
-            <text x="250" y="26" fontFamily="monospace" fontSize="9" fill="#72c15f">Bedford-Nostrand</text>
-            <circle cx="80" cy="125" r="5" fill="#72c15f" opacity="0.9" />
-            <circle cx="80" cy="125" r="2" fill="white" />
-          </svg>
+            25m
+          </span>
         </div>
 
         {/* Clock-in radius */}

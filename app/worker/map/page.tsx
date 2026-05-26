@@ -94,6 +94,7 @@ export default function WorkerMap() {
   const [selectedShift, setSelectedShift] = useState<Shift | null>(null);
   const [filterRole, setFilterRole] = useState('All');
   const [filterHighPay, setFilterHighPay] = useState(false);
+  const [sortByPrice, setSortByPrice] = useState(false);
 
   const filteredShifts = SHIFTS.filter(s => {
     if (filterRole !== 'All') {
@@ -107,6 +108,9 @@ export default function WorkerMap() {
       if (rate < 25) return false;
     }
     return true;
+  }).sort((a, b) => {
+    if (!sortByPrice) return 0;
+    return parseInt(b.pay.replace(/[^0-9]/g, '')) - parseInt(a.pay.replace(/[^0-9]/g, ''));
   });
 
   const topBar = (floating: boolean) => (
@@ -196,6 +200,25 @@ export default function WorkerMap() {
           }}
         >
           $25+/hr
+        </button>
+        <button
+          onClick={() => setSortByPrice(p => !p)}
+          style={{
+            flexShrink: 0,
+            padding: '5px 12px',
+            borderRadius: 99,
+            border: '1.5px solid',
+            borderColor: sortByPrice ? 'var(--green)' : 'var(--line)',
+            background: sortByPrice ? 'var(--green-soft)' : 'transparent',
+            fontFamily: 'var(--body)',
+            fontSize: 11,
+            fontWeight: 600,
+            color: sortByPrice ? 'var(--ink)' : 'var(--ink)',
+            cursor: 'pointer',
+            transition: 'all 0.15s',
+          }}
+        >
+          {sortByPrice ? 'Price ↓' : 'Sort: Price'}
         </button>
       </div>
     </div>

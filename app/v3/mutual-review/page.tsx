@@ -47,7 +47,7 @@ export default function MutualReview() {
 
       {/* Business photo header */}
       <div style={{
-        height: 160,
+        height: 180,
         background: 'linear-gradient(to bottom, #8a9ba880, #5a6a7a)',
         position: 'relative',
         display: 'flex',

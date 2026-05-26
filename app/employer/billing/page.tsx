@@ -54,23 +54,20 @@ export default function EmployerBilling() {
         </p>
 
         {/* Method toggle */}
-        <div style={{ display: 'flex', gap: 10, marginBottom: 24 }}>
+        <div style={{ display: 'flex', gap: 8, marginBottom: 24 }}>
           {(['card', 'bank'] as const).map(m => (
             <button key={m} onClick={() => setMethod(m)} style={{
-              flex: 1, padding: '14px', borderRadius: 99, cursor: 'pointer',
+              flex: 1, padding: '10px 14px', borderRadius: 99, cursor: 'pointer',
               border: '2px solid var(--ink)',
-              background: method === m ? 'var(--ink)' : 'var(--card)',
-              display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6,
+              background: method === m ? 'var(--ink)' : 'transparent',
+              display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8,
             }}>
               {m === 'card'
-                ? <svg width="24" height="18" viewBox="0 0 24 18" fill="none"><rect x="1" y="1" width="22" height="16" rx="2.5" stroke={method === m ? '#fff' : 'var(--mute)'} strokeWidth="1.5"/><path d="M1 6h22" stroke={method === m ? '#fff' : 'var(--mute)'} strokeWidth="1.5"/><rect x="4" y="10" width="4" height="3" rx="1" fill={method === m ? '#fff' : 'var(--mute)'}/></svg>
-                : <svg width="24" height="20" viewBox="0 0 24 20" fill="none"><rect x="1" y="7" width="22" height="12" rx="2" stroke={method === m ? '#fff' : 'var(--mute)'} strokeWidth="1.5"/><path d="M12 1L22 6H2L12 1Z" fill={method === m ? '#fff' : 'var(--mute)'}/><rect x="7" y="11" width="3" height="4" fill={method === m ? 'var(--ink)' : 'var(--paper)'}/><rect x="14" y="11" width="3" height="4" fill={method === m ? 'var(--ink)' : 'var(--paper)'}/></svg>
+                ? <svg width="18" height="14" viewBox="0 0 24 18" fill="none"><rect x="1" y="1" width="22" height="16" rx="2.5" stroke={method === m ? '#fff' : 'var(--ink)'} strokeWidth="1.5"/><path d="M1 6h22" stroke={method === m ? '#fff' : 'var(--ink)'} strokeWidth="1.5"/><rect x="4" y="10" width="4" height="3" rx="1" fill={method === m ? '#fff' : 'var(--ink)'}/></svg>
+                : <svg width="18" height="16" viewBox="0 0 24 20" fill="none"><rect x="1" y="7" width="22" height="12" rx="2" stroke={method === m ? '#fff' : 'var(--ink)'} strokeWidth="1.5"/><path d="M12 1L22 6H2L12 1Z" fill={method === m ? '#fff' : 'var(--ink)'}/><rect x="7" y="11" width="3" height="4" fill={method === m ? 'var(--ink)' : 'var(--paper)'}/><rect x="14" y="11" width="3" height="4" fill={method === m ? 'var(--ink)' : 'var(--paper)'}/></svg>
               }
               <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 14, color: method === m ? '#fff' : 'var(--ink)' }}>
                 {m === 'card' ? 'Credit / Debit' : 'Bank Account'}
-              </span>
-              <span style={{ fontFamily: 'var(--body)', fontSize: 11, color: method === m ? 'rgba(255,255,255,0.5)' : 'var(--mute)' }}>
-                {m === 'card' ? 'Visa, MC, Amex' : 'ACH · free'}
               </span>
             </button>
           ))}
@@ -80,33 +77,33 @@ export default function EmployerBilling() {
           <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
             {/* Card number */}
             <div>
-              <div style={{ fontFamily: 'var(--body)', fontSize: 10.5, fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--mute)', marginBottom: 8 }}>Card number</div>
+              <div style={{ fontFamily: 'var(--body)', fontSize: 10.5, fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--ink)', marginBottom: 8 }}>Card number</div>
               <input type="text" inputMode="numeric" value={cardNum} onChange={e => setCardNum(formatCard(e.target.value))}
                 placeholder="1234 5678 9012 3456"
-                style={{ width: '100%', height: 52, padding: '0 16px', background: 'var(--card)', border: '2px solid var(--ink)', borderRadius: 14, fontFamily: 'var(--body)', fontSize: 16, letterSpacing: '0.1em', color: 'var(--ink)', outline: 'none' }} />
+                style={{ width: '100%', height: 52, padding: '0 16px', background: 'var(--card)', border: '2px solid var(--ink)', borderRadius: 99, fontFamily: 'var(--body)', fontSize: 16, letterSpacing: '0.1em', color: 'var(--ink)', outline: 'none' }} />
             </div>
 
             {/* Expiry + CVV */}
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
               <div>
-                <div style={{ fontFamily: 'var(--body)', fontSize: 10.5, fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--mute)', marginBottom: 8 }}>Expiry</div>
+                <div style={{ fontFamily: 'var(--body)', fontSize: 10.5, fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--ink)', marginBottom: 8 }}>Expiry</div>
                 <input type="text" inputMode="numeric" value={expiry} onChange={e => setExpiry(formatExpiry(e.target.value))}
                   placeholder="MM / YY"
-                  style={{ width: '100%', height: 52, padding: '0 16px', background: 'var(--card)', border: '2px solid var(--ink)', borderRadius: 14, fontFamily: 'var(--body)', fontSize: 16, letterSpacing: '0.08em', color: 'var(--ink)', outline: 'none' }} />
+                  style={{ width: '100%', height: 52, padding: '0 16px', background: 'var(--card)', border: '2px solid var(--ink)', borderRadius: 99, fontFamily: 'var(--body)', fontSize: 16, letterSpacing: '0.08em', color: 'var(--ink)', outline: 'none' }} />
               </div>
               <div>
-                <div style={{ fontFamily: 'var(--body)', fontSize: 10.5, fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--mute)', marginBottom: 8 }}>CVV</div>
+                <div style={{ fontFamily: 'var(--body)', fontSize: 10.5, fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--ink)', marginBottom: 8 }}>CVV</div>
                 <input type="password" value={cvv} onChange={e => setCvv(e.target.value.replace(/\D/g, '').slice(0, 4))}
                   placeholder="•••"
-                  style={{ width: '100%', height: 52, padding: '0 16px', background: 'var(--card)', border: '2px solid var(--ink)', borderRadius: 14, fontFamily: 'var(--body)', fontSize: 20, color: 'var(--ink)', outline: 'none' }} />
+                  style={{ width: '100%', height: 52, padding: '0 16px', background: 'var(--card)', border: '2px solid var(--ink)', borderRadius: 99, fontFamily: 'var(--body)', fontSize: 20, color: 'var(--ink)', outline: 'none' }} />
               </div>
             </div>
 
             {/* Name on card */}
             <div>
-              <div style={{ fontFamily: 'var(--body)', fontSize: 10.5, fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--mute)', marginBottom: 8 }}>Name on card</div>
+              <div style={{ fontFamily: 'var(--body)', fontSize: 10.5, fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--ink)', marginBottom: 8 }}>Name on card</div>
               <input type="text" value={name} onChange={e => setName(e.target.value)} placeholder="As it appears on the card"
-                style={{ width: '100%', height: 52, padding: '0 16px', background: 'var(--card)', border: '2px solid var(--ink)', borderRadius: 14, fontFamily: 'var(--sans)', fontSize: 16, color: 'var(--ink)', outline: 'none' }} />
+                style={{ width: '100%', height: 52, padding: '0 16px', background: 'var(--card)', border: '2px solid var(--ink)', borderRadius: 99, fontFamily: 'var(--sans)', fontSize: 16, color: 'var(--ink)', outline: 'none' }} />
             </div>
           </div>
         )}

@@ -157,58 +157,51 @@ export default function OnShift() {
 
       <StatusBar time="1:14 PM" />
 
-      {/* Top badge */}
-      <div
-        style={{
-          display: 'inline-flex',
-          alignItems: 'center',
-          alignSelf: 'flex-start',
-          padding: '5px 12px',
-          background: '#fff',
-          border: '2px solid var(--ink)',
-          borderRadius: 99,
-          marginTop: 8,
-        }}
-      >
-        <span style={{ fontFamily: 'var(--body)', fontSize: 9, fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--mute)' }}>
-          SHIFT · ON THE CLOCK
-        </span>
-      </div>
-
-      {/* Pulsing indicator */}
-      <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginTop: 12 }}>
-        <div style={{ position: 'relative', width: 7, height: 7, flexShrink: 0 }}>
-          <div className="on-pulse-ring" />
-          <div style={{ position: 'relative', width: 7, height: 7, borderRadius: '50%', background: '#EA4B2A', zIndex: 1 }} />
+      {/* Status row */}
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginTop: 12 }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+          <div style={{ position: 'relative', width: 8, height: 8, flexShrink: 0 }}>
+            <div className="on-pulse-ring" />
+            <div style={{ position: 'relative', width: 8, height: 8, borderRadius: '50%', background: '#EA4B2A', zIndex: 1 }} />
+          </div>
+          <span style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--ink)' }}>
+            On the clock
+          </span>
         </div>
-        <span style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--mute)' }}>
-          On shift · Padmore&apos;s · #4471
+        <span style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)' }}>
+          Padmore&apos;s · #4471
         </span>
       </div>
 
       {/* Big timer */}
-      <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-        <div style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 80, color: 'var(--ink)', letterSpacing: '-0.05em', lineHeight: 1, textAlign: 'center' }}>
-          02:14:38
+      <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 0 }}>
+        <div style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--mute)', marginBottom: 8 }}>Time elapsed</div>
+        <div style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 76, color: 'var(--ink)', letterSpacing: '-0.05em', lineHeight: 1, textAlign: 'center' }}>
+          2:14<span style={{ fontSize: 40, color: 'var(--mute)' }}>:38</span>
         </div>
-        <p style={{ fontFamily: 'var(--body)', fontSize: 13, color: 'var(--mute)', marginTop: 6 }}>
-          $28.00/hr
+        <p style={{ fontFamily: 'var(--body)', fontSize: 13, color: 'var(--mute)', marginTop: 8 }}>
+          $28.00/hr · Barista
         </p>
       </div>
 
       {/* Earned box */}
-      <div style={{ padding: '16px 18px', background: '#fff', border: '2px solid var(--ink)', borderRadius: 14 }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 12 }}>
-          <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 36, color: 'var(--ink)', letterSpacing: '-0.02em' }}>
-            $62<span style={{ color: '#72c15f' }}>.</span>
-          </span>
-          <span style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--mute)' }}>
-            earned so far · 45%
-          </span>
+      <div style={{ padding: '16px 18px', background: 'var(--green-soft)', border: '2px solid var(--ink)', borderRadius: 14 }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 10 }}>
+          <div>
+            <div style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--mute)', marginBottom: 4 }}>Earned so far</div>
+            <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 40, color: 'var(--ink)', letterSpacing: '-0.04em', lineHeight: 1 }}>
+              $62<span style={{ color: '#72c15f' }}>.</span>
+            </span>
+          </div>
+          <div style={{ textAlign: 'right' }}>
+            <div style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--mute)', marginBottom: 4 }}>Target</div>
+            <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 22, color: 'var(--ink)', letterSpacing: '-0.03em' }}>$140</span>
+          </div>
         </div>
-        <div style={{ height: 3, background: 'var(--paper-3)', borderRadius: 99, overflow: 'hidden' }}>
-          <div style={{ height: '100%', width: '62%', background: 'var(--ink)', borderRadius: 99 }} />
+        <div style={{ height: 4, background: 'rgba(0,0,0,0.1)', borderRadius: 99, overflow: 'hidden' }}>
+          <div style={{ height: '100%', width: '44%', background: '#16A34A', borderRadius: 99 }} />
         </div>
+        <div style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)', marginTop: 6 }}>44% · 2h 15m left at this rate</div>
       </div>
 
       {/* Contact row */}

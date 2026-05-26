@@ -238,13 +238,13 @@ export default function Page() {
               key={tag.label}
               onClick={() => toggleTag(tag.label)}
               style={{
-                padding: '7px 12px',
+                padding: '9px 16px',
                 borderRadius: 99,
-                border: tag.selected ? '2px solid var(--hydrant)' : '2px solid var(--ink)',
-                background: tag.selected ? 'var(--hydrant-soft)' : 'var(--paper-2)',
-                color: tag.selected ? 'var(--hydrant)' : 'var(--ink)',
+                border: '2px solid var(--ink)',
+                background: tag.selected ? 'var(--ink)' : 'transparent',
+                color: tag.selected ? '#fff' : 'var(--ink)',
                 fontFamily: 'var(--body)',
-                fontSize: 12,
+                fontSize: 13,
                 fontWeight: 600,
                 cursor: 'pointer',
                 transition: 'all 0.15s',
