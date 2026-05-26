@@ -1,144 +1,76 @@
+'use client';
+
 import Link from 'next/link';
 import EmployerNav from '@/app/components/EmployerNav';
 
+const WORKERS = [
+  { initial: 'M', name: 'Marco Reyes', role: 'Barista', rating: '4.9', times: '4×', fav: true,  action: 'Book', pinX: '33%', pinY: '62%' },
+  { initial: 'S', name: 'Sam O.',      role: 'Barista', rating: '4.8', times: null,  fav: true,  action: 'Book', pinX: '68%', pinY: '38%' },
+  { initial: 'J', name: 'Jules M.',    role: 'Barista', rating: '4.7', times: null,  fav: false, action: 'Invite', pinX: '55%', pinY: '48%' },
+  { initial: 'E', name: 'Elena P.',    role: 'Server',  rating: '4.6', times: null,  fav: false, action: 'Invite', pinX: '44%', pinY: '72%' },
+];
+
 export default function Page() {
   return (
-    <div style={{ maxWidth: 390, minHeight: '100vh', margin: '0 auto', background: 'var(--paper)', display: 'flex', flexDirection: 'column', paddingBottom: 80 }}>
+    <div style={{ maxWidth: 390, height: '100dvh', margin: '0 auto', position: 'relative', overflow: 'hidden', background: '#E8EAF0', display: 'flex', flexDirection: 'column' }}>
       <style>{`
-        @keyframes green-pulse {
-          0%, 100% { opacity: 1; transform: scale(1); }
-          50% { opacity: 0.5; transform: scale(0.75); }
+        @keyframes worker-pulse {
+          0% { transform: scale(1); opacity: 0.6; }
+          100% { transform: scale(2.4); opacity: 0; }
         }
-        .green-pulse { animation: green-pulse 2s ease-in-out infinite; }
+        .worker-pulse { position: absolute; inset: -4px; border-radius: 50%; background: #16A34A; animation: worker-pulse 2s ease-out infinite; }
       `}</style>
 
-      {/* Map area — full bleed */}
-      <div
-        style={{
-          height: 420,
-          background: '#E8EAF0',
-          position: 'relative',
-          flexShrink: 0,
-        }}
-      >
-        <svg
-          width="390"
-          height="420"
-          viewBox="0 0 390 420"
-          fill="none"
-          style={{ position: 'absolute', inset: 0 }}
-        >
-          <rect width="390" height="420" fill="#E8EAF0" />
+      {/* Full-screen map */}
+      <iframe
+        src="https://www.openstreetmap.org/export/embed.html?bbox=-73.9618%2C40.6772%2C-73.9218%2C40.6972&layer=mapnik"
+        style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', border: 'none', filter: 'grayscale(60%) contrast(0.9)' }}
+        title="Live map"
+      />
 
-          {/* Roads */}
-          <rect x="0" y="80" width="390" height="12" fill="white" opacity="0.85" />
-          <rect x="0" y="158" width="390" height="11" fill="white" opacity="0.85" />
-          <rect x="0" y="238" width="390" height="11" fill="white" opacity="0.85" />
-          <rect x="0" y="320" width="390" height="11" fill="white" opacity="0.85" />
-          <rect x="65" y="0" width="11" height="420" fill="white" opacity="0.85" />
-          <rect x="148" y="0" width="11" height="420" fill="white" opacity="0.85" />
-          <rect x="232" y="0" width="11" height="420" fill="white" opacity="0.85" />
-          <rect x="315" y="0" width="11" height="420" fill="white" opacity="0.85" />
-
-          {/* City blocks */}
-          <rect x="0" y="0" width="63" height="78" rx="2" fill="#D8DAE4" />
-          <rect x="78" y="0" width="68" height="78" rx="2" fill="#D4D6E0" />
-          <rect x="161" y="0" width="69" height="78" rx="2" fill="#DADBEB" />
-          <rect x="245" y="0" width="68" height="78" rx="2" fill="#D8DAE4" />
-          <rect x="328" y="0" width="62" height="78" rx="2" fill="#D4D6E0" />
-          <rect x="0" y="94" width="63" height="62" rx="2" fill="#D4D6E4" />
-          <rect x="78" y="94" width="68" height="62" rx="2" fill="#DDE4D8" />
-          <rect x="161" y="94" width="69" height="62" rx="2" fill="#D8DAE4" />
-          <rect x="245" y="94" width="68" height="62" rx="2" fill="#D4D6E0" />
-          <rect x="328" y="94" width="62" height="62" rx="2" fill="#DDE4D8" />
-          <rect x="0" y="171" width="63" height="65" rx="2" fill="#D8DAE4" />
-          <rect x="78" y="171" width="68" height="65" rx="2" fill="#D4D6E0" />
-          <rect x="161" y="171" width="69" height="65" rx="2" fill="#DADBEB" />
-          <rect x="245" y="171" width="68" height="65" rx="2" fill="#DDE4D8" />
-          <rect x="328" y="171" width="62" height="65" rx="2" fill="#D4D6E0" />
-          <rect x="0" y="251" width="63" height="67" rx="2" fill="#DDE4D8" />
-          <rect x="78" y="251" width="68" height="67" rx="2" fill="#D8DAE4" />
-          <rect x="161" y="251" width="69" height="67" rx="2" fill="#D4D6E0" />
-          <rect x="245" y="251" width="68" height="67" rx="2" fill="#DADBEB" />
-          <rect x="328" y="251" width="62" height="67" rx="2" fill="#D8DAE4" />
-          <rect x="0" y="333" width="63" height="87" rx="2" fill="#D4D6E0" />
-          <rect x="78" y="333" width="68" height="87" rx="2" fill="#DADBEB" />
-          <rect x="161" y="333" width="69" height="87" rx="2" fill="#D8DAE4" />
-          <rect x="245" y="333" width="68" height="87" rx="2" fill="#D4D6E0" />
-          <rect x="328" y="333" width="62" height="87" rx="2" fill="#DDE4D8" />
-
-          {/* Dashed rings */}
-          <circle cx="195" cy="210" r="80" stroke="#B0B4BD" strokeWidth="1.5" strokeDasharray="6 5" fill="none" />
-          <circle cx="195" cy="210" r="150" stroke="#B0B4BD" strokeWidth="1.5" strokeDasharray="6 5" fill="none" />
-
-          {/* Center P marker */}
-          <circle cx="195" cy="210" r="14" fill="#0D0E12" />
-          <text x="195" y="215" textAnchor="middle" fill="white" fontSize="12" fontWeight="700" fontFamily="system-ui">P</text>
-
-          {/* Green worker dots */}
-          <circle cx="130" cy="155" r="6" fill="#16A34A" stroke="white" strokeWidth="2" />
-          <circle cx="160" cy="270" r="6" fill="#16A34A" stroke="white" strokeWidth="2" />
-          <circle cx="248" cy="140" r="6" fill="#16A34A" stroke="white" strokeWidth="2" />
-          <circle cx="290" cy="180" r="6" fill="#16A34A" stroke="white" strokeWidth="2" />
-          <circle cx="100" cy="290" r="6" fill="#16A34A" stroke="white" strokeWidth="2" />
-          <circle cx="315" cy="270" r="6" fill="#16A34A" stroke="white" strokeWidth="2" />
-          <circle cx="210" cy="310" r="6" fill="#16A34A" stroke="white" strokeWidth="2" />
-
-          {/* Favorited worker dots */}
-          <circle cx="170" cy="168" r="6" fill="#9A7CE0" stroke="white" strokeWidth="2" />
-          <circle cx="230" cy="255" r="6" fill="#9A7CE0" stroke="white" strokeWidth="2" />
-          <circle cx="148" cy="225" r="6" fill="#9A7CE0" stroke="white" strokeWidth="2" />
-          <text x="170" y="158" textAnchor="middle" fontSize="8" fill="#9A7CE0">♥</text>
-          <text x="230" y="245" textAnchor="middle" fontSize="8" fill="#9A7CE0">♥</text>
-        </svg>
-
-        {/* Density chip */}
-        <div
-          style={{
-            position: 'absolute',
-            top: 12,
-            left: 12,
-            background: 'var(--ink)',
-            color: 'white',
-            borderRadius: 99,
-            padding: '4px 8px',
-            fontFamily: 'var(--body)',
-            fontSize: 10,
-            fontWeight: 600,
-            letterSpacing: '0.1em',
-            textTransform: 'uppercase',
-          }}
-        >
-          Density
+      {/* Center P marker */}
+      <div style={{ position: 'absolute', left: '50%', top: '50%', transform: 'translate(-50%,-50%)', zIndex: 10 }}>
+        <div style={{ width: 28, height: 28, borderRadius: '50%', background: '#0D0E12', border: '2px solid #fff', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 2px 8px rgba(0,0,0,0.4)' }}>
+          <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 11, color: '#fff' }}>P</span>
         </div>
+      </div>
 
-        {/* Neighborhood labels */}
-        <div style={{ position: 'absolute', top: 50, left: 10, background: 'var(--card)', border: '2px solid var(--ink)', borderRadius: 99, padding: '4px 10px', fontFamily: 'var(--body)', fontSize: 10, fontWeight: 600, color: 'var(--mute)' }}>
-          Bushwick · 11
+      {/* Worker dots on map */}
+      {WORKERS.map(w => (
+        <div key={w.name} style={{ position: 'absolute', left: w.pinX, top: w.pinY, transform: 'translate(-50%,-50%)', zIndex: 10, width: 12, height: 12 }}>
+          <div className="worker-pulse" />
+          <div style={{ position: 'relative', width: 12, height: 12, borderRadius: '50%', background: w.fav ? '#9A7CE0' : '#16A34A', border: '2px solid #fff', boxShadow: '0 1px 4px rgba(0,0,0,0.3)', zIndex: 1 }} />
         </div>
-        <div style={{ position: 'absolute', top: 50, right: 10, background: 'var(--card)', border: '2px solid var(--ink)', borderRadius: 99, padding: '4px 10px', fontFamily: 'var(--body)', fontSize: 10, fontWeight: 600, color: 'var(--ink)' }}>
-          Crown Hts · 19
-        </div>
-        <div style={{ position: 'absolute', bottom: 16, left: 10, background: 'var(--card)', border: '2px solid var(--ink)', borderRadius: 99, padding: '4px 10px', fontFamily: 'var(--body)', fontSize: 10, fontWeight: 600, color: 'var(--mute)' }}>
-          Bed-Stuy · 42
-        </div>
-        <div style={{ position: 'absolute', bottom: 16, right: 10, background: 'var(--card)', border: '2px solid var(--ink)', borderRadius: 99, padding: '4px 10px', fontFamily: 'var(--body)', fontSize: 10, fontWeight: 600, color: 'var(--mute)' }}>
-          Clinton Hill · 7
-        </div>
+      ))}
 
+      {/* Floating header */}
+      <div style={{ position: 'absolute', top: 12, left: 12, right: 12, zIndex: 20, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <div style={{ background: 'rgba(255,255,255,0.92)', backdropFilter: 'blur(10px)', WebkitBackdropFilter: 'blur(10px)', borderRadius: 99, padding: '6px 14px', border: '1.5px solid rgba(0,0,0,0.08)' }}>
+          <span style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 700, color: 'var(--ink)', textTransform: 'uppercase', letterSpacing: '0.08em' }}>Live · {WORKERS.length} en route</span>
+        </div>
+        <div style={{ display: 'flex', gap: 6 }}>
+          <div style={{ background: 'rgba(255,255,255,0.92)', backdropFilter: 'blur(10px)', WebkitBackdropFilter: 'blur(10px)', borderRadius: 99, padding: '6px 12px', display: 'flex', alignItems: 'center', gap: 5 }}>
+            <div style={{ width: 8, height: 8, borderRadius: '50%', background: '#9A7CE0' }} />
+            <span style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, color: 'var(--ink)' }}>Saved</span>
+          </div>
+          <div style={{ background: 'rgba(255,255,255,0.92)', backdropFilter: 'blur(10px)', WebkitBackdropFilter: 'blur(10px)', borderRadius: 99, padding: '6px 12px', display: 'flex', alignItems: 'center', gap: 5 }}>
+            <div style={{ width: 8, height: 8, borderRadius: '50%', background: '#16A34A' }} />
+            <span style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, color: 'var(--ink)' }}>Available</span>
+          </div>
+        </div>
       </div>
 
       {/* Bottom sheet */}
-      <div
-        style={{
-          flex: 1,
-          background: 'var(--card)',
-          borderRadius: '18px 18px 0 0',
-          boxShadow: '0 -4px 32px rgba(13,14,18,0.12)',
-          paddingTop: 14,
-        }}
-      >
-        {/* Header row */}
+      <div style={{
+        position: 'absolute', bottom: 72, left: 0, right: 0, zIndex: 20,
+        background: 'var(--paper)',
+        borderRadius: '20px 20px 0 0',
+        boxShadow: '0 -4px 32px rgba(13,14,18,0.18)',
+        paddingBottom: 8,
+      }}>
+        <div style={{ width: 36, height: 4, borderRadius: 99, background: 'var(--line-2)', margin: '12px auto 0' }} />
+
+        {/* Header */}
         <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', padding: '14px 22px 8px' }}>
           <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 18, letterSpacing: '-0.02em', color: 'var(--ink)' }}>
             18 ready · within 1 mi
@@ -148,89 +80,58 @@ export default function Page() {
           </span>
         </div>
 
-        {/* Chip filter row */}
-        <div style={{ display: 'flex', gap: 8, padding: '8px 22px', marginBottom: 4, overflowX: 'auto' }}>
+        {/* Chip filters */}
+        <div style={{ display: 'flex', gap: 8, padding: '0 22px 10px', overflowX: 'auto', scrollbarWidth: 'none' }}>
           {[
             { label: '♥ Favorites', active: true },
-            { label: '★ 4.8+', active: false },
-            { label: 'Barista', active: false },
-            { label: 'Open now', active: false },
-          ].map((chip) => (
-            <div
-              key={chip.label}
-              style={{
-                padding: '6px 12px',
-                borderRadius: 99,
-                border: chip.active ? 'none' : '2px solid var(--ink)',
-                background: chip.active ? 'var(--ink)' : 'var(--paper-2)',
-                color: chip.active ? '#fff' : 'var(--ink)',
-                fontFamily: 'var(--body)',
-                fontSize: 12,
-                fontWeight: 600,
-                flexShrink: 0,
-                cursor: 'pointer',
-              }}
-            >
+            { label: '★ 4.8+',      active: false },
+            { label: 'Barista',     active: false },
+            { label: 'Open now',    active: false },
+          ].map(chip => (
+            <div key={chip.label} style={{
+              padding: '6px 12px', borderRadius: 99, flexShrink: 0, cursor: 'pointer',
+              border: chip.active ? 'none' : '2px solid var(--ink)',
+              background: chip.active ? 'var(--ink)' : 'var(--paper-2)',
+              color: chip.active ? '#fff' : 'var(--ink)',
+              fontFamily: 'var(--body)', fontSize: 12, fontWeight: 600,
+            }}>
               {chip.label}
             </div>
           ))}
         </div>
 
         {/* Worker rows */}
-        <div>
-          {[
-            { initial: 'M', gradient: 'var(--ink)', name: 'Marco Reyes', role: 'Barista', rating: '4.9', times: '4×', fav: true, action: 'Book' },
-            { initial: 'S', gradient: 'var(--ink)', name: 'Sam O.', role: 'Barista', rating: '4.8', times: null, fav: true, action: 'Book' },
-            { initial: 'J', gradient: 'var(--ink)', name: 'Jules M.', role: 'Barista', rating: '4.7', times: null, fav: false, action: 'Invite' },
-            { initial: 'E', gradient: 'var(--ink)', name: 'Elena P.', role: 'Server', rating: '4.6', times: null, fav: false, action: 'Invite' },
-          ].map((worker) => (
-            <div
-              key={worker.name}
-              style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '10px 22px' }}
-            >
-              <div style={{ position: 'relative', flexShrink: 0 }}>
-                <div style={{ width: 52, height: 52, borderRadius: '50%', background: worker.gradient, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                  <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 16, color: 'white' }}>{worker.initial}</span>
-                </div>
-                <div style={{ position: 'absolute', bottom: -1, right: -1, width: 10, height: 10, borderRadius: '50%', background: '#16A34A', border: '2px solid white' }} />
+        {WORKERS.map(worker => (
+          <div key={worker.name} style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '10px 22px' }}>
+            <div style={{ position: 'relative', flexShrink: 0 }}>
+              <div style={{ width: 44, height: 44, borderRadius: '50%', background: 'var(--ink)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 15, color: 'white' }}>{worker.initial}</span>
               </div>
-              <div style={{ flex: 1, minWidth: 0 }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-                  <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 15, color: 'var(--ink)' }}>{worker.name}</span>
-                  {worker.times && (
-                    <span style={{ background: 'var(--ink)', color: '#fff', borderRadius: 4, padding: '1px 5px', fontFamily: 'var(--body)', fontSize: 10, fontWeight: 600 }}>
-                      {worker.times} here
-                    </span>
-                  )}
-                </div>
-                <div style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--mute)', marginTop: 1 }}>
-                  {worker.role} · ★{worker.rating}
-                </div>
-              </div>
-              <Link
-                href="/employer/post-shift"
-                style={{
-                  padding: '0 14px',
-                  height: 32,
-                  borderRadius: 99,
-                  border: '2px solid var(--ink)',
-                  background: 'transparent',
-                  fontFamily: 'var(--body)',
-                  fontSize: 12,
-                  fontWeight: 600,
-                  color: 'var(--ink)',
-                  cursor: 'pointer',
-                  flexShrink: 0,
-                  display: 'flex',
-                  alignItems: 'center',
-                  textDecoration: 'none',
-                }}
-              >
-                {worker.action}
-              </Link>
+              <div style={{ position: 'absolute', bottom: -1, right: -1, width: 10, height: 10, borderRadius: '50%', background: worker.fav ? '#9A7CE0' : '#16A34A', border: '2px solid white' }} />
             </div>
-          ))}
-        </div>
+            <div style={{ flex: 1, minWidth: 0 }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 15, color: 'var(--ink)' }}>{worker.name}</span>
+                {worker.times && (
+                  <span style={{ background: 'var(--ink)', color: '#fff', borderRadius: 4, padding: '1px 5px', fontFamily: 'var(--body)', fontSize: 10, fontWeight: 600 }}>
+                    {worker.times} here
+                  </span>
+                )}
+              </div>
+              <div style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--mute)', marginTop: 1 }}>
+                {worker.role} · ★{worker.rating}
+              </div>
+            </div>
+            <Link href="/employer/post-shift" style={{
+              padding: '0 14px', height: 32, borderRadius: 99,
+              border: '2px solid var(--ink)', background: 'transparent',
+              fontFamily: 'var(--body)', fontSize: 12, fontWeight: 600, color: 'var(--ink)',
+              flexShrink: 0, display: 'flex', alignItems: 'center', textDecoration: 'none',
+            }}>
+              {worker.action}
+            </Link>
+          </div>
+        ))}
       </div>
 
       <EmployerNav active="dashboard" />

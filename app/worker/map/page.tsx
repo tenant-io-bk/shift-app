@@ -265,7 +265,7 @@ export default function WorkerMap() {
             >
               {/* Pin bubble */}
               <div style={{
-                background: shift.priority ? 'var(--hydrant)' : 'var(--ink)',
+                background: shift.priority ? 'var(--red)' : 'var(--ink)',
                 color: '#fff',
                 borderRadius: 99,
                 padding: '5px 9px',
