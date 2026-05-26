@@ -126,8 +126,8 @@ export default function Page() {
           {/* Selected result */}
           <div
             style={{
-              background: 'var(--hydrant-soft)',
-              border: '1px solid var(--hydrant)',
+              background: 'var(--hydrant)',
+              border: 'none',
               borderRadius: 14,
               padding: '12px 14px',
               display: 'flex',

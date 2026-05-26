@@ -161,9 +161,9 @@ export default function Page() {
               style={{
                 padding: '6px 12px',
                 borderRadius: 99,
-                border: chip.active ? '2px solid var(--hydrant)' : '2px solid var(--ink)',
-                background: chip.active ? 'var(--hydrant-soft)' : 'var(--paper-2)',
-                color: chip.active ? 'var(--hydrant)' : 'var(--ink)',
+                border: chip.active ? 'none' : '2px solid var(--ink)',
+                background: chip.active ? 'var(--hydrant)' : 'var(--paper-2)',
+                color: chip.active ? '#000' : 'var(--ink)',
                 fontFamily: 'var(--body)',
                 fontSize: 12,
                 fontWeight: 600,
@@ -198,7 +198,7 @@ export default function Page() {
                 <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
                   <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 15, color: 'var(--ink)' }}>{worker.name}</span>
                   {worker.times && (
-                    <span style={{ background: 'var(--hydrant-soft)', color: 'var(--hydrant)', border: '1px solid var(--hydrant)', borderRadius: 4, padding: '1px 5px', fontFamily: 'var(--body)', fontSize: 10, fontWeight: 600 }}>
+                    <span style={{ background: 'var(--hydrant)', color: '#000', borderRadius: 4, padding: '1px 5px', fontFamily: 'var(--body)', fontSize: 10, fontWeight: 600 }}>
                       {worker.times} here
                     </span>
                   )}

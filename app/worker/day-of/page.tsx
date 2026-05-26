@@ -207,8 +207,8 @@ export default function DayOf() {
           style={{
             margin: '0 22px 14px',
             padding: '14px 16px',
-            background: isNear ? 'var(--hydrant-soft)' : 'var(--card)',
-            border: `2px solid ${isNear ? 'var(--hydrant)' : 'var(--line)'}`,
+            background: isNear ? 'var(--hydrant)' : 'var(--card)',
+            border: isNear ? 'none' : '2px solid var(--line)',
             borderRadius: 12,
             display: 'flex',
             alignItems: 'center',
@@ -234,7 +234,7 @@ export default function DayOf() {
                 fontFamily: 'var(--sans)',
                 fontWeight: 700,
                 fontSize: 14,
-                color: isNear ? 'var(--hydrant)' : 'var(--ink)',
+                color: isNear ? '#000' : 'var(--ink)',
               }}
             >
               {isNear ? "You're here." : '0.4 mi from venue'}

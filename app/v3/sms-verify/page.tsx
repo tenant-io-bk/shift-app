@@ -61,15 +61,15 @@ export default function SMSVerify() {
               flex: 1,
               height: 56,
               borderRadius: 12,
-              border: `2px solid ${i === filled ? 'var(--ink)' : digit ? 'var(--hydrant)' : 'var(--paper-3)'}`,
-              background: digit ? 'var(--hydrant-soft)' : 'var(--card)',
+              border: `2px solid ${i === filled ? 'var(--ink)' : digit ? 'transparent' : 'var(--paper-3)'}`,
+              background: digit ? 'var(--hydrant)' : 'var(--card)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
               fontFamily: 'var(--sans)',
               fontWeight: 700,
               fontSize: 24,
-              color: 'var(--hydrant)',
+              color: digit ? '#000' : 'var(--hydrant)',
               transition: 'border-color 0.15s, background 0.15s',
             }}>
               {digit}

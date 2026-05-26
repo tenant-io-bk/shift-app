@@ -170,8 +170,8 @@ export default function WorkerHome() {
             alignItems: 'center',
             gap: 10,
             padding: '10px 14px',
-            background: 'var(--hydrant-soft)',
-            border: '1.5px solid var(--hydrant)',
+            background: 'var(--hydrant)',
+            border: 'none',
             borderRadius: 12,
             textDecoration: 'none',
           }}
@@ -181,7 +181,7 @@ export default function WorkerHome() {
               width: 22,
               height: 22,
               borderRadius: '50%',
-              border: '2px solid var(--hydrant)',
+              border: '2px solid rgba(0,0,0,0.3)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
@@ -193,7 +193,7 @@ export default function WorkerHome() {
                 width: 10,
                 height: 10,
                 borderRadius: '50%',
-                background: 'var(--hydrant)',
+                background: '#000',
                 clipPath: 'inset(0 50% 0 0)',
               }}
             />
@@ -202,7 +202,7 @@ export default function WorkerHome() {
             style={{
               fontFamily: 'var(--body)',
               fontSize: 12,
-              color: 'var(--hydrant)',
+              color: '#000',
               fontWeight: 600,
               flex: 1,
             }}

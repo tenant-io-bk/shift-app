@@ -129,13 +129,13 @@ export default function EmployerVerify() {
               onClick={() => setUploaded(!uploaded)}
               style={{
                 width: '100%', height: 72, borderRadius: 14, cursor: 'pointer',
-                border: `2px dashed ${uploaded ? 'var(--hydrant)' : 'var(--ink)'}`,
-                background: uploaded ? 'var(--hydrant-soft)' : 'transparent',
+                border: uploaded ? 'none' : '2px dashed var(--ink)',
+                background: uploaded ? 'var(--hydrant)' : 'transparent',
                 display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8,
                 transition: 'all 0.2s',
               }}
             >
-              <span style={{ fontFamily: 'var(--body)', fontSize: 13, fontWeight: 600, color: uploaded ? 'var(--hydrant)' : 'var(--ink)' }}>
+              <span style={{ fontFamily: 'var(--body)', fontSize: 13, fontWeight: 600, color: uploaded ? '#000' : 'var(--ink)' }}>
                 {uploaded ? '✓ license.jpg uploaded' : 'Tap to upload photo'}
               </span>
             </button>
