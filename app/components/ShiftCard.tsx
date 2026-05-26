@@ -55,7 +55,7 @@ export default function ShiftCard({
   const inner = (
     <>
       <div className="scard-pills">
-        <span className="pill pill-role">{role}</span>
+        <span className="pill pill-role">{venue}</span>
         <span className="pill pill-time">{time}</span>
         {statusLabel && <span className="pill pill-status">{statusLabel}</span>}
       </div>
@@ -63,12 +63,12 @@ export default function ShiftCard({
         <span className="pill pill-loc">{loc}</span>
       </div>
       <div className="scard-body">
-        <p className="scard-name">{venue}</p>
+        <p className="scard-name">{role}</p>
         {briefs.map((b, i) => <p key={i} className="scard-brief">{b}</p>)}
       </div>
       <div className="scard-price">
         <div className="big"><span className="d">$</span>{payNum}</div>
-        <div className="rate">{rate}</div>
+        <div className="rate">{rate} BASE PAY</div>
         {rateNote && <div className="rate" style={{ opacity: 0.55 }}>{rateNote}</div>}
       </div>
     </>
