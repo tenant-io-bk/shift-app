@@ -223,7 +223,7 @@ function ColorGuide() {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))', gap: 20 }}>
           {FAMILIES.map(f => (
             <div key={f.family}>
-              <div style={{ fontFamily: 'sans-serif', fontWeight: 700, fontSize: 14, color: '#0D0E12', marginBottom: 4, display: 'flex', justifyContent: 'space-between' }}>
+              <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 14, color: '#0D0E12', marginBottom: 4, display: 'flex', justifyContent: 'space-between' }}>
                 <span style={{ textTransform: 'capitalize' }}>{f.family}</span>
                 <span style={{ fontFamily: 'var(--body)', fontWeight: 400, fontSize: 15, color: '#0D0E12', letterSpacing: '0.04em', textTransform: 'uppercase' }}>{f.bg}</span>
               </div>
@@ -248,7 +248,7 @@ function ColorGuide() {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))', gap: 20 }}>
           {STATES.map(s => (
             <div key={s.state}>
-              <div style={{ fontFamily: 'sans-serif', fontWeight: 700, fontSize: 14, color: '#0D0E12', marginBottom: 4, textTransform: 'capitalize' }}>{s.state}</div>
+              <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 14, color: '#0D0E12', marginBottom: 4, textTransform: 'capitalize' }}>{s.state}</div>
               <ShiftCard
                 state={s.state}
                 role={s.role}
@@ -345,7 +345,7 @@ function ColorGuide() {
                   width: '100%', padding: '16px',
                   background: b.bg, color: b.color,
                   border: b.border === 'none' ? 'none' : `2px solid ${b.border}`, borderRadius: 99,
-                  fontFamily: 'sans-serif', fontWeight: 700, fontSize: 16,
+                  fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 16,
                   letterSpacing: '-0.01em', cursor: 'default',
                 }}>
                   {b.label}
@@ -429,12 +429,12 @@ function ColorGuide() {
                 <div style={{
                   width: 48, height: 48, borderRadius: 12, flexShrink: 0,
                   background: b.bg, display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  fontFamily: 'sans-serif', fontWeight: 700, fontSize: 20, color: b.color,
+                  fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 20, color: b.color,
                 }}>
                   {b.icon}
                 </div>
                 <div>
-                  <div style={{ fontFamily: 'sans-serif', fontWeight: 700, fontSize: 14, color: '#0D0E12', textTransform: 'capitalize' }}>{b.type}</div>
+                  <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 14, color: '#0D0E12', textTransform: 'capitalize' }}>{b.type}</div>
                   <div style={{ fontFamily: 'var(--body)', fontSize: 17, color: '#0D0E12', marginTop: 4, lineHeight: 1.5 }}>{b.note}</div>
                   <div style={{ fontFamily: 'var(--body)', fontSize: 15, color: '#0D0E12', marginTop: 4 }}>bg: {b.bg} · icon: {b.color}</div>
                 </div>
@@ -454,7 +454,7 @@ function ColorGuide() {
                 background: t.bg, border: `2px solid ${t.border}`,
                 borderRadius: 12, textAlign: 'center',
               }}>
-                <div style={{ fontFamily: 'sans-serif', fontWeight: 700, fontSize: 18, color: '#0D0E12', letterSpacing: '-0.04em', lineHeight: 1 }}>{t.value}</div>
+                <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 18, color: '#0D0E12', letterSpacing: '-0.04em', lineHeight: 1 }}>{t.value}</div>
                 <div style={{ fontFamily: 'var(--body)', fontSize: 10,  color: '#0D0E12', marginTop: 6, textTransform: 'uppercase', letterSpacing: '0.06em' }}>{t.label}</div>
               </div>
               <GuideLabel>bg: {t.bg}<br />border: {t.border}</GuideLabel>
@@ -565,7 +565,7 @@ export default function Gallery() {
 
       {/* Header */}
       <div style={{ position: 'sticky', top: 0, zIndex: 100, background: '#fff', borderBottom: '1px solid rgba(13,14,18,0.10)', padding: '14px 24px', display: 'flex', alignItems: 'center', gap: 16 }}>
-        <span style={{ fontFamily: 'sans-serif', fontWeight: 700, fontSize: 18, color: '#0D0E12', letterSpacing: '-0.04em', flexShrink: 0 }}>
+        <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 18, color: '#0D0E12', letterSpacing: '-0.04em', flexShrink: 0 }}>
           SHIFT <span style={{ color: '#72c15f' }}>gallery</span>
         </span>
 
