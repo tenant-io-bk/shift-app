@@ -100,7 +100,7 @@ export default function Page() {
             left: 12,
             background: 'var(--ink)',
             color: 'white',
-            borderRadius: 6,
+            borderRadius: 99,
             padding: '4px 8px',
             fontFamily: 'var(--body)',
             fontSize: 10,
@@ -126,48 +126,6 @@ export default function Page() {
           Clinton Hill · 7
         </div>
 
-        {/* Floating business card */}
-        <div
-          style={{
-            position: 'absolute',
-            top: 8,
-            left: 22,
-            right: 22,
-            background: 'var(--card)',
-            border: '2px solid var(--ink)',
-            borderRadius: 16,
-            padding: '12px 14px',
-            boxShadow: '0 4px 16px rgba(13,14,18,0.14)',
-          }}
-        >
-          <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 10 }}>
-            <div style={{ width: 40, height: 40, borderRadius: 10, background: 'linear-gradient(135deg, #b8c4d0, #8a9ba8)', flexShrink: 0 }} />
-            <div style={{ flex: 1 }}>
-              <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 15, color: 'var(--ink)', letterSpacing: '-0.01em' }}>
-                Padmore&apos;s Coffee
-              </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: 5, marginTop: 2 }}>
-                <div className="green-pulse" style={{ width: 5, height: 5, borderRadius: '50%', background: '#16A34A', flexShrink: 0 }} />
-                <span style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, color: 'var(--ink)' }}>18 qualified workers nearby</span>
-              </div>
-            </div>
-            <div style={{ background: 'var(--ink)', borderRadius: 99, padding: '4px 10px', flexShrink: 0 }}>
-              <span style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 700, color: '#fff' }}>avg 2 min</span>
-            </div>
-          </div>
-          <div style={{ display: 'flex', gap: 6 }}>
-            {[
-              { label: 'Baristas', value: '7' },
-              { label: 'Servers', value: '5' },
-              { label: 'Favorites', value: '3' },
-            ].map((s) => (
-              <div key={s.label} style={{ flex: 1, background: 'var(--paper-2)', borderRadius: 8, padding: '6px 8px', textAlign: 'center' }}>
-                <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 16, color: 'var(--ink)' }}>{s.value}</div>
-                <div style={{ fontFamily: 'var(--body)', fontSize: 9, color: 'var(--mute)', textTransform: 'uppercase', letterSpacing: '0.06em' }}>{s.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
       </div>
 
       {/* Bottom sheet */}
@@ -231,8 +189,8 @@ export default function Page() {
               style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '10px 22px' }}
             >
               <div style={{ position: 'relative', flexShrink: 0 }}>
-                <div style={{ width: 44, height: 44, borderRadius: '50%', background: worker.gradient, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                  <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 14, color: 'white' }}>{worker.initial}</span>
+                <div style={{ width: 52, height: 52, borderRadius: '50%', background: worker.gradient, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 16, color: 'white' }}>{worker.initial}</span>
                 </div>
                 <div style={{ position: 'absolute', bottom: -1, right: -1, width: 10, height: 10, borderRadius: '50%', background: worker.fav ? 'var(--hydrant)' : '#16A34A', border: '2px solid white' }} />
               </div>
@@ -252,9 +210,9 @@ export default function Page() {
               <Link
                 href="/employer/post-shift"
                 style={{
-                  padding: '0 12px',
-                  height: 30,
-                  borderRadius: 8,
+                  padding: '0 14px',
+                  height: 32,
+                  borderRadius: 99,
                   border: '2px solid var(--ink)',
                   background: 'transparent',
                   fontFamily: 'var(--body)',

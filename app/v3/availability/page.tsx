@@ -64,17 +64,17 @@ export default function Availability() {
         <h1 style={{
           fontFamily: 'var(--sans)',
           fontWeight: 700,
-          fontSize: 36,
+          fontSize: 48,
           color: 'var(--ink)',
           letterSpacing: '-0.075em',
-          lineHeight: 1,
-          marginBottom: 8,
+          lineHeight: 0.95,
+          marginBottom: 10,
         }}>Set your availability.</h1>
 
         <p style={{
           fontFamily: 'var(--body)',
           fontSize: 13,
-          color: 'var(--mute)',
+          color: 'var(--ink)',
           marginBottom: 24,
         }}>Defaults on. Turn off what you can't do.</p>
 
@@ -82,7 +82,6 @@ export default function Availability() {
         <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
           {TIME_BLOCKS.map((block, rowIdx) => (
             <div key={rowIdx} style={{
-              border: '2px solid var(--ink)',
               borderRadius: 14,
               overflow: 'hidden',
             }}>
@@ -94,7 +93,7 @@ export default function Availability() {
                 padding: '14px 16px 10px',
               }}>
                 <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 16, color: 'var(--ink)' }}>{block.label}</span>
-                <span style={{ fontFamily: 'var(--sans)', fontWeight: 400, fontSize: 15, color: 'var(--mute)' }}>{block.range}</span>
+                <span style={{ fontFamily: 'var(--sans)', fontWeight: 400, fontSize: 15, color: 'var(--ink)' }}>{block.range}</span>
               </div>
 
               {/* Day labels + checkboxes */}
@@ -106,7 +105,7 @@ export default function Availability() {
                       fontSize: 9,
                       fontWeight: 600,
                       textTransform: 'uppercase',
-                      color: 'var(--mute)',
+                      color: 'var(--ink)',
                       textAlign: 'center',
                       letterSpacing: '0.03em',
                     }}>{d}</div>
@@ -120,10 +119,10 @@ export default function Availability() {
                         key={colIdx}
                         onClick={() => toggle(rowIdx, colIdx)}
                         style={{
-                          height: 40,
-                          borderRadius: 8,
-                          border: `2px solid ${enabled ? 'var(--hydrant)' : 'var(--ink)'}`,
-                          background: enabled ? 'var(--hydrant-soft)' : 'var(--paper-2)',
+                          aspectRatio: '1',
+                          borderRadius: '50%',
+                          border: enabled ? 'none' : '2px solid var(--ink)',
+                          background: enabled ? '#9A7CE0' : 'transparent',
                           cursor: 'pointer',
                           display: 'flex',
                           alignItems: 'center',
@@ -133,7 +132,7 @@ export default function Availability() {
                       >
                         {enabled && (
                           <svg width="10" height="8" viewBox="0 0 10 8" fill="none">
-                            <path d="M1 4L3.5 6.5L9 1" stroke="#72c15f" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                            <path d="M1 4L3.5 6.5L9 1" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
                           </svg>
                         )}
                       </button>

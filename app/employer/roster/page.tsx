@@ -277,8 +277,8 @@ export default function Page() {
               >
                 <div
                   style={{
-                    width: 44,
-                    height: 44,
+                    width: 52,
+                    height: 52,
                     borderRadius: '50%',
                     background: worker.gradient,
                     display: 'flex',
@@ -291,7 +291,7 @@ export default function Page() {
                     style={{
                       fontFamily: 'var(--sans)',
                       fontWeight: 700,
-                      fontSize: 14,
+                      fontSize: 16,
                       color: 'white',
                     }}
                   >
@@ -326,10 +326,10 @@ export default function Page() {
                 {/* ETA pill */}
                 <div
                   style={{
-                    background: 'var(--hydrant-soft)',
-                    color: 'var(--hydrant)',
+                    background: 'var(--ink)',
+                    color: '#fff',
                     borderRadius: 99,
-                    padding: '3px 10px',
+                    padding: '4px 12px',
                     fontFamily: 'var(--body)',
                     fontSize: 11,
                     fontWeight: 600,
@@ -342,28 +342,17 @@ export default function Page() {
             ))}
 
             {/* Standby divider */}
-            <div
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: 10,
-                margin: '12px 0 8px',
-              }}
-            >
-              <div style={{ flex: 1, borderTop: '1px dashed var(--line-2)' }} />
-              <span
-                style={{
-                  fontFamily: 'var(--body)',
-                  fontSize: 9.5,
-                  fontWeight: 600,
-                  textTransform: 'uppercase',
-                  letterSpacing: '0.12em',
-                  color: 'var(--mute)',
-                }}
-              >
+            <div style={{ margin: '12px 0 8px', textAlign: 'center' }}>
+              <span style={{
+                fontFamily: 'var(--body)',
+                fontSize: 9.5,
+                fontWeight: 600,
+                textTransform: 'uppercase',
+                letterSpacing: '0.12em',
+                color: 'var(--mute)',
+              }}>
                 Standby
               </span>
-              <div style={{ flex: 1, borderTop: '1px dashed var(--line-2)' }} />
             </div>
 
             {/* Standby worker */}
@@ -377,8 +366,8 @@ export default function Page() {
             >
               <div
                 style={{
-                  width: 44,
-                  height: 44,
+                  width: 52,
+                  height: 52,
                   borderRadius: '50%',
                   background: 'linear-gradient(135deg, #f0c080, #c88040)',
                   display: 'flex',
