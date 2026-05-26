@@ -81,126 +81,32 @@ export default function Page() {
         <div
           style={{
             height: 160,
-            background: '#E0E3EC',
             position: 'relative',
             overflow: 'hidden',
             flexShrink: 0,
           }}
         >
-          <svg
-            width="390"
-            height="160"
-            viewBox="0 0 390 160"
-            fill="none"
-            style={{ position: 'absolute', inset: 0 }}
-          >
-            <rect width="390" height="160" fill="#E0E3EC" />
+          <iframe
+            src="https://www.openstreetmap.org/export/embed.html?bbox=-73.9618%2C40.6772%2C-73.9218%2C40.6972&layer=mapnik"
+            style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', border: 'none', filter: 'grayscale(60%) contrast(0.9)' }}
+            title="Worker locations"
+          />
 
-            {/* Roads */}
-            <rect x="0" y="45" width="390" height="8" fill="white" opacity="0.9" />
-            <rect x="0" y="100" width="390" height="8" fill="white" opacity="0.9" />
-            <rect x="70" y="0" width="8" height="160" fill="white" opacity="0.9" />
-            <rect x="155" y="0" width="8" height="160" fill="white" opacity="0.9" />
-            <rect x="240" y="0" width="8" height="160" fill="white" opacity="0.9" />
-            <rect x="320" y="0" width="8" height="160" fill="white" opacity="0.9" />
+          {/* Worker M dot */}
+          <div style={{ position: 'absolute', left: '24%', bottom: '22%', width: 18, height: 18, borderRadius: '50%', background: '#0D0E12', border: '2px solid white', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 1px 4px rgba(0,0,0,0.3)' }}>
+            <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 8, color: 'white' }}>M</span>
+          </div>
 
-            {/* Blocks */}
-            <rect x="0" y="0" width="68" height="43" rx="2" fill="#D4D8E6" />
-            <rect x="80" y="0" width="73" height="43" rx="2" fill="#D0D4E2" />
-            <rect x="165" y="0" width="73" height="43" rx="2" fill="#D8DAE8" />
-            <rect x="250" y="0" width="68" height="43" rx="2" fill="#D4D6E4" />
-            <rect x="330" y="0" width="60" height="43" rx="2" fill="#D0D4E2" />
-
-            <rect x="0" y="55" width="68" height="43" rx="2" fill="#D0D4E2" />
-            <rect x="80" y="55" width="73" height="43" rx="2" fill="#DCE0DC" />
-            <rect x="165" y="55" width="73" height="43" rx="2" fill="#D4D8E6" />
-            <rect x="250" y="55" width="68" height="43" rx="2" fill="#DCE0DC" />
-            <rect x="330" y="55" width="60" height="43" rx="2" fill="#D4D6E4" />
-
-            <rect x="0" y="110" width="68" height="50" rx="2" fill="#D8DAE8" />
-            <rect x="80" y="110" width="73" height="50" rx="2" fill="#D4D6E4" />
-            <rect x="165" y="110" width="73" height="50" rx="2" fill="#D0D4E2" />
-            <rect x="250" y="110" width="68" height="50" rx="2" fill="#D8DAE8" />
-            <rect x="330" y="110" width="60" height="50" rx="2" fill="#DCE0DC" />
-
-            {/* Dashed lines from workers to P */}
-            <line
-              x1="90"
-              y1="130"
-              x2="195"
-              y2="80"
-              stroke="#0D0E12"
-              strokeWidth="1.5"
-              strokeDasharray="5 4"
-              opacity="0.4"
-            />
-            <line
-              x1="310"
-              y1="40"
-              x2="195"
-              y2="80"
-              stroke="#0D0E12"
-              strokeWidth="1.5"
-              strokeDasharray="5 4"
-              opacity="0.4"
-            />
-
-            {/* Center P marker */}
-            <circle cx="195" cy="80" r="12" fill="#0D0E12" />
-            <text
-              x="195"
-              y="85"
-              textAnchor="middle"
-              fill="white"
-              fontSize="10"
-              fontWeight="700"
-              fontFamily="system-ui"
-            >
-              P
-            </text>
-
-            {/* Worker A pin at bottom-left */}
-            <circle cx="90" cy="130" r="8" fill="#0D0E12" stroke="white" strokeWidth="2" />
-            <text x="90" y="134" textAnchor="middle" fill="white" fontSize="7" fontWeight="700" fontFamily="system-ui">M</text>
-
-            {/* Worker B pin at top-right */}
-            <circle cx="310" cy="40" r="8" fill="#0D0E12" stroke="white" strokeWidth="2" />
-            <text x="310" y="44" textAnchor="middle" fill="white" fontSize="7" fontWeight="700" fontFamily="system-ui">S</text>
-          </svg>
+          {/* Worker S dot */}
+          <div style={{ position: 'absolute', right: '16%', top: '22%', width: 18, height: 18, borderRadius: '50%', background: '#0D0E12', border: '2px solid white', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 1px 4px rgba(0,0,0,0.3)' }}>
+            <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 8, color: 'white' }}>S</span>
+          </div>
 
           {/* ETA chips */}
-          <div
-            style={{
-              position: 'absolute',
-              left: 58,
-              bottom: 32,
-              background: 'var(--ink)',
-              color: 'white',
-              borderRadius: 99,
-              padding: '3px 8px',
-              fontFamily: 'var(--body)',
-              fontSize: 10,
-              fontWeight: 600,
-              whiteSpace: 'nowrap',
-            }}
-          >
+          <div style={{ position: 'absolute', left: 10, bottom: 8, background: 'var(--ink)', color: 'white', borderRadius: 99, padding: '3px 8px', fontFamily: 'var(--body)', fontSize: 10, fontWeight: 600, whiteSpace: 'nowrap' }}>
             Marco · 6 min
           </div>
-          <div
-            style={{
-              position: 'absolute',
-              right: 44,
-              top: 8,
-              background: 'var(--ink)',
-              color: 'white',
-              borderRadius: 99,
-              padding: '3px 8px',
-              fontFamily: 'var(--body)',
-              fontSize: 10,
-              fontWeight: 600,
-              whiteSpace: 'nowrap',
-            }}
-          >
+          <div style={{ position: 'absolute', right: 10, top: 8, background: 'var(--ink)', color: 'white', borderRadius: 99, padding: '3px 8px', fontFamily: 'var(--body)', fontSize: 10, fontWeight: 600, whiteSpace: 'nowrap' }}>
             Sam · 9 min
           </div>
         </div>
