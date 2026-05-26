@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import StepProgress from '@/app/components/StepProgress';
 
-const DAYS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+const DAYS = ['mon', 'tues', 'wed', 'thurs', 'fri', 'sat', 'sun'];
 
 const TIME_BLOCKS = [
   { label: 'Morning', range: '6A–12P' },
@@ -113,14 +113,14 @@ export default function Availability() {
                         key={colIdx}
                         onClick={() => toggle(rowIdx, colIdx)}
                         style={{
-                          padding: '10px 18px',
+                          padding: '14px 16px',
                           borderRadius,
                           border: '2px solid var(--ink)',
                           background: enabled ? 'var(--ink)' : 'var(--paper)',
                           cursor: 'pointer',
                           fontFamily: 'var(--sans)',
                           fontWeight: 600,
-                          fontSize: 15,
+                          fontSize: 22,
                           color: enabled ? '#fff' : 'var(--ink)',
                           letterSpacing: '-0.02em',
                           transition: 'background 0.15s ease, border-radius 0.15s ease, color 0.15s ease',
