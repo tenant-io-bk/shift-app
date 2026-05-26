@@ -90,8 +90,8 @@ export default function PayoutSetup() {
                 style={{
                   padding: 16,
                   borderRadius: 12,
-                  background: isSelected ? 'var(--hydrant-soft)' : 'var(--card)',
-                  border: isSelected ? '2px solid var(--hydrant)' : '2px solid var(--ink)',
+                  background: isSelected ? 'var(--hydrant)' : 'var(--card)',
+                  border: isSelected ? 'none' : '2px solid var(--ink)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'space-between',
@@ -106,12 +106,12 @@ export default function PayoutSetup() {
                       fontFamily: 'var(--sans)',
                       fontWeight: 700,
                       fontSize: 16,
-                      color: 'var(--ink)',
+                      color: isSelected ? '#000' : 'var(--ink)',
                     }}>{method.title}</div>
                     <div style={{
                       fontFamily: 'var(--body)',
                       fontSize: 12,
-                      color: 'var(--mute)',
+                      color: isSelected ? 'rgba(0,0,0,0.6)' : 'var(--mute)',
                       marginTop: 2,
                     }}>{method.sub}</div>
                   </div>
@@ -143,7 +143,6 @@ export default function PayoutSetup() {
           padding: 14,
           background: 'var(--paper-2)',
           borderRadius: 14,
-          border: '2px solid var(--ink)',
         }}>
           <div style={{ display: 'flex', alignItems: 'flex-start', gap: 8 }}>
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style={{ flexShrink: 0, marginTop: 1 }}>
