@@ -339,12 +339,12 @@ function ColorGuide() {
                 { label: 'Claim this shift →',  bg: '#0D0E12',  color: '#fff',    border: '#0D0E12' },
                 { label: 'Confirm & apply →',   bg: '#72c15f',  color: '#0D0E12', border: '#72c15f' },
                 { label: 'Cash out today.',      bg: '#0D0E12',  color: '#fff',    border: '#0D0E12' },
-                { label: 'Browse shifts →',      bg: '#E8E0FA',  color: '#9A7CE0', border: '#9A7CE0' },
+                { label: 'Browse shifts →', bg: '#9A7CE0', color: '#0D0E12', border: 'none' },
               ].map(b => (
                 <button key={b.label} style={{
                   width: '100%', padding: '16px',
                   background: b.bg, color: b.color,
-                  border: `2px solid ${b.border}`, borderRadius: 99,
+                  border: b.border === 'none' ? 'none' : `2px solid ${b.border}`, borderRadius: 99,
                   fontFamily: 'sans-serif', fontWeight: 700, fontSize: 16,
                   letterSpacing: '-0.01em', cursor: 'default',
                 }}>
