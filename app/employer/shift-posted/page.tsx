@@ -49,19 +49,6 @@ export default function Page() {
           SHIFT<br />POSTED<span style={{ color: 'var(--hydrant)' }}>.</span>
         </h1>
 
-        {/* Logo fill progress */}
-        <div style={{ position: 'relative', marginBottom: 10, height: 36 }}>
-          {/* Base: dim white logo */}
-          <img
-            src="/LOGO-white.svg"
-            alt=""
-            style={{ position: 'absolute', top: 0, left: 0, height: 36, opacity: 0.15, display: 'block' }}
-          />
-          {/* Fill: green logo clips in left-to-right */}
-          <div className="logo-fill" style={{ position: 'absolute', top: 0, left: 0, overflow: 'hidden', height: 36 }}>
-            <img src="/LOGO-green.svg" alt="shift" style={{ height: 36, display: 'block' }} />
-          </div>
-        </div>
         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
           <span style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'rgba(255,255,255,0.5)' }}>
             18 workers nearby

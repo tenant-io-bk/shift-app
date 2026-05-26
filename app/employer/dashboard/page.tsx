@@ -202,6 +202,22 @@ export default function EmployerDashboard() {
         {/* Inline form */}
         {isPosting && (
           <div style={{ background: 'var(--paper)', padding: '18px 20px 20px' }}>
+            <style>{`
+              @keyframes pill-land-post {
+                0%   { opacity: 0; transform: translateY(32px) rotate(var(--r)) scale(0.84); }
+                55%  { opacity: 1; transform: translateY(-4px) rotate(calc(var(--r) * -0.1)) scale(1.04); }
+                75%  { transform: translateY(2px) rotate(0deg) scale(0.98); }
+                100% { opacity: 1; transform: translateY(0) rotate(0deg) scale(1); }
+              }
+              .post-pill-anim {
+                animation: pill-land-post 0.6s cubic-bezier(0.22,1,0.36,1) both;
+                opacity: 0;
+              }
+              @keyframes brand-spin {
+                from { transform: rotate(0deg); }
+                to { transform: rotate(360deg); }
+              }
+            `}</style>
 
             {step !== 'confirm' && (
               <div style={{ marginBottom: 18 }}>
@@ -217,16 +233,25 @@ export default function EmployerDashboard() {
                 <>
                   <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 20, letterSpacing: '-0.04em', color: 'var(--ink)', marginBottom: 14 }}>What role do you need?</div>
                   <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8 }}>
-                    {ROLES.map(r => (
-                      <button key={r} onClick={() => setRole(r)} style={{
-                        padding: '11px 14px', borderRadius: 99, cursor: 'pointer', textAlign: 'center',
-                        fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 16, letterSpacing: '-0.02em',
-                        border: '2px solid var(--ink)',
-                        background: role === r ? 'var(--ink)' : 'transparent',
-                        color: role === r ? '#fff' : 'var(--ink)',
-                        transition: 'all 0.15s',
-                      }}>{r}</button>
-                    ))}
+                    {ROLES.map((r, idx) => {
+                      const rots = [-8, 10, -12, 7, -6, 9, -10, 6];
+                      const delays = [0, 50, 100, 60, 150, 110, 200, 160];
+                      return (
+                        <button key={r} onClick={() => setRole(r)}
+                          className="post-pill-anim"
+                          style={{
+                            '--r': `${rots[idx % rots.length]}deg`,
+                            animationDelay: `${delays[idx % delays.length]}ms`,
+                            padding: '12px 14px', borderRadius: 99, cursor: 'pointer', textAlign: 'center',
+                            fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 16, letterSpacing: '-0.02em',
+                            border: '2px solid var(--ink)',
+                            background: role === r ? 'var(--ink)' : 'transparent',
+                            color: role === r ? '#fff' : 'var(--ink)',
+                            transition: 'background 0.15s, color 0.15s',
+                          } as React.CSSProperties}
+                        >{r}</button>
+                      );
+                    })}
                   </div>
                 </>
               )}
@@ -234,20 +259,19 @@ export default function EmployerDashboard() {
               {/* WHEN */}
               {step === 'when' && (
                 <>
-                  {/* Date + duration pills */}
-                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 18 }}>
+                  {/* Date pill */}
+                  <div style={{ marginBottom: 18 }}>
                     <div style={{ position: 'relative', display: 'inline-block' }}>
-                      <div style={{ background: 'var(--ink)', borderRadius: 99, padding: '9px 16px' }}>
+                      <div style={{ background: 'var(--ink)', borderRadius: 99, padding: '9px 16px', display: 'flex', alignItems: 'center', gap: 7 }}>
+                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                          <rect x="1" y="2" width="10" height="9" rx="1.5" stroke="#fff" strokeWidth="1.2"/>
+                          <path d="M4 1v2M8 1v2M1 5h10" stroke="#fff" strokeWidth="1.2" strokeLinecap="round"/>
+                        </svg>
                         <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 14, color: '#fff', letterSpacing: '-0.02em' }}>{fmtDatePill(date)}</span>
                       </div>
                       <input type="date" value={date} onChange={e => setDate(e.target.value)}
                         style={{ position: 'absolute', inset: 0, opacity: 0, cursor: 'pointer', width: '100%', height: '100%' }} />
                     </div>
-                    {hrs > 0 && (
-                      <div style={{ background: 'var(--hydrant)', borderRadius: 99, padding: '9px 16px' }}>
-                        <span style={{ fontFamily: 'var(--body)', fontWeight: 700, fontSize: 12, color: '#fff', letterSpacing: '0.06em' }}>{hrsLabel(hrs)}</span>
-                      </div>
-                    )}
                   </div>
 
                   {/* Start / End 2-col */}
@@ -317,11 +341,15 @@ export default function EmployerDashboard() {
 
               {/* DRAFTING overlay */}
               {step === 'brief' && isDrafting && (
-                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: 120, gap: 14 }}>
-                  <div style={{ display: 'flex', gap: 6 }}>
-                    {[0,1,2].map(i => <div key={i} style={{ width: 7, height: 7, borderRadius: '50%', background: i < draftDots ? 'var(--hydrant)' : 'var(--line)', transition: 'background 0.2s' }} />)}
-                  </div>
-                  <p style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 16, color: 'var(--ink)', letterSpacing: '-0.02em' }}>Writing your posting…</p>
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: 140, gap: 16 }}>
+                  <div style={{
+                    width: 52, height: 52, borderRadius: '50%', flexShrink: 0,
+                    background: 'conic-gradient(#72c15f 0deg, #9A7CE0 90deg, #E5391F 180deg, #f7dd6d 270deg, #72c15f 360deg)',
+                    WebkitMask: 'radial-gradient(transparent 54%, black 55%)',
+                    mask: 'radial-gradient(transparent 54%, black 55%)',
+                    animation: 'brand-spin 1s linear infinite',
+                  }} />
+                  <p style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 17, color: 'var(--ink)', letterSpacing: '-0.02em' }}>Writing your posting…</p>
                   <p style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)' }}>Task list, attire, and rate — 2 sec</p>
                 </div>
               )}
@@ -386,24 +414,25 @@ export default function EmployerDashboard() {
               {/* CONFIRM */}
               {step === 'confirm' && (
                 <>
-                  <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 20, letterSpacing: '-0.04em', color: 'var(--ink)', marginBottom: 14 }}>Looks good?</div>
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: 6, marginBottom: 14 }}>
+                  <div style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--hydrant)', marginBottom: 6 }}>Confirm your shift</div>
+                  <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 26, letterSpacing: '-0.04em', color: 'var(--ink)', marginBottom: 18, lineHeight: 1 }}>Looks good?</div>
+                  <div style={{ display: 'flex', flexDirection: 'column', marginBottom: 18 }}>
                     {[
                       { label: 'Role',    value: role },
                       { label: 'When',    value: `${fmtDatePill(date)} · ${fmtTime(startTime)}–${fmtTime(endTime)}${hrs>0 ? ` (${hrsLabel(hrs)})` : ''}` },
                       { label: 'Pay',     value: `$${rate}/hr` },
                       { label: 'Workers', value: `${count} worker${count>1?'s':''} + 1 backup` },
-                      { label: 'Tasks', value: `${draftTasks.length} items drafted` },
+                      { label: 'Tasks',   value: `${draftTasks.length} items drafted` },
                     ].map(row => (
-                      <div key={row.label} style={{ display: 'flex', gap: 10, padding: '10px 14px', border: '2px solid var(--ink)', borderRadius: 14 }}>
-                        <span style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--ink)', width: 52, flexShrink: 0 }}>{row.label}</span>
-                        <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 13, color: 'var(--ink)' }}>{row.value}</span>
+                      <div key={row.label} style={{ display: 'flex', gap: 14, padding: '11px 0', borderBottom: '1px solid var(--line)' }}>
+                        <span style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--mute)', width: 54, flexShrink: 0, paddingTop: 2 }}>{row.label}</span>
+                        <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 15, color: 'var(--ink)', lineHeight: 1.3 }}>{row.value}</span>
                       </div>
                     ))}
                   </div>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 12 }}>
-                    <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 20, color: 'var(--ink)', letterSpacing: '-0.04em' }}>All in: ${tot$.toFixed(0)}.</span>
-                    <span style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--ink)' }}>$0 to post</span>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 14 }}>
+                    <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 22, color: 'var(--ink)', letterSpacing: '-0.04em' }}>All in: ${tot$.toFixed(0)}.</span>
+                    <span style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)' }}>$0 to post</span>
                   </div>
                   <button
                     onClick={() => router.push('/employer/posting')}
