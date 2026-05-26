@@ -7,7 +7,7 @@ export default function PostingPage() {
   const router = useRouter();
 
   useEffect(() => {
-    const t = setTimeout(() => router.push('/employer/shift-posted'), 3000);
+    const t = setTimeout(() => router.push('/employer/shift-posted'), 3400);
     return () => clearTimeout(t);
   }, [router]);
 
@@ -21,50 +21,62 @@ export default function PostingPage() {
       flexDirection: 'column',
       alignItems: 'center',
       justifyContent: 'center',
-      gap: 28,
+      gap: 22,
     }}>
       <style>{`
-        @keyframes brand-spin {
-          from { transform: rotate(0deg); }
-          to   { transform: rotate(360deg); }
+        @keyframes fill-up {
+          0%   { clip-path: inset(100% 0 0 0); }
+          100% { clip-path: inset(0 0 0 0); }
         }
-        @keyframes fade-up {
-          from { opacity: 0; transform: translateY(16px); }
+        @keyframes sub-in {
+          from { opacity: 0; transform: translateY(8px); }
           to   { opacity: 1; transform: translateY(0); }
         }
       `}</style>
 
-      <div style={{
-        width: 56, height: 56, borderRadius: '50%', flexShrink: 0,
-        background: 'conic-gradient(#72c15f 0deg, #9A7CE0 90deg, #E5391F 180deg, #f7dd6d 270deg, #72c15f 360deg)',
-        WebkitMask: 'radial-gradient(transparent 52%, black 53%)',
-        mask: 'radial-gradient(transparent 52%, black 53%)',
-        animation: 'brand-spin 1s linear infinite',
-      }} />
-
-      <div style={{ textAlign: 'center', animation: 'fade-up 0.6s ease 0.15s both' }}>
+      {/* SHIFT fill logo */}
+      <div style={{ position: 'relative', lineHeight: 0.9 }}>
+        {/* Ghost base */}
         <div style={{
           fontFamily: 'var(--sans)',
           fontWeight: 700,
-          fontSize: 56,
-          color: '#fff',
+          fontSize: 88,
+          color: 'rgba(255,255,255,0.08)',
           letterSpacing: '-0.075em',
           lineHeight: 0.9,
-          marginBottom: 14,
-        }}>
-          POSTING<span style={{ color: '#72c15f' }}>.</span>
-        </div>
-        <span style={{
-          fontFamily: 'var(--body)',
-          fontSize: 11,
-          fontWeight: 600,
-          color: 'rgba(255,255,255,0.45)',
-          letterSpacing: '0.1em',
-          textTransform: 'uppercase',
-        }}>
-          Matching workers nearby
-        </span>
+          userSelect: 'none',
+        }}>SHIFT.</div>
+
+        {/* Colour fill — reveals bottom to top */}
+        <div style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          fontFamily: 'var(--sans)',
+          fontWeight: 700,
+          fontSize: 88,
+          letterSpacing: '-0.075em',
+          lineHeight: 0.9,
+          whiteSpace: 'nowrap',
+          background: 'linear-gradient(to top, #72c15f 0%, #9A7CE0 45%, #E5391F 75%, #f7dd6d 100%)',
+          WebkitBackgroundClip: 'text',
+          WebkitTextFillColor: 'transparent',
+          backgroundClip: 'text',
+          animation: 'fill-up 2.2s cubic-bezier(0.22, 1, 0.36, 1) 0.3s both',
+        }}>SHIFT.</div>
       </div>
+
+      <span style={{
+        fontFamily: 'var(--body)',
+        fontSize: 11,
+        fontWeight: 600,
+        color: 'rgba(255,255,255,0.4)',
+        letterSpacing: '0.1em',
+        textTransform: 'uppercase',
+        animation: 'sub-in 0.5s ease 1.6s both',
+      }}>
+        Matching workers nearby
+      </span>
     </div>
   );
 }

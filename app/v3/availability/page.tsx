@@ -121,8 +121,8 @@ export default function Availability() {
                         style={{
                           aspectRatio: '1',
                           borderRadius: '50%',
-                          border: enabled ? 'none' : '2px solid var(--ink)',
-                          background: enabled ? '#9A7CE0' : 'transparent',
+                          border: 'none',
+                          background: enabled ? '#D4C6F4' : 'var(--ink)',
                           cursor: 'pointer',
                           display: 'flex',
                           alignItems: 'center',
@@ -132,7 +132,7 @@ export default function Availability() {
                       >
                         {enabled && (
                           <svg width="10" height="8" viewBox="0 0 10 8" fill="none">
-                            <path d="M1 4L3.5 6.5L9 1" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                            <path d="M1 4L3.5 6.5L9 1" stroke="#7B5FC4" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
                           </svg>
                         )}
                       </button>
