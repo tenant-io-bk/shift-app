@@ -284,7 +284,7 @@ export default function JobDetail() {
           </div>
         </div>
 
-        <div style={{ margin: '16px 22px 0', padding: 16, background: 'var(--card)', border: '2px solid var(--ink)', borderRadius: 12, display: 'flex', gap: 12, alignItems: 'flex-start' }}>
+        <div style={{ margin: '16px 22px 0', padding: 16, background: 'var(--card)', borderRadius: 12, display: 'flex', gap: 12, alignItems: 'flex-start' }}>
           <div style={{ width: 48, height: 48, borderRadius: '50%', background: 'radial-gradient(circle at 35% 35%, #c4a577, #8b6545 60%, #5c3d22)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
             <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 20, color: 'white' }}>T</span>
           </div>
@@ -295,7 +295,7 @@ export default function JobDetail() {
                 <svg width="8" height="8" viewBox="0 0 8 8" fill="none"><path d="M1.5 4l1.5 1.5L6.5 2.5" stroke="white" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" /></svg>
               </div>
             </div>
-            <p style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--mute)', marginTop: 2 }}>Owner · 47 shifts · 4.9★ from 32</p>
+            <p style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--mute)', marginTop: 2 }}>Owner · 4.9★ from 32</p>
             <p style={{ fontFamily: 'var(--sans)', fontSize: 14, color: 'var(--ink)', marginTop: 8, lineHeight: 1.5 }}>
               &ldquo;Need someone steady on bar for the rush. We pull on a Linea, no auto-tamp — comfortable with that?&rdquo;
             </p>
