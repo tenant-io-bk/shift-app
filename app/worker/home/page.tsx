@@ -435,7 +435,7 @@ export default function WorkerHome() {
           alignItems: 'center',
           justifyContent: 'space-between',
           padding: '15px 18px',
-          background: 'var(--lilac-soft)',
+          background: 'var(--lilac)',
           border: '2px solid var(--lilac)',
           borderRadius: 14,
           textDecoration: 'none',
@@ -449,8 +449,7 @@ export default function WorkerHome() {
               fontWeight: 700,
               textTransform: 'uppercase',
               letterSpacing: '0.1em',
-              color: 'var(--lilac)',
-              opacity: 0.7,
+              color: 'rgba(255,255,255,0.65)',
               marginBottom: 4,
             }}
           >
@@ -461,7 +460,7 @@ export default function WorkerHome() {
               fontFamily: 'var(--sans)',
               fontWeight: 700,
               fontSize: 17,
-              color: 'var(--lilac)',
+              color: '#fff',
               letterSpacing: '-0.02em',
             }}
           >
@@ -471,8 +470,7 @@ export default function WorkerHome() {
             style={{
               fontFamily: 'var(--mono)',
               fontSize: 12,
-              color: 'var(--lilac)',
-              opacity: 0.75,
+              color: 'rgba(255,255,255,0.75)',
               marginTop: 2,
             }}
           >
@@ -486,10 +484,10 @@ export default function WorkerHome() {
           fill="none"
           style={{ flexShrink: 0 }}
         >
-          <circle cx="14" cy="14" r="13" stroke="var(--lilac)" strokeWidth="1.5" opacity="0.35" />
+          <circle cx="14" cy="14" r="13" stroke="rgba(255,255,255,0.4)" strokeWidth="1.5" />
           <path
             d="M11 14h6M14 11l3 3-3 3"
-            stroke="var(--lilac)"
+            stroke="#fff"
             strokeWidth="1.8"
             strokeLinecap="round"
             strokeLinejoin="round"
