@@ -80,13 +80,13 @@ function PinSheet({ shift, onClose }: { shift: Shift; onClose: () => void }) {
 const ROLES = ['All', 'Barista', 'Bartender', 'Server', 'Barback', 'Host', 'Cook'];
 
 const ROLE_COLORS: Record<string, { bg: string; color: string }> = {
-  'All':       { bg: 'var(--ink)',    color: '#fff' },
-  'Barista':   { bg: 'var(--steel)',  color: 'var(--ink)' },
-  'Bartender': { bg: 'var(--steel)',  color: 'var(--ink)' },
-  'Server':    { bg: 'var(--pink)',   color: 'var(--ink)' },
-  'Barback':   { bg: 'var(--steel)',  color: 'var(--ink)' },
-  'Host':      { bg: 'var(--pink)',   color: 'var(--ink)' },
-  'Cook':      { bg: 'var(--yellow)', color: 'var(--ink)' },
+  'All':       { bg: 'var(--ink)',        color: '#fff' },
+  'Barista':   { bg: 'var(--green-soft)', color: 'var(--ink)' },
+  'Bartender': { bg: 'var(--green-soft)', color: 'var(--ink)' },
+  'Server':    { bg: 'var(--pink)',        color: 'var(--ink)' },
+  'Barback':   { bg: 'var(--green-soft)', color: 'var(--ink)' },
+  'Host':      { bg: 'var(--pink)',        color: 'var(--ink)' },
+  'Cook':      { bg: 'var(--red-soft)',    color: 'var(--ink)' },
 };
 
 export default function WorkerMap() {

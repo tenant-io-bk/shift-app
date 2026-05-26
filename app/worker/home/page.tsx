@@ -38,11 +38,11 @@ const PROFILE_COMPLETE = false;
 
 function roleStyle(role: string): { bg: string; color: string } {
   const r = role.toLowerCase();
-  if (/bartend|barback|barista/.test(r)) return { bg: 'var(--steel)', color: 'var(--ink)' };
-  if (/cook|prep|dish|line/.test(r)) return { bg: 'var(--yellow)', color: 'var(--ink)' };
+  if (/bartend|barback|barista/.test(r)) return { bg: 'var(--green-soft)', color: 'var(--ink)' };
+  if (/cook|prep|dish|line/.test(r)) return { bg: 'var(--red-soft)', color: 'var(--ink)' };
   if (/server|host/.test(r)) return { bg: 'var(--pink)', color: 'var(--ink)' };
   if (/cater|event|pop/.test(r)) return { bg: 'var(--lilac-soft)', color: 'var(--lilac)' };
-  return { bg: 'var(--grey)', color: 'var(--ink)' };
+  return { bg: 'var(--steel)', color: 'var(--ink)' };
 }
 
 export default function WorkerHome() {
