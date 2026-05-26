@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import StepProgress from '@/app/components/StepProgress';
 
-const DAYS = ['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN'];
+const DAYS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 
 const TIME_BLOCKS = [
   { label: 'Morning', range: '6A–12P' },
@@ -13,9 +13,9 @@ const TIME_BLOCKS = [
 ];
 
 const initialGrid: boolean[][] = [
-  [true, true, true, true, true, true, true],
-  [true, true, true, true, true, true, true],
-  [true, true, true, true, true, true, true],
+  [false, false, false, false, false, false, false],
+  [false, false, false, false, false, false, false],
+  [false, false, false, false, false, false, false],
 ];
 
 export default function Availability() {
@@ -76,7 +76,7 @@ export default function Availability() {
           fontSize: 13,
           color: 'var(--ink)',
           marginBottom: 24,
-        }}>Defaults on. Turn off what you can't do.</p>
+        }}>Tap the days you're available.</p>
 
         {/* Time block cards */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
@@ -96,23 +96,10 @@ export default function Availability() {
                 <span style={{ fontFamily: 'var(--sans)', fontWeight: 400, fontSize: 15, color: 'var(--ink)' }}>{block.range}</span>
               </div>
 
-              {/* Day labels + checkboxes */}
-              <div style={{ padding: '0 12px 14px' }}>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(7, 1fr)', gap: 4, marginBottom: 4 }}>
-                  {DAYS.map((d) => (
-                    <div key={d} style={{
-                      fontFamily: 'var(--body)',
-                      fontSize: 9,
-                      fontWeight: 600,
-                      textTransform: 'uppercase',
-                      color: 'var(--ink)',
-                      textAlign: 'center',
-                      letterSpacing: '0.03em',
-                    }}>{d}</div>
-                  ))}
-                </div>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(7, 1fr)', gap: 3 }}>
-                  {DAYS.map((_, colIdx) => {
+              {/* Day pills — flex wrap */}
+              <div style={{ padding: '0 14px 16px' }}>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+                  {DAYS.map((day, colIdx) => {
                     const enabled = grid[rowIdx][colIdx];
                     const leftOn = colIdx > 0 && grid[rowIdx][colIdx - 1];
                     const rightOn = colIdx < 6 && grid[rowIdx][colIdx + 1];
@@ -126,25 +113,23 @@ export default function Availability() {
                         key={colIdx}
                         onClick={() => toggle(rowIdx, colIdx)}
                         style={{
-                          height: 42,
+                          padding: '10px 18px',
                           borderRadius,
-                          border: `2px solid var(--ink)`,
+                          border: '2px solid var(--ink)',
                           background: enabled ? 'var(--ink)' : 'var(--paper)',
                           cursor: 'pointer',
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                          transition: 'background 0.15s ease, border-radius 0.15s ease',
-                          marginLeft: enabled && leftOn ? -3 : 0,
+                          fontFamily: 'var(--sans)',
+                          fontWeight: 600,
+                          fontSize: 15,
+                          color: enabled ? '#fff' : 'var(--ink)',
+                          letterSpacing: '-0.02em',
+                          transition: 'background 0.15s ease, border-radius 0.15s ease, color 0.15s ease',
+                          marginLeft: enabled && leftOn ? -8 : 0,
                           position: 'relative',
                           zIndex: enabled ? 1 : 0,
                         }}
                       >
-                        {enabled && (
-                          <svg width="10" height="8" viewBox="0 0 10 8" fill="none">
-                            <path d="M1 4L3.5 6.5L9 1" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-                          </svg>
-                        )}
+                        {day}
                       </button>
                     );
                   })}
