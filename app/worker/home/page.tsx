@@ -500,7 +500,7 @@ export default function WorkerHome() {
         {[
           { label: 'This week', value: '$408.', bg: 'var(--green-soft)', accent: 'var(--green)' },
           { label: 'Shifts', value: '3 booked', bg: 'var(--steel-soft)', accent: 'var(--steel)' },
-          { label: 'Rating', value: '4.9★', bg: 'var(--lilac-soft)', accent: 'var(--lilac)' },
+          { label: 'Rating', value: '4.9★', bg: 'var(--lilac-soft)', accent: 'transparent' },
         ].map((stat) => (
           <div
             key={stat.label}

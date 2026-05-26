@@ -168,7 +168,7 @@ const NOTIF_BADGES: Array<{ type: string; bg: string; color: string; icon: strin
 const STAT_TILES: Array<{ label: string; value: string; bg: string; border: string }> = [
   { label: 'earnings', value: '$408.',    bg: '#E2F1DD', border: '#72c15f' },
   { label: 'shifts',   value: '3 booked', bg: '#EAF1FA', border: '#c7d8f2' },
-  { label: 'rating',   value: '4.9★',    bg: '#E8E0FA', border: '#9A7CE0' },
+  { label: 'rating',   value: '4.9★',    bg: '#E8E0FA', border: 'transparent' },
 ];
 
 /* ── Shared components ─────────────────────────────────────────────────────── */
