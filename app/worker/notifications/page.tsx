@@ -86,13 +86,13 @@ export default function Notifications() {
 
   return (
     <div style={{ maxWidth: 390, minHeight: '100vh', margin: '0 auto', background: 'var(--paper)', display: 'flex', flexDirection: 'column', paddingBottom: 80 }}>
-      <StatusBar time="9:41" />
+      <StatusBar time="10:12" />
 
       {/* Nav */}
       <div style={{ height: 44, display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 16px', borderBottom: '1px solid var(--line)', background: 'var(--paper)' }}>
         <div style={{ width: 60 }} />
         <span style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--mute)' }}>
-          Alerts {unreadCount > 0 && <span style={{ color: 'var(--hydrant)' }}>· {unreadCount}</span>}
+          Alerts {unreadCount > 0 && <span style={{ color: 'var(--ink)' }}>· {unreadCount}</span>}
         </span>
         {unreadCount > 0 ? (
           <button onClick={markAllRead} style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, color: 'var(--mute)', background: 'none', border: 'none', cursor: 'pointer', width: 60, textAlign: 'right' }}>
@@ -148,7 +148,7 @@ function NotifRow({ n, onRead }: { n: Notification; onRead: (id: number) => void
             {n.title}
           </span>
           {!n.read && (
-            <div style={{ width: 7, height: 7, borderRadius: '50%', background: 'var(--hydrant)', flexShrink: 0, marginTop: 4 }} />
+            <div style={{ width: 7, height: 7, borderRadius: '50%', background: 'var(--ink)', flexShrink: 0, marginTop: 4 }} />
           )}
         </div>
         <div style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--mute)', lineHeight: 1.4 }}>{n.sub}</div>

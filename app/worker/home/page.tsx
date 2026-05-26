@@ -61,7 +61,7 @@ export default function WorkerHome() {
         paddingBottom: 88,
       }}
     >
-      <StatusBar time="9:41" />
+      <StatusBar time="10:12" />
 
       {/* Header */}
       <div
@@ -153,7 +153,7 @@ export default function WorkerHome() {
               width: 8,
               height: 8,
               borderRadius: '50%',
-              background: 'var(--hydrant)',
+              background: 'var(--red)',
               border: '1.5px solid var(--paper)',
             }}
           />
@@ -170,7 +170,7 @@ export default function WorkerHome() {
             alignItems: 'center',
             gap: 10,
             padding: '10px 14px',
-            background: 'var(--hydrant)',
+            background: 'var(--ink)',
             border: 'none',
             borderRadius: 12,
             textDecoration: 'none',
@@ -181,7 +181,7 @@ export default function WorkerHome() {
               width: 22,
               height: 22,
               borderRadius: '50%',
-              border: '2px solid rgba(0,0,0,0.3)',
+              border: '2px solid rgba(255,255,255,0.3)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
@@ -193,7 +193,7 @@ export default function WorkerHome() {
                 width: 10,
                 height: 10,
                 borderRadius: '50%',
-                background: '#000',
+                background: '#fff',
                 clipPath: 'inset(0 50% 0 0)',
               }}
             />
@@ -202,14 +202,14 @@ export default function WorkerHome() {
             style={{
               fontFamily: 'var(--body)',
               fontSize: 12,
-              color: '#000',
+              color: '#fff',
               fontWeight: 600,
               flex: 1,
             }}
           >
             Profile 75% — add photo to unlock all shifts
           </span>
-          <span style={{ fontFamily: 'var(--body)', fontSize: 13, color: 'var(--hydrant)' }}>→</span>
+          <span style={{ fontFamily: 'var(--body)', fontSize: 13, color: '#000' }}>→</span>
         </Link>
       )}
 

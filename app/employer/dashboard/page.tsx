@@ -6,6 +6,7 @@ import Link from 'next/link';
 import StatusBar from '@/app/components/StatusBar';
 import EmployerNav from '@/app/components/EmployerNav';
 import StepProgress from '@/app/components/StepProgress';
+import ShiftCard from '@/app/components/ShiftCard';
 
 // ── helpers ──────────────────────────────────────────────────────────────────
 
@@ -59,7 +60,7 @@ const DEFAULT_DRAFT: DraftData = { tasks: ['Main service duties for the shift','
 function getDraft(role: string): DraftData { return DRAFTS[role] ?? DEFAULT_DRAFT; }
 
 const ACTIVE_SHIFTS = [
-  { role: 'Barista', time: 'Today · 11A–4P', workers: 2, status: 'En route', eta: '6 min' },
+  { role: 'Barista', time: '11A–4P', workers: 2, status: 'En route', eta: '6 min' },
 ];
 const RECENT = [
   { date: 'Mon 12 May', role: 'Barista',   workers: 2, total: '$280.', rating: 4.9 },
@@ -68,9 +69,9 @@ const RECENT = [
   { date: 'Mon 5 May',  role: 'Bartender', workers: 2, total: '$312.', rating: 4.8 },
 ];
 const SAVED_WORKERS = [
-  { initials: 'MR', name: 'Marco R.', role: 'Barista', rating: '4.9', bg: '#72c15f' },
-  { initials: 'SO', name: 'Sam O.',   role: 'Server',  rating: '4.8', bg: '#2D6A4F' },
-  { initials: 'JL', name: 'Jules L.', role: 'Host',    rating: '4.9', bg: '#0D0E12' },
+  { initials: 'MR', name: 'Marco R.', role: 'Barista', rating: '4.9', bg: 'var(--ink)' },
+  { initials: 'SO', name: 'Sam O.',   role: 'Server',  rating: '4.8', bg: 'var(--ink)' },
+  { initials: 'JL', name: 'Jules L.', role: 'Host',    rating: '4.9', bg: 'var(--ink)' },
 ];
 
 // ── component ─────────────────────────────────────────────────────────────────
@@ -180,7 +181,7 @@ export default function EmployerDashboard() {
               <path d="M11 3a6 6 0 0 0-6 6v3l-2 3h16l-2-3V9a6 6 0 0 0-6-6Z" stroke="var(--ink)" strokeWidth="1.6" fill="none" strokeLinejoin="round" />
               <path d="M9 16a2 2 0 0 0 4 0" stroke="var(--ink)" strokeWidth="1.6" strokeLinecap="round" />
             </svg>
-            <div style={{ position: 'absolute', top: 7, right: 7, width: 8, height: 8, borderRadius: '50%', background: 'var(--hydrant)', border: '1.5px solid var(--paper)' }} />
+            <div style={{ position: 'absolute', top: 7, right: 7, width: 8, height: 8, borderRadius: '50%', background: 'var(--red)', border: '1.5px solid var(--paper)' }} />
           </Link>
           <div style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 13, color: 'var(--ink)', letterSpacing: '-0.02em' }}>78°F ☀️</div>
         </div>
@@ -466,19 +467,19 @@ export default function EmployerDashboard() {
 
       <Section id="active" label="Active now">
         {ACTIVE_SHIFTS.map((s, i) => (
-          <Link key={i} href="/employer/roster" style={{ textDecoration: 'none' }}>
-            <div style={{ background: 'var(--paper)', borderRadius: 14, border: '2px solid var(--ink)', padding: '14px 16px', display: 'flex', alignItems: 'center', gap: 12 }}>
-              <div style={{ width: 10, height: 10, borderRadius: '50%', background: '#16A34A', flexShrink: 0, boxShadow: '0 0 0 3px rgba(22,163,74,0.2)' }} />
-              <div style={{ flex: 1 }}>
-                <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 15, color: 'var(--ink)' }}>{s.role} · {s.workers} workers</div>
-                <div style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--ink)', marginTop: 2 }}>{s.time}</div>
-              </div>
-              <div style={{ textAlign: 'right', flexShrink: 0 }}>
-                <div style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, color: '#16A34A' }}>{s.status}</div>
-                <div style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--ink)', marginTop: 1 }}>{s.eta}</div>
-              </div>
-            </div>
-          </Link>
+          <ShiftCard
+            key={i}
+            role={s.role}
+            time={s.time}
+            loc="Bed-Stuy"
+            venue="Padmore's"
+            brief={`${s.workers} workers confirmed · ${s.status} · ${s.eta}`}
+            pay="$130"
+            rate="$26/hr"
+            family="bar"
+            state="confirmed"
+            href="/employer/roster"
+          />
         ))}
       </Section>
 
@@ -491,7 +492,7 @@ export default function EmployerDashboard() {
               </div>
               <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 13, color: 'var(--ink)' }}>{w.name}</div>
               <div style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--ink)', marginTop: 1 }}>{w.role}</div>
-              <div style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--hydrant)', fontWeight: 600, marginTop: 3 }}>{w.rating}★</div>
+              <div style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--yellow)', fontWeight: 600, marginTop: 3 }}>{w.rating}★</div>
             </div>
           ))}
         </div>
@@ -507,7 +508,7 @@ export default function EmployerDashboard() {
               </div>
               <div style={{ textAlign: 'right', flexShrink: 0 }}>
                 <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 16, color: 'var(--ink)', letterSpacing: '-0.02em' }}>{r.total}</div>
-                <div style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--hydrant)', marginTop: 1 }}>{r.rating}★</div>
+                <div style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--yellow)', marginTop: 1 }}>{r.rating}★</div>
               </div>
             </div>
           ))}

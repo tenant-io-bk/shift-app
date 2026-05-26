@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 type Tab = 'home' | 'map' | 'messages' | 'wallet' | 'menu';
 
-const ACTIVE = '#72c15f';
+const ACTIVE = 'var(--ink)';
 const INACTIVE = 'rgba(13,14,18,0.45)';
 
 const TABS = [

@@ -84,12 +84,12 @@ export default function Page() {
           <circle cx="315" cy="270" r="6" fill="#16A34A" stroke="white" strokeWidth="2" />
           <circle cx="210" cy="310" r="6" fill="#16A34A" stroke="white" strokeWidth="2" />
 
-          {/* Purple favorited worker dots */}
-          <circle cx="170" cy="168" r="6" fill="#72c15f" stroke="white" strokeWidth="2" />
-          <circle cx="230" cy="255" r="6" fill="#72c15f" stroke="white" strokeWidth="2" />
-          <circle cx="148" cy="225" r="6" fill="#72c15f" stroke="white" strokeWidth="2" />
-          <text x="170" y="158" textAnchor="middle" fontSize="8" fill="#72c15f">♥</text>
-          <text x="230" y="245" textAnchor="middle" fontSize="8" fill="#72c15f">♥</text>
+          {/* Favorited worker dots */}
+          <circle cx="170" cy="168" r="6" fill="#9A7CE0" stroke="white" strokeWidth="2" />
+          <circle cx="230" cy="255" r="6" fill="#9A7CE0" stroke="white" strokeWidth="2" />
+          <circle cx="148" cy="225" r="6" fill="#9A7CE0" stroke="white" strokeWidth="2" />
+          <text x="170" y="158" textAnchor="middle" fontSize="8" fill="#9A7CE0">♥</text>
+          <text x="230" y="245" textAnchor="middle" fontSize="8" fill="#9A7CE0">♥</text>
         </svg>
 
         {/* Density chip */}
@@ -116,7 +116,7 @@ export default function Page() {
         <div style={{ position: 'absolute', top: 50, left: 10, background: 'var(--card)', border: '2px solid var(--ink)', borderRadius: 99, padding: '4px 10px', fontFamily: 'var(--body)', fontSize: 10, fontWeight: 600, color: 'var(--mute)' }}>
           Bushwick · 11
         </div>
-        <div style={{ position: 'absolute', top: 50, right: 10, background: 'var(--card)', border: '2px solid var(--ink)', borderRadius: 99, padding: '4px 10px', fontFamily: 'var(--body)', fontSize: 10, fontWeight: 600, color: 'var(--hydrant)' }}>
+        <div style={{ position: 'absolute', top: 50, right: 10, background: 'var(--card)', border: '2px solid var(--ink)', borderRadius: 99, padding: '4px 10px', fontFamily: 'var(--body)', fontSize: 10, fontWeight: 600, color: 'var(--ink)' }}>
           Crown Hts · 19
         </div>
         <div style={{ position: 'absolute', bottom: 16, left: 10, background: 'var(--card)', border: '2px solid var(--ink)', borderRadius: 99, padding: '4px 10px', fontFamily: 'var(--body)', fontSize: 10, fontWeight: 600, color: 'var(--mute)' }}>
@@ -162,8 +162,8 @@ export default function Page() {
                 padding: '6px 12px',
                 borderRadius: 99,
                 border: chip.active ? 'none' : '2px solid var(--ink)',
-                background: chip.active ? 'var(--hydrant)' : 'var(--paper-2)',
-                color: chip.active ? '#000' : 'var(--ink)',
+                background: chip.active ? 'var(--ink)' : 'var(--paper-2)',
+                color: chip.active ? '#fff' : 'var(--ink)',
                 fontFamily: 'var(--body)',
                 fontSize: 12,
                 fontWeight: 600,
@@ -179,10 +179,10 @@ export default function Page() {
         {/* Worker rows */}
         <div>
           {[
-            { initial: 'M', gradient: 'linear-gradient(135deg, #c4a577, #8b6545)', name: 'Marco Reyes', role: 'Barista', rating: '4.9', times: '4×', fav: true, action: 'Book' },
-            { initial: 'S', gradient: 'linear-gradient(135deg, #a8c4a0, #6b9e62)', name: 'Sam O.', role: 'Barista', rating: '4.8', times: null, fav: true, action: 'Book' },
-            { initial: 'J', gradient: 'linear-gradient(135deg, #b8a0c8, #8060a0)', name: 'Jules M.', role: 'Barista', rating: '4.7', times: null, fav: false, action: 'Invite' },
-            { initial: 'E', gradient: 'linear-gradient(135deg, #f0c080, #c88040)', name: 'Elena P.', role: 'Server', rating: '4.6', times: null, fav: false, action: 'Invite' },
+            { initial: 'M', gradient: 'var(--ink)', name: 'Marco Reyes', role: 'Barista', rating: '4.9', times: '4×', fav: true, action: 'Book' },
+            { initial: 'S', gradient: 'var(--ink)', name: 'Sam O.', role: 'Barista', rating: '4.8', times: null, fav: true, action: 'Book' },
+            { initial: 'J', gradient: 'var(--ink)', name: 'Jules M.', role: 'Barista', rating: '4.7', times: null, fav: false, action: 'Invite' },
+            { initial: 'E', gradient: 'var(--ink)', name: 'Elena P.', role: 'Server', rating: '4.6', times: null, fav: false, action: 'Invite' },
           ].map((worker) => (
             <div
               key={worker.name}
@@ -192,13 +192,13 @@ export default function Page() {
                 <div style={{ width: 52, height: 52, borderRadius: '50%', background: worker.gradient, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                   <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 16, color: 'white' }}>{worker.initial}</span>
                 </div>
-                <div style={{ position: 'absolute', bottom: -1, right: -1, width: 10, height: 10, borderRadius: '50%', background: worker.fav ? 'var(--hydrant)' : '#16A34A', border: '2px solid white' }} />
+                <div style={{ position: 'absolute', bottom: -1, right: -1, width: 10, height: 10, borderRadius: '50%', background: '#16A34A', border: '2px solid white' }} />
               </div>
               <div style={{ flex: 1, minWidth: 0 }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
                   <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 15, color: 'var(--ink)' }}>{worker.name}</span>
                   {worker.times && (
-                    <span style={{ background: 'var(--hydrant)', color: '#000', borderRadius: 4, padding: '1px 5px', fontFamily: 'var(--body)', fontSize: 10, fontWeight: 600 }}>
+                    <span style={{ background: 'var(--ink)', color: '#fff', borderRadius: 4, padding: '1px 5px', fontFamily: 'var(--body)', fontSize: 10, fontWeight: 600 }}>
                       {worker.times} here
                     </span>
                   )}
@@ -218,7 +218,7 @@ export default function Page() {
                   fontFamily: 'var(--body)',
                   fontSize: 12,
                   fontWeight: 600,
-                  color: 'var(--hydrant)',
+                  color: 'var(--ink)',
                   cursor: 'pointer',
                   flexShrink: 0,
                   display: 'flex',

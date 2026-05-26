@@ -11,7 +11,7 @@ export default function RolePicker() {
       display: 'flex',
       flexDirection: 'column',
     }}>
-      <StatusBar time="9:41" />
+      <StatusBar time="10:12" />
 
       {/* Wordmark */}
       <div style={{ textAlign: 'center', padding: '20px 0 0' }}>
@@ -35,7 +35,7 @@ export default function RolePicker() {
           <Link
             href="/v3/phone-verify"
             style={{
-              background: 'var(--hydrant)',
+              background: 'var(--ink)',
               borderRadius: 99,
               padding: '0 22px 6px',
               display: 'inline-block',

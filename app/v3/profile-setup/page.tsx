@@ -13,6 +13,35 @@ export default function ProfileSetup() {
   const [hasPhoto, setHasPhoto] = useState(false);
 
   const canContinue = bio.length > 10;
+  const [profileLive, setProfileLive] = useState(false);
+
+  if (profileLive) {
+    return (
+      <div style={{ maxWidth: 390, minHeight: '100vh', margin: '0 auto', background: 'var(--ink)', display: 'flex', flexDirection: 'column' }}>
+        <div style={{ padding: '56px 22px 32px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 16 }}>
+            <div style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--hydrant)' }} />
+            <span style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'rgba(255,255,255,0.4)' }}>
+              Workers nearby can now see you
+            </span>
+          </div>
+          <h1 style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 52, color: 'white', letterSpacing: '-0.075em', lineHeight: 0.9, marginBottom: 32 }}>
+            PROFILE<br />LIVE<span style={{ color: 'var(--hydrant)' }}>.</span>
+          </h1>
+          <p style={{ fontFamily: 'var(--body)', fontSize: 14, color: 'rgba(255,255,255,0.6)', lineHeight: 1.6, marginBottom: 40 }}>
+            Employers can see your profile now. Set your payout method to unlock shifts.
+          </p>
+          <Link href="/v3/payout-setup" style={{
+            display: 'block', padding: '16px 22px', borderRadius: 99,
+            background: 'var(--hydrant)', color: '#000', fontFamily: 'var(--sans)',
+            fontWeight: 700, fontSize: 16, textAlign: 'center', textDecoration: 'none', letterSpacing: '-0.01em',
+          }}>
+            Set up payout →
+          </Link>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div style={{ maxWidth: 390, minHeight: '100vh', margin: '0 auto', background: 'var(--paper)', display: 'flex', flexDirection: 'column' }}>
@@ -30,7 +59,7 @@ export default function ProfileSetup() {
       </div>
 
       <div style={{ padding: '16px 22px 140px', flex: 1, overflowY: 'auto' }}>
-        <div style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--hydrant)', marginBottom: 10 }}>
+        <div style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--mute)', marginBottom: 10 }}>
           PROFILE
         </div>
         <h1 style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 34, letterSpacing: '-0.075em', lineHeight: 0.95, color: 'var(--ink)', marginBottom: 10 }}>
@@ -45,7 +74,7 @@ export default function ProfileSetup() {
           <div style={{ position: 'relative', flexShrink: 0 }}>
             <div style={{
               width: 80, height: 80, borderRadius: '50%',
-              background: hasPhoto ? 'var(--hydrant)' : 'var(--paper-3)',
+              background: hasPhoto ? 'var(--ink)' : 'var(--paper-3)',
               display: 'flex', alignItems: 'center', justifyContent: 'center',
               border: '2px dashed var(--line-2)',
             }}>
@@ -65,8 +94,8 @@ export default function ProfileSetup() {
               onClick={() => setHasPhoto(true)}
               style={{
                 fontFamily: 'var(--body)', fontSize: 12, fontWeight: 600,
-                color: 'var(--hydrant)', background: 'var(--hydrant-soft)',
-                border: '1px solid var(--hydrant)', borderRadius: 99,
+                color: 'var(--ink)', background: 'var(--paper-2)',
+                border: '2px solid var(--ink)', borderRadius: 99,
                 padding: '6px 12px', cursor: 'pointer',
               }}
             >
@@ -122,7 +151,7 @@ export default function ProfileSetup() {
         {canContinue && (
           <div style={{ padding: '14px 16px', background: 'var(--paper-2)', borderRadius: 12, border: '2px solid var(--ink)', marginBottom: 8 }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 8 }}>
-              <div style={{ width: 36, height: 36, borderRadius: '50%', background: 'var(--hydrant)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+              <div style={{ width: 36, height: 36, borderRadius: '50%', background: 'var(--ink)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
                 <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 13, color: '#fff' }}>MR</span>
               </div>
               <div>
@@ -140,17 +169,17 @@ export default function ProfileSetup() {
       {/* CTA */}
       <div style={{ position: 'fixed', bottom: 0, left: '50%', transform: 'translateX(-50%)', width: '100%', maxWidth: 390, padding: '16px 22px 36px', background: 'linear-gradient(to bottom, transparent, var(--paper) 40%)' }}>
         {canContinue ? (
-          <Link
-            href="/v3/neighborhood"
+          <button
+            onClick={() => setProfileLive(true)}
             style={{
               display: 'block', width: '100%', padding: '15px 22px',
               borderRadius: 99, background: 'var(--ink)', color: '#FFFFFF',
               fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 16,
-              textAlign: 'center', textDecoration: 'none', letterSpacing: '-0.01em',
+              textAlign: 'center', border: 'none', cursor: 'pointer', letterSpacing: '-0.01em',
             }}
           >
             Looking good. Next →
-          </Link>
+          </button>
         ) : (
           <div style={{ width: '100%', padding: '15px 22px', borderRadius: 99, background: 'var(--paper-3)', color: 'var(--mute)', fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 16, textAlign: 'center' }}>
             Write something about yourself

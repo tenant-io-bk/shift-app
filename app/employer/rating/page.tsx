@@ -207,7 +207,7 @@ export default function Page() {
                 padding: 0,
                 fontSize: 28,
                 lineHeight: 1,
-                color: star <= starRating ? 'var(--hydrant)' : 'var(--paper-3)',
+                color: star <= starRating ? 'var(--yellow)' : 'var(--paper-3)',
                 transition: 'color 0.15s',
               }}
             >

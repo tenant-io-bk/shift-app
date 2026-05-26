@@ -70,11 +70,11 @@ const INITIAL: Notif[] = [
 
 const TYPE_CONFIG: Record<NotifType, { bg: string; color: string; icon: string }> = {
   confirmed:  { bg: 'rgba(22,163,74,0.1)',     color: '#16A34A',       icon: '✓' },
-  enroute:    { bg: 'var(--hydrant-soft)',      color: 'var(--hydrant)', icon: '→' },
+  enroute:    { bg: 'var(--paper-2)',            color: 'var(--ink)', icon: '→' },
   filled:     { bg: 'rgba(22,163,74,0.1)',     color: '#16A34A',       icon: '●' },
   payment:    { bg: 'rgba(22,163,74,0.08)',    color: '#16A34A',       icon: '$' },
   reminder:   { bg: 'rgba(234,75,42,0.1)',     color: '#EA4B2A',       icon: '!' },
-  review:     { bg: 'var(--hydrant-soft)',      color: 'var(--hydrant)', icon: '★' },
+  review:     { bg: 'var(--yellow-soft)',        color: 'var(--ink)',    icon: '★' },
   cancelled:  { bg: 'rgba(234,75,42,0.08)',    color: '#EA4B2A',       icon: '×' },
 };
 
@@ -91,12 +91,12 @@ export default function EmployerNotifications() {
 
   return (
     <div style={{ maxWidth: 390, minHeight: '100vh', margin: '0 auto', background: 'var(--paper)', display: 'flex', flexDirection: 'column', paddingBottom: 80 }}>
-      <StatusBar time="9:41" />
+      <StatusBar time="10:12" />
 
       <div style={{ height: 44, display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 16px', borderBottom: '1px solid var(--line)', background: 'var(--paper)' }}>
         <Link href="/employer/dashboard" style={{ fontSize: 20, color: 'var(--ink)', textDecoration: 'none', width: 36 }}>←</Link>
         <span style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--mute)' }}>
-          Alerts{unread > 0 && <span style={{ color: 'var(--hydrant)' }}> · {unread}</span>}
+          Alerts{unread > 0 && <span style={{ color: 'var(--ink)' }}> · {unread}</span>}
         </span>
         {unread > 0 ? (
           <button onClick={markAll} style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, color: 'var(--mute)', background: 'none', border: 'none', cursor: 'pointer', width: 60, textAlign: 'right' }}>
@@ -131,7 +131,7 @@ function Row({ n, onRead }: { n: Notif; onRead: (id: number) => void }) {
       style={{
         display: 'flex', alignItems: 'flex-start', gap: 12,
         padding: '12px 22px',
-        background: n.read ? 'transparent' : 'var(--hydrant-soft)',
+        background: n.read ? 'transparent' : 'var(--paper-2)',
         borderBottom: '1px solid var(--line)',
         textDecoration: 'none',
       }}
@@ -149,7 +149,7 @@ function Row({ n, onRead }: { n: Notif; onRead: (id: number) => void }) {
           <span style={{ fontFamily: 'var(--sans)', fontWeight: n.read ? 500 : 700, fontSize: 14, color: 'var(--ink)', lineHeight: 1.3 }}>
             {n.title}
           </span>
-          {!n.read && <div style={{ width: 7, height: 7, borderRadius: '50%', background: 'var(--hydrant)', flexShrink: 0, marginTop: 4 }} />}
+          {!n.read && <div style={{ width: 7, height: 7, borderRadius: '50%', background: 'var(--ink)', flexShrink: 0, marginTop: 4 }} />}
         </div>
         <div style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--mute)', marginTop: 3, lineHeight: 1.4 }}>{n.sub}</div>
         <div style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)', marginTop: 4, opacity: 0.7 }}>{n.time}</div>

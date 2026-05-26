@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 type Tab = 'dashboard' | 'post' | 'shifts' | 'messages' | 'account';
 
-const ACTIVE = '#72c15f';
+const ACTIVE = 'var(--ink)';
 const INACTIVE = 'rgba(13,14,18,0.45)';
 
 const TABS: { id: Tab; label: string; href: string; icon: React.ReactNode }[] = [

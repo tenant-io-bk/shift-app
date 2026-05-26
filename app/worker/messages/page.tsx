@@ -34,7 +34,7 @@ const THREADS: Thread[] = [
     lastTime: '11:42A',
     unread: 1,
     avatar: 'PC',
-    avatarBg: '#72c15f',
+    avatarBg: 'var(--ink)',
     messages: [
       { from: 'employer', text: "Hey! Looking forward to having you back tomorrow.", time: '10:15A' },
       { from: 'employer', text: "Door's on Tompkins — just ring the bell.", time: '10:16A' },
@@ -113,7 +113,7 @@ export default function WorkerMessages() {
           flexDirection: 'column',
         }}
       >
-        <StatusBar time="9:41" />
+        <StatusBar time="10:12" />
 
         {/* Conversation header */}
         <div
@@ -233,7 +233,7 @@ export default function WorkerMessages() {
                       fontWeight: 700,
                       textTransform: 'uppercase',
                       letterSpacing: '0.08em',
-                      color: 'var(--hydrant)',
+                      color: 'var(--mute)',
                       marginBottom: 6,
                     }}
                   >
@@ -383,7 +383,7 @@ export default function WorkerMessages() {
         paddingBottom: 80,
       }}
     >
-      <StatusBar time="9:41" />
+      <StatusBar time="10:12" />
 
       <div
         style={{
@@ -419,7 +419,7 @@ export default function WorkerMessages() {
               alignItems: 'center',
               gap: 12,
               padding: '14px 22px',
-              background: thread.unread > 0 ? 'var(--hydrant-soft)' : 'transparent',
+              background: 'transparent',
               border: 'none',
               borderBottom: '1px solid var(--line)',
               cursor: 'pointer',
@@ -488,7 +488,7 @@ export default function WorkerMessages() {
                   style={{
                     fontFamily: 'var(--body)',
                     fontSize: 11,
-                    color: 'var(--hydrant)',
+                    color: 'var(--mute)',
                     marginBottom: 2,
                   }}
                 >
@@ -517,7 +517,7 @@ export default function WorkerMessages() {
                   width: 20,
                   height: 20,
                   borderRadius: '50%',
-                  background: 'var(--hydrant)',
+                  background: 'var(--ink)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',

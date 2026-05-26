@@ -67,7 +67,7 @@ export default function WorkerSlides() {
       onTouchEnd={handleTouchEnd}
     >
 {/* Status bar — dark text on green */}
-      <StatusBar time="9:41" />
+      <StatusBar time="10:12" />
 
       {/* Squircle image — pre-cropped PNG, transparency shows green bg */}
       <div style={{

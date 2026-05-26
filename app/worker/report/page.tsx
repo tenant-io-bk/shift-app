@@ -55,10 +55,10 @@ export default function WorkerReport() {
           gap: 8,
         }}>
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-            <path d="M7 1L2 3v4c0 2.8 2.1 5.4 5 6 2.9-.6 5-3.2 5-6V3L7 1z" stroke="var(--hydrant)" strokeWidth="1.5" strokeLinejoin="round" />
-            <path d="M5 7l1.5 1.5L9 5.5" stroke="var(--hydrant)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+            <path d="M7 1L2 3v4c0 2.8 2.1 5.4 5 6 2.9-.6 5-3.2 5-6V3L7 1z" stroke="var(--ink)" strokeWidth="1.5" strokeLinejoin="round" />
+            <path d="M5 7l1.5 1.5L9 5.5" stroke="var(--ink)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
-          <span style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 700, color: 'var(--hydrant)', letterSpacing: '0.06em', textTransform: 'uppercase' }}>
+          <span style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 700, color: 'var(--ink)', letterSpacing: '0.06em', textTransform: 'uppercase' }}>
             Your identity is protected
           </span>
         </div>
@@ -182,11 +182,11 @@ export default function WorkerReport() {
 
             <div style={{
               padding: '10px 14px',
-              background: 'var(--hydrant-soft)',
+              background: 'var(--paper-2)',
               borderRadius: 10,
               fontFamily: 'var(--body)',
               fontSize: 11,
-              color: 'var(--hydrant)',
+              color: 'var(--ink)',
               lineHeight: 1.5,
               marginBottom: 24,
             }}>
@@ -223,16 +223,16 @@ export default function WorkerReport() {
               width: 72,
               height: 72,
               borderRadius: '50%',
-              background: 'var(--hydrant-soft)',
+              background: 'var(--paper-2)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
               marginBottom: 8,
             }}>
               <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-                <path d="M16 3L5 7.5V16c0 6.4 4.8 12.4 11 13.8C22.2 28.4 27 22.4 27 16V7.5L16 3z" fill="var(--hydrant)" opacity="0.2" />
-                <path d="M16 3L5 7.5V16c0 6.4 4.8 12.4 11 13.8C22.2 28.4 27 22.4 27 16V7.5L16 3z" stroke="var(--hydrant)" strokeWidth="2" strokeLinejoin="round" />
-                <path d="M11 16l3.5 3.5L21 12" stroke="var(--hydrant)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M16 3L5 7.5V16c0 6.4 4.8 12.4 11 13.8C22.2 28.4 27 22.4 27 16V7.5L16 3z" fill="var(--ink)" opacity="0.2" />
+                <path d="M16 3L5 7.5V16c0 6.4 4.8 12.4 11 13.8C22.2 28.4 27 22.4 27 16V7.5L16 3z" stroke="var(--ink)" strokeWidth="2" strokeLinejoin="round" />
+                <path d="M11 16l3.5 3.5L21 12" stroke="var(--ink)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </div>
 
@@ -247,12 +247,12 @@ export default function WorkerReport() {
 
             <div style={{
               padding: '12px 20px',
-              background: 'var(--hydrant-soft)',
+              background: 'var(--paper-2)',
               borderRadius: 10,
               fontFamily: 'var(--body)',
               fontSize: 11,
               fontWeight: 700,
-              color: 'var(--hydrant)',
+              color: 'var(--ink)',
               letterSpacing: '0.06em',
               textTransform: 'uppercase',
               marginTop: 8,

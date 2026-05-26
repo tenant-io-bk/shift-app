@@ -13,7 +13,7 @@ export default function StepProgress({ step, total }: { step: number; total: num
         height: DOT,
         width: pillWidth,
         borderRadius: 99,
-        background: 'var(--hydrant)',
+        background: 'var(--ink)',
         transition: 'width 0.45s cubic-bezier(0.34, 1.2, 0.64, 1)',
         flexShrink: 0,
       }} />

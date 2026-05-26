@@ -15,101 +15,46 @@ export default function PaidOut() {
         flexDirection: 'column',
       }}
     >
-      <StatusBar time="4:11 PM" />
+      {/* Stamp header */}
+      <div style={{ background: 'var(--ink)', padding: '0 22px 28px', flexShrink: 0 }}>
+        <StatusBar dark time="4:11 PM" />
 
-      {/* Top nav */}
-      <div
-        style={{
-          height: 44,
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          padding: '0 16px',
-          background: 'var(--paper)',
-          borderBottom: '1px solid var(--line)',
-          flexShrink: 0,
-        }}
-      >
-        <Link
-          href="/worker/map"
-          style={{
-            width: 36,
-            height: 36,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            color: 'var(--ink)',
-            textDecoration: 'none',
-            fontSize: 20,
-          }}
-        >
-          ←
-        </Link>
-        <span
-          style={{
-            fontFamily: 'var(--body)',
-            fontSize: 12,
-            fontWeight: 600,
-            color: 'var(--mute)',
-            letterSpacing: '0.06em',
-            textTransform: 'uppercase',
-          }}
-        >
-          Paid out
-        </span>
-        <div style={{ width: 36 }} />
+        <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 14, marginTop: 8 }}>
+          <div style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--hydrant)' }} />
+          <span style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, color: 'rgba(255,255,255,0.4)', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
+            In 11 min · Barista · Padmore&apos;s
+          </span>
+        </div>
+
+        <h1 style={{
+          fontFamily: 'var(--sans)',
+          fontWeight: 600,
+          fontSize: 52,
+          color: 'white',
+          letterSpacing: '-0.075em',
+          lineHeight: 0.9,
+          marginBottom: 16,
+        }}>
+          PAID OUT<span style={{ color: 'var(--hydrant)' }}>.</span>
+        </h1>
+
+        <div style={{
+          fontFamily: 'var(--sans)',
+          fontWeight: 700,
+          fontSize: 36,
+          color: 'white',
+          letterSpacing: '-0.055em',
+          lineHeight: 1,
+        }}>
+          $174<span style={{ color: 'var(--hydrant)' }}>.</span><span style={{ fontSize: 24, fontWeight: 600, opacity: 0.6 }}>00</span>
+        </div>
       </div>
 
       {/* Scrollable content */}
       <div style={{ flex: 1, overflowY: 'auto', paddingBottom: 120 }}>
 
-        {/* Success banner */}
-        <div
-          style={{
-            padding: '18px 22px',
-            background: 'var(--card)',
-            borderBottom: '1px solid var(--line)',
-            display: 'flex',
-            alignItems: 'center',
-            gap: 12,
-          }}
-        >
-          {/* Checkmark circle */}
-          <div
-            style={{
-              width: 24,
-              height: 24,
-              borderRadius: '50%',
-              background: 'var(--online)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              flexShrink: 0,
-            }}
-          >
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-              <path
-                d="M2 6l2.5 2.5L10 3.5"
-                stroke="white"
-                strokeWidth="1.8"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </div>
-          <div style={{ flex: 1 }}>
-            <span
-              style={{
-                fontFamily: 'var(--sans)',
-                fontWeight: 700,
-                fontSize: 20,
-                color: 'var(--ink)',
-                letterSpacing: '-0.02em',
-              }}
-            >
-              Paid in 11 min.
-            </span>
-          </div>
+        {/* Stub for old banner removal */}
+        <div style={{ display: 'none' }}>
           <span
             style={{
               fontFamily: 'var(--body)',
@@ -212,7 +157,7 @@ export default function PaidOut() {
                   fontFamily: 'var(--sans)',
                   fontWeight: row.bold ? 600 : 400,
                   fontSize: 15,
-                  color: row.green ? '#16A34A' : row.muted ? 'var(--mute)' : 'var(--ink)',
+                  color: row.green ? 'var(--green)' : row.muted ? 'var(--mute)' : 'var(--ink)',
                   letterSpacing: '-0.01em',
                 }}
               >
@@ -322,7 +267,7 @@ export default function PaidOut() {
                   cursor: 'pointer',
                   padding: 0,
                   fontSize: 24,
-                  color: 'var(--hydrant)',
+                  color: 'var(--yellow)',
                   lineHeight: 1,
                 }}
               >
@@ -349,8 +294,8 @@ export default function PaidOut() {
                   alignItems: 'center',
                   fontFamily: 'var(--body)',
                   fontSize: 11,
-                  color: 'var(--hydrant)',
-                  background: 'var(--hydrant-soft)',
+                  color: 'var(--ink)',
+                  background: 'var(--paper-2)',
                   borderRadius: 99,
                   padding: '5px 10px',
                   whiteSpace: 'nowrap',

@@ -19,21 +19,21 @@ const REVIEWS = [
     date: 'Mon 12 May',
     rating: 5,
     text: 'Jumped right in during a busy brunch. No hand-holding needed. Would rebook immediately.',
-    avatar: '#72c15f',
+    avatar: 'var(--ink)',
   },
   {
     business: 'The Wren',
     date: 'Sat 10 May',
     rating: 5,
     text: "Fast, professional, great with customers. One of the best we've had through SHIFT.",
-    avatar: '#0D0E12',
+    avatar: 'var(--ink)',
   },
   {
     business: 'Bar Blondeau',
     date: 'Thu 8 May',
     rating: 4,
     text: 'Solid work, good energy. Took a bit to find the rhythm but got there.',
-    avatar: '#2D6A4F',
+    avatar: 'var(--ink)',
   },
 ];
 
@@ -49,7 +49,7 @@ const PAST_SHIFTS = [
     rate: '$28/HR',
     date: 'Mon 12 May',
     rating: 5,
-    bg: 'linear-gradient(135deg, #c4a577 0%, #8b6545 60%, #5c3d22 100%)',
+    bg: 'var(--ink)',
     cardBg: '#EAD5B8',
   },
   {
@@ -63,7 +63,7 @@ const PAST_SHIFTS = [
     rate: '$24/HR',
     date: 'Sat 10 May',
     rating: 5,
-    bg: 'linear-gradient(135deg, #a8c4a0 0%, #6b9e62 60%, #4a7040 100%)',
+    bg: 'var(--ink)',
     cardBg: '#C2DCC0',
   },
   {
@@ -77,7 +77,7 @@ const PAST_SHIFTS = [
     rate: '$24/HR',
     date: 'Thu 8 May',
     rating: 4,
-    bg: 'linear-gradient(135deg, #b8a0c8 0%, #8060a0 60%, #5a3c78 100%)',
+    bg: 'var(--ink)',
     cardBg: '#D0C0E4',
   },
   {
@@ -91,7 +91,7 @@ const PAST_SHIFTS = [
     rate: '$22/HR',
     date: 'Tue 6 May',
     rating: 4,
-    bg: 'linear-gradient(135deg, #f0c080 0%, #c88040 60%, #906020 100%)',
+    bg: 'var(--ink)',
     cardBg: '#F2E0A0',
   },
 ];
@@ -116,7 +116,7 @@ export default function WorkerProfile() {
 
       {/* Dark header */}
       <div style={{ background: 'var(--ink)', paddingTop: 0 }}>
-        <StatusBar time="9:41" dark />
+        <StatusBar time="10:12" dark />
 
         <div style={{ height: 44, display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 16px' }}>
           <Link href="/" style={{ color: 'rgba(255,255,255,0.7)', textDecoration: 'none', fontSize: 20, width: 32 }}>←</Link>
@@ -140,7 +140,7 @@ export default function WorkerProfile() {
                 color: tab === t ? '#fff' : 'rgba(255,255,255,0.35)',
                 background: 'none', border: 'none', cursor: 'pointer',
                 padding: '10px 4px 12px',
-                borderBottom: tab === t ? '2px solid var(--hydrant)' : '2px solid transparent',
+                borderBottom: tab === t ? '2px solid white' : '2px solid transparent',
                 letterSpacing: '-0.01em',
               }}
             >
@@ -155,7 +155,7 @@ export default function WorkerProfile() {
           {/* Summary */}
           <div style={{ padding: '20px 20px 16px' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
-              <div style={{ width: 52, height: 52, borderRadius: 99, background: 'var(--hydrant)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+              <div style={{ width: 52, height: 52, borderRadius: 99, background: 'var(--ink)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
                 <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 22, color: '#fff', letterSpacing: '-0.04em' }}>12</span>
               </div>
               <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 32, color: 'var(--ink)', letterSpacing: '-0.04em', lineHeight: 1 }}>Shifts Worked</span>
@@ -226,7 +226,7 @@ export default function WorkerProfile() {
                           <div style={{ height: 1, background: 'rgba(13,14,18,0.1)', marginBottom: 14 }} />
                           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 16 }}>
                             <span style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--mute)' }}>Your rating</span>
-                            <span style={{ color: 'var(--hydrant)', fontSize: 16 }}>{'★'.repeat(shift.rating)}{'☆'.repeat(5 - shift.rating)}</span>
+                            <span style={{ color: 'var(--yellow)', fontSize: 16 }}>{'★'.repeat(shift.rating)}{'☆'.repeat(5 - shift.rating)}</span>
                           </div>
                           <Link
                             href="/worker/job-detail"
@@ -273,14 +273,14 @@ export default function WorkerProfile() {
               <input
                 value={nameInput}
                 onChange={e => setNameInput(e.target.value)}
-                style={{ width: '100%', fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 28, color: 'var(--ink)', border: 'none', borderBottom: '2px solid var(--hydrant)', background: 'transparent', outline: 'none', letterSpacing: '-0.04em' }}
+                style={{ width: '100%', fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 28, color: 'var(--ink)', border: 'none', borderBottom: '2px solid var(--ink)', background: 'transparent', outline: 'none', letterSpacing: '-0.04em' }}
               />
             ) : (
               <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 28, color: 'var(--ink)', letterSpacing: '-0.04em' }}>{name}</span>
             )}
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8, flexShrink: 0 }}>
-            <span style={{ color: 'var(--hydrant)', fontSize: 15, letterSpacing: 1 }}>{'★'.repeat(5)}</span>
+            <span style={{ color: 'var(--yellow)', fontSize: 15, letterSpacing: 1 }}>{'★'.repeat(5)}</span>
             <button
               onClick={() => editing ? saveEdits() : setEditing(true)}
               style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 700, color: 'var(--ink)', background: 'var(--paper)', border: '2px solid var(--ink)', borderRadius: 99, padding: '5px 12px', cursor: 'pointer', letterSpacing: '0.06em', textTransform: 'uppercase' }}
@@ -297,14 +297,14 @@ export default function WorkerProfile() {
 
         {/* Online now */}
         <div style={{ display: 'inline-flex', alignItems: 'center', gap: 7, marginBottom: 20 }}>
-          <span style={{ width: 8, height: 8, borderRadius: '50%', background: 'var(--hydrant)', flexShrink: 0 }} />
+          <span style={{ width: 8, height: 8, borderRadius: '50%', background: 'var(--online)', flexShrink: 0 }} />
           <span style={{ fontFamily: 'var(--body)', fontSize: 12, fontWeight: 600, color: 'var(--ink)' }}>Online now</span>
         </div>
       </div>
 
       {/* Profile completion checklist */}
       <div style={{ margin: '0 20px 20px', padding: '16px', background: 'var(--card)', borderRadius: 14, border: '2px solid var(--ink)' }}>
-        <div style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--hydrant)', marginBottom: 12 }}>Finish setting up</div>
+        <div style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--ink)', marginBottom: 12 }}>Finish setting up</div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
           {[
             { label: 'Add a photo to get booked faster', href: '#', done: false },
@@ -357,7 +357,7 @@ export default function WorkerProfile() {
             value={bioInput}
             onChange={e => setBioInput(e.target.value)}
             rows={4}
-            style={{ width: '100%', fontFamily: 'var(--body)', fontSize: 14, color: 'var(--ink)', border: '2px solid var(--hydrant)', borderRadius: 14, padding: '10px 12px', background: 'var(--card)', outline: 'none', resize: 'none', lineHeight: 1.6, boxSizing: 'border-box' }}
+            style={{ width: '100%', fontFamily: 'var(--body)', fontSize: 14, color: 'var(--ink)', border: '2px solid var(--ink)', borderRadius: 14, padding: '10px 12px', background: 'var(--card)', outline: 'none', resize: 'none', lineHeight: 1.6, boxSizing: 'border-box' }}
           />
         ) : (
           <p style={{ fontFamily: 'var(--body)', fontSize: 14, color: 'var(--ink)', lineHeight: 1.65, margin: 0 }}>{bio}</p>
@@ -383,7 +383,7 @@ export default function WorkerProfile() {
       <div style={{ padding: '18px 20px 0' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 14 }}>
           <div style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--mute)' }}>Reviews from employers</div>
-          <span style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--hydrant)', fontWeight: 600 }}>4.9 avg</span>
+          <span style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)', fontWeight: 600 }}>4.9 avg</span>
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
           {REVIEWS.map((review, i) => (
@@ -396,7 +396,7 @@ export default function WorkerProfile() {
                   <div style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 14, color: 'var(--ink)' }}>{review.business}</div>
                   <div style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)' }}>{review.date}</div>
                 </div>
-                <div style={{ color: 'var(--hydrant)', fontSize: 13, fontWeight: 700 }}>{'★'.repeat(review.rating)}</div>
+                <div style={{ color: 'var(--yellow)', fontSize: 13, fontWeight: 700 }}>{'★'.repeat(review.rating)}</div>
               </div>
               <p style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--mute)', lineHeight: 1.6, margin: 0 }}>&ldquo;{review.text}&rdquo;</p>
             </div>

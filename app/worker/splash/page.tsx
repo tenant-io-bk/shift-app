@@ -48,7 +48,7 @@ export default function WorkerSplash() {
         }
       `}</style>
 
-      <StatusBar dark time="9:41" />
+      <StatusBar dark time="10:12" />
 
       <img
         src="/LOGO-green.svg"

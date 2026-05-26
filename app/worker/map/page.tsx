@@ -125,7 +125,7 @@ export default function WorkerMap() {
         <Link href="/" style={{ width: 36, height: 36, display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--ink)', textDecoration: 'none', fontSize: 20 }}>←</Link>
         <div style={{ display: 'flex', alignItems: 'center', gap: 8, background: floating ? '#fff' : 'var(--paper-2)', border: '2px solid var(--ink)', borderRadius: 99, padding: '6px 12px 6px 14px' }}>
           <span style={{ fontFamily: 'var(--body)', fontSize: 12, fontWeight: 600, color: 'var(--ink)' }}>Bed-Stuy · 2 mi</span>
-          <div style={{ background: filteredShifts.length > 0 ? '#72c15f' : 'var(--mute)', borderRadius: 99, padding: '3px 8px' }}>
+          <div style={{ background: filteredShifts.length > 0 ? 'var(--ink)' : 'var(--mute)', borderRadius: 99, padding: '3px 8px' }}>
             <span style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 700, color: '#fff', letterSpacing: '0.06em', textTransform: 'uppercase' }}>{filteredShifts.length} READY</span>
           </div>
         </div>
@@ -140,16 +140,16 @@ export default function WorkerMap() {
             }}>
               {mode === 'map' ? (
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                  <rect x="1" y="1" width="5" height="5" rx="1" fill={viewMode === 'map' ? 'var(--hydrant)' : 'var(--mute)'} />
-                  <rect x="8" y="1" width="5" height="5" rx="1" fill={viewMode === 'map' ? 'var(--hydrant)' : 'var(--mute)'} />
-                  <rect x="1" y="8" width="5" height="5" rx="1" fill={viewMode === 'map' ? 'var(--hydrant)' : 'var(--mute)'} />
-                  <rect x="8" y="8" width="5" height="5" rx="1" fill={viewMode === 'map' ? 'var(--hydrant)' : 'var(--mute)'} />
+                  <rect x="1" y="1" width="5" height="5" rx="1" fill={viewMode === 'map' ? 'var(--ink)' : 'var(--mute)'} />
+                  <rect x="8" y="1" width="5" height="5" rx="1" fill={viewMode === 'map' ? 'var(--ink)' : 'var(--mute)'} />
+                  <rect x="1" y="8" width="5" height="5" rx="1" fill={viewMode === 'map' ? 'var(--ink)' : 'var(--mute)'} />
+                  <rect x="8" y="8" width="5" height="5" rx="1" fill={viewMode === 'map' ? 'var(--ink)' : 'var(--mute)'} />
                 </svg>
               ) : (
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                  <rect x="1" y="2" width="12" height="2" rx="1" fill={viewMode === 'list' ? 'var(--hydrant)' : 'var(--mute)'} />
-                  <rect x="1" y="6" width="12" height="2" rx="1" fill={viewMode === 'list' ? 'var(--hydrant)' : 'var(--mute)'} />
-                  <rect x="1" y="10" width="12" height="2" rx="1" fill={viewMode === 'list' ? 'var(--hydrant)' : 'var(--mute)'} />
+                  <rect x="1" y="2" width="12" height="2" rx="1" fill={viewMode === 'list' ? 'var(--ink)' : 'var(--mute)'} />
+                  <rect x="1" y="6" width="12" height="2" rx="1" fill={viewMode === 'list' ? 'var(--ink)' : 'var(--mute)'} />
+                  <rect x="1" y="10" width="12" height="2" rx="1" fill={viewMode === 'list' ? 'var(--ink)' : 'var(--mute)'} />
                 </svg>
               )}
             </button>
@@ -227,13 +227,13 @@ export default function WorkerMap() {
   /* ── MAP VIEW ── */
   if (viewMode === 'map') {
     return (
-      <div style={{ maxWidth: 390, height: '100dvh', margin: '0 auto', position: 'relative', overflow: 'hidden', background: '#e8e0d8' }}>
+      <div style={{ maxWidth: 390, height: '100dvh', margin: '0 auto', position: 'relative', overflow: 'hidden', background: '#E8EAF0' }}>
         <style>{`
           @keyframes me-pulse {
             0% { transform: scale(1); opacity: 0.7; }
             100% { transform: scale(2.8); opacity: 0; }
           }
-          .me-pulse-ring { position: absolute; inset: -4px; border-radius: 50%; background: #72c15f; animation: me-pulse 2s ease-out infinite; }
+          .me-pulse-ring { position: absolute; inset: -4px; border-radius: 50%; background: #16A34A; animation: me-pulse 2s ease-out infinite; }
           @keyframes slideUp { from { transform: translateX(-50%) translateY(100%); } to { transform: translateX(-50%) translateY(0); } }
         `}</style>
 
@@ -247,7 +247,7 @@ export default function WorkerMap() {
         {/* Me dot */}
         <div style={{ position: 'absolute', left: '28%', top: '55%', transform: 'translate(-50%,-50%)', width: 10, height: 10, zIndex: 5 }}>
           <div className="me-pulse-ring" />
-          <div style={{ position: 'relative', width: 10, height: 10, borderRadius: '50%', background: 'var(--hydrant)', border: '2px solid #fff', boxShadow: '0 1px 4px rgba(0,0,0,0.3)', zIndex: 1 }} />
+          <div style={{ position: 'relative', width: 10, height: 10, borderRadius: '50%', background: '#16A34A', border: '2px solid #fff', boxShadow: '0 1px 4px rgba(0,0,0,0.3)', zIndex: 1 }} />
         </div>
 
         {/* Shift pins */}

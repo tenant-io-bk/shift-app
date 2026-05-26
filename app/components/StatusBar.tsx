@@ -3,7 +3,7 @@ type StatusBarProps = {
   time?: string;
 };
 
-export default function StatusBar({ dark = false, time = '9:41' }: StatusBarProps) {
+export default function StatusBar({ dark = false, time = '10:12' }: StatusBarProps) {
   const color = dark ? '#FFFFFF' : 'var(--ink)';
 
   return (

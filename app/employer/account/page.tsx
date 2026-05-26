@@ -122,7 +122,7 @@ function RowToggle({ label, sub, value, onToggle }: { label: string; sub: string
         <div style={{ fontFamily: 'var(--sans)', fontSize: 15, color: 'var(--ink)' }}>{label}</div>
         <div style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)', marginTop: 2 }}>{sub}</div>
       </div>
-      <button onClick={onToggle} style={{ width: 44, height: 26, borderRadius: 99, border: 'none', cursor: 'pointer', flexShrink: 0, background: value ? 'var(--hydrant)' : 'var(--paper-3)', position: 'relative', transition: 'background 0.2s' }}>
+      <button onClick={onToggle} style={{ width: 44, height: 26, borderRadius: 99, border: 'none', cursor: 'pointer', flexShrink: 0, background: value ? 'var(--ink)' : 'var(--paper-3)', position: 'relative', transition: 'background 0.2s' }}>
         <div style={{ position: 'absolute', top: 3, left: value ? 21 : 3, width: 20, height: 20, borderRadius: '50%', background: '#fff', boxShadow: '0 1px 4px rgba(0,0,0,0.2)', transition: 'left 0.2s' }} />
       </button>
     </div>

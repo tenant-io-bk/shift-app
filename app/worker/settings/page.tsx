@@ -22,7 +22,7 @@ export default function Settings() {
 
   return (
     <div style={{ maxWidth: 390, minHeight: '100vh', margin: '0 auto', background: 'var(--paper-2)', display: 'flex', flexDirection: 'column' }}>
-      <StatusBar time="9:41" />
+      <StatusBar time="10:12" />
 
       {/* Nav */}
       <div style={{ height: 44, display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 16px', borderBottom: '1px solid var(--line)', background: 'var(--paper)' }}>
@@ -132,7 +132,7 @@ function RowToggle({ label, sub, value, onToggle }: { label: string; sub: string
         onClick={onToggle}
         style={{
           width: 44, height: 26, borderRadius: 99, border: 'none', cursor: 'pointer', flexShrink: 0,
-          background: value ? 'var(--hydrant)' : 'var(--paper-3)',
+          background: value ? 'var(--ink)' : 'var(--paper-3)',
           position: 'relative', transition: 'background 0.2s',
         }}
       >

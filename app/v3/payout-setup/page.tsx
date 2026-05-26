@@ -9,7 +9,7 @@ const METHODS = [
     id: 'debit',
     icon: (
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-        <path d="M8 1L10.5 5.5H14L11 8.5L12 13L8 10.5L4 13L5 8.5L2 5.5H5.5L8 1Z" fill="#72c15f" />
+        <path d="M8 1L10.5 5.5H14L11 8.5L12 13L8 10.5L4 13L5 8.5L2 5.5H5.5L8 1Z" fill="var(--ink)" />
       </svg>
     ),
     title: 'Debit Card',
@@ -32,6 +32,32 @@ const METHODS = [
 
 export default function PayoutSetup() {
   const [selected, setSelected] = useState('debit');
+  const [cardAdded, setCardAdded] = useState(false);
+
+  if (cardAdded) {
+    return (
+      <div style={{ maxWidth: 390, minHeight: '100vh', margin: '0 auto', background: 'var(--ink)', display: 'flex', flexDirection: 'column' }}>
+        <div style={{ padding: '56px 22px 32px' }}>
+          <div style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'rgba(255,255,255,0.4)', marginBottom: 16 }}>
+            {selected === 'debit' ? 'Debit card · instant payout' : 'Bank transfer · 1–2 days'}
+          </div>
+          <h1 style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 52, color: 'white', letterSpacing: '-0.075em', lineHeight: 0.9, marginBottom: 32 }}>
+            CARD<br />ADDED<span style={{ color: 'var(--hydrant)' }}>.</span>
+          </h1>
+          <p style={{ fontFamily: 'var(--body)', fontSize: 14, color: 'rgba(255,255,255,0.6)', lineHeight: 1.6, marginBottom: 40 }}>
+            You&apos;ll get paid within 11 minutes of clocking out. First shift starts now.
+          </p>
+          <Link href="/worker/map" style={{
+            display: 'block', padding: '16px 22px', borderRadius: 99,
+            background: 'var(--hydrant)', color: '#000', fontFamily: 'var(--sans)',
+            fontWeight: 700, fontSize: 16, textAlign: 'center', textDecoration: 'none', letterSpacing: '-0.01em',
+          }}>
+            Start earning →
+          </Link>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div style={{ maxWidth: 390, minHeight: '100vh', margin: '0 auto', background: 'var(--paper)' }}>
@@ -55,7 +81,7 @@ export default function PayoutSetup() {
           fontFamily: 'var(--body)',
           fontSize: 11,
           fontWeight: 600,
-          color: 'var(--hydrant)',
+          color: 'var(--mute)',
           textTransform: 'uppercase',
           letterSpacing: '0.08em',
           display: 'block',
@@ -90,7 +116,7 @@ export default function PayoutSetup() {
                 style={{
                   padding: 16,
                   borderRadius: 12,
-                  background: isSelected ? 'var(--hydrant)' : 'var(--card)',
+                  background: isSelected ? 'var(--ink)' : 'var(--card)',
                   border: isSelected ? 'none' : '2px solid var(--ink)',
                   display: 'flex',
                   alignItems: 'center',
@@ -106,12 +132,12 @@ export default function PayoutSetup() {
                       fontFamily: 'var(--sans)',
                       fontWeight: 700,
                       fontSize: 16,
-                      color: isSelected ? '#000' : 'var(--ink)',
+                      color: isSelected ? '#fff' : 'var(--ink)',
                     }}>{method.title}</div>
                     <div style={{
                       fontFamily: 'var(--body)',
                       fontSize: 12,
-                      color: isSelected ? 'rgba(0,0,0,0.6)' : 'var(--mute)',
+                      color: isSelected ? 'rgba(255,255,255,0.6)' : 'var(--mute)',
                       marginTop: 2,
                     }}>{method.sub}</div>
                   </div>
@@ -121,7 +147,7 @@ export default function PayoutSetup() {
                     width: 20,
                     height: 20,
                     borderRadius: 99,
-                    background: 'var(--hydrant)',
+                    background: 'rgba(255,255,255,0.2)',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
@@ -162,7 +188,7 @@ export default function PayoutSetup() {
         </div>
 
         {/* CTA */}
-        <Link href="/worker/map" style={{
+        <button onClick={() => setCardAdded(true)} style={{
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
@@ -175,9 +201,10 @@ export default function PayoutSetup() {
           fontFamily: 'var(--sans)',
           fontWeight: 700,
           fontSize: 18,
-          textDecoration: 'none',
+          border: 'none',
+          cursor: 'pointer',
           letterSpacing: '-0.01em',
-        }}>Start earning →</Link>
+        }}>Start earning →</button>
 
         <p style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)', textAlign: 'center', marginTop: 12 }}>
           W-9 required once you earn $600. We&apos;ll remind you.

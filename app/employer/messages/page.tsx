@@ -33,7 +33,7 @@ const THREADS: Thread[] = [
     lastTime: '9:38A',
     unread: 0,
     initial: 'M',
-    avatarBg: '#72c15f',
+    avatarBg: 'var(--ink)',
     messages: [
       {
         from: 'worker',
@@ -53,7 +53,7 @@ const THREADS: Thread[] = [
     role: 'Barista',
     shiftDate: 'Today · 11A–4P',
     lastMsg: "Here! Just rang the bell.",
-    lastTime: '9:41A',
+    lastTime: '10:12A',
     unread: 1,
     initial: 'S',
     avatarBg: '#2D6A4F',
@@ -61,7 +61,7 @@ const THREADS: Thread[] = [
       {
         from: 'worker',
         text: "Here! Just rang the bell.",
-        time: '9:41A',
+        time: '10:12A',
       },
     ],
   },
@@ -122,7 +122,7 @@ export default function EmployerMessages() {
           flexDirection: 'column',
         }}
       >
-        <StatusBar time="9:41" />
+        <StatusBar time="10:12" />
 
         {/* Header */}
         <div
@@ -345,7 +345,7 @@ export default function EmployerMessages() {
         paddingBottom: 80,
       }}
     >
-      <StatusBar time="9:41" />
+      <StatusBar time="10:12" />
 
       <div
         style={{

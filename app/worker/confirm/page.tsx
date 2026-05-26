@@ -13,97 +13,42 @@ export default function WorkerConfirm() {
         flexDirection: 'column',
       }}
     >
-      <StatusBar time="10:14" />
+      {/* Stamp header */}
+      <div style={{ background: 'var(--ink)', padding: '0 22px 28px', flexShrink: 0 }}>
+        <StatusBar dark time="10:14" />
 
-      {/* Top bar */}
-      <div
-        style={{
-          height: 52,
-          background: 'var(--paper)',
-          borderBottom: '1px solid var(--line)',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          padding: '0 16px',
-          flexShrink: 0,
-        }}
-      >
-        <Link
-          href="/worker/job-detail"
-          style={{
-            width: 36,
-            height: 36,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            color: 'var(--ink)',
-            textDecoration: 'none',
-            fontSize: 20,
-          }}
-        >
-          ←
-        </Link>
-        <span
-          style={{
-            fontFamily: 'var(--body)',
-            fontSize: 13,
-            fontWeight: 600,
-            color: 'var(--ink)',
-            letterSpacing: '0.04em',
-          }}
-        >
-          Shift locked
-        </span>
-        <div style={{ width: 36 }} />
+        <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 14, marginTop: 8 }}>
+          <div style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--hydrant)' }} />
+          <span style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, color: 'rgba(255,255,255,0.4)', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
+            Just now · Barista · Today 11A–4P
+          </span>
+        </div>
+
+        <h1 style={{
+          fontFamily: 'var(--sans)',
+          fontWeight: 600,
+          fontSize: 52,
+          color: 'white',
+          letterSpacing: '-0.075em',
+          lineHeight: 0.9,
+          marginBottom: 16,
+        }}>
+          SHIFT<br />BOOKED<span style={{ color: 'var(--hydrant)' }}>.</span>
+        </h1>
+
+        <div style={{
+          fontFamily: 'var(--sans)',
+          fontWeight: 700,
+          fontSize: 36,
+          color: 'white',
+          letterSpacing: '-0.055em',
+        }}>
+          $140<span style={{ color: 'var(--hydrant)' }}>.</span><span style={{ fontSize: 20, fontWeight: 600, opacity: 0.5 }}>00</span>
+        </div>
       </div>
 
       {/* Scrollable content */}
       <div style={{ flex: 1, padding: '22px 22px', paddingBottom: 120, overflowY: 'auto' }}>
-
-        {/* Receipt header */}
-        <div
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: 6,
-            marginBottom: 12,
-          }}
-        >
-          <div
-            style={{
-              width: 6,
-              height: 6,
-              borderRadius: '50%',
-              background: 'var(--mute-2)',
-              flexShrink: 0,
-            }}
-          />
-          <span
-            style={{
-              fontFamily: 'var(--body)',
-              fontSize: 11,
-              color: 'var(--mute)',
-            }}
-          >
-            Shift locked · just now
-          </span>
-        </div>
-
-        <h1
-          style={{
-            fontFamily: 'var(--sans)',
-            fontWeight: 600,
-            fontSize: 52,
-            color: 'var(--ink)',
-            letterSpacing: '-0.075em',
-            lineHeight: 1.05,
-            marginBottom: 22,
-          }}
-        >
-          $140 —{' '}
-          <span>yours</span>
-          <span style={{ color: 'var(--hydrant)' }}>.</span>
-        </h1>
 
         {/* Receipt card */}
         <div

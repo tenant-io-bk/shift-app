@@ -18,6 +18,33 @@ export default function EmployerVerify() {
 
   const einComplete = ein.replace(/\D/g, '').length === 9;
   const canContinue = (method === 'ein' && einComplete) || (method === 'doc' && uploaded);
+  const [verified, setVerified] = useState(false);
+
+  if (verified) {
+    return (
+      <div style={{ maxWidth: 390, minHeight: '100vh', margin: '0 auto', background: 'var(--ink)', display: 'flex', flexDirection: 'column' }}>
+        <StatusBar dark />
+        <div style={{ padding: '16px 22px 32px' }}>
+          <div style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'rgba(255,255,255,0.4)', marginBottom: 16 }}>
+            Padmore&apos;s Coffee · EIN submitted
+          </div>
+          <h1 style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 52, color: 'white', letterSpacing: '-0.075em', lineHeight: 0.9, marginBottom: 32 }}>
+            VERIFIED<span style={{ color: 'var(--hydrant)' }}>.</span>
+          </h1>
+          <p style={{ fontFamily: 'var(--body)', fontSize: 14, color: 'rgba(255,255,255,0.6)', lineHeight: 1.6, marginBottom: 40 }}>
+            We&apos;ll review within one business day. You&apos;ll get a text when you&apos;re approved to post.
+          </p>
+          <Link href="/employer/business-profile" style={{
+            display: 'block', padding: '16px 22px', borderRadius: 99,
+            background: 'var(--hydrant)', color: '#000', fontFamily: 'var(--sans)',
+            fontWeight: 700, fontSize: 16, textAlign: 'center', textDecoration: 'none', letterSpacing: '-0.01em',
+          }}>
+            Continue →
+          </Link>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div style={{ maxWidth: 390, minHeight: '100vh', margin: '0 auto', background: 'var(--paper)', display: 'flex', flexDirection: 'column' }}>
@@ -34,7 +61,7 @@ export default function EmployerVerify() {
       </div>
 
       <div style={{ padding: '20px 22px 140px', flex: 1, overflowY: 'auto' }}>
-        <div style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--hydrant)', marginBottom: 10 }}>VERIFICATION</div>
+        <div style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--mute)', marginBottom: 10 }}>VERIFICATION</div>
         <h1 style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 34, letterSpacing: '-0.075em', lineHeight: 0.95, color: 'var(--ink)', marginBottom: 10 }}>
           Prove it's your business.
         </h1>
@@ -83,7 +110,7 @@ export default function EmployerVerify() {
               placeholder="XX-XXXXXXX"
               style={{
                 width: '100%', height: 52, padding: '0 16px',
-                background: 'var(--card)', border: `2px solid ${einComplete ? 'var(--hydrant)' : 'var(--ink)'}`,
+                background: 'var(--card)', border: '2px solid var(--ink)',
                 borderRadius: 14, fontFamily: 'var(--body)', fontSize: 20,
                 letterSpacing: '0.12em', color: 'var(--ink)', outline: 'none',
                 boxSizing: 'border-box',
@@ -91,7 +118,7 @@ export default function EmployerVerify() {
               }}
             />
             {einComplete && (
-              <p style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--hydrant)', fontWeight: 600, marginTop: 6 }}>✓ Looks good</p>
+              <p style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--ink)', fontWeight: 600, marginTop: 6 }}>✓ Looks good</p>
             )}
           </div>
 
@@ -156,11 +183,11 @@ export default function EmployerVerify() {
 
       <div style={{ position: 'fixed', bottom: 0, left: '50%', transform: 'translateX(-50%)', width: '100%', maxWidth: 390, padding: '16px 22px 36px', background: 'linear-gradient(to bottom, transparent, var(--paper) 40%)' }}>
         {canContinue ? (
-          <Link href="/employer/business-profile" style={{
+          <button onClick={() => setVerified(true)} style={{
             display: 'block', width: '100%', padding: '15px 22px', borderRadius: 99,
             background: 'var(--ink)', color: '#fff', fontFamily: 'var(--sans)',
-            fontWeight: 700, fontSize: 16, textAlign: 'center', textDecoration: 'none',
-          }}>Submit for review →</Link>
+            fontWeight: 700, fontSize: 16, textAlign: 'center', border: 'none', cursor: 'pointer',
+          }}>Submit for review →</button>
         ) : (
           <div style={{ width: '100%', padding: '15px 22px', borderRadius: 99, background: 'var(--paper-3)', color: 'var(--ink)', fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 16, textAlign: 'center' }}>
             Choose a verification method

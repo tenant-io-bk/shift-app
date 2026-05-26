@@ -160,11 +160,11 @@ export default function Page() {
             </text>
 
             {/* Worker A pin at bottom-left */}
-            <circle cx="90" cy="130" r="8" fill="#72c15f" stroke="white" strokeWidth="2" />
+            <circle cx="90" cy="130" r="8" fill="#0D0E12" stroke="white" strokeWidth="2" />
             <text x="90" y="134" textAnchor="middle" fill="white" fontSize="7" fontWeight="700" fontFamily="system-ui">M</text>
 
             {/* Worker B pin at top-right */}
-            <circle cx="310" cy="40" r="8" fill="#72c15f" stroke="white" strokeWidth="2" />
+            <circle cx="310" cy="40" r="8" fill="#0D0E12" stroke="white" strokeWidth="2" />
             <text x="310" y="44" textAnchor="middle" fill="white" fontSize="7" fontWeight="700" fontFamily="system-ui">S</text>
           </svg>
 
@@ -229,7 +229,7 @@ export default function Page() {
                 fontWeight: 600,
                 textTransform: 'uppercase',
                 letterSpacing: '0.12em',
-                color: 'var(--hydrant)',
+                color: 'var(--ink)',
               }}
             >
               Confirmed
@@ -251,7 +251,7 @@ export default function Page() {
             {[
               {
                 initial: 'M',
-                gradient: 'linear-gradient(135deg, #c4a577, #8b6545)',
+                gradient: 'var(--ink)',
                 name: 'Marco Reyes',
                 meta: 'Barista · 4.9★ · en route',
                 eta: '6 min',
@@ -259,7 +259,7 @@ export default function Page() {
               },
               {
                 initial: 'S',
-                gradient: 'linear-gradient(135deg, #a8c4a0, #6b9e62)',
+                gradient: 'var(--ink)',
                 name: 'Sam Ortiz',
                 meta: 'Barista · 4.8★ · en route',
                 eta: '8 min',
@@ -319,7 +319,7 @@ export default function Page() {
                   >
                     {worker.meta}
                   </div>
-                  <div style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--hydrant)', marginTop: 3, fontWeight: 600 }}>
+                  <div style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)', marginTop: 3, fontWeight: 600 }}>
                     {worker.reliable}% reliable
                   </div>
                 </div>
@@ -369,7 +369,7 @@ export default function Page() {
                   width: 52,
                   height: 52,
                   borderRadius: '50%',
-                  background: 'linear-gradient(135deg, #f0c080, #c88040)',
+                  background: 'var(--ink)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
@@ -496,7 +496,7 @@ export default function Page() {
               textAlign: 'center',
               fontFamily: 'var(--body)',
               fontSize: 12,
-              color: 'var(--hydrant)',
+              color: 'var(--ink)',
               textDecoration: 'none',
               padding: '8px 0 4px',
             }}

@@ -117,7 +117,7 @@ export default function WorkerWallet() {
               width: 46,
               height: 26,
               borderRadius: 99,
-              background: withholding ? 'var(--hydrant)' : 'var(--line)',
+              background: withholding ? 'var(--ink)' : 'var(--line)',
               border: 'none',
               cursor: 'pointer',
               position: 'relative',
@@ -146,11 +146,11 @@ export default function WorkerWallet() {
             style={{
               marginTop: 10,
               padding: '8px 12px',
-              background: 'var(--hydrant-soft)',
+              background: 'var(--paper-2)',
               borderRadius: 8,
               fontFamily: 'var(--body)',
               fontSize: 11,
-              color: 'var(--hydrant)',
+              color: 'var(--mute)',
             }}
           >
             Held funds transfer to your tax account on Jan 15, Apr 15, Jun 15, Sep 15.
