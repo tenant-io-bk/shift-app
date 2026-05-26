@@ -111,23 +111,33 @@ export default function Availability() {
                     }}>{d}</div>
                   ))}
                 </div>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(7, 1fr)', gap: 4 }}>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(7, 1fr)', gap: 3 }}>
                   {DAYS.map((_, colIdx) => {
                     const enabled = grid[rowIdx][colIdx];
+                    const leftOn = colIdx > 0 && grid[rowIdx][colIdx - 1];
+                    const rightOn = colIdx < 6 && grid[rowIdx][colIdx + 1];
+                    const borderRadius = !enabled ? 99
+                      : leftOn && rightOn ? 5
+                      : leftOn ? '5px 99px 99px 5px'
+                      : rightOn ? '99px 5px 5px 99px'
+                      : 99;
                     return (
                       <button
                         key={colIdx}
                         onClick={() => toggle(rowIdx, colIdx)}
                         style={{
-                          aspectRatio: '1',
-                          borderRadius: '50%',
+                          height: 42,
+                          borderRadius,
                           border: 'none',
                           background: enabled ? '#D4C6F4' : 'var(--ink)',
                           cursor: 'pointer',
                           display: 'flex',
                           alignItems: 'center',
                           justifyContent: 'center',
-                          transition: 'all 0.15s ease',
+                          transition: 'background 0.15s ease, border-radius 0.15s ease',
+                          marginLeft: enabled && leftOn ? -3 : 0,
+                          position: 'relative',
+                          zIndex: enabled ? 1 : 0,
                         }}
                       >
                         {enabled && (
