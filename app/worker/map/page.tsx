@@ -92,9 +92,39 @@ const ROLE_COLORS: Record<string, { bg: string; color: string }> = {
 export default function WorkerMap() {
   const [viewMode, setViewMode] = useState<'map' | 'list'>('map');
   const [selectedShift, setSelectedShift] = useState<Shift | null>(null);
+  const [filterOpen, setFilterOpen] = useState(false);
+
+  // draft state (inside sheet before Save)
+  const [draftRole, setDraftRole] = useState('All');
+  const [draftHighPay, setDraftHighPay] = useState(false);
+  const [draftSort, setDraftSort] = useState<'pay' | 'none'>('none');
+
+  // applied state (what the map actually uses)
   const [filterRole, setFilterRole] = useState('All');
   const [filterHighPay, setFilterHighPay] = useState(false);
   const [sortByPrice, setSortByPrice] = useState(false);
+
+  const activeFilterCount = [filterRole !== 'All', filterHighPay, sortByPrice].filter(Boolean).length;
+
+  function openFilter() {
+    setDraftRole(filterRole);
+    setDraftHighPay(filterHighPay);
+    setDraftSort(sortByPrice ? 'pay' : 'none');
+    setFilterOpen(true);
+  }
+
+  function applyFilter() {
+    setFilterRole(draftRole);
+    setFilterHighPay(draftHighPay);
+    setSortByPrice(draftSort === 'pay');
+    setFilterOpen(false);
+  }
+
+  function clearFilter() {
+    setDraftRole('All');
+    setDraftHighPay(false);
+    setDraftSort('none');
+  }
 
   const filteredShifts = SHIFTS.filter(s => {
     if (filterRole !== 'All') {
@@ -125,103 +155,119 @@ export default function WorkerMap() {
         <Link href="/" style={{ width: 36, height: 36, display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--ink)', textDecoration: 'none', fontSize: 20 }}>←</Link>
         <div style={{ display: 'flex', alignItems: 'center', gap: 8, background: floating ? '#fff' : 'var(--paper-2)', border: '2px solid var(--ink)', borderRadius: 99, padding: '6px 12px 6px 14px' }}>
           <span style={{ fontFamily: 'var(--body)', fontSize: 12, fontWeight: 600, color: 'var(--ink)' }}>Bed-Stuy · 2 mi</span>
-          <div style={{ background: filteredShifts.length > 0 ? 'var(--ink)' : 'var(--mute)', borderRadius: 99, padding: '3px 8px' }}>
-            <span style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 700, color: '#fff', letterSpacing: '0.06em', textTransform: 'uppercase' }}>{filteredShifts.length} READY</span>
+        </div>
+        <div style={{ display: 'flex', gap: 6, alignItems: 'center' }}>
+          {/* Filter button */}
+          <button onClick={openFilter} style={{
+            position: 'relative', height: 36, padding: '0 14px', borderRadius: 99,
+            border: activeFilterCount > 0 ? 'none' : '1.5px solid var(--line)',
+            background: activeFilterCount > 0 ? 'var(--ink)' : floating ? 'rgba(0,0,0,0.06)' : 'var(--paper-2)',
+            color: activeFilterCount > 0 ? '#fff' : 'var(--ink)',
+            fontFamily: 'var(--body)', fontSize: 12, fontWeight: 600, cursor: 'pointer',
+            display: 'flex', alignItems: 'center', gap: 5,
+          }}>
+            <svg width="13" height="11" viewBox="0 0 13 11" fill="none">
+              <rect x="0" y="0" width="13" height="1.8" rx="0.9" fill="currentColor"/>
+              <rect x="2" y="4.5" width="9" height="1.8" rx="0.9" fill="currentColor"/>
+              <rect x="4" y="9" width="5" height="1.8" rx="0.9" fill="currentColor"/>
+            </svg>
+            Filter{activeFilterCount > 0 ? ` · ${activeFilterCount}` : ''}
+          </button>
+          {/* View toggle */}
+          <div style={{ display: 'flex', background: floating ? 'rgba(0,0,0,0.08)' : 'var(--paper-3)', borderRadius: 8, padding: 2, gap: 2 }}>
+            {(['map', 'list'] as const).map(mode => (
+              <button key={mode} onClick={() => setViewMode(mode)} style={{
+                width: 32, height: 28, borderRadius: 6, border: 'none', cursor: 'pointer',
+                background: viewMode === mode ? '#fff' : 'transparent',
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                boxShadow: viewMode === mode ? '0 1px 3px rgba(0,0,0,0.12)' : 'none',
+                transition: 'all 0.15s',
+              }}>
+                {mode === 'map' ? (
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                    <rect x="1" y="1" width="5" height="5" rx="1" fill={viewMode === 'map' ? 'var(--ink)' : 'var(--mute)'} />
+                    <rect x="8" y="1" width="5" height="5" rx="1" fill={viewMode === 'map' ? 'var(--ink)' : 'var(--mute)'} />
+                    <rect x="1" y="8" width="5" height="5" rx="1" fill={viewMode === 'map' ? 'var(--ink)' : 'var(--mute)'} />
+                    <rect x="8" y="8" width="5" height="5" rx="1" fill={viewMode === 'map' ? 'var(--ink)' : 'var(--mute)'} />
+                  </svg>
+                ) : (
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                    <rect x="1" y="2" width="12" height="2" rx="1" fill={viewMode === 'list' ? 'var(--ink)' : 'var(--mute)'} />
+                    <rect x="1" y="6" width="12" height="2" rx="1" fill={viewMode === 'list' ? 'var(--ink)' : 'var(--mute)'} />
+                    <rect x="1" y="10" width="12" height="2" rx="1" fill={viewMode === 'list' ? 'var(--ink)' : 'var(--mute)'} />
+                  </svg>
+                )}
+              </button>
+            ))}
           </div>
         </div>
-        <div style={{ display: 'flex', background: floating ? 'rgba(0,0,0,0.08)' : 'var(--paper-3)', borderRadius: 8, padding: 2, gap: 2 }}>
-          {(['map', 'list'] as const).map(mode => (
-            <button key={mode} onClick={() => setViewMode(mode)} style={{
-              width: 32, height: 28, borderRadius: 6, border: 'none', cursor: 'pointer',
-              background: viewMode === mode ? '#fff' : 'transparent',
-              display: 'flex', alignItems: 'center', justifyContent: 'center',
-              boxShadow: viewMode === mode ? '0 1px 3px rgba(0,0,0,0.12)' : 'none',
-              transition: 'all 0.15s',
-            }}>
-              {mode === 'map' ? (
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                  <rect x="1" y="1" width="5" height="5" rx="1" fill={viewMode === 'map' ? 'var(--ink)' : 'var(--mute)'} />
-                  <rect x="8" y="1" width="5" height="5" rx="1" fill={viewMode === 'map' ? 'var(--ink)' : 'var(--mute)'} />
-                  <rect x="1" y="8" width="5" height="5" rx="1" fill={viewMode === 'map' ? 'var(--ink)' : 'var(--mute)'} />
-                  <rect x="8" y="8" width="5" height="5" rx="1" fill={viewMode === 'map' ? 'var(--ink)' : 'var(--mute)'} />
-                </svg>
-              ) : (
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                  <rect x="1" y="2" width="12" height="2" rx="1" fill={viewMode === 'list' ? 'var(--ink)' : 'var(--mute)'} />
-                  <rect x="1" y="6" width="12" height="2" rx="1" fill={viewMode === 'list' ? 'var(--ink)' : 'var(--mute)'} />
-                  <rect x="1" y="10" width="12" height="2" rx="1" fill={viewMode === 'list' ? 'var(--ink)' : 'var(--mute)'} />
-                </svg>
-              )}
-            </button>
-          ))}
-        </div>
-      </div>
-      <div style={{ display: 'flex', gap: 6, padding: '8px 16px 10px', overflowX: 'auto', scrollbarWidth: 'none' }}>
-        {ROLES.map(role => {
-          const rc = ROLE_COLORS[role] ?? { bg: 'var(--ink)', color: '#fff' };
-          return (
-            <button
-              key={role}
-              onClick={() => setFilterRole(role)}
-              style={{
-                flexShrink: 0,
-                padding: '5px 12px',
-                borderRadius: 99,
-                border: '1.5px solid',
-                borderColor: filterRole === role ? rc.bg : 'var(--line)',
-                background: filterRole === role ? rc.bg : 'transparent',
-                fontFamily: 'var(--body)',
-                fontSize: 11,
-                fontWeight: 600,
-                color: filterRole === role ? rc.color : 'var(--ink)',
-                cursor: 'pointer',
-                transition: 'all 0.15s',
-              }}
-            >
-              {role}
-            </button>
-          );
-        })}
-        <button
-          onClick={() => setFilterHighPay(p => !p)}
-          style={{
-            flexShrink: 0,
-            padding: '5px 12px',
-            borderRadius: 99,
-            border: '1.5px solid',
-            borderColor: filterHighPay ? 'transparent' : 'var(--line)',
-            background: filterHighPay ? 'var(--hydrant)' : 'transparent',
-            fontFamily: 'var(--body)',
-            fontSize: 11,
-            fontWeight: 600,
-            color: filterHighPay ? '#000' : 'var(--ink)',
-            cursor: 'pointer',
-            transition: 'all 0.15s',
-          }}
-        >
-          $25+/hr
-        </button>
-        <button
-          onClick={() => setSortByPrice(p => !p)}
-          style={{
-            flexShrink: 0,
-            padding: '5px 12px',
-            borderRadius: 99,
-            border: '1.5px solid',
-            borderColor: sortByPrice ? 'var(--green)' : 'var(--line)',
-            background: sortByPrice ? 'var(--green-soft)' : 'transparent',
-            fontFamily: 'var(--body)',
-            fontSize: 11,
-            fontWeight: 600,
-            color: sortByPrice ? 'var(--ink)' : 'var(--ink)',
-            cursor: 'pointer',
-            transition: 'all 0.15s',
-          }}
-        >
-          {sortByPrice ? 'Price ↓' : 'Sort: Price'}
-        </button>
       </div>
     </div>
+  );
+
+  const filterSheet = filterOpen && (
+    <>
+      <div onClick={() => setFilterOpen(false)} style={{ position: 'fixed', inset: 0, zIndex: 105, background: 'rgba(0,0,0,0.4)' }} />
+      <div style={{
+        position: 'fixed', bottom: 0, left: '50%', transform: 'translateX(-50%)',
+        width: '100%', maxWidth: 390,
+        background: 'var(--paper)', borderRadius: '20px 20px 0 0',
+        padding: '0 20px 36px', zIndex: 110,
+        animation: 'slideUp 0.28s cubic-bezier(0.22,1,0.36,1)',
+      }}>
+        <div style={{ width: 36, height: 4, borderRadius: 99, background: 'var(--line-2)', margin: '12px auto 20px' }} />
+
+        {/* Role */}
+        <div style={{ marginBottom: 22 }}>
+          <div style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--mute)', marginBottom: 10 }}>Role</div>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+            {['All', 'Barista', 'Bartender', 'Server', 'Barback', 'Host', 'Cook'].map(r => (
+              <button key={r} onClick={() => setDraftRole(r)} style={{
+                padding: '8px 16px', borderRadius: 99, border: '1.5px solid',
+                borderColor: draftRole === r ? 'var(--ink)' : 'var(--line)',
+                background: draftRole === r ? 'var(--ink)' : 'transparent',
+                color: draftRole === r ? '#fff' : 'var(--ink)',
+                fontFamily: 'var(--body)', fontSize: 13, fontWeight: 600, cursor: 'pointer',
+              }}>{r}</button>
+            ))}
+          </div>
+        </div>
+
+        {/* Pay */}
+        <div style={{ marginBottom: 22 }}>
+          <div style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--mute)', marginBottom: 10 }}>Minimum pay rate</div>
+          <button onClick={() => setDraftHighPay(p => !p)} style={{
+            padding: '8px 16px', borderRadius: 99, border: '1.5px solid',
+            borderColor: draftHighPay ? 'var(--ink)' : 'var(--line)',
+            background: draftHighPay ? 'var(--ink)' : 'transparent',
+            color: draftHighPay ? '#fff' : 'var(--ink)',
+            fontFamily: 'var(--body)', fontSize: 13, fontWeight: 600, cursor: 'pointer',
+          }}>$25+/hr</button>
+        </div>
+
+        {/* Sort */}
+        <div style={{ marginBottom: 28 }}>
+          <div style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--mute)', marginBottom: 10 }}>Sort by</div>
+          <div style={{ display: 'flex', gap: 8 }}>
+            {[{ val: 'none', label: 'Default' }, { val: 'pay', label: 'Highest pay' }].map(opt => (
+              <button key={opt.val} onClick={() => setDraftSort(opt.val as 'pay' | 'none')} style={{
+                padding: '8px 16px', borderRadius: 99, border: '1.5px solid',
+                borderColor: draftSort === opt.val ? 'var(--ink)' : 'var(--line)',
+                background: draftSort === opt.val ? 'var(--ink)' : 'transparent',
+                color: draftSort === opt.val ? '#fff' : 'var(--ink)',
+                fontFamily: 'var(--body)', fontSize: 13, fontWeight: 600, cursor: 'pointer',
+              }}>{opt.label}</button>
+            ))}
+          </div>
+        </div>
+
+        {/* Actions */}
+        <div style={{ display: 'flex', gap: 10 }}>
+          <button onClick={clearFilter} style={{ flex: 1, padding: '14px', borderRadius: 24, border: '1.5px solid var(--line)', background: 'transparent', fontFamily: 'var(--body)', fontSize: 14, fontWeight: 600, color: 'var(--mute)', cursor: 'pointer' }}>Clear</button>
+          <button onClick={applyFilter} style={{ flex: 2, padding: '14px', borderRadius: 24, border: 'none', background: 'var(--ink)', fontFamily: 'var(--sans)', fontSize: 15, fontWeight: 700, color: '#fff', cursor: 'pointer', letterSpacing: '-0.01em' }}>Show shifts</button>
+        </div>
+      </div>
+    </>
   );
 
   /* ── MAP VIEW ── */
