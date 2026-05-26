@@ -18,7 +18,7 @@ export default function WorkerConfirm() {
         <StatusBar dark time="10:14" />
 
         <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 14, marginTop: 8 }}>
-          <div style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--hydrant)' }} />
+          <div style={{ width: 6, height: 6, borderRadius: '50%', background: '#16A34A' }} />
           <span style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, color: 'rgba(255,255,255,0.4)', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
             Just now · Barista · Today 11A–4P
           </span>

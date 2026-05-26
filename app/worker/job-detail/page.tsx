@@ -319,13 +319,13 @@ export default function JobDetail() {
         background: 'linear-gradient(to bottom, transparent, var(--paper) 38%)',
       }}>
         <SlideToConfirm
-          label="Slide to take shift"
-          href="/worker/confirm"
+          label="Slide to claim shift"
+          href="/worker/pending"
           locked={!PROFILE_COMPLETE}
           onLockedAttempt={() => setGateOpen(true)}
         />
         <p style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)', textAlign: 'center', marginTop: 12 }}>
-          15 min to confirm · no application, no interview
+          Employer confirms within 15 min · no interview
         </p>
         <p style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)', textAlign: 'center', marginTop: 6 }}>
           <Link href="/worker/report" style={{ color: 'var(--mute)', textDecoration: 'underline' }}>Report an issue with this posting</Link>
