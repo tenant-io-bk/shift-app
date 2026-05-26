@@ -176,7 +176,7 @@ const STAT_TILES: Array<{ label: string; value: string; bg: string; border: stri
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div style={{ marginBottom: 60 }}>
-      <div style={{ fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.14em', color: 'rgba(13,14,18,0.35)', marginBottom: 20, display: 'flex', alignItems: 'center', gap: 14 }}>
+      <div style={{ fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.14em',  color: '#0D0E12', marginBottom: 20, display: 'flex', alignItems: 'center', gap: 14 }}>
         {title}
         <div style={{ flex: 1, height: 1, background: 'rgba(13,14,18,0.10)' }} />
       </div>
@@ -187,7 +187,7 @@ function Section({ title, children }: { title: string; children: React.ReactNode
 
 function GuideLabel({ children }: { children: React.ReactNode }) {
   return (
-    <div style={{ fontFamily: 'monospace', fontSize: 12, color: 'rgba(13,14,18,0.5)', marginTop: 10, letterSpacing: '0.02em', lineHeight: 1.5 }}>
+    <div style={{ fontFamily: 'monospace', fontSize: 17, color: '#0D0E12', marginTop: 10, letterSpacing: '0.01em', lineHeight: 1.5 }}>
       {children}
     </div>
   );
@@ -209,9 +209,9 @@ function ColorGuide() {
                 <div style={{ flex: 1, background: c.soft }} />
               </div>
               <div style={{ background: '#fff', border: '1px solid rgba(13,14,18,0.10)', borderTop: 'none', borderRadius: '0 0 10px 10px', padding: '10px 12px' }}>
-                <div style={{ fontFamily: 'monospace', fontSize: 12, fontWeight: 700, color: '#0D0E12', letterSpacing: '0.04em' }}>--{c.name}</div>
-                <div style={{ fontFamily: 'monospace', fontSize: 11, color: 'rgba(13,14,18,0.45)', marginTop: 2 }}>{c.hex}</div>
-                <div style={{ fontFamily: 'monospace', fontSize: 11, color: 'rgba(13,14,18,0.4)', marginTop: 4, lineHeight: 1.4 }}>{c.note}</div>
+                <div style={{ fontFamily: 'monospace', fontSize: 17, fontWeight: 700, color: '#0D0E12', letterSpacing: '0.04em' }}>--{c.name}</div>
+                <div style={{ fontFamily: 'monospace', fontSize: 15, color: '#0D0E12', marginTop: 4 }}>{c.hex}</div>
+                <div style={{ fontFamily: 'monospace', fontSize: 15, color: '#0D0E12', marginTop: 4, lineHeight: 1.5 }}>{c.note}</div>
               </div>
             </div>
           ))}
@@ -225,7 +225,7 @@ function ColorGuide() {
             <div key={f.family}>
               <div style={{ fontFamily: 'sans-serif', fontWeight: 700, fontSize: 14, color: '#0D0E12', marginBottom: 4, display: 'flex', justifyContent: 'space-between' }}>
                 <span style={{ textTransform: 'capitalize' }}>{f.family}</span>
-                <span style={{ fontFamily: 'monospace', fontWeight: 400, fontSize: 11, color: 'rgba(13,14,18,0.4)', letterSpacing: '0.06em', textTransform: 'uppercase' }}>{f.bg}</span>
+                <span style={{ fontFamily: 'monospace', fontWeight: 400, fontSize: 15, color: '#0D0E12', letterSpacing: '0.04em', textTransform: 'uppercase' }}>{f.bg}</span>
               </div>
               <ShiftCard
                 family={f.family}
@@ -285,7 +285,7 @@ function ColorGuide() {
         <div style={{ background: '#fff', border: '1px solid rgba(13,14,18,0.08)', borderRadius: 14, padding: '24px 20px', display: 'flex', flexDirection: 'column', gap: 24 }}>
 
           <div>
-            <div style={{ fontFamily: 'monospace', fontSize: 12, color: 'rgba(13,14,18,0.4)', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 12 }}>Active — role family colour</div>
+            <div style={{ fontFamily: 'monospace', fontSize: 17, color: '#0D0E12', textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: 12 }}>Active — role family colour</div>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
               {ROLE_CHIPS.map(chip => (
                 <button key={chip.label} style={{
@@ -310,7 +310,7 @@ function ColorGuide() {
           </div>
 
           <div>
-            <div style={{ fontFamily: 'monospace', fontSize: 12, color: 'rgba(13,14,18,0.4)', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 12 }}>Inactive — default state</div>
+            <div style={{ fontFamily: 'monospace', fontSize: 17, color: '#0D0E12', textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: 12 }}>Inactive — default state</div>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
               {[...ROLE_CHIPS.map(c => c.label), '$25+/hr'].map(label => (
                 <button key={label} style={{
@@ -333,7 +333,7 @@ function ColorGuide() {
         <div style={{ background: '#fff', border: '1px solid rgba(13,14,18,0.08)', borderRadius: 14, padding: '24px 20px', display: 'flex', flexDirection: 'column', gap: 28 }}>
 
           <div>
-            <div style={{ fontFamily: 'monospace', fontSize: 12, color: 'rgba(13,14,18,0.4)', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 14 }}>Full-width primary</div>
+            <div style={{ fontFamily: 'monospace', fontSize: 17, color: '#0D0E12', textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: 14 }}>Full-width primary</div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 10, maxWidth: 390 }}>
               {[
                 { label: 'Claim this shift →',  bg: '#0D0E12',  color: '#fff',    border: '#0D0E12' },
@@ -355,13 +355,13 @@ function ColorGuide() {
           </div>
 
           <div>
-            <div style={{ fontFamily: 'monospace', fontSize: 12, color: 'rgba(13,14,18,0.4)', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 14 }}>Pill / inline</div>
+            <div style={{ fontFamily: 'monospace', fontSize: 17, color: '#0D0E12', textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: 14 }}>Pill / inline</div>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10 }}>
               {[
                 { label: 'Day-of details →', bg: 'rgba(0,0,0,0.07)',   color: '#0D0E12', border: 'rgba(0,0,0,0.10)' },
                 { label: 'Accept',           bg: '#72c15f',             color: '#0D0E12', border: '#72c15f' },
                 { label: 'View listing →',   bg: '#0D0E12',             color: '#fff',    border: '#0D0E12' },
-                { label: 'Read all',         bg: 'transparent',         color: 'rgba(13,14,18,0.55)', border: 'transparent' },
+                { label: 'Read all',         bg: 'transparent',          color: '#0D0E12', border: 'transparent' },
               ].map(b => (
                 <button key={b.label} style={{
                   padding: '9px 20px', borderRadius: 99,
@@ -377,7 +377,7 @@ function ColorGuide() {
           </div>
 
           <div>
-            <div style={{ fontFamily: 'monospace', fontSize: 12, color: 'rgba(13,14,18,0.4)', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 14 }}>Destructive / alert</div>
+            <div style={{ fontFamily: 'monospace', fontSize: 17, color: '#0D0E12', textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: 14 }}>Destructive / alert</div>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10 }}>
               {[
                 { label: 'Cancel shift',    bg: '#FAD6CE',    color: '#E5391F', border: '#E5391F' },
@@ -398,7 +398,7 @@ function ColorGuide() {
           </div>
 
           <div>
-            <div style={{ fontFamily: 'monospace', fontSize: 12, color: 'rgba(13,14,18,0.4)', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 14 }}>On dark surface</div>
+            <div style={{ fontFamily: 'monospace', fontSize: 17, color: '#0D0E12', textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: 14 }}>On dark surface</div>
             <div style={{ background: '#0D0E12', borderRadius: 12, padding: '16px 20px', display: 'flex', flexWrap: 'wrap', gap: 10 }}>
               {[
                 { label: 'Add bank',    bg: 'rgba(255,255,255,0.10)', color: '#fff',    border: 'rgba(255,255,255,0.2)' },
@@ -435,8 +435,8 @@ function ColorGuide() {
                 </div>
                 <div>
                   <div style={{ fontFamily: 'sans-serif', fontWeight: 700, fontSize: 14, color: '#0D0E12', textTransform: 'capitalize' }}>{b.type}</div>
-                  <div style={{ fontFamily: 'monospace', fontSize: 12, color: 'rgba(13,14,18,0.5)', marginTop: 2, lineHeight: 1.4 }}>{b.note}</div>
-                  <div style={{ fontFamily: 'monospace', fontSize: 11, color: 'rgba(13,14,18,0.3)', marginTop: 3 }}>bg: {b.bg} · icon: {b.color}</div>
+                  <div style={{ fontFamily: 'monospace', fontSize: 17, color: '#0D0E12', marginTop: 4, lineHeight: 1.5 }}>{b.note}</div>
+                  <div style={{ fontFamily: 'monospace', fontSize: 15, color: '#0D0E12', marginTop: 4 }}>bg: {b.bg} · icon: {b.color}</div>
                 </div>
               </div>
             ))}
@@ -455,7 +455,7 @@ function ColorGuide() {
                 borderRadius: 12, textAlign: 'center',
               }}>
                 <div style={{ fontFamily: 'sans-serif', fontWeight: 700, fontSize: 18, color: '#0D0E12', letterSpacing: '-0.04em', lineHeight: 1 }}>{t.value}</div>
-                <div style={{ fontFamily: 'monospace', fontSize: 10, color: 'rgba(13,14,18,0.5)', marginTop: 6, textTransform: 'uppercase', letterSpacing: '0.06em' }}>{t.label}</div>
+                <div style={{ fontFamily: 'monospace', fontSize: 10,  color: '#0D0E12', marginTop: 6, textTransform: 'uppercase', letterSpacing: '0.06em' }}>{t.label}</div>
               </div>
               <GuideLabel>bg: {t.bg}<br />border: {t.border}</GuideLabel>
             </div>
@@ -481,7 +481,7 @@ function ColorGuide() {
                   boxShadow: `0 0 0 4px ${d.dot}33`,
                 }} />
               </div>
-              <div style={{ fontFamily: 'monospace', fontSize: 12, color: '#0D0E12', textAlign: 'center' }}>{d.label}</div>
+              <div style={{ fontFamily: 'monospace', fontSize: 17, color: '#0D0E12', textAlign: 'center' }}>{d.label}</div>
             </div>
           ))}
         </div>
@@ -578,7 +578,7 @@ export default function Gallery() {
               style={{
                 padding: '5px 16px', borderRadius: 99,
                 background: tab === t ? '#0D0E12' : 'transparent',
-                color: tab === t ? '#fff' : 'rgba(13,14,18,0.45)',
+                color: tab === t ? '#fff' : '#0D0E12',
                 fontFamily: 'monospace', fontSize: 12, fontWeight: 700,
                 border: 'none', cursor: 'pointer', letterSpacing: '0.04em',
                 transition: 'all 0.15s',
@@ -597,10 +597,10 @@ export default function Gallery() {
               placeholder="Search screens..."
               style={{ flex: 1, maxWidth: 280, height: 34, padding: '0 14px', background: 'rgba(13,14,18,0.05)', border: '1px solid rgba(13,14,18,0.12)', borderRadius: 99, color: '#0D0E12', fontSize: 13, outline: 'none', fontFamily: 'monospace' }}
             />
-            <span style={{ fontSize: 12, color: 'rgba(13,14,18,0.4)', flexShrink: 0, display: 'flex', alignItems: 'center', gap: 12 }}>
+            <span style={{ fontSize: 12,  color: '#0D0E12', flexShrink: 0, display: 'flex', alignItems: 'center', gap: 12 }}>
               {SCREENS.flatMap(g => g.screens).length} screens
               {openCount > 0 && <span style={{ color: '#72c15f', fontWeight: 700 }}>· {openCount} open</span>}
-              {doneCount > 0 && <span style={{ color: 'rgba(13,14,18,0.3)' }}>· {doneCount} done</span>}
+              {doneCount > 0 && <span style={{  color: '#0D0E12' }}>· {doneCount} done</span>}
               {allWithNotes > 0 && (
                 <button
                   onClick={exportComments}
@@ -622,7 +622,7 @@ export default function Gallery() {
         <div style={{ padding: '32px 24px 80px' }}>
           {filtered.map(group => (
             <div key={group.group} style={{ marginBottom: 48 }}>
-              <div style={{ fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'rgba(13,14,18,0.4)', marginBottom: 16 }}>
+              <div style={{ fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.12em',  color: '#0D0E12', marginBottom: 16 }}>
                 {group.group}
               </div>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: 16 }}>
@@ -679,10 +679,10 @@ export default function Gallery() {
                         )}
                       </div>
                       <div style={{ textAlign: 'center', maxWidth: PHONE_W * SCALE }}>
-                        <div style={{ fontSize: 12, fontWeight: 600, color: done ? 'rgba(13,14,18,0.3)' : '#0D0E12' }}>{screen.label}</div>
-                        <div style={{ fontSize: 10, color: 'rgba(13,14,18,0.35)', marginTop: 1 }}>{screen.path}</div>
+                        <div style={{ fontSize: 12, fontWeight: 600, color: '#0D0E12' }}>{screen.label}</div>
+                        <div style={{ fontSize: 10, color: '#0D0E12', marginTop: 1 }}>{screen.path}</div>
                         {hasComment && (
-                          <div style={{ fontSize: 11, color: done ? 'rgba(13,14,18,0.25)' : '#72c15f', marginTop: 4, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', textDecoration: done ? 'line-through' : 'none' }}>
+                          <div style={{ fontSize: 11, color: '#72c15f', marginTop: 4, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', textDecoration: done ? 'line-through' : 'none' }}>
                             {comments[screen.path]}
                           </div>
                         )}
