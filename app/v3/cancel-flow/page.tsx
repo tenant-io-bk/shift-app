@@ -17,10 +17,10 @@ export default function CancelFlow() {
           </svg>
         </div>
         <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 32, color: 'var(--ink)', letterSpacing: '-0.05em' }}>Shift cancelled.</div>
-        <p style={{ fontFamily: 'var(--mono)', fontSize: 13, color: 'var(--mute)', lineHeight: 1.6 }}>
+        <p style={{ fontFamily: 'var(--body)', fontSize: 13, color: 'var(--mute)', lineHeight: 1.6 }}>
           Padmore&apos;s has been notified. A standby worker is being contacted.
         </p>
-        <div style={{ padding: '10px 16px', background: 'rgba(234,75,42,0.08)', borderRadius: 10, fontFamily: 'var(--mono)', fontSize: 11, color: '#EA4B2A', lineHeight: 1.5 }}>
+        <div style={{ padding: '10px 16px', background: 'rgba(234,75,42,0.08)', borderRadius: 10, fontFamily: 'var(--body)', fontSize: 11, color: '#EA4B2A', lineHeight: 1.5 }}>
           7-day block from Padmore&apos;s · −6 spots in Bed-Stuy standing
         </div>
         <Link href="/worker/home" style={{ marginTop: 16, display: 'block', width: '100%', padding: '15px', background: 'var(--ink)', color: '#fff', borderRadius: 99, fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 16, textAlign: 'center', textDecoration: 'none', letterSpacing: '-0.01em' }}>
@@ -69,7 +69,7 @@ export default function CancelFlow() {
         flexShrink: 0,
       }}>
         <p style={{
-          fontFamily: 'var(--mono)',
+          fontFamily: 'var(--body)',
           fontSize: 12,
           color: 'rgba(255,255,255,0.6)',
           marginBottom: 8,
@@ -193,7 +193,7 @@ export default function CancelFlow() {
                 color: opt.titleColor,
               }}>{opt.title}</div>
               <div style={{
-                fontFamily: 'var(--mono)',
+                fontFamily: 'var(--body)',
                 fontSize: 13,
                 color: opt.descColor,
                 marginTop: 2,
@@ -207,7 +207,7 @@ export default function CancelFlow() {
         ))}
 
         <p style={{
-          fontFamily: 'var(--mono)',
+          fontFamily: 'var(--body)',
           fontSize: 11,
           color: 'var(--mute)',
           textAlign: 'center',

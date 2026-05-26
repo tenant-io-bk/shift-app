@@ -46,7 +46,7 @@ export default function EmployerCreateAccount() {
 
       <div style={{ height: 44, padding: '0 16px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderBottom: '1px solid var(--line)' }}>
         <Link href="/worker/role" style={{ fontSize: 20, color: 'var(--ink)', textDecoration: 'none' }}>←</Link>
-        <span style={{ fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--ink)' }}>Create account</span>
+        <span style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--ink)' }}>Create account</span>
         <div style={{ width: 20 }} />
       </div>
 
@@ -55,7 +55,7 @@ export default function EmployerCreateAccount() {
       </div>
 
       <div style={{ padding: '20px 22px 140px', flex: 1, overflowY: 'auto' }}>
-        <div style={{ fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 600, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--hydrant)', marginBottom: 10 }}>EMPLOYER</div>
+        <div style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--hydrant)', marginBottom: 10 }}>EMPLOYER</div>
         <h1 style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 34, letterSpacing: '-0.075em', lineHeight: 0.95, color: 'var(--ink)', marginBottom: 24 }}>
           Let's get you set up.
         </h1>
@@ -126,22 +126,22 @@ export default function EmployerCreateAccount() {
           pointerEvents: bizType ? 'all' : 'none',
         }}>
           <div style={{ marginBottom: 16 }}>
-            <div style={{ fontFamily: 'var(--mono)', fontSize: 10.5, fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--ink)', marginBottom: 8 }}>Business name</div>
+            <div style={{ fontFamily: 'var(--body)', fontSize: 10.5, fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--ink)', marginBottom: 8 }}>Business name</div>
             <input type="text" value={name} onChange={e => setName(e.target.value)} placeholder="e.g. Padmore's Coffee"
               style={{ width: '100%', height: 52, padding: '0 16px', background: 'var(--card)', border: '2px solid var(--ink)', borderRadius: 14, fontFamily: 'var(--sans)', fontSize: 16, color: 'var(--ink)', outline: 'none', boxSizing: 'border-box' }} />
           </div>
 
           <div style={{ marginBottom: 16 }}>
-            <div style={{ fontFamily: 'var(--mono)', fontSize: 10.5, fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--ink)', marginBottom: 8 }}>Work email</div>
+            <div style={{ fontFamily: 'var(--body)', fontSize: 10.5, fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--ink)', marginBottom: 8 }}>Work email</div>
             <input type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="you@yourbusiness.com"
               style={{ width: '100%', height: 52, padding: '0 16px', background: 'var(--card)', border: '2px solid var(--ink)', borderRadius: 14, fontFamily: 'var(--sans)', fontSize: 16, color: 'var(--ink)', outline: 'none', boxSizing: 'border-box' }} />
           </div>
 
           <div style={{ marginBottom: 24 }}>
-            <div style={{ fontFamily: 'var(--mono)', fontSize: 10.5, fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--ink)', marginBottom: 8 }}>Phone number</div>
+            <div style={{ fontFamily: 'var(--body)', fontSize: 10.5, fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--ink)', marginBottom: 8 }}>Phone number</div>
             <div style={{ display: 'flex', gap: 8 }}>
               <div style={{ background: 'var(--paper-2)', border: '2px solid var(--ink)', borderRadius: 14, padding: '0 14px', display: 'flex', alignItems: 'center', flexShrink: 0 }}>
-                <span style={{ fontFamily: 'var(--mono)', fontSize: 15, fontWeight: 600, color: 'var(--ink)' }}>+1</span>
+                <span style={{ fontFamily: 'var(--body)', fontSize: 15, fontWeight: 600, color: 'var(--ink)' }}>+1</span>
               </div>
               <input type="tel" value={phone} onChange={e => setPhone(e.target.value.replace(/\D/g, '').slice(0, 10))} placeholder="347 514 2898"
                 style={{ flex: 1, height: 52, padding: '0 16px', background: 'var(--card)', border: '2px solid var(--ink)', borderRadius: 14, fontFamily: 'var(--sans)', fontSize: 16, color: 'var(--ink)', outline: 'none', letterSpacing: '0.04em' }} />
@@ -157,7 +157,7 @@ export default function EmployerCreateAccount() {
             }}>
               {agreed && <svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4.5L4 7.5L10 1" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/></svg>}
             </div>
-            <span style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--ink)', lineHeight: 1.5 }}>
+            <span style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--ink)', lineHeight: 1.5 }}>
               I agree to SHIFT's <span style={{ textDecoration: 'underline' }}>Terms of Service</span> and confirm I'm authorized to hire for this business.
             </span>
           </button>

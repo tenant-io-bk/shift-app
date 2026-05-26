@@ -68,7 +68,7 @@ export default function RolePicker() {
         </h1>
 
         <p style={{
-          fontFamily: 'var(--mono)',
+          fontFamily: 'var(--body)',
           fontSize: 13,
           color: 'var(--mute)',
           lineHeight: 1.5,

@@ -34,7 +34,7 @@ export default function SMSVerify() {
       {/* Top nav */}
       <div style={{ height: 44, padding: '0 16px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderBottom: '1px solid var(--line)', background: 'var(--paper)' }}>
         <Link href="/v3/phone-verify" style={{ fontFamily: 'var(--sans)', fontSize: 20, color: 'var(--ink)', textDecoration: 'none' }}>←</Link>
-        <span style={{ fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--mute)' }}>Verify</span>
+        <span style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--mute)' }}>Verify</span>
         <div style={{ width: 20 }} />
       </div>
 
@@ -44,13 +44,13 @@ export default function SMSVerify() {
 
       {/* Content */}
       <div style={{ padding: '20px 22px 0', flex: 1 }}>
-        <div style={{ fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 600, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--hydrant)', marginBottom: 10 }}>
+        <div style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--hydrant)', marginBottom: 10 }}>
           STEP 2 OF 4
         </div>
         <h1 style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 36, letterSpacing: '-0.075em', lineHeight: 0.95, color: 'var(--ink)', marginBottom: 10 }}>
           Enter the code.
         </h1>
-        <p style={{ fontFamily: 'var(--mono)', fontSize: 13, color: 'var(--mute)', marginBottom: 28, lineHeight: 1.5 }}>
+        <p style={{ fontFamily: 'var(--body)', fontSize: 13, color: 'var(--mute)', marginBottom: 28, lineHeight: 1.5 }}>
           Sent to <strong style={{ color: 'var(--ink)' }}>347 514 2898</strong>. Takes about 10 seconds.
         </p>
 
@@ -78,12 +78,12 @@ export default function SMSVerify() {
         </div>
 
         {error && (
-          <p style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--red)', marginBottom: 12 }}>
+          <p style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--red)', marginBottom: 12 }}>
             That code isn&apos;t right. Try again or resend.
           </p>
         )}
 
-        <p style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--mute)', marginBottom: 24 }}>
+        <p style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--mute)', marginBottom: 24 }}>
           Didn&apos;t get it?{' '}
           <span style={{ color: 'var(--hydrant)', textDecoration: 'underline', cursor: 'pointer' }}>
             Resend code

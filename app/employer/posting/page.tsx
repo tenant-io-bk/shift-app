@@ -78,7 +78,7 @@ export default function PostingPage() {
             ))}
           </div>
           <span style={{
-            fontFamily: 'var(--mono)',
+            fontFamily: 'var(--body)',
             fontSize: 12,
             fontWeight: 600,
             color: 'var(--ink)',

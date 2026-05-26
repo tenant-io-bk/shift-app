@@ -66,7 +66,7 @@ export default function Credentials() {
       {/* Nav */}
       <div style={{ height: 44, padding: '0 16px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderBottom: '1px solid var(--line)' }}>
         <Link href="/worker/onboarding" style={{ fontFamily: 'var(--sans)', fontSize: 20, color: 'var(--ink)', textDecoration: 'none' }}>←</Link>
-        <span style={{ fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--mute)' }}>Credentials</span>
+        <span style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--mute)' }}>Credentials</span>
         <div style={{ width: 20 }} />
       </div>
 
@@ -75,13 +75,13 @@ export default function Credentials() {
       </div>
 
       <div style={{ padding: '16px 22px 140px', flex: 1, overflowY: 'auto' }}>
-        <div style={{ fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 600, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--hydrant)', marginBottom: 10 }}>
+        <div style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--hydrant)', marginBottom: 10 }}>
           CREDENTIALS
         </div>
         <h1 style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 34, letterSpacing: '-0.075em', lineHeight: 0.95, color: 'var(--ink)', marginBottom: 10 }}>
           What are you certified in?
         </h1>
-        <p style={{ fontFamily: 'var(--mono)', fontSize: 13, color: 'var(--mute)', marginBottom: 24, lineHeight: 1.5 }}>
+        <p style={{ fontFamily: 'var(--body)', fontSize: 13, color: 'var(--mute)', marginBottom: 24, lineHeight: 1.5 }}>
           Credentials unlock more shifts and higher pay. Add now or later — you can always update.
         </p>
 
@@ -118,11 +118,11 @@ export default function Credentials() {
                     <div style={{ display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap' }}>
                       <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 15, color: 'var(--ink)' }}>{cred.name}</span>
                       {cred.required && (
-                        <span style={{ fontFamily: 'var(--mono)', fontSize: 9, fontWeight: 600, color: '#EA4B2A', background: 'rgba(234,75,42,0.1)', borderRadius: 4, padding: '2px 6px', letterSpacing: '0.06em' }}>REQUIRED</span>
+                        <span style={{ fontFamily: 'var(--body)', fontSize: 9, fontWeight: 600, color: '#EA4B2A', background: 'rgba(234,75,42,0.1)', borderRadius: 4, padding: '2px 6px', letterSpacing: '0.06em' }}>REQUIRED</span>
                       )}
                     </div>
-                    <div style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--mute)', marginTop: 2 }}>{cred.issuer}</div>
-                    <div style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--mute)', marginTop: 3, lineHeight: 1.4 }}>{cred.detail}</div>
+                    <div style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)', marginTop: 2 }}>{cred.issuer}</div>
+                    <div style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--mute)', marginTop: 3, lineHeight: 1.4 }}>{cred.detail}</div>
                   </div>
                 </button>
 
@@ -130,7 +130,7 @@ export default function Credentials() {
                 {on && (
                   <div style={{ padding: '0 16px 14px', display: 'flex', alignItems: 'center', gap: 10 }}>
                     <div style={{ flex: 1 }}>
-                      <div style={{ fontFamily: 'var(--mono)', fontSize: 10, fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--mute)', marginBottom: 6 }}>Expiry date</div>
+                      <div style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--mute)', marginBottom: 6 }}>Expiry date</div>
                       <input
                         type="month"
                         value={expiries[cred.id] || ''}
@@ -138,7 +138,7 @@ export default function Credentials() {
                         style={{
                           height: 40, padding: '0 12px', background: 'var(--paper)',
                           border: '2px solid var(--ink)', borderRadius: 12,
-                          fontFamily: 'var(--mono)', fontSize: 13, color: 'var(--ink)',
+                          fontFamily: 'var(--body)', fontSize: 13, color: 'var(--ink)',
                           outline: 'none', width: '100%',
                         }}
                       />
@@ -147,7 +147,7 @@ export default function Credentials() {
                       <button style={{
                         height: 40, padding: '0 14px', background: 'var(--paper-2)',
                         border: '2px solid var(--ink)', borderRadius: 99,
-                        fontFamily: 'var(--mono)', fontSize: 12, fontWeight: 600,
+                        fontFamily: 'var(--body)', fontSize: 12, fontWeight: 600,
                         color: 'var(--mute)', cursor: 'pointer', whiteSpace: 'nowrap',
                       }}>
                         Upload doc
@@ -174,7 +174,7 @@ export default function Credentials() {
         >
           {selected.size > 0 ? `Continue with ${selected.size} credential${selected.size > 1 ? 's' : ''}` : 'Continue'}
         </Link>
-        <p style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--mute)', textAlign: 'center', marginTop: 8 }}>
+        <p style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)', textAlign: 'center', marginTop: 8 }}>
           You can add more later in your profile
         </p>
       </div>

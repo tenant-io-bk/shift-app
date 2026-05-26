@@ -21,7 +21,7 @@ export default function ProfileSetup() {
       {/* Nav */}
       <div style={{ height: 44, padding: '0 16px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderBottom: '1px solid var(--line)' }}>
         <Link href="/v3/w9" style={{ fontFamily: 'var(--sans)', fontSize: 20, color: 'var(--ink)', textDecoration: 'none' }}>←</Link>
-        <span style={{ fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--mute)' }}>Your profile</span>
+        <span style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--mute)' }}>Your profile</span>
         <div style={{ width: 20 }} />
       </div>
 
@@ -30,13 +30,13 @@ export default function ProfileSetup() {
       </div>
 
       <div style={{ padding: '16px 22px 140px', flex: 1, overflowY: 'auto' }}>
-        <div style={{ fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 600, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--hydrant)', marginBottom: 10 }}>
+        <div style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--hydrant)', marginBottom: 10 }}>
           PROFILE
         </div>
         <h1 style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 34, letterSpacing: '-0.075em', lineHeight: 0.95, color: 'var(--ink)', marginBottom: 10 }}>
           Put your best foot forward.
         </h1>
-        <p style={{ fontFamily: 'var(--mono)', fontSize: 13, color: 'var(--mute)', marginBottom: 28, lineHeight: 1.5 }}>
+        <p style={{ fontFamily: 'var(--body)', fontSize: 13, color: 'var(--mute)', marginBottom: 28, lineHeight: 1.5 }}>
           Employers see this before booking you. A strong profile means more shifts.
         </p>
 
@@ -58,13 +58,13 @@ export default function ProfileSetup() {
 
           <div style={{ flex: 1 }}>
             <div style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 15, color: 'var(--ink)', marginBottom: 4 }}>Profile photo</div>
-            <div style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--mute)', lineHeight: 1.4, marginBottom: 8 }}>
+            <div style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--mute)', lineHeight: 1.4, marginBottom: 8 }}>
               A clear headshot increases booking rate by 3×
             </div>
             <button
               onClick={() => setHasPhoto(true)}
               style={{
-                fontFamily: 'var(--mono)', fontSize: 12, fontWeight: 600,
+                fontFamily: 'var(--body)', fontSize: 12, fontWeight: 600,
                 color: 'var(--hydrant)', background: 'var(--hydrant-soft)',
                 border: '1px solid var(--hydrant)', borderRadius: 99,
                 padding: '6px 12px', cursor: 'pointer',
@@ -77,7 +77,7 @@ export default function ProfileSetup() {
 
         {/* Tagline */}
         <div style={{ marginBottom: 20 }}>
-          <div style={{ fontFamily: 'var(--mono)', fontSize: 10.5, fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--mute)', marginBottom: 8 }}>
+          <div style={{ fontFamily: 'var(--body)', fontSize: 10.5, fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--mute)', marginBottom: 8 }}>
             One-liner
           </div>
           <input
@@ -93,14 +93,14 @@ export default function ProfileSetup() {
               color: 'var(--ink)', outline: 'none',
             }}
           />
-          <p style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--mute)', marginTop: 5 }}>
+          <p style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)', marginTop: 5 }}>
             {60 - tagline.length} characters left
           </p>
         </div>
 
         {/* Bio */}
         <div style={{ marginBottom: 24 }}>
-          <div style={{ fontFamily: 'var(--mono)', fontSize: 10.5, fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--mute)', marginBottom: 8 }}>
+          <div style={{ fontFamily: 'var(--body)', fontSize: 10.5, fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--mute)', marginBottom: 8 }}>
             About you <span style={{ color: '#EA4B2A' }}>*</span>
           </div>
           <textarea
@@ -111,7 +111,7 @@ export default function ProfileSetup() {
             style={{
               width: '100%', padding: '14px 16px',
               background: 'var(--card)', border: '2px solid var(--ink)',
-              borderRadius: 14, fontFamily: 'var(--mono)', fontSize: 13,
+              borderRadius: 14, fontFamily: 'var(--body)', fontSize: 13,
               color: 'var(--ink)', outline: 'none', resize: 'none', lineHeight: 1.6,
               transition: 'border-color 0.15s',
             }}
@@ -127,10 +127,10 @@ export default function ProfileSetup() {
               </div>
               <div>
                 <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 14, color: 'var(--ink)' }}>Marcus Rivera</div>
-                <div style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--mute)' }}>{tagline || 'Barista · Bartender · Server'}</div>
+                <div style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)' }}>{tagline || 'Barista · Bartender · Server'}</div>
               </div>
             </div>
-            <p style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--mute)', lineHeight: 1.5 }}>
+            <p style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--mute)', lineHeight: 1.5 }}>
               {bio.slice(0, 100)}{bio.length > 100 ? '…' : ''}
             </p>
           </div>
@@ -156,7 +156,7 @@ export default function ProfileSetup() {
             Write something about yourself
           </div>
         )}
-        <p style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--mute)', textAlign: 'center', marginTop: 8 }}>
+        <p style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)', textAlign: 'center', marginTop: 8 }}>
           You can edit this any time from your profile
         </p>
       </div>

@@ -38,7 +38,7 @@ export default function WorkerReport() {
             ←
           </button>
         )}
-        <span style={{ fontFamily: 'var(--mono)', fontSize: 12, fontWeight: 600, color: 'var(--mute)', letterSpacing: '0.06em', textTransform: 'uppercase' }}>
+        <span style={{ fontFamily: 'var(--body)', fontSize: 12, fontWeight: 600, color: 'var(--mute)', letterSpacing: '0.06em', textTransform: 'uppercase' }}>
           Report issue
         </span>
         <div style={{ width: 36 }} />
@@ -58,7 +58,7 @@ export default function WorkerReport() {
             <path d="M7 1L2 3v4c0 2.8 2.1 5.4 5 6 2.9-.6 5-3.2 5-6V3L7 1z" stroke="var(--hydrant)" strokeWidth="1.5" strokeLinejoin="round" />
             <path d="M5 7l1.5 1.5L9 5.5" stroke="var(--hydrant)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
-          <span style={{ fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 700, color: 'var(--hydrant)', letterSpacing: '0.06em', textTransform: 'uppercase' }}>
+          <span style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 700, color: 'var(--hydrant)', letterSpacing: '0.06em', textTransform: 'uppercase' }}>
             Your identity is protected
           </span>
         </div>
@@ -72,7 +72,7 @@ export default function WorkerReport() {
             <h2 style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 26, color: 'var(--ink)', letterSpacing: '-0.04em', lineHeight: 1.1, marginBottom: 6 }}>
               What happened?
             </h2>
-            <p style={{ fontFamily: 'var(--mono)', fontSize: 13, color: 'var(--mute)', marginBottom: 24, lineHeight: 1.5 }}>
+            <p style={{ fontFamily: 'var(--body)', fontSize: 13, color: 'var(--mute)', marginBottom: 24, lineHeight: 1.5 }}>
               Reports are reviewed by SHIFT — the venue never sees your name.
             </p>
 
@@ -136,7 +136,7 @@ export default function WorkerReport() {
             <h2 style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 26, color: 'var(--ink)', letterSpacing: '-0.04em', lineHeight: 1.1, marginBottom: 6 }}>
               Tell us more.
             </h2>
-            <p style={{ fontFamily: 'var(--mono)', fontSize: 13, color: 'var(--mute)', marginBottom: 20, lineHeight: 1.5 }}>
+            <p style={{ fontFamily: 'var(--body)', fontSize: 13, color: 'var(--mute)', marginBottom: 20, lineHeight: 1.5 }}>
               Be as specific as you&apos;re comfortable with. No names are required.
             </p>
 
@@ -150,7 +150,7 @@ export default function WorkerReport() {
               <div style={{
                 padding: '8px 14px',
                 borderBottom: '1px solid var(--line)',
-                fontFamily: 'var(--mono)',
+                fontFamily: 'var(--body)',
                 fontSize: 11,
                 color: 'var(--mute)',
                 fontWeight: 600,
@@ -169,7 +169,7 @@ export default function WorkerReport() {
                   padding: '14px',
                   background: 'transparent',
                   border: 'none',
-                  fontFamily: 'var(--mono)',
+                  fontFamily: 'var(--body)',
                   fontSize: 14,
                   color: 'var(--ink)',
                   resize: 'none',
@@ -184,7 +184,7 @@ export default function WorkerReport() {
               padding: '10px 14px',
               background: 'var(--hydrant-soft)',
               borderRadius: 10,
-              fontFamily: 'var(--mono)',
+              fontFamily: 'var(--body)',
               fontSize: 11,
               color: 'var(--hydrant)',
               lineHeight: 1.5,
@@ -240,7 +240,7 @@ export default function WorkerReport() {
               <h2 style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 32, color: 'var(--ink)', letterSpacing: '-0.05em', lineHeight: 1, marginBottom: 10 }}>
                 Reported.
               </h2>
-              <p style={{ fontFamily: 'var(--mono)', fontSize: 13, color: 'var(--mute)', lineHeight: 1.6, maxWidth: 280, margin: '0 auto' }}>
+              <p style={{ fontFamily: 'var(--body)', fontSize: 13, color: 'var(--mute)', lineHeight: 1.6, maxWidth: 280, margin: '0 auto' }}>
                 Our Trust &amp; Safety team will review your report within 24 hours.
               </p>
             </div>
@@ -249,7 +249,7 @@ export default function WorkerReport() {
               padding: '12px 20px',
               background: 'var(--hydrant-soft)',
               borderRadius: 10,
-              fontFamily: 'var(--mono)',
+              fontFamily: 'var(--body)',
               fontSize: 11,
               fontWeight: 700,
               color: 'var(--hydrant)',

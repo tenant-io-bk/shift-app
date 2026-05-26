@@ -35,7 +35,7 @@ export default function Page() {
         </Link>
         <span
           style={{
-            fontFamily: 'var(--mono)',
+            fontFamily: 'var(--body)',
             fontSize: 11,
             fontWeight: 600,
             color: 'var(--mute)',
@@ -70,7 +70,7 @@ export default function Page() {
         {/* Eyebrow */}
         <div
           style={{
-            fontFamily: 'var(--mono)',
+            fontFamily: 'var(--body)',
             fontSize: 11,
             fontWeight: 600,
             textTransform: 'uppercase',
@@ -116,7 +116,7 @@ export default function Page() {
             <circle cx="7" cy="7" r="5.5" stroke="var(--mute)" strokeWidth="1.5" />
             <path d="M11.5 11.5L14 14" stroke="var(--mute)" strokeWidth="1.5" strokeLinecap="round" />
           </svg>
-          <span style={{ fontFamily: 'var(--mono)', fontSize: 14, color: 'var(--mute-2)', flex: 1 }}>
+          <span style={{ fontFamily: 'var(--body)', fontSize: 14, color: 'var(--mute-2)', flex: 1 }}>
             Search by business name...
           </span>
         </div>
@@ -140,7 +140,7 @@ export default function Page() {
               <div style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 15, color: 'var(--ink)' }}>
                 Padmore&apos;s Coffee
               </div>
-              <div style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--mute)', marginTop: 2 }}>
+              <div style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--mute)', marginTop: 2 }}>
                 172 Tompkins Ave, Bed-Stuy
               </div>
             </div>
@@ -178,7 +178,7 @@ export default function Page() {
               <div style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 15, color: 'var(--ink)' }}>
                 {biz.name}
               </div>
-              <div style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--mute)', marginTop: 2 }}>
+              <div style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--mute)', marginTop: 2 }}>
                 {biz.address}
               </div>
             </div>
@@ -188,7 +188,7 @@ export default function Page() {
         {/* Don't see yours */}
         <p
           style={{
-            fontFamily: 'var(--mono)',
+            fontFamily: 'var(--body)',
             fontSize: 13,
             color: 'var(--hydrant)',
             marginTop: 16,

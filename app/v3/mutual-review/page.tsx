@@ -64,7 +64,7 @@ export default function MutualReview() {
             lineHeight: 1,
           }}>Padmore's Coffee.</div>
           <p style={{
-            fontFamily: 'var(--mono)',
+            fontFamily: 'var(--body)',
             fontSize: 12,
             color: 'rgba(255,255,255,0.7)',
             marginTop: 4,
@@ -87,7 +87,7 @@ export default function MutualReview() {
         ].map((stat, i) => (
           <div key={i} style={{ textAlign: i === 1 ? 'center' : i === 2 ? 'right' : 'left' }}>
             <p style={{
-              fontFamily: 'var(--mono)',
+              fontFamily: 'var(--body)',
               fontSize: 9,
               fontWeight: 600,
               textTransform: 'uppercase',
@@ -149,7 +149,7 @@ export default function MutualReview() {
 
         {/* Tags */}
         <p style={{
-          fontFamily: 'var(--mono)',
+          fontFamily: 'var(--body)',
           fontSize: 11,
           fontWeight: 600,
           textTransform: 'uppercase',
@@ -196,7 +196,7 @@ export default function MutualReview() {
           marginBottom: 24,
         }}>
           <p style={{
-            fontFamily: 'var(--mono)',
+            fontFamily: 'var(--body)',
             fontSize: 12,
             color: 'var(--mute)',
             fontStyle: 'italic',

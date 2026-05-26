@@ -22,7 +22,7 @@ export default function EmployerAccount() {
 
       <div style={{ height: 44, display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 16px', borderBottom: '1px solid var(--line)', background: 'var(--paper)' }}>
         <div style={{ width: 32 }} />
-        <span style={{ fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--mute)' }}>Account</span>
+        <span style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--mute)' }}>Account</span>
         <div style={{ width: 32 }} />
       </div>
 
@@ -34,9 +34,9 @@ export default function EmployerAccount() {
           </div>
           <div style={{ flex: 1 }}>
             <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 18, color: '#fff', letterSpacing: '-0.02em' }}>Padmore's Coffee</div>
-            <div style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'rgba(255,255,255,0.45)', marginTop: 3 }}>Café · Bed-Stuy, Brooklyn</div>
+            <div style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'rgba(255,255,255,0.45)', marginTop: 3 }}>Café · Bed-Stuy, Brooklyn</div>
           </div>
-          <Link href="/employer/business-profile" style={{ fontFamily: 'var(--mono)', fontSize: 12, fontWeight: 600, color: 'rgba(255,255,255,0.5)', textDecoration: 'none' }}>Edit →</Link>
+          <Link href="/employer/business-profile" style={{ fontFamily: 'var(--body)', fontSize: 12, fontWeight: 600, color: 'rgba(255,255,255,0.5)', textDecoration: 'none' }}>Edit →</Link>
         </div>
       </div>
 
@@ -77,7 +77,7 @@ export default function EmployerAccount() {
           </Link>
         </div>
 
-        <p style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--mute)', textAlign: 'center', marginTop: 4 }}>SHIFT · v1.0 · NYC Hyperlocal Labor</p>
+        <p style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)', textAlign: 'center', marginTop: 4 }}>SHIFT · v1.0 · NYC Hyperlocal Labor</p>
       </div>
 
       <EmployerNav active="account" />
@@ -88,7 +88,7 @@ export default function EmployerAccount() {
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div>
-      <div style={{ fontFamily: 'var(--mono)', fontSize: 10, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--mute)', padding: '0 4px', marginBottom: 6 }}>{title}</div>
+      <div style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--mute)', padding: '0 4px', marginBottom: 6 }}>{title}</div>
       <div style={{ background: 'var(--paper)', borderRadius: 14, overflow: 'hidden', border: '2px solid var(--ink)' }}>{children}</div>
     </div>
   );
@@ -97,7 +97,7 @@ function Row({ label, value }: { label: string; value: string }) {
   return (
     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '13px 18px', borderBottom: '1px solid var(--line)' }}>
       <span style={{ fontFamily: 'var(--sans)', fontSize: 15, color: 'var(--ink)' }}>{label}</span>
-      <span style={{ fontFamily: 'var(--mono)', fontSize: 13, color: 'var(--mute)' }}>{value}</span>
+      <span style={{ fontFamily: 'var(--body)', fontSize: 13, color: 'var(--mute)' }}>{value}</span>
     </div>
   );
 }
@@ -114,7 +114,7 @@ function RowToggle({ label, sub, value, onToggle }: { label: string; sub: string
     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '13px 18px', borderBottom: '1px solid var(--line)' }}>
       <div>
         <div style={{ fontFamily: 'var(--sans)', fontSize: 15, color: 'var(--ink)' }}>{label}</div>
-        <div style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--mute)', marginTop: 2 }}>{sub}</div>
+        <div style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)', marginTop: 2 }}>{sub}</div>
       </div>
       <button onClick={onToggle} style={{ width: 44, height: 26, borderRadius: 99, border: 'none', cursor: 'pointer', flexShrink: 0, background: value ? 'var(--hydrant)' : 'var(--paper-3)', position: 'relative', transition: 'background 0.2s' }}>
         <div style={{ position: 'absolute', top: 3, left: value ? 21 : 3, width: 20, height: 20, borderRadius: '50%', background: '#fff', boxShadow: '0 1px 4px rgba(0,0,0,0.2)', transition: 'left 0.2s' }} />

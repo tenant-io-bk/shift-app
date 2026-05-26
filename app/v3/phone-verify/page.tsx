@@ -54,7 +54,7 @@ export default function PhoneVerify() {
       {/* Content */}
       <div style={{ padding: '18px 22px 0', flex: 1 }}>
         <span style={{
-          fontFamily: 'var(--mono)',
+          fontFamily: 'var(--body)',
           fontSize: 11,
           fontWeight: 600,
           color: 'var(--hydrant)',
@@ -75,7 +75,7 @@ export default function PhoneVerify() {
         }}>What&apos;s your number?</h1>
 
         <p style={{
-          fontFamily: 'var(--mono)',
+          fontFamily: 'var(--body)',
           fontSize: 13,
           color: 'var(--mute)',
           marginBottom: 24,
@@ -89,7 +89,7 @@ export default function PhoneVerify() {
             padding: '14px 16px',
             flexShrink: 0,
           }}>
-            <span style={{ fontFamily: 'var(--mono)', fontSize: 16, fontWeight: 600, color: 'var(--ink)' }}>+1</span>
+            <span style={{ fontFamily: 'var(--body)', fontSize: 16, fontWeight: 600, color: 'var(--ink)' }}>+1</span>
           </div>
           <div style={{
             flex: 1,
@@ -169,7 +169,7 @@ export default function PhoneVerify() {
         }}>Continue →</Link>
 
         <p style={{
-          fontFamily: 'var(--mono)',
+          fontFamily: 'var(--body)',
           fontSize: 11,
           color: 'var(--mute)',
           textAlign: 'center',

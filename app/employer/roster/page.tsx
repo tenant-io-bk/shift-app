@@ -56,7 +56,7 @@ export default function Page() {
             />
             <span
               style={{
-                fontFamily: 'var(--mono)',
+                fontFamily: 'var(--body)',
                 fontSize: 13,
                 color: 'rgba(255,255,255,0.7)',
               }}
@@ -68,7 +68,7 @@ export default function Page() {
           {/* Meta row */}
           <div
             style={{
-              fontFamily: 'var(--mono)',
+              fontFamily: 'var(--body)',
               fontSize: 12,
               color: 'rgba(255,255,255,0.5)',
             }}
@@ -178,7 +178,7 @@ export default function Page() {
               color: 'white',
               borderRadius: 99,
               padding: '3px 8px',
-              fontFamily: 'var(--mono)',
+              fontFamily: 'var(--body)',
               fontSize: 10,
               fontWeight: 600,
               whiteSpace: 'nowrap',
@@ -195,7 +195,7 @@ export default function Page() {
               color: 'white',
               borderRadius: 99,
               padding: '3px 8px',
-              fontFamily: 'var(--mono)',
+              fontFamily: 'var(--body)',
               fontSize: 10,
               fontWeight: 600,
               whiteSpace: 'nowrap',
@@ -224,7 +224,7 @@ export default function Page() {
           >
             <span
               style={{
-                fontFamily: 'var(--mono)',
+                fontFamily: 'var(--body)',
                 fontSize: 11,
                 fontWeight: 600,
                 textTransform: 'uppercase',
@@ -236,7 +236,7 @@ export default function Page() {
             </span>
             <span
               style={{
-                fontFamily: 'var(--mono)',
+                fontFamily: 'var(--body)',
                 fontSize: 11,
                 fontWeight: 600,
                 color: 'var(--mute)',
@@ -312,7 +312,7 @@ export default function Page() {
                   </div>
                   <div
                     style={{
-                      fontFamily: 'var(--mono)',
+                      fontFamily: 'var(--body)',
                       fontSize: 12,
                       color: 'var(--mute)',
                       marginTop: 1,
@@ -320,7 +320,7 @@ export default function Page() {
                   >
                     {worker.meta}
                   </div>
-                  <div style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--hydrant)', marginTop: 3, fontWeight: 600 }}>
+                  <div style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--hydrant)', marginTop: 3, fontWeight: 600 }}>
                     {worker.reliable}% reliable
                   </div>
                 </div>
@@ -331,7 +331,7 @@ export default function Page() {
                     color: 'var(--hydrant)',
                     borderRadius: 99,
                     padding: '3px 10px',
-                    fontFamily: 'var(--mono)',
+                    fontFamily: 'var(--body)',
                     fontSize: 11,
                     fontWeight: 600,
                     flexShrink: 0,
@@ -354,7 +354,7 @@ export default function Page() {
               <div style={{ flex: 1, borderTop: '1px dashed var(--line-2)' }} />
               <span
                 style={{
-                  fontFamily: 'var(--mono)',
+                  fontFamily: 'var(--body)',
                   fontSize: 9.5,
                   fontWeight: 600,
                   textTransform: 'uppercase',
@@ -413,7 +413,7 @@ export default function Page() {
                 </div>
                 <div
                   style={{
-                    fontFamily: 'var(--mono)',
+                    fontFamily: 'var(--body)',
                     fontSize: 12,
                     color: 'var(--mute)',
                     marginTop: 1,
@@ -429,7 +429,7 @@ export default function Page() {
                   color: 'var(--mute)',
                   borderRadius: 99,
                   padding: '3px 8px',
-                  fontFamily: 'var(--mono)',
+                  fontFamily: 'var(--body)',
                   fontSize: 11,
                   fontWeight: 600,
                   display: 'flex',
@@ -467,7 +467,7 @@ export default function Page() {
                   borderRadius: 14,
                   padding: 12,
                   background: 'transparent',
-                  fontFamily: 'var(--mono)',
+                  fontFamily: 'var(--body)',
                   fontSize: 13,
                   fontWeight: 600,
                   color: 'var(--ink)',
@@ -488,7 +488,7 @@ export default function Page() {
                   borderRadius: 14,
                   padding: 12,
                   background: 'transparent',
-                  fontFamily: 'var(--mono)',
+                  fontFamily: 'var(--body)',
                   fontSize: 13,
                   fontWeight: 600,
                   color: 'var(--ink)',
@@ -506,7 +506,7 @@ export default function Page() {
             href="/employer/rating"
             style={{
               textAlign: 'center',
-              fontFamily: 'var(--mono)',
+              fontFamily: 'var(--body)',
               fontSize: 12,
               color: 'var(--hydrant)',
               textDecoration: 'none',

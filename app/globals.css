@@ -180,7 +180,7 @@ html, body {
   padding: 3px 8px;
   border-radius: 6px;
   background: var(--paper-2);
-  font-family: var(--mono);
+  font-family: var(--body);
   font-size: 10.5px;
   font-weight: 600;
   letter-spacing: 0.06em;
@@ -210,7 +210,7 @@ html, body {
 
 /* Mono label */
 .label {
-  font-family: var(--mono);
+  font-family: var(--body);
   font-size: 10.5px;
   font-weight: 600;
   letter-spacing: 0.10em;
@@ -335,7 +335,7 @@ html, body {
   border-radius: 99px;
   border: 1px solid var(--line-2);
   background: var(--card);
-  font-family: var(--mono);
+  font-family: var(--body);
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.06em;
@@ -417,7 +417,7 @@ html, body {
   margin-right: 1px; transform: translateY(-3px); display: inline-block;
 }
 .scard-price .rate {
-  font-family: var(--mono); font-size: 9.5px; font-weight: 700;
+  font-family: var(--body); font-size: 9.5px; font-weight: 700;
   letter-spacing: 0.06em; text-transform: uppercase;
   line-height: 1.4; color: var(--ink); opacity: 0.78;
 }
@@ -522,7 +522,7 @@ html, body {
 .slide-label {
   flex: 1;
   text-align: center;
-  font-family: var(--mono);
+  font-family: var(--body);
   font-size: 11px;
   letter-spacing: 0.14em;
   text-transform: uppercase;

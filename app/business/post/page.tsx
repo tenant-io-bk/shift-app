@@ -68,7 +68,7 @@ function AutoTag({ label = 'Auto-drafted' }: { label?: string }) {
       <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
         <path d="M5 0L6.18 3.82L10 5L6.18 6.18L5 10L3.82 6.18L0 5L3.82 3.82L5 0Z" fill="var(--hydrant)" />
       </svg>
-      <span style={{ fontFamily: 'var(--mono)', fontSize: 9, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--hydrant)' }}>
+      <span style={{ fontFamily: 'var(--body)', fontSize: 9, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--hydrant)' }}>
         {label}
       </span>
     </span>
@@ -86,8 +86,8 @@ function RateBar({ low, high, suggested }: { low: number; high: number; suggeste
         background: 'var(--hydrant)', border: '2.5px solid var(--paper)',
         boxShadow: '0 1px 4px rgba(0,0,0,0.2)',
       }} />
-      <div style={{ position: 'absolute', top: 12, left: 0, fontFamily: 'var(--mono)', fontSize: 10, color: 'var(--mute)' }}>${low}</div>
-      <div style={{ position: 'absolute', top: 12, right: 0, fontFamily: 'var(--mono)', fontSize: 10, color: 'var(--mute)' }}>${high}</div>
+      <div style={{ position: 'absolute', top: 12, left: 0, fontFamily: 'var(--body)', fontSize: 10, color: 'var(--mute)' }}>${low}</div>
+      <div style={{ position: 'absolute', top: 12, right: 0, fontFamily: 'var(--body)', fontSize: 10, color: 'var(--mute)' }}>${high}</div>
     </div>
   );
 }
@@ -105,14 +105,14 @@ function InputStep({ onDraft }: { onDraft: (role: string, brief: string, time: s
   return (
     <div style={{ flex: 1, overflowY: 'auto', paddingBottom: 100 }}>
       <div style={{ padding: '24px 22px 0' }}>
-        <span style={{ fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 700, color: 'var(--hydrant)', textTransform: 'uppercase', letterSpacing: '0.08em' }}>New posting</span>
+        <span style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 700, color: 'var(--hydrant)', textTransform: 'uppercase', letterSpacing: '0.08em' }}>New posting</span>
         <h1 style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 36, color: 'var(--ink)', letterSpacing: '-0.06em', lineHeight: 1, marginTop: 6, marginBottom: 24 }}>
           What do you need?
         </h1>
 
         {/* Role picker */}
         <div style={{ marginBottom: 28 }}>
-          <label style={{ fontFamily: 'var(--mono)', fontSize: 10, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--mute)', display: 'block', marginBottom: 10 }}>Role</label>
+          <label style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--mute)', display: 'block', marginBottom: 10 }}>Role</label>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
             {ROLES.map(r => (
               <button key={r} onClick={() => setRole(r)} style={{
@@ -129,7 +129,7 @@ function InputStep({ onDraft }: { onDraft: (role: string, brief: string, time: s
 
         {/* One-liner */}
         <div style={{ marginBottom: 28 }}>
-          <label style={{ fontFamily: 'var(--mono)', fontSize: 10, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--mute)', display: 'block', marginBottom: 10 }}>Describe the shift in one line</label>
+          <label style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--mute)', display: 'block', marginBottom: 10 }}>Describe the shift in one line</label>
           <textarea
             value={brief}
             onChange={e => setBrief(e.target.value)}
@@ -137,27 +137,27 @@ function InputStep({ onDraft }: { onDraft: (role: string, brief: string, time: s
             rows={2}
             style={{
               width: '100%', padding: '12px 14px',
-              fontFamily: 'var(--mono)', fontSize: 13, color: 'var(--ink)',
+              fontFamily: 'var(--body)', fontSize: 13, color: 'var(--ink)',
               background: 'var(--card)', border: '2px solid var(--ink)',
               borderRadius: 12, outline: 'none', resize: 'none',
               lineHeight: 1.5, boxSizing: 'border-box',
             }}
           />
-          <p style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--mute)', marginTop: 6 }}>
+          <p style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)', marginTop: 6 }}>
             SHIFT will write the full posting from this.
           </p>
         </div>
 
         {/* When */}
         <div style={{ marginBottom: 28 }}>
-          <label style={{ fontFamily: 'var(--mono)', fontSize: 10, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--mute)', display: 'block', marginBottom: 10 }}>When</label>
+          <label style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--mute)', display: 'block', marginBottom: 10 }}>When</label>
           <div style={{ display: 'flex', gap: 8 }}>
             <div style={{ flex: 1, padding: '12px 14px', background: 'var(--card)', border: '2px solid var(--ink)', borderRadius: 12 }}>
-              <div style={{ fontFamily: 'var(--mono)', fontSize: 10, color: 'var(--mute)', marginBottom: 2, textTransform: 'uppercase', letterSpacing: '0.06em' }}>Date</div>
+              <div style={{ fontFamily: 'var(--body)', fontSize: 10, color: 'var(--mute)', marginBottom: 2, textTransform: 'uppercase', letterSpacing: '0.06em' }}>Date</div>
               <div style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 15, color: 'var(--ink)' }}>Today, May 25</div>
             </div>
             <div style={{ flex: 1, padding: '12px 14px', background: 'var(--card)', border: '2px solid var(--ink)', borderRadius: 12 }}>
-              <div style={{ fontFamily: 'var(--mono)', fontSize: 10, color: 'var(--mute)', marginBottom: 2, textTransform: 'uppercase', letterSpacing: '0.06em' }}>Hours</div>
+              <div style={{ fontFamily: 'var(--body)', fontSize: 10, color: 'var(--mute)', marginBottom: 2, textTransform: 'uppercase', letterSpacing: '0.06em' }}>Hours</div>
               <div style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 15, color: 'var(--ink)' }}>{time}</div>
             </div>
           </div>
@@ -165,7 +165,7 @@ function InputStep({ onDraft }: { onDraft: (role: string, brief: string, time: s
 
         {/* How many */}
         <div style={{ marginBottom: 36 }}>
-          <label style={{ fontFamily: 'var(--mono)', fontSize: 10, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--mute)', display: 'block', marginBottom: 10 }}>How many workers?</label>
+          <label style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--mute)', display: 'block', marginBottom: 10 }}>How many workers?</label>
           <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
             <button onClick={() => setCount(Math.max(1, count - 1))} style={{ width: 40, height: 40, borderRadius: '50%', border: '2px solid var(--ink)', background: 'transparent', cursor: 'pointer', fontFamily: 'var(--sans)', fontSize: 20, color: 'var(--ink)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>−</button>
             <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 32, color: 'var(--ink)', letterSpacing: '-0.04em', minWidth: 32, textAlign: 'center' }}>{count}</span>
@@ -211,7 +211,7 @@ function DraftingStep() {
         <p style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 22, color: 'var(--ink)', letterSpacing: '-0.04em', lineHeight: 1.2 }}>
           Writing your posting...
         </p>
-        <p style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--mute)', marginTop: 8 }}>
+        <p style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--mute)', marginTop: 8 }}>
           Pulling task lists, attire, and market rate
         </p>
       </div>
@@ -237,14 +237,14 @@ function ReviewStep({
         <svg width="12" height="12" viewBox="0 0 10 10" fill="none">
           <path d="M5 0L6.18 3.82L10 5L6.18 6.18L5 10L3.82 6.18L0 5L3.82 3.82L5 0Z" fill="var(--hydrant)" />
         </svg>
-        <span style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--ink)', fontWeight: 600 }}>
+        <span style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--ink)', fontWeight: 600 }}>
           SHIFT drafted this from your one-liner. Edit anything.
         </span>
       </div>
 
       {/* Role + time header */}
       <div style={{ padding: '20px 22px 0' }}>
-        <div style={{ fontFamily: 'var(--mono)', fontSize: 10, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--mute)', marginBottom: 6 }}>
+        <div style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--mute)', marginBottom: 6 }}>
           Padmore&apos;s Coffee · {time} · {count === 1 ? '1 worker' : `${count} workers`}
         </div>
         <h2 style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 28, color: 'var(--ink)', letterSpacing: '-0.05em', lineHeight: 1.1 }}>
@@ -256,10 +256,10 @@ function ReviewStep({
       <div style={{ margin: '20px 22px 0', padding: '16px', background: 'var(--card)', border: '2px solid var(--ink)', borderRadius: 14 }}>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 14 }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-            <span style={{ fontFamily: 'var(--mono)', fontSize: 10, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--mute)' }}>The work</span>
+            <span style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--mute)' }}>The work</span>
             <AutoTag />
           </div>
-          <button onClick={() => setEditingTasks(!editingTasks)} style={{ fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 700, color: 'var(--hydrant)', background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}>
+          <button onClick={() => setEditingTasks(!editingTasks)} style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 700, color: 'var(--hydrant)', background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}>
             {editingTasks ? 'Done' : 'Edit'}
           </button>
         </div>
@@ -278,7 +278,7 @@ function ReviewStep({
           <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
             {tasks.map((task, i) => (
               <div key={i} style={{ display: 'flex', gap: 14, alignItems: 'center', padding: '9px 0', borderBottom: i < tasks.length - 1 ? '1px solid var(--line)' : 'none' }}>
-                <span style={{ fontFamily: 'var(--mono)', fontSize: 10, color: 'var(--mute)', flexShrink: 0, width: 18 }}>{String(i + 1).padStart(2, '0')}</span>
+                <span style={{ fontFamily: 'var(--body)', fontSize: 10, color: 'var(--mute)', flexShrink: 0, width: 18 }}>{String(i + 1).padStart(2, '0')}</span>
                 <span style={{ fontFamily: 'var(--sans)', fontWeight: 500, fontSize: 14, color: 'var(--ink)' }}>{task}</span>
               </div>
             ))}
@@ -290,10 +290,10 @@ function ReviewStep({
       <div style={{ margin: '12px 22px 0', padding: '16px', background: 'var(--card)', border: '2px solid var(--ink)', borderRadius: 14 }}>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 14 }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-            <span style={{ fontFamily: 'var(--mono)', fontSize: 10, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--mute)' }}>Bring</span>
+            <span style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--mute)' }}>Bring</span>
             <AutoTag />
           </div>
-          <button onClick={() => setEditingBring(!editingBring)} style={{ fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 700, color: 'var(--hydrant)', background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}>
+          <button onClick={() => setEditingBring(!editingBring)} style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 700, color: 'var(--hydrant)', background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}>
             {editingBring ? 'Done' : 'Edit'}
           </button>
         </div>
@@ -301,8 +301,8 @@ function ReviewStep({
           <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
             {bring.map((row, i) => (
               <div key={i} style={{ display: 'flex', gap: 8 }}>
-                <input value={row.key} onChange={e => setBring(bring.map((b, j) => j === i ? { ...b, key: e.target.value } : b))} style={{ width: 90, fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--mute)', padding: '7px 8px', background: 'var(--paper)', border: '1.5px solid var(--line)', borderRadius: 6, outline: 'none', textTransform: 'uppercase' }} />
-                <input value={row.value} onChange={e => setBring(bring.map((b, j) => j === i ? { ...b, value: e.target.value } : b))} style={{ flex: 1, fontFamily: 'var(--mono)', fontSize: 13, color: 'var(--ink)', padding: '7px 10px', background: 'var(--paper)', border: '1.5px solid var(--line)', borderRadius: 6, outline: 'none', boxSizing: 'border-box' }} />
+                <input value={row.key} onChange={e => setBring(bring.map((b, j) => j === i ? { ...b, key: e.target.value } : b))} style={{ width: 90, fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)', padding: '7px 8px', background: 'var(--paper)', border: '1.5px solid var(--line)', borderRadius: 6, outline: 'none', textTransform: 'uppercase' }} />
+                <input value={row.value} onChange={e => setBring(bring.map((b, j) => j === i ? { ...b, value: e.target.value } : b))} style={{ flex: 1, fontFamily: 'var(--body)', fontSize: 13, color: 'var(--ink)', padding: '7px 10px', background: 'var(--paper)', border: '1.5px solid var(--line)', borderRadius: 6, outline: 'none', boxSizing: 'border-box' }} />
               </div>
             ))}
           </div>
@@ -310,8 +310,8 @@ function ReviewStep({
           <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
             {bring.map((row, i) => (
               <div key={i} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '8px 0', borderBottom: i < bring.length - 1 ? '1px solid var(--line)' : 'none' }}>
-                <span style={{ fontFamily: 'var(--mono)', fontSize: 10, fontWeight: 700, color: 'var(--mute)', textTransform: 'uppercase', letterSpacing: '0.06em' }}>{row.key}</span>
-                <span style={{ fontFamily: 'var(--mono)', fontSize: 13, color: 'var(--ink)' }}>{row.value}</span>
+                <span style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 700, color: 'var(--mute)', textTransform: 'uppercase', letterSpacing: '0.06em' }}>{row.key}</span>
+                <span style={{ fontFamily: 'var(--body)', fontSize: 13, color: 'var(--ink)' }}>{row.value}</span>
               </div>
             ))}
           </div>
@@ -321,12 +321,12 @@ function ReviewStep({
       {/* Rate */}
       <div style={{ margin: '12px 22px 0', padding: '16px', background: 'var(--card)', border: '2px solid var(--ink)', borderRadius: 14 }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 10 }}>
-          <span style={{ fontFamily: 'var(--mono)', fontSize: 10, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--mute)' }}>Rate</span>
+          <span style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--mute)' }}>Rate</span>
           <AutoTag label="Suggested" />
         </div>
         <div style={{ display: 'flex', alignItems: 'baseline', gap: 6 }}>
           <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 44, color: 'var(--ink)', letterSpacing: '-0.06em', lineHeight: 1 }}>${rate}</span>
-          <span style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--mute)' }}>/hr · pre-tips</span>
+          <span style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--mute)' }}>/hr · pre-tips</span>
         </div>
         <RateBar low={draft.rate.low} high={draft.rate.high} suggested={rate} />
         <div style={{ marginTop: 18, display: 'flex', gap: 8 }}>
@@ -335,7 +335,7 @@ function ReviewStep({
               flex: 1, padding: '8px 0', borderRadius: 8,
               border: rate === r ? 'none' : '2px solid var(--line)',
               background: rate === r ? 'var(--ink)' : 'transparent',
-              fontFamily: 'var(--mono)', fontWeight: 700, fontSize: 13,
+              fontFamily: 'var(--body)', fontWeight: 700, fontSize: 13,
               color: rate === r ? '#fff' : 'var(--mute)',
               cursor: 'pointer',
             }}>
@@ -343,7 +343,7 @@ function ReviewStep({
             </button>
           ))}
         </div>
-        <p style={{ fontFamily: 'var(--mono)', fontSize: 10, color: 'var(--mute)', marginTop: 10 }}>{draft.rate.note}</p>
+        <p style={{ fontFamily: 'var(--body)', fontSize: 10, color: 'var(--mute)', marginTop: 10 }}>{draft.rate.note}</p>
       </div>
 
       {/* CTA */}
@@ -356,7 +356,7 @@ function ReviewStep({
         }}>
           Post it →
         </button>
-        <p style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--mute)', textAlign: 'center', marginTop: 10 }}>
+        <p style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)', textAlign: 'center', marginTop: 10 }}>
           Workers in your area will be notified immediately.
         </p>
       </div>
@@ -368,26 +368,26 @@ function PostedStep({ role, time }: { role: string; time: string }) {
   return (
     <div style={{ flex: 1, display: 'flex', flexDirection: 'column', padding: '0 22px' }}>
       <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-        <span style={{ fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 700, color: 'var(--hydrant)', textTransform: 'uppercase', letterSpacing: '0.08em', display: 'block', marginBottom: 10 }}>✦ Live now</span>
+        <span style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 700, color: 'var(--hydrant)', textTransform: 'uppercase', letterSpacing: '0.08em', display: 'block', marginBottom: 10 }}>✦ Live now</span>
         <h1 style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 56, color: 'var(--ink)', letterSpacing: '-0.075em', lineHeight: 0.9, marginBottom: 16 }}>
           Posted.
         </h1>
-        <p style={{ fontFamily: 'var(--mono)', fontSize: 14, color: 'var(--mute)', lineHeight: 1.6, marginBottom: 28 }}>
+        <p style={{ fontFamily: 'var(--body)', fontSize: 14, color: 'var(--mute)', lineHeight: 1.6, marginBottom: 28 }}>
           18 workers in Bed-Stuy have been notified.<br />
           You&apos;ll get a ping when someone locks in.
         </p>
 
         {/* Mini listing preview */}
         <div style={{ padding: '16px', background: 'var(--card)', border: '2px solid var(--ink)', borderRadius: 14, marginBottom: 24 }}>
-          <div style={{ fontFamily: 'var(--mono)', fontSize: 9, fontWeight: 700, color: 'var(--mute)', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: 6 }}>Padmore&apos;s Coffee</div>
+          <div style={{ fontFamily: 'var(--body)', fontSize: 9, fontWeight: 700, color: 'var(--mute)', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: 6 }}>Padmore&apos;s Coffee</div>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
             <div>
               <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 18, color: 'var(--ink)', letterSpacing: '-0.03em' }}>{role} · {time}</div>
-              <div style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--mute)', marginTop: 2 }}>Today · Bed-Stuy</div>
+              <div style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)', marginTop: 2 }}>Today · Bed-Stuy</div>
             </div>
             <div style={{ background: 'var(--hydrant-soft)', borderRadius: 8, padding: '6px 10px', display: 'flex', alignItems: 'center', gap: 6 }}>
               <div style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--hydrant)' }} />
-              <span style={{ fontFamily: 'var(--mono)', fontSize: 10, fontWeight: 700, color: 'var(--hydrant)', textTransform: 'uppercase' }}>0 / 1 filled</span>
+              <span style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 700, color: 'var(--hydrant)', textTransform: 'uppercase' }}>0 / 1 filled</span>
             </div>
           </div>
         </div>

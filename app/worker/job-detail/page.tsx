@@ -145,11 +145,11 @@ function ProfileGate({ onClose }: { onClose: () => void }) {
         {/* Handle */}
         <div style={{ width: 36, height: 4, borderRadius: 99, background: 'var(--line-2)', margin: '0 auto 20px' }} />
 
-        <div style={{ fontFamily: 'var(--mono)', fontSize: 10, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--hydrant)', marginBottom: 8 }}>Before you confirm</div>
+        <div style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--hydrant)', marginBottom: 8 }}>Before you confirm</div>
         <h2 style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 26, color: 'var(--ink)', letterSpacing: '-0.04em', lineHeight: 1.1, marginBottom: 6 }}>
           2 quick things
         </h2>
-        <p style={{ fontFamily: 'var(--mono)', fontSize: 13, color: 'var(--mute)', marginBottom: 22, lineHeight: 1.5 }}>
+        <p style={{ fontFamily: 'var(--body)', fontSize: 13, color: 'var(--mute)', marginBottom: 22, lineHeight: 1.5 }}>
           Employers need to see who they&apos;re booking. Takes 2 minutes.
         </p>
 
@@ -173,7 +173,7 @@ function ProfileGate({ onClose }: { onClose: () => void }) {
               </div>
               <div style={{ flex: 1 }}>
                 <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 15, color: 'var(--ink)', letterSpacing: '-0.02em' }}>{item.label}</div>
-                <div style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--mute)', marginTop: 2 }}>{item.sub}</div>
+                <div style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)', marginTop: 2 }}>{item.sub}</div>
               </div>
               <span style={{ color: 'var(--mute)', fontSize: 16 }}>→</span>
             </Link>
@@ -183,7 +183,7 @@ function ProfileGate({ onClose }: { onClose: () => void }) {
         <button onClick={onClose} style={{
           width: '100%', padding: '14px', background: 'none',
           border: '2px solid var(--line)', borderRadius: 99,
-          fontFamily: 'var(--mono)', fontSize: 13, color: 'var(--mute)',
+          fontFamily: 'var(--body)', fontSize: 13, color: 'var(--mute)',
           cursor: 'pointer', letterSpacing: '0.02em',
         }}>
           Not now
@@ -245,7 +245,7 @@ export default function JobDetail() {
 
         <div style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '16px 22px 0' }}>
           <div className="live-dot" style={{ width: 6, height: 6, borderRadius: '50%', background: '#EA4B2A', flexShrink: 0 }} />
-          <span style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--mute)' }}>Posted 14 min ago · 11 looking</span>
+          <span style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--mute)' }}>Posted 14 min ago · 11 looking</span>
         </div>
 
         <div style={{ padding: '8px 22px' }}>
@@ -255,7 +255,7 @@ export default function JobDetail() {
           <p style={{ fontFamily: 'var(--sans)', fontWeight: 400, fontSize: 18, color: 'var(--ink)', marginTop: 4, lineHeight: 1.3 }}>
             Needs a barista for the lunch rush.
           </p>
-          <p style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--mute)', letterSpacing: '0.08em', marginTop: 8, textTransform: 'uppercase' }}>
+          <p style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)', letterSpacing: '0.08em', marginTop: 8, textTransform: 'uppercase' }}>
             Bed-Stuy / 172 Tompkins Ave / 0.6 mi
           </p>
         </div>
@@ -263,7 +263,7 @@ export default function JobDetail() {
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', padding: '16px 22px', borderTop: '1px solid var(--line)', borderBottom: '1px solid var(--line)', margin: '12px 0', gap: 4 }}>
           {[{ label: 'When', value: 'Today 11–4P' }, { label: 'Hours', value: '5 hrs' }, { label: 'Get there', value: 'G · 25 min' }].map(item => (
             <div key={item.label} style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
-              <span style={{ fontFamily: 'var(--mono)', fontSize: 9.5, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--mute)' }}>{item.label}</span>
+              <span style={{ fontFamily: 'var(--body)', fontSize: 9.5, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--mute)' }}>{item.label}</span>
               <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 15, color: 'var(--ink)', letterSpacing: '-0.01em' }}>{item.value}</span>
             </div>
           ))}
@@ -274,13 +274,13 @@ export default function JobDetail() {
             <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 64, color: 'var(--ink)', letterSpacing: '-0.075em' }}>$140</span>
             <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 64, color: '#72c15f', letterSpacing: '-0.075em' }}>.</span>
           </div>
-          <p style={{ fontFamily: 'var(--mono)', fontSize: 13, color: 'var(--mute)', marginTop: 8 }}>$28/hr · pre-tips</p>
+          <p style={{ fontFamily: 'var(--body)', fontSize: 13, color: 'var(--mute)', marginTop: 8 }}>$28/hr · pre-tips</p>
           <div style={{ marginTop: 14, display: 'flex', alignItems: 'center', gap: 8 }}>
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
               <path d="M8 1.5L2 4v4c0 3.31 2.69 6 6 6s6-2.69 6-6V4L8 1.5Z" stroke="var(--ink)" strokeWidth="1.4" strokeLinejoin="round" />
               <path d="M5.5 8l1.5 1.5L10.5 6" stroke="var(--ink)" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
-            <span style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--ink)' }}>Paid same-day — straight to your debit</span>
+            <span style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--ink)' }}>Paid same-day — straight to your debit</span>
           </div>
         </div>
 
@@ -295,7 +295,7 @@ export default function JobDetail() {
                 <svg width="8" height="8" viewBox="0 0 8 8" fill="none"><path d="M1.5 4l1.5 1.5L6.5 2.5" stroke="white" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" /></svg>
               </div>
             </div>
-            <p style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--mute)', marginTop: 2 }}>Owner · 47 shifts · 4.9★ from 32</p>
+            <p style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--mute)', marginTop: 2 }}>Owner · 47 shifts · 4.9★ from 32</p>
             <p style={{ fontFamily: 'var(--sans)', fontSize: 14, color: 'var(--ink)', marginTop: 8, lineHeight: 1.5 }}>
               &ldquo;Need someone steady on bar for the rush. We pull on a Linea, no auto-tamp — comfortable with that?&rdquo;
             </p>
@@ -303,27 +303,27 @@ export default function JobDetail() {
         </div>
 
         <div style={{ padding: '16px 22px 0' }}>
-          <p style={{ fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 600, letterSpacing: '0.10em', textTransform: 'uppercase', color: 'var(--mute)', paddingBottom: 12, borderBottom: '1px solid var(--line)' }}>The work</p>
+          <p style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, letterSpacing: '0.10em', textTransform: 'uppercase', color: 'var(--mute)', paddingBottom: 12, borderBottom: '1px solid var(--line)' }}>The work</p>
           {['Espresso and pour-over service', 'Bar setup and breakdown', 'Stock and mise en place', "Team communication (it's busy)"].map((task, i) => (
             <div key={i} style={{ display: 'flex', gap: 16, alignItems: 'center', padding: '10px 0', borderBottom: '1px solid var(--line)' }}>
-              <span style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--mute)', flexShrink: 0, width: 20 }}>{String(i + 1).padStart(2, '0')}</span>
+              <span style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)', flexShrink: 0, width: 20 }}>{String(i + 1).padStart(2, '0')}</span>
               <span style={{ fontFamily: 'var(--sans)', fontWeight: 500, fontSize: 14, color: 'var(--ink)' }}>{task}</span>
             </div>
           ))}
         </div>
 
         <div style={{ padding: '16px 22px 0' }}>
-          <p style={{ fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 600, letterSpacing: '0.10em', textTransform: 'uppercase', color: 'var(--mute)', paddingBottom: 12, borderBottom: '1px solid var(--line)' }}>Bring</p>
+          <p style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, letterSpacing: '0.10em', textTransform: 'uppercase', color: 'var(--mute)', paddingBottom: 12, borderBottom: '1px solid var(--line)' }}>Bring</p>
           {[{ key: 'Attire', value: 'All black, closed-toe shoes' }, { key: 'Experience', value: '2+ years espresso' }, { key: 'Cert', value: 'Food handler (optional)' }].map(row => (
             <div key={row.key} className="kv-row" style={{ padding: '9px 0' }}>
-              <span style={{ fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 600, letterSpacing: '0.06em', color: 'var(--mute)', textTransform: 'uppercase' }}>{row.key}</span>
-              <span style={{ fontFamily: 'var(--mono)', fontSize: 13, color: 'var(--ink)', textAlign: 'right' }}>{row.value}</span>
+              <span style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, letterSpacing: '0.06em', color: 'var(--mute)', textTransform: 'uppercase' }}>{row.key}</span>
+              <span style={{ fontFamily: 'var(--body)', fontSize: 13, color: 'var(--ink)', textAlign: 'right' }}>{row.value}</span>
             </div>
           ))}
         </div>
 
         <div style={{ padding: '14px 22px', borderTop: '1px solid var(--line)', marginTop: 16 }}>
-          <span style={{ fontFamily: 'var(--mono)', fontSize: 10, color: 'var(--mute)', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
+          <span style={{ fontFamily: 'var(--body)', fontSize: 10, color: 'var(--mute)', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
             Posting #4471 · Brooklyn · NY
           </span>
         </div>
@@ -342,10 +342,10 @@ export default function JobDetail() {
           locked={!PROFILE_COMPLETE}
           onLockedAttempt={() => setGateOpen(true)}
         />
-        <p style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--mute)', textAlign: 'center', marginTop: 12 }}>
+        <p style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)', textAlign: 'center', marginTop: 12 }}>
           15 min to confirm · no application, no interview
         </p>
-        <p style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--mute)', textAlign: 'center', marginTop: 6 }}>
+        <p style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)', textAlign: 'center', marginTop: 6 }}>
           <Link href="/worker/report" style={{ color: 'var(--mute)', textDecoration: 'underline' }}>Report an issue with this posting</Link>
         </p>
       </div>

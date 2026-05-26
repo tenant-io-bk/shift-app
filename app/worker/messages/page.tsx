@@ -183,7 +183,7 @@ export default function WorkerMessages() {
             {activeThread.role && (
               <div
                 style={{
-                  fontFamily: 'var(--mono)',
+                  fontFamily: 'var(--body)',
                   fontSize: 11,
                   color: 'var(--mute)',
                 }}
@@ -219,7 +219,7 @@ export default function WorkerMessages() {
                     padding: '12px 16px',
                     background: 'var(--card)',
                     borderRadius: 12,
-                    fontFamily: 'var(--mono)',
+                    fontFamily: 'var(--body)',
                     fontSize: 12,
                     color: 'var(--mute)',
                     lineHeight: 1.6,
@@ -228,7 +228,7 @@ export default function WorkerMessages() {
                 >
                   <div
                     style={{
-                      fontFamily: 'var(--mono)',
+                      fontFamily: 'var(--body)',
                       fontSize: 10,
                       fontWeight: 700,
                       textTransform: 'uppercase',
@@ -271,7 +271,7 @@ export default function WorkerMessages() {
                         : '18px 18px 18px 4px',
                       background: isWorker ? 'var(--ink)' : 'var(--card)',
                       border: isWorker ? 'none' : '1.5px solid var(--line)',
-                      fontFamily: 'var(--mono)',
+                      fontFamily: 'var(--body)',
                       fontSize: 14,
                       color: isWorker ? '#fff' : 'var(--ink)',
                       lineHeight: 1.5,
@@ -281,7 +281,7 @@ export default function WorkerMessages() {
                   </div>
                   <div
                     style={{
-                      fontFamily: 'var(--mono)',
+                      fontFamily: 'var(--body)',
                       fontSize: 10,
                       color: 'var(--mute)',
                       marginTop: 4,
@@ -332,7 +332,7 @@ export default function WorkerMessages() {
                 background: 'var(--card)',
                 border: '1.5px solid var(--line)',
                 borderRadius: 99,
-                fontFamily: 'var(--mono)',
+                fontFamily: 'var(--body)',
                 fontSize: 14,
                 color: 'var(--ink)',
                 outline: 'none',
@@ -396,7 +396,7 @@ export default function WorkerMessages() {
       >
         <span
           style={{
-            fontFamily: 'var(--mono)',
+            fontFamily: 'var(--body)',
             fontSize: 11,
             fontWeight: 600,
             letterSpacing: '0.08em',
@@ -472,7 +472,7 @@ export default function WorkerMessages() {
                 </span>
                 <span
                   style={{
-                    fontFamily: 'var(--mono)',
+                    fontFamily: 'var(--body)',
                     fontSize: 11,
                     color: 'var(--mute)',
                     flexShrink: 0,
@@ -486,7 +486,7 @@ export default function WorkerMessages() {
               {thread.role && (
                 <div
                   style={{
-                    fontFamily: 'var(--mono)',
+                    fontFamily: 'var(--body)',
                     fontSize: 11,
                     color: 'var(--hydrant)',
                     marginBottom: 2,
@@ -498,7 +498,7 @@ export default function WorkerMessages() {
 
               <div
                 style={{
-                  fontFamily: 'var(--mono)',
+                  fontFamily: 'var(--body)',
                   fontSize: 12,
                   color: thread.unread ? 'var(--ink)' : 'var(--mute)',
                   fontWeight: thread.unread ? 600 : 400,
@@ -526,7 +526,7 @@ export default function WorkerMessages() {
               >
                 <span
                   style={{
-                    fontFamily: 'var(--mono)',
+                    fontFamily: 'var(--body)',
                     fontSize: 11,
                     fontWeight: 700,
                     color: '#fff',

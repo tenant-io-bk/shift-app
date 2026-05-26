@@ -25,7 +25,7 @@ export default function EmployerVerify() {
 
       <div style={{ height: 44, padding: '0 16px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderBottom: '1px solid var(--line)' }}>
         <Link href="/employer/onboarding" style={{ fontSize: 20, color: 'var(--ink)', textDecoration: 'none' }}>←</Link>
-        <span style={{ fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--ink)' }}>Verify business</span>
+        <span style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--ink)' }}>Verify business</span>
         <div style={{ width: 20 }} />
       </div>
 
@@ -34,11 +34,11 @@ export default function EmployerVerify() {
       </div>
 
       <div style={{ padding: '20px 22px 140px', flex: 1, overflowY: 'auto' }}>
-        <div style={{ fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 600, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--hydrant)', marginBottom: 10 }}>VERIFICATION</div>
+        <div style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--hydrant)', marginBottom: 10 }}>VERIFICATION</div>
         <h1 style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 34, letterSpacing: '-0.075em', lineHeight: 0.95, color: 'var(--ink)', marginBottom: 10 }}>
           Prove it's your business.
         </h1>
-        <p style={{ fontFamily: 'var(--mono)', fontSize: 13, color: 'var(--ink)', lineHeight: 1.6, marginBottom: 28 }}>
+        <p style={{ fontFamily: 'var(--body)', fontSize: 13, color: 'var(--ink)', lineHeight: 1.6, marginBottom: 28 }}>
           SHIFT only works with legitimate businesses. Pick one way to verify — takes 60 seconds.
         </p>
 
@@ -64,7 +64,7 @@ export default function EmployerVerify() {
             </div>
             <div>
               <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 15, color: method === 'ein' ? '#fff' : 'var(--ink)', marginBottom: 2 }}>EIN — Employer ID Number</div>
-              <div style={{ fontFamily: 'var(--mono)', fontSize: 12, color: method === 'ein' ? 'rgba(255,255,255,0.6)' : 'var(--ink)', lineHeight: 1.5 }}>Your federal tax ID. Found on your IRS letter or SS-4.</div>
+              <div style={{ fontFamily: 'var(--body)', fontSize: 12, color: method === 'ein' ? 'rgba(255,255,255,0.6)' : 'var(--ink)', lineHeight: 1.5 }}>Your federal tax ID. Found on your IRS letter or SS-4.</div>
             </div>
           </button>
 
@@ -84,14 +84,14 @@ export default function EmployerVerify() {
               style={{
                 width: '100%', height: 52, padding: '0 16px',
                 background: 'var(--card)', border: `2px solid ${einComplete ? 'var(--hydrant)' : 'var(--ink)'}`,
-                borderRadius: 14, fontFamily: 'var(--mono)', fontSize: 20,
+                borderRadius: 14, fontFamily: 'var(--body)', fontSize: 20,
                 letterSpacing: '0.12em', color: 'var(--ink)', outline: 'none',
                 boxSizing: 'border-box',
                 transition: 'border-color 0.2s',
               }}
             />
             {einComplete && (
-              <p style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--hydrant)', fontWeight: 600, marginTop: 6 }}>✓ Looks good</p>
+              <p style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--hydrant)', fontWeight: 600, marginTop: 6 }}>✓ Looks good</p>
             )}
           </div>
 
@@ -114,7 +114,7 @@ export default function EmployerVerify() {
             </div>
             <div>
               <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 15, color: method === 'doc' ? '#fff' : 'var(--ink)', marginBottom: 2 }}>Business license or DBA</div>
-              <div style={{ fontFamily: 'var(--mono)', fontSize: 12, color: method === 'doc' ? 'rgba(255,255,255,0.6)' : 'var(--ink)', lineHeight: 1.5 }}>Upload a photo of your NYC business certificate or DBA filing.</div>
+              <div style={{ fontFamily: 'var(--body)', fontSize: 12, color: method === 'doc' ? 'rgba(255,255,255,0.6)' : 'var(--ink)', lineHeight: 1.5 }}>Upload a photo of your NYC business certificate or DBA filing.</div>
             </div>
           </button>
 
@@ -135,7 +135,7 @@ export default function EmployerVerify() {
                 transition: 'all 0.2s',
               }}
             >
-              <span style={{ fontFamily: 'var(--mono)', fontSize: 13, fontWeight: 600, color: uploaded ? 'var(--hydrant)' : 'var(--ink)' }}>
+              <span style={{ fontFamily: 'var(--body)', fontSize: 13, fontWeight: 600, color: uploaded ? 'var(--hydrant)' : 'var(--ink)' }}>
                 {uploaded ? '✓ license.jpg uploaded' : 'Tap to upload photo'}
               </span>
             </button>
@@ -148,7 +148,7 @@ export default function EmployerVerify() {
             <path d="M8 1.5L14 4v4c0 3.5-2.5 6-6 7C2.5 14 0 11.5 0 8V4L8 1.5z" stroke="var(--ink)" strokeWidth="1.3" fill="none" />
             <path d="M5 8l2 2 4-4" stroke="var(--ink)" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
-          <p style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--ink)', lineHeight: 1.6, margin: 0 }}>
+          <p style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--ink)', lineHeight: 1.6, margin: 0 }}>
             Your info is encrypted and only used to verify your account. We never share it with workers.
           </p>
         </div>

@@ -134,7 +134,7 @@ export default function PostShift() {
         {/* ROLE */}
         {step === 'role' && (
           <>
-            <div style={{ fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--hydrant)', marginBottom: 12 }}>Role</div>
+            <div style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--hydrant)', marginBottom: 12 }}>Role</div>
             <h1 style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 36, letterSpacing: '-0.075em', lineHeight: 1, color: 'var(--ink)', marginBottom: 28 }}>What role do you need?</h1>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10 }}>
               {ROLES.map(r => (
@@ -154,7 +154,7 @@ export default function PostShift() {
         {/* WHEN */}
         {step === 'when' && (
           <div style={{ display: 'flex', flexDirection: 'column', flex: 1 }}>
-            <div style={{ fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--hydrant)', marginBottom: 12 }}>When</div>
+            <div style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--hydrant)', marginBottom: 12 }}>When</div>
             <p style={{ fontFamily: 'var(--sans)', fontWeight: 400, fontSize: 18, color: 'var(--ink)', letterSpacing: '-0.02em', marginBottom: 16, lineHeight: 1.2 }}>When do you need a shift filled?</p>
 
             {/* Date pill */}
@@ -187,7 +187,7 @@ export default function PostShift() {
             {/* End */}
             <div style={{ position: 'relative' }}>
               <div style={{ fontFamily: 'var(--sans)', fontWeight: 300, fontSize: 56, color: 'var(--ink)', letterSpacing: '-0.055em', lineHeight: 1, textAlign: 'center' }}>
-                End{hrs > 0 && <span style={{ fontFamily: 'var(--mono)', fontWeight: 600, fontSize: 16, color: 'var(--hydrant)', marginLeft: 14, verticalAlign: 'middle' }}>{fmtHrs(hrs)}</span>}
+                End{hrs > 0 && <span style={{ fontFamily: 'var(--body)', fontWeight: 600, fontSize: 16, color: 'var(--hydrant)', marginLeft: 14, verticalAlign: 'middle' }}>{fmtHrs(hrs)}</span>}
               </div>
               <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 72, color: 'var(--ink)', letterSpacing: '-0.06em', lineHeight: 1, textAlign: 'center' }}>{fmtDisplay(endTime)}</div>
               <input
@@ -203,51 +203,51 @@ export default function PostShift() {
         {/* PAY */}
         {step === 'pay' && (
           <>
-            <div style={{ fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--hydrant)', marginBottom: 12 }}>Pay</div>
+            <div style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--hydrant)', marginBottom: 12 }}>Pay</div>
             <h1 style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 36, letterSpacing: '-0.075em', lineHeight: 1, color: 'var(--ink)', marginBottom: 32 }}>How much per hour?</h1>
 
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 24, marginBottom: 16 }}>
               <button onClick={() => setRate(r => Math.max(15, r - 1))} style={{ width: 52, height: 52, borderRadius: 99, border: '2px solid var(--ink)', background: 'transparent', fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 28, color: 'var(--ink)', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>−</button>
               <div style={{ textAlign: 'center' }}>
                 <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 72, color: 'var(--ink)', letterSpacing: '-0.06em', lineHeight: 1 }}>${rate}</div>
-                <div style={{ fontFamily: 'var(--mono)', fontSize: 13, color: 'var(--ink)', marginTop: 6 }}>
+                <div style={{ fontFamily: 'var(--body)', fontSize: 13, color: 'var(--ink)', marginTop: 6 }}>
                   {hrs > 0 ? `Total for ${fmtHrs(hrs)}: $${(rate * hrs).toFixed(0)}.` : 'Set times to see total.'}
                 </div>
               </div>
               <button onClick={() => setRate(r => Math.min(75, r + 1))} style={{ width: 52, height: 52, borderRadius: 99, border: '2px solid var(--ink)', background: 'transparent', fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 28, color: 'var(--ink)', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>+</button>
             </div>
 
-            <p style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--ink)', marginTop: 4 }}>NYC minimum is $16/hr. Market rate for {role || 'this role'} is ~$22–28/hr.</p>
+            <p style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--ink)', marginTop: 4 }}>NYC minimum is $16/hr. Market rate for {role || 'this role'} is ~$22–28/hr.</p>
           </>
         )}
 
         {/* COUNT */}
         {step === 'count' && (
           <>
-            <div style={{ fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--hydrant)', marginBottom: 12 }}>How many</div>
+            <div style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--hydrant)', marginBottom: 12 }}>How many</div>
             <h1 style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 36, letterSpacing: '-0.075em', lineHeight: 1, color: 'var(--ink)', marginBottom: 40 }}>How many workers?</h1>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 28 }}>
               <button onClick={() => setCount(Math.max(1, count - 1))} style={{ width: 56, height: 56, borderRadius: 99, border: '2px solid var(--ink)', background: 'transparent', fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 28, color: 'var(--ink)', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>−</button>
               <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 64, color: 'var(--ink)', letterSpacing: '-0.05em', minWidth: 60, textAlign: 'center' }}>{count}</span>
               <button onClick={() => setCount(count + 1)} style={{ width: 56, height: 56, borderRadius: 99, border: '2px solid var(--ink)', background: 'transparent', fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 28, color: 'var(--ink)', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>+</button>
             </div>
-            <p style={{ fontFamily: 'var(--mono)', fontSize: 13, color: 'var(--ink)', marginTop: 20 }}>+1 standby auto-invited as backup.</p>
+            <p style={{ fontFamily: 'var(--body)', fontSize: 13, color: 'var(--ink)', marginTop: 20 }}>+1 standby auto-invited as backup.</p>
           </>
         )}
 
         {/* BRIEF */}
         {step === 'brief' && !isDrafting && (
           <>
-            <div style={{ fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--hydrant)', marginBottom: 12 }}>Brief</div>
+            <div style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--hydrant)', marginBottom: 12 }}>Brief</div>
             <h1 style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 36, letterSpacing: '-0.075em', lineHeight: 1, color: 'var(--ink)', marginBottom: 8 }}>Describe the shift in one line</h1>
-            <p style={{ fontFamily: 'var(--mono)', fontSize: 13, color: 'var(--ink)', marginBottom: 20 }}>SHIFT will write the full posting from this.</p>
+            <p style={{ fontFamily: 'var(--body)', fontSize: 13, color: 'var(--ink)', marginBottom: 20 }}>SHIFT will write the full posting from this.</p>
             <textarea
               value={brief}
               onChange={e => setBrief(e.target.value)}
               rows={3}
               autoFocus
               placeholder={`e.g. "${role.toLowerCase()}, lunch rush, all black, busy"`}
-              style={{ width: '100%', padding: '14px 16px', background: 'var(--card)', border: '2px solid var(--ink)', borderRadius: 14, fontFamily: 'var(--mono)', fontSize: 13, color: 'var(--ink)', outline: 'none', resize: 'none', lineHeight: 1.6, boxSizing: 'border-box' }}
+              style={{ width: '100%', padding: '14px 16px', background: 'var(--card)', border: '2px solid var(--ink)', borderRadius: 14, fontFamily: 'var(--body)', fontSize: 13, color: 'var(--ink)', outline: 'none', resize: 'none', lineHeight: 1.6, boxSizing: 'border-box' }}
             />
           </>
         )}
@@ -259,37 +259,37 @@ export default function PostShift() {
               {[0,1,2].map(i => <div key={i} style={{ width: 8, height: 8, borderRadius: '50%', background: i < draftDots ? 'var(--hydrant)' : 'var(--line)', transition: 'background 0.2s' }} />)}
             </div>
             <p style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 22, color: 'var(--ink)', letterSpacing: '-0.04em' }}>Writing your posting…</p>
-            <p style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--mute)' }}>Task list, attire, and rate — 2 sec</p>
+            <p style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--mute)' }}>Task list, attire, and rate — 2 sec</p>
           </div>
         )}
 
         {/* REVIEW */}
         {step === 'review' && (
           <>
-            <div style={{ fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--hydrant)', marginBottom: 12 }}>Review</div>
+            <div style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--hydrant)', marginBottom: 12 }}>Review</div>
             <h1 style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 36, letterSpacing: '-0.075em', lineHeight: 1, color: 'var(--ink)', marginBottom: 16 }}>SHIFT drafted this.</h1>
 
             <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 16, padding: '8px 12px', background: 'var(--hydrant-soft)', borderRadius: 8 }}>
               <svg width="9" height="9" viewBox="0 0 10 10" fill="none"><path d="M5 0L6.18 3.82L10 5L6.18 6.18L5 10L3.82 6.18L0 5L3.82 3.82L5 0Z" fill="var(--hydrant)" /></svg>
-              <span style={{ fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 600, color: 'var(--ink)' }}>Auto-drafted from your one-liner · edit anything</span>
+              <span style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, color: 'var(--ink)' }}>Auto-drafted from your one-liner · edit anything</span>
             </div>
 
             {/* The work */}
             <div style={{ marginBottom: 14 }}>
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 8 }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-                  <span style={{ fontFamily: 'var(--mono)', fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--mute)' }}>The work</span>
+                  <span style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--mute)' }}>The work</span>
                   <svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M5 0L6.18 3.82L10 5L6.18 6.18L5 10L3.82 6.18L0 5L3.82 3.82L5 0Z" fill="var(--hydrant)" /></svg>
-                  <span style={{ fontFamily: 'var(--mono)', fontSize: 9, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--hydrant)' }}>Auto-drafted</span>
+                  <span style={{ fontFamily: 'var(--body)', fontSize: 9, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--hydrant)' }}>Auto-drafted</span>
                 </div>
-                <button onClick={() => setEditingTasks(t => !t)} style={{ fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 700, color: 'var(--hydrant)', background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}>{editingTasks ? 'Done' : 'Edit'}</button>
+                <button onClick={() => setEditingTasks(t => !t)} style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 700, color: 'var(--hydrant)', background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}>{editingTasks ? 'Done' : 'Edit'}</button>
               </div>
               <div style={{ background: 'var(--card)', border: '2px solid var(--ink)', borderRadius: 12, padding: '2px 14px' }}>
                 {editingTasks ? draftTasks.map((t, i) => (
                   <input key={i} value={t} onChange={e => setDraftTasks(ts => ts.map((x, j) => j === i ? e.target.value : x))} style={{ display: 'block', width: '100%', fontFamily: 'var(--sans)', fontSize: 14, color: 'var(--ink)', padding: '9px 0', background: 'none', border: 'none', borderBottom: i < draftTasks.length-1 ? '1px solid var(--line)' : 'none', outline: 'none', boxSizing: 'border-box' }} />
                 )) : draftTasks.map((t, i) => (
                   <div key={i} style={{ display: 'flex', gap: 14, padding: '9px 0', borderBottom: i < draftTasks.length-1 ? '1px solid var(--line)' : 'none' }}>
-                    <span style={{ fontFamily: 'var(--mono)', fontSize: 10, color: 'var(--mute)', flexShrink: 0, paddingTop: 2 }}>{String(i+1).padStart(2,'0')}</span>
+                    <span style={{ fontFamily: 'var(--body)', fontSize: 10, color: 'var(--mute)', flexShrink: 0, paddingTop: 2 }}>{String(i+1).padStart(2,'0')}</span>
                     <span style={{ fontFamily: 'var(--sans)', fontSize: 14, color: 'var(--ink)' }}>{t}</span>
                   </div>
                 ))}
@@ -300,22 +300,22 @@ export default function PostShift() {
             <div>
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 8 }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-                  <span style={{ fontFamily: 'var(--mono)', fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--mute)' }}>Bring</span>
+                  <span style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--mute)' }}>Bring</span>
                   <svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M5 0L6.18 3.82L10 5L6.18 6.18L5 10L3.82 6.18L0 5L3.82 3.82L5 0Z" fill="var(--hydrant)" /></svg>
-                  <span style={{ fontFamily: 'var(--mono)', fontSize: 9, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--hydrant)' }}>Auto-drafted</span>
+                  <span style={{ fontFamily: 'var(--body)', fontSize: 9, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--hydrant)' }}>Auto-drafted</span>
                 </div>
-                <button onClick={() => setEditingBring(b => !b)} style={{ fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 700, color: 'var(--hydrant)', background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}>{editingBring ? 'Done' : 'Edit'}</button>
+                <button onClick={() => setEditingBring(b => !b)} style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 700, color: 'var(--hydrant)', background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}>{editingBring ? 'Done' : 'Edit'}</button>
               </div>
               <div style={{ background: 'var(--card)', border: '2px solid var(--ink)', borderRadius: 12, padding: '2px 14px' }}>
                 {editingBring ? draftBring.map((b, i) => (
                   <div key={i} style={{ display: 'flex', gap: 8, padding: '7px 0', borderBottom: i < draftBring.length-1 ? '1px solid var(--line)' : 'none' }}>
-                    <input value={b.key} onChange={e => setDraftBring(br => br.map((x,j) => j===i ? {...x, key: e.target.value} : x))} style={{ width: 80, fontFamily: 'var(--mono)', fontSize: 10, color: 'var(--mute)', textTransform: 'uppercase', background: 'none', border: 'none', outline: 'none' }} />
-                    <input value={b.value} onChange={e => setDraftBring(br => br.map((x,j) => j===i ? {...x, value: e.target.value} : x))} style={{ flex: 1, fontFamily: 'var(--mono)', fontSize: 13, color: 'var(--ink)', background: 'none', border: 'none', outline: 'none', textAlign: 'right' }} />
+                    <input value={b.key} onChange={e => setDraftBring(br => br.map((x,j) => j===i ? {...x, key: e.target.value} : x))} style={{ width: 80, fontFamily: 'var(--body)', fontSize: 10, color: 'var(--mute)', textTransform: 'uppercase', background: 'none', border: 'none', outline: 'none' }} />
+                    <input value={b.value} onChange={e => setDraftBring(br => br.map((x,j) => j===i ? {...x, value: e.target.value} : x))} style={{ flex: 1, fontFamily: 'var(--body)', fontSize: 13, color: 'var(--ink)', background: 'none', border: 'none', outline: 'none', textAlign: 'right' }} />
                   </div>
                 )) : draftBring.map((b, i) => (
                   <div key={i} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '9px 0', borderBottom: i < draftBring.length-1 ? '1px solid var(--line)' : 'none' }}>
-                    <span style={{ fontFamily: 'var(--mono)', fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', color: 'var(--mute)' }}>{b.key}</span>
-                    <span style={{ fontFamily: 'var(--mono)', fontSize: 13, color: 'var(--ink)' }}>{b.value}</span>
+                    <span style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', color: 'var(--mute)' }}>{b.key}</span>
+                    <span style={{ fontFamily: 'var(--body)', fontSize: 13, color: 'var(--ink)' }}>{b.value}</span>
                   </div>
                 ))}
               </div>
@@ -326,7 +326,7 @@ export default function PostShift() {
         {/* CONFIRM */}
         {step === 'confirm' && (
           <>
-            <div style={{ fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--hydrant)', marginBottom: 12 }}>Review</div>
+            <div style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--hydrant)', marginBottom: 12 }}>Review</div>
             <h1 style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 40, letterSpacing: '-0.075em', lineHeight: 1, color: 'var(--ink)', marginBottom: 28 }}>Looks good?</h1>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: 8, marginBottom: 28 }}>
@@ -338,7 +338,7 @@ export default function PostShift() {
                 ...(draftTasks.length ? [{ label: 'Tasks', value: `${draftTasks.length} items auto-drafted` }] : []),
               ].map(row => (
                 <div key={row.label} style={{ display: 'flex', gap: 12, padding: '14px 16px', border: '2px solid var(--ink)', borderRadius: 12 }}>
-                  <span style={{ fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--ink)', width: 60, flexShrink: 0, paddingTop: 1 }}>{row.label}</span>
+                  <span style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--ink)', width: 60, flexShrink: 0, paddingTop: 1 }}>{row.label}</span>
                   <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 15, color: 'var(--ink)', letterSpacing: '-0.01em' }}>{row.value}</span>
                 </div>
               ))}
@@ -347,7 +347,7 @@ export default function PostShift() {
             <div style={{ marginTop: 'auto', paddingTop: 16 }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 12 }}>
                 <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 24, color: 'var(--ink)', letterSpacing: '-0.04em' }}>All in: ${total$.toFixed(0)}.</span>
-                <span style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--ink)' }}>$0 to post</span>
+                <span style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--ink)' }}>$0 to post</span>
               </div>
               <button
                 onClick={() => router.push('/employer/posting')}
@@ -355,7 +355,7 @@ export default function PostShift() {
               >
                 Post this shift.
               </button>
-              <p style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--ink)', textAlign: 'center', marginTop: 10 }}>$0 posted · billed when filled</p>
+              <p style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--ink)', textAlign: 'center', marginTop: 10 }}>$0 posted · billed when filled</p>
             </div>
           </>
         )}

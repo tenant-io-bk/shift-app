@@ -108,7 +108,7 @@ export default function Page() {
           </h2>
           <div
             style={{
-              fontFamily: 'var(--mono)',
+              fontFamily: 'var(--body)',
               fontSize: 12,
               color: 'rgba(255,255,255,0.7)',
             }}
@@ -125,7 +125,7 @@ export default function Page() {
             color: 'white',
             borderRadius: 99,
             padding: '4px 10px',
-            fontFamily: 'var(--mono)',
+            fontFamily: 'var(--body)',
             fontSize: 11,
             fontWeight: 600,
           }}
@@ -164,7 +164,7 @@ export default function Page() {
             </div>
             <div
               style={{
-                fontFamily: 'var(--mono)',
+                fontFamily: 'var(--body)',
                 fontSize: 9.5,
                 fontWeight: 600,
                 textTransform: 'uppercase',
@@ -221,7 +221,7 @@ export default function Page() {
       <div style={{ padding: '16px 22px 0' }}>
         <div
           style={{
-            fontFamily: 'var(--mono)',
+            fontFamily: 'var(--body)',
             fontSize: 11,
             fontWeight: 600,
             textTransform: 'uppercase',
@@ -243,7 +243,7 @@ export default function Page() {
                 border: tag.selected ? '2px solid var(--hydrant)' : '2px solid var(--ink)',
                 background: tag.selected ? 'var(--hydrant-soft)' : 'var(--paper-2)',
                 color: tag.selected ? 'var(--hydrant)' : 'var(--ink)',
-                fontFamily: 'var(--mono)',
+                fontFamily: 'var(--body)',
                 fontSize: 12,
                 fontWeight: 600,
                 cursor: 'pointer',

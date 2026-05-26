@@ -34,7 +34,7 @@ export default function Dispute() {
       <div style={{ padding: 22 }}>
         {/* Alert header */}
         <p style={{
-          fontFamily: 'var(--mono)',
+          fontFamily: 'var(--body)',
           fontSize: 11,
           fontWeight: 700,
           textTransform: 'uppercase',
@@ -54,7 +54,7 @@ export default function Dispute() {
         }}>Flag an issue with this shift.</h1>
 
         <p style={{
-          fontFamily: 'var(--mono)',
+          fontFamily: 'var(--body)',
           fontSize: 13,
           color: 'var(--mute)',
           lineHeight: 1.5,
@@ -101,7 +101,7 @@ export default function Dispute() {
                   <div style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 14, color: 'var(--ink)' }}>
                     {reason.label}
                   </div>
-                  <div style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--mute)', marginTop: 2 }}>
+                  <div style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--mute)', marginTop: 2 }}>
                     {reason.desc}
                   </div>
                 </div>
@@ -113,7 +113,7 @@ export default function Dispute() {
         {/* Text area */}
         <div style={{ marginTop: 14 }}>
           <p style={{
-            fontFamily: 'var(--mono)',
+            fontFamily: 'var(--body)',
             fontSize: 10,
             fontWeight: 600,
             textTransform: 'uppercase',
@@ -132,7 +132,7 @@ export default function Dispute() {
               border: '2px solid var(--ink)',
               borderRadius: 14,
               padding: '14px 16px',
-              fontFamily: 'var(--mono)',
+              fontFamily: 'var(--body)',
               fontSize: 14,
               color: 'var(--ink)',
               resize: 'none',
@@ -141,7 +141,7 @@ export default function Dispute() {
             }}
           />
           <p style={{
-            fontFamily: 'var(--mono)',
+            fontFamily: 'var(--body)',
             fontSize: 11,
             color: 'var(--mute)',
             textAlign: 'right',
@@ -160,7 +160,7 @@ export default function Dispute() {
           alignItems: 'center',
         }}>
           <p style={{
-            fontFamily: 'var(--mono)',
+            fontFamily: 'var(--body)',
             fontSize: 12,
             color: 'var(--hydrant)',
             fontWeight: 500,

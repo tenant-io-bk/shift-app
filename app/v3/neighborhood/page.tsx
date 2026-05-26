@@ -29,7 +29,7 @@ export default function Neighborhood() {
 
       {/* Headline */}
       <div style={{ padding: '16px 22px 0' }}>
-        <span style={{ fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 600, color: 'var(--hydrant)', textTransform: 'uppercase', letterSpacing: '0.08em', display: 'block', marginBottom: 10 }}>STEP 4 OF 4</span>
+        <span style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, color: 'var(--hydrant)', textTransform: 'uppercase', letterSpacing: '0.08em', display: 'block', marginBottom: 10 }}>STEP 4 OF 4</span>
         <h1 style={{
           fontFamily: 'var(--sans)',
           fontWeight: 700,
@@ -40,7 +40,7 @@ export default function Neighborhood() {
           marginBottom: 8,
         }}>Where do you work?</h1>
         <p style={{
-          fontFamily: 'var(--mono)',
+          fontFamily: 'var(--body)',
           fontSize: 13,
           color: 'var(--mute)',
           marginBottom: 16,
@@ -128,7 +128,7 @@ export default function Neighborhood() {
             border: 'none',
             borderBottom: '1px solid var(--ink)',
             padding: '8px 0',
-            fontFamily: 'var(--mono)',
+            fontFamily: 'var(--body)',
             fontSize: 13,
             color: 'var(--ink)',
             outline: 'none',
@@ -154,7 +154,7 @@ export default function Neighborhood() {
           letterSpacing: '-0.01em',
           textDecoration: 'none',
         }}>One more step →</Link>
-        <p style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--mute)', textAlign: 'center', marginTop: 12 }}>
+        <p style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)', textAlign: 'center', marginTop: 12 }}>
           Just payout info, then you&apos;re in.
         </p>
       </div>

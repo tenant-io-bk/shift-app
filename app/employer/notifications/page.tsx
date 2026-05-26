@@ -95,11 +95,11 @@ export default function EmployerNotifications() {
 
       <div style={{ height: 44, display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 16px', borderBottom: '1px solid var(--line)', background: 'var(--paper)' }}>
         <Link href="/employer/dashboard" style={{ fontSize: 20, color: 'var(--ink)', textDecoration: 'none', width: 36 }}>←</Link>
-        <span style={{ fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--mute)' }}>
+        <span style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--mute)' }}>
           Alerts{unread > 0 && <span style={{ color: 'var(--hydrant)' }}> · {unread}</span>}
         </span>
         {unread > 0 ? (
-          <button onClick={markAll} style={{ fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 600, color: 'var(--mute)', background: 'none', border: 'none', cursor: 'pointer', width: 60, textAlign: 'right' }}>
+          <button onClick={markAll} style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, color: 'var(--mute)', background: 'none', border: 'none', cursor: 'pointer', width: 60, textAlign: 'right' }}>
             Read all
           </button>
         ) : <div style={{ width: 60 }} />}
@@ -107,12 +107,12 @@ export default function EmployerNotifications() {
 
       <div style={{ flex: 1 }}>
         <div style={{ padding: '14px 22px 6px' }}>
-          <div style={{ fontFamily: 'var(--mono)', fontSize: 10, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--mute)' }}>Today</div>
+          <div style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--mute)' }}>Today</div>
         </div>
         {today.map(n => <Row key={n.id} n={n} onRead={markRead} />)}
 
         <div style={{ padding: '14px 22px 6px', marginTop: 4 }}>
-          <div style={{ fontFamily: 'var(--mono)', fontSize: 10, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--mute)' }}>Earlier</div>
+          <div style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--mute)' }}>Earlier</div>
         </div>
         {earlier.map(n => <Row key={n.id} n={n} onRead={markRead} />)}
       </div>
@@ -151,8 +151,8 @@ function Row({ n, onRead }: { n: Notif; onRead: (id: number) => void }) {
           </span>
           {!n.read && <div style={{ width: 7, height: 7, borderRadius: '50%', background: 'var(--hydrant)', flexShrink: 0, marginTop: 4 }} />}
         </div>
-        <div style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--mute)', marginTop: 3, lineHeight: 1.4 }}>{n.sub}</div>
-        <div style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--mute)', marginTop: 4, opacity: 0.7 }}>{n.time}</div>
+        <div style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--mute)', marginTop: 3, lineHeight: 1.4 }}>{n.sub}</div>
+        <div style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)', marginTop: 4, opacity: 0.7 }}>{n.time}</div>
       </div>
     </Link>
   );

@@ -45,7 +45,7 @@ export default function WorkerWallet() {
         textAlign: 'center',
       }}>
         <p style={{
-          fontFamily: 'var(--mono)',
+          fontFamily: 'var(--body)',
           fontSize: 10,
           fontWeight: 600,
           textTransform: 'uppercase',
@@ -71,7 +71,7 @@ export default function WorkerWallet() {
               strokeDasharray={`${2 * Math.PI * 7 * goalPct / 100} ${2 * Math.PI * 7}`}
               strokeLinecap="round" />
           </svg>
-          <span style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'rgba(255,255,255,0.5)' }}>
+          <span style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'rgba(255,255,255,0.5)' }}>
             {goalPct}% of weekly goal
           </span>
         </div>
@@ -85,7 +85,7 @@ export default function WorkerWallet() {
                 background: 'rgba(255,255,255,0.10)',
                 border: '1px solid rgba(255,255,255,0.2)',
                 color: '#fff',
-                fontFamily: 'var(--mono)',
+                fontFamily: 'var(--body)',
                 fontSize: 12,
                 fontWeight: 600,
                 borderRadius: 99,
@@ -102,11 +102,11 @@ export default function WorkerWallet() {
       {/* Weekly goal */}
       <div style={{ background: 'var(--card)', padding: '16px 22px', borderBottom: '1px solid var(--line)' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 10 }}>
-          <span style={{ fontFamily: 'var(--mono)', fontSize: 10, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--mute)' }}>
+          <span style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--mute)' }}>
             Weekly goal
           </span>
           <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 14, color: 'var(--ink)', letterSpacing: '-0.02em' }}>
-            ${WEEKLY_EARNED} <span style={{ fontFamily: 'var(--mono)', fontWeight: 400, fontSize: 12, color: 'var(--mute)' }}>of ${WEEKLY_GOAL}</span>
+            ${WEEKLY_EARNED} <span style={{ fontFamily: 'var(--body)', fontWeight: 400, fontSize: 12, color: 'var(--mute)' }}>of ${WEEKLY_GOAL}</span>
           </span>
         </div>
         <div style={{ height: 8, background: 'var(--line)', borderRadius: 99, overflow: 'hidden' }}>
@@ -120,7 +120,7 @@ export default function WorkerWallet() {
             }}
           />
         </div>
-        <div style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--mute)', marginTop: 6 }}>
+        <div style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)', marginTop: 6 }}>
           {goalPct}% there · ${WEEKLY_GOAL - WEEKLY_EARNED} to go this week
         </div>
       </div>
@@ -132,7 +132,7 @@ export default function WorkerWallet() {
             <div style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 14, color: 'var(--ink)' }}>
               Tax withholding
             </div>
-            <div style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--mute)', marginTop: 2 }}>
+            <div style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)', marginTop: 2 }}>
               {withholding ? '25% auto-held · ~$61.88 this week' : 'Off · you handle quarterly'}
             </div>
           </div>
@@ -175,7 +175,7 @@ export default function WorkerWallet() {
               padding: '8px 12px',
               background: 'var(--hydrant-soft)',
               borderRadius: 8,
-              fontFamily: 'var(--mono)',
+              fontFamily: 'var(--body)',
               fontSize: 11,
               color: 'var(--hydrant)',
             }}
@@ -188,7 +188,7 @@ export default function WorkerWallet() {
       {/* Ledger */}
       <div style={{ background: 'var(--card)', padding: '0 22px' }}>
         <p style={{
-          fontFamily: 'var(--mono)',
+          fontFamily: 'var(--body)',
           fontSize: 10,
           fontWeight: 600,
           textTransform: 'uppercase',
@@ -211,7 +211,7 @@ export default function WorkerWallet() {
           >
             <div>
               <div style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 15, color: 'var(--ink)' }}>{tx.name}</div>
-              <div style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--mute)', marginTop: 2 }}>{tx.detail}</div>
+              <div style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--mute)', marginTop: 2 }}>{tx.detail}</div>
             </div>
             <div style={{
               fontFamily: 'var(--sans)',
@@ -243,7 +243,7 @@ export default function WorkerWallet() {
           letterSpacing: '-0.01em',
         }}>Cash out today.</button>
         <p style={{
-          fontFamily: 'var(--mono)',
+          fontFamily: 'var(--body)',
           fontSize: 11,
           color: 'var(--mute)',
           textAlign: 'center',

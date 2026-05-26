@@ -120,9 +120,9 @@ export default function WorkerMap() {
       <div style={{ height: 52, display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 14px' }}>
         <Link href="/" style={{ width: 36, height: 36, display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--ink)', textDecoration: 'none', fontSize: 20 }}>←</Link>
         <div style={{ display: 'flex', alignItems: 'center', gap: 8, background: floating ? '#fff' : 'var(--paper-2)', border: '2px solid var(--ink)', borderRadius: 99, padding: '6px 12px 6px 14px' }}>
-          <span style={{ fontFamily: 'var(--mono)', fontSize: 12, fontWeight: 600, color: 'var(--ink)' }}>Bed-Stuy · 2 mi</span>
+          <span style={{ fontFamily: 'var(--body)', fontSize: 12, fontWeight: 600, color: 'var(--ink)' }}>Bed-Stuy · 2 mi</span>
           <div style={{ background: filteredShifts.length > 0 ? '#72c15f' : 'var(--mute)', borderRadius: 99, padding: '3px 8px' }}>
-            <span style={{ fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 700, color: '#fff', letterSpacing: '0.06em', textTransform: 'uppercase' }}>{filteredShifts.length} READY</span>
+            <span style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 700, color: '#fff', letterSpacing: '0.06em', textTransform: 'uppercase' }}>{filteredShifts.length} READY</span>
           </div>
         </div>
         <div style={{ display: 'flex', background: floating ? 'rgba(0,0,0,0.08)' : 'var(--paper-3)', borderRadius: 8, padding: 2, gap: 2 }}>
@@ -166,7 +166,7 @@ export default function WorkerMap() {
                 border: '1.5px solid',
                 borderColor: filterRole === role ? rc.bg : 'var(--line)',
                 background: filterRole === role ? rc.bg : 'transparent',
-                fontFamily: 'var(--mono)',
+                fontFamily: 'var(--body)',
                 fontSize: 11,
                 fontWeight: 600,
                 color: filterRole === role ? rc.color : 'var(--ink)',
@@ -187,7 +187,7 @@ export default function WorkerMap() {
             border: '1.5px solid',
             borderColor: filterHighPay ? 'var(--hydrant)' : 'var(--line)',
             background: filterHighPay ? 'var(--hydrant-soft)' : 'transparent',
-            fontFamily: 'var(--mono)',
+            fontFamily: 'var(--body)',
             fontSize: 11,
             fontWeight: 600,
             color: filterHighPay ? 'var(--hydrant)' : 'var(--ink)',
@@ -246,7 +246,7 @@ export default function WorkerMap() {
                 color: '#fff',
                 borderRadius: 99,
                 padding: '5px 9px',
-                fontFamily: 'var(--mono)',
+                fontFamily: 'var(--body)',
                 fontSize: 10,
                 fontWeight: 700,
                 letterSpacing: '0.02em',
@@ -285,8 +285,8 @@ export default function WorkerMap() {
       <div style={{ flex: 1, overflowY: 'auto', paddingBottom: 90 }}>
         <div style={{ padding: '20px 20px 14px' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 12 }}>
-            <span style={{ fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 600, color: 'var(--mute)', letterSpacing: '0.06em', textTransform: 'uppercase' }}>Bedstuy, Brooklyn</span>
-            <span style={{ fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 600, color: 'var(--mute)', letterSpacing: '0.06em', textTransform: 'uppercase' }}>78F Sunny</span>
+            <span style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, color: 'var(--mute)', letterSpacing: '0.06em', textTransform: 'uppercase' }}>Bedstuy, Brooklyn</span>
+            <span style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, color: 'var(--mute)', letterSpacing: '0.06em', textTransform: 'uppercase' }}>78F Sunny</span>
           </div>
           <div style={{ display: 'flex', alignItems: 'baseline', gap: 8 }}>
             <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 48, color: 'var(--ink)', letterSpacing: '-0.05em', lineHeight: 1 }}>{filteredShifts.length}</span>

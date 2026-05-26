@@ -52,7 +52,7 @@ export default function PayoutSetup() {
 
       <div style={{ padding: '18px 22px 32px' }}>
         <span style={{
-          fontFamily: 'var(--mono)',
+          fontFamily: 'var(--body)',
           fontSize: 11,
           fontWeight: 600,
           color: 'var(--hydrant)',
@@ -73,7 +73,7 @@ export default function PayoutSetup() {
         }}>Where should we send it?</h1>
 
         <p style={{
-          fontFamily: 'var(--mono)',
+          fontFamily: 'var(--body)',
           fontSize: 13,
           color: 'var(--mute)',
           marginBottom: 20,
@@ -109,7 +109,7 @@ export default function PayoutSetup() {
                       color: 'var(--ink)',
                     }}>{method.title}</div>
                     <div style={{
-                      fontFamily: 'var(--mono)',
+                      fontFamily: 'var(--body)',
                       fontSize: 12,
                       color: 'var(--mute)',
                       marginTop: 2,
@@ -152,10 +152,10 @@ export default function PayoutSetup() {
               <circle cx="8" cy="10.5" r="1" fill="#6B6E78" />
             </svg>
             <div>
-              <p style={{ fontFamily: 'var(--mono)', fontSize: 13, color: 'var(--ink)' }}>
+              <p style={{ fontFamily: 'var(--body)', fontSize: 13, color: 'var(--ink)' }}>
                 Stripe collects your card details next.
               </p>
-              <p style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--mute)', marginTop: 4 }}>
+              <p style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)', marginTop: 4 }}>
                 SHIFT never sees it · same Stripe your bank uses · 256-bit · 30 sec
               </p>
             </div>
@@ -180,7 +180,7 @@ export default function PayoutSetup() {
           letterSpacing: '-0.01em',
         }}>Start earning →</Link>
 
-        <p style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--mute)', textAlign: 'center', marginTop: 12 }}>
+        <p style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)', textAlign: 'center', marginTop: 12 }}>
           W-9 required once you earn $600. We&apos;ll remind you.
         </p>
       </div>

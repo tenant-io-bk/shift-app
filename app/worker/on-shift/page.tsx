@@ -76,7 +76,7 @@ function SlideToClockOut({ onComplete }: { onComplete: () => void }) {
       <div style={{
         position: 'absolute', inset: 0,
         display: 'flex', alignItems: 'center', justifyContent: 'center',
-        fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 700,
+        fontFamily: 'var(--body)', fontSize: 11, fontWeight: 700,
         letterSpacing: '0.14em', textTransform: 'uppercase',
         color: `rgba(13,14,18,${Math.max(0, 0.45 - progress * 1.5)})`,
         paddingLeft: THUMB,
@@ -170,7 +170,7 @@ export default function OnShift() {
           marginTop: 8,
         }}
       >
-        <span style={{ fontFamily: 'var(--mono)', fontSize: 9, fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--mute)' }}>
+        <span style={{ fontFamily: 'var(--body)', fontSize: 9, fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--mute)' }}>
           SHIFT · ON THE CLOCK
         </span>
       </div>
@@ -181,7 +181,7 @@ export default function OnShift() {
           <div className="on-pulse-ring" />
           <div style={{ position: 'relative', width: 7, height: 7, borderRadius: '50%', background: '#EA4B2A', zIndex: 1 }} />
         </div>
-        <span style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--mute)' }}>
+        <span style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--mute)' }}>
           On shift · Padmore&apos;s · #4471
         </span>
       </div>
@@ -191,7 +191,7 @@ export default function OnShift() {
         <div style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 80, color: 'var(--ink)', letterSpacing: '-0.05em', lineHeight: 1, textAlign: 'center' }}>
           02:14:38
         </div>
-        <p style={{ fontFamily: 'var(--mono)', fontSize: 13, color: 'var(--mute)', marginTop: 6 }}>
+        <p style={{ fontFamily: 'var(--body)', fontSize: 13, color: 'var(--mute)', marginTop: 6 }}>
           $28.00/hr
         </p>
       </div>
@@ -202,7 +202,7 @@ export default function OnShift() {
           <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 36, color: 'var(--ink)', letterSpacing: '-0.02em' }}>
             $62<span style={{ color: '#72c15f' }}>.</span>
           </span>
-          <span style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--mute)' }}>
+          <span style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--mute)' }}>
             earned so far · 45%
           </span>
         </div>
@@ -218,7 +218,7 @@ export default function OnShift() {
         </div>
         <div style={{ flex: 1 }}>
           <div style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 15, color: 'var(--ink)', letterSpacing: '-0.01em' }}>Tomás</div>
-          <div style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--mute)' }}>Owner · Padmore&apos;s</div>
+          <div style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--mute)' }}>Owner · Padmore&apos;s</div>
         </div>
         <div style={{ display: 'flex', gap: 8 }}>
           <Link href="/worker/messages" style={{ width: 32, height: 32, border: '2px solid var(--ink)', borderRadius: 99, background: 'transparent', display: 'flex', alignItems: 'center', justifyContent: 'center', textDecoration: 'none' }}>
@@ -230,7 +230,7 @@ export default function OnShift() {
       </div>
 
       {/* Report link */}
-      <p style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--mute)', textAlign: 'center', marginTop: 10 }}>
+      <p style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)', textAlign: 'center', marginTop: 10 }}>
         <Link href="/worker/report" style={{ color: 'var(--mute)', textDecoration: 'underline' }}>
           Report an issue
         </Link>

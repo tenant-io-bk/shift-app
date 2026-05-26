@@ -27,7 +27,7 @@ export default function Settings() {
       {/* Nav */}
       <div style={{ height: 44, display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 16px', borderBottom: '1px solid var(--line)', background: 'var(--paper)' }}>
         <button onClick={() => router.back()} style={{ fontSize: 20, color: 'var(--ink)', background: 'none', border: 'none', cursor: 'pointer', width: 32 }}>←</button>
-        <span style={{ fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--mute)' }}>Settings</span>
+        <span style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--mute)' }}>Settings</span>
         <div style={{ width: 32 }} />
       </div>
 
@@ -84,7 +84,7 @@ export default function Settings() {
           </Link>
         </div>
 
-        <p style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--mute)', textAlign: 'center', marginTop: 4 }}>
+        <p style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)', textAlign: 'center', marginTop: 4 }}>
           SHIFT · v1.0 · NYC Hyperlocal Labor
         </p>
       </div>
@@ -95,7 +95,7 @@ export default function Settings() {
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div>
-      <div style={{ fontFamily: 'var(--mono)', fontSize: 10, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--mute)', padding: '0 4px', marginBottom: 6 }}>{title}</div>
+      <div style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--mute)', padding: '0 4px', marginBottom: 6 }}>{title}</div>
       <div style={{ background: 'var(--paper)', borderRadius: 14, overflow: 'hidden', border: '2px solid var(--ink)' }}>
         {children}
       </div>
@@ -107,7 +107,7 @@ function Row({ label, value }: { label: string; value: string }) {
   return (
     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '13px 18px', borderBottom: '1px solid var(--line)' }}>
       <span style={{ fontFamily: 'var(--sans)', fontSize: 15, color: 'var(--ink)' }}>{label}</span>
-      <span style={{ fontFamily: 'var(--mono)', fontSize: 13, color: 'var(--mute)' }}>{value}</span>
+      <span style={{ fontFamily: 'var(--body)', fontSize: 13, color: 'var(--mute)' }}>{value}</span>
     </div>
   );
 }
@@ -126,7 +126,7 @@ function RowToggle({ label, sub, value, onToggle }: { label: string; sub: string
     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '13px 18px', borderBottom: '1px solid var(--line)' }}>
       <div>
         <div style={{ fontFamily: 'var(--sans)', fontSize: 15, color: 'var(--ink)' }}>{label}</div>
-        <div style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--mute)', marginTop: 2 }}>{sub}</div>
+        <div style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)', marginTop: 2 }}>{sub}</div>
       </div>
       <button
         onClick={onToggle}
@@ -151,7 +151,7 @@ function RowStatus({ label, status, ok, href }: { label: string; status: string;
   const inner = (
     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '13px 18px', borderBottom: '1px solid var(--line)' }}>
       <span style={{ fontFamily: 'var(--sans)', fontSize: 15, color: 'var(--ink)' }}>{label}</span>
-      <span style={{ fontFamily: 'var(--mono)', fontSize: 12, fontWeight: 600, color: ok ? '#16A34A' : 'var(--hydrant)' }}>
+      <span style={{ fontFamily: 'var(--body)', fontSize: 12, fontWeight: 600, color: ok ? '#16A34A' : 'var(--hydrant)' }}>
         {ok ? '✓ ' : '→ '}{status}
       </span>
     </div>

@@ -187,7 +187,7 @@ function Section({ title, children }: { title: string; children: React.ReactNode
 
 function GuideLabel({ children }: { children: React.ReactNode }) {
   return (
-    <div style={{ fontFamily: 'monospace', fontSize: 17, color: '#0D0E12', marginTop: 10, letterSpacing: '0.01em', lineHeight: 1.5 }}>
+    <div style={{ fontFamily: 'var(--body)', fontSize: 17, color: '#0D0E12', marginTop: 10, letterSpacing: '0.01em', lineHeight: 1.5 }}>
       {children}
     </div>
   );
@@ -209,9 +209,9 @@ function ColorGuide() {
                 <div style={{ flex: 1, background: c.soft }} />
               </div>
               <div style={{ background: '#fff', border: '1px solid rgba(13,14,18,0.10)', borderTop: 'none', borderRadius: '0 0 10px 10px', padding: '10px 12px' }}>
-                <div style={{ fontFamily: 'monospace', fontSize: 17, fontWeight: 700, color: '#0D0E12', letterSpacing: '0.04em' }}>--{c.name}</div>
-                <div style={{ fontFamily: 'monospace', fontSize: 15, color: '#0D0E12', marginTop: 4 }}>{c.hex}</div>
-                <div style={{ fontFamily: 'monospace', fontSize: 15, color: '#0D0E12', marginTop: 4, lineHeight: 1.5 }}>{c.note}</div>
+                <div style={{ fontFamily: 'var(--body)', fontSize: 17, fontWeight: 700, color: '#0D0E12', letterSpacing: '0.04em' }}>--{c.name}</div>
+                <div style={{ fontFamily: 'var(--body)', fontSize: 15, color: '#0D0E12', marginTop: 4 }}>{c.hex}</div>
+                <div style={{ fontFamily: 'var(--body)', fontSize: 15, color: '#0D0E12', marginTop: 4, lineHeight: 1.5 }}>{c.note}</div>
               </div>
             </div>
           ))}
@@ -225,7 +225,7 @@ function ColorGuide() {
             <div key={f.family}>
               <div style={{ fontFamily: 'sans-serif', fontWeight: 700, fontSize: 14, color: '#0D0E12', marginBottom: 4, display: 'flex', justifyContent: 'space-between' }}>
                 <span style={{ textTransform: 'capitalize' }}>{f.family}</span>
-                <span style={{ fontFamily: 'monospace', fontWeight: 400, fontSize: 15, color: '#0D0E12', letterSpacing: '0.04em', textTransform: 'uppercase' }}>{f.bg}</span>
+                <span style={{ fontFamily: 'var(--body)', fontWeight: 400, fontSize: 15, color: '#0D0E12', letterSpacing: '0.04em', textTransform: 'uppercase' }}>{f.bg}</span>
               </div>
               <ShiftCard
                 family={f.family}
@@ -285,14 +285,14 @@ function ColorGuide() {
         <div style={{ background: '#fff', border: '1px solid rgba(13,14,18,0.08)', borderRadius: 14, padding: '24px 20px', display: 'flex', flexDirection: 'column', gap: 24 }}>
 
           <div>
-            <div style={{ fontFamily: 'monospace', fontSize: 17, color: '#0D0E12', textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: 12 }}>Active — role family colour</div>
+            <div style={{ fontFamily: 'var(--body)', fontSize: 17, color: '#0D0E12', textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: 12 }}>Active — role family colour</div>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
               {ROLE_CHIPS.map(chip => (
                 <button key={chip.label} style={{
                   padding: '7px 16px', borderRadius: 99,
                   border: `1.5px solid ${chip.border}`,
                   background: chip.bg, color: chip.color,
-                  fontFamily: 'monospace', fontSize: 12, fontWeight: 700,
+                  fontFamily: 'var(--body)', fontSize: 12, fontWeight: 700,
                   letterSpacing: '0.04em', cursor: 'default',
                 }}>
                   {chip.label}
@@ -301,7 +301,7 @@ function ColorGuide() {
               <button style={{
                 padding: '7px 16px', borderRadius: 99,
                 border: '1.5px solid #72c15f', background: '#E2F1DD', color: '#0D0E12',
-                fontFamily: 'monospace', fontSize: 12, fontWeight: 700,
+                fontFamily: 'var(--body)', fontSize: 12, fontWeight: 700,
                 letterSpacing: '0.04em', cursor: 'default',
               }}>
                 $25+/hr
@@ -310,14 +310,14 @@ function ColorGuide() {
           </div>
 
           <div>
-            <div style={{ fontFamily: 'monospace', fontSize: 17, color: '#0D0E12', textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: 12 }}>Inactive — default state</div>
+            <div style={{ fontFamily: 'var(--body)', fontSize: 17, color: '#0D0E12', textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: 12 }}>Inactive — default state</div>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
               {[...ROLE_CHIPS.map(c => c.label), '$25+/hr'].map(label => (
                 <button key={label} style={{
                   padding: '7px 16px', borderRadius: 99,
                   border: '1.5px solid rgba(13,14,18,0.15)',
                   background: 'transparent', color: '#0D0E12',
-                  fontFamily: 'monospace', fontSize: 12, fontWeight: 600,
+                  fontFamily: 'var(--body)', fontSize: 12, fontWeight: 600,
                   letterSpacing: '0.04em', cursor: 'default',
                 }}>
                   {label}
@@ -333,7 +333,7 @@ function ColorGuide() {
         <div style={{ background: '#fff', border: '1px solid rgba(13,14,18,0.08)', borderRadius: 14, padding: '24px 20px', display: 'flex', flexDirection: 'column', gap: 28 }}>
 
           <div>
-            <div style={{ fontFamily: 'monospace', fontSize: 17, color: '#0D0E12', textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: 14 }}>Full-width primary</div>
+            <div style={{ fontFamily: 'var(--body)', fontSize: 17, color: '#0D0E12', textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: 14 }}>Full-width primary</div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 10, maxWidth: 390 }}>
               {[
                 { label: 'Claim this shift →',  bg: '#0D0E12',  color: '#fff',    border: '#0D0E12' },
@@ -355,7 +355,7 @@ function ColorGuide() {
           </div>
 
           <div>
-            <div style={{ fontFamily: 'monospace', fontSize: 17, color: '#0D0E12', textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: 14 }}>Pill / inline</div>
+            <div style={{ fontFamily: 'var(--body)', fontSize: 17, color: '#0D0E12', textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: 14 }}>Pill / inline</div>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10 }}>
               {[
                 { label: 'Day-of details →', bg: 'rgba(0,0,0,0.07)',   color: '#0D0E12', border: 'rgba(0,0,0,0.10)' },
@@ -367,7 +367,7 @@ function ColorGuide() {
                   padding: '9px 20px', borderRadius: 99,
                   background: b.bg, color: b.color,
                   border: `1.5px solid ${b.border}`,
-                  fontFamily: 'monospace', fontWeight: 600, fontSize: 12,
+                  fontFamily: 'var(--body)', fontWeight: 600, fontSize: 12,
                   cursor: 'default',
                 }}>
                   {b.label}
@@ -377,7 +377,7 @@ function ColorGuide() {
           </div>
 
           <div>
-            <div style={{ fontFamily: 'monospace', fontSize: 17, color: '#0D0E12', textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: 14 }}>Destructive / alert</div>
+            <div style={{ fontFamily: 'var(--body)', fontSize: 17, color: '#0D0E12', textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: 14 }}>Destructive / alert</div>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10 }}>
               {[
                 { label: 'Cancel shift',    bg: '#FAD6CE',    color: '#E5391F', border: '#E5391F' },
@@ -388,7 +388,7 @@ function ColorGuide() {
                   padding: '9px 20px', borderRadius: 99,
                   background: b.bg, color: b.color,
                   border: `1.5px solid ${b.border}`,
-                  fontFamily: 'monospace', fontWeight: 700, fontSize: 12,
+                  fontFamily: 'var(--body)', fontWeight: 700, fontSize: 12,
                   cursor: 'default',
                 }}>
                   {b.label}
@@ -398,7 +398,7 @@ function ColorGuide() {
           </div>
 
           <div>
-            <div style={{ fontFamily: 'monospace', fontSize: 17, color: '#0D0E12', textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: 14 }}>On dark surface</div>
+            <div style={{ fontFamily: 'var(--body)', fontSize: 17, color: '#0D0E12', textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: 14 }}>On dark surface</div>
             <div style={{ background: '#0D0E12', borderRadius: 12, padding: '16px 20px', display: 'flex', flexWrap: 'wrap', gap: 10 }}>
               {[
                 { label: 'Add bank',    bg: 'rgba(255,255,255,0.10)', color: '#fff',    border: 'rgba(255,255,255,0.2)' },
@@ -409,7 +409,7 @@ function ColorGuide() {
                   padding: '9px 20px', borderRadius: 99,
                   background: b.bg, color: b.color,
                   border: `1px solid ${b.border}`,
-                  fontFamily: 'monospace', fontWeight: 600, fontSize: 12,
+                  fontFamily: 'var(--body)', fontWeight: 600, fontSize: 12,
                   cursor: 'default',
                 }}>
                   {b.label}
@@ -435,8 +435,8 @@ function ColorGuide() {
                 </div>
                 <div>
                   <div style={{ fontFamily: 'sans-serif', fontWeight: 700, fontSize: 14, color: '#0D0E12', textTransform: 'capitalize' }}>{b.type}</div>
-                  <div style={{ fontFamily: 'monospace', fontSize: 17, color: '#0D0E12', marginTop: 4, lineHeight: 1.5 }}>{b.note}</div>
-                  <div style={{ fontFamily: 'monospace', fontSize: 15, color: '#0D0E12', marginTop: 4 }}>bg: {b.bg} · icon: {b.color}</div>
+                  <div style={{ fontFamily: 'var(--body)', fontSize: 17, color: '#0D0E12', marginTop: 4, lineHeight: 1.5 }}>{b.note}</div>
+                  <div style={{ fontFamily: 'var(--body)', fontSize: 15, color: '#0D0E12', marginTop: 4 }}>bg: {b.bg} · icon: {b.color}</div>
                 </div>
               </div>
             ))}
@@ -455,7 +455,7 @@ function ColorGuide() {
                 borderRadius: 12, textAlign: 'center',
               }}>
                 <div style={{ fontFamily: 'sans-serif', fontWeight: 700, fontSize: 18, color: '#0D0E12', letterSpacing: '-0.04em', lineHeight: 1 }}>{t.value}</div>
-                <div style={{ fontFamily: 'monospace', fontSize: 10,  color: '#0D0E12', marginTop: 6, textTransform: 'uppercase', letterSpacing: '0.06em' }}>{t.label}</div>
+                <div style={{ fontFamily: 'var(--body)', fontSize: 10,  color: '#0D0E12', marginTop: 6, textTransform: 'uppercase', letterSpacing: '0.06em' }}>{t.label}</div>
               </div>
               <GuideLabel>bg: {t.bg}<br />border: {t.border}</GuideLabel>
             </div>
@@ -481,7 +481,7 @@ function ColorGuide() {
                   boxShadow: `0 0 0 4px ${d.dot}33`,
                 }} />
               </div>
-              <div style={{ fontFamily: 'monospace', fontSize: 17, color: '#0D0E12', textAlign: 'center' }}>{d.label}</div>
+              <div style={{ fontFamily: 'var(--body)', fontSize: 17, color: '#0D0E12', textAlign: 'center' }}>{d.label}</div>
             </div>
           ))}
         </div>
@@ -561,7 +561,7 @@ export default function Gallery() {
   const isAddressed = (path: string) => addressed.has(path) && !!comments[path];
 
   return (
-    <div style={{ minHeight: '100vh', background: '#F4F5F7', fontFamily: 'monospace' }}>
+    <div style={{ minHeight: '100vh', background: '#F4F5F7', fontFamily: 'var(--body)' }}>
 
       {/* Header */}
       <div style={{ position: 'sticky', top: 0, zIndex: 100, background: '#fff', borderBottom: '1px solid rgba(13,14,18,0.10)', padding: '14px 24px', display: 'flex', alignItems: 'center', gap: 16 }}>
@@ -579,7 +579,7 @@ export default function Gallery() {
                 padding: '5px 16px', borderRadius: 99,
                 background: tab === t ? '#0D0E12' : 'transparent',
                 color: tab === t ? '#fff' : '#0D0E12',
-                fontFamily: 'monospace', fontSize: 12, fontWeight: 700,
+                fontFamily: 'var(--body)', fontSize: 12, fontWeight: 700,
                 border: 'none', cursor: 'pointer', letterSpacing: '0.04em',
                 transition: 'all 0.15s',
               }}
@@ -595,7 +595,7 @@ export default function Gallery() {
               value={search}
               onChange={e => setSearch(e.target.value)}
               placeholder="Search screens..."
-              style={{ flex: 1, maxWidth: 280, height: 34, padding: '0 14px', background: 'rgba(13,14,18,0.05)', border: '1px solid rgba(13,14,18,0.12)', borderRadius: 99, color: '#0D0E12', fontSize: 13, outline: 'none', fontFamily: 'monospace' }}
+              style={{ flex: 1, maxWidth: 280, height: 34, padding: '0 14px', background: 'rgba(13,14,18,0.05)', border: '1px solid rgba(13,14,18,0.12)', borderRadius: 99, color: '#0D0E12', fontSize: 13, outline: 'none', fontFamily: 'var(--body)' }}
             />
             <span style={{ fontSize: 12,  color: '#0D0E12', flexShrink: 0, display: 'flex', alignItems: 'center', gap: 12 }}>
               {SCREENS.flatMap(g => g.screens).length} screens
@@ -604,7 +604,7 @@ export default function Gallery() {
               {allWithNotes > 0 && (
                 <button
                   onClick={exportComments}
-                  style={{ fontSize: 12, color: '#0D0E12', background: 'rgba(13,14,18,0.06)', border: '1px solid rgba(13,14,18,0.12)', borderRadius: 99, padding: '4px 12px', cursor: 'pointer', fontFamily: 'monospace' }}
+                  style={{ fontSize: 12, color: '#0D0E12', background: 'rgba(13,14,18,0.06)', border: '1px solid rgba(13,14,18,0.12)', borderRadius: 99, padding: '4px 12px', cursor: 'pointer', fontFamily: 'var(--body)' }}
                 >
                   Copy all notes
                 </button>
@@ -708,14 +708,14 @@ export default function Gallery() {
           >
             <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                <span style={{ fontSize: 12, color: 'rgba(255,255,255,0.6)', fontFamily: 'monospace' }}>{focused}</span>
+                <span style={{ fontSize: 12, color: 'rgba(255,255,255,0.6)', fontFamily: 'var(--body)' }}>{focused}</span>
                 <div style={{ display: 'flex', gap: 10 }}>
-                  <a href={focused} target="_blank" rel="noreferrer" style={{ fontSize: 12, color: '#72c15f', textDecoration: 'none', fontFamily: 'monospace', padding: '6px 14px', border: '1px solid #72c15f', borderRadius: 99 }}>
+                  <a href={focused} target="_blank" rel="noreferrer" style={{ fontSize: 12, color: '#72c15f', textDecoration: 'none', fontFamily: 'var(--body)', padding: '6px 14px', border: '1px solid #72c15f', borderRadius: 99 }}>
                     Open →
                   </a>
                   <button
                     onClick={() => { saveDraft(); setFocused(null); }}
-                    style={{ fontSize: 12, color: 'rgba(255,255,255,0.6)', background: 'none', border: '1px solid rgba(255,255,255,0.2)', borderRadius: 99, padding: '6px 14px', cursor: 'pointer', fontFamily: 'monospace' }}
+                    style={{ fontSize: 12, color: 'rgba(255,255,255,0.6)', background: 'none', border: '1px solid rgba(255,255,255,0.2)', borderRadius: 99, padding: '6px 14px', cursor: 'pointer', fontFamily: 'var(--body)' }}
                   >
                     ✕ close
                   </button>
@@ -738,7 +738,7 @@ export default function Gallery() {
                   background: 'rgba(255,255,255,0.08)',
                   border: '1px solid rgba(255,255,255,0.15)',
                   borderRadius: 12, color: '#fff', fontSize: 13,
-                  fontFamily: 'monospace', resize: 'none', outline: 'none',
+                  fontFamily: 'var(--body)', resize: 'none', outline: 'none',
                   lineHeight: 1.6, boxSizing: 'border-box',
                   textDecoration: isAddressed(focused) ? 'line-through' : 'none',
                   opacity: isAddressed(focused) ? 0.5 : 1,
@@ -750,7 +750,7 @@ export default function Gallery() {
                   width: '100%', padding: '10px', borderRadius: 99,
                   background: draft.trim() ? '#72c15f' : 'rgba(255,255,255,0.08)',
                   color: draft.trim() ? '#0D0E12' : 'rgba(255,255,255,0.3)',
-                  border: 'none', fontFamily: 'monospace', fontWeight: 700,
+                  border: 'none', fontFamily: 'var(--body)', fontWeight: 700,
                   fontSize: 13, cursor: 'pointer', transition: 'all 0.15s',
                 }}
               >
@@ -764,7 +764,7 @@ export default function Gallery() {
                     background: isAddressed(focused) ? 'rgba(255,255,255,0.08)' : 'transparent',
                     color: isAddressed(focused) ? 'rgba(255,255,255,0.4)' : '#72c15f',
                     border: isAddressed(focused) ? '1px solid rgba(255,255,255,0.15)' : '1px solid #72c15f',
-                    fontFamily: 'monospace', fontWeight: 700,
+                    fontFamily: 'var(--body)', fontWeight: 700,
                     fontSize: 13, cursor: 'pointer', transition: 'all 0.15s',
                     display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8,
                   }}
@@ -782,7 +782,7 @@ export default function Gallery() {
               {comments[focused] && !isAddressed(focused) && (
                 <button
                   onClick={() => setDraft('')}
-                  style={{ fontSize: 11, color: 'rgba(255,255,255,0.25)', background: 'none', border: 'none', cursor: 'pointer', fontFamily: 'monospace', textAlign: 'left' }}
+                  style={{ fontSize: 11, color: 'rgba(255,255,255,0.25)', background: 'none', border: 'none', cursor: 'pointer', fontFamily: 'var(--body)', textAlign: 'left' }}
                 >
                   × clear note
                 </button>

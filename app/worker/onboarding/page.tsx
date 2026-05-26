@@ -68,7 +68,7 @@ export default function WorkerOnboarding() {
         </div>
 
         <span style={{
-          fontFamily: 'var(--mono)',
+          fontFamily: 'var(--body)',
           fontSize: 11,
           fontWeight: 600,
           color: 'var(--hydrant)',
@@ -139,7 +139,7 @@ export default function WorkerOnboarding() {
         }}>→</Link>
 
         <p style={{
-          fontFamily: 'var(--mono)',
+          fontFamily: 'var(--body)',
           fontSize: 13,
           color: 'var(--mute)',
           lineHeight: 1.5,

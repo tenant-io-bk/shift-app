@@ -30,7 +30,7 @@ export default function NoShow() {
           <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
             <div style={{ width: 8, height: 8, borderRadius: '50%', background: 'var(--red)', flexShrink: 0 }} />
             <span style={{
-              fontFamily: 'var(--mono)',
+              fontFamily: 'var(--body)',
               fontSize: 11,
               fontWeight: 700,
               color: 'var(--red)',
@@ -39,7 +39,7 @@ export default function NoShow() {
             }}>MARCO HASN'T ARRIVED</span>
           </div>
           <p style={{
-            fontFamily: 'var(--mono)',
+            fontFamily: 'var(--body)',
             fontSize: 12,
             color: 'var(--red)',
             marginTop: 2,
@@ -79,7 +79,7 @@ export default function NoShow() {
               textDecoration: 'line-through',
             }}>Marco Reyes</div>
             <div style={{
-              fontFamily: 'var(--mono)',
+              fontFamily: 'var(--body)',
               fontSize: 12,
               color: 'var(--mute)',
               marginTop: 2,
@@ -93,7 +93,7 @@ export default function NoShow() {
             flexShrink: 0,
           }}>
             <span style={{
-              fontFamily: 'var(--mono)',
+              fontFamily: 'var(--body)',
               fontSize: 9.5,
               fontWeight: 600,
               color: 'var(--red)',
@@ -111,7 +111,7 @@ export default function NoShow() {
           borderRadius: 14,
         }}>
           <p style={{
-            fontFamily: 'var(--mono)',
+            fontFamily: 'var(--body)',
             fontSize: 10,
             fontWeight: 700,
             color: 'rgba(255,255,255,0.5)',
@@ -130,7 +130,7 @@ export default function NoShow() {
               lineHeight: 1,
             }}>04:52</span>
             <span style={{
-              fontFamily: 'var(--mono)',
+              fontFamily: 'var(--body)',
               fontSize: 12,
               color: 'rgba(255,255,255,0.5)',
               textAlign: 'right',
@@ -155,7 +155,7 @@ export default function NoShow() {
           </div>
 
           <p style={{
-            fontFamily: 'var(--mono)',
+            fontFamily: 'var(--body)',
             fontSize: 12,
             color: 'rgba(255,255,255,0.6)',
           }}>⚡ Sam confirmed · 0.4 mi away · ETA 4 min</p>

@@ -45,7 +45,7 @@ export default function WorkerConfirm() {
         </Link>
         <span
           style={{
-            fontFamily: 'var(--mono)',
+            fontFamily: 'var(--body)',
             fontSize: 13,
             fontWeight: 600,
             color: 'var(--ink)',
@@ -80,7 +80,7 @@ export default function WorkerConfirm() {
           />
           <span
             style={{
-              fontFamily: 'var(--mono)',
+              fontFamily: 'var(--body)',
               fontSize: 11,
               color: 'var(--mute)',
             }}
@@ -122,7 +122,7 @@ export default function WorkerConfirm() {
             <div style={{ paddingBottom: 16, paddingRight: 16 }}>
               <p
                 style={{
-                  fontFamily: 'var(--mono)',
+                  fontFamily: 'var(--body)',
                   fontSize: 9.5,
                   fontWeight: 600,
                   letterSpacing: '0.10em',
@@ -148,7 +148,7 @@ export default function WorkerConfirm() {
             <div style={{ paddingBottom: 16, paddingLeft: 16, borderLeft: '1px dashed var(--paper-3)' }}>
               <p
                 style={{
-                  fontFamily: 'var(--mono)',
+                  fontFamily: 'var(--body)',
                   fontSize: 9.5,
                   fontWeight: 600,
                   letterSpacing: '0.10em',
@@ -187,7 +187,7 @@ export default function WorkerConfirm() {
             <div style={{ paddingRight: 16 }}>
               <p
                 style={{
-                  fontFamily: 'var(--mono)',
+                  fontFamily: 'var(--body)',
                   fontSize: 9.5,
                   fontWeight: 600,
                   letterSpacing: '0.10em',
@@ -213,7 +213,7 @@ export default function WorkerConfirm() {
             <div style={{ paddingLeft: 16, borderLeft: '1px dashed var(--paper-3)' }}>
               <p
                 style={{
-                  fontFamily: 'var(--mono)',
+                  fontFamily: 'var(--body)',
                   fontSize: 9.5,
                   fontWeight: 600,
                   letterSpacing: '0.10em',
@@ -251,7 +251,7 @@ export default function WorkerConfirm() {
           >
             <span
               style={{
-                fontFamily: 'var(--mono)',
+                fontFamily: 'var(--body)',
                 fontSize: 10,
                 fontWeight: 600,
                 letterSpacing: '0.10em',
@@ -277,13 +277,13 @@ export default function WorkerConfirm() {
 
         {/* Back-out notice */}
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginTop: 12 }}>
-          <p style={{ fontFamily: 'var(--mono)', fontSize: 13, color: 'var(--mute)', lineHeight: 1.5 }}>
+          <p style={{ fontFamily: 'var(--body)', fontSize: 13, color: 'var(--mute)', lineHeight: 1.5 }}>
             You can back out within 15 min. No penalty.
           </p>
           <Link
             href="/v3/cancel-flow"
             style={{
-              fontFamily: 'var(--mono)',
+              fontFamily: 'var(--body)',
               fontSize: 12,
               color: 'var(--mute)',
               textDecoration: 'underline',
@@ -299,7 +299,7 @@ export default function WorkerConfirm() {
         <div style={{ marginTop: 20 }}>
           <p
             style={{
-              fontFamily: 'var(--mono)',
+              fontFamily: 'var(--body)',
               fontSize: 10.5,
               fontWeight: 600,
               letterSpacing: '0.10em',
@@ -317,7 +317,7 @@ export default function WorkerConfirm() {
             <p
               key={item}
               style={{
-                fontFamily: 'var(--mono)',
+                fontFamily: 'var(--body)',
                 fontSize: 14,
                 color: 'var(--ink)',
                 lineHeight: 1.55,

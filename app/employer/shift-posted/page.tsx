@@ -32,7 +32,7 @@ export default function Page() {
               flexShrink: 0,
             }}
           />
-          <span style={{ fontFamily: 'var(--mono)', fontSize: 12, fontWeight: 600, color: '#16A34A', letterSpacing: '0.06em', textTransform: 'uppercase' }}>
+          <span style={{ fontFamily: 'var(--body)', fontSize: 12, fontWeight: 600, color: '#16A34A', letterSpacing: '0.06em', textTransform: 'uppercase' }}>
             Live · matching now
           </span>
         </div>
@@ -63,10 +63,10 @@ export default function Page() {
           </div>
         </div>
         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-          <span style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'rgba(255,255,255,0.5)' }}>
+          <span style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'rgba(255,255,255,0.5)' }}>
             18 workers nearby
           </span>
-          <span style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'rgba(255,255,255,0.5)' }}>
+          <span style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'rgba(255,255,255,0.5)' }}>
             avg 2 min to fill
           </span>
         </div>
@@ -74,7 +74,7 @@ export default function Page() {
 
       {/* Shift summary card */}
       <div style={{ margin: '16px 22px 0', padding: 20, background: 'var(--card)', border: '2px solid var(--ink)', borderRadius: 14 }}>
-        <div style={{ fontFamily: 'var(--mono)', fontSize: 10, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--mute)', marginBottom: 14 }}>
+        <div style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--mute)', marginBottom: 14 }}>
           Shift summary
         </div>
 
@@ -95,15 +95,15 @@ export default function Page() {
               borderBottom: '1px solid var(--line)',
             }}
           >
-            <span style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--mute)' }}>{label}</span>
+            <span style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--mute)' }}>{label}</span>
             <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 14, color: 'var(--ink)', letterSpacing: '-0.01em' }}>{value}</span>
           </div>
         ))}
 
         {/* Notes preview */}
         <div style={{ paddingTop: 12 }}>
-          <span style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--mute)' }}>Notes</span>
-          <p style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--ink)', marginTop: 4, lineHeight: 1.5 }}>
+          <span style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--mute)' }}>Notes</span>
+          <p style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--ink)', marginTop: 4, lineHeight: 1.5 }}>
             All-black dress code. Ring the bell on Tompkins entrance. Coffee already going.
           </p>
         </div>
@@ -111,7 +111,7 @@ export default function Page() {
 
       {/* What happens next */}
       <div style={{ margin: '16px 22px 0' }}>
-        <div style={{ fontFamily: 'var(--mono)', fontSize: 10, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--mute)', marginBottom: 12 }}>
+        <div style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--mute)', marginBottom: 12 }}>
           What happens next
         </div>
         {[
@@ -121,7 +121,7 @@ export default function Page() {
         ].map(({ dot, text }, i) => (
           <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: 10, marginBottom: 12 }}>
             <div style={{ width: 7, height: 7, borderRadius: '50%', background: dot, flexShrink: 0, marginTop: 5 }} />
-            <span style={{ fontFamily: 'var(--mono)', fontSize: 13, color: 'var(--ink)', lineHeight: 1.5 }}>{text}</span>
+            <span style={{ fontFamily: 'var(--body)', fontSize: 13, color: 'var(--ink)', lineHeight: 1.5 }}>{text}</span>
           </div>
         ))}
       </div>
@@ -155,7 +155,7 @@ export default function Page() {
             padding: '14px 22px',
             textAlign: 'center',
             textDecoration: 'none',
-            fontFamily: 'var(--mono)',
+            fontFamily: 'var(--body)',
             fontWeight: 600,
             fontSize: 13,
             color: 'var(--ink)',

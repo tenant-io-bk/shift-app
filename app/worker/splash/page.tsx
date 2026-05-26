@@ -60,7 +60,7 @@ export default function WorkerSplash() {
       <p className="splash-hint" style={{
         position: 'absolute',
         bottom: 52,
-        fontFamily: 'var(--mono)',
+        fontFamily: 'var(--body)',
         fontSize: 11,
         color: 'rgba(255,255,255,0.25)',
         letterSpacing: '0.1em',

@@ -102,7 +102,7 @@ export default function Page() {
             color: 'white',
             borderRadius: 6,
             padding: '4px 8px',
-            fontFamily: 'var(--mono)',
+            fontFamily: 'var(--body)',
             fontSize: 10,
             fontWeight: 600,
             letterSpacing: '0.1em',
@@ -113,16 +113,16 @@ export default function Page() {
         </div>
 
         {/* Neighborhood labels */}
-        <div style={{ position: 'absolute', top: 50, left: 10, background: 'var(--card)', border: '2px solid var(--ink)', borderRadius: 6, padding: '4px 8px', fontFamily: 'var(--mono)', fontSize: 10, fontWeight: 600, color: 'var(--mute)' }}>
+        <div style={{ position: 'absolute', top: 50, left: 10, background: 'var(--card)', border: '2px solid var(--ink)', borderRadius: 6, padding: '4px 8px', fontFamily: 'var(--body)', fontSize: 10, fontWeight: 600, color: 'var(--mute)' }}>
           Bushwick · 11
         </div>
-        <div style={{ position: 'absolute', top: 50, right: 10, background: 'var(--card)', border: '2px solid var(--ink)', borderRadius: 6, padding: '4px 8px', fontFamily: 'var(--mono)', fontSize: 10, fontWeight: 600, color: 'var(--hydrant)' }}>
+        <div style={{ position: 'absolute', top: 50, right: 10, background: 'var(--card)', border: '2px solid var(--ink)', borderRadius: 6, padding: '4px 8px', fontFamily: 'var(--body)', fontSize: 10, fontWeight: 600, color: 'var(--hydrant)' }}>
           Crown Hts · 19
         </div>
-        <div style={{ position: 'absolute', bottom: 16, left: 10, background: 'var(--card)', border: '2px solid var(--ink)', borderRadius: 6, padding: '4px 8px', fontFamily: 'var(--mono)', fontSize: 10, fontWeight: 600, color: 'var(--mute)' }}>
+        <div style={{ position: 'absolute', bottom: 16, left: 10, background: 'var(--card)', border: '2px solid var(--ink)', borderRadius: 6, padding: '4px 8px', fontFamily: 'var(--body)', fontSize: 10, fontWeight: 600, color: 'var(--mute)' }}>
           Bed-Stuy · 42
         </div>
-        <div style={{ position: 'absolute', bottom: 16, right: 10, background: 'var(--card)', border: '2px solid var(--ink)', borderRadius: 6, padding: '4px 8px', fontFamily: 'var(--mono)', fontSize: 10, fontWeight: 600, color: 'var(--mute)' }}>
+        <div style={{ position: 'absolute', bottom: 16, right: 10, background: 'var(--card)', border: '2px solid var(--ink)', borderRadius: 6, padding: '4px 8px', fontFamily: 'var(--body)', fontSize: 10, fontWeight: 600, color: 'var(--mute)' }}>
           Clinton Hill · 7
         </div>
 
@@ -150,9 +150,9 @@ export default function Page() {
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginTop: 3 }}>
               <div className="green-pulse" style={{ width: 6, height: 6, borderRadius: '50%', background: '#16A34A', flexShrink: 0 }} />
-              <span style={{ fontFamily: 'var(--mono)', fontSize: 12, fontWeight: 600, color: 'var(--ink)' }}>18 ready now</span>
+              <span style={{ fontFamily: 'var(--body)', fontSize: 12, fontWeight: 600, color: 'var(--ink)' }}>18 ready now</span>
             </div>
-            <div style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--mute)', marginTop: 2 }}>
+            <div style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)', marginTop: 2 }}>
               Live · avg 2 min to fill
             </div>
           </div>
@@ -174,7 +174,7 @@ export default function Page() {
           <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 18, letterSpacing: '-0.02em', color: 'var(--ink)' }}>
             18 ready · within 1 mi
           </span>
-          <span style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--mute)' }}>
+          <span style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)' }}>
             Sort: Favorites first
           </span>
         </div>
@@ -195,7 +195,7 @@ export default function Page() {
                 border: chip.active ? '2px solid var(--hydrant)' : '2px solid var(--ink)',
                 background: chip.active ? 'var(--hydrant-soft)' : 'var(--paper-2)',
                 color: chip.active ? 'var(--hydrant)' : 'var(--ink)',
-                fontFamily: 'var(--mono)',
+                fontFamily: 'var(--body)',
                 fontSize: 12,
                 fontWeight: 600,
                 flexShrink: 0,
@@ -229,12 +229,12 @@ export default function Page() {
                 <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
                   <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 15, color: 'var(--ink)' }}>{worker.name}</span>
                   {worker.times && (
-                    <span style={{ background: 'var(--hydrant-soft)', color: 'var(--hydrant)', border: '1px solid var(--hydrant)', borderRadius: 4, padding: '1px 5px', fontFamily: 'var(--mono)', fontSize: 10, fontWeight: 600 }}>
+                    <span style={{ background: 'var(--hydrant-soft)', color: 'var(--hydrant)', border: '1px solid var(--hydrant)', borderRadius: 4, padding: '1px 5px', fontFamily: 'var(--body)', fontSize: 10, fontWeight: 600 }}>
                       {worker.times} here
                     </span>
                   )}
                 </div>
-                <div style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--mute)', marginTop: 1 }}>
+                <div style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--mute)', marginTop: 1 }}>
                   {worker.role} · ★{worker.rating}
                 </div>
               </div>
@@ -246,7 +246,7 @@ export default function Page() {
                   borderRadius: 8,
                   border: '2px solid var(--ink)',
                   background: 'transparent',
-                  fontFamily: 'var(--mono)',
+                  fontFamily: 'var(--body)',
                   fontSize: 12,
                   fontWeight: 600,
                   color: 'var(--hydrant)',

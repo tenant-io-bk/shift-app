@@ -75,7 +75,7 @@ export default function WorkerHome() {
         <div>
           <div
             style={{
-              fontFamily: 'var(--mono)',
+              fontFamily: 'var(--body)',
               fontSize: 11,
               fontWeight: 600,
               textTransform: 'uppercase',
@@ -200,7 +200,7 @@ export default function WorkerHome() {
           </div>
           <span
             style={{
-              fontFamily: 'var(--mono)',
+              fontFamily: 'var(--body)',
               fontSize: 12,
               color: 'var(--hydrant)',
               fontWeight: 600,
@@ -209,7 +209,7 @@ export default function WorkerHome() {
           >
             Profile 75% — add photo to unlock all shifts
           </span>
-          <span style={{ fontFamily: 'var(--mono)', fontSize: 13, color: 'var(--hydrant)' }}>→</span>
+          <span style={{ fontFamily: 'var(--body)', fontSize: 13, color: 'var(--hydrant)' }}>→</span>
         </Link>
       )}
 
@@ -225,7 +225,7 @@ export default function WorkerHome() {
       >
         <div
           style={{
-            fontFamily: 'var(--mono)',
+            fontFamily: 'var(--body)',
             fontSize: 10,
             fontWeight: 600,
             textTransform: 'uppercase',
@@ -264,7 +264,7 @@ export default function WorkerHome() {
         </div>
         <div
           style={{
-            fontFamily: 'var(--mono)',
+            fontFamily: 'var(--body)',
             fontSize: 13,
             color: 'rgba(255,255,255,0.45)',
             marginBottom: 18,
@@ -295,7 +295,7 @@ export default function WorkerHome() {
             </div>
             <div
               style={{
-                fontFamily: 'var(--mono)',
+                fontFamily: 'var(--body)',
                 fontSize: 12,
                 color: 'rgba(255,255,255,0.4)',
                 marginTop: 4,
@@ -312,7 +312,7 @@ export default function WorkerHome() {
               border: '1px solid rgba(255,255,255,0.14)',
               borderRadius: 99,
               padding: '10px 18px',
-              fontFamily: 'var(--mono)',
+              fontFamily: 'var(--body)',
               fontSize: 12,
               fontWeight: 600,
               color: '#fff',
@@ -329,7 +329,7 @@ export default function WorkerHome() {
       <div style={{ margin: '0 16px 14px' }}>
         <div
           style={{
-            fontFamily: 'var(--mono)',
+            fontFamily: 'var(--body)',
             fontSize: 10,
             fontWeight: 600,
             textTransform: 'uppercase',
@@ -375,7 +375,7 @@ export default function WorkerHome() {
                     {shift.venue}
                   </span>
                   <span style={{
-                    fontFamily: 'var(--mono)',
+                    fontFamily: 'var(--body)',
                     fontSize: 10,
                     fontWeight: 700,
                     padding: '2px 7px',
@@ -390,7 +390,7 @@ export default function WorkerHome() {
                 </div>
                 <div
                   style={{
-                    fontFamily: 'var(--mono)',
+                    fontFamily: 'var(--body)',
                     fontSize: 12,
                     color: 'var(--mute)',
                   }}
@@ -412,7 +412,7 @@ export default function WorkerHome() {
                 </div>
                 <div
                   style={{
-                    fontFamily: 'var(--mono)',
+                    fontFamily: 'var(--body)',
                     fontSize: 11,
                     color: 'var(--mute)',
                     marginTop: 1,
@@ -444,7 +444,7 @@ export default function WorkerHome() {
         <div>
           <div
             style={{
-              fontFamily: 'var(--mono)',
+              fontFamily: 'var(--body)',
               fontSize: 10,
               fontWeight: 700,
               textTransform: 'uppercase',
@@ -468,7 +468,7 @@ export default function WorkerHome() {
           </div>
           <div
             style={{
-              fontFamily: 'var(--mono)',
+              fontFamily: 'var(--body)',
               fontSize: 12,
               color: 'rgba(255,255,255,0.75)',
               marginTop: 2,
@@ -527,7 +527,7 @@ export default function WorkerHome() {
             </div>
             <div
               style={{
-                fontFamily: 'var(--mono)',
+                fontFamily: 'var(--body)',
                 fontSize: 10,
                 color: 'var(--mute)',
                 marginTop: 5,

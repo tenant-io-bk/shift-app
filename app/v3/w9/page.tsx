@@ -18,7 +18,7 @@ export default function W9() {
 
       <div style={{ height: 44, padding: '0 16px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderBottom: '1px solid var(--line)', background: 'var(--paper)' }}>
         <Link href="/v3/payout-setup" style={{ fontFamily: 'var(--sans)', fontSize: 20, color: 'var(--ink)', textDecoration: 'none' }}>←</Link>
-        <span style={{ fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--mute)' }}>Tax info</span>
+        <span style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--mute)' }}>Tax info</span>
         <div style={{ width: 20 }} />
       </div>
 
@@ -27,19 +27,19 @@ export default function W9() {
       </div>
 
       <div style={{ padding: '16px 22px 120px', flex: 1, overflowY: 'auto' }}>
-        <div style={{ fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 600, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--hydrant)', marginBottom: 10 }}>
+        <div style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--hydrant)', marginBottom: 10 }}>
           W-9 · TAX INFO
         </div>
         <h1 style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 34, letterSpacing: '-0.075em', lineHeight: 0.95, color: 'var(--ink)', marginBottom: 10 }}>
           One legal thing.
         </h1>
-        <p style={{ fontFamily: 'var(--mono)', fontSize: 13, color: 'var(--mute)', marginBottom: 24, lineHeight: 1.5 }}>
+        <p style={{ fontFamily: 'var(--body)', fontSize: 13, color: 'var(--mute)', marginBottom: 24, lineHeight: 1.5 }}>
           SHIFT pays 1099 contractors. IRS requires this once you earn $600+. Takes 45 seconds.
         </p>
 
         {/* Legal name */}
         <div style={{ marginBottom: 18 }}>
-          <div style={{ fontFamily: 'var(--mono)', fontSize: 10.5, fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--mute)', marginBottom: 8 }}>
+          <div style={{ fontFamily: 'var(--body)', fontSize: 10.5, fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--mute)', marginBottom: 8 }}>
             Legal name
           </div>
           <input
@@ -58,7 +58,7 @@ export default function W9() {
 
         {/* SSN */}
         <div style={{ marginBottom: 18 }}>
-          <div style={{ fontFamily: 'var(--mono)', fontSize: 10.5, fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--mute)', marginBottom: 8 }}>
+          <div style={{ fontFamily: 'var(--body)', fontSize: 10.5, fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--mute)', marginBottom: 8 }}>
             Social Security Number
           </div>
           <input
@@ -73,14 +73,14 @@ export default function W9() {
               letterSpacing: '0.2em', color: 'var(--ink)', outline: 'none',
             }}
           />
-          <p style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--mute)', marginTop: 6 }}>
+          <p style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)', marginTop: 6 }}>
             Encrypted · never stored in plain text · same security as Stripe
           </p>
         </div>
 
         {/* Address */}
         <div style={{ marginBottom: 24 }}>
-          <div style={{ fontFamily: 'var(--mono)', fontSize: 10.5, fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--mute)', marginBottom: 8 }}>
+          <div style={{ fontFamily: 'var(--body)', fontSize: 10.5, fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--mute)', marginBottom: 8 }}>
             Address
           </div>
           <input
@@ -99,7 +99,7 @@ export default function W9() {
 
         {/* Trust block */}
         <div style={{ padding: '14px 16px', background: 'var(--paper-2)', borderRadius: 14, border: '2px solid var(--ink)', marginBottom: 20 }}>
-          <p style={{ fontFamily: 'var(--mono)', fontSize: 11.5, color: 'var(--ink)', lineHeight: 1.6 }}>
+          <p style={{ fontFamily: 'var(--body)', fontSize: 11.5, color: 'var(--ink)', lineHeight: 1.6 }}>
             <strong>Why SHIFT needs this:</strong> You&apos;re an independent contractor. If you earn $600+ in a year, the IRS requires us to file a 1099-NEC with your name and SSN. We don&apos;t share this with employers — ever.
           </p>
         </div>
@@ -117,7 +117,7 @@ export default function W9() {
           }}>
             {agreed && <span style={{ color: 'white', fontSize: 13, fontWeight: 700 }}>✓</span>}
           </div>
-          <span style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--mute)', lineHeight: 1.5 }}>
+          <span style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--mute)', lineHeight: 1.5 }}>
             I certify this information is correct and authorize SHIFT to file my W-9 with the IRS.
           </span>
         </button>
@@ -142,7 +142,7 @@ export default function W9() {
             Fill in the fields above
           </div>
         )}
-        <p style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--mute)', textAlign: 'center', marginTop: 8 }}>
+        <p style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)', textAlign: 'center', marginTop: 8 }}>
           Skippable until your first $600 · comes back once
         </p>
       </div>

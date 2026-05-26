@@ -33,7 +33,7 @@ export default function Books() {
       {/* Monthly total header */}
       <div style={{ padding: '20px 22px', borderBottom: '1px solid var(--line)', background: 'var(--card)' }}>
         <p style={{
-          fontFamily: 'var(--mono)',
+          fontFamily: 'var(--body)',
           fontSize: 10,
           fontWeight: 600,
           textTransform: 'uppercase',
@@ -53,7 +53,7 @@ export default function Books() {
         }}>$2,847.00</div>
 
         <p style={{
-          fontFamily: 'var(--mono)',
+          fontFamily: 'var(--body)',
           fontSize: 13,
           color: 'var(--mute)',
           marginBottom: 10,
@@ -63,7 +63,7 @@ export default function Books() {
           display: 'inline-block',
           background: 'var(--hydrant-soft)',
           color: 'var(--hydrant)',
-          fontFamily: 'var(--mono)',
+          fontFamily: 'var(--body)',
           fontSize: 11,
           fontWeight: 600,
           borderRadius: 99,
@@ -74,7 +74,7 @@ export default function Books() {
       {/* Statement list */}
       <div style={{ padding: '0 22px', background: 'var(--card)' }}>
         <p style={{
-          fontFamily: 'var(--mono)',
+          fontFamily: 'var(--body)',
           fontSize: 10,
           fontWeight: 600,
           textTransform: 'uppercase',
@@ -97,7 +97,7 @@ export default function Books() {
           >
             <div>
               <p style={{
-                fontFamily: 'var(--mono)',
+                fontFamily: 'var(--body)',
                 fontSize: 10,
                 textTransform: 'uppercase',
                 letterSpacing: '0.06em',
@@ -115,7 +115,7 @@ export default function Books() {
               <span style={{
                 background: 'var(--hydrant-soft)',
                 color: 'var(--hydrant)',
-                fontFamily: 'var(--mono)',
+                fontFamily: 'var(--body)',
                 fontSize: 10,
                 fontWeight: 700,
                 borderRadius: 6,
@@ -143,7 +143,7 @@ export default function Books() {
           position: 'relative',
         }}>
           <p style={{
-            fontFamily: 'var(--mono)',
+            fontFamily: 'var(--body)',
             fontSize: 10,
             fontWeight: 700,
             textTransform: 'uppercase',
@@ -154,7 +154,7 @@ export default function Books() {
 
           {/* Total row */}
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 12 }}>
-            <span style={{ fontFamily: 'var(--mono)', fontSize: 12, fontWeight: 600, color: 'var(--mute)', textTransform: 'uppercase' }}>TOTAL</span>
+            <span style={{ fontFamily: 'var(--body)', fontSize: 12, fontWeight: 600, color: 'var(--mute)', textTransform: 'uppercase' }}>TOTAL</span>
             <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 24, color: 'var(--ink)', letterSpacing: '-0.02em' }}>$3,412.00</span>
           </div>
 
@@ -169,7 +169,7 @@ export default function Books() {
               alignItems: 'center',
               marginBottom: 8,
             }}>
-              <span style={{ fontFamily: 'var(--mono)', fontSize: 13, color: 'var(--ink)', flex: 1, marginRight: 8 }}>{item.desc}</span>
+              <span style={{ fontFamily: 'var(--body)', fontSize: 13, color: 'var(--ink)', flex: 1, marginRight: 8 }}>{item.desc}</span>
               <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 15, color: 'var(--ink)', flexShrink: 0 }}>{item.amount}</span>
             </div>
           ))}
@@ -187,7 +187,7 @@ export default function Books() {
                   background: 'transparent',
                   border: '2px solid var(--ink)',
                   borderRadius: 99,
-                  fontFamily: 'var(--mono)',
+                  fontFamily: 'var(--body)',
                   fontSize: 11,
                   fontWeight: 600,
                   color: 'var(--ink)',

@@ -51,7 +51,7 @@ export default function Availability() {
 
       <div style={{ padding: 22 }}>
         <span style={{
-          fontFamily: 'var(--mono)',
+          fontFamily: 'var(--body)',
           fontSize: 11,
           fontWeight: 600,
           color: 'var(--hydrant)',
@@ -72,7 +72,7 @@ export default function Availability() {
         }}>Set your availability.</h1>
 
         <p style={{
-          fontFamily: 'var(--mono)',
+          fontFamily: 'var(--body)',
           fontSize: 13,
           color: 'var(--mute)',
           marginBottom: 24,
@@ -102,7 +102,7 @@ export default function Availability() {
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(7, 1fr)', gap: 4, marginBottom: 4 }}>
                   {DAYS.map((d) => (
                     <div key={d} style={{
-                      fontFamily: 'var(--mono)',
+                      fontFamily: 'var(--body)',
                       fontSize: 9,
                       fontWeight: 600,
                       textTransform: 'uppercase',

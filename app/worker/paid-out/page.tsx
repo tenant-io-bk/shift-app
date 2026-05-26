@@ -47,7 +47,7 @@ export default function PaidOut() {
         </Link>
         <span
           style={{
-            fontFamily: 'var(--mono)',
+            fontFamily: 'var(--body)',
             fontSize: 12,
             fontWeight: 600,
             color: 'var(--mute)',
@@ -112,7 +112,7 @@ export default function PaidOut() {
           </div>
           <span
             style={{
-              fontFamily: 'var(--mono)',
+              fontFamily: 'var(--body)',
               fontSize: 12,
               color: 'var(--mute)',
               flexShrink: 0,
@@ -134,7 +134,7 @@ export default function PaidOut() {
           {/* Business name */}
           <p
             style={{
-              fontFamily: 'var(--mono)',
+              fontFamily: 'var(--body)',
               fontSize: 10,
               fontWeight: 700,
               letterSpacing: '0.12em',
@@ -147,7 +147,7 @@ export default function PaidOut() {
           </p>
           <p
             style={{
-              fontFamily: 'var(--mono)',
+              fontFamily: 'var(--body)',
               fontSize: 13,
               color: 'rgba(255,255,255,0.60)',
               marginBottom: 16,
@@ -183,7 +183,7 @@ export default function PaidOut() {
               <div>
                 <span
                   style={{
-                    fontFamily: 'var(--mono)',
+                    fontFamily: 'var(--body)',
                     fontSize: 11,
                     fontWeight: 600,
                     letterSpacing: '0.08em',
@@ -196,7 +196,7 @@ export default function PaidOut() {
                 {row.value && (
                   <span
                     style={{
-                      fontFamily: 'var(--mono)',
+                      fontFamily: 'var(--body)',
                       fontSize: 11,
                       color: 'rgba(255,255,255,0.40)',
                       marginLeft: 8,
@@ -233,7 +233,7 @@ export default function PaidOut() {
           >
             <span
               style={{
-                fontFamily: 'var(--mono)',
+                fontFamily: 'var(--body)',
                 fontSize: 10,
                 fontWeight: 600,
                 letterSpacing: '0.10em',
@@ -267,7 +267,7 @@ export default function PaidOut() {
           >
             <span
               style={{
-                fontFamily: 'var(--mono)',
+                fontFamily: 'var(--body)',
                 fontSize: 11,
                 color: 'rgba(255,255,255,0.50)',
                 letterSpacing: '0.04em',
@@ -281,7 +281,7 @@ export default function PaidOut() {
         {/* Endorsement row */}
         <p
           style={{
-            fontFamily: 'var(--mono)',
+            fontFamily: 'var(--body)',
             fontSize: 10,
             color: 'var(--mute)',
             textAlign: 'center',
@@ -346,7 +346,7 @@ export default function PaidOut() {
                 style={{
                   display: 'inline-flex',
                   alignItems: 'center',
-                  fontFamily: 'var(--mono)',
+                  fontFamily: 'var(--body)',
                   fontSize: 11,
                   color: 'var(--hydrant)',
                   background: 'var(--hydrant-soft)',
@@ -398,7 +398,7 @@ export default function PaidOut() {
         </Link>
         <p
           style={{
-            fontFamily: 'var(--mono)',
+            fontFamily: 'var(--body)',
             fontSize: 12,
             color: 'var(--mute)',
             textAlign: 'center',

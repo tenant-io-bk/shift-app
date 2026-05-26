@@ -190,7 +190,7 @@ export default function EmployerMessages() {
             </div>
             <div
               style={{
-                fontFamily: 'var(--mono)',
+                fontFamily: 'var(--body)',
                 fontSize: 11,
                 color: 'var(--mute)',
               }}
@@ -231,7 +231,7 @@ export default function EmployerMessages() {
                         : '18px 18px 18px 4px',
                       background: isEmployer ? 'var(--ink)' : 'var(--card)',
                       border: isEmployer ? 'none' : '1.5px solid var(--line)',
-                      fontFamily: 'var(--mono)',
+                      fontFamily: 'var(--body)',
                       fontSize: 14,
                       color: isEmployer ? '#fff' : 'var(--ink)',
                       lineHeight: 1.5,
@@ -241,7 +241,7 @@ export default function EmployerMessages() {
                   </div>
                   <div
                     style={{
-                      fontFamily: 'var(--mono)',
+                      fontFamily: 'var(--body)',
                       fontSize: 10,
                       color: 'var(--mute)',
                       marginTop: 4,
@@ -291,7 +291,7 @@ export default function EmployerMessages() {
               background: 'var(--card)',
               border: '1.5px solid var(--line)',
               borderRadius: 99,
-              fontFamily: 'var(--mono)',
+              fontFamily: 'var(--body)',
               fontSize: 14,
               color: 'var(--ink)',
               outline: 'none',
@@ -358,7 +358,7 @@ export default function EmployerMessages() {
       >
         <span
           style={{
-            fontFamily: 'var(--mono)',
+            fontFamily: 'var(--body)',
             fontSize: 11,
             fontWeight: 600,
             letterSpacing: '0.08em',
@@ -436,7 +436,7 @@ export default function EmployerMessages() {
                 </span>
                 <span
                   style={{
-                    fontFamily: 'var(--mono)',
+                    fontFamily: 'var(--body)',
                     fontSize: 11,
                     color: 'var(--mute)',
                     flexShrink: 0,
@@ -448,7 +448,7 @@ export default function EmployerMessages() {
               </div>
               <div
                 style={{
-                  fontFamily: 'var(--mono)',
+                  fontFamily: 'var(--body)',
                   fontSize: 11,
                   color: 'var(--hydrant)',
                   marginBottom: 2,
@@ -458,7 +458,7 @@ export default function EmployerMessages() {
               </div>
               <div
                 style={{
-                  fontFamily: 'var(--mono)',
+                  fontFamily: 'var(--body)',
                   fontSize: 12,
                   color: thread.unread ? 'var(--ink)' : 'var(--mute)',
                   fontWeight: thread.unread ? 600 : 400,
@@ -486,7 +486,7 @@ export default function EmployerMessages() {
               >
                 <span
                   style={{
-                    fontFamily: 'var(--mono)',
+                    fontFamily: 'var(--body)',
                     fontSize: 11,
                     fontWeight: 700,
                     color: '#fff',

@@ -151,7 +151,7 @@ export default function EmployerDashboard() {
           onClick={() => setOpen(o => ({ ...o, [id]: !o[id] }))}
           style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: 'none', border: 'none', cursor: 'pointer', padding: '8px 4px', marginBottom: open[id] ? 8 : 0 }}
         >
-          <span style={{ fontFamily: 'var(--mono)', fontSize: 10, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--ink)' }}>{label}</span>
+          <span style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--ink)' }}>{label}</span>
           <span style={{ fontSize: 14, color: 'var(--ink)', display: 'inline-block', transform: open[id] ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s' }}>↓</span>
         </button>
         {open[id] && children}
@@ -168,7 +168,7 @@ export default function EmployerDashboard() {
         <div>
           <div style={{ fontFamily: 'var(--sans)', fontWeight: 200, fontSize: 38, color: 'var(--ink)', letterSpacing: '-0.075em', lineHeight: 0.88 }}>Good Morning</div>
           <div style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 38, color: 'var(--ink)', letterSpacing: '-0.075em', lineHeight: 0.95 }}>Padmore&apos;s Coffee</div>
-          <div style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--ink)', marginTop: 8 }}>172 Tompkins Ave | Bed-Stuy</div>
+          <div style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--ink)', marginTop: 8 }}>172 Tompkins Ave | Bed-Stuy</div>
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: 8, flexShrink: 0, paddingTop: 4 }}>
           <Link href="/employer/notifications" style={{
@@ -195,7 +195,7 @@ export default function EmployerDashboard() {
           style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '18px 20px', background: 'var(--ink)', border: 'none', cursor: 'pointer' }}
         >
           <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 24, color: '#fff', letterSpacing: '-0.04em' }}>Post A Shift.</span>
-          {!isPosting && <span style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'rgba(255,255,255,0.5)', flex: 1, paddingLeft: 12, textAlign: 'left' }}>Workers confirmed in minutes</span>}
+          {!isPosting && <span style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'rgba(255,255,255,0.5)', flex: 1, paddingLeft: 12, textAlign: 'left' }}>Workers confirmed in minutes</span>}
           <span style={{ fontFamily: 'var(--sans)', fontWeight: 300, fontSize: 32, color: '#fff', lineHeight: 1 }}>{isPosting ? '×' : '+'}</span>
         </button>
 
@@ -245,7 +245,7 @@ export default function EmployerDashboard() {
                     </div>
                     {hrs > 0 && (
                       <div style={{ background: 'var(--hydrant)', borderRadius: 99, padding: '9px 16px' }}>
-                        <span style={{ fontFamily: 'var(--mono)', fontWeight: 700, fontSize: 12, color: '#fff', letterSpacing: '0.06em' }}>{hrsLabel(hrs)}</span>
+                        <span style={{ fontFamily: 'var(--body)', fontWeight: 700, fontSize: 12, color: '#fff', letterSpacing: '0.06em' }}>{hrsLabel(hrs)}</span>
                       </div>
                     )}
                   </div>
@@ -277,15 +277,15 @@ export default function EmployerDashboard() {
                     <div style={{ flex: 1 }}>
                       <div style={{ display: 'flex', alignItems: 'baseline', gap: 4 }}>
                         <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 64, color: 'var(--ink)', letterSpacing: '-0.06em', lineHeight: 1 }}>${rate}</span>
-                        <span style={{ fontFamily: 'var(--mono)', fontSize: 16, color: 'var(--ink)' }}>/hr</span>
+                        <span style={{ fontFamily: 'var(--body)', fontSize: 16, color: 'var(--ink)' }}>/hr</span>
                       </div>
-                      <div style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--ink)', marginTop: 4 }}>
+                      <div style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--ink)', marginTop: 4 }}>
                         {hrs > 0 ? `Total: $${(rate*hrs).toFixed(0)}` : 'Set times to see total'}
                       </div>
                     </div>
                     <button onClick={() => setRate(r => Math.min(75, r+1))} style={{ width: 48, height: 48, borderRadius: 12, border: '2px solid var(--ink)', background: 'transparent', fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 22, color: 'var(--ink)', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>+</button>
                   </div>
-                  <p style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--ink)', marginTop: 10 }}>NYC min $16/hr · Market for {role||'this role'} ~$22–28/hr</p>
+                  <p style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--ink)', marginTop: 10 }}>NYC min $16/hr · Market for {role||'this role'} ~$22–28/hr</p>
                 </>
               )}
 
@@ -298,7 +298,7 @@ export default function EmployerDashboard() {
                     <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 64, color: 'var(--ink)', letterSpacing: '-0.05em', minWidth: 52, textAlign: 'center' }}>{count}</span>
                     <button onClick={() => setCount(count+1)} style={{ width: 52, height: 52, borderRadius: 12, border: '2px solid var(--ink)', background: 'transparent', fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 24, color: 'var(--ink)', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>+</button>
                   </div>
-                  <p style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--ink)', marginTop: 12 }}>+1 standby auto-invited as backup.</p>
+                  <p style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--ink)', marginTop: 12 }}>+1 standby auto-invited as backup.</p>
                 </>
               )}
 
@@ -306,11 +306,11 @@ export default function EmployerDashboard() {
               {step === 'brief' && !isDrafting && (
                 <>
                   <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 20, letterSpacing: '-0.04em', color: 'var(--ink)', marginBottom: 6 }}>Describe the shift in one line</div>
-                  <p style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--ink)', marginBottom: 12 }}>SHIFT will write the full posting from this.</p>
+                  <p style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--ink)', marginBottom: 12 }}>SHIFT will write the full posting from this.</p>
                   <textarea
                     value={brief} onChange={e => setBrief(e.target.value)} rows={3} autoFocus
                     placeholder={`e.g. "${role.toLowerCase()}, lunch rush, all black, busy"`}
-                    style={{ width: '100%', padding: '12px 14px', background: 'var(--card)', border: '2px solid var(--ink)', borderRadius: 12, fontFamily: 'var(--mono)', fontSize: 13, color: 'var(--ink)', outline: 'none', resize: 'none', lineHeight: 1.6, boxSizing: 'border-box' }}
+                    style={{ width: '100%', padding: '12px 14px', background: 'var(--card)', border: '2px solid var(--ink)', borderRadius: 12, fontFamily: 'var(--body)', fontSize: 13, color: 'var(--ink)', outline: 'none', resize: 'none', lineHeight: 1.6, boxSizing: 'border-box' }}
                   />
                 </>
               )}
@@ -322,7 +322,7 @@ export default function EmployerDashboard() {
                     {[0,1,2].map(i => <div key={i} style={{ width: 7, height: 7, borderRadius: '50%', background: i < draftDots ? 'var(--hydrant)' : 'var(--line)', transition: 'background 0.2s' }} />)}
                   </div>
                   <p style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 16, color: 'var(--ink)', letterSpacing: '-0.02em' }}>Writing your posting…</p>
-                  <p style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--mute)' }}>Task list, attire, and rate — 2 sec</p>
+                  <p style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)' }}>Task list, attire, and rate — 2 sec</p>
                 </div>
               )}
 
@@ -331,25 +331,25 @@ export default function EmployerDashboard() {
                 <>
                   <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 12, padding: '8px 10px', background: 'var(--hydrant-soft)', borderRadius: 8 }}>
                     <svg width="9" height="9" viewBox="0 0 10 10" fill="none"><path d="M5 0L6.18 3.82L10 5L6.18 6.18L5 10L3.82 6.18L0 5L3.82 3.82L5 0Z" fill="var(--hydrant)" /></svg>
-                    <span style={{ fontFamily: 'var(--mono)', fontSize: 10, fontWeight: 600, color: 'var(--ink)' }}>SHIFT drafted this · edit anything</span>
+                    <span style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 600, color: 'var(--ink)' }}>SHIFT drafted this · edit anything</span>
                   </div>
 
                   {/* The work */}
                   <div style={{ marginBottom: 10 }}>
                     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 8 }}>
                       <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-                        <span style={{ fontFamily: 'var(--mono)', fontSize: 9, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--mute)' }}>The work</span>
+                        <span style={{ fontFamily: 'var(--body)', fontSize: 9, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--mute)' }}>The work</span>
                         <svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M5 0L6.18 3.82L10 5L6.18 6.18L5 10L3.82 6.18L0 5L3.82 3.82L5 0Z" fill="var(--hydrant)" /></svg>
-                        <span style={{ fontFamily: 'var(--mono)', fontSize: 9, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--hydrant)' }}>Auto-drafted</span>
+                        <span style={{ fontFamily: 'var(--body)', fontSize: 9, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--hydrant)' }}>Auto-drafted</span>
                       </div>
-                      <button onClick={() => setEditingTasks(t => !t)} style={{ fontFamily: 'var(--mono)', fontSize: 10, fontWeight: 700, color: 'var(--hydrant)', background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}>{editingTasks ? 'Done' : 'Edit'}</button>
+                      <button onClick={() => setEditingTasks(t => !t)} style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 700, color: 'var(--hydrant)', background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}>{editingTasks ? 'Done' : 'Edit'}</button>
                     </div>
                     <div style={{ background: 'var(--card)', border: '2px solid var(--ink)', borderRadius: 10, padding: '4px 10px' }}>
                       {editingTasks ? draftTasks.map((t, i) => (
                         <input key={i} value={t} onChange={e => setDraftTasks(tasks => tasks.map((x, j) => j === i ? e.target.value : x))} style={{ display: 'block', width: '100%', fontFamily: 'var(--sans)', fontSize: 13, color: 'var(--ink)', padding: '7px 0', background: 'none', border: 'none', borderBottom: i < draftTasks.length-1 ? '1px solid var(--line)' : 'none', outline: 'none', boxSizing: 'border-box' }} />
                       )) : draftTasks.map((t, i) => (
                         <div key={i} style={{ display: 'flex', gap: 10, padding: '7px 0', borderBottom: i < draftTasks.length-1 ? '1px solid var(--line)' : 'none' }}>
-                          <span style={{ fontFamily: 'var(--mono)', fontSize: 9, color: 'var(--mute)', flexShrink: 0, paddingTop: 2 }}>{String(i+1).padStart(2,'0')}</span>
+                          <span style={{ fontFamily: 'var(--body)', fontSize: 9, color: 'var(--mute)', flexShrink: 0, paddingTop: 2 }}>{String(i+1).padStart(2,'0')}</span>
                           <span style={{ fontFamily: 'var(--sans)', fontSize: 13, color: 'var(--ink)' }}>{t}</span>
                         </div>
                       ))}
@@ -360,22 +360,22 @@ export default function EmployerDashboard() {
                   <div>
                     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 8 }}>
                       <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-                        <span style={{ fontFamily: 'var(--mono)', fontSize: 9, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--mute)' }}>Bring</span>
+                        <span style={{ fontFamily: 'var(--body)', fontSize: 9, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--mute)' }}>Bring</span>
                         <svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M5 0L6.18 3.82L10 5L6.18 6.18L5 10L3.82 6.18L0 5L3.82 3.82L5 0Z" fill="var(--hydrant)" /></svg>
-                        <span style={{ fontFamily: 'var(--mono)', fontSize: 9, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--hydrant)' }}>Auto-drafted</span>
+                        <span style={{ fontFamily: 'var(--body)', fontSize: 9, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--hydrant)' }}>Auto-drafted</span>
                       </div>
-                      <button onClick={() => setEditingBring(b => !b)} style={{ fontFamily: 'var(--mono)', fontSize: 10, fontWeight: 700, color: 'var(--hydrant)', background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}>{editingBring ? 'Done' : 'Edit'}</button>
+                      <button onClick={() => setEditingBring(b => !b)} style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 700, color: 'var(--hydrant)', background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}>{editingBring ? 'Done' : 'Edit'}</button>
                     </div>
                     <div style={{ background: 'var(--card)', border: '2px solid var(--ink)', borderRadius: 10, padding: '4px 10px' }}>
                       {editingBring ? draftBring.map((b, i) => (
                         <div key={i} style={{ display: 'flex', gap: 6, padding: '6px 0', borderBottom: i < draftBring.length-1 ? '1px solid var(--line)' : 'none' }}>
-                          <input value={b.key} onChange={e => setDraftBring(br => br.map((x,j) => j===i ? {...x, key: e.target.value} : x))} style={{ width: 70, fontFamily: 'var(--mono)', fontSize: 9, color: 'var(--mute)', textTransform: 'uppercase', background: 'none', border: 'none', outline: 'none' }} />
-                          <input value={b.value} onChange={e => setDraftBring(br => br.map((x,j) => j===i ? {...x, value: e.target.value} : x))} style={{ flex: 1, fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--ink)', background: 'none', border: 'none', outline: 'none', textAlign: 'right' }} />
+                          <input value={b.key} onChange={e => setDraftBring(br => br.map((x,j) => j===i ? {...x, key: e.target.value} : x))} style={{ width: 70, fontFamily: 'var(--body)', fontSize: 9, color: 'var(--mute)', textTransform: 'uppercase', background: 'none', border: 'none', outline: 'none' }} />
+                          <input value={b.value} onChange={e => setDraftBring(br => br.map((x,j) => j===i ? {...x, value: e.target.value} : x))} style={{ flex: 1, fontFamily: 'var(--body)', fontSize: 12, color: 'var(--ink)', background: 'none', border: 'none', outline: 'none', textAlign: 'right' }} />
                         </div>
                       )) : draftBring.map((b, i) => (
                         <div key={i} style={{ display: 'flex', justifyContent: 'space-between', padding: '7px 0', borderBottom: i < draftBring.length-1 ? '1px solid var(--line)' : 'none' }}>
-                          <span style={{ fontFamily: 'var(--mono)', fontSize: 9, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', color: 'var(--mute)' }}>{b.key}</span>
-                          <span style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--ink)' }}>{b.value}</span>
+                          <span style={{ fontFamily: 'var(--body)', fontSize: 9, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', color: 'var(--mute)' }}>{b.key}</span>
+                          <span style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--ink)' }}>{b.value}</span>
                         </div>
                       ))}
                     </div>
@@ -396,14 +396,14 @@ export default function EmployerDashboard() {
                       { label: 'Tasks', value: `${draftTasks.length} items drafted` },
                     ].map(row => (
                       <div key={row.label} style={{ display: 'flex', gap: 10, padding: '10px 14px', border: '2px solid var(--ink)', borderRadius: 14 }}>
-                        <span style={{ fontFamily: 'var(--mono)', fontSize: 10, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--ink)', width: 52, flexShrink: 0 }}>{row.label}</span>
+                        <span style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--ink)', width: 52, flexShrink: 0 }}>{row.label}</span>
                         <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 13, color: 'var(--ink)' }}>{row.value}</span>
                       </div>
                     ))}
                   </div>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 12 }}>
                     <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 20, color: 'var(--ink)', letterSpacing: '-0.04em' }}>All in: ${tot$.toFixed(0)}.</span>
-                    <span style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--ink)' }}>$0 to post</span>
+                    <span style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--ink)' }}>$0 to post</span>
                   </div>
                   <button
                     onClick={() => router.push('/employer/posting')}
@@ -442,11 +442,11 @@ export default function EmployerDashboard() {
               <div style={{ width: 10, height: 10, borderRadius: '50%', background: '#16A34A', flexShrink: 0, boxShadow: '0 0 0 3px rgba(22,163,74,0.2)' }} />
               <div style={{ flex: 1 }}>
                 <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 15, color: 'var(--ink)' }}>{s.role} · {s.workers} workers</div>
-                <div style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--ink)', marginTop: 2 }}>{s.time}</div>
+                <div style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--ink)', marginTop: 2 }}>{s.time}</div>
               </div>
               <div style={{ textAlign: 'right', flexShrink: 0 }}>
-                <div style={{ fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 600, color: '#16A34A' }}>{s.status}</div>
-                <div style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--ink)', marginTop: 1 }}>{s.eta}</div>
+                <div style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, color: '#16A34A' }}>{s.status}</div>
+                <div style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--ink)', marginTop: 1 }}>{s.eta}</div>
               </div>
             </div>
           </Link>
@@ -461,8 +461,8 @@ export default function EmployerDashboard() {
                 <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 15, color: '#fff' }}>{w.initials}</span>
               </div>
               <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 13, color: 'var(--ink)' }}>{w.name}</div>
-              <div style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--ink)', marginTop: 2 }}>{w.role}</div>
-              <div style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--hydrant)', fontWeight: 600, marginTop: 4 }}>{w.rating}★</div>
+              <div style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--ink)', marginTop: 2 }}>{w.role}</div>
+              <div style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--hydrant)', fontWeight: 600, marginTop: 4 }}>{w.rating}★</div>
             </div>
           ))}
         </div>
@@ -474,11 +474,11 @@ export default function EmployerDashboard() {
             <div key={i} style={{ display: 'flex', alignItems: 'center', padding: '12px 16px', borderBottom: i < RECENT.length-1 ? '1px solid var(--line)' : 'none' }}>
               <div style={{ flex: 1 }}>
                 <div style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 14, color: 'var(--ink)' }}>{r.role} · {r.workers} worker{r.workers>1?'s':''}</div>
-                <div style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--ink)', marginTop: 2 }}>{r.date}</div>
+                <div style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--ink)', marginTop: 2 }}>{r.date}</div>
               </div>
               <div style={{ textAlign: 'right', flexShrink: 0 }}>
                 <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 16, color: 'var(--ink)', letterSpacing: '-0.02em' }}>{r.total}</div>
-                <div style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--hydrant)', marginTop: 1 }}>{r.rating}★</div>
+                <div style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--hydrant)', marginTop: 1 }}>{r.rating}★</div>
               </div>
             </div>
           ))}
@@ -495,14 +495,14 @@ export default function EmployerDashboard() {
           ].map((stat) => (
             <div key={stat.label} style={{ flex: 1, background: 'var(--paper)', border: '2px solid var(--ink)', borderRadius: 12, padding: '12px 10px', textAlign: 'center' }}>
               <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 17, color: 'var(--ink)', letterSpacing: '-0.04em', lineHeight: 1 }}>{stat.value}</div>
-              <div style={{ fontFamily: 'var(--mono)', fontSize: 10, color: 'var(--mute)', marginTop: 4, textTransform: 'uppercase', letterSpacing: '0.06em' }}>{stat.label}</div>
+              <div style={{ fontFamily: 'var(--body)', fontSize: 10, color: 'var(--mute)', marginTop: 4, textTransform: 'uppercase', letterSpacing: '0.06em' }}>{stat.label}</div>
             </div>
           ))}
         </div>
 
         {/* Role breakdown */}
         <div style={{ background: 'var(--paper)', border: '2px solid var(--ink)', borderRadius: 12, padding: '14px 16px' }}>
-          <div style={{ fontFamily: 'var(--mono)', fontSize: 10, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--mute)', marginBottom: 12 }}>By role · this month</div>
+          <div style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--mute)', marginBottom: 12 }}>By role · this month</div>
           {[
             { role: 'Barista', pct: 40, amount: '$963.' },
             { role: 'Server', pct: 28, amount: '$674.' },
@@ -513,7 +513,7 @@ export default function EmployerDashboard() {
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 4 }}>
                 <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 13, color: 'var(--ink)' }}>{row.role}</span>
                 <div style={{ display: 'flex', gap: 8, alignItems: 'baseline' }}>
-                  <span style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--mute)' }}>{row.pct}%</span>
+                  <span style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)' }}>{row.pct}%</span>
                   <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 13, color: 'var(--ink)', letterSpacing: '-0.02em' }}>{row.amount}</span>
                 </div>
               </div>

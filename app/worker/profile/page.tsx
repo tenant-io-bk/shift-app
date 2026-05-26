@@ -120,7 +120,7 @@ export default function WorkerProfile() {
 
         <div style={{ height: 44, display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 16px' }}>
           <Link href="/" style={{ color: 'rgba(255,255,255,0.7)', textDecoration: 'none', fontSize: 20, width: 32 }}>←</Link>
-          <span style={{ fontFamily: 'var(--mono)', fontSize: 13, fontWeight: 600, color: 'rgba(255,255,255,0.6)', letterSpacing: '0.02em' }}>@marcov</span>
+          <span style={{ fontFamily: 'var(--body)', fontSize: 13, fontWeight: 600, color: 'rgba(255,255,255,0.6)', letterSpacing: '0.02em' }}>@marcov</span>
           <button style={{ background: 'none', border: 'none', cursor: 'pointer', width: 32, display: 'flex', justifyContent: 'flex-end' }}>
             <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
               <circle cx="9" cy="9" r="2" fill="rgba(255,255,255,0.5)" />
@@ -160,7 +160,7 @@ export default function WorkerProfile() {
               </div>
               <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 32, color: 'var(--ink)', letterSpacing: '-0.04em', lineHeight: 1 }}>Shifts Worked</span>
             </div>
-            <div style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--mute)', marginTop: 12 }}>$1.8k earned · 4.9★ avg rating</div>
+            <div style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--mute)', marginTop: 12 }}>$1.8k earned · 4.9★ avg rating</div>
           </div>
 
           {/* Stacked wallet cards */}
@@ -197,14 +197,14 @@ export default function WorkerProfile() {
                           <div style={{ fontFamily: 'var(--sans)', fontWeight: 400, fontSize: 20, color: 'var(--ink)', letterSpacing: '-0.03em', lineHeight: 1.1 }}>
                             {shift.shortName}
                           </div>
-                          <div style={{ fontFamily: 'var(--mono)', fontSize: 9, fontWeight: 600, color: 'rgba(13,14,18,0.5)', letterSpacing: '0.06em', textTransform: 'uppercase', marginTop: 5 }}>
+                          <div style={{ fontFamily: 'var(--body)', fontSize: 9, fontWeight: 600, color: 'rgba(13,14,18,0.5)', letterSpacing: '0.06em', textTransform: 'uppercase', marginTop: 5 }}>
                             {shift.date} · {shift.neighborhood}
                           </div>
                         </div>
 
                         <div style={{ display: 'flex', justifyContent: 'center', flexShrink: 0 }}>
                           <div style={{ background: 'var(--ink)', borderRadius: 99, padding: '8px 14px' }}>
-                            <span style={{ fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 600, color: '#fff', whiteSpace: 'nowrap' }}>
+                            <span style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, color: '#fff', whiteSpace: 'nowrap' }}>
                               {shift.type} {shift.hours}
                             </span>
                           </div>
@@ -214,7 +214,7 @@ export default function WorkerProfile() {
                           <div style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 28, color: 'var(--ink)', letterSpacing: '-0.05em', lineHeight: 1 }}>
                             {shift.pay}
                           </div>
-                          <div style={{ fontFamily: 'var(--mono)', fontSize: 9, fontWeight: 600, color: 'rgba(13,14,18,0.5)', textTransform: 'uppercase', marginTop: 4 }}>
+                          <div style={{ fontFamily: 'var(--body)', fontSize: 9, fontWeight: 600, color: 'rgba(13,14,18,0.5)', textTransform: 'uppercase', marginTop: 4 }}>
                             {shift.rate}
                           </div>
                         </div>
@@ -225,7 +225,7 @@ export default function WorkerProfile() {
                         <div style={{ padding: '0 20px 20px' }}>
                           <div style={{ height: 1, background: 'rgba(13,14,18,0.1)', marginBottom: 14 }} />
                           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 16 }}>
-                            <span style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--mute)' }}>Your rating</span>
+                            <span style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--mute)' }}>Your rating</span>
                             <span style={{ color: 'var(--hydrant)', fontSize: 16 }}>{'★'.repeat(shift.rating)}{'☆'.repeat(5 - shift.rating)}</span>
                           </div>
                           <Link
@@ -259,7 +259,7 @@ export default function WorkerProfile() {
                 <circle cx="14" cy="14" r="13" stroke="white" strokeWidth="1.5" />
                 <path d="M14 9v10M9 14h10" stroke="white" strokeWidth="1.5" strokeLinecap="round" />
               </svg>
-              <span style={{ fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 600, color: '#fff', letterSpacing: '0.06em' }}>Change photo</span>
+              <span style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, color: '#fff', letterSpacing: '0.06em' }}>Change photo</span>
             </div>
           </div>
         )}
@@ -283,7 +283,7 @@ export default function WorkerProfile() {
             <span style={{ color: 'var(--hydrant)', fontSize: 15, letterSpacing: 1 }}>{'★'.repeat(5)}</span>
             <button
               onClick={() => editing ? saveEdits() : setEditing(true)}
-              style={{ fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 700, color: 'var(--ink)', background: 'var(--paper)', border: '2px solid var(--ink)', borderRadius: 99, padding: '5px 12px', cursor: 'pointer', letterSpacing: '0.06em', textTransform: 'uppercase' }}
+              style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 700, color: 'var(--ink)', background: 'var(--paper)', border: '2px solid var(--ink)', borderRadius: 99, padding: '5px 12px', cursor: 'pointer', letterSpacing: '0.06em', textTransform: 'uppercase' }}
             >
               {editing ? 'Save' : 'Edit'}
             </button>
@@ -291,20 +291,20 @@ export default function WorkerProfile() {
         </div>
 
         {/* Sub-info */}
-        <div style={{ fontFamily: 'var(--mono)', fontSize: 13, color: 'var(--mute)', marginBottom: 14 }}>
+        <div style={{ fontFamily: 'var(--body)', fontSize: 13, color: 'var(--mute)', marginBottom: 14 }}>
           29 · He/Him · Bed-Stuy, Brooklyn
         </div>
 
         {/* Online now */}
         <div style={{ display: 'inline-flex', alignItems: 'center', gap: 7, marginBottom: 20 }}>
           <span style={{ width: 8, height: 8, borderRadius: '50%', background: 'var(--hydrant)', flexShrink: 0 }} />
-          <span style={{ fontFamily: 'var(--mono)', fontSize: 12, fontWeight: 600, color: 'var(--ink)' }}>Online now</span>
+          <span style={{ fontFamily: 'var(--body)', fontSize: 12, fontWeight: 600, color: 'var(--ink)' }}>Online now</span>
         </div>
       </div>
 
       {/* Profile completion checklist */}
       <div style={{ margin: '0 20px 20px', padding: '16px', background: 'var(--card)', borderRadius: 14, border: '2px solid var(--ink)' }}>
-        <div style={{ fontFamily: 'var(--mono)', fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--hydrant)', marginBottom: 12 }}>Finish setting up</div>
+        <div style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--hydrant)', marginBottom: 12 }}>Finish setting up</div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
           {[
             { label: 'Add a photo to get booked faster', href: '#', done: false },
@@ -328,7 +328,7 @@ export default function WorkerProfile() {
                 alignItems: 'center',
                 justifyContent: 'center',
               }} />
-              <span style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--ink)', lineHeight: 1.4 }}>{item.label}</span>
+              <span style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--ink)', lineHeight: 1.4 }}>{item.label}</span>
               <span style={{ marginLeft: 'auto', color: 'var(--mute)', fontSize: 14, flexShrink: 0 }}>→</span>
             </Link>
           ))}
@@ -341,7 +341,7 @@ export default function WorkerProfile() {
           {SKILLS.map(s => (
             <span key={s.label} style={{ display: 'inline-flex', alignItems: 'center', gap: 6, fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 14, color: 'var(--ink)', border: '2px solid var(--ink)', borderRadius: 99, padding: '6px 14px', background: 'var(--paper)' }}>
               {s.label}
-              <span style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--mute)', fontWeight: 400 }}>{s.count}×</span>
+              <span style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)', fontWeight: 400 }}>{s.count}×</span>
             </span>
           ))}
           {editing && (
@@ -357,10 +357,10 @@ export default function WorkerProfile() {
             value={bioInput}
             onChange={e => setBioInput(e.target.value)}
             rows={4}
-            style={{ width: '100%', fontFamily: 'var(--mono)', fontSize: 14, color: 'var(--ink)', border: '2px solid var(--hydrant)', borderRadius: 14, padding: '10px 12px', background: 'var(--card)', outline: 'none', resize: 'none', lineHeight: 1.6, boxSizing: 'border-box' }}
+            style={{ width: '100%', fontFamily: 'var(--body)', fontSize: 14, color: 'var(--ink)', border: '2px solid var(--hydrant)', borderRadius: 14, padding: '10px 12px', background: 'var(--card)', outline: 'none', resize: 'none', lineHeight: 1.6, boxSizing: 'border-box' }}
           />
         ) : (
-          <p style={{ fontFamily: 'var(--mono)', fontSize: 14, color: 'var(--ink)', lineHeight: 1.65, margin: 0 }}>{bio}</p>
+          <p style={{ fontFamily: 'var(--body)', fontSize: 14, color: 'var(--ink)', lineHeight: 1.65, margin: 0 }}>{bio}</p>
         )}
       </div>
 
@@ -374,7 +374,7 @@ export default function WorkerProfile() {
         ].map((stat, i) => (
           <div key={i} style={{ padding: '16px 0', textAlign: 'center', borderRight: i < 3 ? '1px solid var(--line)' : 'none' }}>
             <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 17, color: 'var(--ink)', letterSpacing: '-0.02em' }}>{stat.value}</div>
-            <div style={{ fontFamily: 'var(--mono)', fontSize: 9, fontWeight: 600, color: 'var(--mute)', textTransform: 'uppercase', letterSpacing: '0.08em', marginTop: 3 }}>{stat.label}</div>
+            <div style={{ fontFamily: 'var(--body)', fontSize: 9, fontWeight: 600, color: 'var(--mute)', textTransform: 'uppercase', letterSpacing: '0.08em', marginTop: 3 }}>{stat.label}</div>
           </div>
         ))}
       </div>
@@ -382,8 +382,8 @@ export default function WorkerProfile() {
       {/* Reviews */}
       <div style={{ padding: '18px 20px 0' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 14 }}>
-          <div style={{ fontFamily: 'var(--mono)', fontSize: 10, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--mute)' }}>Reviews from employers</div>
-          <span style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--hydrant)', fontWeight: 600 }}>4.9 avg</span>
+          <div style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--mute)' }}>Reviews from employers</div>
+          <span style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--hydrant)', fontWeight: 600 }}>4.9 avg</span>
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
           {REVIEWS.map((review, i) => (
@@ -394,11 +394,11 @@ export default function WorkerProfile() {
                 </div>
                 <div style={{ flex: 1 }}>
                   <div style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 14, color: 'var(--ink)' }}>{review.business}</div>
-                  <div style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--mute)' }}>{review.date}</div>
+                  <div style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)' }}>{review.date}</div>
                 </div>
                 <div style={{ color: 'var(--hydrant)', fontSize: 13, fontWeight: 700 }}>{'★'.repeat(review.rating)}</div>
               </div>
-              <p style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--mute)', lineHeight: 1.6, margin: 0 }}>&ldquo;{review.text}&rdquo;</p>
+              <p style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--mute)', lineHeight: 1.6, margin: 0 }}>&ldquo;{review.text}&rdquo;</p>
             </div>
           ))}
         </div>

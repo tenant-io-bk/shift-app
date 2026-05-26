@@ -41,7 +41,7 @@ export default function DayOf() {
           <div style={{ flex: 1 }}>
             <span
               style={{
-                fontFamily: 'var(--mono)',
+                fontFamily: 'var(--body)',
                 fontSize: 12,
                 fontWeight: 700,
                 color: '#92400E',
@@ -51,7 +51,7 @@ export default function DayOf() {
             </span>
             <span
               style={{
-                fontFamily: 'var(--mono)',
+                fontFamily: 'var(--body)',
                 fontSize: 12,
                 color: '#92400E',
               }}
@@ -107,7 +107,7 @@ export default function DayOf() {
         </Link>
         <span
           style={{
-            fontFamily: 'var(--mono)',
+            fontFamily: 'var(--body)',
             fontSize: 12,
             fontWeight: 600,
             color: 'var(--mute)',
@@ -134,14 +134,14 @@ export default function DayOf() {
           <div style={{ display: 'flex', gap: 8, marginTop: 14, justifyContent: 'center', flexWrap: 'wrap' }}>
             <span style={{
               background: 'var(--ink)', borderRadius: 99, padding: '7px 16px',
-              fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 600,
+              fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600,
               color: '#fff', letterSpacing: '0.04em',
             }}>
               Head out by 10:35A
             </span>
             <span style={{
               background: 'transparent', border: '1.5px solid var(--ink)', borderRadius: 99, padding: '7px 16px',
-              fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 600,
+              fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600,
               color: 'var(--ink)', letterSpacing: '0.04em',
             }}>
               Starts at 11A
@@ -181,7 +181,7 @@ export default function DayOf() {
               marginBottom: 14,
             }}
           >
-            <span style={{ fontFamily: 'var(--mono)', fontSize: 13, color: 'var(--ink)' }}>
+            <span style={{ fontFamily: 'var(--body)', fontSize: 13, color: 'var(--ink)' }}>
               G train · DeKalb Av → Bedford-Nostrand
             </span>
             <span
@@ -263,7 +263,7 @@ export default function DayOf() {
             >
               {isNear ? "You're here." : '0.4 mi from venue'}
             </div>
-            <div style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--mute)', marginTop: 2 }}>
+            <div style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)', marginTop: 2 }}>
               {isNear ? 'Clock-in is unlocked' : 'Unlocks within 500 ft of venue'}
             </div>
           </div>
@@ -276,7 +276,7 @@ export default function DayOf() {
               border: '1px solid var(--line)',
               borderRadius: 8,
               padding: '4px 8px',
-              fontFamily: 'var(--mono)',
+              fontFamily: 'var(--body)',
               fontSize: 10,
               color: 'var(--mute)',
               cursor: 'pointer',
@@ -308,7 +308,7 @@ export default function DayOf() {
             >
               Before you go
             </span>
-            <span style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--mute)' }}>
+            <span style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)' }}>
               2 of 4
             </span>
           </div>
@@ -351,7 +351,7 @@ export default function DayOf() {
 
               <span
                 style={{
-                  fontFamily: 'var(--mono)',
+                  fontFamily: 'var(--body)',
                   fontSize: 14,
                   color: item.checked ? 'var(--mute)' : 'var(--ink)',
                   textDecoration: item.checked ? 'line-through' : 'none',
@@ -364,7 +364,7 @@ export default function DayOf() {
               {item.optional && (
                 <span
                   style={{
-                    fontFamily: 'var(--mono)',
+                    fontFamily: 'var(--body)',
                     fontSize: 9,
                     fontWeight: 600,
                     letterSpacing: '0.08em',
@@ -418,12 +418,12 @@ export default function DayOf() {
               <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 14, color: 'var(--ink)' }}>
                 Tomás
               </span>
-              <span style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--mute)', marginLeft: 8 }}>
+              <span style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)', marginLeft: 8 }}>
                 sent this morning
               </span>
             </div>
           </div>
-          <p style={{ fontFamily: 'var(--mono)', fontSize: 14, color: 'var(--ink)', lineHeight: 1.5 }}>
+          <p style={{ fontFamily: 'var(--body)', fontSize: 14, color: 'var(--ink)', lineHeight: 1.5 }}>
             Door&apos;s on Tompkins, ring the bell — I&apos;ll be downstairs. Coffee&apos;s already going.
           </p>
         </div>
@@ -433,7 +433,7 @@ export default function DayOf() {
           <Link
             href="/v3/cancel-flow"
             style={{
-              fontFamily: 'var(--mono)',
+              fontFamily: 'var(--body)',
               fontSize: 11,
               color: 'var(--mute)',
               textDecoration: 'none',
@@ -446,7 +446,7 @@ export default function DayOf() {
           <Link
             href="/worker/report"
             style={{
-              fontFamily: 'var(--mono)',
+              fontFamily: 'var(--body)',
               fontSize: 11,
               color: 'var(--mute)',
               textDecoration: 'none',

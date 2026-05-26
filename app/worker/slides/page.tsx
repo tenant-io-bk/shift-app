@@ -132,7 +132,7 @@ export default function WorkerSlides() {
         </h2>
 
         <p style={{
-          fontFamily: 'var(--mono)',
+          fontFamily: 'var(--body)',
           fontSize: 13,
           color: 'var(--mute)',
           lineHeight: 1.6,

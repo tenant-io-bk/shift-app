@@ -31,7 +31,7 @@ const INPUT = {
   background: 'var(--paper)',
   border: '2px solid var(--ink)',
   borderRadius: 99,
-  fontFamily: 'var(--mono)',
+  fontFamily: 'var(--body)',
   fontSize: 16,
   color: 'var(--ink)',
   outline: 'none',
@@ -77,10 +77,10 @@ export default function CardInput() {
           </svg>
         </div>
         <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 36, color: 'var(--ink)', letterSpacing: '-0.06em', marginBottom: 8 }}>Card added.</div>
-        <div style={{ fontFamily: 'var(--mono)', fontSize: 14, color: 'var(--ink)' }}>
+        <div style={{ fontFamily: 'var(--body)', fontSize: 14, color: 'var(--ink)' }}>
           {network || 'Debit'} ••••{last4}
         </div>
-        <div style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--ink)', marginTop: 20, opacity: 0.4 }}>Continuing…</div>
+        <div style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--ink)', marginTop: 20, opacity: 0.4 }}>Continuing…</div>
       </div>
     );
   }
@@ -101,7 +101,7 @@ export default function CardInput() {
       </div>
 
       <div style={{ padding: '24px 22px 40px', display: 'flex', flexDirection: 'column', gap: 0 }}>
-        <div style={{ fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--hydrant)', marginBottom: 10 }}>Debit Card</div>
+        <div style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--hydrant)', marginBottom: 10 }}>Debit Card</div>
         <h1 style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 34, color: 'var(--ink)', letterSpacing: '-0.07em', lineHeight: 1, marginBottom: 28 }}>Where do we send your pay?</h1>
 
         {/* Live card preview */}
@@ -117,26 +117,26 @@ export default function CardInput() {
               <div style={{ width: 8, height: 8, borderRadius: '50%', background: 'rgba(255,255,255,0.25)', marginLeft: -3 }} />
             </div>
             {network && (
-              <span style={{ fontFamily: 'var(--mono)', fontWeight: 700, fontSize: 13, color: 'rgba(255,255,255,0.7)', letterSpacing: '0.1em' }}>{network}</span>
+              <span style={{ fontFamily: 'var(--body)', fontWeight: 700, fontSize: 13, color: 'rgba(255,255,255,0.7)', letterSpacing: '0.1em' }}>{network}</span>
             )}
           </div>
 
           {/* Card number */}
-          <div style={{ fontFamily: 'var(--mono)', fontSize: 20, color: '#fff', letterSpacing: '0.14em', marginBottom: 20, fontWeight: 600 }}>
+          <div style={{ fontFamily: 'var(--body)', fontSize: 20, color: '#fff', letterSpacing: '0.14em', marginBottom: 20, fontWeight: 600 }}>
             {previewNum}
           </div>
 
           {/* Name + Expiry */}
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }}>
             <div>
-              <div style={{ fontFamily: 'var(--mono)', fontSize: 9, color: 'rgba(255,255,255,0.4)', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 2 }}>Cardholder</div>
-              <div style={{ fontFamily: 'var(--mono)', fontSize: 13, color: name ? '#fff' : 'rgba(255,255,255,0.3)', letterSpacing: '0.06em', textTransform: 'uppercase', fontWeight: 600 }}>
+              <div style={{ fontFamily: 'var(--body)', fontSize: 9, color: 'rgba(255,255,255,0.4)', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 2 }}>Cardholder</div>
+              <div style={{ fontFamily: 'var(--body)', fontSize: 13, color: name ? '#fff' : 'rgba(255,255,255,0.3)', letterSpacing: '0.06em', textTransform: 'uppercase', fontWeight: 600 }}>
                 {name || 'YOUR NAME'}
               </div>
             </div>
             <div style={{ textAlign: 'right' }}>
-              <div style={{ fontFamily: 'var(--mono)', fontSize: 9, color: 'rgba(255,255,255,0.4)', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 2 }}>Expires</div>
-              <div style={{ fontFamily: 'var(--mono)', fontSize: 13, color: expiry ? '#fff' : 'rgba(255,255,255,0.3)', fontWeight: 600 }}>{previewExp}</div>
+              <div style={{ fontFamily: 'var(--body)', fontSize: 9, color: 'rgba(255,255,255,0.4)', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 2 }}>Expires</div>
+              <div style={{ fontFamily: 'var(--body)', fontSize: 13, color: expiry ? '#fff' : 'rgba(255,255,255,0.3)', fontWeight: 600 }}>{previewExp}</div>
             </div>
           </div>
         </div>
@@ -146,7 +146,7 @@ export default function CardInput() {
 
           {/* Card number */}
           <div>
-            <label style={{ fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--ink)', display: 'block', marginBottom: 6, paddingLeft: 14 }}>Card number</label>
+            <label style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--ink)', display: 'block', marginBottom: 6, paddingLeft: 14 }}>Card number</label>
             <input
               type="text"
               inputMode="numeric"
@@ -162,7 +162,7 @@ export default function CardInput() {
           {/* Expiry + CVV */}
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10 }}>
             <div>
-              <label style={{ fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--ink)', display: 'block', marginBottom: 6, paddingLeft: 14 }}>Expiry</label>
+              <label style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--ink)', display: 'block', marginBottom: 6, paddingLeft: 14 }}>Expiry</label>
               <input
                 type="text"
                 inputMode="numeric"
@@ -175,7 +175,7 @@ export default function CardInput() {
               />
             </div>
             <div>
-              <label style={{ fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--ink)', display: 'block', marginBottom: 6, paddingLeft: 14 }}>CVV</label>
+              <label style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--ink)', display: 'block', marginBottom: 6, paddingLeft: 14 }}>CVV</label>
               <input
                 type="text"
                 inputMode="numeric"
@@ -191,7 +191,7 @@ export default function CardInput() {
 
           {/* Name */}
           <div>
-            <label style={{ fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--ink)', display: 'block', marginBottom: 6, paddingLeft: 14 }}>Name on card</label>
+            <label style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--ink)', display: 'block', marginBottom: 6, paddingLeft: 14 }}>Name on card</label>
             <input
               type="text"
               value={name}
@@ -211,7 +211,7 @@ export default function CardInput() {
             <path d="M4 6V4.5a3 3 0 016 0V6" stroke="var(--ink)" strokeWidth="1.3" strokeLinecap="round" />
             <circle cx="7" cy="9.5" r="1" fill="var(--ink)" />
           </svg>
-          <span style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--ink)', lineHeight: 1.5 }}>
+          <span style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--ink)', lineHeight: 1.5 }}>
             Secured by Stripe · SHIFT never stores your card · 256-bit encryption
           </span>
         </div>
