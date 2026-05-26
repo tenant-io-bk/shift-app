@@ -1,273 +1,204 @@
+/**
+ * SHIFT — 3 core UI primitives.
+ *
+ * HeroCard   — high-emotion editorial card (jobs, payouts, active shifts)
+ * StackCard  — compact operational row (notifications, roster, alerts)
+ * SystemRow  — clean utility row (forms, settings, billing, W9)
+ *
+ * Every screen uses ONE dominant primitive. Do not mix equally.
+ */
+
 import Link from 'next/link';
 import React from 'react';
 
 // ─── HeroCard ────────────────────────────────────────────────────────────────
-// Large editorial card. One focal action. Oversized heading.
-type HeroCardProps = {
-  eyebrow?: string;
-  heading: string;
-  sub?: string;
-  value?: string;           // big money/number display
-  valueSub?: string;        // small label under value
-  bg?: string;              // defaults to var(--ink)
-  dark?: boolean;           // true = white text on dark bg
-  cta?: string;
+// High-emotion editorial card. Family tint bg, oversized role name, big pay.
+// = ShiftCard. Use for: browse map, wallet, active shifts, payouts.
+
+export type HeroFamily = 'bar' | 'kitchen' | 'floor' | 'event' | 'counter';
+export type HeroState  = 'pending' | 'confirmed' | 'urgent' | 'past';
+
+export interface HeroCardProps {
+  venue: string;
+  time: string;
+  loc: string;
+  role: string;
+  brief: string | string[];
+  pay: string;
+  rate: string;
+  family?: HeroFamily;
+  state?: HeroState;
+  statusLabel?: string;
+  rateNote?: string;
   href?: string;
   onClick?: () => void;
-  children?: React.ReactNode;
-};
+}
 
-export function HeroCard({ eyebrow, heading, sub, value, valueSub, bg = 'var(--ink)', dark = true, cta, href, onClick, children }: HeroCardProps) {
-  const textColor = dark ? '#fff' : 'var(--ink)';
-  const mutedColor = dark ? 'rgba(255,255,255,0.5)' : 'var(--mute)';
+export function HeroCard({ venue, time, loc, role, brief, pay, rate, family, state, statusLabel, rateNote, href, onClick }: HeroCardProps) {
+  const cls = ['scard', family, state].filter(Boolean).join(' ');
+  const briefs = Array.isArray(brief) ? brief : [brief];
+  const payNum = pay.replace(/^\$/, '');
   const inner = (
-    <div style={{ borderRadius: 24, background: bg, padding: '22px 22px 20px', display: 'flex', flexDirection: 'column', gap: 0 }}>
-      {eyebrow && (
-        <div style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.12em', color: mutedColor, marginBottom: 12 }}>
-          {eyebrow}
-        </div>
-      )}
-      <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 36, letterSpacing: '-0.055em', lineHeight: 1, color: textColor, marginBottom: sub ? 4 : 0 }}>
-        {heading}
+    <>
+      <div className="scard-pills">
+        <span className="pill pill-role">{venue}</span>
+        <span className="pill pill-time">{time}</span>
+        {statusLabel && <span className="pill pill-status">{statusLabel}</span>}
       </div>
-      {sub && (
-        <div style={{ fontFamily: 'var(--body)', fontSize: 13, color: mutedColor, marginTop: 4, marginBottom: value ? 18 : 0 }}>
-          {sub}
-        </div>
-      )}
-      {value && (
-        <div style={{ marginTop: sub ? 0 : 16, display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between' }}>
-          <div>
-            <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 52, letterSpacing: '-0.065em', lineHeight: 0.9, color: textColor }}>
-              {value}
-            </div>
-            {valueSub && (
-              <div style={{ fontFamily: 'var(--body)', fontSize: 11, color: mutedColor, marginTop: 6 }}>{valueSub}</div>
-            )}
-          </div>
-          {cta && (
-            <div style={{ background: dark ? 'rgba(255,255,255,0.12)' : 'var(--ink)', color: dark ? '#fff' : '#fff', borderRadius: 99, padding: '10px 18px', fontFamily: 'var(--body)', fontSize: 12, fontWeight: 600, cursor: 'pointer', border: dark ? '1px solid rgba(255,255,255,0.15)' : 'none' }}>
-              {cta}
-            </div>
-          )}
-        </div>
-      )}
-      {!value && cta && (
-        <div style={{ marginTop: 16 }}>
-          <div style={{ background: dark ? 'rgba(255,255,255,0.12)' : 'var(--ink)', color: dark ? '#fff' : '#fff', borderRadius: 99, padding: '10px 18px', fontFamily: 'var(--body)', fontSize: 12, fontWeight: 600, cursor: 'pointer', display: 'inline-block', border: dark ? '1px solid rgba(255,255,255,0.15)' : 'none' }}>
-            {cta}
-          </div>
-        </div>
-      )}
-      {children}
-    </div>
+      <div className="scard-loc"><span className="pill pill-loc">{loc}</span></div>
+      <div className="scard-body">
+        <p className="scard-name">{role}</p>
+        {briefs.map((b, i) => <p key={i} className="scard-brief">{b}</p>)}
+      </div>
+      <div className="scard-price">
+        <div className="big"><span className="d">$</span>{payNum}</div>
+        <div className="rate">{rate} BASE PAY</div>
+        {rateNote && <div className="rate" style={{ opacity: 0.55 }}>{rateNote}</div>}
+      </div>
+    </>
   );
-  if (href) return <Link href={href} style={{ textDecoration: 'none', display: 'block' }}>{inner}</Link>;
-  if (onClick) return <div onClick={onClick} style={{ cursor: 'pointer' }}>{inner}</div>;
-  return inner;
+  if (href) return <Link href={href} className={cls}>{inner}</Link>;
+  return <div className={cls} onClick={onClick}>{inner}</div>;
 }
 
 // ─── StackCard ───────────────────────────────────────────────────────────────
-// Compact row card for lists. Title + meta on left, value on right.
-type StackCardProps = {
+// Compact operational row. Avatar left, title + sub center, CTA right.
+// Use for: notifications, roster rows, reviews, alerts, invite cards.
+
+export interface StackCardProps {
+  icon: string;
+  iconBg?: string;
   title: string;
-  sub?: string;
-  meta?: string;
-  right?: React.ReactNode;
-  left?: React.ReactNode;   // avatar/icon slot
-  bg?: string;
-  href?: string;
-  onClick?: () => void;
-  borderBottom?: boolean;
-};
+  sub: string;
+  cta: { label: string; href?: string; onClick?: () => void; ghost?: boolean };
+}
 
-export function StackCard({ title, sub, meta, right, left, bg = 'transparent', href, onClick, borderBottom }: StackCardProps) {
-  const inner = (
-    <div style={{ display: 'flex', alignItems: 'center', gap: 14, padding: '14px 22px', background: bg, borderBottom: borderBottom ? '1px solid var(--line)' : undefined, cursor: href || onClick ? 'pointer' : undefined }}>
-      {left && <div style={{ flexShrink: 0 }}>{left}</div>}
+export function StackCard({ icon, iconBg = 'var(--green)', title, sub, cta }: StackCardProps) {
+  const ctaStyle: React.CSSProperties = {
+    padding: '8px 16px',
+    borderRadius: 99,
+    fontFamily: 'var(--sans)',
+    fontWeight: 700,
+    fontSize: 13,
+    letterSpacing: '-0.01em',
+    cursor: 'pointer',
+    flexShrink: 0,
+    textDecoration: 'none',
+    display: 'inline-flex',
+    alignItems: 'center',
+    border: cta.ghost ? '2px solid var(--ink)' : 'none',
+    background: cta.ghost ? 'transparent' : 'var(--green)',
+    color: cta.ghost ? 'var(--ink)' : 'var(--ink)',
+  };
+  return (
+    <div style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '12px 16px', background: 'var(--card)', borderRadius: 18, border: '1px solid var(--line)' }}>
+      <div style={{ width: 40, height: 40, borderRadius: '50%', background: iconBg, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+        <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 14, color: 'var(--ink)' }}>{icon}</span>
+      </div>
       <div style={{ flex: 1, minWidth: 0 }}>
-        <div style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 15, color: 'var(--ink)', letterSpacing: '-0.01em', lineHeight: 1.25 }}>{title}</div>
-        {sub && <div style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--mute)', marginTop: 2, lineHeight: 1.35 }}>{sub}</div>}
-        {meta && <div style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)', marginTop: 2, fontWeight: 600, opacity: 0.7 }}>{meta}</div>}
+        <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 14, color: 'var(--ink)', letterSpacing: '-0.01em' }}>{title}</div>
+        <div style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--mute)', marginTop: 1 }}>{sub}</div>
       </div>
-      {right && <div style={{ flexShrink: 0 }}>{right}</div>}
-    </div>
-  );
-  if (href) return <Link href={href} style={{ textDecoration: 'none', display: 'block' }}>{inner}</Link>;
-  if (onClick) return <div onClick={onClick}>{inner}</div>;
-  return inner;
-}
-
-// ─── MoneyCard ───────────────────────────────────────────────────────────────
-// Earnings/pay display card. Green tint. Oversized amount.
-type MoneyCardProps = {
-  amount: string;           // e.g. "$174.00"
-  label: string;            // e.g. "Paid out"
-  period?: string;          // e.g. "Today · Barista · Padmore's"
-  items?: { label: string; value: string }[];
-  bg?: string;
-};
-
-export function MoneyCard({ amount, label, period, items, bg = 'var(--green-soft)' }: MoneyCardProps) {
-  return (
-    <div style={{ borderRadius: 24, background: bg, padding: '22px 22px 20px' }}>
-      <div style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--mute)', marginBottom: 10 }}>
-        {label}
-      </div>
-      <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 56, letterSpacing: '-0.065em', lineHeight: 0.88, color: 'var(--ink)', marginBottom: period ? 6 : 0 }}>
-        {amount}
-      </div>
-      {period && (
-        <div style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--mute)', marginBottom: items ? 16 : 0 }}>{period}</div>
-      )}
-      {items && (
-        <div style={{ borderTop: '1px solid rgba(13,14,18,0.1)', marginTop: 14, paddingTop: 14, display: 'flex', flexDirection: 'column', gap: 8 }}>
-          {items.map(item => (
-            <div key={item.label} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
-              <span style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--mute)' }}>{item.label}</span>
-              <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 14, color: 'var(--ink)', letterSpacing: '-0.02em' }}>{item.value}</span>
-            </div>
-          ))}
-        </div>
-      )}
+      {cta.href
+        ? <Link href={cta.href} style={ctaStyle}>{cta.label}</Link>
+        : <button onClick={cta.onClick} style={ctaStyle}>{cta.label}</button>
+      }
     </div>
   );
 }
 
-// ─── StatusPill ──────────────────────────────────────────────────────────────
-// Inline pill. State drives color.
-type StatusState = 'confirmed' | 'pending' | 'urgent' | 'standby' | 'enroute' | 'past' | 'live' | 'paid';
+// ─── SystemRow ───────────────────────────────────────────────────────────────
+// Clean utility row. Label + bordered input. No fills, just borders.
+// Use for: forms, card input, settings, billing, W9, verification.
 
-const STATUS_STYLES: Record<StatusState, { bg: string; color: string }> = {
-  confirmed: { bg: 'var(--green-soft)',  color: 'var(--ink)' },
-  pending:   { bg: 'var(--yellow-soft)', color: 'var(--ink)' },
-  urgent:    { bg: 'var(--red-soft)',    color: 'var(--red)' },
-  standby:   { bg: 'var(--paper-2)',     color: 'var(--mute)' },
-  enroute:   { bg: 'var(--paper-2)',     color: 'var(--ink)' },
-  past:      { bg: 'var(--grey-soft)',   color: 'var(--mute)' },
-  live:      { bg: '#DCFCE7',            color: '#16A34A' },
-  paid:      { bg: 'var(--green-soft)',  color: 'var(--ink)' },
-};
-
-type StatusPillProps = {
+export interface SystemRowProps {
   label: string;
-  state?: StatusState;
-  dot?: boolean;
-};
-
-export function StatusPill({ label, state, dot }: StatusPillProps) {
-  const s = state ? STATUS_STYLES[state] : { bg: 'var(--paper-2)', color: 'var(--ink)' };
-  return (
-    <span style={{ display: 'inline-flex', alignItems: 'center', gap: 5, background: s.bg, color: s.color, borderRadius: 99, padding: '4px 10px', fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, whiteSpace: 'nowrap' }}>
-      {dot && <span style={{ width: 6, height: 6, borderRadius: '50%', background: s.color, flexShrink: 0 }} />}
-      {label}
-    </span>
-  );
+  placeholder?: string;
+  value?: string;
+  onChange?: (v: string) => void;
+  type?: string;
+  inputMode?: React.HTMLAttributes<HTMLInputElement>['inputMode'];
+  half?: boolean;       // for side-by-side pairs (expiry + CVV)
+  readOnly?: boolean;
+  children?: React.ReactNode; // override input with custom element
 }
 
-// ─── RolePill ────────────────────────────────────────────────────────────────
-// Role/family colored pill.
-const ROLE_BG: Record<string, { bg: string; color: string }> = {
-  barista:   { bg: 'var(--green-soft)',  color: 'var(--ink)' },
-  bartender: { bg: 'var(--green-soft)',  color: 'var(--ink)' },
-  barback:   { bg: 'var(--green-soft)',  color: 'var(--ink)' },
-  server:    { bg: 'var(--pink)',        color: 'var(--ink)' },
-  host:      { bg: 'var(--pink)',        color: 'var(--ink)' },
-  cook:      { bg: 'var(--red-soft)',    color: 'var(--ink)' },
-  'prep cook':{ bg: 'var(--red-soft)',   color: 'var(--ink)' },
-  'line cook':{ bg: 'var(--red-soft)',   color: 'var(--ink)' },
-  catering:  { bg: 'var(--lilac-soft)', color: 'var(--ink)' },
-  cashier:   { bg: 'var(--steel-soft)', color: 'var(--ink)' },
-  retail:    { bg: 'var(--steel-soft)', color: 'var(--ink)' },
-};
-
-type RolePillProps = {
-  role: string;
-  size?: 'sm' | 'md';
-};
-
-export function RolePill({ role, size = 'md' }: RolePillProps) {
-  const s = ROLE_BG[role.toLowerCase()] ?? { bg: 'var(--paper-2)', color: 'var(--ink)' };
+export function SystemRow({ label, placeholder, value, onChange, type = 'text', inputMode, readOnly, children }: SystemRowProps) {
   return (
-    <span style={{ display: 'inline-flex', alignItems: 'center', background: s.bg, color: s.color, borderRadius: 99, padding: size === 'sm' ? '3px 8px' : '5px 12px', fontFamily: 'var(--body)', fontSize: size === 'sm' ? 10 : 12, fontWeight: 700, letterSpacing: '0.02em', whiteSpace: 'nowrap' }}>
-      {role}
-    </span>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+      <label style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--ink)' }}>
+        {label}
+      </label>
+      {children ?? (
+        <input
+          type={type}
+          inputMode={inputMode}
+          placeholder={placeholder}
+          value={value}
+          readOnly={readOnly}
+          onChange={e => onChange?.(e.target.value)}
+          style={{
+            width: '100%',
+            padding: '14px 16px',
+            borderRadius: 14,
+            border: '2px solid var(--ink)',
+            background: 'transparent',
+            fontFamily: 'var(--body)',
+            fontSize: 15,
+            color: 'var(--ink)',
+            outline: 'none',
+          }}
+        />
+      )}
+    </div>
   );
 }
 
 // ─── SectionHeader ───────────────────────────────────────────────────────────
-// Section label with optional right action link.
-type SectionHeaderProps = {
-  label: string;
-  action?: string;
-  onAction?: () => void;
-  actionHref?: string;
-  count?: string | number;
-};
+// Small caps section label + optional right action. Not a primitive — a utility.
 
-export function SectionHeader({ label, action, onAction, actionHref, count }: SectionHeaderProps) {
+export function SectionHeader({ label, action, onAction, actionHref, count }: {
+  label: string; action?: string; onAction?: () => void; actionHref?: string; count?: string | number;
+}) {
   return (
     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 0 10px' }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-        <span style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--mute)' }}>
-          {label}
-        </span>
-        {count !== undefined && (
-          <span style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 700, color: 'var(--mute)', opacity: 0.6 }}>{count}</span>
-        )}
+        <span style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--mute)' }}>{label}</span>
+        {count !== undefined && <span style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 700, color: 'var(--mute)', opacity: 0.6 }}>{count}</span>}
       </div>
-      {action && (
-        actionHref
-          ? <Link href={actionHref} style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, color: 'var(--ink)', textDecoration: 'none' }}>{action}</Link>
-          : <button onClick={onAction} style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, color: 'var(--ink)', background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}>{action}</button>
+      {action && (actionHref
+        ? <Link href={actionHref} style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, color: 'var(--ink)', textDecoration: 'none' }}>{action}</Link>
+        : <button onClick={onAction} style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, color: 'var(--ink)', background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}>{action}</button>
       )}
     </div>
   );
 }
 
 // ─── BottomActionBar ─────────────────────────────────────────────────────────
-// Fixed bottom bar. One primary CTA, optional ghost secondary.
-type ActionBarAction = {
-  label: string;
-  href?: string;
-  onClick?: () => void;
-  ghost?: boolean;
-  disabled?: boolean;
-};
+// Sticky bottom bar. Primary ink CTA + optional ghost/soft secondary.
 
-type BottomActionBarProps = {
-  primary: ActionBarAction;
-  secondary?: ActionBarAction;
-};
+type BarAction = { label: string; href?: string; onClick?: () => void; ghost?: boolean; disabled?: boolean };
 
-function ActionButton({ action, primary }: { action: ActionBarAction; primary: boolean }) {
-  const style: React.CSSProperties = {
-    display: 'flex', alignItems: 'center', justifyContent: 'center',
-    width: '100%', padding: '16px',
-    borderRadius: 24,
-    fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 17, letterSpacing: '-0.02em',
-    cursor: action.disabled ? 'not-allowed' : 'pointer',
-    textDecoration: 'none',
-    border: 'none',
-    opacity: action.disabled ? 0.4 : 1,
-    ...(action.ghost
-      ? { background: 'transparent', color: 'var(--ink)', borderWidth: 2, borderStyle: 'solid', borderColor: 'var(--ink)' }
-      : primary
-        ? { background: 'var(--ink)', color: '#fff' }
-        : { background: 'var(--paper-2)', color: 'var(--ink)' }
-    ),
-  };
-  if (action.href && !action.disabled) {
-    return <Link href={action.href} style={style}>{action.label}</Link>;
+export function BottomActionBar({ primary, secondary }: { primary: BarAction; secondary?: BarAction }) {
+  function Btn({ a, isPrimary }: { a: BarAction; isPrimary: boolean }) {
+    const s: React.CSSProperties = {
+      display: 'flex', alignItems: 'center', justifyContent: 'center',
+      width: '100%', padding: '16px', borderRadius: 24,
+      fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 17, letterSpacing: '-0.02em',
+      cursor: a.disabled ? 'not-allowed' : 'pointer',
+      textDecoration: 'none', opacity: a.disabled ? 0.4 : 1,
+      border: 'none',
+      background: a.ghost ? 'transparent' : isPrimary ? 'var(--ink)' : 'var(--paper-2)',
+      color: isPrimary && !a.ghost ? '#fff' : 'var(--ink)',
+      ...(a.ghost ? { borderWidth: 2, borderStyle: 'solid', borderColor: 'var(--ink)' } : {}),
+    };
+    if (a.href && !a.disabled) return <Link href={a.href} style={s}>{a.label}</Link>;
+    return <button onClick={a.onClick} disabled={a.disabled} style={s}>{a.label}</button>;
   }
-  return <button onClick={action.onClick} disabled={action.disabled} style={style}>{action.label}</button>;
-}
-
-export function BottomActionBar({ primary, secondary }: BottomActionBarProps) {
   return (
-    <div style={{ padding: '12px 20px 28px', display: 'flex', flexDirection: 'column', gap: 8, borderTop: '1px solid var(--line)', background: 'var(--paper)' }}>
-      <ActionButton action={primary} primary={true} />
-      {secondary && <ActionButton action={secondary} primary={false} />}
+    <div style={{ padding: '12px 16px 28px', display: 'flex', flexDirection: 'column', gap: 8, borderTop: '1px solid var(--line)', background: 'var(--paper)' }}>
+      <Btn a={primary} isPrimary={true} />
+      {secondary && <Btn a={secondary} isPrimary={false} />}
     </div>
   );
 }

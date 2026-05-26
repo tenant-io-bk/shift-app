@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import { SystemRow } from '@/app/components/Cards';
 import StepProgress from '@/app/components/StepProgress';
 
 function fmtCard(val: string) {
@@ -141,67 +142,14 @@ export default function CardInput() {
           </div>
         </div>
 
-        {/* Inputs */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-
-          {/* Card number */}
-          <div>
-            <label style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--ink)', display: 'block', marginBottom: 6, paddingLeft: 14 }}>Card number</label>
-            <input
-              type="text"
-              inputMode="numeric"
-              value={card}
-              onChange={e => setCard(fmtCard(e.target.value))}
-              placeholder="1234 5678 9012 3456"
-              onFocus={() => setFocused('card')}
-              onBlur={() => setFocused(null)}
-              style={{ ...INPUT, borderColor: focused === 'card' ? 'var(--hydrant)' : 'var(--ink)' }}
-            />
+        {/* Inputs — SystemRow */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
+          <SystemRow label="Card number" placeholder="1234 5678 9012 3456" value={card} onChange={v => setCard(fmtCard(v))} inputMode="numeric" />
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
+            <SystemRow label="Expiry" placeholder="MM/YY" value={expiry} onChange={v => setExpiry(fmtExpiry(v))} inputMode="numeric" />
+            <SystemRow label="CVV" placeholder="•••" value={cvv} onChange={v => setCvv(v.replace(/\D/g, '').slice(0, 4))} inputMode="numeric" />
           </div>
-
-          {/* Expiry + CVV */}
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10 }}>
-            <div>
-              <label style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--ink)', display: 'block', marginBottom: 6, paddingLeft: 14 }}>Expiry</label>
-              <input
-                type="text"
-                inputMode="numeric"
-                value={expiry}
-                onChange={e => setExpiry(fmtExpiry(e.target.value))}
-                placeholder="MM/YY"
-                onFocus={() => setFocused('exp')}
-                onBlur={() => setFocused(null)}
-                style={{ ...INPUT, borderColor: focused === 'exp' ? 'var(--hydrant)' : 'var(--ink)' }}
-              />
-            </div>
-            <div>
-              <label style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--ink)', display: 'block', marginBottom: 6, paddingLeft: 14 }}>CVV</label>
-              <input
-                type="text"
-                inputMode="numeric"
-                value={cvv}
-                onChange={e => setCvv(e.target.value.replace(/\D/g, '').slice(0, 4))}
-                placeholder="•••"
-                onFocus={() => setFocused('cvv')}
-                onBlur={() => setFocused(null)}
-                style={{ ...INPUT, borderColor: focused === 'cvv' ? 'var(--hydrant)' : 'var(--ink)' }}
-              />
-            </div>
-          </div>
-
-          {/* Name */}
-          <div>
-            <label style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--ink)', display: 'block', marginBottom: 6, paddingLeft: 14 }}>Name on card</label>
-            <input
-              type="text"
-              value={name}
-              onChange={e => setName(e.target.value)}
-              placeholder="Jordan Lee"
-              onFocus={() => setFocused('name')}
-              onBlur={() => setFocused(null)}
-              style={{ ...INPUT, letterSpacing: '0.01em', borderColor: focused === 'name' ? 'var(--hydrant)' : 'var(--ink)' }}
-            />
-          </div>
+          <SystemRow label="Name on card" placeholder="Jordan Lee" value={name} onChange={setName} />
         </div>
 
         {/* Stripe note */}
