@@ -87,13 +87,6 @@ export default function Page() {
           </div>
         ))}
 
-        {/* Notes preview */}
-        <div style={{ paddingTop: 12 }}>
-          <span style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--mute)' }}>Notes</span>
-          <p style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--ink)', marginTop: 4, lineHeight: 1.5 }}>
-            All-black dress code. Ring the bell on Tompkins entrance. Coffee already going.
-          </p>
-        </div>
       </div>
 
       {/* What happens next */}
