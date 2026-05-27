@@ -35,7 +35,7 @@ export default function RolePicker() {
           <Link
             href="/v3/phone-verify"
             style={{
-              background: 'var(--ink)',
+              background: 'var(--green)',
               borderRadius: 99,
               padding: '0 22px 6px',
               display: 'inline-block',
@@ -52,11 +52,11 @@ export default function RolePicker() {
           <Link
             href="/employer/create-account"
             style={{
-              background: 'var(--green)',
+              background: 'var(--ink)',
               borderRadius: 99,
               padding: '0 22px 6px',
               display: 'inline-block',
-              color: 'var(--ink)',
+              color: '#fff',
               textDecoration: 'none',
               lineHeight: 1.2,
             }}
