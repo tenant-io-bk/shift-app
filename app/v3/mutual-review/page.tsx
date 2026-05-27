@@ -164,20 +164,20 @@ export default function MutualReview() {
               key={i}
               onClick={() => toggleTag(i)}
               style={{
-                padding: '8px 14px',
+                padding: '10px 16px',
                 borderRadius: 99,
                 fontFamily: 'var(--sans)',
-                fontWeight: 500,
+                fontWeight: 600,
                 fontSize: 14,
                 cursor: 'pointer',
                 border: tag.selected
-                  ? (tag.red ? '1.5px solid var(--red)' : '1.5px solid var(--ink)')
-                  : (tag.red ? '1px solid var(--red)' : '1px solid var(--line)'),
+                  ? (tag.red ? '2px solid var(--red)' : '2px solid var(--ink)')
+                  : (tag.red ? '2px solid var(--red)' : '2px solid var(--ink)'),
                 background: tag.selected
-                  ? (tag.red ? 'var(--red-soft)' : 'var(--ink)')
-                  : (tag.red ? 'var(--red-soft)' : 'var(--card)'),
+                  ? (tag.red ? 'var(--red)' : 'var(--ink)')
+                  : 'transparent',
                 color: tag.selected
-                  ? (tag.red ? 'var(--red)' : '#fff')
+                  ? '#fff'
                   : (tag.red ? 'var(--red)' : 'var(--ink)'),
                 transition: 'all 0.15s ease',
               }}

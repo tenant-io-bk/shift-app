@@ -223,8 +223,7 @@ export default function WorkerMap() {
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
             {['All', 'Barista', 'Bartender', 'Server', 'Barback', 'Host', 'Cook'].map(r => (
               <button key={r} onClick={() => setDraftRole(r)} style={{
-                padding: '8px 16px', borderRadius: 99, border: '1.5px solid',
-                borderColor: draftRole === r ? 'var(--ink)' : 'var(--line)',
+                padding: '8px 16px', borderRadius: 99, border: '2px solid var(--ink)',
                 background: draftRole === r ? 'var(--ink)' : 'transparent',
                 color: draftRole === r ? '#fff' : 'var(--ink)',
                 fontFamily: 'var(--body)', fontSize: 13, fontWeight: 600, cursor: 'pointer',
@@ -237,8 +236,7 @@ export default function WorkerMap() {
         <div style={{ marginBottom: 22 }}>
           <div style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--mute)', marginBottom: 10 }}>Minimum pay rate</div>
           <button onClick={() => setDraftHighPay(p => !p)} style={{
-            padding: '8px 16px', borderRadius: 99, border: '1.5px solid',
-            borderColor: draftHighPay ? 'var(--ink)' : 'var(--line)',
+            padding: '8px 16px', borderRadius: 99, border: '2px solid var(--ink)',
             background: draftHighPay ? 'var(--ink)' : 'transparent',
             color: draftHighPay ? '#fff' : 'var(--ink)',
             fontFamily: 'var(--body)', fontSize: 13, fontWeight: 600, cursor: 'pointer',
@@ -251,8 +249,7 @@ export default function WorkerMap() {
           <div style={{ display: 'flex', gap: 8 }}>
             {[{ val: 'none', label: 'Default' }, { val: 'pay', label: 'Highest pay' }].map(opt => (
               <button key={opt.val} onClick={() => setDraftSort(opt.val as 'pay' | 'none')} style={{
-                padding: '8px 16px', borderRadius: 99, border: '1.5px solid',
-                borderColor: draftSort === opt.val ? 'var(--ink)' : 'var(--line)',
+                padding: '8px 16px', borderRadius: 99, border: '2px solid var(--ink)',
                 background: draftSort === opt.val ? 'var(--ink)' : 'transparent',
                 color: draftSort === opt.val ? '#fff' : 'var(--ink)',
                 fontFamily: 'var(--body)', fontSize: 13, fontWeight: 600, cursor: 'pointer',

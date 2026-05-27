@@ -109,7 +109,7 @@ export default function WorkerOnboarding() {
                   cursor: 'pointer',
                   border: isSelected ? 'none' : '2px solid var(--ink)',
                   background: isSelected ? 'var(--ink)' : 'transparent',
-                  color: 'var(--ink)',
+                  color: isSelected ? '#fff' : 'var(--ink)',
                   transition: 'background 0.15s ease, border 0.15s ease',
                   textAlign: 'center',
                 } as React.CSSProperties}

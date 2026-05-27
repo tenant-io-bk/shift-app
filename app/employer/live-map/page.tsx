@@ -89,8 +89,8 @@ export default function Page() {
           ].map(chip => (
             <div key={chip.label} style={{
               padding: '8px 16px', borderRadius: 99, flexShrink: 0, cursor: 'pointer',
-              border: chip.active ? 'none' : '2px solid var(--ink)',
-              background: chip.active ? 'var(--ink)' : 'var(--paper-2)',
+              border: '2px solid var(--ink)',
+              background: chip.active ? 'var(--ink)' : 'transparent',
               color: chip.active ? '#fff' : 'var(--ink)',
               fontFamily: 'var(--body)', fontSize: 14, fontWeight: 600,
             }}>
