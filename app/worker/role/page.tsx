@@ -52,11 +52,11 @@ export default function RolePicker() {
           <Link
             href="/employer/create-account"
             style={{
-              background: 'var(--ink)',
+              background: 'var(--green)',
               borderRadius: 99,
               padding: '0 22px 6px',
               display: 'inline-block',
-              color: '#fff',
+              color: 'var(--ink)',
               textDecoration: 'none',
               lineHeight: 1.2,
             }}
