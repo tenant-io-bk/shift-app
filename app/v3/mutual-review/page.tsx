@@ -168,7 +168,7 @@ export default function MutualReview() {
                 borderRadius: 99,
                 fontFamily: 'var(--sans)',
                 fontWeight: 600,
-                fontSize: 14,
+                fontSize: 15,
                 cursor: 'pointer',
                 border: tag.selected
                   ? (tag.red ? '2px solid var(--red)' : '2px solid var(--ink)')

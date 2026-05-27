@@ -226,7 +226,7 @@ export default function WorkerMap() {
                 padding: '8px 16px', borderRadius: 99, border: '2px solid var(--ink)',
                 background: draftRole === r ? 'var(--ink)' : 'transparent',
                 color: draftRole === r ? '#fff' : 'var(--ink)',
-                fontFamily: 'var(--body)', fontSize: 13, fontWeight: 600, cursor: 'pointer',
+                fontFamily: 'var(--sans)', fontSize: 14, fontWeight: 600, cursor: 'pointer',
               }}>{r}</button>
             ))}
           </div>
@@ -239,7 +239,7 @@ export default function WorkerMap() {
             padding: '8px 16px', borderRadius: 99, border: '2px solid var(--ink)',
             background: draftHighPay ? 'var(--ink)' : 'transparent',
             color: draftHighPay ? '#fff' : 'var(--ink)',
-            fontFamily: 'var(--body)', fontSize: 13, fontWeight: 600, cursor: 'pointer',
+            fontFamily: 'var(--sans)', fontSize: 14, fontWeight: 600, cursor: 'pointer',
           }}>$25+/hr</button>
         </div>
 
@@ -252,7 +252,7 @@ export default function WorkerMap() {
                 padding: '8px 16px', borderRadius: 99, border: '2px solid var(--ink)',
                 background: draftSort === opt.val ? 'var(--ink)' : 'transparent',
                 color: draftSort === opt.val ? '#fff' : 'var(--ink)',
-                fontFamily: 'var(--body)', fontSize: 13, fontWeight: 600, cursor: 'pointer',
+                fontFamily: 'var(--sans)', fontSize: 14, fontWeight: 600, cursor: 'pointer',
               }}>{opt.label}</button>
             ))}
           </div>
