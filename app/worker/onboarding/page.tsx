@@ -5,18 +5,18 @@ import { useState } from 'react';
 import StepProgress from '@/app/components/StepProgress';
 
 const ALL_SKILLS = [
-  { label: 'barista',    r:  -8, delay: 0   },
-  { label: 'host',       r:  10, delay: 50  },
-  { label: 'server',     r: -12, delay: 100 },
-  { label: 'bartender',  r:   7, delay: 60  },
-  { label: 'barback',    r:  -6, delay: 150 },
-  { label: 'cashier',    r:   9, delay: 110 },
-  { label: 'prep cook',  r: -10, delay: 200 },
-  { label: 'dish',       r:   6, delay: 160 },
-  { label: 'security',   r:  -7, delay: 250 },
-  { label: 'pop-ups',    r:  11, delay: 210 },
-  { label: 'catering',   r:  -9, delay: 300 },
-  { label: 'baking',     r:   8, delay: 260 },
+  { label: 'Barista',    r:  -8, delay: 0   },
+  { label: 'Host',       r:  10, delay: 50  },
+  { label: 'Server',     r: -12, delay: 100 },
+  { label: 'Bartender',  r:   7, delay: 60  },
+  { label: 'Barback',    r:  -6, delay: 150 },
+  { label: 'Cashier',    r:   9, delay: 110 },
+  { label: 'Prep Cook',  r: -10, delay: 200 },
+  { label: 'Dish',       r:   6, delay: 160 },
+  { label: 'Security',   r:  -7, delay: 250 },
+  { label: 'Pop-Ups',    r:  11, delay: 210 },
+  { label: 'Catering',   r:  -9, delay: 300 },
+  { label: 'Baking',     r:   8, delay: 260 },
 ];
 
 export default function WorkerOnboarding() {

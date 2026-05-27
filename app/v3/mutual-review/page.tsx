@@ -4,13 +4,13 @@ import Link from 'next/link';
 import { useState } from 'react';
 
 const TAGS = [
-  { label: 'Organized rush', selected: true, red: false },
-  { label: 'Good briefing', selected: true, red: false },
-  { label: 'Late start', selected: false, red: true },
-  { label: 'Skipped break', selected: false, red: false },
-  { label: 'Unclear instructions', selected: false, red: false },
-  { label: 'Good energy', selected: false, red: false },
-  { label: 'Well-stocked', selected: false, red: false },
+  { label: 'Organized Rush', selected: true, red: false },
+  { label: 'Good Briefing', selected: true, red: false },
+  { label: 'Late Start', selected: false, red: true },
+  { label: 'Skipped Break', selected: false, red: false },
+  { label: 'Unclear Instructions', selected: false, red: false },
+  { label: 'Good Energy', selected: false, red: false },
+  { label: 'Well-Stocked', selected: false, red: false },
 ];
 
 export default function MutualReview() {
@@ -154,9 +154,9 @@ export default function MutualReview() {
           fontWeight: 600,
           textTransform: 'uppercase',
           letterSpacing: '0.08em',
-          color: 'var(--mute)',
+          color: 'var(--ink)',
           marginBottom: 10,
-        }}>What went well?</p>
+        }}>What Went Well?</p>
 
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginBottom: 20 }}>
           {tags.map((tag, i) => (
