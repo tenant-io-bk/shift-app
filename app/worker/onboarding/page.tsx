@@ -100,11 +100,11 @@ export default function WorkerOnboarding() {
                 style={{
                   '--r': `${s.r}deg`,
                   animationDelay: `${s.delay}ms`,
-                  padding: '14px 16px',
+                  padding: '11px 18px',
                   borderRadius: 99,
                   fontFamily: 'var(--sans)',
                   fontWeight: 600,
-                  fontSize: 22,
+                  fontSize: 16,
                   letterSpacing: '-0.02em',
                   cursor: 'pointer',
                   border: isSelected ? 'none' : '2px solid var(--ink)',

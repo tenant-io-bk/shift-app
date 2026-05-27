@@ -164,11 +164,11 @@ export default function MutualReview() {
               key={i}
               onClick={() => toggleTag(i)}
               style={{
-                padding: '10px 16px',
+                padding: '11px 18px',
                 borderRadius: 99,
                 fontFamily: 'var(--sans)',
                 fontWeight: 600,
-                fontSize: 15,
+                fontSize: 16,
                 cursor: 'pointer',
                 border: tag.selected
                   ? (tag.red ? '2px solid var(--red)' : '2px solid var(--ink)')

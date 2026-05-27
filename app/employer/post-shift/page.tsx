@@ -157,8 +157,8 @@ export default function PostShift() {
                   onClick={() => setRole(r)}
                   className="pill-anim"
                   style={{
-                    padding: '14px 16px', borderRadius: 99, cursor: 'pointer', textAlign: 'center',
-                    fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 18, letterSpacing: '-0.02em',
+                    padding: '11px 18px', borderRadius: 99, cursor: 'pointer', textAlign: 'center',
+                    fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 16, letterSpacing: '-0.02em',
                     border: '2px solid var(--ink)',
                     background: role === r ? 'var(--ink)' : 'transparent',
                     color: role === r ? '#fff' : 'var(--ink)',
