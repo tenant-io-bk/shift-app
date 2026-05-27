@@ -33,6 +33,7 @@ const SCREENS = [
     screens: [
       { label: 'Map',           path: '/worker/map' },
       { label: 'Job Detail',    path: '/worker/job-detail' },
+      { label: 'Pending',       path: '/worker/pending' },
       { label: 'Confirm',       path: '/worker/confirm' },
       { label: 'Day Of',        path: '/worker/day-of' },
       { label: 'On Shift',      path: '/worker/on-shift' },
@@ -93,6 +94,7 @@ const PHONE_W = 390;
 const PHONE_H = 844;
 const COMMENTS_KEY  = 'shift-gallery-comments';
 const ADDRESSED_KEY = 'shift-gallery-addressed';
+const LOCKED_KEY    = 'shift-gallery-locked';
 
 function loadComments(): Record<string, string> {
   if (typeof window === 'undefined') return {};
@@ -107,6 +109,13 @@ function loadAddressed(): Set<string> {
 }
 function saveAddressed(a: Set<string>) {
   localStorage.setItem(ADDRESSED_KEY, JSON.stringify([...a]));
+}
+function loadLocked(): Set<string> {
+  if (typeof window === 'undefined') return new Set();
+  try { return new Set(JSON.parse(localStorage.getItem(LOCKED_KEY) || '[]')); } catch { return new Set(); }
+}
+function saveLocked(l: Set<string>) {
+  localStorage.setItem(LOCKED_KEY, JSON.stringify([...l]));
 }
 
 /* ── Color Guide data ──────────────────────────────────────────────────────── */
@@ -500,10 +509,14 @@ export default function Gallery() {
   const [comments, setComments]    = useState<Record<string, string>>({});
   const [addressed, setAddressed]  = useState<Set<string>>(new Set());
   const [draft, setDraft]          = useState('');
+  const [locked, setLocked]        = useState<Set<string>>(new Set());
+  const [lockMode, setLockMode]    = useState(false);
+  const [hideLocked, setHideLocked] = useState(false);
 
   useEffect(() => {
     setComments(loadComments());
     setAddressed(loadAddressed());
+    setLocked(loadLocked());
   }, []);
 
   function openScreen(path: string) {
@@ -533,6 +546,14 @@ export default function Gallery() {
     saveAddressed(next);
   }
 
+  function toggleLocked(path: string) {
+    const next = new Set(locked);
+    if (next.has(path)) next.delete(path);
+    else next.add(path);
+    setLocked(next);
+    saveLocked(next);
+  }
+
   function exportComments() {
     const lines = SCREENS.flatMap(g =>
       g.screens
@@ -553,9 +574,10 @@ export default function Gallery() {
   const query = search.toLowerCase();
   const filtered = SCREENS.map(g => ({
     ...g,
-    screens: g.screens.filter(s =>
-      s.label.toLowerCase().includes(query) || s.path.toLowerCase().includes(query)
-    ),
+    screens: g.screens.filter(s => {
+      if (hideLocked && locked.has(s.path)) return false;
+      return s.label.toLowerCase().includes(query) || s.path.toLowerCase().includes(query);
+    }),
   })).filter(g => g.screens.length > 0);
 
   const isAddressed = (path: string) => addressed.has(path) && !!comments[path];
@@ -591,24 +613,70 @@ export default function Gallery() {
 
         {tab === 'screens' && (
           <>
-            <input
-              value={search}
-              onChange={e => setSearch(e.target.value)}
-              placeholder="Search screens..."
-              style={{ flex: 1, maxWidth: 280, height: 34, padding: '0 14px', background: 'rgba(13,14,18,0.05)', border: '1px solid rgba(13,14,18,0.12)', borderRadius: 99, color: '#0D0E12', fontSize: 13, outline: 'none', fontFamily: 'var(--body)' }}
-            />
-            <span style={{ fontSize: 12,  color: '#0D0E12', flexShrink: 0, display: 'flex', alignItems: 'center', gap: 12 }}>
-              {SCREENS.flatMap(g => g.screens).length} screens
-              {openCount > 0 && <span style={{ color: '#72c15f', fontWeight: 700 }}>· {openCount} open</span>}
-              {doneCount > 0 && <span style={{  color: '#0D0E12' }}>· {doneCount} done</span>}
-              {allWithNotes > 0 && (
+            {!lockMode && (
+              <input
+                value={search}
+                onChange={e => setSearch(e.target.value)}
+                placeholder="Search screens..."
+                style={{ flex: 1, maxWidth: 280, height: 34, padding: '0 14px', background: 'rgba(13,14,18,0.05)', border: '1px solid rgba(13,14,18,0.12)', borderRadius: 99, color: '#0D0E12', fontSize: 13, outline: 'none', fontFamily: 'var(--body)' }}
+              />
+            )}
+
+            {lockMode && (
+              <div style={{ flex: 1, display: 'flex', alignItems: 'center', gap: 10 }}>
+                <span style={{ fontSize: 13, color: '#0D0E12', fontWeight: 600 }}>
+                  Click screens to mark as <strong>no edit needed</strong>
+                </span>
+                {locked.size > 0 && (
+                  <button
+                    onClick={() => { setLocked(new Set()); saveLocked(new Set()); }}
+                    style={{ fontSize: 11, color: 'rgba(13,14,18,0.4)', background: 'none', border: 'none', cursor: 'pointer', fontFamily: 'var(--body)', textDecoration: 'underline', padding: 0 }}
+                  >
+                    clear all
+                  </button>
+                )}
+              </div>
+            )}
+
+            <span style={{ fontSize: 12, color: '#0D0E12', flexShrink: 0, display: 'flex', alignItems: 'center', gap: 10 }}>
+              {!lockMode && (
+                <>
+                  {SCREENS.flatMap(g => g.screens).length} screens
+                  {openCount > 0 && <span style={{ color: '#72c15f', fontWeight: 700 }}>· {openCount} open</span>}
+                  {doneCount > 0 && <span style={{ color: '#0D0E12' }}>· {doneCount} done</span>}
+                  {locked.size > 0 && <span style={{ color: '#0D0E12', opacity: 0.45 }}>· {locked.size} locked</span>}
+                  {allWithNotes > 0 && (
+                    <button
+                      onClick={exportComments}
+                      style={{ fontSize: 12, color: '#0D0E12', background: 'rgba(13,14,18,0.06)', border: '1px solid rgba(13,14,18,0.12)', borderRadius: 99, padding: '4px 12px', cursor: 'pointer', fontFamily: 'var(--body)' }}
+                    >
+                      Copy all notes
+                    </button>
+                  )}
+                </>
+              )}
+
+              {locked.size > 0 && !lockMode && (
                 <button
-                  onClick={exportComments}
-                  style={{ fontSize: 12, color: '#0D0E12', background: 'rgba(13,14,18,0.06)', border: '1px solid rgba(13,14,18,0.12)', borderRadius: 99, padding: '4px 12px', cursor: 'pointer', fontFamily: 'var(--body)' }}
+                  onClick={() => setHideLocked(h => !h)}
+                  style={{ fontSize: 12, background: hideLocked ? '#0D0E12' : 'rgba(13,14,18,0.06)', color: hideLocked ? '#fff' : '#0D0E12', border: '1px solid rgba(13,14,18,0.12)', borderRadius: 99, padding: '4px 12px', cursor: 'pointer', fontFamily: 'var(--body)' }}
                 >
-                  Copy all notes
+                  {hideLocked ? 'Show all' : 'Hide locked'}
                 </button>
               )}
+
+              <button
+                onClick={() => { setLockMode(m => !m); if (lockMode) setSearch(''); }}
+                style={{
+                  fontSize: 12, fontFamily: 'var(--body)', fontWeight: 700,
+                  padding: '5px 14px', borderRadius: 99, cursor: 'pointer', border: 'none',
+                  background: lockMode ? '#0D0E12' : 'rgba(13,14,18,0.07)',
+                  color: lockMode ? '#fff' : '#0D0E12',
+                  transition: 'all 0.15s',
+                }}
+              >
+                {lockMode ? `✓ Done selecting` : `🔒 Lock screens`}
+              </button>
             </span>
           </>
         )}
@@ -629,14 +697,17 @@ export default function Gallery() {
                 {group.screens.map(screen => {
                   const hasComment = !!comments[screen.path];
                   const done = isAddressed(screen.path);
-                  const borderColor = done
-                    ? 'rgba(13,14,18,0.15)'
-                    : hasComment ? '#72c15f' : 'rgba(13,14,18,0.12)';
+                  const isLocked = locked.has(screen.path);
+                  const borderColor = lockMode
+                    ? (isLocked ? '#0D0E12' : 'rgba(13,14,18,0.12)')
+                    : done
+                      ? 'rgba(13,14,18,0.15)'
+                      : hasComment ? '#72c15f' : 'rgba(13,14,18,0.12)';
 
                   return (
-                    <div key={screen.path} style={{ display: 'flex', flexDirection: 'column', gap: 8, opacity: done ? 0.5 : 1, transition: 'opacity 0.2s' }}>
+                    <div key={screen.path} style={{ display: 'flex', flexDirection: 'column', gap: 8, opacity: isLocked && !lockMode ? 0.35 : done ? 0.5 : 1, transition: 'opacity 0.2s', filter: isLocked && !lockMode ? 'grayscale(1)' : 'none' }}>
                       <div
-                        onClick={() => openScreen(screen.path)}
+                        onClick={() => lockMode ? toggleLocked(screen.path) : openScreen(screen.path)}
                         style={{
                           position: 'relative',
                           width: PHONE_W * SCALE,
@@ -651,11 +722,11 @@ export default function Gallery() {
                         }}
                         onMouseEnter={e => {
                           (e.currentTarget as HTMLDivElement).style.transform = 'scale(1.02)';
-                          if (!hasComment) (e.currentTarget as HTMLDivElement).style.borderColor = '#72c15f';
+                          if (!lockMode && !hasComment) (e.currentTarget as HTMLDivElement).style.borderColor = '#72c15f';
                         }}
                         onMouseLeave={e => {
                           (e.currentTarget as HTMLDivElement).style.transform = 'scale(1)';
-                          if (!hasComment) (e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(13,14,18,0.12)';
+                          if (!lockMode && !hasComment) (e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(13,14,18,0.12)';
                         }}
                       >
                         <iframe
@@ -663,14 +734,39 @@ export default function Gallery() {
                           style={{ width: PHONE_W, height: PHONE_H, border: 'none', transformOrigin: 'top left', transform: `scale(${SCALE})`, pointerEvents: 'none', background: '#fcfcfc' }}
                           scrolling="no"
                         />
-                        {done && (
+
+                        {/* Lock mode selection overlay */}
+                        {lockMode && (
+                          <div style={{ position: 'absolute', inset: 0, background: isLocked ? 'rgba(13,14,18,0.55)' : 'transparent', display: 'flex', alignItems: 'center', justifyContent: 'center', transition: 'background 0.15s' }}>
+                            {isLocked && (
+                              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6 }}>
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                  <rect x="4" y="9" width="12" height="9" rx="2" fill="white" />
+                                  <path d="M7 9V6.5a3 3 0 016 0V9" stroke="white" strokeWidth="1.8" strokeLinecap="round" />
+                                </svg>
+                                <span style={{ fontFamily: 'var(--body)', fontSize: 9, fontWeight: 700, color: '#fff', letterSpacing: '0.08em', textTransform: 'uppercase' }}>No edit</span>
+                              </div>
+                            )}
+                          </div>
+                        )}
+
+                        {/* Badges (non-lock mode) */}
+                        {!lockMode && isLocked && (
+                          <div style={{ position: 'absolute', top: 6, left: 6, width: 18, height: 18, borderRadius: '50%', background: 'rgba(13,14,18,0.5)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                            <svg width="9" height="9" viewBox="0 0 10 11" fill="none">
+                              <rect x="2" y="5" width="6" height="5" rx="1" fill="white" />
+                              <path d="M3.5 5V3.5a1.5 1.5 0 013 0V5" stroke="white" strokeWidth="1.2" strokeLinecap="round" />
+                            </svg>
+                          </div>
+                        )}
+                        {!lockMode && done && (
                           <div style={{ position: 'absolute', top: 6, right: 6, width: 18, height: 18, borderRadius: '50%', background: 'rgba(13,14,18,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                             <svg width="9" height="9" viewBox="0 0 9 9" fill="none">
                               <path d="M1.5 4.5l2 2 4-4" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                             </svg>
                           </div>
                         )}
-                        {!done && hasComment && (
+                        {!lockMode && !done && hasComment && (
                           <div style={{ position: 'absolute', top: 6, right: 6, width: 18, height: 18, borderRadius: '50%', background: '#72c15f', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                             <svg width="9" height="9" viewBox="0 0 9 9" fill="none">
                               <path d="M1 1h7v5H5L3 8V6H1V1Z" fill="white" />
@@ -679,9 +775,9 @@ export default function Gallery() {
                         )}
                       </div>
                       <div style={{ textAlign: 'center', maxWidth: PHONE_W * SCALE }}>
-                        <div style={{ fontSize: 12, fontWeight: 600, color: '#0D0E12' }}>{screen.label}</div>
+                        <div style={{ fontSize: 12, fontWeight: 600, color: '#0D0E12' }}>{screen.label}{isLocked && !lockMode ? ' 🔒' : ''}</div>
                         <div style={{ fontSize: 10, color: '#0D0E12', marginTop: 1 }}>{screen.path}</div>
-                        {hasComment && (
+                        {!lockMode && hasComment && (
                           <div style={{ fontSize: 11, color: '#72c15f', marginTop: 4, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', textDecoration: done ? 'line-through' : 'none' }}>
                             {comments[screen.path]}
                           </div>
