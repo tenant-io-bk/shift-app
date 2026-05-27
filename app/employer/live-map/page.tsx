@@ -88,11 +88,11 @@ export default function Page() {
             { label: 'Barista',     active: false },
           ].map(chip => (
             <div key={chip.label} style={{
-              padding: '6px 12px', borderRadius: 99, flexShrink: 0, cursor: 'pointer',
+              padding: '8px 16px', borderRadius: 99, flexShrink: 0, cursor: 'pointer',
               border: chip.active ? 'none' : '2px solid var(--ink)',
               background: chip.active ? 'var(--ink)' : 'var(--paper-2)',
               color: chip.active ? '#fff' : 'var(--ink)',
-              fontFamily: 'var(--body)', fontSize: 12, fontWeight: 600,
+              fontFamily: 'var(--body)', fontSize: 14, fontWeight: 600,
             }}>
               {chip.label}
             </div>
