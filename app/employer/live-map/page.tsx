@@ -86,7 +86,6 @@ export default function Page() {
             { label: '♥ Favorites', active: true },
             { label: '★ 4.8+',      active: false },
             { label: 'Barista',     active: false },
-            { label: 'Open now',    active: false },
           ].map(chip => (
             <div key={chip.label} style={{
               padding: '6px 12px', borderRadius: 99, flexShrink: 0, cursor: 'pointer',
