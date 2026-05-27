@@ -88,11 +88,11 @@ export default function Page() {
             { label: 'Barista',     active: false },
           ].map(chip => (
             <div key={chip.label} style={{
-              padding: '11px 18px', borderRadius: 99, flexShrink: 0, cursor: 'pointer',
+              padding: '8px 16px', borderRadius: 99, flexShrink: 0, cursor: 'pointer',
               border: '2px solid var(--ink)',
               background: chip.active ? 'var(--ink)' : 'transparent',
               color: chip.active ? '#fff' : 'var(--ink)',
-              fontFamily: 'var(--sans)', fontSize: 16, fontWeight: 600,
+              fontFamily: 'var(--sans)', fontSize: 14, fontWeight: 600,
             }}>
               {chip.label}
             </div>
@@ -122,9 +122,9 @@ export default function Page() {
               </div>
             </div>
             <Link href="/employer/post-shift" style={{
-              padding: '0 14px', height: 32, borderRadius: 99,
+              padding: '8px 16px', borderRadius: 99,
               border: '2px solid var(--ink)', background: 'transparent',
-              fontFamily: 'var(--body)', fontSize: 12, fontWeight: 600, color: 'var(--ink)',
+              fontFamily: 'var(--sans)', fontSize: 14, fontWeight: 600, color: 'var(--ink)',
               flexShrink: 0, display: 'flex', alignItems: 'center', textDecoration: 'none',
             }}>
               {worker.action}
