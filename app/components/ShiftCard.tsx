@@ -8,7 +8,7 @@ export interface ShiftCardProps {
   time: string;
   loc: string;
   venue: string;
-  brief: string | string[];
+  brief?: string | string[];
   pay: string;
   rate: string;
   family?: ShiftFamily;
@@ -49,7 +49,7 @@ export default function ShiftCard({
   family, state, statusLabel, rateNote, href, onClick,
 }: ShiftCardProps) {
   const classes = ['scard', family, state].filter(Boolean).join(' ');
-  const briefs = Array.isArray(brief) ? brief : [brief];
+  const briefs = brief ? (Array.isArray(brief) ? brief : [brief]) : [];
   const payNum = pay.replace(/^\$/, '');
 
   const inner = (
