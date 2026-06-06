@@ -36,25 +36,25 @@ export default function PayoutSetup() {
 
   if (cardAdded) {
     return (
-      <div style={{ maxWidth: 390, minHeight: '100vh', margin: '0 auto', background: 'var(--ink)', display: 'flex', flexDirection: 'column' }}>
-        <div style={{ padding: '56px 22px 32px' }}>
-          <div style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'rgba(255,255,255,0.4)', marginBottom: 16 }}>
-            {selected === 'debit' ? 'Debit card · instant payout' : 'Bank transfer · 1–2 days'}
-          </div>
-          <h1 style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 52, color: 'white', letterSpacing: '-0.075em', lineHeight: 0.9, marginBottom: 32 }}>
-            CARD<br />ADDED<span style={{ color: 'var(--hydrant)' }}>.</span>
-          </h1>
-          <p style={{ fontFamily: 'var(--body)', fontSize: 14, color: 'rgba(255,255,255,0.6)', lineHeight: 1.6, marginBottom: 40 }}>
-            You&apos;ll get paid within 11 minutes of clocking out. First shift starts now.
-          </p>
-          <Link href="/worker/map" style={{
-            display: 'block', padding: '16px 22px', borderRadius: 99,
-            background: 'var(--hydrant)', color: '#000', fontFamily: 'var(--sans)',
-            fontWeight: 700, fontSize: 16, textAlign: 'center', textDecoration: 'none', letterSpacing: '-0.01em',
-          }}>
-            Start earning →
-          </Link>
-        </div>
+      <div style={{ maxWidth: 390, minHeight: '100vh', margin: '0 auto', background: 'var(--green)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '0 32px', textAlign: 'center' }}>
+        <style>{`
+          @keyframes pop-in { 0%{transform:scale(0.6);opacity:0} 70%{transform:scale(1.1)} 100%{transform:scale(1);opacity:1} }
+          .pop-in { animation: pop-in 0.5s cubic-bezier(0.34,1.4,0.64,1) forwards; }
+        `}</style>
+        <div className="pop-in" style={{ fontSize: 64, marginBottom: 24 }}>✓</div>
+        <h1 style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 52, color: 'var(--ink)', letterSpacing: '-0.075em', lineHeight: 0.9, marginBottom: 24 }}>
+          CARD<br />ADDED.
+        </h1>
+        <p style={{ fontFamily: 'var(--body)', fontSize: 14, color: 'var(--ink)', lineHeight: 1.6, marginBottom: 40, opacity: 0.8 }}>
+          You&apos;ll get paid within 11 minutes of clocking out. First shift starts now.
+        </p>
+        <Link href="/worker/map" style={{
+          display: 'block', padding: '16px 22px', borderRadius: 99,
+          background: 'var(--ink)', color: '#fff', fontFamily: 'var(--sans)',
+          fontWeight: 700, fontSize: 16, textAlign: 'center', textDecoration: 'none', letterSpacing: '-0.01em', width: '100%',
+        }}>
+          Start earning →
+        </Link>
       </div>
     );
   }
@@ -116,8 +116,8 @@ export default function PayoutSetup() {
                 style={{
                   padding: 16,
                   borderRadius: 12,
-                  background: isSelected ? 'var(--ink)' : 'var(--card)',
-                  border: isSelected ? 'none' : '2px solid var(--ink)',
+                  background: 'var(--paper)',
+                  border: isSelected ? '2px solid var(--ink)' : '2px solid var(--ink)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'space-between',
@@ -128,36 +128,28 @@ export default function PayoutSetup() {
                 <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
                   <div style={{ flexShrink: 0 }}>{method.icon}</div>
                   <div>
-                    <div style={{
-                      fontFamily: 'var(--sans)',
-                      fontWeight: 700,
-                      fontSize: 16,
-                      color: isSelected ? '#fff' : 'var(--ink)',
-                    }}>{method.title}</div>
-                    <div style={{
-                      fontFamily: 'var(--body)',
-                      fontSize: 12,
-                      color: isSelected ? 'rgba(255,255,255,0.6)' : 'var(--mute)',
-                      marginTop: 2,
-                    }}>{method.sub}</div>
+                    <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 16, color: 'var(--ink)' }}>{method.title}</div>
+                    <div style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--ink)', marginTop: 2, opacity: 0.6 }}>{method.sub}</div>
                   </div>
                 </div>
-                {isSelected && (
-                  <div style={{
-                    width: 20,
-                    height: 20,
-                    borderRadius: 99,
-                    background: 'rgba(255,255,255,0.2)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    flexShrink: 0,
-                  }}>
+                <div style={{
+                  width: 22,
+                  height: 22,
+                  borderRadius: 99,
+                  background: isSelected ? 'var(--green)' : 'transparent',
+                  border: isSelected ? 'none' : '2px solid var(--line)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  flexShrink: 0,
+                  transition: 'all 0.15s',
+                }}>
+                  {isSelected && (
                     <svg width="10" height="8" viewBox="0 0 10 8" fill="none">
-                      <path d="M1 4L3.5 6.5L9 1" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                      <path d="M1 4L3.5 6.5L9 1" stroke="var(--ink)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
-                  </div>
-                )}
+                  )}
+                </div>
               </button>
             );
           })}

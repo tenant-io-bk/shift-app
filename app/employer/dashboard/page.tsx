@@ -467,19 +467,20 @@ export default function EmployerDashboard() {
 
       <Section id="active" label="Active now">
         {ACTIVE_SHIFTS.map((s, i) => (
-          <ShiftCard
-            key={i}
-            role={s.role}
-            time={s.time}
-            loc="Bed-Stuy"
-            venue="Padmore's"
-            brief={`${s.workers} workers confirmed · ${s.status} · ${s.eta}`}
-            pay="$130"
-            rate="$26/hr"
-            family="bar"
-            state="confirmed"
-            href="/employer/roster"
-          />
+          <div key={i} style={{ border: '2px solid var(--ink)', borderRadius: 14, overflow: 'hidden' }}>
+            <ShiftCard
+              role={s.role}
+              time={s.time}
+              loc="Bed-Stuy"
+              venue="Padmore's"
+              brief={`${s.workers} workers confirmed · ${s.status} · ${s.eta}`}
+              pay="$130"
+              rate="$26/hr"
+              family="bar"
+              state="confirmed"
+              href="/employer/roster"
+            />
+          </div>
         ))}
       </Section>
 
@@ -492,7 +493,7 @@ export default function EmployerDashboard() {
               </div>
               <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 13, color: 'var(--ink)' }}>{w.name}</div>
               <div style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--ink)', marginTop: 1 }}>{w.role}</div>
-              <div style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--yellow)', fontWeight: 600, marginTop: 3 }}>{w.rating}★</div>
+              <div style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--ink)', fontWeight: 600, marginTop: 3 }}>{w.rating}★</div>
             </div>
           ))}
         </div>
@@ -508,7 +509,7 @@ export default function EmployerDashboard() {
               </div>
               <div style={{ textAlign: 'right', flexShrink: 0 }}>
                 <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 16, color: 'var(--ink)', letterSpacing: '-0.02em' }}>{r.total}</div>
-                <div style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--yellow)', marginTop: 1 }}>{r.rating}★</div>
+                <div style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--ink)', marginTop: 1 }}>{r.rating}★</div>
               </div>
             </div>
           ))}

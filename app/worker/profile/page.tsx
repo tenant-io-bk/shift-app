@@ -114,17 +114,17 @@ export default function WorkerProfile() {
   return (
     <div style={{ maxWidth: 390, minHeight: '100vh', margin: '0 auto', background: 'var(--paper)', display: 'flex', flexDirection: 'column' }}>
 
-      {/* Dark header */}
-      <div style={{ background: 'var(--ink)', paddingTop: 0 }}>
-        <StatusBar time="10:12" dark />
+      {/* Header */}
+      <div style={{ background: 'var(--paper)', borderBottom: '1px solid var(--line)' }}>
+        <StatusBar time="10:12" />
 
         <div style={{ height: 44, display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 16px' }}>
-          <Link href="/" style={{ color: 'rgba(255,255,255,0.7)', textDecoration: 'none', fontSize: 20, width: 32 }}>←</Link>
-          <span style={{ fontFamily: 'var(--body)', fontSize: 13, fontWeight: 600, color: 'rgba(255,255,255,0.6)', letterSpacing: '0.02em' }}>@marcov</span>
+          <Link href="/" style={{ color: 'var(--ink)', textDecoration: 'none', fontSize: 20, width: 32 }}>←</Link>
+          <span style={{ fontFamily: 'var(--body)', fontSize: 13, fontWeight: 600, color: 'var(--ink)', letterSpacing: '0.02em' }}>@marcov</span>
           <button style={{ background: 'none', border: 'none', cursor: 'pointer', width: 32, display: 'flex', justifyContent: 'flex-end' }}>
             <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-              <circle cx="9" cy="9" r="2" fill="rgba(255,255,255,0.5)" />
-              <path d="M9 2v2M9 14v2M2 9h2M14 9h2M4.2 4.2l1.4 1.4M12.4 12.4l1.4 1.4M4.2 13.8l1.4-1.4M12.4 5.6l1.4-1.4" stroke="rgba(255,255,255,0.5)" strokeWidth="1.5" strokeLinecap="round" />
+              <circle cx="9" cy="9" r="2" fill="var(--mute)" />
+              <path d="M9 2v2M9 14v2M2 9h2M14 9h2M4.2 4.2l1.4 1.4M12.4 12.4l1.4 1.4M4.2 13.8l1.4-1.4M12.4 5.6l1.4-1.4" stroke="var(--mute)" strokeWidth="1.5" strokeLinecap="round" />
             </svg>
           </button>
         </div>
@@ -137,10 +137,10 @@ export default function WorkerProfile() {
               onClick={() => setTab(t)}
               style={{
                 fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 15,
-                color: tab === t ? '#fff' : 'rgba(255,255,255,0.35)',
+                color: tab === t ? 'var(--ink)' : 'var(--mute)',
                 background: 'none', border: 'none', cursor: 'pointer',
                 padding: '10px 4px 12px',
-                borderBottom: tab === t ? '2px solid white' : '2px solid transparent',
+                borderBottom: tab === t ? '2px solid var(--ink)' : '2px solid transparent',
                 letterSpacing: '-0.01em',
               }}
             >
@@ -160,7 +160,7 @@ export default function WorkerProfile() {
               </div>
               <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 32, color: 'var(--ink)', letterSpacing: '-0.04em', lineHeight: 1 }}>Shifts Worked</span>
             </div>
-            <div style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--mute)', marginTop: 12 }}>$1.8k earned · 4.9★ avg rating</div>
+            <div style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--ink)', marginTop: 12 }}>Since January</div>
           </div>
 
           {/* Stacked wallet cards */}
@@ -185,7 +185,7 @@ export default function WorkerProfile() {
                         left: 0, right: 0,
                         zIndex: isExpanded ? 99 : i + 1,
                         background: shift.cardBg,
-                        borderRadius: '18px 18px 0 0',
+                        borderRadius: '18px',
                         border: '2px solid var(--ink)',
                         cursor: 'pointer',
                         overflow: 'hidden',
@@ -194,7 +194,7 @@ export default function WorkerProfile() {
                       {/* Main row */}
                       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '22px 20px', gap: 12 }}>
                         <div style={{ flex: 1, minWidth: 0 }}>
-                          <div style={{ fontFamily: 'var(--sans)', fontWeight: 400, fontSize: 20, color: 'var(--ink)', letterSpacing: '-0.03em', lineHeight: 1.1 }}>
+                          <div style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 24, color: 'var(--ink)', letterSpacing: '-0.03em', lineHeight: 1.1 }}>
                             {shift.shortName}
                           </div>
                           <div style={{ fontFamily: 'var(--body)', fontSize: 9, fontWeight: 600, color: 'rgba(13,14,18,0.5)', letterSpacing: '0.06em', textTransform: 'uppercase', marginTop: 5 }}>
@@ -226,7 +226,7 @@ export default function WorkerProfile() {
                           <div style={{ height: 1, background: 'rgba(13,14,18,0.1)', marginBottom: 14 }} />
                           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 16 }}>
                             <span style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--mute)' }}>Your rating</span>
-                            <span style={{ color: 'var(--yellow)', fontSize: 16 }}>{'★'.repeat(shift.rating)}{'☆'.repeat(5 - shift.rating)}</span>
+                            <span style={{ color: 'var(--ink)', fontSize: 16 }}>{'★'.repeat(shift.rating)}{'☆'.repeat(5 - shift.rating)}</span>
                           </div>
                           <Link
                             href="/worker/job-detail"
@@ -276,11 +276,11 @@ export default function WorkerProfile() {
                 style={{ width: '100%', fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 28, color: 'var(--ink)', border: 'none', borderBottom: '2px solid var(--ink)', background: 'transparent', outline: 'none', letterSpacing: '-0.04em' }}
               />
             ) : (
-              <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 28, color: 'var(--ink)', letterSpacing: '-0.04em' }}>{name}</span>
+              <span style={{ fontFamily: 'var(--sans)', fontWeight: 300, fontSize: 28, color: 'var(--ink)', letterSpacing: '-0.04em' }}>{name}</span>
             )}
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8, flexShrink: 0 }}>
-            <span style={{ color: 'var(--yellow)', fontSize: 15, letterSpacing: 1 }}>{'★'.repeat(5)}</span>
+            <span style={{ color: 'var(--ink)', fontSize: 15, letterSpacing: 1 }}>{'★'.repeat(5)}</span>
             <button
               onClick={() => editing ? saveEdits() : setEditing(true)}
               style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 700, color: 'var(--ink)', background: 'var(--paper)', border: '2px solid var(--ink)', borderRadius: 99, padding: '5px 12px', cursor: 'pointer', letterSpacing: '0.06em', textTransform: 'uppercase' }}
@@ -365,10 +365,9 @@ export default function WorkerProfile() {
       </div>
 
       {/* Stats */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', borderBottom: '1px solid var(--line)' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', borderBottom: '1px solid var(--line)' }}>
         {[
           { label: 'Shifts', value: '12' },
-          { label: 'Rating', value: '4.9★' },
           { label: 'Earned', value: '$1.8k' },
           { label: 'Rebook', value: '78%' },
         ].map((stat, i) => (
@@ -396,7 +395,7 @@ export default function WorkerProfile() {
                   <div style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 14, color: 'var(--ink)' }}>{review.business}</div>
                   <div style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)' }}>{review.date}</div>
                 </div>
-                <div style={{ color: 'var(--yellow)', fontSize: 13, fontWeight: 700 }}>{'★'.repeat(review.rating)}</div>
+                <div style={{ color: 'var(--ink)', fontSize: 13, fontWeight: 700 }}>{'★'.repeat(review.rating)}</div>
               </div>
               <p style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--mute)', lineHeight: 1.6, margin: 0 }}>&ldquo;{review.text}&rdquo;</p>
             </div>

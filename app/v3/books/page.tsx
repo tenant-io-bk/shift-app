@@ -22,7 +22,7 @@ export default function Books() {
         alignItems: 'center',
         justifyContent: 'space-between',
         padding: '0 16px',
-        borderBottom: '1px solid var(--line)',
+        borderBottom: '1px solid var(--ink)',
         background: 'var(--paper)',
       }}>
         <Link href="/employer/roster" style={{ fontSize: 20, color: 'var(--ink)', textDecoration: 'none', width: 32 }}>←</Link>
@@ -31,7 +31,7 @@ export default function Books() {
       </div>
 
       {/* Monthly total header */}
-      <div style={{ padding: '20px 22px', borderBottom: '1px solid var(--line)', background: 'var(--card)' }}>
+      <div style={{ padding: '20px 22px', borderBottom: '1px solid var(--ink)', background: 'var(--card)' }}>
         <p style={{
           fontFamily: 'var(--body)',
           fontSize: 10,
@@ -81,7 +81,7 @@ export default function Books() {
           letterSpacing: '0.1em',
           color: 'var(--mute)',
           padding: '14px 0 10px',
-          borderBottom: '1px solid var(--line)',
+          borderBottom: '1px solid var(--ink)',
         }}>STATEMENTS</p>
 
         {STATEMENTS.map((stmt) => (
@@ -92,7 +92,7 @@ export default function Books() {
               alignItems: 'center',
               justifyContent: 'space-between',
               padding: '14px 0',
-              borderBottom: '1px solid var(--line)',
+              borderBottom: '1px solid var(--ink)',
             }}
           >
             <div>
@@ -137,7 +137,7 @@ export default function Books() {
         <div style={{
           marginTop: 20,
           padding: 18,
-          border: '1.5px dashed var(--paper-3)',
+          border: '1.5px dashed var(--ink)',
           borderRadius: 14,
           background: 'var(--card)',
           position: 'relative',
@@ -159,7 +159,7 @@ export default function Books() {
           </div>
 
           {/* Dashed separator */}
-          <div style={{ borderTop: '1.5px dashed var(--paper-3)', marginBottom: 12 }} />
+          <div style={{ borderTop: '1.5px dashed var(--ink)', marginBottom: 12 }} />
 
           {/* Line items */}
           {LINE_ITEMS.map((item, i) => (
@@ -175,7 +175,7 @@ export default function Books() {
           ))}
 
           {/* Dashed separator */}
-          <div style={{ borderTop: '1.5px dashed var(--paper-3)', marginTop: 12, marginBottom: 12 }} />
+          <div style={{ borderTop: '1.5px dashed var(--ink)', marginTop: 12, marginBottom: 12 }} />
 
           {/* Export buttons */}
           <div style={{ display: 'flex', gap: 8 }}>

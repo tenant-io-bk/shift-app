@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import StepProgress from '@/app/components/StepProgress';
 
-const DAYS = ['mon', 'tues', 'wed', 'thurs', 'fri', 'sat', 'sun'];
+const DAYS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 
 const TIME_BLOCKS = [
   {
@@ -121,16 +121,9 @@ export default function Availability() {
               }}>{block.range}</span>
             </div>
 
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(7, 1fr)', gap: 6 }}>
               {DAYS.map((day, colIdx) => {
                 const enabled = grid[rowIdx][colIdx];
-                const leftOn = colIdx > 0 && grid[rowIdx][colIdx - 1];
-                const rightOn = colIdx < 6 && grid[rowIdx][colIdx + 1];
-                const borderRadius = !enabled ? 99
-                  : leftOn && rightOn ? 5
-                  : leftOn ? '5px 99px 99px 5px'
-                  : rightOn ? '99px 5px 5px 99px'
-                  : 99;
                 return (
                   <button
                     key={colIdx}
@@ -139,20 +132,18 @@ export default function Availability() {
                     style={{
                       '--r': `${block.rotations[colIdx]}deg`,
                       animationDelay: `${rowIdx * 120 + colIdx * 55}ms`,
-                      padding: '14px 16px',
-                      borderRadius,
+                      padding: '10px 0',
+                      borderRadius: 99,
                       border: '2px solid var(--ink)',
                       background: enabled ? 'var(--ink)' : 'transparent',
                       cursor: 'pointer',
                       fontFamily: 'var(--sans)',
                       fontWeight: 600,
-                      fontSize: 22,
+                      fontSize: 14,
                       color: enabled ? '#fff' : 'var(--ink)',
-                      letterSpacing: '-0.02em',
-                      transition: 'background 0.15s ease, border-radius 0.15s ease, color 0.15s ease',
-                      marginLeft: enabled && leftOn ? -8 : 0,
-                      position: 'relative',
-                      zIndex: enabled ? 1 : 0,
+                      letterSpacing: '-0.01em',
+                      transition: 'background 0.15s ease, color 0.15s ease',
+                      textAlign: 'center',
                     } as React.CSSProperties}
                   >
                     {day}

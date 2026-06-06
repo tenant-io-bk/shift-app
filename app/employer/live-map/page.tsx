@@ -103,7 +103,7 @@ export default function Page() {
         {WORKERS.map(worker => (
           <div key={worker.name} style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '10px 22px' }}>
             <div style={{ position: 'relative', flexShrink: 0 }}>
-              <div style={{ width: 44, height: 44, borderRadius: '50%', background: 'var(--ink)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <div style={{ width: 52, height: 52, borderRadius: '50%', background: 'var(--ink)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 15, color: 'white' }}>{worker.initial}</span>
               </div>
               <div style={{ position: 'absolute', bottom: -1, right: -1, width: 10, height: 10, borderRadius: '50%', background: worker.fav ? '#9A7CE0' : '#16A34A', border: '2px solid white' }} />
@@ -112,7 +112,7 @@ export default function Page() {
               <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
                 <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 15, color: 'var(--ink)' }}>{worker.name}</span>
                 {worker.times && (
-                  <span style={{ background: 'var(--ink)', color: '#fff', borderRadius: 4, padding: '1px 5px', fontFamily: 'var(--body)', fontSize: 10, fontWeight: 600 }}>
+                  <span style={{ background: 'var(--ink)', color: '#fff', borderRadius: 99, padding: '2px 8px', fontFamily: 'var(--body)', fontSize: 10, fontWeight: 600 }}>
                     {worker.times} here
                   </span>
                 )}

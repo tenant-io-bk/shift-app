@@ -78,7 +78,7 @@ export default function EmployerAccount() {
         </Section>
 
         <div style={{ background: 'var(--paper)', borderRadius: 14, overflow: 'hidden', border: '2px solid var(--ink)' }}>
-          <Link href="/worker/role" style={{ display: 'block', padding: '16px 18px', fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 16, color: '#EA4B2A', textDecoration: 'none', textAlign: 'center' }}>
+          <Link href="/worker/role" style={{ display: 'block', padding: '16px 18px', fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 16, color: 'var(--ink)', textDecoration: 'none', textAlign: 'center' }}>
             Sign out
           </Link>
         </div>
@@ -103,7 +103,7 @@ function Row({ label, value }: { label: string; value: string }) {
   return (
     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '13px 18px', borderBottom: '1px solid var(--line)' }}>
       <span style={{ fontFamily: 'var(--sans)', fontSize: 15, color: 'var(--ink)' }}>{label}</span>
-      <span style={{ fontFamily: 'var(--body)', fontSize: 13, color: 'var(--mute)' }}>{value}</span>
+      <span style={{ fontFamily: 'var(--body)', fontSize: 13, color: 'var(--ink)' }}>{value}</span>
     </div>
   );
 }

@@ -13,12 +13,13 @@ export default function Page() {
           .roster-pulse { animation: roster-pulse 1.8s ease-in-out infinite; }
         `}</style>
 
-        {/* Header — dark */}
+        {/* Header */}
         <div
           style={{
-            background: 'var(--ink)',
+            background: 'var(--paper)',
             padding: '28px 22px 22px',
             flexShrink: 0,
+            borderBottom: '1px solid var(--line)',
           }}
         >
           <h1
@@ -26,13 +27,13 @@ export default function Page() {
               fontFamily: 'var(--sans)',
               fontWeight: 600,
               fontSize: 52,
-              color: 'white',
+              color: 'var(--ink)',
               letterSpacing: '-0.075em',
               lineHeight: 0.9,
               marginBottom: 12,
             }}
           >
-            SHIFT FILLED<span style={{ color: 'var(--hydrant)' }}>.</span>
+            SHIFT FILLED<span style={{ color: 'var(--green)' }}>.</span>
           </h1>
 
           {/* Filled time */}
@@ -58,7 +59,7 @@ export default function Page() {
               style={{
                 fontFamily: 'var(--body)',
                 fontSize: 13,
-                color: 'rgba(255,255,255,0.7)',
+                color: 'var(--ink)',
               }}
             >
               in 1 min 38 sec
@@ -70,7 +71,7 @@ export default function Page() {
             style={{
               fontFamily: 'var(--body)',
               fontSize: 12,
-              color: 'rgba(255,255,255,0.5)',
+              color: 'var(--mute)',
             }}
           >
             Barista · Today 11A–4P · Padmore&apos;s Coffee

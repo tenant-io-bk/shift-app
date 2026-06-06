@@ -32,7 +32,7 @@ export default function Page() {
       </div>
 
       {/* Worker photo header — 280px to match other profile headers */}
-      <div style={{ height: 280, position: 'relative', background: 'linear-gradient(160deg, rgba(184,160,144,0.6) 0%, #7a6040 100%)', flexShrink: 0, overflow: 'hidden' }}>
+      <div style={{ height: 300, position: 'relative', background: 'linear-gradient(160deg, rgba(184,160,144,0.6) 0%, #7a6040 100%)', flexShrink: 0, overflow: 'hidden' }}>
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, transparent 40%, rgba(0,0,0,0.6) 100%)' }} />
         <div style={{ position: 'absolute', bottom: 14, left: 16, right: 90 }}>
           <h2 style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 36, color: 'white', letterSpacing: '-0.075em', lineHeight: 1, marginBottom: 4 }}>
@@ -57,7 +57,7 @@ export default function Page() {
             <button
               key={star}
               onClick={() => setStarRating(star)}
-              style={{ flex: 1, background: 'none', border: 'none', cursor: 'pointer', padding: '4px 0', fontSize: 40, lineHeight: 1, color: star <= starRating ? 'var(--yellow)' : 'var(--paper-3)', transition: 'color 0.15s', textAlign: 'center' }}
+              style={{ flex: 1, background: 'none', border: 'none', cursor: 'pointer', padding: '4px 0', fontSize: 40, lineHeight: 1, color: star <= starRating ? 'var(--ink)' : 'var(--paper-3)', transition: 'color 0.15s', textAlign: 'center' }}
             >
               ★
             </button>
@@ -78,9 +78,9 @@ export default function Page() {
               style={{
                 padding: '11px 18px',
                 borderRadius: 99,
-                border: '2px solid var(--ink)',
-                background: tag.selected ? 'var(--ink)' : 'transparent',
-                color: tag.selected ? '#fff' : 'var(--ink)',
+                border: tag.selected ? '2px solid var(--green)' : '2px solid var(--ink)',
+                background: tag.selected ? 'var(--green)' : 'transparent',
+                color: 'var(--ink)',
                 fontFamily: 'var(--sans)',
                 fontSize: 16,
                 fontWeight: 600,

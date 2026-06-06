@@ -80,7 +80,7 @@ export default function EmployerBilling() {
               <div style={{ fontFamily: 'var(--body)', fontSize: 10.5, fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--ink)', marginBottom: 8 }}>Card number</div>
               <input type="text" inputMode="numeric" value={cardNum} onChange={e => setCardNum(formatCard(e.target.value))}
                 placeholder="1234 5678 9012 3456"
-                style={{ width: '100%', height: 52, padding: '0 16px', background: 'var(--card)', border: '2px solid var(--ink)', borderRadius: 99, fontFamily: 'var(--body)', fontSize: 16, letterSpacing: '0.1em', color: 'var(--ink)', outline: 'none' }} />
+                style={{ width: '100%', height: 52, padding: '0 16px', background: 'var(--card)', border: '2px solid var(--ink)', borderRadius: 99, fontFamily: 'var(--body)', fontSize: 16, letterSpacing: '0.1em', color: 'var(--ink)', outline: 'none', textAlign: 'center' }} />
             </div>
 
             {/* Expiry + CVV */}
@@ -89,13 +89,13 @@ export default function EmployerBilling() {
                 <div style={{ fontFamily: 'var(--body)', fontSize: 10.5, fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--ink)', marginBottom: 8 }}>Expiry</div>
                 <input type="text" inputMode="numeric" value={expiry} onChange={e => setExpiry(formatExpiry(e.target.value))}
                   placeholder="MM / YY"
-                  style={{ width: '100%', height: 52, padding: '0 16px', background: 'var(--card)', border: '2px solid var(--ink)', borderRadius: 99, fontFamily: 'var(--body)', fontSize: 16, letterSpacing: '0.08em', color: 'var(--ink)', outline: 'none' }} />
+                  style={{ width: '100%', height: 52, padding: '0 16px', background: 'var(--card)', border: '2px solid var(--ink)', borderRadius: 99, fontFamily: 'var(--body)', fontSize: 16, letterSpacing: '0.08em', color: 'var(--ink)', outline: 'none', textAlign: 'center' }} />
               </div>
               <div>
                 <div style={{ fontFamily: 'var(--body)', fontSize: 10.5, fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--ink)', marginBottom: 8 }}>CVV</div>
                 <input type="password" value={cvv} onChange={e => setCvv(e.target.value.replace(/\D/g, '').slice(0, 4))}
                   placeholder="•••"
-                  style={{ width: '100%', height: 52, padding: '0 16px', background: 'var(--card)', border: '2px solid var(--ink)', borderRadius: 99, fontFamily: 'var(--body)', fontSize: 20, color: 'var(--ink)', outline: 'none' }} />
+                  style={{ width: '100%', height: 52, padding: '0 16px', background: 'var(--card)', border: '2px solid var(--ink)', borderRadius: 99, fontFamily: 'var(--body)', fontSize: 20, color: 'var(--ink)', outline: 'none', textAlign: 'center' }} />
               </div>
             </div>
 
@@ -103,7 +103,7 @@ export default function EmployerBilling() {
             <div>
               <div style={{ fontFamily: 'var(--body)', fontSize: 10.5, fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--ink)', marginBottom: 8 }}>Name on card</div>
               <input type="text" value={name} onChange={e => setName(e.target.value)} placeholder="As it appears on the card"
-                style={{ width: '100%', height: 52, padding: '0 16px', background: 'var(--card)', border: '2px solid var(--ink)', borderRadius: 99, fontFamily: 'var(--sans)', fontSize: 16, color: 'var(--ink)', outline: 'none' }} />
+                style={{ width: '100%', height: 52, padding: '0 16px', background: 'var(--card)', border: '2px solid var(--ink)', borderRadius: 99, fontFamily: 'var(--sans)', fontSize: 16, color: 'var(--ink)', outline: 'none', textAlign: 'center' }} />
             </div>
           </div>
         )}

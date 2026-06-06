@@ -56,17 +56,21 @@ function SlideToConfirm({ label = 'Slide to confirm', href, locked, onLockedAtte
   return (
     <div ref={trackRef} style={{
       position: 'relative', width: '100%', height: 60,
-      background: locked ? 'var(--line-2)' : 'var(--ink)', borderRadius: 99, overflow: 'hidden',
+      background: locked ? 'var(--paper)' : 'var(--ink)',
+      border: locked ? '2px solid var(--ink)' : 'none',
+      borderRadius: 99, overflow: 'hidden',
       touchAction: 'none', userSelect: 'none',
       transition: 'background 0.2s ease',
     }}>
       {/* Fill track */}
-      <div style={{
-        position: 'absolute', top: 0, left: 0, bottom: 0,
-        width: `${GUTTER + THUMB + progress * range}px`,
-        background: 'var(--green)',
-        transition: dragging ? 'none' : 'width 0.28s cubic-bezier(0.22,1,0.36,1)',
-      }} />
+      {!locked && (
+        <div style={{
+          position: 'absolute', top: 0, left: 0, bottom: 0,
+          width: `${GUTTER + THUMB + progress * range}px`,
+          background: 'var(--ink)',
+          transition: dragging ? 'none' : 'width 0.28s cubic-bezier(0.22,1,0.36,1)',
+        }} />
+      )}
       {/* Label */}
       <div style={{
         position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center',
