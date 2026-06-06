@@ -10,16 +10,7 @@ export default function DayOf() {
   const router = useRouter();
   const [alertDismissed, setAlertDismissed] = useState(false);
   const [proximity, setProximity] = useState<'far' | 'near'>('far');
-  const [checkInTapped, setCheckInTapped] = useState(false);
   const isNear = proximity === 'near';
-
-  function handleCheckIn() {
-    setCheckInTapped(true);
-    setTimeout(() => setCheckInTapped(false), 600);
-    if (isNear) {
-      router.push('/worker/on-shift');
-    }
-  }
 
   return (
     <div style={{ maxWidth: 390, minHeight: '100vh', margin: '0 auto', background: 'var(--paper)', display: 'flex', flexDirection: 'column' }}>
@@ -95,32 +86,9 @@ export default function DayOf() {
             time="11A — 4P"
             loc="Bedstuy, BK"
             venue="Padmore's Coffee"
-            brief="Today at 11A · Padmore's Coffee"
             pay="$140"
             rate="$28/hr"
           />
-        </div>
-
-        {/* Tap to check in pill */}
-        <div style={{ padding: '12px 14px 0', display: 'flex', justifyContent: 'center' }}>
-          <button
-            onClick={handleCheckIn}
-            className={checkInTapped ? 'check-in-jiggle' : ''}
-            style={{
-              background: 'var(--ink)',
-              color: '#fff',
-              borderRadius: 99,
-              padding: '12px 28px',
-              fontFamily: 'var(--sans)',
-              fontWeight: 700,
-              fontSize: 15,
-              border: 'none',
-              cursor: 'pointer',
-              letterSpacing: '-0.01em',
-            }}
-          >
-            Tap to check in when you arrive.
-          </button>
         </div>
 
         {/* Clock-in radius indicator (no distance text) */}
@@ -141,9 +109,6 @@ export default function DayOf() {
               {isNear ? 'Clock-in is ready' : 'Within 500 ft of venue'}
             </div>
           </div>
-          <button onClick={() => setProximity(p => p === 'far' ? 'near' : 'far')} style={{ background: 'none', border: '1px solid var(--line)', borderRadius: 8, padding: '4px 8px', fontFamily: 'var(--body)', fontSize: 10, color: 'var(--mute)', cursor: 'pointer', flexShrink: 0 }}>
-            {isNear ? '← away' : 'arrive →'}
-          </button>
         </div>
 
         {/* Checklist */}

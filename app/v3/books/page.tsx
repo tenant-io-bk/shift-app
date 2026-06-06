@@ -31,14 +31,14 @@ export default function Books() {
       </div>
 
       {/* Monthly total header */}
-      <div style={{ padding: '20px 22px', borderBottom: '1px solid var(--ink)', background: 'var(--card)' }}>
+      <div style={{ padding: '28px 22px 24px', background: 'var(--ink)' }}>
         <p style={{
           fontFamily: 'var(--body)',
           fontSize: 10,
           fontWeight: 600,
           textTransform: 'uppercase',
           letterSpacing: '0.1em',
-          color: 'var(--mute)',
+          color: 'rgba(255,255,255,0.5)',
           marginBottom: 4,
         }}>MAY 2026</p>
 
@@ -46,7 +46,7 @@ export default function Books() {
           fontFamily: 'var(--sans)',
           fontWeight: 600,
           fontSize: 48,
-          color: 'var(--ink)',
+          color: '#fff',
           letterSpacing: '-0.075em',
           lineHeight: 1,
           marginBottom: 6,
@@ -55,20 +55,9 @@ export default function Books() {
         <p style={{
           fontFamily: 'var(--body)',
           fontSize: 13,
-          color: 'var(--mute)',
-          marginBottom: 10,
-        }}>Across 18 shifts · 11 unique workers</p>
-
-        <span style={{
-          display: 'inline-block',
-          background: 'var(--hydrant-soft)',
-          color: 'var(--hydrant)',
-          fontFamily: 'var(--body)',
-          fontSize: 11,
-          fontWeight: 600,
-          borderRadius: 99,
-          padding: '4px 10px',
-        }}>Live · $276 pending</span>
+          color: 'rgba(255,255,255,0.7)',
+          marginBottom: 0,
+        }}>Across 18 Shifts</p>
       </div>
 
       {/* Statement list */}
@@ -79,9 +68,8 @@ export default function Books() {
           fontWeight: 600,
           textTransform: 'uppercase',
           letterSpacing: '0.1em',
-          color: 'var(--mute)',
+          color: 'var(--ink)',
           padding: '14px 0 10px',
-          borderBottom: '1px solid var(--ink)',
         }}>STATEMENTS</p>
 
         {STATEMENTS.map((stmt) => (
@@ -101,7 +89,7 @@ export default function Books() {
                 fontSize: 10,
                 textTransform: 'uppercase',
                 letterSpacing: '0.06em',
-                color: 'var(--mute)',
+                color: 'var(--ink)',
                 marginBottom: 3,
               }}>{stmt.month}</p>
               <p style={{
@@ -109,25 +97,11 @@ export default function Books() {
                 fontWeight: 600,
                 fontSize: 15,
                 color: 'var(--ink)',
-              }}>{stmt.shifts} shifts · {stmt.total}</p>
+              }}>{stmt.shifts} Shifts · {stmt.total}</p>
             </div>
-            {stmt.live ? (
-              <span style={{
-                background: 'var(--hydrant-soft)',
-                color: 'var(--hydrant)',
-                fontFamily: 'var(--body)',
-                fontSize: 10,
-                fontWeight: 700,
-                borderRadius: 6,
-                padding: '4px 8px',
-                textTransform: 'uppercase',
-                letterSpacing: '0.06em',
-              }}>LIVE</span>
-            ) : (
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                <path d="M6 3l5 5-5 5" stroke="var(--mute-2)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            )}
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6 3l5 5-5 5" stroke="var(--ink)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
           </div>
         ))}
       </div>
@@ -148,13 +122,13 @@ export default function Books() {
             fontWeight: 700,
             textTransform: 'uppercase',
             letterSpacing: '0.12em',
-            color: 'var(--mute)',
+            color: 'var(--ink)',
             marginBottom: 10,
           }}>STATEMENT #2026-04</p>
 
           {/* Total row */}
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 12 }}>
-            <span style={{ fontFamily: 'var(--body)', fontSize: 12, fontWeight: 600, color: 'var(--mute)', textTransform: 'uppercase' }}>TOTAL</span>
+            <span style={{ fontFamily: 'var(--body)', fontSize: 12, fontWeight: 600, color: 'var(--ink)', textTransform: 'uppercase' }}>TOTAL</span>
             <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 24, color: 'var(--ink)', letterSpacing: '-0.02em' }}>$3,412.00</span>
           </div>
 

@@ -78,6 +78,18 @@ function PinSheet({ shift, onClose }: { shift: Shift; onClose: () => void }) {
 }
 
 const ROLES = ['All', 'Barista', 'Bartender', 'Server', 'Barback', 'Host', 'Cook'];
+const NEIGHBORHOODS = ['All', 'Bed-Stuy', 'Williamsburg', 'Crown Heights', 'Greenpoint', 'Bushwick', 'Fort Greene', 'Clinton Hill', 'Park Slope', 'Prospect Heights'];
+const NEIGHBORHOOD_MATCH: Record<string, string> = {
+  'Bed-Stuy': 'Bedstuy',
+  'Williamsburg': 'Williamsburg',
+  'Crown Heights': 'Crown Heights',
+  'Greenpoint': 'Greenpoint',
+  'Bushwick': 'Bushwick',
+  'Fort Greene': 'Fort Greene',
+  'Clinton Hill': 'Clinton Hill',
+  'Park Slope': 'Park Slope',
+  'Prospect Heights': 'Prospect Heights',
+};
 
 const ROLE_COLORS: Record<string, { bg: string; color: string }> = {
   'All':       { bg: 'var(--ink)',        color: '#fff' },
@@ -98,18 +110,21 @@ export default function WorkerMap() {
   const [draftRole, setDraftRole] = useState('All');
   const [draftHighPay, setDraftHighPay] = useState(false);
   const [draftSort, setDraftSort] = useState<'pay' | 'none'>('none');
+  const [draftNeighborhood, setDraftNeighborhood] = useState('All');
 
   // applied state (what the map actually uses)
   const [filterRole, setFilterRole] = useState('All');
   const [filterHighPay, setFilterHighPay] = useState(false);
   const [sortByPrice, setSortByPrice] = useState(false);
+  const [filterNeighborhood, setFilterNeighborhood] = useState('All');
 
-  const activeFilterCount = [filterRole !== 'All', filterHighPay, sortByPrice].filter(Boolean).length;
+  const activeFilterCount = [filterRole !== 'All', filterHighPay, sortByPrice, filterNeighborhood !== 'All'].filter(Boolean).length;
 
   function openFilter() {
     setDraftRole(filterRole);
     setDraftHighPay(filterHighPay);
     setDraftSort(sortByPrice ? 'pay' : 'none');
+    setDraftNeighborhood(filterNeighborhood);
     setFilterOpen(true);
   }
 
@@ -117,6 +132,7 @@ export default function WorkerMap() {
     setFilterRole(draftRole);
     setFilterHighPay(draftHighPay);
     setSortByPrice(draftSort === 'pay');
+    setFilterNeighborhood(draftNeighborhood);
     setFilterOpen(false);
   }
 
@@ -124,6 +140,7 @@ export default function WorkerMap() {
     setDraftRole('All');
     setDraftHighPay(false);
     setDraftSort('none');
+    setDraftNeighborhood('All');
   }
 
   const filteredShifts = SHIFTS.filter(s => {
@@ -136,6 +153,10 @@ export default function WorkerMap() {
     if (filterHighPay) {
       const rate = parseInt(s.rate.replace(/[^0-9]/g, ''));
       if (rate < 25) return false;
+    }
+    if (filterNeighborhood !== 'All') {
+      const matchStr = NEIGHBORHOOD_MATCH[filterNeighborhood] || filterNeighborhood;
+      if (!s.loc.includes(matchStr)) return false;
     }
     return true;
   }).sort((a, b) => {
@@ -241,6 +262,21 @@ export default function WorkerMap() {
             color: draftHighPay ? '#fff' : 'var(--ink)',
             fontFamily: 'var(--sans)', fontSize: 16, fontWeight: 600, cursor: 'pointer',
           }}>$25+/hr</button>
+        </div>
+
+        {/* Neighborhood */}
+        <div style={{ marginBottom: 22 }}>
+          <div style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--mute)', marginBottom: 10 }}>Neighborhood</div>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+            {NEIGHBORHOODS.map(n => (
+              <button key={n} onClick={() => setDraftNeighborhood(n)} style={{
+                padding: '11px 18px', borderRadius: 99, border: '2px solid var(--ink)',
+                background: draftNeighborhood === n ? 'var(--ink)' : 'transparent',
+                color: draftNeighborhood === n ? '#fff' : 'var(--ink)',
+                fontFamily: 'var(--sans)', fontSize: 14, fontWeight: 600, cursor: 'pointer',
+              }}>{n}</button>
+            ))}
+          </div>
         </div>
 
         {/* Sort */}

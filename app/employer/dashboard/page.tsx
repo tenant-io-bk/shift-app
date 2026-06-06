@@ -196,7 +196,7 @@ export default function EmployerDashboard() {
           style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '18px 20px', background: 'var(--ink)', border: 'none', cursor: 'pointer' }}
         >
           <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 24, color: '#fff', letterSpacing: '-0.04em' }}>Post A Shift.</span>
-          {!isPosting && <span style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'rgba(255,255,255,0.5)', flex: 1, paddingLeft: 12, textAlign: 'left' }}>Workers confirmed in minutes</span>}
+          {!isPosting && <span style={{ flex: 1, paddingLeft: 12, textAlign: 'left' }}><span style={{ border: '1px solid rgba(255,255,255,0.3)', borderRadius: 99, padding: '3px 10px', fontFamily: 'var(--body)', fontSize: 11, color: 'rgba(255,255,255,0.6)' }}>Workers confirmed in minutes</span></span>}
           <span style={{ fontFamily: 'var(--sans)', fontWeight: 300, fontSize: 32, color: '#fff', lineHeight: 1 }}>{isPosting ? '×' : '+'}</span>
         </button>
 

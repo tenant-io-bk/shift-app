@@ -78,40 +78,6 @@ export default function Page() {
           </div>
         </div>
 
-        {/* Mini map */}
-        <div
-          style={{
-            height: 160,
-            position: 'relative',
-            overflow: 'hidden',
-            flexShrink: 0,
-          }}
-        >
-          <iframe
-            src="https://www.openstreetmap.org/export/embed.html?bbox=-73.9618%2C40.6772%2C-73.9218%2C40.6972&layer=mapnik"
-            style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', border: 'none', filter: 'grayscale(60%) contrast(0.9)' }}
-            title="Worker locations"
-          />
-
-          {/* Worker M dot */}
-          <div style={{ position: 'absolute', left: '24%', bottom: '22%', width: 18, height: 18, borderRadius: '50%', background: '#0D0E12', border: '2px solid white', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 1px 4px rgba(0,0,0,0.3)' }}>
-            <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 8, color: 'white' }}>M</span>
-          </div>
-
-          {/* Worker S dot */}
-          <div style={{ position: 'absolute', right: '16%', top: '22%', width: 18, height: 18, borderRadius: '50%', background: '#0D0E12', border: '2px solid white', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 1px 4px rgba(0,0,0,0.3)' }}>
-            <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 8, color: 'white' }}>S</span>
-          </div>
-
-          {/* ETA chips */}
-          <div style={{ position: 'absolute', left: 10, bottom: 8, background: 'var(--ink)', color: 'white', borderRadius: 99, padding: '3px 8px', fontFamily: 'var(--body)', fontSize: 10, fontWeight: 600, whiteSpace: 'nowrap' }}>
-            Marco · 6 min
-          </div>
-          <div style={{ position: 'absolute', right: 10, top: 8, background: 'var(--ink)', color: 'white', borderRadius: 99, padding: '3px 8px', fontFamily: 'var(--body)', fontSize: 10, fontWeight: 600, whiteSpace: 'nowrap' }}>
-            Sam · 9 min
-          </div>
-        </div>
-
         {/* Roster section */}
         <div
           style={{

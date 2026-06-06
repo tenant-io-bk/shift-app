@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import StepProgress from '@/app/components/StepProgress';
 
-const DAYS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+const DAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
 const TIME_BLOCKS = [
   {
@@ -121,8 +121,42 @@ export default function Availability() {
               }}>{block.range}</span>
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(7, 1fr)', gap: 6 }}>
-              {DAYS.map((day, colIdx) => {
+            {/* Row 1: Sun Mon Tue */}
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 6, marginBottom: 8 }}>
+              {DAYS.slice(0, 3).map((day, i) => {
+                const colIdx = i;
+                const enabled = grid[rowIdx][colIdx];
+                return (
+                  <button
+                    key={colIdx}
+                    className="pill-anim"
+                    onClick={() => toggle(rowIdx, colIdx)}
+                    style={{
+                      '--r': `${block.rotations[colIdx]}deg`,
+                      animationDelay: `${rowIdx * 120 + colIdx * 55}ms`,
+                      padding: '10px 0',
+                      borderRadius: 99,
+                      border: '2px solid var(--ink)',
+                      background: enabled ? 'var(--ink)' : 'transparent',
+                      cursor: 'pointer',
+                      fontFamily: 'var(--sans)',
+                      fontWeight: 600,
+                      fontSize: 14,
+                      color: enabled ? '#fff' : 'var(--ink)',
+                      letterSpacing: '-0.01em',
+                      transition: 'background 0.15s ease, color 0.15s ease',
+                      textAlign: 'center',
+                    } as React.CSSProperties}
+                  >
+                    {day}
+                  </button>
+                );
+              })}
+            </div>
+            {/* Row 2: Wed Thu Fri Sat */}
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 6 }}>
+              {DAYS.slice(3).map((day, i) => {
+                const colIdx = i + 3;
                 const enabled = grid[rowIdx][colIdx];
                 return (
                   <button

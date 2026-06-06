@@ -88,7 +88,17 @@ export default function WorkerConfirm() {
             </span>
           </div>
 
-          <h1 style={{
+          <div style={{
+            fontFamily: 'var(--sans)',
+            fontWeight: 300,
+            fontSize: 32,
+            color: 'var(--ink)',
+            letterSpacing: '-0.05em',
+            lineHeight: 1.05,
+          }}>
+            Your Shift Is Booked At
+          </div>
+          <div style={{
             fontFamily: 'var(--sans)',
             fontWeight: 700,
             fontSize: 32,
@@ -97,8 +107,8 @@ export default function WorkerConfirm() {
             lineHeight: 1.05,
             marginBottom: 12,
           }}>
-            Your Shift Is Booked At Padmore&apos;s Coffee.
-          </h1>
+            Padmore&apos;s Coffee.
+          </div>
 
           <div style={{
             fontFamily: 'var(--sans)',
@@ -118,30 +128,30 @@ export default function WorkerConfirm() {
           <div className="receipt-card" style={{ padding: 20, marginBottom: 12 }}>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 0 }}>
               <div style={{ paddingBottom: 16, paddingRight: 16 }}>
-                <p style={{ fontFamily: 'var(--body)', fontSize: 9.5, fontWeight: 600, letterSpacing: '0.10em', textTransform: 'uppercase', color: 'var(--mute)', marginBottom: 4 }}>When</p>
+                <p style={{ fontFamily: 'var(--body)', fontSize: 9.5, fontWeight: 600, letterSpacing: '0.10em', textTransform: 'uppercase', color: 'var(--ink)', marginBottom: 4 }}>When</p>
                 <p style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 15, color: 'var(--ink)', letterSpacing: '-0.01em' }}>Today · 11A – 4P</p>
               </div>
-              <div style={{ paddingBottom: 16, paddingLeft: 16, borderLeft: '1px dashed var(--paper-3)' }}>
-                <p style={{ fontFamily: 'var(--body)', fontSize: 9.5, fontWeight: 600, letterSpacing: '0.10em', textTransform: 'uppercase', color: 'var(--mute)', marginBottom: 4 }}>Hours</p>
+              <div style={{ paddingBottom: 16, paddingLeft: 16, borderLeft: '1px dashed var(--ink)' }}>
+                <p style={{ fontFamily: 'var(--body)', fontSize: 9.5, fontWeight: 600, letterSpacing: '0.10em', textTransform: 'uppercase', color: 'var(--ink)', marginBottom: 4 }}>Hours</p>
                 <p style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 15, color: 'var(--ink)', letterSpacing: '-0.01em' }}>5 hrs</p>
               </div>
             </div>
 
-            <div style={{ borderBottom: '2px dashed var(--paper-3)', margin: '0 0 16px' }} />
+            <div style={{ borderBottom: '2px dashed var(--ink)', margin: '0 0 16px' }} />
 
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 0 }}>
               <div style={{ paddingRight: 16 }}>
-                <p style={{ fontFamily: 'var(--body)', fontSize: 9.5, fontWeight: 600, letterSpacing: '0.10em', textTransform: 'uppercase', color: 'var(--mute)', marginBottom: 4 }}>Get there</p>
+                <p style={{ fontFamily: 'var(--body)', fontSize: 9.5, fontWeight: 600, letterSpacing: '0.10em', textTransform: 'uppercase', color: 'var(--ink)', marginBottom: 4 }}>Get there</p>
                 <p style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 14, color: 'var(--ink)', letterSpacing: '-0.01em' }}>25 min away</p>
               </div>
-              <div style={{ paddingLeft: 16, borderLeft: '1px dashed var(--paper-3)' }}>
-                <p style={{ fontFamily: 'var(--body)', fontSize: 9.5, fontWeight: 600, letterSpacing: '0.10em', textTransform: 'uppercase', color: 'var(--mute)', marginBottom: 4 }}>Address</p>
+              <div style={{ paddingLeft: 16, borderLeft: '1px dashed var(--ink)' }}>
+                <p style={{ fontFamily: 'var(--body)', fontSize: 9.5, fontWeight: 600, letterSpacing: '0.10em', textTransform: 'uppercase', color: 'var(--ink)', marginBottom: 4 }}>Address</p>
                 <p style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 14, color: 'var(--ink)', letterSpacing: '-0.01em' }}>172 Tompkins Ave</p>
               </div>
             </div>
 
-            <div style={{ borderTop: '2px dashed var(--paper-3)', marginTop: 16, paddingTop: 14, display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
-              <span style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 600, letterSpacing: '0.10em', textTransform: 'uppercase', color: 'var(--mute)' }}>Take home</span>
+            <div style={{ borderTop: '2px dashed var(--ink)', marginTop: 16, paddingTop: 14, display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
+              <span style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 600, letterSpacing: '0.10em', textTransform: 'uppercase', color: 'var(--ink)' }}>Take home</span>
               <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 22, color: 'var(--ink)', letterSpacing: '-0.02em' }}>
                 $140<span style={{ color: 'var(--green)' }}>.</span>
               </span>
@@ -149,16 +159,16 @@ export default function WorkerConfirm() {
           </div>
 
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginTop: 12 }}>
-            <p style={{ fontFamily: 'var(--body)', fontSize: 13, color: 'var(--mute)', lineHeight: 1.5 }}>
+            <p style={{ fontFamily: 'var(--body)', fontSize: 13, color: 'var(--ink)', lineHeight: 1.5 }}>
               You can back out within 15 min. No penalty.
             </p>
-            <Link href="/v3/cancel-flow" style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--mute)', textDecoration: 'underline', flexShrink: 0, marginLeft: 12 }}>
+            <Link href="/v3/cancel-flow" style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--ink)', textDecoration: 'underline', flexShrink: 0, marginLeft: 12 }}>
               Cancel
             </Link>
           </div>
 
           <div style={{ marginTop: 20 }}>
-            <p style={{ fontFamily: 'var(--body)', fontSize: 10.5, fontWeight: 600, letterSpacing: '0.10em', textTransform: 'uppercase', color: 'var(--mute)', marginBottom: 12 }}>What&apos;s next</p>
+            <p style={{ fontFamily: 'var(--body)', fontSize: 10.5, fontWeight: 600, letterSpacing: '0.10em', textTransform: 'uppercase', color: 'var(--ink)', marginBottom: 12 }}>What&apos;s next</p>
             {[
               "01. Head out by 10:35A to arrive on time.",
               "02. Tomás will have your name at the door.",

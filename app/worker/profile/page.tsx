@@ -197,7 +197,7 @@ export default function WorkerProfile() {
                           <div style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 24, color: 'var(--ink)', letterSpacing: '-0.03em', lineHeight: 1.1 }}>
                             {shift.shortName}
                           </div>
-                          <div style={{ fontFamily: 'var(--body)', fontSize: 9, fontWeight: 600, color: 'rgba(13,14,18,0.5)', letterSpacing: '0.06em', textTransform: 'uppercase', marginTop: 5 }}>
+                          <div style={{ fontFamily: 'var(--body)', fontSize: 9, fontWeight: 600, color: 'var(--ink)', letterSpacing: '0.06em', textTransform: 'uppercase', marginTop: 5 }}>
                             {shift.date} · {shift.neighborhood}
                           </div>
                         </div>
@@ -214,7 +214,7 @@ export default function WorkerProfile() {
                           <div style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 28, color: 'var(--ink)', letterSpacing: '-0.05em', lineHeight: 1 }}>
                             {shift.pay}
                           </div>
-                          <div style={{ fontFamily: 'var(--body)', fontSize: 9, fontWeight: 600, color: 'rgba(13,14,18,0.5)', textTransform: 'uppercase', marginTop: 4 }}>
+                          <div style={{ fontFamily: 'var(--body)', fontSize: 9, fontWeight: 600, color: 'var(--ink)', textTransform: 'uppercase', marginTop: 4 }}>
                             {shift.rate}
                           </div>
                         </div>
@@ -225,7 +225,7 @@ export default function WorkerProfile() {
                         <div style={{ padding: '0 20px 20px' }}>
                           <div style={{ height: 1, background: 'rgba(13,14,18,0.1)', marginBottom: 14 }} />
                           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 16 }}>
-                            <span style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--mute)' }}>Your rating</span>
+                            <span style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--ink)' }}>Your rating</span>
                             <span style={{ color: 'var(--ink)', fontSize: 16 }}>{'★'.repeat(shift.rating)}{'☆'.repeat(5 - shift.rating)}</span>
                           </div>
                           <Link
@@ -291,7 +291,7 @@ export default function WorkerProfile() {
         </div>
 
         {/* Sub-info */}
-        <div style={{ fontFamily: 'var(--body)', fontSize: 13, color: 'var(--mute)', marginBottom: 14 }}>
+        <div style={{ fontFamily: 'var(--body)', fontSize: 13, color: 'var(--ink)', marginBottom: 14 }}>
           29 · He/Him · Bed-Stuy, Brooklyn
         </div>
 
@@ -329,7 +329,7 @@ export default function WorkerProfile() {
                 justifyContent: 'center',
               }} />
               <span style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--ink)', lineHeight: 1.4 }}>{item.label}</span>
-              <span style={{ marginLeft: 'auto', color: 'var(--mute)', fontSize: 14, flexShrink: 0 }}>→</span>
+              <span style={{ marginLeft: 'auto', color: 'var(--ink)', fontSize: 14, flexShrink: 0 }}>→</span>
             </Link>
           ))}
         </div>
@@ -341,11 +341,11 @@ export default function WorkerProfile() {
           {SKILLS.map(s => (
             <span key={s.label} style={{ display: 'inline-flex', alignItems: 'center', gap: 6, fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 14, color: 'var(--ink)', border: '2px solid var(--ink)', borderRadius: 99, padding: '6px 14px', background: 'var(--paper)' }}>
               {s.label}
-              <span style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)', fontWeight: 400 }}>{s.count}×</span>
+              <span style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--ink)', fontWeight: 400 }}>{s.count}×</span>
             </span>
           ))}
           {editing && (
-            <span style={{ display: 'inline-flex', alignItems: 'center', fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 14, color: 'var(--mute)', border: '2px dashed var(--line-2)', borderRadius: 99, padding: '6px 14px', cursor: 'pointer' }}>+ Add</span>
+            <span style={{ display: 'inline-flex', alignItems: 'center', fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 14, color: 'var(--ink)', border: '2px dashed var(--line-2)', borderRadius: 99, padding: '6px 14px', cursor: 'pointer' }}>+ Add</span>
           )}
         </div>
       </div>
@@ -373,7 +373,7 @@ export default function WorkerProfile() {
         ].map((stat, i) => (
           <div key={i} style={{ padding: '16px 0', textAlign: 'center', borderRight: i < 3 ? '1px solid var(--line)' : 'none' }}>
             <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 17, color: 'var(--ink)', letterSpacing: '-0.02em' }}>{stat.value}</div>
-            <div style={{ fontFamily: 'var(--body)', fontSize: 9, fontWeight: 600, color: 'var(--mute)', textTransform: 'uppercase', letterSpacing: '0.08em', marginTop: 3 }}>{stat.label}</div>
+            <div style={{ fontFamily: 'var(--body)', fontSize: 9, fontWeight: 600, color: 'var(--ink)', textTransform: 'uppercase', letterSpacing: '0.08em', marginTop: 3 }}>{stat.label}</div>
           </div>
         ))}
       </div>
@@ -381,8 +381,8 @@ export default function WorkerProfile() {
       {/* Reviews */}
       <div style={{ padding: '18px 20px 0' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 14 }}>
-          <div style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--mute)' }}>Reviews from employers</div>
-          <span style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)', fontWeight: 600 }}>4.9 avg</span>
+          <div style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--ink)' }}>Reviews from employers</div>
+          <span style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--ink)', fontWeight: 600 }}>4.9 avg</span>
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
           {REVIEWS.map((review, i) => (
@@ -393,22 +393,22 @@ export default function WorkerProfile() {
                 </div>
                 <div style={{ flex: 1 }}>
                   <div style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 14, color: 'var(--ink)' }}>{review.business}</div>
-                  <div style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)' }}>{review.date}</div>
+                  <div style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--ink)' }}>{review.date}</div>
                 </div>
                 <div style={{ color: 'var(--ink)', fontSize: 13, fontWeight: 700 }}>{'★'.repeat(review.rating)}</div>
               </div>
-              <p style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--mute)', lineHeight: 1.6, margin: 0 }}>&ldquo;{review.text}&rdquo;</p>
+              <p style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--ink)', lineHeight: 1.6, margin: 0 }}>&ldquo;{review.text}&rdquo;</p>
             </div>
           ))}
         </div>
 
         <Link href="/worker/settings" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '16px 0', marginTop: 16, borderTop: '1px solid var(--line)', textDecoration: 'none' }}>
           <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 15, color: 'var(--ink)' }}>Settings & account</span>
-          <span style={{ color: 'var(--mute)', fontSize: 18 }}>→</span>
+          <span style={{ color: 'var(--ink)', fontSize: 18 }}>→</span>
         </Link>
         <Link href="/worker/report" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '16px 0', borderTop: '1px solid var(--line)', textDecoration: 'none' }}>
           <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 15, color: 'var(--ink)' }}>File a report</span>
-          <span style={{ color: 'var(--mute)', fontSize: 18 }}>→</span>
+          <span style={{ color: 'var(--ink)', fontSize: 18 }}>→</span>
         </Link>
       </div>
 

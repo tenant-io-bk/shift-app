@@ -72,7 +72,7 @@ export default function CardInput() {
           @keyframes pop { 0%{transform:scale(0.6);opacity:0} 70%{transform:scale(1.12)} 100%{transform:scale(1);opacity:1} }
           .pop { animation: pop 0.45s cubic-bezier(0.34,1.4,0.64,1) forwards; }
         `}</style>
-        <div className="pop" style={{ width: 72, height: 72, borderRadius: '50%', background: 'var(--hydrant)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 24 }}>
+        <div className="pop" style={{ width: 72, height: 72, borderRadius: '50%', background: 'var(--green)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 24 }}>
           <svg width="32" height="24" viewBox="0 0 32 24" fill="none">
             <path d="M2 12L11 21L30 2" stroke="white" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
@@ -102,7 +102,7 @@ export default function CardInput() {
       </div>
 
       <div style={{ padding: '24px 22px 40px', display: 'flex', flexDirection: 'column', gap: 0 }}>
-        <div style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--hydrant)', marginBottom: 10 }}>Debit Card</div>
+        <div style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--ink)', marginBottom: 10 }}>Debit Card</div>
         <h1 style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 34, color: 'var(--ink)', letterSpacing: '-0.07em', lineHeight: 1, marginBottom: 28 }}>Where do we send your pay?</h1>
 
         {/* Live card preview */}

@@ -15,57 +15,48 @@ export default function PaidOut() {
         flexDirection: 'column',
       }}
     >
-      {/* Stamp header */}
-      <div style={{ background: 'var(--ink)', padding: '0 22px 28px', flexShrink: 0 }}>
-        <StatusBar dark time="4:11 PM" />
+      {/* Light header */}
+      <div style={{ background: 'var(--paper)', padding: '0 22px 24px', flexShrink: 0 }}>
+        <StatusBar time="4:11 PM" />
 
-        <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 14, marginTop: 8 }}>
-          <div style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--hydrant)' }} />
-          <span style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, color: 'rgba(255,255,255,0.4)', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
-            In 11 min · Barista · Padmore&apos;s
+        <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 10, marginTop: 8 }}>
+          <div style={{ width: 6, height: 6, borderRadius: '50%', background: '#16A34A' }} />
+          <span style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, color: 'var(--ink)', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
+            Barista · Padmore&apos;s · Today
           </span>
         </div>
 
-        <h1 style={{
+        <div style={{
           fontFamily: 'var(--sans)',
-          fontWeight: 600,
-          fontSize: 52,
-          color: 'white',
-          letterSpacing: '-0.075em',
-          lineHeight: 0.9,
-          marginBottom: 16,
+          fontWeight: 300,
+          fontSize: 32,
+          color: 'var(--ink)',
+          letterSpacing: '-0.05em',
+          lineHeight: 1.05,
         }}>
-          PAID OUT<span style={{ color: 'var(--hydrant)' }}>.</span>
-        </h1>
-
+          Your Pay Out
+        </div>
         <div style={{
           fontFamily: 'var(--sans)',
           fontWeight: 700,
-          fontSize: 36,
-          color: 'white',
-          letterSpacing: '-0.055em',
-          lineHeight: 1,
+          fontSize: 32,
+          color: 'var(--ink)',
+          letterSpacing: '-0.05em',
+          lineHeight: 1.05,
+          marginBottom: 16,
         }}>
-          $174<span style={{ color: 'var(--hydrant)' }}>.</span><span style={{ fontSize: 24, fontWeight: 600, opacity: 0.6 }}>00</span>
+          Padmore&apos;s Coffee.
+        </div>
+
+        <div style={{ display: 'flex', alignItems: 'baseline' }}>
+          <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 64, color: 'var(--green)', letterSpacing: '-0.075em', lineHeight: 1 }}>$174</span>
+          <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 64, color: 'var(--green)', letterSpacing: '-0.075em', lineHeight: 1 }}>.</span>
+          <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 36, color: 'var(--green)', letterSpacing: '-0.05em', marginLeft: 2, lineHeight: 1 }}>00</span>
         </div>
       </div>
 
       {/* Scrollable content */}
       <div style={{ flex: 1, overflowY: 'auto', paddingBottom: 120 }}>
-
-        {/* Stub for old banner removal */}
-        <div style={{ display: 'none' }}>
-          <span
-            style={{
-              fontFamily: 'var(--body)',
-              fontSize: 12,
-              color: 'var(--mute)',
-              flexShrink: 0,
-            }}
-          >
-            Today 4:11P
-          </span>
-        </div>
 
         {/* Paystub card */}
         <div
@@ -95,7 +86,7 @@ export default function PaidOut() {
             style={{
               fontFamily: 'var(--body)',
               fontSize: 13,
-              color: 'var(--mute)',
+              color: 'var(--ink)',
               marginBottom: 16,
             }}
           >
@@ -134,7 +125,7 @@ export default function PaidOut() {
                     fontWeight: 600,
                     letterSpacing: '0.08em',
                     textTransform: 'uppercase',
-                    color: 'var(--mute)',
+                    color: 'var(--ink)',
                   }}
                 >
                   {row.label}
@@ -144,7 +135,7 @@ export default function PaidOut() {
                     style={{
                       fontFamily: 'var(--body)',
                       fontSize: 11,
-                      color: 'var(--mute)',
+                      color: 'var(--ink)',
                       marginLeft: 8,
                     }}
                   >
@@ -184,7 +175,7 @@ export default function PaidOut() {
                 fontWeight: 600,
                 letterSpacing: '0.10em',
                 textTransform: 'uppercase',
-                color: 'var(--mute)',
+                color: 'var(--ink)',
               }}
             >
               Total
@@ -215,7 +206,7 @@ export default function PaidOut() {
               style={{
                 fontFamily: 'var(--body)',
                 fontSize: 11,
-                color: 'var(--mute)',
+                color: 'var(--ink)',
                 letterSpacing: '0.04em',
               }}
             >
@@ -229,7 +220,7 @@ export default function PaidOut() {
           style={{
             fontFamily: 'var(--body)',
             fontSize: 10,
-            color: 'var(--mute)',
+            color: 'var(--ink)',
             textAlign: 'center',
             margin: '14px 0',
             letterSpacing: '0.06em',
@@ -267,7 +258,7 @@ export default function PaidOut() {
                   cursor: 'pointer',
                   padding: 0,
                   fontSize: 24,
-                  color: 'var(--yellow)',
+                  color: 'var(--ink)',
                   lineHeight: 1,
                 }}
               >
@@ -346,7 +337,7 @@ export default function PaidOut() {
           style={{
             fontFamily: 'var(--body)',
             fontSize: 12,
-            color: 'var(--mute)',
+            color: 'var(--ink)',
             textAlign: 'center',
             marginTop: 8,
           }}

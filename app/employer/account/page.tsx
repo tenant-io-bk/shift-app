@@ -27,23 +27,23 @@ export default function EmployerAccount() {
       </div>
 
       {/* Greeting + edit profile */}
-      <div style={{ padding: '20px 16px 8px', display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between' }}>
-        <div>
-          <div style={{ fontFamily: 'var(--sans)', fontWeight: 200, fontSize: 32, color: 'var(--ink)', letterSpacing: '-0.06em', lineHeight: 0.9 }}>Good morning</div>
-          <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 32, color: 'var(--ink)', letterSpacing: '-0.06em', lineHeight: 1 }}>Padmore&apos;s Coffee</div>
-          <div style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--mute)', marginTop: 4 }}>Café · Bed-Stuy, Brooklyn</div>
+      <div style={{ padding: '20px 16px 8px' }}>
+        <div style={{ fontFamily: 'var(--sans)', fontWeight: 200, fontSize: 38, color: 'var(--ink)', letterSpacing: '-0.075em', lineHeight: 0.88 }}>Good morning</div>
+        <div style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 38, color: 'var(--ink)', letterSpacing: '-0.075em', lineHeight: 0.95 }}>Padmore&apos;s Coffee</div>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginTop: 6 }}>
+          <div style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--ink)' }}>Café · Bed-Stuy, Brooklyn</div>
+          <Link
+            href="/employer/business-profile"
+            style={{
+              display: 'flex', alignItems: 'center', gap: 5,
+              background: 'var(--ink)', borderRadius: 99, padding: '8px 14px',
+              fontFamily: 'var(--body)', fontSize: 12, fontWeight: 600,
+              color: '#fff', textDecoration: 'none', flexShrink: 0,
+            }}
+          >
+            Edit profile →
+          </Link>
         </div>
-        <Link
-          href="/employer/business-profile"
-          style={{
-            display: 'flex', alignItems: 'center', gap: 5,
-            background: 'var(--ink)', borderRadius: 99, padding: '8px 14px',
-            fontFamily: 'var(--body)', fontSize: 12, fontWeight: 600,
-            color: '#fff', textDecoration: 'none', flexShrink: 0,
-          }}
-        >
-          Edit profile →
-        </Link>
       </div>
 
       <div style={{ padding: '16px 16px 0', display: 'flex', flexDirection: 'column', gap: 12 }}>
@@ -77,11 +77,9 @@ export default function EmployerAccount() {
           <RowLink label="Privacy policy" href="#" />
         </Section>
 
-        <div style={{ background: 'var(--paper)', borderRadius: 14, overflow: 'hidden', border: '2px solid var(--ink)' }}>
-          <Link href="/worker/role" style={{ display: 'block', padding: '16px 18px', fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 16, color: 'var(--ink)', textDecoration: 'none', textAlign: 'center' }}>
-            Sign out
-          </Link>
-        </div>
+        <Link href="/worker/role" style={{ display: 'block', padding: '16px 18px', fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 16, color: 'var(--ink)', textDecoration: 'none', textAlign: 'center', border: '2px solid var(--ink)', borderRadius: 99 }}>
+          Sign out
+        </Link>
 
         <p style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)', textAlign: 'center', marginTop: 4 }}>SHIFT · v1.0 · NYC Hyperlocal Labor</p>
       </div>
