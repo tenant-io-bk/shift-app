@@ -105,12 +105,7 @@ export default function WorkerWallet() {
             <p style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em', color: '#fff' }}>
               Available balance
             </p>
-            {/* Contactless icon */}
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" opacity="0.4">
-              <path d="M10 3C6.13 3 3 6.13 3 10s3.13 7 7 7 7-3.13 7-7" stroke="#fff" strokeWidth="1.5" strokeLinecap="round"/>
-              <path d="M10 6c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4" stroke="#fff" strokeWidth="1.5" strokeLinecap="round"/>
-              <circle cx="10" cy="10" r="1.5" fill="#fff"/>
-            </svg>
+            <span style={{ fontFamily: 'var(--body)', fontSize: 9, fontWeight: 600, color: 'rgba(255,255,255,0.3)', letterSpacing: '0.1em', textTransform: 'uppercase', marginTop: 1 }}>SHIFT Wallet</span>
           </div>
 
           <div style={{ display: 'flex', alignItems: 'baseline', marginBottom: 28 }}>
@@ -123,18 +118,17 @@ export default function WorkerWallet() {
 
           <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between' }}>
             <div>
-              <div style={{ fontFamily: 'var(--body)', fontSize: 9, fontWeight: 700, color: 'rgba(255,255,255,0.45)', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: 3 }}>SHIFT Card</div>
-              <div style={{ fontFamily: 'var(--body)', fontSize: 13, color: '#fff', letterSpacing: '0.14em' }}>·· ·· ·· 4829</div>
+              <div style={{ fontFamily: 'var(--body)', fontSize: 9, fontWeight: 700, color: 'rgba(255,255,255,0.45)', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: 3 }}>Linked account</div>
+              <div style={{ fontFamily: 'var(--body)', fontSize: 13, color: '#fff', letterSpacing: '0.06em' }}>CHASE ·· 4471</div>
             </div>
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: 3 }}>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: 4 }}>
               <button style={{
                 background: 'rgba(255,255,255,0.12)', border: '1px solid rgba(255,255,255,0.2)',
                 color: '#fff', fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600,
                 borderRadius: 99, padding: '6px 12px', cursor: 'pointer',
               }}>
-                Transfer to bank →
+                Change →
               </button>
-              <span style={{ fontFamily: 'var(--body)', fontSize: 10, color: 'rgba(255,255,255,0.4)', letterSpacing: '0.04em' }}>CHASE ·· 4471</span>
             </div>
           </div>
         </div>
@@ -198,7 +192,7 @@ export default function WorkerWallet() {
             fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 15,
             color: 'rgba(255,255,255,0.45)', letterSpacing: '-0.01em', pointerEvents: 'none',
           }}>
-            Slide to transfer to bank →
+            Slide to cash out →
           </div>
           <div style={{
             position: 'absolute', top: 4, left: 4 + slideX,
@@ -213,7 +207,7 @@ export default function WorkerWallet() {
           </div>
         </div>
         <p style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)', textAlign: 'center', marginTop: 8 }}>
-          $0 fee · to CHASE ·· 4471 · arrives in ~11 min
+          $0 fee · to CHASE ·· 4471 · ~11 min via Stripe
         </p>
       </div>
 
