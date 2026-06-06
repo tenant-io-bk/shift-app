@@ -100,9 +100,18 @@ export default function WorkerWallet() {
           <div style={{ position: 'absolute', top: 0, right: -20, width: 120, height: '100%', background: 'rgba(255,255,255,0.03)', transform: 'skewX(-12deg)' }} />
           <div style={{ position: 'absolute', top: 0, right: 40, width: 60, height: '100%', background: 'rgba(255,255,255,0.02)', transform: 'skewX(-12deg)' }} />
 
-          <p style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em', color: '#fff', marginBottom: 8 }}>
-            Available balance
-          </p>
+          {/* Card top row */}
+          <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', marginBottom: 8 }}>
+            <p style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em', color: '#fff' }}>
+              Available balance
+            </p>
+            {/* Contactless icon */}
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" opacity="0.4">
+              <path d="M10 3C6.13 3 3 6.13 3 10s3.13 7 7 7 7-3.13 7-7" stroke="#fff" strokeWidth="1.5" strokeLinecap="round"/>
+              <path d="M10 6c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4" stroke="#fff" strokeWidth="1.5" strokeLinecap="round"/>
+              <circle cx="10" cy="10" r="1.5" fill="#fff"/>
+            </svg>
+          </div>
 
           <div style={{ display: 'flex', alignItems: 'baseline', marginBottom: 28 }}>
             <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 56, color: '#fff', letterSpacing: '-0.075em', lineHeight: 1 }}>
@@ -112,15 +121,21 @@ export default function WorkerWallet() {
             <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 32, color: '#fff', letterSpacing: '-0.05em', marginLeft: 3 }}>50</span>
           </div>
 
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-            <span style={{ fontFamily: 'var(--body)', fontSize: 12, color: '#fff', letterSpacing: '0.08em' }}>CHASE ·· 4471</span>
-            <button style={{
-              background: 'rgba(255,255,255,0.12)', border: '1px solid rgba(255,255,255,0.2)',
-              color: '#fff', fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600,
-              borderRadius: 99, padding: '7px 14px', cursor: 'pointer',
-            }}>
-              Add bank
-            </button>
+          <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between' }}>
+            <div>
+              <div style={{ fontFamily: 'var(--body)', fontSize: 9, fontWeight: 700, color: 'rgba(255,255,255,0.45)', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: 3 }}>SHIFT Card</div>
+              <div style={{ fontFamily: 'var(--body)', fontSize: 13, color: '#fff', letterSpacing: '0.14em' }}>·· ·· ·· 4829</div>
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: 3 }}>
+              <button style={{
+                background: 'rgba(255,255,255,0.12)', border: '1px solid rgba(255,255,255,0.2)',
+                color: '#fff', fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600,
+                borderRadius: 99, padding: '6px 12px', cursor: 'pointer',
+              }}>
+                Transfer to bank →
+              </button>
+              <span style={{ fontFamily: 'var(--body)', fontSize: 10, color: 'rgba(255,255,255,0.4)', letterSpacing: '0.04em' }}>CHASE ·· 4471</span>
+            </div>
           </div>
         </div>
       </div>
@@ -183,7 +198,7 @@ export default function WorkerWallet() {
             fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 15,
             color: 'rgba(255,255,255,0.45)', letterSpacing: '-0.01em', pointerEvents: 'none',
           }}>
-            Slide to cash out →
+            Slide to transfer to bank →
           </div>
           <div style={{
             position: 'absolute', top: 4, left: 4 + slideX,
@@ -198,7 +213,7 @@ export default function WorkerWallet() {
           </div>
         </div>
         <p style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)', textAlign: 'center', marginTop: 8 }}>
-          $0 fee · direct to debit · 11 min avg
+          $0 fee · to CHASE ·· 4471 · arrives in ~11 min
         </p>
       </div>
 
