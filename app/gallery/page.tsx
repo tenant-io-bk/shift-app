@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import ShiftCard, { CompactCard } from '@/app/components/ShiftCard';
+import FlowMap from './FlowMap';
 
 const SCREENS = [
   {
@@ -503,7 +504,7 @@ function ColorGuide() {
 /* ── Main Gallery ──────────────────────────────────────────────────────────── */
 
 export default function Gallery() {
-  const [tab, setTab]              = useState<'screens' | 'colors'>('screens');
+  const [tab, setTab]              = useState<'screens' | 'colors' | 'flow'>('screens');
   const [focused, setFocused]      = useState<string | null>(null);
   const [search, setSearch]        = useState('');
   const [comments, setComments]    = useState<Record<string, string>>({});
@@ -593,7 +594,7 @@ export default function Gallery() {
 
         {/* Tab toggle */}
         <div style={{ display: 'flex', background: 'rgba(13,14,18,0.07)', borderRadius: 99, padding: 3, gap: 2 }}>
-          {(['screens', 'colors'] as const).map(t => (
+          {(['screens', 'colors', 'flow'] as const).map(t => (
             <button
               key={t}
               onClick={() => setTab(t)}
@@ -611,7 +612,7 @@ export default function Gallery() {
           ))}
         </div>
 
-        {tab === 'screens' && (
+        {tab === 'screens' && tab !== 'flow' && (
           <>
             {!lockMode && (
               <input
@@ -681,6 +682,9 @@ export default function Gallery() {
           </>
         )}
       </div>
+
+      {/* Flow tab */}
+      {tab === 'flow' && <FlowMap />}
 
       {/* Colors tab */}
       {tab === 'colors' && <ColorGuide />}
