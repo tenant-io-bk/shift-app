@@ -354,7 +354,7 @@ function ReviewStep({
           fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 18,
           border: 'none', cursor: 'pointer', letterSpacing: '-0.01em',
         }}>
-          Post it →
+          Post It →
         </button>
         <p style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)', textAlign: 'center', marginTop: 10 }}>
           Workers in your area will be notified immediately.
@@ -433,7 +433,7 @@ export default function BusinessPost() {
     }
   }, [step]);
 
-  const navTitle = step === 'input' ? 'New posting' : step === 'drafting' ? 'Drafting...' : step === 'review' ? 'Review draft' : 'Posted';
+  const navTitle = step === 'input' ? 'New Posting' : step === 'drafting' ? 'Drafting...' : step === 'review' ? 'Review Draft' : 'Posted';
 
   return (
     <div style={{ maxWidth: 390, minHeight: '100vh', margin: '0 auto', background: 'var(--paper)', display: 'flex', flexDirection: 'column' }}>
