@@ -182,9 +182,22 @@ export default function DayOf() {
               {isNear ? "You're here — clock in." : 'Unlocks when you arrive'}
             </div>
           </div>
-          <p style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--mute)', textAlign: 'center', marginTop: 8 }}>
+          <p style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--ink)', textAlign: 'center', marginTop: 8 }}>
             {isNear ? 'Geofence confirmed · 0 ft from venue' : 'Within 500 ft of venue'}
           </p>
+        </div>
+
+        {/* Backup clock-in PIN — directly below clock-in button */}
+        <div style={{ margin: '4px 22px 16px', padding: '14px 18px', background: 'var(--green-soft)', borderRadius: 16 }}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+            <div>
+              <div style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--ink)', marginBottom: 6 }}>Clock-in PIN</div>
+              <div style={{ fontFamily: 'var(--sans)', fontWeight: 400, fontSize: 36, color: 'var(--ink)', letterSpacing: '0.18em', lineHeight: 1 }}>4821</div>
+            </div>
+            <p style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--ink)', maxWidth: 130, textAlign: 'right', lineHeight: 1.5, margin: 0 }}>
+              Phone dead? Give this to Tomás to clock you in
+            </p>
+          </div>
         </div>
 
         {/* Checklist */}
@@ -208,19 +221,6 @@ export default function DayOf() {
               {item.optional && <span style={{ fontFamily: 'var(--body)', fontSize: 9, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--mute-2)', background: 'var(--paper-2)', padding: '2px 6px', borderRadius: 4 }}>optional</span>}
             </div>
           ))}
-        </div>
-
-        {/* Backup clock-in PIN */}
-        <div style={{ margin: '16px 22px 0', padding: '14px 18px', background: 'var(--paper-2)', borderRadius: 16, border: '1px solid var(--line)' }}>
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-            <div>
-              <div style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--mute)', marginBottom: 6 }}>Clock-in PIN</div>
-              <div style={{ fontFamily: 'var(--sans)', fontWeight: 400, fontSize: 36, color: 'var(--ink)', letterSpacing: '0.18em', lineHeight: 1 }}>4821</div>
-            </div>
-            <p style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)', maxWidth: 130, textAlign: 'right', lineHeight: 1.5, margin: 0 }}>
-              Phone dead? Give this to Tomás to clock you in
-            </p>
-          </div>
         </div>
 
         {/* Message from Tomás — tap to open bottom sheet */}
