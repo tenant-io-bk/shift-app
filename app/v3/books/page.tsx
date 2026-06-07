@@ -31,14 +31,14 @@ export default function Books() {
       </div>
 
       {/* Monthly total header */}
-      <div style={{ padding: '28px 22px 24px', background: 'var(--ink)' }}>
+      <div style={{ padding: '52px 22px 40px', background: 'var(--ink)' }}>
         <p style={{
           fontFamily: 'var(--body)',
           fontSize: 10,
           fontWeight: 600,
           textTransform: 'uppercase',
           letterSpacing: '0.1em',
-          color: 'rgba(255,255,255,0.5)',
+          color: '#fff',
           marginBottom: 4,
         }}>MAY 2026</p>
 
@@ -47,7 +47,7 @@ export default function Books() {
           fontWeight: 600,
           fontSize: 48,
           color: '#fff',
-          letterSpacing: '-0.075em',
+          letterSpacing: '-0.04em',
           lineHeight: 1,
           marginBottom: 6,
         }}>$2,847.00</div>
@@ -55,7 +55,7 @@ export default function Books() {
         <p style={{
           fontFamily: 'var(--body)',
           fontSize: 13,
-          color: 'rgba(255,255,255,0.7)',
+          color: '#fff',
           marginBottom: 0,
         }}>Across 18 Shifts</p>
       </div>

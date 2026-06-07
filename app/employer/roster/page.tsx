@@ -22,19 +22,14 @@ export default function Page() {
             borderBottom: '1px solid var(--line)',
           }}
         >
-          <h1
-            style={{
-              fontFamily: 'var(--sans)',
-              fontWeight: 600,
-              fontSize: 52,
-              color: 'var(--ink)',
-              letterSpacing: '-0.075em',
-              lineHeight: 0.9,
-              marginBottom: 12,
-            }}
-          >
-            SHIFT FILLED<span style={{ color: 'var(--green)' }}>.</span>
-          </h1>
+          <div style={{ marginBottom: 12 }}>
+            <div style={{ fontFamily: 'var(--sans)', fontWeight: 300, fontSize: 30, color: 'var(--ink)', letterSpacing: '-0.04em', lineHeight: 1.1 }}>
+              Your Shift has been filled by
+            </div>
+            <div style={{ fontFamily: 'var(--sans)', fontWeight: 800, fontSize: 36, color: 'var(--ink)', letterSpacing: '-0.05em', lineHeight: 1.05 }}>
+              Marco Reyes<span style={{ color: 'var(--green)' }}>.</span>
+            </div>
+          </div>
 
           {/* Filled time */}
           <div
@@ -71,7 +66,7 @@ export default function Page() {
             style={{
               fontFamily: 'var(--body)',
               fontSize: 12,
-              color: 'var(--mute)',
+              color: 'var(--ink)',
             }}
           >
             Barista · Today 11A–4P · Padmore&apos;s Coffee
@@ -112,7 +107,7 @@ export default function Page() {
                 fontFamily: 'var(--body)',
                 fontSize: 11,
                 fontWeight: 600,
-                color: 'var(--mute)',
+                color: 'var(--ink)',
               }}
             >
               2 of 2
@@ -186,13 +181,13 @@ export default function Page() {
                     style={{
                       fontFamily: 'var(--body)',
                       fontSize: 12,
-                      color: 'var(--mute)',
+                      color: 'var(--ink)',
                       marginTop: 1,
                     }}
                   >
                     {worker.meta}
                   </div>
-                  <div style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)', marginTop: 3, fontWeight: 600 }}>
+                  <div style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--ink)', marginTop: 3, fontWeight: 600 }}>
                     {worker.reliable}% reliable
                   </div>
                 </div>
@@ -222,7 +217,7 @@ export default function Page() {
                 fontWeight: 600,
                 textTransform: 'uppercase',
                 letterSpacing: '0.12em',
-                color: 'var(--mute)',
+                color: 'var(--ink)',
               }}>
                 Standby
               </span>
@@ -247,7 +242,6 @@ export default function Page() {
                   alignItems: 'center',
                   justifyContent: 'center',
                   flexShrink: 0,
-                  opacity: 0.7,
                 }}
               >
                 <span
@@ -276,7 +270,7 @@ export default function Page() {
                   style={{
                     fontFamily: 'var(--body)',
                     fontSize: 12,
-                    color: 'var(--mute)',
+                    color: 'var(--ink)',
                     marginTop: 1,
                   }}
                 >
@@ -287,7 +281,7 @@ export default function Page() {
               <div
                 style={{
                   background: 'var(--paper-2)',
-                  color: 'var(--mute)',
+                  color: 'var(--ink)',
                   borderRadius: 99,
                   padding: '3px 8px',
                   fontFamily: 'var(--body)',
@@ -325,7 +319,7 @@ export default function Page() {
                 href={href}
                 style={{
                   border: '2px solid var(--ink)',
-                  borderRadius: 14,
+                  borderRadius: 99,
                   padding: 12,
                   background: 'transparent',
                   fontFamily: 'var(--body)',
@@ -346,7 +340,7 @@ export default function Page() {
                 key={label}
                 style={{
                   border: '2px solid var(--ink)',
-                  borderRadius: 14,
+                  borderRadius: 99,
                   padding: 12,
                   background: 'transparent',
                   fontFamily: 'var(--body)',

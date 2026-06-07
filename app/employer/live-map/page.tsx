@@ -62,18 +62,18 @@ export default function Page() {
 
       {/* Bottom sheet */}
       <div style={{
-        position: 'absolute', bottom: 72, left: 0, right: 0, zIndex: 20,
+        position: 'absolute', bottom: 0, left: 0, right: 0, zIndex: 20,
         background: 'var(--paper)',
         borderRadius: '20px 20px 0 0',
         boxShadow: '0 -4px 32px rgba(13,14,18,0.18)',
-        paddingBottom: 8,
+        paddingBottom: 82,
       }}>
         <div style={{ width: 36, height: 4, borderRadius: 99, background: 'var(--line-2)', margin: '12px auto 0' }} />
 
         {/* Header */}
         <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', padding: '14px 22px 8px' }}>
-          <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 18, letterSpacing: '-0.02em', color: 'var(--ink)' }}>
-            18 Ready · Within 1 Mi
+          <span style={{ fontFamily: 'var(--sans)', fontWeight: 400, fontSize: 18, letterSpacing: '-0.02em', color: 'var(--ink)' }}>
+            18 Ready · Within 1 Mile
           </span>
           <span style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)' }}>
             Sort: Favorites first

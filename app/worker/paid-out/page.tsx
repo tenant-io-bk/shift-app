@@ -49,9 +49,9 @@ export default function PaidOut() {
         </div>
 
         <div style={{ display: 'flex', alignItems: 'baseline' }}>
-          <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 64, color: 'var(--green)', letterSpacing: '-0.075em', lineHeight: 1 }}>$174</span>
-          <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 64, color: 'var(--green)', letterSpacing: '-0.075em', lineHeight: 1 }}>.</span>
-          <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 36, color: 'var(--green)', letterSpacing: '-0.05em', marginLeft: 2, lineHeight: 1 }}>00</span>
+          <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 64, color: 'var(--green)', letterSpacing: '-0.04em', lineHeight: 1 }}>$174</span>
+          <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 64, color: 'var(--green)', letterSpacing: '-0.04em', lineHeight: 1 }}>.</span>
+          <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 36, color: 'var(--green)', letterSpacing: '-0.03em', marginLeft: 2, lineHeight: 1 }}>00</span>
         </div>
       </div>
 
@@ -93,10 +93,10 @@ export default function PaidOut() {
             Barista · Today 11A–4P
           </p>
 
-          {/* Dashed separator */}
+          {/* Separator */}
           <div
             style={{
-              borderTop: '1.5px dashed var(--line)',
+              borderTop: '1px solid var(--ink)',
               marginBottom: 0,
             }}
           />
@@ -114,7 +114,7 @@ export default function PaidOut() {
                 justifyContent: 'space-between',
                 alignItems: 'center',
                 padding: '10px 0',
-                borderBottom: '1px solid var(--line)',
+                borderBottom: '1px solid var(--ink)',
               }}
             >
               <div>
@@ -164,7 +164,7 @@ export default function PaidOut() {
               justifyContent: 'space-between',
               alignItems: 'baseline',
               paddingTop: 14,
-              borderTop: '1.5px dashed var(--line)',
+              borderTop: '1px solid var(--ink)',
               marginTop: 4,
             }}
           >

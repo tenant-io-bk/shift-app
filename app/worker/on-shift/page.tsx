@@ -176,8 +176,8 @@ export default function OnShift() {
       {/* Big timer */}
       <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 0 }}>
         <div style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--mute)', marginBottom: 8 }}>Time elapsed</div>
-        <div style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 76, color: 'var(--ink)', letterSpacing: '-0.05em', lineHeight: 1, textAlign: 'center' }}>
-          2:14<span style={{ fontSize: 40, color: 'var(--mute)' }}>:38</span>
+        <div style={{ fontFamily: '"SF Mono", "Courier New", monospace', fontWeight: 700, fontSize: 76, color: 'var(--ink)', letterSpacing: '0.02em', lineHeight: 1, textAlign: 'center', fontVariantNumeric: 'tabular-nums' } as React.CSSProperties}>
+          2:14<span style={{ fontSize: 42, color: 'var(--mute)', fontFamily: '"SF Mono", "Courier New", monospace', letterSpacing: '0.02em', fontVariantNumeric: 'tabular-nums' } as React.CSSProperties}>:38</span>
         </div>
         <p style={{ fontFamily: 'var(--body)', fontSize: 13, color: 'var(--mute)', marginTop: 8 }}>
           $28.00/hr · Barista

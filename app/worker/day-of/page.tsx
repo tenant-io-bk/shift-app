@@ -88,6 +88,7 @@ export default function DayOf() {
             venue="Padmore's Coffee"
             pay="$140"
             rate="$28/hr"
+            timeRight={true}
           />
         </div>
 

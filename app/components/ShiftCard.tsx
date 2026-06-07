@@ -15,6 +15,7 @@ export interface ShiftCardProps {
   state?: ShiftState;
   statusLabel?: string;
   rateNote?: string;
+  timeRight?: boolean;
   href?: string;
   onClick?: () => void;
 }
@@ -46,7 +47,7 @@ export function CompactCard({ icon, title, sub, cta, ghost }: CompactCardProps) 
 
 export default function ShiftCard({
   role, time, loc, venue, brief, pay, rate,
-  family, state, statusLabel, rateNote, href, onClick,
+  family, state, statusLabel, rateNote, timeRight, href, onClick,
 }: ShiftCardProps) {
   const classes = ['scard', family, state].filter(Boolean).join(' ');
   const briefs = brief ? (Array.isArray(brief) ? brief : [brief]) : [];
@@ -56,11 +57,14 @@ export default function ShiftCard({
     <>
       <div className="scard-pills">
         <span className="pill pill-role">{venue}</span>
-        <span className="pill pill-time">{time}</span>
+        {!timeRight && <span className="pill pill-time">{time}</span>}
         {statusLabel && <span className="pill pill-status">{statusLabel}</span>}
       </div>
       <div className="scard-loc">
-        <span className="pill pill-loc">{loc}</span>
+        {timeRight
+          ? <span className="pill pill-time">{time}</span>
+          : <span className="pill pill-loc">{loc}</span>
+        }
       </div>
       <div className="scard-body">
         <p className="scard-name">{role}</p>

@@ -108,9 +108,9 @@ html, body {
   background: #E8EAF0;
 }
 
-/* Receipt / paystub dashed */
+/* Receipt / paystub card */
 .receipt-card {
-  border: 1.5px dashed var(--paper-3);
+  border: 2px solid var(--ink);
   border-radius: 12px;
   background: var(--card);
   position: relative;
@@ -442,9 +442,9 @@ html, body {
 .scard.confirmed { background: var(--green); }
 .scard.confirmed .pill-role { background: var(--ink); color: var(--paper); }
 
-.scard.pending { background: var(--yellow); box-shadow: inset 0 0 0 1px var(--ink); }
+.scard.pending { background: transparent; border: 2px solid var(--ink); }
 .scard.pending .pill-role { background: var(--ink); color: var(--paper); }
-.scard.pending .pill-status { background: var(--ink); color: var(--paper); letter-spacing: 0.08em; }
+.scard.pending .pill-status { background: var(--yellow); border: 1.5px solid var(--ink); color: #fff; letter-spacing: 0.08em; }
 
 .scard.urgent { background: var(--ink); color: var(--paper); }
 .scard.urgent .scard-name,
