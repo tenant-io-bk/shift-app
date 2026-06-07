@@ -66,6 +66,10 @@ export default function DayOf() {
           background: var(--paper) !important;
           border: 2px solid var(--ink) !important;
         }
+        .shift-card-override .scard-name {
+          font-size: 32px !important;
+          letter-spacing: -0.04em !important;
+        }
       `}</style>
 
       <StatusBar time="10:12" />
@@ -129,12 +133,10 @@ export default function DayOf() {
           <ShiftCard
             state="confirmed"
             role="Barista"
-            time="11A — 4P"
-            loc="Bedstuy, BK"
-            venue="Padmore's Coffee"
+            brief="11A — 4P"
+            venue="Your Role"
             pay="$140"
             rate="$28/hr"
-            timeRight={true}
           />
         </div>
 
