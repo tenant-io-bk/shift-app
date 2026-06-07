@@ -234,14 +234,14 @@ export default function PostShift() {
             <h1 style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 36, letterSpacing: '-0.075em', lineHeight: 1, color: 'var(--ink)', marginBottom: 32 }}>How Much Per Hour?</h1>
 
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 24, marginBottom: 16 }}>
-              <button onClick={() => setRate(r => Math.max(15, r - 1))} style={{ width: 52, height: 52, borderRadius: 99, border: '2px solid var(--ink)', background: 'transparent', fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 28, color: 'var(--ink)', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>−</button>
-              <div style={{ textAlign: 'center' }}>
-                <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 72, color: 'var(--ink)', letterSpacing: '-0.06em', lineHeight: 1 }}>${rate}</div>
+              <button onClick={() => setRate(r => Math.max(15, r - 1))} style={{ width: 64, height: 64, borderRadius: 16, border: '2px solid var(--ink)', background: 'transparent', fontFamily: 'var(--sans)', fontWeight: 400, fontSize: 32, color: 'var(--ink)', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>−</button>
+              <div style={{ textAlign: 'center', minWidth: 120 }}>
+                <div style={{ fontFamily: 'var(--sans)', fontWeight: 400, fontSize: 72, color: 'var(--ink)', letterSpacing: '-0.06em', lineHeight: 1, textAlign: 'center' }}>${rate}</div>
                 <div style={{ fontFamily: 'var(--body)', fontSize: 13, color: 'var(--ink)', marginTop: 6 }}>
                   {hrs > 0 ? `Total for ${fmtHrs(hrs)}: $${(rate * hrs).toFixed(0)}.` : 'Set times to see total.'}
                 </div>
               </div>
-              <button onClick={() => setRate(r => Math.min(75, r + 1))} style={{ width: 52, height: 52, borderRadius: 99, border: '2px solid var(--ink)', background: 'transparent', fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 28, color: 'var(--ink)', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>+</button>
+              <button onClick={() => setRate(r => Math.min(75, r + 1))} style={{ width: 64, height: 64, borderRadius: 16, border: '2px solid var(--ink)', background: 'transparent', fontFamily: 'var(--sans)', fontWeight: 400, fontSize: 32, color: 'var(--ink)', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>+</button>
             </div>
 
             <p style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--ink)', marginTop: 4 }}>NYC minimum is $16/hr. Market rate for {role || 'this role'} is ~$22–28/hr.</p>
@@ -254,9 +254,9 @@ export default function PostShift() {
             <div style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--mute)', marginBottom: 12 }}>How many</div>
             <h1 style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 36, letterSpacing: '-0.075em', lineHeight: 1, color: 'var(--ink)', marginBottom: 40 }}>How Many Workers?</h1>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 28 }}>
-              <button onClick={() => setCount(Math.max(1, count - 1))} style={{ width: 56, height: 56, borderRadius: 99, border: '2px solid var(--ink)', background: 'transparent', fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 28, color: 'var(--ink)', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>−</button>
-              <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 64, color: 'var(--ink)', letterSpacing: '-0.05em', minWidth: 60, textAlign: 'center' }}>{count}</span>
-              <button onClick={() => setCount(count + 1)} style={{ width: 56, height: 56, borderRadius: 99, border: '2px solid var(--ink)', background: 'transparent', fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 28, color: 'var(--ink)', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>+</button>
+              <button onClick={() => setCount(Math.max(1, count - 1))} style={{ width: 72, height: 72, borderRadius: 18, border: '2px solid var(--ink)', background: 'transparent', fontFamily: 'var(--sans)', fontWeight: 400, fontSize: 36, color: 'var(--ink)', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>−</button>
+              <span style={{ fontFamily: 'var(--sans)', fontWeight: 400, fontSize: 72, color: 'var(--ink)', letterSpacing: '-0.05em', minWidth: 72, textAlign: 'center' }}>{count}</span>
+              <button onClick={() => setCount(count + 1)} style={{ width: 72, height: 72, borderRadius: 18, border: '2px solid var(--ink)', background: 'transparent', fontFamily: 'var(--sans)', fontWeight: 400, fontSize: 36, color: 'var(--ink)', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>+</button>
             </div>
             <p style={{ fontFamily: 'var(--body)', fontSize: 13, color: 'var(--ink)', marginTop: 20 }}>+1 standby auto-invited as backup.</p>
           </>
