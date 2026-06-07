@@ -20,47 +20,49 @@ export default function Home() {
         <div style={{
           fontFamily: 'var(--sans)',
           fontWeight: 700,
-          fontSize: 68,
+          fontSize: 90,
           color: 'var(--ink)',
           letterSpacing: '-0.04em',
-          lineHeight: 1.05,
+          lineHeight: 1.0,
         }}>
           <div>Are you</div>
 
           {/* "looking" — green pill */}
-          <Link href="/worker/slides" style={{
-            display: 'inline-block',
-            background: 'var(--green)',
-            borderRadius: 18,
-            padding: '2px 18px 4px',
-            textDecoration: 'none',
-            color: 'var(--ink)',
-            fontFamily: 'var(--sans)',
-            fontWeight: 700,
-            fontSize: 68,
-            letterSpacing: '-0.04em',
-            lineHeight: 1.1,
-          }}>
-            looking
-          </Link>
+          <div style={{ marginTop: 4, marginBottom: 4 }}>
+            <Link href="/worker/slides" style={{
+              display: 'inline-block',
+              background: 'var(--green)',
+              borderRadius: 24,
+              padding: '6px 22px 10px',
+              textDecoration: 'none',
+              color: 'var(--ink)',
+              fontFamily: 'var(--sans)',
+              fontWeight: 700,
+              fontSize: 90,
+              letterSpacing: '-0.04em',
+              lineHeight: 1.05,
+            }}>
+              looking
+            </Link>
+          </div>
 
           <div>for a SHIFT,</div>
 
           {/* "or filling" row */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginTop: 4, marginBottom: 4 }}>
             <span>or</span>
             <Link href="/employer/slides" style={{
               display: 'inline-block',
               background: 'var(--ink)',
-              borderRadius: 18,
-              padding: '2px 18px 4px',
+              borderRadius: 24,
+              padding: '6px 22px 10px',
               textDecoration: 'none',
               color: '#fff',
               fontFamily: 'var(--sans)',
               fontWeight: 700,
-              fontSize: 68,
+              fontSize: 90,
               letterSpacing: '-0.04em',
-              lineHeight: 1.1,
+              lineHeight: 1.05,
             }}>
               filling
             </Link>
