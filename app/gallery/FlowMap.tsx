@@ -56,17 +56,13 @@ const NODES: Node[] = [
   { id:'dayof',    label:'Day Of',         path:'/worker/day-of',             x:866,  y:236, c:'active' },
   { id:'onshift',  label:'On Shift',       path:'/worker/on-shift',           x:1034, y:236, c:'active' },
   { id:'paidout',  label:'Paid Out',       path:'/worker/paid-out',           x:1202, y:236, c:'active' },
-  { id:'mreview',  label:'Mutual Review',  path:'/v3/mutual-review',          x:1370, y:236, c:'utility',
-    issue:'No CTA from Paid Out — trigger mechanism unclear', issueType:'weak' },
+  { id:'mreview',  label:'Mutual Review',  path:'/v3/mutual-review',          x:1370, y:236, c:'utility' },
 
   // WORKER BRANCHES
-  { id:'cancel',   label:'Cancel Flow',    path:'/v3/cancel-flow',            x:866,  y:346, c:'utility',
-    issue:'Namespace mismatch: /v3/ instead of /worker/', issueType:'gap' },
-  { id:'msgs',     label:'Messages',       path:'/worker/messages',           x:1034, y:346, c:'utility',
-    issue:'No tab bar entry — hard to discover', issueType:'weak' },
+  { id:'cancel',   label:'Cancel Flow',    path:'/worker/cancel-flow',        x:866,  y:346, c:'utility' },
+  { id:'msgs',     label:'Messages',       path:'/worker/messages',           x:1034, y:346, c:'utility' },
   { id:'report',   label:'Report Issue',   path:'/worker/report',             x:1202, y:346, c:'utility' },
-  { id:'dispute',  label:'Dispute',        path:'/v3/dispute',                x:1370, y:346, c:'utility',
-    issue:'Not wired from any screen in the app', issueType:'gap' },
+  { id:'dispute',  label:'Dispute',        path:'/v3/dispute',                x:1370, y:346, c:'utility' },
 
   // WORKER PROFILE
   { id:'wprof',    label:'Profile',        path:'/worker/profile',            x:196,  y:446, c:'profile' },
@@ -75,9 +71,8 @@ const NODES: Node[] = [
   { id:'wnotif',   label:'Notifications',  path:'/worker/notifications',      x:676,  y:446, c:'profile' },
   { id:'wbooks',   label:'Books',          path:'/v3/books',                  x:836,  y:446, c:'profile' },
 
-  // ORPHAN
-  { id:'whome',    label:'Worker Home',    path:'/worker/home',               x:30,   y:236, c:'gap',
-    issue:'/worker/home exists but /worker/map is the real home — dead route', issueType:'orphan' },
+  // WORKER HOME (landing after onboarding)
+  { id:'whome',    label:'Worker Home',    path:'/worker/home',               x:30,   y:236, c:'core' },
 
   // EMPLOYER ONBOARDING
   { id:'ecreat',   label:'Create Account', path:'/employer/create-account',   x:530,  y:608, c:'onboard' },
@@ -89,7 +84,7 @@ const NODES: Node[] = [
   { id:'edash',    label:'Dashboard',      path:'/employer/dashboard',        x:1202, y:608, c:'core' },
   { id:'epost',    label:'Post Shift',     path:'/employer/post-shift',       x:1370, y:608, c:'core' },
   { id:'ebpost',   label:'AI Post (beta)', path:'/business/post',             x:1536, y:590, c:'emp',
-    issue:'Separate /business/ namespace — not linked from post-shift', issueType:'gap' },
+    issue:'/business/ namespace isolated — accessible from dashboard AI-draft pill only', issueType:'weak' },
   { id:'eposting', label:'Posting Live',   path:'/employer/posting',          x:1536, y:650, c:'emp' },
   { id:'eposted',  label:'Shift Posted',   path:'/employer/shift-posted',     x:1370, y:710, c:'emp' },
   { id:'eroster',  label:'Roster',         path:'/employer/roster',           x:1202, y:710, c:'core' },
@@ -101,11 +96,10 @@ const NODES: Node[] = [
   { id:'ebill',    label:'Billing',        path:'/employer/billing',          x:1370, y:830, c:'profile' },
   { id:'erate',    label:'Rating',         path:'/employer/rating',           x:1536, y:830, c:'profile' },
 
-  // EMPLOYER GAPS
-  { id:'emsgs',    label:'Emp. Messages',  path:'/employer/messages',         x:698,  y:710, c:'gap',
-    issue:'Exists but disconnected from employer nav flow', issueType:'weak' },
-  { id:'eslides',  label:'Emp. Slides',    path:'/employer/slides',           x:530,  y:710, c:'gap',
-    issue:'Exists but skipped in employer onboarding sequence', issueType:'gap' },
+  // EMPLOYER EXTRA
+  { id:'emsgs',    label:'Emp. Messages',  path:'/employer/messages',         x:698,  y:710, c:'utility' },
+  { id:'eslides',  label:'Emp. Slides',    path:'/employer/slides',           x:530,  y:710, c:'onboard' },
+  { id:'emreview', label:'Emp. Review',    path:'/employer/mutual-review',    x:866,  y:830, c:'emp' },
 ];
 
 const EDGES: Edge[] = [
@@ -113,7 +107,8 @@ const EDGES: Edge[] = [
   { from:'splash',   to:'slides' },
   { from:'slides',   to:'role' },
   { from:'role',     to:'phone',    label:'worker' },
-  { from:'role',     to:'ecreat',   label:'employer', fs:'bottom', ts:'left' },
+  { from:'role',     to:'eslides',  label:'employer', fs:'bottom', ts:'left' },
+  { from:'eslides',  to:'ecreat' },
   // Worker onboarding
   { from:'phone',    to:'sms' },
   { from:'sms',      to:'wonboard' },
@@ -124,7 +119,8 @@ const EDGES: Edge[] = [
   { from:'profset',  to:'payout',   fs:'bottom', ts:'top' },
   { from:'payout',   to:'cardin',   fs:'left',   ts:'right' },
   { from:'cardin',   to:'w9',       fs:'left',   ts:'right' },
-  { from:'w9',       to:'wmap',     fs:'bottom', ts:'top' },
+  { from:'w9',       to:'whome',    fs:'bottom', ts:'top' },
+  { from:'whome',    to:'wmap' },
   // Worker core
   { from:'wmap',     to:'jobdet' },
   { from:'jobdet',   to:'wpend',    label:'claim' },
@@ -133,12 +129,12 @@ const EDGES: Edge[] = [
   { from:'wconf',    to:'dayof' },
   { from:'dayof',    to:'onshift',  label:'clock in' },
   { from:'onshift',  to:'paidout',  label:'clock out' },
-  { from:'paidout',  to:'mreview',  dashed:true, label:'?' },
+  { from:'paidout',  to:'mreview',  label:'rate' },
   // Worker branches
   { from:'dayof',    to:'cancel',   fs:'bottom', ts:'top', dashed:true },
   { from:'onshift',  to:'msgs',     fs:'bottom', ts:'top', dashed:true },
   { from:'onshift',  to:'report',   fs:'bottom', ts:'top', dashed:true },
-  { from:'paidout',  to:'dispute',  fs:'bottom', ts:'top', dashed:true },
+  { from:'paidout',  to:'dispute',  fs:'bottom', ts:'top', dashed:true, label:'flag' },
   // Worker profile nav
   { from:'wmap',     to:'wprof',    fs:'bottom', ts:'top', dashed:true },
   // Employer onboarding
@@ -154,6 +150,7 @@ const EDGES: Edge[] = [
   { from:'eposted',  to:'eroster',  fs:'left',   ts:'right' },
   { from:'eroster',  to:'elivemap', fs:'left',   ts:'right' },
   { from:'elivemap', to:'enoshow',  fs:'left',   ts:'right' },
+  { from:'eroster',  to:'emreview', fs:'bottom', ts:'top', dashed:true, label:'rate' },
   { from:'edash',    to:'eacct',    fs:'bottom', ts:'top', dashed:true },
 ];
 
@@ -433,10 +430,11 @@ export default function FlowMap() {
             Notes
           </div>
           {[
-            'Onboarding is 11 steps for workers — consider progress indicator',
-            'Employer mutual-review screen not yet designed',
+            'Worker onboarding standardised: 10 steps, consistent progress indicator',
+            'Employer mutual-review screen built at /employer/mutual-review',
+            'Dispute wired from Paid Out via "Flag a payment issue" link',
+            'cancel-flow moved to /worker/ namespace; /v3/ redirects kept',
             'No push notification screen — workers just get a ping',
-            'Worker home nav (tab bar) not shown in any screen',
           ].map((note, i) => (
             <div key={i} style={{ padding: '7px 16px', borderBottom: '1px solid rgba(13,14,18,0.04)' }}>
               <div style={{ display: 'flex', gap: 6 }}>
