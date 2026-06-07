@@ -85,7 +85,7 @@ export default function Books() {
         {/* Balance hero */}
         <div style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '4px 22px 56px' }}>
           <p style={{ fontFamily: 'var(--sans)', fontWeight: 400, fontSize: 20, color: 'var(--ink)', letterSpacing: '-0.02em', lineHeight: 1.2, marginBottom: 12, whiteSpace: 'nowrap' }}>
-            You&apos;ve Posted{' '}
+            You&apos;ve Filled{' '}
             <span style={{ textDecoration: 'underline' }}>18</span>
             {' '}Shifts May 2026
           </p>
