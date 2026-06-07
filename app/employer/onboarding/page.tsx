@@ -104,7 +104,7 @@ export default function Page() {
             height: 52,
             background: 'var(--card)',
             border: '2px solid var(--ink)',
-            borderRadius: 14,
+            borderRadius: 99,
             padding: '0 16px',
             display: 'flex',
             alignItems: 'center',
@@ -128,8 +128,8 @@ export default function Page() {
             style={{
               background: 'var(--hydrant)',
               border: 'none',
-              borderRadius: 14,
-              padding: '12px 14px',
+              borderRadius: 99,
+              padding: '12px 20px',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'space-between',
@@ -170,8 +170,8 @@ export default function Page() {
               style={{
                 background: 'var(--card)',
                 border: '2px solid var(--ink)',
-                borderRadius: 14,
-                padding: '12px 14px',
+                borderRadius: 99,
+                padding: '12px 20px',
                 cursor: 'pointer',
               }}
             >
