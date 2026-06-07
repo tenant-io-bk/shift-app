@@ -116,7 +116,7 @@ export default function WorkerPending() {
           Awaiting confirmation
         </div>
 
-        <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 42, color: 'var(--ink)', letterSpacing: '-0.07em', lineHeight: 1, marginBottom: 6 }}>
+        <div style={{ fontFamily: 'var(--sans)', fontWeight: 400, fontSize: 42, color: 'var(--ink)', letterSpacing: '-0.05em', lineHeight: 1, marginBottom: 6 }}>
           {fmt(seconds)}
         </div>
         <div style={{ fontFamily: 'var(--body)', fontSize: 13, color: 'var(--mute)', marginBottom: 36, textAlign: 'center', lineHeight: 1.5 }}>

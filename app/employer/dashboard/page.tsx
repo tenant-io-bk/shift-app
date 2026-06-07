@@ -279,13 +279,13 @@ export default function EmployerDashboard() {
                   <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10 }}>
                     <div style={{ position: 'relative' }}>
                       <div style={{ fontFamily: 'var(--sans)', fontWeight: 300, fontSize: 38, color: 'var(--ink)', letterSpacing: '-0.05em', lineHeight: 1 }}>Start</div>
-                      <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 48, color: 'var(--ink)', letterSpacing: '-0.055em', lineHeight: 1 }}>{fmtTime(startTime)}</div>
+                      <div style={{ fontFamily: 'var(--sans)', fontWeight: 400, fontSize: 48, color: 'var(--ink)', letterSpacing: '-0.05em', lineHeight: 1 }}>{fmtTime(startTime)}</div>
                       <input type="time" value={startTime} onChange={e => setStartTime(e.target.value)}
                         style={{ position: 'absolute', inset: 0, opacity: 0, cursor: 'pointer', width: '100%', height: '100%' }} />
                     </div>
                     <div style={{ position: 'relative' }}>
                       <div style={{ fontFamily: 'var(--sans)', fontWeight: 300, fontSize: 38, color: 'var(--ink)', letterSpacing: '-0.05em', lineHeight: 1 }}>End</div>
-                      <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 48, color: 'var(--ink)', letterSpacing: '-0.055em', lineHeight: 1 }}>{fmtTime(endTime)}</div>
+                      <div style={{ fontFamily: 'var(--sans)', fontWeight: 400, fontSize: 48, color: 'var(--ink)', letterSpacing: '-0.05em', lineHeight: 1 }}>{fmtTime(endTime)}</div>
                       <input type="time" value={endTime} onChange={e => setEndTime(e.target.value)}
                         style={{ position: 'absolute', inset: 0, opacity: 0, cursor: 'pointer', width: '100%', height: '100%' }} />
                     </div>

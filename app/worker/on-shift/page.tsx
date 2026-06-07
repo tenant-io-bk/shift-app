@@ -94,7 +94,7 @@ export default function OnShift() {
               Time elapsed
             </span>
             <div style={{
-              fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 70,
+              fontFamily: 'var(--sans)', fontWeight: 400, fontSize: 70,
               color: 'var(--ink)', letterSpacing: '-0.05em', lineHeight: 1,
             }}>
               2:14

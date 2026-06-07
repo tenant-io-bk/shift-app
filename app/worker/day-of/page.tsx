@@ -65,7 +65,7 @@ export default function DayOf() {
 
         {/* Countdown */}
         <div style={{ background: 'var(--paper)', padding: '20px 22px 18px', textAlign: 'center' }}>
-          <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 64, color: 'var(--ink)', lineHeight: 1, letterSpacing: '-0.05em' }}>
+          <div style={{ fontFamily: 'var(--sans)', fontWeight: 400, fontSize: 64, color: 'var(--ink)', lineHeight: 1, letterSpacing: '-0.05em' }}>
             23 min.
           </div>
           <div style={{ display: 'flex', gap: 8, marginTop: 14, justifyContent: 'center', flexWrap: 'wrap' }}>
