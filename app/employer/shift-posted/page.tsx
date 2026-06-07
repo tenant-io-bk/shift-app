@@ -7,6 +7,7 @@ import EmployerNav from '@/app/components/EmployerNav';
 
 export default function ShiftPosted() {
   const [phase, setPhase] = useState<'matching' | 'filling' | 'filled'>('matching');
+  const [tier, setTier] = useState<'favorites' | 'past' | 'network'>('favorites');
   const [elapsed, setElapsed] = useState(0);
   const [fillTime, setFillTime] = useState('');
 
@@ -16,18 +17,20 @@ export default function ShiftPosted() {
       setElapsed(Math.floor((Date.now() - start) / 1000));
     }, 1000);
 
-    // Transition to filling (worker found) after 5s
-    const t1 = setTimeout(() => setPhase('filling'), 5000);
-    // Fully filled after 6.2s
-    const t2 = setTimeout(() => {
+    // Tier progression: favorites → past workers → network
+    const t1 = setTimeout(() => setTier('past'), 4000);
+    const t2 = setTimeout(() => setTier('network'), 7000);
+    // Worker found
+    const t3 = setTimeout(() => setPhase('filling'), 9000);
+    const t4 = setTimeout(() => {
       const secs = Math.floor((Date.now() - start) / 1000);
       const m = Math.floor(secs / 60);
       const s = secs % 60;
       setFillTime(m > 0 ? `${m}m ${s}s` : `${s}s`);
       setPhase('filled');
-    }, 6200);
+    }, 10200);
 
-    return () => { clearInterval(tick); clearTimeout(t1); clearTimeout(t2); };
+    return () => { clearInterval(tick); clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); clearTimeout(t4); };
   }, []);
 
   const isFilled = phase === 'filled';
@@ -95,7 +98,7 @@ export default function ShiftPosted() {
               <div style={{ display: 'flex', alignItems: 'center', gap: 7 }}>
                 <div className="live-dot" style={{ width: 7, height: 7, borderRadius: '50%', background: 'var(--green)', flexShrink: 0 }} />
                 <span style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 700, color: 'var(--ink)', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
-                  {isFilling ? 'Worker Found…' : `Live · ${elapsedStr}`}
+                  {isFilling ? 'Worker Found…' : tier === 'favorites' ? `Notifying Favorites · ${elapsedStr}` : tier === 'past' ? `Expanding to Past Workers · ${elapsedStr}` : `Open to Network · ${elapsedStr}`}
                 </span>
               </div>
             )}
@@ -192,13 +195,30 @@ export default function ShiftPosted() {
                 <span style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--ink)' }}>+1 Standby On Deck</span>
               </>
             ) : (
-              <>
-                <div style={{ display: 'flex', alignItems: 'center', gap: 7 }}>
-                  <div className="live-dot" style={{ width: 7, height: 7, borderRadius: '50%', background: 'var(--green)', flexShrink: 0 }} />
-                  <span style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 600, letterSpacing: '0.10em', textTransform: 'uppercase', color: 'var(--ink)' }}>18 Workers Nearby</span>
-                </div>
-                <span style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--ink)' }}>Avg 2 Min to Fill</span>
-              </>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 8, width: '100%' }}>
+                {/* Tier indicators */}
+                {[
+                  { key: 'favorites', label: 'Notifying 3 Favorites', sub: 'Marco R., Sam O., Jules L.' },
+                  { key: 'past',      label: 'Expanding to Past Workers', sub: '24 workers who’ve been here' },
+                  { key: 'network',   label: 'Opening to Network', sub: '94 verified workers nearby' },
+                ].map((t, i) => {
+                  const tierOrder = { favorites: 0, past: 1, network: 2 };
+                  const currentOrder = tierOrder[tier];
+                  const isActive = t.key === tier;
+                  const isDone = tierOrder[t.key as keyof typeof tierOrder] < currentOrder;
+                  return (
+                    <div key={t.key} style={{ display: 'flex', alignItems: 'center', gap: 8, opacity: isDone ? 0.4 : 1, transition: 'opacity 0.5s' }}>
+                      <div style={{ width: 7, height: 7, borderRadius: '50%', background: isDone ? 'var(--green)' : isActive ? 'var(--green)' : 'var(--line)', flexShrink: 0, transition: 'background 0.3s' }}
+                        className={isActive ? 'live-dot' : ''} />
+                      <div style={{ flex: 1 }}>
+                        <div style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--ink)' }}>{t.label}</div>
+                        {isActive && <div style={{ fontFamily: 'var(--body)', fontSize: 10, color: 'var(--ink)', marginTop: 1 }}>{t.sub}</div>}
+                      </div>
+                      {isDone && <svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="var(--green)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/></svg>}
+                    </div>
+                  );
+                })}
+              </div>
             )}
           </div>
         </div>
