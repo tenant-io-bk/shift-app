@@ -90,13 +90,13 @@ export default function NoShow() {
               fontFamily: 'var(--sans)',
               fontWeight: 600,
               fontSize: 15,
-              color: 'var(--mute)',
+              color: 'var(--ink)',
               textDecoration: 'line-through',
             }}>Marco Reyes</div>
             <div style={{
               fontFamily: 'var(--body)',
               fontSize: 12,
-              color: 'var(--mute)',
+              color: 'var(--ink)',
               marginTop: 2,
             }}>Expected at 11:00A · last seen 10:48A (0.8 mi away)</div>
           </div>
@@ -123,14 +123,14 @@ export default function NoShow() {
           marginTop: 20,
           padding: 20,
           background: 'var(--paper)',
-          border: '2px solid var(--ink)',
+          border: '2px solid var(--red)',
           borderRadius: 14,
         }}>
           <p style={{
             fontFamily: 'var(--body)',
             fontSize: 10,
             fontWeight: 700,
-            color: 'var(--mute)',
+            color: 'var(--ink)',
             textTransform: 'uppercase',
             letterSpacing: '0.08em',
             marginBottom: 8,
@@ -148,7 +148,7 @@ export default function NoShow() {
             <span style={{
               fontFamily: 'var(--body)',
               fontSize: 12,
-              color: 'var(--mute)',
+              color: 'var(--ink)',
               textAlign: 'right',
               lineHeight: 1.5,
             }}>auto-replaces{'\n'}at 11:10A</span>
@@ -173,7 +173,7 @@ export default function NoShow() {
           <p style={{
             fontFamily: 'var(--body)',
             fontSize: 12,
-            color: 'var(--mute)',
+            color: 'var(--ink)',
           }}>⚡ Sam confirmed · 0.4 mi away · ETA 4 min</p>
         </div>
 

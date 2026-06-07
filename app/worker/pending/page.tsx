@@ -58,10 +58,10 @@ export default function WorkerPending() {
           </svg>
         </div>
         <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 32, color: 'var(--ink)', letterSpacing: '-0.06em', marginBottom: 8 }}>Confirmed.</div>
-        <div style={{ fontFamily: 'var(--body)', fontSize: 14, color: 'var(--mute)', textAlign: 'center' }}>
+        <div style={{ fontFamily: 'var(--body)', fontSize: 14, color: 'var(--ink)', textAlign: 'center' }}>
           Padmore&apos;s Coffee · Barista · Today 11A–4P
         </div>
-        <div style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--mute)', marginTop: 20, opacity: 0.5 }}>Loading your shift…</div>
+        <div style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--ink)', marginTop: 20 }}>Loading your shift…</div>
       </div>
     );
   }
@@ -112,20 +112,20 @@ export default function WorkerPending() {
         </div>
 
         {/* Status label */}
-        <div style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--mute)', marginBottom: 6 }}>
+        <div style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--ink)', marginBottom: 6 }}>
           Awaiting confirmation
         </div>
 
         <div style={{ fontFamily: 'var(--sans)', fontWeight: 400, fontSize: 42, color: 'var(--ink)', letterSpacing: '-0.05em', lineHeight: 1, marginBottom: 6 }}>
           {fmt(seconds)}
         </div>
-        <div style={{ fontFamily: 'var(--body)', fontSize: 13, color: 'var(--mute)', marginBottom: 36, textAlign: 'center', lineHeight: 1.5 }}>
+        <div style={{ fontFamily: 'var(--body)', fontSize: 13, color: 'var(--ink)', marginBottom: 36, textAlign: 'center', lineHeight: 1.5 }}>
           Employer has this window to confirm you.<br />
           You&apos;ll get a notification either way.
         </div>
 
         {/* Shift card */}
-        <div style={{ width: '100%', background: 'var(--steel-soft)', borderRadius: 20, padding: '20px 20px 22px', marginBottom: 16 }}>
+        <div style={{ width: '100%', background: '#d2e4ff', borderRadius: 20, padding: '20px 20px 22px', marginBottom: 16 }}>
           <div style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--ink)', marginBottom: 10 }}>Your claim</div>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 14 }}>
             <div>
@@ -150,21 +150,21 @@ export default function WorkerPending() {
               </div>
             ))}
           </div>
-          <span style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--mute)', lineHeight: 1.4 }}>
+          <span style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--ink)', lineHeight: 1.4 }}>
             <span style={{ color: 'var(--ink)', fontWeight: 600 }}>11 workers</span> claimed this shift. Employer picks one.
           </span>
         </div>
 
         {/* What happens if not selected */}
         <div style={{ width: '100%', marginTop: 24 }}>
-          <div style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--mute)', marginBottom: 12 }}>What to expect</div>
+          <div style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--ink)', marginBottom: 12 }}>What to expect</div>
           {[
             { n: '01', t: 'Confirmed → you\'re booked, shift locks in.' },
             { n: '02', t: 'Passed → you\'re released, no penalty.' },
             { n: '03', t: 'No response in 15 min → you can withdraw or stay queued.' },
           ].map(row => (
             <div key={row.n} style={{ display: 'flex', gap: 14, paddingBottom: 10, marginBottom: 10, borderBottom: '1px solid var(--line)' }}>
-              <span style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)', flexShrink: 0, width: 20 }}>{row.n}</span>
+              <span style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--ink)', flexShrink: 0, width: 20 }}>{row.n}</span>
               <span style={{ fontFamily: 'var(--body)', fontSize: 13, color: 'var(--ink)', lineHeight: 1.5 }}>{row.t}</span>
             </div>
           ))}
@@ -184,7 +184,7 @@ export default function WorkerPending() {
         >
           Withdraw claim
         </Link>
-        <p style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)', textAlign: 'center', marginTop: 10 }}>
+        <p style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--ink)', textAlign: 'center', marginTop: 10 }}>
           No penalty for withdrawing before confirmation.
         </p>
       </div>
