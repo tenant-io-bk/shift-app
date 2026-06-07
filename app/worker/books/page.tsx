@@ -37,7 +37,7 @@ export default function WorkerBooks() {
 
   return (
     <div style={{ maxWidth: 390, minHeight: '100vh', margin: '0 auto', background: 'var(--paper)', display: 'flex', flexDirection: 'column' }}>
-      <div style={{ background: 'var(--green)' }}>
+      <div style={{ background: 'linear-gradient(160deg, var(--green) 0%, var(--green-soft) 100%)' }}>
 
         {/* Nav row */}
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '14px 20px 14px' }}>
