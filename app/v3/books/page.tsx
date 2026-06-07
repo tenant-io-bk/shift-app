@@ -14,25 +14,24 @@ const LINE_ITEMS = [
 
 export default function Books() {
   return (
-    <div style={{ maxWidth: 390, minHeight: '100vh', margin: '0 auto', background: 'var(--paper)' }}>
-      {/* Nav */}
+    <div style={{ maxWidth: 390, minHeight: '100vh', margin: '0 auto', background: 'var(--paper)', display: 'flex', flexDirection: 'column' }}>
+      {/* Nav — part of green header */}
       <div style={{
         height: 44,
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
         padding: '0 16px',
-        borderBottom: '1px solid var(--ink)',
-        background: 'var(--paper)',
+        background: 'var(--green)',
       }}>
         <Link href="/employer/billing" style={{ fontSize: 20, color: 'var(--ink)', textDecoration: 'none', width: 32 }}>←</Link>
         <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 16, color: 'var(--ink)' }}>Books</span>
         <div style={{ width: 32 }} />
       </div>
 
-      {/* Monthly total header — green bg */}
-      <div style={{ padding: '44px 22px 52px', background: 'var(--green)', textAlign: 'center' }}>
-        <p style={{ fontFamily: 'var(--sans)', fontWeight: 400, fontSize: 20, color: 'var(--ink)', letterSpacing: '-0.02em', lineHeight: 1.2, marginBottom: 10, whiteSpace: 'nowrap' }}>
+      {/* Monthly total header — green bg, tall hero */}
+      <div style={{ background: 'var(--green)', textAlign: 'center', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', minHeight: '44vh', padding: '32px 22px 56px' }}>
+        <p style={{ fontFamily: 'var(--sans)', fontWeight: 400, fontSize: 20, color: 'var(--ink)', letterSpacing: '-0.02em', lineHeight: 1.2, marginBottom: 16, whiteSpace: 'nowrap' }}>
           You&apos;ve Filled{' '}
           <span style={{ textDecoration: 'underline', fontWeight: 400 }}>18</span>
           {' '}Shifts May 2026
@@ -41,15 +40,15 @@ export default function Books() {
         <div style={{
           fontFamily: 'var(--sans)',
           fontWeight: 400,
-          fontSize: 56,
+          fontSize: 64,
           color: 'var(--ink)',
           letterSpacing: '-0.05em',
           lineHeight: 1,
         }}>$2,847.00</div>
       </div>
 
-      {/* Statement list */}
-      <div style={{ padding: '0 22px', background: 'var(--card)', borderRadius: '24px 24px 0 0', marginTop: -24 }}>
+      {/* Statement list — white card slides up */}
+      <div style={{ flex: 1, padding: '0 22px', background: 'var(--card)', borderRadius: '24px 24px 0 0', marginTop: -28 }}>
         <p style={{
           fontFamily: 'var(--body)',
           fontSize: 10,
