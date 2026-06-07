@@ -207,7 +207,7 @@ export default function WorkerHome() {
               flex: 1,
             }}
           >
-            Profile 75% — add photo to unlock all shifts
+            Profile 75% — Add Photo to Unlock All Shifts
           </span>
           <span style={{ fontFamily: 'var(--body)', fontSize: 13, color: 'var(--ink)' }}>→</span>
         </Link>
@@ -319,7 +319,7 @@ export default function WorkerHome() {
               letterSpacing: '0.01em',
             }}
           >
-            Day-of details →
+            Day-of Details →
           </Link>
         </div>
       </div>
