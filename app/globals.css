@@ -526,7 +526,7 @@ html, body {
   100% { background-position: 0% 0%; }
 }
 .books-gradient {
-  background: linear-gradient(135deg, #72c15f 0%, #E2F1DD 50%, #72c15f 100%);
-  background-size: 300% 300%;
-  animation: gradientMove 6s ease infinite;
+  background: linear-gradient(135deg, #4aad36 0%, #e8f5e3 40%, #72c15f 70%, #c5e8ba 100%);
+  background-size: 400% 400%;
+  animation: gradientMove 5s ease infinite;
 }
