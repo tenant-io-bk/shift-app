@@ -255,13 +255,11 @@ export default function JobDetail() {
 
         {/* Stats — 2 rounded colored boxes */}
         <div style={{ display: 'flex', gap: 10, padding: '0 22px 20px' }}>
-          <div style={{ flex: 1, background: 'var(--green-soft)', borderRadius: 16, padding: '14px 16px', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
-            <div style={{ fontFamily: 'var(--body)', fontSize: 9.5, fontWeight: 700, letterSpacing: '0.10em', textTransform: 'uppercase', color: 'var(--ink)', marginBottom: 5 }}>When</div>
-            <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 16, color: 'var(--ink)', letterSpacing: '-0.02em', lineHeight: 1.2, whiteSpace: 'nowrap' }}>Today, 11A–4P</div>
+          <div style={{ flex: 1, background: 'var(--green-soft)', borderRadius: 16, padding: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 18, color: 'var(--ink)', letterSpacing: '-0.03em', whiteSpace: 'nowrap' }}>Today, 11A–4P</div>
           </div>
-          <div style={{ flex: 1, background: 'var(--steel-soft)', borderRadius: 16, padding: '14px 16px', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
-            <div style={{ fontFamily: 'var(--body)', fontSize: 9.5, fontWeight: 700, letterSpacing: '0.10em', textTransform: 'uppercase', color: 'var(--ink)', marginBottom: 5 }}>Hours</div>
-            <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 16, color: 'var(--ink)', letterSpacing: '-0.02em', lineHeight: 1.2, whiteSpace: 'nowrap' }}>5 Hour Shift</div>
+          <div style={{ flex: 1, background: 'var(--steel-soft)', borderRadius: 16, padding: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 18, color: 'var(--ink)', letterSpacing: '-0.03em', whiteSpace: 'nowrap' }}>5 Hour Shift</div>
           </div>
         </div>
 
