@@ -1,539 +1,204 @@
 'use client';
 
 import { useState } from 'react';
-import Link from 'next/link';
 import StatusBar from '@/app/components/StatusBar';
 import BottomNav from '@/app/components/BottomNav';
 
-type Message = {
-  from: 'worker' | 'employer' | 'system';
-  text: string;
-  time: string;
-};
-
-type Thread = {
-  id: string;
-  name: string;
-  role: string;
-  shiftDate: string;
-  lastMsg: string;
-  lastTime: string;
-  unread: number;
-  avatar: string;
-  avatarBg: string;
-  messages: Message[];
-};
-
-const THREADS: Thread[] = [
+const THREADS = [
   {
-    id: 'padmores',
+    id: 'padmore',
+    initials: 'PC',
     name: "Padmore's Coffee",
-    role: 'Barista',
-    shiftDate: 'Mon 26 May',
-    lastMsg: 'Dress code: all black. See you tomorrow!',
-    lastTime: '11:42A',
+    role: 'Barista · Today 11A–4P',
+    last: 'See you at 10:45 — come to the side entrance.',
+    time: '9:58A',
     unread: 1,
-    avatar: 'PC',
-    avatarBg: 'var(--ink)',
-    messages: [
-      { from: 'employer', text: "Hey! Looking forward to having you back tomorrow.", time: '10:15A' },
-      { from: 'employer', text: "Door's on Tompkins — just ring the bell.", time: '10:16A' },
-      { from: 'worker', text: "Thanks! I'll be there 10 min early.", time: '10:32A' },
-      { from: 'employer', text: 'Dress code: all black. See you tomorrow!', time: '11:42A' },
-    ],
+    online: true,
+    isSystem: false,
   },
   {
-    id: 'thewren',
-    name: 'The Wren',
-    role: 'Server',
-    shiftDate: 'Wed 28 May',
-    lastMsg: 'Got it, see you then!',
-    lastTime: 'Yesterday',
+    id: 'shift',
+    initials: 'S',
+    name: 'SHIFT',
+    role: 'Platform',
+    last: 'Your payout of $130 is on its way.',
+    time: 'Yesterday',
     unread: 0,
-    avatar: 'TW',
-    avatarBg: '#0D0E12',
-    messages: [
-      {
-        from: 'employer',
-        text: 'Hi! Confirmed for Wednesday. Please arrive by 5:45P for a quick walkthrough.',
-        time: 'Yesterday',
-      },
-      { from: 'worker', text: 'Got it, see you then!', time: 'Yesterday' },
-    ],
+    online: false,
+    isSystem: true,
   },
   {
-    id: 'shift-support',
-    name: 'SHIFT Support',
-    role: '',
-    shiftDate: '',
-    lastMsg: 'Your report has been reviewed.',
-    lastTime: 'Mon 12',
+    id: 'greene',
+    initials: 'GB',
+    name: "Greene's Bar + Kitchen",
+    role: 'Server · Mon May 12',
+    last: 'Thanks for covering — great work.',
+    time: 'Mon',
     unread: 0,
-    avatar: 'S↑',
-    avatarBg: '#2D6A4F',
-    messages: [
-      {
-        from: 'system',
-        text: "Your report has been reviewed by our Trust & Safety team. No further action is required at this time. Thank you for letting us know — it helps keep the platform safe for everyone.",
-        time: 'Mon 12',
-      },
-    ],
+    online: false,
+    isSystem: false,
+  },
+  {
+    id: 'myrtle',
+    initials: 'MC',
+    name: 'Myrtle Coffee',
+    role: 'Barista · Sat May 10',
+    last: 'Can you do a double?',
+    time: 'Sat',
+    unread: 0,
+    online: false,
+    isSystem: false,
   },
 ];
 
-export default function WorkerMessages() {
-  const [activeId, setActiveId] = useState<string | null>(null);
-  const [drafts, setDrafts] = useState<Record<string, string>>({});
-  const [sent, setSent] = useState<Record<string, Message[]>>({});
+const PADMORE_MESSAGES = [
+  { from: 'them', text: 'Hi! Confirming you for tomorrow 11–4. Sound good?', time: '8:02A' },
+  { from: 'me',   text: "All set, I'll be there.", time: '8:14A' },
+  { from: 'them', text: 'Perfect. Uniform is all black. Enter through the side door on Tompkins.', time: '8:31A' },
+  { from: 'them', text: 'See you at 10:45 — come to the side entrance.', time: '9:58A' },
+];
 
-  const activeThread = activeId ? THREADS.find((t) => t.id === activeId) ?? null : null;
+export default function Messages() {
+  const [activeThread, setActiveThread] = useState<string | null>(null);
+  const [input, setInput] = useState('');
 
-  function sendMessage(threadId: string) {
-    const text = (drafts[threadId] ?? '').trim();
-    if (!text) return;
-    setSent((prev) => ({
-      ...prev,
-      [threadId]: [...(prev[threadId] ?? []), { from: 'worker', text, time: 'Now' }],
-    }));
-    setDrafts((prev) => ({ ...prev, [threadId]: '' }));
-  }
+  const thread = THREADS.find(t => t.id === activeThread);
 
-  if (activeThread) {
-    const allMessages = [...activeThread.messages, ...(sent[activeThread.id] ?? [])];
-    const draft = drafts[activeThread.id] ?? '';
+  if (activeThread && thread) {
+    const messages = activeThread === 'padmore' ? PADMORE_MESSAGES : [];
 
     return (
-      <div
-        style={{
-          maxWidth: 390,
-          minHeight: '100vh',
-          margin: '0 auto',
-          background: 'var(--paper)',
-          display: 'flex',
-          flexDirection: 'column',
-        }}
-      >
+      <div style={{ maxWidth: 390, height: '100vh', margin: '0 auto', background: 'var(--paper)', display: 'flex', flexDirection: 'column' }}>
         <StatusBar time="10:12" />
 
-        {/* Conversation header */}
-        <div
-          style={{
-            height: 56,
-            display: 'flex',
-            alignItems: 'center',
-            gap: 12,
-            padding: '0 16px',
-            borderBottom: '1px solid var(--line)',
-            flexShrink: 0,
-            background: 'var(--paper)',
-          }}
-        >
-          <button
-            onClick={() => setActiveId(null)}
-            style={{
-              width: 36,
-              height: 36,
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              background: 'none',
-              border: 'none',
-              cursor: 'pointer',
-              fontSize: 20,
-              color: 'var(--ink)',
-              flexShrink: 0,
-            }}
-          >
-            ←
-          </button>
-          <div
-            style={{
-              width: 36,
-              height: 36,
-              borderRadius: '50%',
-              background: activeThread.avatarBg,
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              flexShrink: 0,
-            }}
-          >
-            <span
-              style={{
-                fontFamily: 'var(--sans)',
-                fontWeight: 700,
-                fontSize: 12,
-                color: '#fff',
-              }}
-            >
-              {activeThread.avatar}
-            </span>
+        {/* Thread header */}
+        <div style={{ padding: '10px 16px 12px', borderBottom: '1px solid var(--line)', display: 'flex', alignItems: 'center', gap: 12 }}>
+          <button onClick={() => setActiveThread(null)} style={{ fontSize: 20, color: 'var(--ink)', background: 'none', border: 'none', cursor: 'pointer', padding: 0, flexShrink: 0 }}>←</button>
+          <div style={{ width: 40, height: 40, borderRadius: '50%', background: thread.isSystem ? 'var(--ink)' : 'var(--green-soft)', border: thread.isSystem ? 'none' : '2px solid var(--ink)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+            <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 12, color: thread.isSystem ? '#fff' : 'var(--ink)' }}>{thread.initials}</span>
           </div>
-          <div style={{ flex: 1, overflow: 'hidden' }}>
-            <div
-              style={{
-                fontFamily: 'var(--sans)',
-                fontWeight: 700,
-                fontSize: 15,
-                color: 'var(--ink)',
-              }}
-            >
-              {activeThread.name}
+          <div style={{ flex: 1 }}>
+            <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 15, color: 'var(--ink)', letterSpacing: '-0.02em' }}>{thread.name}</div>
+            <div style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--ink)', marginTop: 1, opacity: 0.5 }}>{thread.role}</div>
+          </div>
+          {thread.online && (
+            <div style={{ display: 'flex', alignItems: 'center', gap: 5, flexShrink: 0 }}>
+              <div style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--online)' }} />
+              <span style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 700, color: 'var(--ink)', textTransform: 'uppercase', letterSpacing: '0.08em' }}>Active</span>
             </div>
-            {activeThread.role && (
-              <div
-                style={{
-                  fontFamily: 'var(--body)',
-                  fontSize: 11,
-                  color: 'var(--mute)',
-                }}
-              >
-                {activeThread.role} · {activeThread.shiftDate}
-              </div>
-            )}
-          </div>
+          )}
         </div>
 
-        {/* Messages */}
-        <div
-          style={{
-            flex: 1,
-            overflowY: 'auto',
-            padding: '16px',
-            display: 'flex',
-            flexDirection: 'column',
-            gap: 10,
-            paddingBottom: activeThread.id === 'shift-support' ? 32 : 100,
-          }}
-        >
-          {allMessages.map((msg, i) => {
-            const isWorker = msg.from === 'worker';
-            const isSystem = msg.from === 'system';
-
-            if (isSystem) {
-              return (
-                <div
-                  key={i}
-                  style={{
-                    textAlign: 'center',
-                    padding: '12px 16px',
-                    background: 'var(--card)',
-                    borderRadius: 12,
-                    fontFamily: 'var(--body)',
-                    fontSize: 12,
-                    color: 'var(--mute)',
-                    lineHeight: 1.6,
-                    border: '1px solid var(--line)',
-                  }}
-                >
-                  <div
-                    style={{
-                      fontFamily: 'var(--body)',
-                      fontSize: 10,
-                      fontWeight: 700,
-                      textTransform: 'uppercase',
-                      letterSpacing: '0.08em',
-                      color: 'var(--mute)',
-                      marginBottom: 6,
-                    }}
-                  >
-                    SHIFT Support
-                  </div>
-                  {msg.text}
-                  <div
-                    style={{
-                      marginTop: 6,
-                      fontSize: 10,
-                      color: 'var(--mute)',
-                      opacity: 0.6,
-                    }}
-                  >
-                    {msg.time}
-                  </div>
-                </div>
-              );
-            }
-
-            return (
-              <div
-                key={i}
-                style={{
-                  display: 'flex',
-                  justifyContent: isWorker ? 'flex-end' : 'flex-start',
-                }}
-              >
-                <div style={{ maxWidth: '78%' }}>
-                  <div
-                    style={{
-                      padding: '10px 14px',
-                      borderRadius: isWorker
-                        ? '18px 18px 4px 18px'
-                        : '18px 18px 18px 4px',
-                      background: isWorker ? 'var(--ink)' : 'var(--card)',
-                      border: isWorker ? 'none' : '1.5px solid var(--line)',
-                      fontFamily: 'var(--body)',
-                      fontSize: 14,
-                      color: isWorker ? '#fff' : 'var(--ink)',
-                      lineHeight: 1.5,
-                    }}
-                  >
-                    {msg.text}
-                  </div>
-                  <div
-                    style={{
-                      fontFamily: 'var(--body)',
-                      fontSize: 10,
-                      color: 'var(--mute)',
-                      marginTop: 4,
-                      textAlign: isWorker ? 'right' : 'left',
-                      padding: '0 4px',
-                    }}
-                  >
-                    {msg.time}
-                  </div>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-
-        {/* Input */}
-        {activeThread.id !== 'shift-support' && (
-          <div
-            style={{
-              position: 'fixed',
-              bottom: 0,
-              left: '50%',
-              transform: 'translateX(-50%)',
-              width: '100%',
-              maxWidth: 390,
-              padding: '10px 16px 28px',
-              borderTop: '1px solid var(--line)',
-              display: 'flex',
-              gap: 10,
-              background: 'var(--paper)',
-            }}
-          >
-            <input
-              value={draft}
-              onChange={(e) =>
-                setDrafts((prev) => ({ ...prev, [activeThread.id]: e.target.value }))
-              }
-              onKeyDown={(e) => {
-                if (e.key === 'Enter' && !e.shiftKey) {
-                  e.preventDefault();
-                  sendMessage(activeThread.id);
-                }
-              }}
-              placeholder="Message..."
-              style={{
-                flex: 1,
-                padding: '11px 16px',
-                background: 'var(--card)',
-                border: '1.5px solid var(--line)',
-                borderRadius: 99,
-                fontFamily: 'var(--body)',
-                fontSize: 14,
-                color: 'var(--ink)',
-                outline: 'none',
-              }}
-            />
-            <button
-              onClick={() => sendMessage(activeThread.id)}
-              style={{
-                width: 44,
-                height: 44,
-                borderRadius: '50%',
-                background: draft ? 'var(--ink)' : 'var(--line)',
-                border: 'none',
-                cursor: draft ? 'pointer' : 'default',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                flexShrink: 0,
-                transition: 'background 0.15s',
-              }}
-            >
-              <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-                <path
-                  d="M3 9h12M9 3l6 6-6 6"
-                  stroke={draft ? '#fff' : 'var(--mute)'}
-                  strokeWidth="1.8"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </button>
+        {/* Shift context card */}
+        {activeThread === 'padmore' && (
+          <div style={{ margin: '12px 16px 0', background: 'var(--green-soft)', borderRadius: 14, padding: '10px 16px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+            <div>
+              <div style={{ fontFamily: 'var(--body)', fontSize: 9.5, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.10em', color: 'var(--ink)', marginBottom: 2 }}>Your Shift</div>
+              <div style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 14, color: 'var(--ink)', letterSpacing: '-0.02em' }}>Today · 11A–4P · Barista</div>
+            </div>
+            <div style={{ fontFamily: 'var(--sans)', fontWeight: 400, fontSize: 22, color: 'var(--ink)', letterSpacing: '-0.04em' }}>$130</div>
           </div>
         )}
+
+        {/* Messages */}
+        <div style={{ flex: 1, overflowY: 'auto', padding: '16px 16px 0', display: 'flex', flexDirection: 'column', gap: 10 }}>
+          {messages.length === 0 ? (
+            <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 8, paddingTop: 80 }}>
+              <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 22, color: 'var(--ink)', letterSpacing: '-0.04em' }}>No messages yet</div>
+              <div style={{ fontFamily: 'var(--body)', fontSize: 13, color: 'var(--ink)', textAlign: 'center', opacity: 0.5 }}>Start the conversation below.</div>
+            </div>
+          ) : messages.map((msg, i) => (
+            <div key={i} style={{ display: 'flex', flexDirection: 'column', alignItems: msg.from === 'me' ? 'flex-end' : 'flex-start' }}>
+              <div style={{
+                maxWidth: '78%', padding: '10px 14px',
+                borderRadius: msg.from === 'me' ? '18px 18px 4px 18px' : '18px 18px 18px 4px',
+                background: msg.from === 'me' ? 'var(--ink)' : 'var(--steel-soft)',
+                border: msg.from === 'me' ? 'none' : '1.5px solid var(--line)',
+              }}>
+                <span style={{ fontFamily: 'var(--body)', fontSize: 14, color: msg.from === 'me' ? '#fff' : 'var(--ink)', lineHeight: 1.45 }}>{msg.text}</span>
+              </div>
+              <span style={{ fontFamily: 'var(--body)', fontSize: 10, color: 'var(--ink)', marginTop: 3, opacity: 0.4 }}>{msg.time}</span>
+            </div>
+          ))}
+        </div>
+
+        {/* Input bar */}
+        <div style={{ padding: '12px 16px 40px', borderTop: '1px solid var(--line)', display: 'flex', gap: 10, alignItems: 'center' }}>
+          <div style={{ flex: 1, background: 'var(--paper)', border: '2px solid var(--ink)', borderRadius: 22, padding: '10px 14px', display: 'flex', alignItems: 'center' }}>
+            <textarea
+              value={input}
+              onChange={e => setInput(e.target.value)}
+              placeholder="Message…"
+              rows={1}
+              style={{ width: '100%', background: 'none', border: 'none', outline: 'none', fontFamily: 'var(--body)', fontSize: 14, color: 'var(--ink)', resize: 'none', lineHeight: 1.4 }}
+            />
+          </div>
+          <button
+            onClick={() => setInput('')}
+            style={{ width: 44, height: 44, borderRadius: '50%', background: input.trim() ? 'var(--ink)' : 'var(--paper-3)', border: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: input.trim() ? 'pointer' : 'default', flexShrink: 0, transition: 'background 0.15s' }}
+          >
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M3 8h10M9 4l4 4-4 4" stroke={input.trim() ? '#fff' : 'var(--ink)'} strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </button>
+        </div>
       </div>
     );
   }
 
   // Thread list
   return (
-    <div
-      style={{
-        maxWidth: 390,
-        minHeight: '100vh',
-        margin: '0 auto',
-        background: 'var(--paper)',
-        display: 'flex',
-        flexDirection: 'column',
-        paddingBottom: 80,
-      }}
-    >
+    <div style={{ maxWidth: 390, height: '100vh', margin: '0 auto', background: 'var(--paper)', display: 'flex', flexDirection: 'column' }}>
       <StatusBar time="10:12" />
 
-      <div
-        style={{
-          height: 44,
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          borderBottom: '1px solid var(--line)',
-        }}
-      >
-        <span
-          style={{
-            fontFamily: 'var(--body)',
-            fontSize: 11,
-            fontWeight: 600,
-            letterSpacing: '0.08em',
-            textTransform: 'uppercase',
-            color: 'var(--mute)',
-          }}
-        >
-          Messages
-        </span>
+      <div style={{ padding: '16px 22px 12px', display: 'flex', alignItems: 'baseline', justifyContent: 'space-between' }}>
+        <h1 style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 32, color: 'var(--ink)', letterSpacing: '-0.06em', lineHeight: 1 }}>Messages</h1>
+        {THREADS.some(t => t.unread > 0) && (
+          <span style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 700, color: 'var(--ink)', background: 'var(--yellow-soft)', borderRadius: 99, padding: '3px 9px' }}>
+            {THREADS.reduce((a, t) => a + t.unread, 0)} unread
+          </span>
+        )}
       </div>
 
-      <div style={{ flex: 1 }}>
-        {THREADS.map((thread) => (
+      <div style={{ flex: 1, overflowY: 'auto', paddingBottom: 80 }}>
+        {THREADS.map((t, i) => (
           <button
-            key={thread.id}
-            onClick={() => setActiveId(thread.id)}
+            key={t.id}
+            onClick={() => setActiveThread(t.id)}
             style={{
-              width: '100%',
-              display: 'flex',
-              alignItems: 'center',
-              gap: 12,
+              width: '100%', display: 'flex', alignItems: 'center', gap: 14,
               padding: '14px 22px',
-              background: 'transparent',
-              border: 'none',
-              borderBottom: '1px solid var(--line)',
-              cursor: 'pointer',
-              textAlign: 'left',
-            }}
+              borderBottom: i < THREADS.length - 1 ? '1px solid var(--line)' : 'none',
+              background: 'none', border: 'none',
+              cursor: 'pointer', textAlign: 'left',
+            } as React.CSSProperties}
           >
             {/* Avatar */}
-            <div
-              style={{
-                width: 46,
-                height: 46,
-                borderRadius: '50%',
-                background: thread.avatarBg,
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                flexShrink: 0,
-              }}
-            >
-              <span
-                style={{
-                  fontFamily: 'var(--sans)',
-                  fontWeight: 700,
-                  fontSize: 13,
-                  color: '#fff',
-                }}
-              >
-                {thread.avatar}
-              </span>
-            </div>
-
-            <div style={{ flex: 1, overflow: 'hidden' }}>
-              <div
-                style={{
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'baseline',
-                  marginBottom: 2,
-                }}
-              >
-                <span
-                  style={{
-                    fontFamily: 'var(--sans)',
-                    fontWeight: thread.unread ? 700 : 600,
-                    fontSize: 15,
-                    color: 'var(--ink)',
-                  }}
-                >
-                  {thread.name}
-                </span>
-                <span
-                  style={{
-                    fontFamily: 'var(--body)',
-                    fontSize: 11,
-                    color: 'var(--mute)',
-                    flexShrink: 0,
-                    marginLeft: 8,
-                  }}
-                >
-                  {thread.lastTime}
-                </span>
+            <div style={{ position: 'relative', flexShrink: 0 }}>
+              <div style={{ width: 46, height: 46, borderRadius: '50%', background: t.isSystem ? 'var(--ink)' : 'var(--green-soft)', border: t.isSystem ? 'none' : '2px solid var(--ink)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: t.isSystem ? 11 : 13, color: t.isSystem ? '#fff' : 'var(--ink)' }}>{t.initials}</span>
               </div>
-
-              {thread.role && (
-                <div
-                  style={{
-                    fontFamily: 'var(--body)',
-                    fontSize: 11,
-                    color: 'var(--mute)',
-                    marginBottom: 2,
-                  }}
-                >
-                  {thread.role} · {thread.shiftDate}
-                </div>
+              {t.online && (
+                <div style={{ position: 'absolute', bottom: 1, right: 1, width: 10, height: 10, borderRadius: '50%', background: 'var(--online)', border: '2px solid var(--paper)' }} />
               )}
+            </div>
 
-              <div
-                style={{
-                  fontFamily: 'var(--body)',
-                  fontSize: 12,
-                  color: thread.unread ? 'var(--ink)' : 'var(--mute)',
-                  fontWeight: thread.unread ? 600 : 400,
-                  overflow: 'hidden',
-                  textOverflow: 'ellipsis',
-                  whiteSpace: 'nowrap',
-                }}
-              >
-                {thread.lastMsg}
+            {/* Content */}
+            <div style={{ flex: 1, minWidth: 0 }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 2 }}>
+                <span style={{ fontFamily: 'var(--sans)', fontWeight: t.unread > 0 ? 700 : 600, fontSize: 15, color: 'var(--ink)', letterSpacing: '-0.02em' }}>{t.name}</span>
+                <span style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--ink)', flexShrink: 0, marginLeft: 8, opacity: 0.45 }}>{t.time}</span>
+              </div>
+              <div style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--ink)', opacity: 0.45, marginBottom: 2 }}>{t.role}</div>
+              <div style={{ fontFamily: 'var(--body)', fontSize: 13, color: 'var(--ink)', fontWeight: t.unread > 0 ? 600 : 400, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                {t.last}
               </div>
             </div>
 
-            {thread.unread > 0 && (
-              <div
-                style={{
-                  width: 20,
-                  height: 20,
-                  borderRadius: '50%',
-                  background: 'var(--ink)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  flexShrink: 0,
-                }}
-              >
-                <span
-                  style={{
-                    fontFamily: 'var(--body)',
-                    fontSize: 11,
-                    fontWeight: 700,
-                    color: '#fff',
-                  }}
-                >
-                  {thread.unread}
-                </span>
+            {/* Unread dot */}
+            {t.unread > 0 && (
+              <div style={{ width: 18, height: 18, borderRadius: '50%', background: 'var(--ink)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                <span style={{ fontFamily: 'var(--body)', fontWeight: 700, fontSize: 10, color: '#fff' }}>{t.unread}</span>
               </div>
             )}
           </button>

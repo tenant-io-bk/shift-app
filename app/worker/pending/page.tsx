@@ -54,7 +54,7 @@ export default function WorkerPending() {
         `}</style>
         <div className="pop" style={{ width: 72, height: 72, borderRadius: '50%', background: 'var(--ink)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 24 }}>
           <svg width="32" height="24" viewBox="0 0 32 24" fill="none">
-            <path d="M2 12L11 21L30 2" stroke="white" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" />
+            <path d="M2 12L11 21L30 2" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         </div>
         <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 32, color: 'var(--ink)', letterSpacing: '-0.06em', marginBottom: 8 }}>Confirmed.</div>
@@ -125,7 +125,7 @@ export default function WorkerPending() {
         </div>
 
         {/* Shift card */}
-        <div style={{ width: '100%', background: '#d2e4ff', borderRadius: 20, padding: '20px 20px 22px', marginBottom: 16 }}>
+        <div style={{ width: '100%', background: 'var(--navy-soft)', borderRadius: 20, padding: '20px 20px 22px', marginBottom: 16 }}>
           <div style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--ink)', marginBottom: 10 }}>Your claim</div>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 14 }}>
             <div>

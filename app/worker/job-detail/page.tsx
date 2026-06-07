@@ -127,7 +127,7 @@ const GATE_ITEMS = [
 function ProfileGate({ onClose }: { onClose: () => void }) {
   return (
     <>
-      <div onClick={onClose} style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.5)', zIndex: 50, animation: 'fadeIn 0.2s ease' }} />
+      <div onClick={onClose} style={{ position: 'fixed', inset: 0, background: 'var(--overlay)', zIndex: 50, animation: 'fadeIn 0.2s ease' }} />
       <div style={{
         position: 'fixed', bottom: 0, left: '50%', transform: 'translateX(-50%)',
         width: '100%', maxWidth: 390,
@@ -151,7 +151,7 @@ function ProfileGate({ onClose }: { onClose: () => void }) {
             }}>
               <div style={{ width: 36, height: 36, borderRadius: '50%', border: '2px dashed var(--line)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                  <path d="M7 3v8M3 7h8" stroke="var(--ink)" strokeWidth="1.8" strokeLinecap="round" />
+                  <path d="M7 3v8M3 7h8" stroke="var(--ink)" strokeWidth="1.4" strokeLinecap="round" />
                 </svg>
               </div>
               <div style={{ flex: 1 }}>
@@ -222,7 +222,7 @@ export default function JobDetail() {
               <line x1="5.3" y1="8.7" x2="10.7" y2="12.3" stroke="var(--ink)" strokeWidth="1.4" />
             </svg>
           </button>
-          <button onClick={() => setSaved(s => !s)} style={{ width: 36, height: 36, border: `2px solid ${saved ? '#B91C1C' : 'var(--ink)'}`, borderRadius: 99, background: saved ? '#FEF2F2' : 'transparent', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', transition: 'all 0.15s ease' }}>
+          <button onClick={() => setSaved(s => !s)} style={{ width: 36, height: 36, border: `2px solid ${saved ? '#B91C1C' : 'var(--ink)'}`, borderRadius: 99, background: saved ? 'var(--red-soft)' : 'transparent', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', transition: 'all 0.15s ease' }}>
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
               <path d="M8 13.5C8 13.5 2 9.5 2 5.5C2 3.57 3.57 2 5.5 2C6.61 2 7.6 2.53 8 3.25C8.4 2.53 9.39 2 10.5 2C12.43 2 14 3.57 14 5.5C14 9.5 8 13.5 8 13.5Z"
                 fill={saved ? '#B91C1C' : 'none'} stroke={saved ? '#B91C1C' : 'var(--ink)'} strokeWidth="1.4" strokeLinejoin="round" />

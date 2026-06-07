@@ -30,12 +30,18 @@
   --grey:         #E0E0E0;   /* dormant · past · disabled */
   --grey-soft:    #F0F0F0;
 
-  /* Legacy aliases (keep for backward compat) */
-  --hydrant:      #72c15f;
-  --hydrant-deep: #5a9e4a;
-  --hydrant-soft: #E2F1DD;
+  /* Extended palette */
+  --navy:         #1e3d7a;   /* match · invite · direct */
+  --navy-soft:    #d2e4ff;
+  --map-bg:       #E8EAF0;   /* map canvas background */
+  --overlay:      rgba(0,0,0,0.5);
   --amber:        #B8741E;
   --online:       #16A34A;
+
+  /* Legacy aliases — do not use in new code */
+  --hydrant:      var(--green);
+  --hydrant-deep: #5a9e4a;
+  --hydrant-soft: var(--green-soft);
 
   /* Type */
   --sans: var(--font-bricolage), system-ui, sans-serif;
@@ -105,7 +111,7 @@ html, body {
 
 /* Map road grid */
 .map-bg {
-  background: #E8EAF0;
+  background: var(--map-bg);
 }
 
 /* Receipt / paystub card */
@@ -171,12 +177,12 @@ html, body {
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--mute);
+  color: var(--ink);
 }
 
 .tag.active {
-  background: var(--hydrant-soft);
-  color: var(--hydrant);
+  background: var(--green-soft);
+  color: var(--green);
 }
 
 .tag.dark {
@@ -204,7 +210,7 @@ html, body {
   color: var(--ink);
 }
 
-.label.h { color: var(--hydrant); }
+.label.h { color: var(--green); }
 
 /* KV row */
 .kv-row {
@@ -231,7 +237,7 @@ html, body {
 
 /* Map canvas styles */
 .map-canvas {
-  background: #E8EAF0;
+  background: var(--map-bg);
   position: relative;
   overflow: hidden;
 }
@@ -284,7 +290,7 @@ html, body {
 }
 
 .worker-dot.fav {
-  background: var(--hydrant);
+  background: var(--lilac);
 }
 
 /* Progress track */

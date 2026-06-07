@@ -25,8 +25,8 @@ export default function StatusBar({ dark = false, time = '10:12' }: StatusBarPro
         {/* Wifi */}
         <svg width="16" height="12" viewBox="0 0 16 12" fill="none">
           <path d="M8 9.5C8.83 9.5 9.5 10.17 9.5 11S8.83 12.5 8 12.5 6.5 11.83 6.5 11 7.17 9.5 8 9.5Z" fill={color} />
-          <path d="M3.76 7.24C4.99 5.98 6.7 5.18 8 5.18c1.3 0 3.01.8 4.24 2.06" stroke={color} strokeWidth="1.5" strokeLinecap="round" fill="none" />
-          <path d="M1.27 4.73C3.14 2.83 5.44 1.75 8 1.75c2.56 0 4.86 1.08 6.73 3" stroke={color} strokeWidth="1.5" strokeLinecap="round" fill="none" />
+          <path d="M3.76 7.24C4.99 5.98 6.7 5.18 8 5.18c1.3 0 3.01.8 4.24 2.06" stroke={color} strokeWidth="1.4" strokeLinecap="round" fill="none" />
+          <path d="M1.27 4.73C3.14 2.83 5.44 1.75 8 1.75c2.56 0 4.86 1.08 6.73 3" stroke={color} strokeWidth="1.4" strokeLinecap="round" fill="none" />
         </svg>
         {/* Battery */}
         <svg width="25" height="12" viewBox="0 0 25 12" fill="none">

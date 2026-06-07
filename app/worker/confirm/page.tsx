@@ -82,7 +82,7 @@ export default function WorkerConfirm() {
         {/* Light header */}
         <div style={{ padding: '16px 22px 20px', flexShrink: 0 }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 10 }}>
-            <div style={{ width: 6, height: 6, borderRadius: '50%', background: '#16A34A' }} />
+            <div style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--online)' }} />
             <span style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, color: 'var(--ink)', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
               Just now · Barista · Today 11A–4P
             </span>

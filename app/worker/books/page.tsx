@@ -125,13 +125,13 @@ function EarningsChart({ filter, scrubbedIdx, onScrub }: {
         {/* Tick marks */}
         {pts.map((pt, i) => (
           <rect key={i} x={pt.x - 1} y={H - 6} width={2} height={6} rx={1}
-            fill={i === activeIdx ? '#0D0E12' : 'rgba(13,14,18,0.25)'} />
+            fill={i === activeIdx ? 'var(--ink)' : 'rgba(13,14,18,0.25)'} />
         ))}
 
         {/* Month labels */}
         {data.map((d, i) => (
           <text key={i} x={toX(i)} y={H + 20} textAnchor="middle"
-            fill="#0D0E12"
+            fill="var(--ink)"
             fontFamily="var(--body)"
             fontSize={i === activeIdx ? '10' : '9'}
             fontWeight={i === activeIdx ? '700' : '500'}>
@@ -141,7 +141,7 @@ function EarningsChart({ filter, scrubbedIdx, onScrub }: {
 
         {/* Active dot */}
         <circle cx={activePt.x} cy={activePt.y} r={isScrubbing ? 5 : 3}
-          fill="#0D0E12" />
+          fill="var(--ink)" />
         {isScrubbing && (
           <circle cx={activePt.x} cy={activePt.y} r={9}
             fill="rgba(13,14,18,0.1)" />
@@ -152,7 +152,7 @@ function EarningsChart({ filter, scrubbedIdx, onScrub }: {
           <g transform={`translate(${Math.min(pts[peakIdx].x + 6, W - 68)}, ${pts[peakIdx].y - 24})`}>
             <rect x={0} y={0} width={62} height={18} rx={9} fill="rgba(13,14,18,0.08)" />
             <text x={31} y={12.5} textAnchor="middle"
-              fill="#0D0E12" fontFamily="var(--body)" fontSize="9" fontWeight="700">
+              fill="var(--ink)" fontFamily="var(--body)" fontSize="9" fontWeight="700">
               ↑ {filter === 'Month' ? '+12.1%' : filter === '3 Mo' ? '+15.4%' : '+29.2%'} peak
             </text>
           </g>
@@ -300,7 +300,7 @@ export default function WorkerBooks() {
                     width="16" height="16" viewBox="0 0 16 16" fill="none"
                     style={{ transition: 'transform 0.2s', transform: isOpen ? 'rotate(90deg)' : 'rotate(0deg)', flexShrink: 0 }}
                   >
-                    <path d="M6 3l5 5-5 5" stroke="var(--ink)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                    <path d="M6 3l5 5-5 5" stroke="var(--ink)" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 </div>
               </button>

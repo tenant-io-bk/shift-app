@@ -38,7 +38,7 @@ export default function Page() {
             fontFamily: 'var(--body)',
             fontSize: 11,
             fontWeight: 600,
-            color: 'var(--mute)',
+            color: 'var(--ink)',
             letterSpacing: '0.04em',
             textTransform: 'uppercase',
           }}
@@ -75,7 +75,7 @@ export default function Page() {
             fontWeight: 600,
             textTransform: 'uppercase',
             letterSpacing: '0.14em',
-            color: 'var(--hydrant)',
+            color: 'var(--green)',
             marginBottom: 12,
           }}
         >
@@ -113,10 +113,10 @@ export default function Page() {
           }}
         >
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-            <circle cx="7" cy="7" r="5.5" stroke="var(--mute)" strokeWidth="1.5" />
-            <path d="M11.5 11.5L14 14" stroke="var(--mute)" strokeWidth="1.5" strokeLinecap="round" />
+            <circle cx="7" cy="7" r="5.5" stroke="var(--ink)" strokeWidth="1.4" />
+            <path d="M11.5 11.5L14 14" stroke="var(--ink)" strokeWidth="1.4" strokeLinecap="round" />
           </svg>
-          <span style={{ fontFamily: 'var(--body)', fontSize: 14, color: 'var(--mute-2)', flex: 1 }}>
+          <span style={{ fontFamily: 'var(--body)', fontSize: 14, color: 'var(--ink)', flex: 1 }}>
             Search by business name...
           </span>
         </div>
@@ -126,7 +126,7 @@ export default function Page() {
           {/* Selected result */}
           <div
             style={{
-              background: 'var(--hydrant)',
+              background: 'var(--green)',
               border: 'none',
               borderRadius: 99,
               padding: '12px 20px',
@@ -140,7 +140,7 @@ export default function Page() {
               <div style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 15, color: 'var(--ink)' }}>
                 Padmore&apos;s Coffee
               </div>
-              <div style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--mute)', marginTop: 2 }}>
+              <div style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--ink)', marginTop: 2 }}>
                 172 Tompkins Ave, Bed-Stuy
               </div>
             </div>
@@ -149,7 +149,7 @@ export default function Page() {
                 width: 20,
                 height: 20,
                 borderRadius: 99,
-                background: 'var(--hydrant)',
+                background: 'var(--green)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -178,7 +178,7 @@ export default function Page() {
               <div style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 15, color: 'var(--ink)' }}>
                 {biz.name}
               </div>
-              <div style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--mute)', marginTop: 2 }}>
+              <div style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--ink)', marginTop: 2 }}>
                 {biz.address}
               </div>
             </div>
@@ -190,7 +190,7 @@ export default function Page() {
           style={{
             fontFamily: 'var(--body)',
             fontSize: 13,
-            color: 'var(--hydrant)',
+            color: 'var(--green)',
             marginTop: 16,
             cursor: 'pointer',
           }}

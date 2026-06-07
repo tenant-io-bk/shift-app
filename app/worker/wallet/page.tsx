@@ -112,7 +112,7 @@ export default function WorkerWallet() {
             <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 56, color: 'var(--ink)', letterSpacing: '-0.075em', lineHeight: 1 }}>
               $247
             </span>
-            <span style={{ color: '#2a9e18', fontSize: 56, fontFamily: 'var(--sans)', fontWeight: 600, lineHeight: 1, letterSpacing: '-0.075em' }}>.</span>
+            <span style={{ color: 'var(--green)', fontSize: 56, fontFamily: 'var(--sans)', fontWeight: 600, lineHeight: 1, letterSpacing: '-0.075em' }}>.</span>
             <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 32, color: 'var(--ink)', letterSpacing: '-0.05em', marginLeft: 3 }}>50</span>
           </div>
 
@@ -139,7 +139,7 @@ export default function WorkerWallet() {
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
           <div>
             <div style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 14, color: 'var(--ink)' }}>Tax withholding</div>
-            <div style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)', marginTop: 2 }}>
+            <div style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--ink)', marginTop: 2 }}>
               {withholding ? '25% auto-held · ~$61.88 this week' : 'Off · you handle quarterly'}
             </div>
           </div>
@@ -151,7 +151,7 @@ export default function WorkerWallet() {
           </button>
         </div>
         {withholding && (
-          <div style={{ marginTop: 10, padding: '8px 12px', background: 'var(--paper-2)', borderRadius: 8, fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)' }}>
+          <div style={{ marginTop: 10, padding: '8px 12px', background: 'var(--paper-2)', borderRadius: 8, fontFamily: 'var(--body)', fontSize: 11, color: 'var(--ink)' }}>
             Held funds transfer to your tax account on Jan 15, Apr 15, Jun 15, Sep 15.
           </div>
         )}
@@ -159,16 +159,16 @@ export default function WorkerWallet() {
 
       {/* Ledger */}
       <div style={{ background: 'var(--card)', padding: '0 22px' }}>
-        <p style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--mute)', padding: '16px 0 10px', borderBottom: '1px solid var(--line)' }}>
+        <p style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--ink)', padding: '16px 0 10px', borderBottom: '1px solid var(--line)' }}>
           ACTIVITY
         </p>
         {TRANSACTIONS.map((tx, i) => (
           <div key={i} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '12px 0', borderBottom: '1px solid var(--line)' }}>
             <div>
               <div style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 15, color: 'var(--ink)' }}>{tx.name}</div>
-              <div style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--mute)', marginTop: 2 }}>{tx.detail}</div>
+              <div style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--ink)', marginTop: 2 }}>{tx.detail}</div>
             </div>
-            <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 15, color: tx.positive ? '#16A34A' : 'var(--mute)' }}>{tx.amount}</div>
+            <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 15, color: tx.positive ? 'var(--online)' : 'var(--ink)' }}>{tx.amount}</div>
           </div>
         ))}
       </div>
@@ -202,11 +202,11 @@ export default function WorkerWallet() {
             display: 'flex', alignItems: 'center', justifyContent: 'center', pointerEvents: 'none',
           }}>
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-              <path d="M3 8h10M9 4l4 4-4 4" stroke="var(--ink)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+              <path d="M3 8h10M9 4l4 4-4 4" stroke="var(--ink)" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </div>
         </div>
-        <p style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)', textAlign: 'center', marginTop: 8 }}>
+        <p style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--ink)', textAlign: 'center', marginTop: 8 }}>
           $0 fee · to CHASE ·· 4471 · ~11 min via Stripe
         </p>
       </div>

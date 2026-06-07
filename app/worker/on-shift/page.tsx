@@ -176,7 +176,7 @@ export default function OnShift() {
           }}>
             <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
               <path d="M2.5 2.5h13c.55 0 1 .45 1 1v7.5c0 .55-.45 1-1 1H5l-3.7 3.7V3.5c0-.55.45-1 1.2-1Z"
-                stroke="var(--ink)" strokeWidth="1.3" strokeLinejoin="round" />
+                stroke="var(--ink)" strokeWidth="1.4" strokeLinejoin="round" />
             </svg>
           </Link>
 

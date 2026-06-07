@@ -107,7 +107,7 @@ export default function DayOf() {
       {/* Rolling alerts */}
       <div style={{ padding: '12px 16px 0', overflow: 'hidden' }}>
         {alertIdx === 0 ? (
-          <div key="delay" style={{ background: '#FEF2F2', borderRadius: 12, padding: '10px 14px', display: 'flex', alignItems: 'center', gap: 10, animation: 'roll-in 0.35s cubic-bezier(0.22,1,0.36,1)' }}>
+          <div key="delay" style={{ background: 'var(--red-soft)', borderRadius: 12, padding: '10px 14px', display: 'flex', alignItems: 'center', gap: 10, animation: 'roll-in 0.35s cubic-bezier(0.22,1,0.36,1)' }}>
             <div style={{ width: 28, height: 28, borderRadius: 8, background: 'var(--red)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
               <span style={{ fontSize: 13, color: '#fff', fontWeight: 700 }}>!</span>
             </div>
@@ -218,7 +218,7 @@ export default function DayOf() {
         <div style={{ padding: '0 22px', marginTop: 4 }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
             <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 18, color: 'var(--ink)', letterSpacing: '-0.01em' }}>Before You Go</span>
-            <span style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)' }}>2 of 4</span>
+            <span style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--ink)' }}>2 of 4</span>
           </div>
 
           {[
@@ -229,10 +229,10 @@ export default function DayOf() {
           ].map((item) => (
             <div key={item.label} style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '12px 0', borderBottom: '1px solid var(--line)' }}>
               <div style={{ width: 22, height: 22, borderRadius: 6, background: item.checked ? 'var(--ink)' : 'transparent', border: item.checked ? 'none' : '2px solid var(--ink)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                {item.checked && <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l2.5 2.5L10 4" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>}
+                {item.checked && <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l2.5 2.5L10 4" stroke="white" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" /></svg>}
               </div>
-              <span style={{ fontFamily: 'var(--body)', fontSize: 14, color: item.checked ? 'var(--mute)' : 'var(--ink)', textDecoration: item.checked ? 'line-through' : 'none', flex: 1 }}>{item.label}</span>
-              {item.optional && <span style={{ fontFamily: 'var(--body)', fontSize: 9, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--mute-2)', background: 'var(--paper-2)', padding: '2px 6px', borderRadius: 4 }}>optional</span>}
+              <span style={{ fontFamily: 'var(--body)', fontSize: 14, color: item.checked ? 'var(--ink)' : 'var(--ink)', textDecoration: item.checked ? 'line-through' : 'none', flex: 1 }}>{item.label}</span>
+              {item.optional && <span style={{ fontFamily: 'var(--body)', fontSize: 9, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--ink)', background: 'var(--paper-2)', padding: '2px 6px', borderRadius: 4 }}>optional</span>}
             </div>
           ))}
         </div>
@@ -264,7 +264,7 @@ export default function DayOf() {
                 </div>
                 <div>
                   <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 16, color: 'var(--ink)', letterSpacing: '-0.01em' }}>Tomás</div>
-                  <div style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)', marginTop: 1 }}>Owner · Padmore&apos;s Coffee · sent this morning</div>
+                  <div style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--ink)', marginTop: 1 }}>Owner · Padmore&apos;s Coffee · sent this morning</div>
                 </div>
               </div>
 
@@ -281,8 +281,8 @@ export default function DayOf() {
 
         {/* Bottom links */}
         <div style={{ padding: '0 22px 8px', display: 'flex', justifyContent: 'center', gap: 24 }}>
-          <Link href="/worker/cancel-flow" style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)', textDecoration: 'none', borderBottom: '1px solid var(--line)', paddingBottom: 2 }}>Running Late or Need to Cancel?</Link>
-          <Link href="/worker/report" style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)', textDecoration: 'none', borderBottom: '1px solid var(--line)', paddingBottom: 2 }}>Report an issue</Link>
+          <Link href="/worker/cancel-flow" style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--ink)', textDecoration: 'none', borderBottom: '1px solid var(--line)', paddingBottom: 2 }}>Running Late or Need to Cancel?</Link>
+          <Link href="/worker/report" style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--ink)', textDecoration: 'none', borderBottom: '1px solid var(--line)', paddingBottom: 2 }}>Report an issue</Link>
         </div>
       </div>
 

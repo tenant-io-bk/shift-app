@@ -38,7 +38,7 @@ export default function WorkerReport() {
             ←
           </button>
         )}
-        <span style={{ fontFamily: 'var(--body)', fontSize: 12, fontWeight: 600, color: 'var(--mute)', letterSpacing: '0.06em', textTransform: 'uppercase' }}>
+        <span style={{ fontFamily: 'var(--body)', fontSize: 12, fontWeight: 600, color: 'var(--ink)', letterSpacing: '0.06em', textTransform: 'uppercase' }}>
           Report issue
         </span>
         <div style={{ width: 36 }} />
@@ -55,8 +55,8 @@ export default function WorkerReport() {
           gap: 8,
         }}>
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-            <path d="M7 1L2 3v4c0 2.8 2.1 5.4 5 6 2.9-.6 5-3.2 5-6V3L7 1z" stroke="var(--ink)" strokeWidth="1.5" strokeLinejoin="round" />
-            <path d="M5 7l1.5 1.5L9 5.5" stroke="var(--ink)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+            <path d="M7 1L2 3v4c0 2.8 2.1 5.4 5 6 2.9-.6 5-3.2 5-6V3L7 1z" stroke="var(--ink)" strokeWidth="1.4" strokeLinejoin="round" />
+            <path d="M5 7l1.5 1.5L9 5.5" stroke="var(--ink)" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
           <span style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 700, color: 'var(--ink)', letterSpacing: '0.06em', textTransform: 'uppercase' }}>
             Your identity is protected
@@ -72,7 +72,7 @@ export default function WorkerReport() {
             <h2 style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 26, color: 'var(--ink)', letterSpacing: '-0.04em', lineHeight: 1.1, marginBottom: 6 }}>
               What Happened?
             </h2>
-            <p style={{ fontFamily: 'var(--body)', fontSize: 13, color: 'var(--mute)', marginBottom: 24, lineHeight: 1.5 }}>
+            <p style={{ fontFamily: 'var(--body)', fontSize: 13, color: 'var(--ink)', marginBottom: 24, lineHeight: 1.5 }}>
               Reports are reviewed by SHIFT — the venue never sees your name.
             </p>
 
@@ -114,7 +114,7 @@ export default function WorkerReport() {
                 width: '100%',
                 padding: '16px',
                 background: selected ? 'var(--ink)' : 'var(--line)',
-                color: selected ? '#fff' : 'var(--mute)',
+                color: selected ? '#fff' : 'var(--ink)',
                 borderRadius: 99,
                 fontFamily: 'var(--body)',
                 fontWeight: 500,
@@ -136,7 +136,7 @@ export default function WorkerReport() {
             <h2 style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 26, color: 'var(--ink)', letterSpacing: '-0.04em', lineHeight: 1.1, marginBottom: 6 }}>
               Tell Us More.
             </h2>
-            <p style={{ fontFamily: 'var(--body)', fontSize: 13, color: 'var(--mute)', marginBottom: 20, lineHeight: 1.5 }}>
+            <p style={{ fontFamily: 'var(--body)', fontSize: 13, color: 'var(--ink)', marginBottom: 20, lineHeight: 1.5 }}>
               Be as specific as you&apos;re comfortable with. No names are required.
             </p>
 
@@ -152,7 +152,7 @@ export default function WorkerReport() {
                 borderBottom: '1px solid var(--line)',
                 fontFamily: 'var(--body)',
                 fontSize: 11,
-                color: 'var(--mute)',
+                color: 'var(--ink)',
                 fontWeight: 600,
                 textTransform: 'uppercase',
                 letterSpacing: '0.06em',
@@ -231,7 +231,7 @@ export default function WorkerReport() {
             }}>
               <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
                 <path d="M16 3L5 7.5V16c0 6.4 4.8 12.4 11 13.8C22.2 28.4 27 22.4 27 16V7.5L16 3z" fill="var(--ink)" opacity="0.2" />
-                <path d="M16 3L5 7.5V16c0 6.4 4.8 12.4 11 13.8C22.2 28.4 27 22.4 27 16V7.5L16 3z" stroke="var(--ink)" strokeWidth="2" strokeLinejoin="round" />
+                <path d="M16 3L5 7.5V16c0 6.4 4.8 12.4 11 13.8C22.2 28.4 27 22.4 27 16V7.5L16 3z" stroke="var(--ink)" strokeWidth="1.4" strokeLinejoin="round" />
                 <path d="M11 16l3.5 3.5L21 12" stroke="var(--ink)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </div>
@@ -240,7 +240,7 @@ export default function WorkerReport() {
               <h2 style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 32, color: 'var(--ink)', letterSpacing: '-0.05em', lineHeight: 1, marginBottom: 10 }}>
                 Reported.
               </h2>
-              <p style={{ fontFamily: 'var(--body)', fontSize: 13, color: 'var(--mute)', lineHeight: 1.6, maxWidth: 280, margin: '0 auto' }}>
+              <p style={{ fontFamily: 'var(--body)', fontSize: 13, color: 'var(--ink)', lineHeight: 1.6, maxWidth: 280, margin: '0 auto' }}>
                 Our Trust &amp; Safety team will review your report within 24 hours.
               </p>
             </div>

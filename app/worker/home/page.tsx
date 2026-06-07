@@ -134,14 +134,14 @@ export default function WorkerHome() {
             <path
               d="M11 3a6 6 0 0 0-6 6v3l-2 3h16l-2-3V9a6 6 0 0 0-6-6Z"
               stroke="var(--ink)"
-              strokeWidth="1.6"
+              strokeWidth="1.4"
               fill="none"
               strokeLinejoin="round"
             />
             <path
               d="M9 16a2 2 0 0 0 4 0"
               stroke="var(--ink)"
-              strokeWidth="1.6"
+              strokeWidth="1.4"
               strokeLinecap="round"
             />
           </svg>
@@ -241,8 +241,8 @@ export default function WorkerHome() {
               width: 6,
               height: 6,
               borderRadius: '50%',
-              background: '#16A34A',
-              boxShadow: '0 0 0 3px rgba(22,163,74,0.25)',
+              background: 'var(--online)',
+              boxShadow: '0 0 0 3px rgba(114,193,95,0.25)',
             }}
           />
           Next shift confirmed
@@ -483,11 +483,11 @@ export default function WorkerHome() {
           fill="none"
           style={{ flexShrink: 0 }}
         >
-          <circle cx="14" cy="14" r="13" stroke="rgba(255,255,255,0.4)" strokeWidth="1.5" />
+          <circle cx="14" cy="14" r="13" stroke="rgba(255,255,255,0.4)" strokeWidth="1.4" />
           <path
             d="M11 14h6M14 11l3 3-3 3"
             stroke="#fff"
-            strokeWidth="1.8"
+            strokeWidth="1.4"
             strokeLinecap="round"
             strokeLinejoin="round"
           />

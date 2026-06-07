@@ -123,8 +123,8 @@ export default function WorkerProfile() {
           <span style={{ fontFamily: 'var(--body)', fontSize: 13, fontWeight: 600, color: 'var(--ink)', letterSpacing: '0.02em' }}>@marcov</span>
           <button style={{ background: 'none', border: 'none', cursor: 'pointer', width: 32, display: 'flex', justifyContent: 'flex-end' }}>
             <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-              <circle cx="9" cy="9" r="2" fill="var(--mute)" />
-              <path d="M9 2v2M9 14v2M2 9h2M14 9h2M4.2 4.2l1.4 1.4M12.4 12.4l1.4 1.4M4.2 13.8l1.4-1.4M12.4 5.6l1.4-1.4" stroke="var(--mute)" strokeWidth="1.5" strokeLinecap="round" />
+              <circle cx="9" cy="9" r="2" fill="var(--ink)" />
+              <path d="M9 2v2M9 14v2M2 9h2M14 9h2M4.2 4.2l1.4 1.4M12.4 12.4l1.4 1.4M4.2 13.8l1.4-1.4M12.4 5.6l1.4-1.4" stroke="var(--ink)" strokeWidth="1.4" strokeLinecap="round" />
             </svg>
           </button>
         </div>
@@ -137,7 +137,7 @@ export default function WorkerProfile() {
               onClick={() => setTab(t)}
               style={{
                 fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 15,
-                color: tab === t ? 'var(--ink)' : 'var(--mute)',
+                color: tab === t ? 'var(--ink)' : 'var(--ink)',
                 background: 'none', border: 'none', cursor: 'pointer',
                 padding: '10px 4px 12px',
                 borderBottom: tab === t ? '2px solid var(--ink)' : '2px solid transparent',
@@ -253,11 +253,11 @@ export default function WorkerProfile() {
           <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 72, color: 'rgba(255,255,255,0.1)', letterSpacing: '-0.04em' }}>MR</span>
         </div>
         {editing && (
-          <div style={{ position: 'absolute', inset: 0, background: 'rgba(0,0,0,0.5)', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' }}>
+          <div style={{ position: 'absolute', inset: 0, background: 'var(--overlay)', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' }}>
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8 }}>
               <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-                <circle cx="14" cy="14" r="13" stroke="white" strokeWidth="1.5" />
-                <path d="M14 9v10M9 14h10" stroke="white" strokeWidth="1.5" strokeLinecap="round" />
+                <circle cx="14" cy="14" r="13" stroke="white" strokeWidth="1.4" />
+                <path d="M14 9v10M9 14h10" stroke="white" strokeWidth="1.4" strokeLinecap="round" />
               </svg>
               <span style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, color: '#fff', letterSpacing: '0.06em' }}>Change Photo</span>
             </div>

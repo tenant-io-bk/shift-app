@@ -46,7 +46,7 @@ export default function Page() {
                 width: 7,
                 height: 7,
                 borderRadius: '50%',
-                background: '#16A34A',
+                background: 'var(--online)',
                 flexShrink: 0,
               }}
             />

@@ -22,7 +22,7 @@ export default function EmployerAccount() {
 
       <div style={{ height: 44, display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 16px', borderBottom: '1px solid var(--ink)', background: 'var(--paper)' }}>
         <div style={{ width: 32 }} />
-        <span style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--mute)' }}>Account</span>
+        <span style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--ink)' }}>Account</span>
         <div style={{ width: 32 }} />
       </div>
 
@@ -81,7 +81,7 @@ export default function EmployerAccount() {
           Sign Out
         </Link>
 
-        <p style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)', textAlign: 'center', marginTop: 4 }}>SHIFT · v1.0 · NYC Hyperlocal Labor</p>
+        <p style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--ink)', textAlign: 'center', marginTop: 4 }}>SHIFT · v1.0 · NYC Hyperlocal Labor</p>
       </div>
 
       <EmployerNav active="account" />
@@ -92,7 +92,7 @@ export default function EmployerAccount() {
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div>
-      <div style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--mute)', padding: '0 4px', marginBottom: 6 }}>{title}</div>
+      <div style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--ink)', padding: '0 4px', marginBottom: 6 }}>{title}</div>
       <div style={{ background: 'var(--paper)', borderRadius: 14, overflow: 'hidden', border: '2px solid var(--ink)' }}>{children}</div>
     </div>
   );
@@ -109,7 +109,7 @@ function RowLink({ label, href }: { label: string; href: string }) {
   return (
     <Link href={href} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '13px 18px', borderBottom: '1px solid var(--ink)', textDecoration: 'none' }}>
       <span style={{ fontFamily: 'var(--sans)', fontSize: 15, color: 'var(--ink)' }}>{label}</span>
-      <span style={{ color: 'var(--mute)', fontSize: 16 }}>→</span>
+      <span style={{ color: 'var(--ink)', fontSize: 16 }}>→</span>
     </Link>
   );
 }
@@ -118,7 +118,7 @@ function RowToggle({ label, sub, value, onToggle }: { label: string; sub: string
     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '13px 18px', borderBottom: '1px solid var(--ink)' }}>
       <div>
         <div style={{ fontFamily: 'var(--sans)', fontSize: 15, color: 'var(--ink)' }}>{label}</div>
-        <div style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)', marginTop: 2 }}>{sub}</div>
+        <div style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--ink)', marginTop: 2 }}>{sub}</div>
       </div>
       <button onClick={onToggle} style={{ width: 44, height: 26, borderRadius: 99, border: 'none', cursor: 'pointer', flexShrink: 0, background: value ? 'var(--ink)' : 'var(--paper-3)', position: 'relative', transition: 'background 0.2s' }}>
         <div style={{ position: 'absolute', top: 3, left: value ? 21 : 3, width: 20, height: 20, borderRadius: '50%', background: '#fff', boxShadow: '0 1px 4px rgba(0,0,0,0.2)', transition: 'left 0.2s' }} />

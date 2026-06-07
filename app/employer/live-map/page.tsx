@@ -12,13 +12,13 @@ const WORKERS = [
 
 export default function Page() {
   return (
-    <div style={{ maxWidth: 390, height: '100dvh', margin: '0 auto', position: 'relative', overflow: 'hidden', background: '#E8EAF0', display: 'flex', flexDirection: 'column' }}>
+    <div style={{ maxWidth: 390, height: '100dvh', margin: '0 auto', position: 'relative', overflow: 'hidden', background: 'var(--map-bg)', display: 'flex', flexDirection: 'column' }}>
       <style>{`
         @keyframes worker-pulse {
           0% { transform: scale(1); opacity: 0.6; }
           100% { transform: scale(2.4); opacity: 0; }
         }
-        .worker-pulse { position: absolute; inset: -4px; border-radius: 50%; background: #16A34A; animation: worker-pulse 2s ease-out infinite; }
+        .worker-pulse { position: absolute; inset: -4px; border-radius: 50%; background: var(--online); animation: worker-pulse 2s ease-out infinite; }
       `}</style>
 
       {/* Full-screen map */}
@@ -30,7 +30,7 @@ export default function Page() {
 
       {/* Center P marker */}
       <div style={{ position: 'absolute', left: '50%', top: '50%', transform: 'translate(-50%,-50%)', zIndex: 10 }}>
-        <div style={{ width: 28, height: 28, borderRadius: '50%', background: '#0D0E12', border: '2px solid #fff', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 2px 8px rgba(0,0,0,0.4)' }}>
+        <div style={{ width: 28, height: 28, borderRadius: '50%', background: 'var(--ink)', border: '2px solid #fff', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 2px 8px rgba(0,0,0,0.4)' }}>
           <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 11, color: '#fff' }}>P</span>
         </div>
       </div>
@@ -39,7 +39,7 @@ export default function Page() {
       {WORKERS.map(w => (
         <div key={w.name} style={{ position: 'absolute', left: w.pinX, top: w.pinY, transform: 'translate(-50%,-50%)', zIndex: 10, width: 12, height: 12 }}>
           <div className="worker-pulse" />
-          <div style={{ position: 'relative', width: 12, height: 12, borderRadius: '50%', background: w.fav ? '#9A7CE0' : '#16A34A', border: '2px solid #fff', boxShadow: '0 1px 4px rgba(0,0,0,0.3)', zIndex: 1 }} />
+          <div style={{ position: 'relative', width: 12, height: 12, borderRadius: '50%', background: w.fav ? 'var(--lilac)' : 'var(--online)', border: '2px solid #fff', boxShadow: '0 1px 4px rgba(0,0,0,0.3)', zIndex: 1 }} />
         </div>
       ))}
 
@@ -50,11 +50,11 @@ export default function Page() {
         </div>
         <div style={{ display: 'flex', gap: 6 }}>
           <div style={{ background: 'rgba(255,255,255,0.92)', backdropFilter: 'blur(10px)', WebkitBackdropFilter: 'blur(10px)', borderRadius: 99, padding: '6px 12px', display: 'flex', alignItems: 'center', gap: 5 }}>
-            <div style={{ width: 8, height: 8, borderRadius: '50%', background: '#9A7CE0' }} />
+            <div style={{ width: 8, height: 8, borderRadius: '50%', background: 'var(--lilac)' }} />
             <span style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, color: 'var(--ink)' }}>Saved</span>
           </div>
           <div style={{ background: 'rgba(255,255,255,0.92)', backdropFilter: 'blur(10px)', WebkitBackdropFilter: 'blur(10px)', borderRadius: 99, padding: '6px 12px', display: 'flex', alignItems: 'center', gap: 5 }}>
-            <div style={{ width: 8, height: 8, borderRadius: '50%', background: '#16A34A' }} />
+            <div style={{ width: 8, height: 8, borderRadius: '50%', background: 'var(--online)' }} />
             <span style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, color: 'var(--ink)' }}>Available</span>
           </div>
         </div>
@@ -75,7 +75,7 @@ export default function Page() {
           <span style={{ fontFamily: 'var(--sans)', fontWeight: 400, fontSize: 18, letterSpacing: '-0.02em', color: 'var(--ink)' }}>
             18 Ready · Within 1 Mile
           </span>
-          <span style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)' }}>
+          <span style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--ink)' }}>
             Sort: Favorites first
           </span>
         </div>
@@ -106,7 +106,7 @@ export default function Page() {
               <div style={{ width: 52, height: 52, borderRadius: '50%', background: 'var(--ink)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 15, color: 'white' }}>{worker.initial}</span>
               </div>
-              <div style={{ position: 'absolute', bottom: -1, right: -1, width: 10, height: 10, borderRadius: '50%', background: worker.fav ? '#9A7CE0' : '#16A34A', border: '2px solid white' }} />
+              <div style={{ position: 'absolute', bottom: -1, right: -1, width: 10, height: 10, borderRadius: '50%', background: worker.fav ? 'var(--lilac)' : 'var(--online)', border: '2px solid white' }} />
             </div>
             <div style={{ flex: 1, minWidth: 0 }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
@@ -117,7 +117,7 @@ export default function Page() {
                   </span>
                 )}
               </div>
-              <div style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--mute)', marginTop: 1 }}>
+              <div style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--ink)', marginTop: 1 }}>
                 {worker.role} · ★{worker.rating}
               </div>
             </div>

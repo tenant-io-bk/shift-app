@@ -206,16 +206,16 @@ export default function WorkerMap() {
               }}>
                 {mode === 'map' ? (
                   <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                    <rect x="1" y="1" width="5" height="5" rx="1" fill={viewMode === 'map' ? 'var(--ink)' : 'var(--mute)'} />
-                    <rect x="8" y="1" width="5" height="5" rx="1" fill={viewMode === 'map' ? 'var(--ink)' : 'var(--mute)'} />
-                    <rect x="1" y="8" width="5" height="5" rx="1" fill={viewMode === 'map' ? 'var(--ink)' : 'var(--mute)'} />
-                    <rect x="8" y="8" width="5" height="5" rx="1" fill={viewMode === 'map' ? 'var(--ink)' : 'var(--mute)'} />
+                    <rect x="1" y="1" width="5" height="5" rx="1" fill={viewMode === 'map' ? 'var(--ink)' : 'var(--ink)'} />
+                    <rect x="8" y="1" width="5" height="5" rx="1" fill={viewMode === 'map' ? 'var(--ink)' : 'var(--ink)'} />
+                    <rect x="1" y="8" width="5" height="5" rx="1" fill={viewMode === 'map' ? 'var(--ink)' : 'var(--ink)'} />
+                    <rect x="8" y="8" width="5" height="5" rx="1" fill={viewMode === 'map' ? 'var(--ink)' : 'var(--ink)'} />
                   </svg>
                 ) : (
                   <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                    <rect x="1" y="2" width="12" height="2" rx="1" fill={viewMode === 'list' ? 'var(--ink)' : 'var(--mute)'} />
-                    <rect x="1" y="6" width="12" height="2" rx="1" fill={viewMode === 'list' ? 'var(--ink)' : 'var(--mute)'} />
-                    <rect x="1" y="10" width="12" height="2" rx="1" fill={viewMode === 'list' ? 'var(--ink)' : 'var(--mute)'} />
+                    <rect x="1" y="2" width="12" height="2" rx="1" fill={viewMode === 'list' ? 'var(--ink)' : 'var(--ink)'} />
+                    <rect x="1" y="6" width="12" height="2" rx="1" fill={viewMode === 'list' ? 'var(--ink)' : 'var(--ink)'} />
+                    <rect x="1" y="10" width="12" height="2" rx="1" fill={viewMode === 'list' ? 'var(--ink)' : 'var(--ink)'} />
                   </svg>
                 )}
               </button>
@@ -240,7 +240,7 @@ export default function WorkerMap() {
 
         {/* Role */}
         <div style={{ marginBottom: 22 }}>
-          <div style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--mute)', marginBottom: 10 }}>Role</div>
+          <div style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--ink)', marginBottom: 10 }}>Role</div>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
             {['All', 'Barista', 'Bartender', 'Server', 'Barback', 'Host', 'Cook'].map(r => (
               <button key={r} onClick={() => setDraftRole(r)} style={{
@@ -255,7 +255,7 @@ export default function WorkerMap() {
 
         {/* Pay */}
         <div style={{ marginBottom: 22 }}>
-          <div style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--mute)', marginBottom: 10 }}>Minimum pay rate</div>
+          <div style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--ink)', marginBottom: 10 }}>Minimum pay rate</div>
           <button onClick={() => setDraftHighPay(p => !p)} style={{
             padding: '11px 18px', borderRadius: 99, border: '2px solid var(--ink)',
             background: draftHighPay ? 'var(--ink)' : 'transparent',
@@ -266,7 +266,7 @@ export default function WorkerMap() {
 
         {/* Neighborhood */}
         <div style={{ marginBottom: 22 }}>
-          <div style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--mute)', marginBottom: 10 }}>Neighborhood</div>
+          <div style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--ink)', marginBottom: 10 }}>Neighborhood</div>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
             {NEIGHBORHOODS.map(n => (
               <button key={n} onClick={() => setDraftNeighborhood(n)} style={{
@@ -281,7 +281,7 @@ export default function WorkerMap() {
 
         {/* Sort */}
         <div style={{ marginBottom: 28 }}>
-          <div style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--mute)', marginBottom: 10 }}>Sort by</div>
+          <div style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--ink)', marginBottom: 10 }}>Sort by</div>
           <div style={{ display: 'flex', gap: 8 }}>
             {[{ val: 'none', label: 'Default' }, { val: 'pay', label: 'Highest Pay' }].map(opt => (
               <button key={opt.val} onClick={() => setDraftSort(opt.val as 'pay' | 'none')} style={{
@@ -296,7 +296,7 @@ export default function WorkerMap() {
 
         {/* Actions */}
         <div style={{ display: 'flex', gap: 10 }}>
-          <button onClick={clearFilter} style={{ flex: 1, padding: '14px', borderRadius: 24, border: '1.5px solid var(--line)', background: 'transparent', fontFamily: 'var(--body)', fontSize: 14, fontWeight: 500, color: 'var(--mute)', cursor: 'pointer' }}>Clear</button>
+          <button onClick={clearFilter} style={{ flex: 1, padding: '14px', borderRadius: 24, border: '1.5px solid var(--line)', background: 'transparent', fontFamily: 'var(--body)', fontSize: 14, fontWeight: 500, color: 'var(--ink)', cursor: 'pointer' }}>Clear</button>
           <button onClick={applyFilter} style={{ flex: 2, padding: '14px', borderRadius: 24, border: 'none', background: 'var(--ink)', fontFamily: 'var(--body)', fontSize: 15, fontWeight: 500, color: '#fff', cursor: 'pointer', letterSpacing: '-0.01em' }}>Show Shifts</button>
         </div>
       </div>
@@ -306,13 +306,13 @@ export default function WorkerMap() {
   /* ── MAP VIEW ── */
   if (viewMode === 'map') {
     return (
-      <div style={{ maxWidth: 390, height: '100dvh', margin: '0 auto', position: 'relative', overflow: 'hidden', background: '#E8EAF0' }}>
+      <div style={{ maxWidth: 390, height: '100dvh', margin: '0 auto', position: 'relative', overflow: 'hidden', background: 'var(--map-bg)' }}>
         <style>{`
           @keyframes me-pulse {
             0% { transform: scale(1); opacity: 0.7; }
             100% { transform: scale(2.8); opacity: 0; }
           }
-          .me-pulse-ring { position: absolute; inset: -4px; border-radius: 50%; background: #16A34A; animation: me-pulse 2s ease-out infinite; }
+          .me-pulse-ring { position: absolute; inset: -4px; border-radius: 50%; background: var(--online); animation: me-pulse 2s ease-out infinite; }
           @keyframes slideUp { from { transform: translateX(-50%) translateY(100%); } to { transform: translateX(-50%) translateY(0); } }
         `}</style>
 
@@ -326,7 +326,7 @@ export default function WorkerMap() {
         {/* Me dot */}
         <div style={{ position: 'absolute', left: '28%', top: '55%', transform: 'translate(-50%,-50%)', width: 10, height: 10, zIndex: 5 }}>
           <div className="me-pulse-ring" />
-          <div style={{ position: 'relative', width: 10, height: 10, borderRadius: '50%', background: '#16A34A', border: '2px solid #fff', boxShadow: '0 1px 4px rgba(0,0,0,0.3)', zIndex: 1 }} />
+          <div style={{ position: 'relative', width: 10, height: 10, borderRadius: '50%', background: 'var(--online)', border: '2px solid #fff', boxShadow: '0 1px 4px rgba(0,0,0,0.3)', zIndex: 1 }} />
         </div>
 
         {/* Shift pins */}
@@ -390,8 +390,8 @@ export default function WorkerMap() {
       <div style={{ flex: 1, overflowY: 'auto', paddingBottom: 90 }}>
         <div style={{ padding: '20px 20px 14px' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 12 }}>
-            <span style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, color: 'var(--mute)', letterSpacing: '0.06em', textTransform: 'uppercase' }}>Bedstuy, Brooklyn</span>
-            <span style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, color: 'var(--mute)', letterSpacing: '0.06em', textTransform: 'uppercase' }}>78F Sunny</span>
+            <span style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, color: 'var(--ink)', letterSpacing: '0.06em', textTransform: 'uppercase' }}>Bedstuy, Brooklyn</span>
+            <span style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, color: 'var(--ink)', letterSpacing: '0.06em', textTransform: 'uppercase' }}>78F Sunny</span>
           </div>
           <div style={{ display: 'flex', alignItems: 'baseline', gap: 8 }}>
             <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 48, color: 'var(--ink)', letterSpacing: '-0.05em', lineHeight: 1 }}>{filteredShifts.length}</span>

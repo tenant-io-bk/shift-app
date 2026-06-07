@@ -55,7 +55,7 @@ export default function EmployerCreateAccount() {
       </div>
 
       <div style={{ padding: '20px 22px 140px', flex: 1, overflowY: 'auto' }}>
-        <div style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--hydrant)', marginBottom: 10 }}>EMPLOYER</div>
+        <div style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--green)', marginBottom: 10 }}>EMPLOYER</div>
         <h1 style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 34, letterSpacing: '-0.075em', lineHeight: 0.95, color: 'var(--ink)', marginBottom: 24 }}>
           Let's Get You Set Up.
         </h1>
@@ -155,7 +155,7 @@ export default function EmployerCreateAccount() {
               background: agreed ? 'var(--ink)' : 'transparent',
               display: 'flex', alignItems: 'center', justifyContent: 'center',
             }}>
-              {agreed && <svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4.5L4 7.5L10 1" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/></svg>}
+              {agreed && <svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4.5L4 7.5L10 1" stroke="white" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/></svg>}
             </div>
             <span style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--ink)', lineHeight: 1.5 }}>
               I agree to SHIFT's <span style={{ textDecoration: 'underline' }}>Terms of Service</span> and confirm I'm authorized to hire for this business.

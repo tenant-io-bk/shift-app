@@ -69,8 +69,8 @@ export default function CancelFlow() {
           {
             icon: (
               <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-                <circle cx="9" cy="9" r="7.5" stroke="#0D0E12" strokeWidth="1.4" />
-                <path d="M9 5v4l2.5 2.5" stroke="#0D0E12" strokeWidth="1.4" strokeLinecap="round" />
+                <circle cx="9" cy="9" r="7.5" stroke="var(--ink)" strokeWidth="1.4" />
+                <path d="M9 5v4l2.5 2.5" stroke="var(--ink)" strokeWidth="1.4" strokeLinecap="round" />
               </svg>
             ),
             title: "I'll be late",
@@ -82,7 +82,7 @@ export default function CancelFlow() {
           {
             icon: (
               <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-                <path d="M3 4h12a1 1 0 011 1v7a1 1 0 01-1 1H5l-3 2V5a1 1 0 011-1z" stroke="#0D0E12" strokeWidth="1.4" />
+                <path d="M3 4h12a1 1 0 011 1v7a1 1 0 01-1 1H5l-3 2V5a1 1 0 011-1z" stroke="var(--ink)" strokeWidth="1.4" />
               </svg>
             ),
             title: "Message Padmore's first",
@@ -95,7 +95,7 @@ export default function CancelFlow() {
             icon: (
               <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
                 <circle cx="9" cy="9" r="7.5" stroke="#B83227" strokeWidth="1.4" />
-                <path d="M6 6l6 6M12 6l-6 6" stroke="#B83227" strokeWidth="1.5" strokeLinecap="round" />
+                <path d="M6 6l6 6M12 6l-6 6" stroke="#B83227" strokeWidth="1.4" strokeLinecap="round" />
               </svg>
             ),
             title: "I can't make it.",
@@ -140,7 +140,7 @@ export default function CancelFlow() {
               }}>{opt.desc}</div>
             </div>
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style={{ flexShrink: 0 }}>
-              <path d="M6 3l5 5-5 5" stroke="var(--mute-2)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              <path d="M6 3l5 5-5 5" stroke="var(--ink)" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </button>
         ))}
@@ -160,7 +160,7 @@ export default function CancelFlow() {
         <div style={{
           marginTop: 28,
           padding: '20px 20px 22px',
-          background: '#d2e4ff',
+          background: 'var(--navy-soft)',
           borderRadius: 20,
         }}>
           <div style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--ink)', marginBottom: 10 }}>Your shift</div>

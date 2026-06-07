@@ -71,7 +71,7 @@ export default function WorkerOnboarding() {
           fontFamily: 'var(--body)',
           fontSize: 11,
           fontWeight: 600,
-          color: 'var(--mute)',
+          color: 'var(--ink)',
           textTransform: 'uppercase',
           letterSpacing: '0.08em',
           display: 'block',
@@ -141,7 +141,7 @@ export default function WorkerOnboarding() {
         <p style={{
           fontFamily: 'var(--body)',
           fontSize: 13,
-          color: 'var(--mute)',
+          color: 'var(--ink)',
           lineHeight: 1.5,
           marginTop: 14,
           textAlign: 'left',

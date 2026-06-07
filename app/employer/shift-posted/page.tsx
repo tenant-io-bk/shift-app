@@ -121,7 +121,7 @@ export default function ShiftPosted() {
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
               }}>
                 <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
-                  <path d="M7 19L14 26L29 11" stroke="var(--green)" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M7 19L14 26L29 11" stroke="var(--green)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </div>
             </div>
@@ -214,7 +214,7 @@ export default function ShiftPosted() {
                         <div style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--ink)' }}>{t.label}</div>
                         {isActive && <div style={{ fontFamily: 'var(--body)', fontSize: 10, color: 'var(--ink)', marginTop: 1 }}>{t.sub}</div>}
                       </div>
-                      {isDone && <svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="var(--green)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/></svg>}
+                      {isDone && <svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="var(--green)" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/></svg>}
                     </div>
                   );
                 })}

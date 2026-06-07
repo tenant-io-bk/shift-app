@@ -94,7 +94,7 @@ export default function BottomNav({ active }: { active: Tab }) {
               </div>
               <div>
                 <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 16, color: 'var(--ink)', letterSpacing: '-0.02em' }}>Jordan M.</div>
-                <div style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--mute)', marginTop: 2 }}>4.9★ · Barista · Server</div>
+                <div style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--ink)', marginTop: 2 }}>4.9★ · Barista · Server</div>
               </div>
             </div>
 
@@ -106,11 +106,11 @@ export default function BottomNav({ active }: { active: Tab }) {
                 textDecoration: 'none',
               }}>
                 <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 16, color: 'var(--ink)' }}>{item.label}</span>
-                <span style={{ fontFamily: 'var(--body)', fontSize: 16, color: 'var(--mute)' }}>→</span>
+                <span style={{ fontFamily: 'var(--body)', fontSize: 16, color: 'var(--ink)' }}>→</span>
               </Link>
             ))}
 
-            <button style={{ width: '100%', padding: '14px 22px', background: 'none', border: 'none', borderTop: '1px solid var(--line)', cursor: 'pointer', textAlign: 'left', fontFamily: 'var(--body)', fontSize: 13, color: 'var(--mute)' }}>
+            <button style={{ width: '100%', padding: '14px 22px', background: 'none', border: 'none', borderTop: '1px solid var(--line)', cursor: 'pointer', textAlign: 'left', fontFamily: 'var(--body)', fontSize: 13, color: 'var(--ink)' }}>
               Sign out
             </button>
           </div>

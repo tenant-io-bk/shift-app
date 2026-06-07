@@ -20,7 +20,7 @@ export default function PaidOut() {
         <StatusBar time="4:11 PM" />
 
         <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 10, marginTop: 8 }}>
-          <div style={{ width: 6, height: 6, borderRadius: '50%', background: '#16A34A' }} />
+          <div style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--online)' }} />
           <span style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, color: 'var(--ink)', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
             Barista · Padmore&apos;s · Today
           </span>
@@ -146,7 +146,7 @@ export default function PaidOut() {
                   fontFamily: 'var(--sans)',
                   fontWeight: row.bold ? 700 : 400,
                   fontSize: 15,
-                  color: row.green ? 'var(--green)' : row.muted ? 'var(--mute)' : 'var(--ink)',
+                  color: row.green ? 'var(--green)' : row.muted ? 'var(--ink)' : 'var(--ink)',
                   letterSpacing: '-0.01em',
                 }}
               >

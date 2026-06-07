@@ -61,7 +61,7 @@ const INITIAL: Notification[] = [
 ];
 
 const TYPE_CONFIG = {
-  match:   { bg: 'var(--steel)',      color: '#1e3d7a', icon: '⚡' },
+  match:   { bg: 'var(--steel)',      color: 'var(--navy)', icon: '⚡' },
   payment: { bg: 'var(--green)',      color: 'var(--ink)', icon: '$' },
   reminder:{ bg: 'var(--yellow)',     color: 'var(--ink)', icon: '!' },
   review:  { bg: 'var(--lilac)',      color: '#fff', icon: '★' },
@@ -91,11 +91,11 @@ export default function Notifications() {
       {/* Nav */}
       <div style={{ height: 44, display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 16px', borderBottom: '1px solid var(--line)', background: 'var(--paper)' }}>
         <div style={{ width: 60 }} />
-        <span style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--mute)' }}>
+        <span style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--ink)' }}>
           Alerts {unreadCount > 0 && <span style={{ color: 'var(--ink)' }}>· {unreadCount}</span>}
         </span>
         {unreadCount > 0 ? (
-          <button onClick={markAllRead} style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, color: 'var(--mute)', background: 'none', border: 'none', cursor: 'pointer', width: 60, textAlign: 'right' }}>
+          <button onClick={markAllRead} style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, color: 'var(--ink)', background: 'none', border: 'none', cursor: 'pointer', width: 60, textAlign: 'right' }}>
             Read All
           </button>
         ) : <div style={{ width: 60 }} />}
@@ -103,11 +103,11 @@ export default function Notifications() {
 
       <div style={{ flex: 1, overflowY: 'auto', padding: '8px 16px 16px' }}>
         {/* Today */}
-        <div style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--mute)', padding: '10px 4px 8px' }}>Today</div>
+        <div style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--ink)', padding: '10px 4px 8px' }}>Today</div>
         {today.map(n => <NotifRow key={n.id} n={n} onRead={markRead} />)}
 
         {/* Earlier */}
-        <div style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--mute)', padding: '16px 4px 8px' }}>Earlier</div>
+        <div style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--ink)', padding: '16px 4px 8px' }}>Earlier</div>
         {earlier.map(n => <NotifRow key={n.id} n={n} onRead={markRead} />)}
       </div>
 
@@ -151,8 +151,8 @@ function NotifRow({ n, onRead }: { n: Notification; onRead: (id: number) => void
             <div style={{ width: 7, height: 7, borderRadius: '50%', background: 'var(--ink)', flexShrink: 0, marginTop: 4 }} />
           )}
         </div>
-        <div style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--mute)', lineHeight: 1.4 }}>{n.sub}</div>
-        <div style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)', marginTop: 4, opacity: 0.7 }}>{n.time}</div>
+        <div style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--ink)', lineHeight: 1.4 }}>{n.sub}</div>
+        <div style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--ink)', marginTop: 4, opacity: 0.7 }}>{n.time}</div>
       </div>
     </Link>
   );

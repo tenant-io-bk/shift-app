@@ -32,7 +32,7 @@ export default function EmployerBilling() {
 
       <div style={{ height: 44, padding: '0 16px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderBottom: '1px solid var(--line)' }}>
         <Link href="/employer/business-profile" style={{ fontSize: 20, color: 'var(--ink)', textDecoration: 'none' }}>←</Link>
-        <span style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--mute)' }}>Billing</span>
+        <span style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--ink)' }}>Billing</span>
         <div style={{ width: 20 }} />
       </div>
 
@@ -40,17 +40,17 @@ export default function EmployerBilling() {
         <div style={{ flex: 1, height: 3, background: 'var(--paper-3)', borderRadius: 99, overflow: 'hidden' }}>
           <div style={{ width: '80%', height: '100%', background: 'var(--ink)', borderRadius: 99 }} />
         </div>
-        <span style={{ fontFamily: 'var(--body)', fontSize: 10, color: 'var(--mute)', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
-          <span style={{ color: 'var(--hydrant)', fontWeight: 600 }}>4</span> / 5
+        <span style={{ fontFamily: 'var(--body)', fontSize: 10, color: 'var(--ink)', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
+          <span style={{ color: 'var(--green)', fontWeight: 600 }}>4</span> / 5
         </span>
       </div>
 
       <div style={{ padding: '20px 22px 140px', flex: 1, overflowY: 'auto' }}>
-        <div style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--hydrant)', marginBottom: 10 }}>PAYMENT</div>
+        <div style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--green)', marginBottom: 10 }}>PAYMENT</div>
         <h1 style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 34, letterSpacing: '-0.075em', lineHeight: 0.95, color: 'var(--ink)', marginBottom: 10 }}>
           How do you want to pay workers?
         </h1>
-        <p style={{ fontFamily: 'var(--body)', fontSize: 13, color: 'var(--mute)', marginBottom: 24, lineHeight: 1.5 }}>
+        <p style={{ fontFamily: 'var(--body)', fontSize: 13, color: 'var(--ink)', marginBottom: 24, lineHeight: 1.5 }}>
           Workers are paid automatically after each shift. You're billed then, not when you post.
         </p>
 
@@ -64,8 +64,8 @@ export default function EmployerBilling() {
               display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8,
             }}>
               {m === 'card'
-                ? <svg width="18" height="14" viewBox="0 0 24 18" fill="none"><rect x="1" y="1" width="22" height="16" rx="2.5" stroke={method === m ? '#fff' : 'var(--ink)'} strokeWidth="1.5"/><path d="M1 6h22" stroke={method === m ? '#fff' : 'var(--ink)'} strokeWidth="1.5"/><rect x="4" y="10" width="4" height="3" rx="1" fill={method === m ? '#fff' : 'var(--ink)'}/></svg>
-                : <svg width="18" height="16" viewBox="0 0 24 20" fill="none"><rect x="1" y="7" width="22" height="12" rx="2" stroke={method === m ? '#fff' : 'var(--ink)'} strokeWidth="1.5"/><path d="M12 1L22 6H2L12 1Z" fill={method === m ? '#fff' : 'var(--ink)'}/><rect x="7" y="11" width="3" height="4" fill={method === m ? 'var(--ink)' : 'var(--paper)'}/><rect x="14" y="11" width="3" height="4" fill={method === m ? 'var(--ink)' : 'var(--paper)'}/></svg>
+                ? <svg width="18" height="14" viewBox="0 0 24 18" fill="none"><rect x="1" y="1" width="22" height="16" rx="2.5" stroke={method === m ? '#fff' : 'var(--ink)'} strokeWidth="1.4"/><path d="M1 6h22" stroke={method === m ? '#fff' : 'var(--ink)'} strokeWidth="1.4"/><rect x="4" y="10" width="4" height="3" rx="1" fill={method === m ? '#fff' : 'var(--ink)'}/></svg>
+                : <svg width="18" height="16" viewBox="0 0 24 20" fill="none"><rect x="1" y="7" width="22" height="12" rx="2" stroke={method === m ? '#fff' : 'var(--ink)'} strokeWidth="1.4"/><path d="M12 1L22 6H2L12 1Z" fill={method === m ? '#fff' : 'var(--ink)'}/><rect x="7" y="11" width="3" height="4" fill={method === m ? 'var(--ink)' : 'var(--paper)'}/><rect x="14" y="11" width="3" height="4" fill={method === m ? 'var(--ink)' : 'var(--paper)'}/></svg>
               }
               <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 14, color: method === m ? '#fff' : 'var(--ink)' }}>
                 {m === 'card' ? 'Credit / Debit' : 'Bank Account'}
@@ -113,7 +113,7 @@ export default function EmployerBilling() {
           <div style={{ padding: '20px', background: 'var(--card)', borderRadius: 12, border: '2px solid var(--ink)', textAlign: 'center' }}>
             <div style={{ fontSize: 32, marginBottom: 12 }}>🏦</div>
             <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 16, color: 'var(--ink)', marginBottom: 8 }}>Connect via Plaid</div>
-            <p style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--mute)', lineHeight: 1.5 }}>
+            <p style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--ink)', lineHeight: 1.5 }}>
               We'll open Plaid to securely link your business bank account. Takes about 2 minutes.
             </p>
           </div>
@@ -135,11 +135,11 @@ export default function EmployerBilling() {
             fontWeight: 500, fontSize: 16, textAlign: 'center', textDecoration: 'none',
           }}>Let's Go. Post a Shift →</Link>
         ) : (
-          <div style={{ width: '100%', padding: '15px 22px', borderRadius: 99, background: 'var(--paper-3)', color: 'var(--mute)', fontFamily: 'var(--body)', fontWeight: 500, fontSize: 16, textAlign: 'center' }}>
+          <div style={{ width: '100%', padding: '15px 22px', borderRadius: 99, background: 'var(--paper-3)', color: 'var(--ink)', fontFamily: 'var(--body)', fontWeight: 500, fontSize: 16, textAlign: 'center' }}>
             {method === 'card' ? 'Enter Card Details' : 'Connect Bank Account'}
           </div>
         )}
-        <p style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)', textAlign: 'center', marginTop: 8 }}>
+        <p style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--ink)', textAlign: 'center', marginTop: 8 }}>
           Secured by Stripe · 256-bit encryption
         </p>
       </div>

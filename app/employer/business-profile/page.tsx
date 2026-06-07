@@ -19,7 +19,7 @@ export default function BusinessProfile() {
 
       <div style={{ height: 44, padding: '0 16px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderBottom: '1px solid var(--line)' }}>
         <Link href="/employer/onboarding" style={{ fontSize: 20, color: 'var(--ink)', textDecoration: 'none' }}>←</Link>
-        <span style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--mute)' }}>Business profile</span>
+        <span style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--ink)' }}>Business profile</span>
         <div style={{ width: 20 }} />
       </div>
 
@@ -27,17 +27,17 @@ export default function BusinessProfile() {
         <div style={{ flex: 1, height: 3, background: 'var(--paper-3)', borderRadius: 99, overflow: 'hidden' }}>
           <div style={{ width: '60%', height: '100%', background: 'var(--ink)', borderRadius: 99 }} />
         </div>
-        <span style={{ fontFamily: 'var(--body)', fontSize: 10, color: 'var(--mute)', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
-          <span style={{ color: 'var(--hydrant)', fontWeight: 600 }}>3</span> / 5
+        <span style={{ fontFamily: 'var(--body)', fontSize: 10, color: 'var(--ink)', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
+          <span style={{ color: 'var(--green)', fontWeight: 600 }}>3</span> / 5
         </span>
       </div>
 
       <div style={{ padding: '20px 22px 140px', flex: 1, overflowY: 'auto' }}>
-        <div style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--hydrant)', marginBottom: 10 }}>YOUR BUSINESS</div>
+        <div style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--green)', marginBottom: 10 }}>YOUR BUSINESS</div>
         <h1 style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 34, letterSpacing: '-0.075em', lineHeight: 0.95, color: 'var(--ink)', marginBottom: 10 }}>
           Make a Great First Impression.
         </h1>
-        <p style={{ fontFamily: 'var(--body)', fontSize: 13, color: 'var(--mute)', marginBottom: 28, lineHeight: 1.5 }}>
+        <p style={{ fontFamily: 'var(--body)', fontSize: 13, color: 'var(--ink)', marginBottom: 28, lineHeight: 1.5 }}>
           Workers see this before accepting a shift. Strong profiles attract better talent.
         </p>
 
@@ -45,21 +45,21 @@ export default function BusinessProfile() {
         <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 28, padding: '16px', background: 'var(--card)', borderRadius: 12, border: '2px solid var(--ink)' }}>
           <div style={{
             width: 64, height: 64, borderRadius: 12, flexShrink: 0,
-            background: hasLogo ? 'var(--hydrant)' : 'var(--paper-3)',
+            background: hasLogo ? 'var(--green)' : 'var(--paper-3)',
             display: 'flex', alignItems: 'center', justifyContent: 'center',
             border: '2px dashed var(--line-2)',
           }}>
             {hasLogo
               ? <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 20, color: '#fff' }}>PC</span>
-              : <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="4" stroke="var(--mute)" strokeWidth="1.5"/><path d="M3 15l5-5 4 4 3-3 6 6" stroke="var(--mute)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
+              : <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="4" stroke="var(--ink)" strokeWidth="1.4"/><path d="M3 15l5-5 4 4 3-3 6 6" stroke="var(--ink)" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/></svg>
             }
           </div>
           <div style={{ flex: 1 }}>
             <div style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 15, color: 'var(--ink)', marginBottom: 4 }}>Business Logo</div>
-            <div style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--mute)', marginBottom: 8 }}>Square image works best</div>
+            <div style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--ink)', marginBottom: 8 }}>Square image works best</div>
             <button onClick={() => setHasLogo(true)} style={{
-              fontFamily: 'var(--body)', fontSize: 12, fontWeight: 600, color: 'var(--hydrant)',
-              background: 'var(--hydrant-soft)', border: '1px solid var(--hydrant)',
+              fontFamily: 'var(--body)', fontSize: 12, fontWeight: 600, color: 'var(--green)',
+              background: 'var(--green-soft)', border: '1px solid var(--green)',
               borderRadius: 99, padding: '6px 12px', cursor: 'pointer',
             }}>
               {hasLogo ? '✓ Logo Added' : 'Upload Logo'}
@@ -69,8 +69,8 @@ export default function BusinessProfile() {
 
         {/* Description */}
         <div style={{ marginBottom: 22 }}>
-          <div style={{ fontFamily: 'var(--body)', fontSize: 10.5, fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--mute)', marginBottom: 8 }}>
-            About your business <span style={{ color: '#EA4B2A' }}>*</span>
+          <div style={{ fontFamily: 'var(--body)', fontSize: 10.5, fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--ink)', marginBottom: 8 }}>
+            About your business <span style={{ color: 'var(--red)' }}>*</span>
           </div>
           <textarea value={description} onChange={e => setDescription(e.target.value)} rows={4}
             placeholder="What's the vibe? What do workers need to know before showing up?"
@@ -83,7 +83,7 @@ export default function BusinessProfile() {
         </div>
 
         <div style={{ marginBottom: 8 }}>
-          <div style={{ fontFamily: 'var(--body)', fontSize: 10.5, fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--mute)', marginBottom: 10 }}>
+          <div style={{ fontFamily: 'var(--body)', fontSize: 10.5, fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--ink)', marginBottom: 10 }}>
             Current team size
           </div>
           <div style={{ display: 'flex', gap: 8 }}>
@@ -93,7 +93,7 @@ export default function BusinessProfile() {
                 border: '2px solid var(--ink)',
                 background: teamSize === s ? 'var(--ink)' : 'var(--card)',
                 fontFamily: 'var(--body)', fontSize: 13, fontWeight: 600,
-                color: teamSize === s ? '#fff' : 'var(--mute)',
+                color: teamSize === s ? '#fff' : 'var(--ink)',
                 transition: 'all 0.15s',
               }}>{s}</button>
             ))}
@@ -109,7 +109,7 @@ export default function BusinessProfile() {
             fontWeight: 500, fontSize: 16, textAlign: 'center', textDecoration: 'none',
           }}>Continue →</Link>
         ) : (
-          <div style={{ width: '100%', padding: '15px 22px', borderRadius: 99, background: 'var(--paper-3)', color: 'var(--mute)', fontFamily: 'var(--body)', fontWeight: 500, fontSize: 16, textAlign: 'center' }}>
+          <div style={{ width: '100%', padding: '15px 22px', borderRadius: 99, background: 'var(--paper-3)', color: 'var(--ink)', fontFamily: 'var(--body)', fontWeight: 500, fontSize: 16, textAlign: 'center' }}>
             Fill in All Fields
           </div>
         )}
