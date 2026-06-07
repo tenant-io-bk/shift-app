@@ -77,11 +77,11 @@ export default function CancelFlow() {
         }}>On shift · Padmore's · #4471</p>
         <div style={{
           fontFamily: 'var(--sans)',
-          fontWeight: 600,
+          fontWeight: 400,
           fontSize: 72,
           color: '#fff',
           opacity: 0.5,
-          letterSpacing: '-0.075em',
+          letterSpacing: '-0.05em',
           lineHeight: 1,
         }}>02:14:38</div>
       </div>
