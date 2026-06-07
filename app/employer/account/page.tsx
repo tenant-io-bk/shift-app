@@ -28,10 +28,8 @@ export default function EmployerAccount() {
 
       {/* Greeting + edit profile */}
       <div style={{ padding: '20px 16px 8px' }}>
-        <div style={{ fontFamily: 'var(--sans)', fontWeight: 200, fontSize: 38, color: 'var(--ink)', letterSpacing: '-0.075em', lineHeight: 0.88 }}>Good morning</div>
-        <div style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 38, color: 'var(--ink)', letterSpacing: '-0.075em', lineHeight: 0.95 }}>Padmore&apos;s Coffee</div>
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginTop: 6 }}>
-          <div style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--ink)' }}>Café · Bed-Stuy, Brooklyn</div>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 2 }}>
+          <div style={{ fontFamily: 'var(--sans)', fontWeight: 200, fontSize: 38, color: 'var(--ink)', letterSpacing: '-0.075em', lineHeight: 0.88 }}>Good morning</div>
           <Link
             href="/employer/business-profile"
             style={{
@@ -44,6 +42,8 @@ export default function EmployerAccount() {
             Edit profile →
           </Link>
         </div>
+        <div style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 38, color: 'var(--ink)', letterSpacing: '-0.075em', lineHeight: 0.95 }}>Padmore&apos;s Coffee</div>
+        <div style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--ink)', marginTop: 6 }}>Café · Bed-Stuy, Brooklyn</div>
       </div>
 
       <div style={{ padding: '16px 16px 0', display: 'flex', flexDirection: 'column', gap: 12 }}>
