@@ -32,10 +32,11 @@ export default function Books() {
 
       {/* Monthly total header — green bg */}
       <div style={{ padding: '44px 22px 52px', background: 'var(--green)' }}>
-        {/* Date pill — black bg, white text */}
-        <div style={{ display: 'inline-block', background: 'var(--ink)', borderRadius: 99, padding: '5px 14px', marginBottom: 18 }}>
-          <p style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em', color: '#fff', margin: 0 }}>MAY 2026</p>
-        </div>
+        <p style={{ fontFamily: 'var(--body)', fontSize: 14, color: 'var(--ink)', marginBottom: 10 }}>
+          You&apos;ve Filled{' '}
+          <span style={{ textDecoration: 'underline', fontWeight: 700 }}>18</span>
+          {' '}Shifts May 2026
+        </p>
 
         <div style={{
           fontFamily: 'var(--sans)',
@@ -44,13 +45,7 @@ export default function Books() {
           color: 'var(--ink)',
           letterSpacing: '-0.05em',
           lineHeight: 1,
-          marginBottom: 18,
         }}>$2,847.00</div>
-
-        {/* 18 shifts — Inter, dark on green */}
-        <div style={{ display: 'inline-block', background: 'rgba(0,0,0,0.12)', borderRadius: 99, padding: '5px 14px' }}>
-          <span style={{ fontFamily: 'var(--body)', fontSize: 12, fontWeight: 600, color: 'var(--ink)' }}>18 shifts</span>
-        </div>
       </div>
 
       {/* Statement list */}
