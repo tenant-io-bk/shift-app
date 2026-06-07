@@ -133,10 +133,10 @@ export default function EmployerBilling() {
             display: 'block', width: '100%', padding: '15px 22px', borderRadius: 99,
             background: 'var(--ink)', color: '#fff', fontFamily: 'var(--body)',
             fontWeight: 500, fontSize: 16, textAlign: 'center', textDecoration: 'none',
-          }}>Let's go. Post a shift →</Link>
+          }}>Let's Go. Post a Shift →</Link>
         ) : (
           <div style={{ width: '100%', padding: '15px 22px', borderRadius: 99, background: 'var(--paper-3)', color: 'var(--mute)', fontFamily: 'var(--body)', fontWeight: 500, fontSize: 16, textAlign: 'center' }}>
-            {method === 'card' ? 'Enter card details' : 'Connect bank account'}
+            {method === 'card' ? 'Enter Card Details' : 'Connect Bank Account'}
           </div>
         )}
         <p style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)', textAlign: 'center', marginTop: 8 }}>

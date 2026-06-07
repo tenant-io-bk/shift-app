@@ -100,7 +100,7 @@ export default function Page() {
           Rebook Marco.
         </Link>
         <button style={{ display: 'block', background: 'transparent', border: '2px solid var(--ink)', color: 'var(--ink)', borderRadius: 99, padding: '14px 22px', textAlign: 'center', fontFamily: 'var(--body)', fontWeight: 500, fontSize: 15, letterSpacing: '-0.01em', cursor: 'pointer', width: '100%' }}>
-          Add To Favorites
+          Add to Favorites
         </button>
       </div>
 

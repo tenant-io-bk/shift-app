@@ -313,7 +313,7 @@ export default function WorkerHome() {
               padding: '10px 18px',
               fontFamily: 'var(--body)',
               fontSize: 12,
-              fontWeight: 600,
+              fontWeight: 500,
               color: '#fff',
               textDecoration: 'none',
               letterSpacing: '0.01em',

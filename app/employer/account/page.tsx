@@ -78,7 +78,7 @@ export default function EmployerAccount() {
         </Section>
 
         <Link href="/worker/role" style={{ display: 'block', padding: '16px 18px', fontFamily: 'var(--body)', fontWeight: 500, fontSize: 16, color: 'var(--ink)', textDecoration: 'none', textAlign: 'center', border: '2px solid var(--ink)', borderRadius: 99 }}>
-          Sign out
+          Sign Out
         </Link>
 
         <p style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)', textAlign: 'center', marginTop: 4 }}>SHIFT · v1.0 · NYC Hyperlocal Labor</p>

@@ -178,7 +178,7 @@ function InputStep({ onDraft }: { onDraft: (role: string, brief: string, time: s
           style={{
             width: '100%', padding: '16px',
             background: 'var(--ink)', color: '#fff', borderRadius: 99,
-            fontFamily: 'var(--body)', fontWeight: 700, fontSize: 18,
+            fontFamily: 'var(--body)', fontWeight: 500, fontSize: 18,
             border: 'none', cursor: 'pointer', letterSpacing: '-0.01em',
           }}
         >
@@ -351,7 +351,7 @@ function ReviewStep({
         <button onClick={onPost} style={{
           width: '100%', padding: '16px',
           background: 'var(--hydrant)', color: '#fff', borderRadius: 99,
-          fontFamily: 'var(--body)', fontWeight: 700, fontSize: 18,
+          fontFamily: 'var(--body)', fontWeight: 500, fontSize: 18,
           border: 'none', cursor: 'pointer', letterSpacing: '-0.01em',
         }}>
           Post It →
@@ -396,13 +396,13 @@ function PostedStep({ role, time }: { role: string; time: string }) {
           <Link href="/employer/roster" style={{
             flex: 1, padding: '14px', borderRadius: 99,
             background: 'var(--ink)', color: '#fff',
-            fontFamily: 'var(--body)', fontWeight: 700, fontSize: 15,
+            fontFamily: 'var(--body)', fontWeight: 500, fontSize: 15,
             textDecoration: 'none', textAlign: 'center', letterSpacing: '-0.01em',
           }}>View Roster</Link>
           <Link href="/business/post" style={{
             flex: 1, padding: '14px', borderRadius: 99,
             border: '2px solid var(--ink)', color: 'var(--ink)',
-            fontFamily: 'var(--body)', fontWeight: 700, fontSize: 15,
+            fontFamily: 'var(--body)', fontWeight: 500, fontSize: 15,
             textDecoration: 'none', textAlign: 'center', letterSpacing: '-0.01em',
           }}>Post Another</Link>
         </div>

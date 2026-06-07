@@ -296,8 +296,8 @@ export default function WorkerMap() {
 
         {/* Actions */}
         <div style={{ display: 'flex', gap: 10 }}>
-          <button onClick={clearFilter} style={{ flex: 1, padding: '14px', borderRadius: 24, border: '1.5px solid var(--line)', background: 'transparent', fontFamily: 'var(--body)', fontSize: 14, fontWeight: 600, color: 'var(--mute)', cursor: 'pointer' }}>Clear</button>
-          <button onClick={applyFilter} style={{ flex: 2, padding: '14px', borderRadius: 24, border: 'none', background: 'var(--ink)', fontFamily: 'var(--body)', fontSize: 15, fontWeight: 700, color: '#fff', cursor: 'pointer', letterSpacing: '-0.01em' }}>Show Shifts</button>
+          <button onClick={clearFilter} style={{ flex: 1, padding: '14px', borderRadius: 24, border: '1.5px solid var(--line)', background: 'transparent', fontFamily: 'var(--body)', fontSize: 14, fontWeight: 500, color: 'var(--mute)', cursor: 'pointer' }}>Clear</button>
+          <button onClick={applyFilter} style={{ flex: 2, padding: '14px', borderRadius: 24, border: 'none', background: 'var(--ink)', fontFamily: 'var(--body)', fontSize: 15, fontWeight: 500, color: '#fff', cursor: 'pointer', letterSpacing: '-0.01em' }}>Show Shifts</button>
         </div>
       </div>
     </>
