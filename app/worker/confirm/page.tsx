@@ -131,26 +131,26 @@ export default function WorkerConfirm() {
                 <p style={{ fontFamily: 'var(--body)', fontSize: 9.5, fontWeight: 600, letterSpacing: '0.10em', textTransform: 'uppercase', color: 'var(--ink)', marginBottom: 4 }}>When</p>
                 <p style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 15, color: 'var(--ink)', letterSpacing: '-0.01em' }}>Today · 11A – 4P</p>
               </div>
-              <div style={{ paddingBottom: 16, paddingLeft: 16, borderLeft: '1px solid var(--ink)' }}>
+              <div style={{ paddingBottom: 16, paddingLeft: 16, borderLeft: '1.5px dashed var(--ink)' }}>
                 <p style={{ fontFamily: 'var(--body)', fontSize: 9.5, fontWeight: 600, letterSpacing: '0.10em', textTransform: 'uppercase', color: 'var(--ink)', marginBottom: 4 }}>Hours</p>
                 <p style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 15, color: 'var(--ink)', letterSpacing: '-0.01em' }}>5 hrs</p>
               </div>
             </div>
 
-            <div style={{ borderBottom: '2px solid var(--ink)', margin: '0 0 16px' }} />
+            <div style={{ borderBottom: '1.5px dashed var(--ink)', margin: '0 0 16px' }} />
 
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 0 }}>
               <div style={{ paddingRight: 16 }}>
                 <p style={{ fontFamily: 'var(--body)', fontSize: 9.5, fontWeight: 600, letterSpacing: '0.10em', textTransform: 'uppercase', color: 'var(--ink)', marginBottom: 4 }}>Get there</p>
                 <p style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 14, color: 'var(--ink)', letterSpacing: '-0.01em' }}>25 min away</p>
               </div>
-              <div style={{ paddingLeft: 16, borderLeft: '1px solid var(--ink)' }}>
+              <div style={{ paddingLeft: 16, borderLeft: '1.5px dashed var(--ink)' }}>
                 <p style={{ fontFamily: 'var(--body)', fontSize: 9.5, fontWeight: 600, letterSpacing: '0.10em', textTransform: 'uppercase', color: 'var(--ink)', marginBottom: 4 }}>Address</p>
                 <p style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 14, color: 'var(--ink)', letterSpacing: '-0.01em' }}>172 Tompkins Ave</p>
               </div>
             </div>
 
-            <div style={{ borderTop: '2px solid var(--ink)', marginTop: 16, paddingTop: 14, display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
+            <div style={{ borderTop: '1.5px dashed var(--ink)', marginTop: 16, paddingTop: 14, display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
               <span style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 600, letterSpacing: '0.10em', textTransform: 'uppercase', color: 'var(--ink)' }}>Take home</span>
               <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 22, color: 'var(--ink)', letterSpacing: '-0.02em' }}>
                 $140<span style={{ color: 'var(--green)' }}>.</span>

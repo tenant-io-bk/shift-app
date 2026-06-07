@@ -112,7 +112,7 @@ export default function Books() {
           marginTop: 20,
           padding: 18,
           border: '1.5px dashed var(--ink)',
-          borderRadius: 14,
+          borderRadius: 16,
           background: 'var(--card)',
           position: 'relative',
         }}>

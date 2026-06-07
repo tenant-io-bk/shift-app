@@ -64,8 +64,8 @@ export default function PaidOut() {
             margin: '16px 22px',
             padding: 20,
             background: 'var(--paper)',
-            border: '2px solid var(--ink)',
-            borderRadius: 14,
+            border: '1.5px dashed var(--ink)',
+            borderRadius: 16,
           }}
         >
           {/* Business name */}
@@ -96,7 +96,7 @@ export default function PaidOut() {
           {/* Separator */}
           <div
             style={{
-              borderTop: '1px solid var(--ink)',
+              borderTop: '1.5px dashed var(--ink)',
               marginBottom: 0,
             }}
           />
@@ -114,7 +114,7 @@ export default function PaidOut() {
                 justifyContent: 'space-between',
                 alignItems: 'center',
                 padding: '10px 0',
-                borderBottom: '1px solid var(--ink)',
+                borderBottom: '1.5px dashed var(--ink)',
               }}
             >
               <div>
@@ -164,7 +164,7 @@ export default function PaidOut() {
               justifyContent: 'space-between',
               alignItems: 'baseline',
               paddingTop: 14,
-              borderTop: '1px solid var(--ink)',
+              borderTop: '1.5px dashed var(--ink)',
               marginTop: 4,
             }}
           >
