@@ -188,11 +188,11 @@ export default function DayOf() {
         </div>
 
         {/* Backup clock-in PIN — directly below clock-in button */}
-        <div style={{ margin: '16px 22px 0', padding: '14px 18px', background: 'var(--green-soft)', borderRadius: 16, display: 'flex', alignItems: 'center', gap: 16 }}>
+        <div style={{ margin: '16px 22px 0', padding: '14px 18px', background: 'var(--green-soft)', borderRadius: 16, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
           <div style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--ink)', whiteSpace: 'nowrap' }}>Clock-in PIN</div>
-          <div style={{ display: 'flex', gap: 6 }}>
-            {['4','8','2','1'].map((d, i) => (
-              <div key={i} style={{ width: 38, height: 44, background: 'var(--ink)', borderRadius: 8, display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 22, color: '#fff', letterSpacing: 0 }}>
+          <div style={{ display: 'flex', gap: 4 }}>
+            {['4','8','2','6'].map((d, i) => (
+              <div key={i} style={{ width: 48, height: 54, background: 'var(--ink)', borderRadius: 10, display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'var(--sans)', fontWeight: 300, fontSize: 38, color: '#fff', letterSpacing: 0 }}>
                 {d}
               </div>
             ))}
