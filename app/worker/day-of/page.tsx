@@ -13,7 +13,10 @@ export default function DayOf() {
   const [noteOpen, setNoteOpen] = useState(false);
   const isNear = proximity === 'near';
 
-  const TYPEOUT = "Your Shift at Padmore's Coffee Starts in ";
+  const T1 = "Your Shift At ";
+  const T2 = "Padmore's";
+  const T3 = " Starts in ";
+  const TYPEOUT = T1 + T2 + T3;
   const [typedLen, setTypedLen] = useState(0);
   const [countdownSec, setCountdownSec] = useState(23 * 60);
   const isTyped = typedLen >= TYPEOUT.length;
@@ -104,17 +107,20 @@ export default function DayOf() {
         {/* Typeout headline */}
         <div style={{ padding: '20px 22px 14px' }}>
           <h1 style={{
-            fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 26,
-            color: 'var(--ink)', letterSpacing: '-0.03em', lineHeight: 1.2, margin: 0,
+            fontFamily: 'var(--sans)', fontWeight: 400, fontSize: 32,
+            color: 'var(--ink)', letterSpacing: '-0.04em', lineHeight: 1.15, margin: 0,
           }}>
-            {TYPEOUT.slice(0, typedLen)}
-            {!isTyped && <span className="type-cursor" />}
-            {isTyped && (
-              <>
-                <span style={{ fontSize: 60, fontWeight: 400, letterSpacing: '-0.05em', lineHeight: 1 }}>{mins}</span>
-                {' Min.'}
-              </>
+            {TYPEOUT.slice(0, Math.min(typedLen, T1.length))}
+            {typedLen > T1.length && (
+              <span style={{ fontWeight: 700 }}>
+                {T2.slice(0, Math.min(typedLen - T1.length, T2.length))}
+              </span>
             )}
+            {typedLen > T1.length + T2.length && (
+              TYPEOUT.slice(T1.length + T2.length, typedLen)
+            )}
+            {!isTyped && <span className="type-cursor" />}
+            {isTyped && <>{mins} Min.</>}
           </h1>
         </div>
 
