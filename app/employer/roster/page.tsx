@@ -24,7 +24,7 @@ export default function Page() {
         >
           <div style={{ marginBottom: 12 }}>
             <div style={{ fontFamily: 'var(--sans)', fontWeight: 300, fontSize: 30, color: 'var(--ink)', letterSpacing: '-0.04em', lineHeight: 1.1 }}>
-              Your Shift has been filled by
+              Your Shift is Filled by
             </div>
             <div style={{ fontFamily: 'var(--sans)', fontWeight: 800, fontSize: 36, color: 'var(--ink)', letterSpacing: '-0.05em', lineHeight: 1.05 }}>
               Marco Reyes<span style={{ color: 'var(--green)' }}>.</span>

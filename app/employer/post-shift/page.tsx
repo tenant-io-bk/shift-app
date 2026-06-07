@@ -306,8 +306,8 @@ export default function PostShift() {
             </div>
 
             {/* The work */}
-            <div style={{ marginBottom: 14 }}>
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 8 }}>
+            <div style={{ marginBottom: 20 }}>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 10 }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
                   <span style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--mute)' }}>The work</span>
                   <svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M5 0L6.18 3.82L10 5L6.18 6.18L5 10L3.82 6.18L0 5L3.82 3.82L5 0Z" fill="var(--hydrant)" /></svg>
@@ -315,13 +315,13 @@ export default function PostShift() {
                 </div>
                 <button onClick={() => setEditingTasks(t => !t)} style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 700, color: 'var(--hydrant)', background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}>{editingTasks ? 'Done' : 'Edit'}</button>
               </div>
-              <div style={{ background: 'var(--card)', border: '2px solid var(--ink)', borderRadius: 12, padding: '2px 14px' }}>
+              <div style={{ borderTop: '1px solid var(--line)' }}>
                 {editingTasks ? draftTasks.map((t, i) => (
-                  <input key={i} value={t} onChange={e => setDraftTasks(ts => ts.map((x, j) => j === i ? e.target.value : x))} style={{ display: 'block', width: '100%', fontFamily: 'var(--sans)', fontSize: 14, color: 'var(--ink)', padding: '9px 0', background: 'none', border: 'none', borderBottom: i < draftTasks.length-1 ? '1px solid var(--line)' : 'none', outline: 'none', boxSizing: 'border-box' }} />
+                  <input key={i} value={t} onChange={e => setDraftTasks(ts => ts.map((x, j) => j === i ? e.target.value : x))} style={{ display: 'block', width: '100%', fontFamily: 'var(--sans)', fontSize: 16, color: 'var(--ink)', padding: '11px 0', background: 'none', border: 'none', borderBottom: '1px solid var(--line)', outline: 'none', boxSizing: 'border-box' }} />
                 )) : draftTasks.map((t, i) => (
-                  <div key={i} style={{ display: 'flex', gap: 14, padding: '9px 0', borderBottom: i < draftTasks.length-1 ? '1px solid var(--line)' : 'none' }}>
-                    <span style={{ fontFamily: 'var(--body)', fontSize: 10, color: 'var(--mute)', flexShrink: 0, paddingTop: 2 }}>{String(i+1).padStart(2,'0')}</span>
-                    <span style={{ fontFamily: 'var(--sans)', fontSize: 14, color: 'var(--ink)' }}>{t}</span>
+                  <div key={i} style={{ display: 'flex', gap: 14, padding: '11px 0', borderBottom: '1px solid var(--line)' }}>
+                    <span style={{ fontFamily: 'var(--body)', fontSize: 10, color: 'var(--mute)', flexShrink: 0, paddingTop: 3 }}>{String(i+1).padStart(2,'0')}</span>
+                    <span style={{ fontFamily: 'var(--sans)', fontSize: 16, color: 'var(--ink)', lineHeight: 1.4 }}>{t}</span>
                   </div>
                 ))}
               </div>
@@ -329,7 +329,7 @@ export default function PostShift() {
 
             {/* Bring */}
             <div>
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 8 }}>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 10 }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
                   <span style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--mute)' }}>Bring</span>
                   <svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M5 0L6.18 3.82L10 5L6.18 6.18L5 10L3.82 6.18L0 5L3.82 3.82L5 0Z" fill="var(--hydrant)" /></svg>
@@ -337,16 +337,16 @@ export default function PostShift() {
                 </div>
                 <button onClick={() => setEditingBring(b => !b)} style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 700, color: 'var(--hydrant)', background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}>{editingBring ? 'Done' : 'Edit'}</button>
               </div>
-              <div style={{ background: 'var(--card)', border: '2px solid var(--ink)', borderRadius: 12, padding: '2px 14px' }}>
+              <div style={{ borderTop: '1px solid var(--line)' }}>
                 {editingBring ? draftBring.map((b, i) => (
-                  <div key={i} style={{ display: 'flex', gap: 8, padding: '7px 0', borderBottom: i < draftBring.length-1 ? '1px solid var(--line)' : 'none' }}>
+                  <div key={i} style={{ display: 'flex', gap: 8, padding: '10px 0', borderBottom: '1px solid var(--line)' }}>
                     <input value={b.key} onChange={e => setDraftBring(br => br.map((x,j) => j===i ? {...x, key: e.target.value} : x))} style={{ width: 80, fontFamily: 'var(--body)', fontSize: 10, color: 'var(--mute)', textTransform: 'uppercase', background: 'none', border: 'none', outline: 'none' }} />
-                    <input value={b.value} onChange={e => setDraftBring(br => br.map((x,j) => j===i ? {...x, value: e.target.value} : x))} style={{ flex: 1, fontFamily: 'var(--body)', fontSize: 13, color: 'var(--ink)', background: 'none', border: 'none', outline: 'none', textAlign: 'right' }} />
+                    <input value={b.value} onChange={e => setDraftBring(br => br.map((x,j) => j===i ? {...x, value: e.target.value} : x))} style={{ flex: 1, fontFamily: 'var(--body)', fontSize: 15, color: 'var(--ink)', background: 'none', border: 'none', outline: 'none', textAlign: 'right' }} />
                   </div>
                 )) : draftBring.map((b, i) => (
-                  <div key={i} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '9px 0', borderBottom: i < draftBring.length-1 ? '1px solid var(--line)' : 'none' }}>
-                    <span style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', color: 'var(--mute)' }}>{b.key}</span>
-                    <span style={{ fontFamily: 'var(--body)', fontSize: 13, color: 'var(--ink)' }}>{b.value}</span>
+                  <div key={i} style={{ padding: '11px 0', borderBottom: '1px solid var(--line)' }}>
+                    <div style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', color: 'var(--mute)', marginBottom: 3 }}>{b.key}</div>
+                    <div style={{ fontFamily: 'var(--sans)', fontSize: 16, color: 'var(--ink)' }}>{b.value}</div>
                   </div>
                 ))}
               </div>

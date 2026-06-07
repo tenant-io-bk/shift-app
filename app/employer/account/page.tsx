@@ -20,7 +20,7 @@ export default function EmployerAccount() {
     <div style={{ maxWidth: 390, minHeight: '100vh', margin: '0 auto', background: 'var(--paper)', paddingBottom: 80 }}>
       <StatusBar time="10:12" />
 
-      <div style={{ height: 44, display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 16px', borderBottom: '1px solid var(--line)', background: 'var(--paper)' }}>
+      <div style={{ height: 44, display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 16px', borderBottom: '1px solid var(--ink)', background: 'var(--paper)' }}>
         <div style={{ width: 32 }} />
         <span style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--mute)' }}>Account</span>
         <div style={{ width: 32 }} />
@@ -99,7 +99,7 @@ function Section({ title, children }: { title: string; children: React.ReactNode
 }
 function Row({ label, value }: { label: string; value: string }) {
   return (
-    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '13px 18px', borderBottom: '1px solid var(--line)' }}>
+    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '13px 18px', borderBottom: '1px solid var(--ink)' }}>
       <span style={{ fontFamily: 'var(--sans)', fontSize: 15, color: 'var(--ink)' }}>{label}</span>
       <span style={{ fontFamily: 'var(--body)', fontSize: 13, color: 'var(--ink)' }}>{value}</span>
     </div>
@@ -107,7 +107,7 @@ function Row({ label, value }: { label: string; value: string }) {
 }
 function RowLink({ label, href }: { label: string; href: string }) {
   return (
-    <Link href={href} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '13px 18px', borderBottom: '1px solid var(--line)', textDecoration: 'none' }}>
+    <Link href={href} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '13px 18px', borderBottom: '1px solid var(--ink)', textDecoration: 'none' }}>
       <span style={{ fontFamily: 'var(--sans)', fontSize: 15, color: 'var(--ink)' }}>{label}</span>
       <span style={{ color: 'var(--mute)', fontSize: 16 }}>→</span>
     </Link>
@@ -115,7 +115,7 @@ function RowLink({ label, href }: { label: string; href: string }) {
 }
 function RowToggle({ label, sub, value, onToggle }: { label: string; sub: string; value: boolean; onToggle: () => void }) {
   return (
-    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '13px 18px', borderBottom: '1px solid var(--line)' }}>
+    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '13px 18px', borderBottom: '1px solid var(--ink)' }}>
       <div>
         <div style={{ fontFamily: 'var(--sans)', fontSize: 15, color: 'var(--ink)' }}>{label}</div>
         <div style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)', marginTop: 2 }}>{sub}</div>

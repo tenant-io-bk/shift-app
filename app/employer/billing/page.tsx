@@ -27,6 +27,7 @@ export default function EmployerBilling() {
 
   return (
     <div style={{ maxWidth: 390, minHeight: '100vh', margin: '0 auto', background: 'var(--paper)', display: 'flex', flexDirection: 'column' }}>
+      <style>{`input::placeholder { text-align: center; }`}</style>
       <StatusBar />
 
       <div style={{ height: 44, padding: '0 16px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderBottom: '1px solid var(--line)' }}>

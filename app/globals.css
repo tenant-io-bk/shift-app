@@ -428,9 +428,9 @@ html, body {
 .scard.confirmed { background: var(--green); }
 .scard.confirmed .pill-role { background: var(--ink); color: var(--paper); }
 
-.scard.pending { background: var(--pink); }
+.scard.pending { background: var(--pink); border: 2px solid var(--ink); }
 .scard.pending .pill-role { background: #a02b80; color: var(--paper); }
-.scard.pending .pill-status { background: transparent; border: 1.5px solid var(--ink); color: var(--ink); letter-spacing: 0.08em; }
+.scard.pending .pill-status { background: var(--yellow); border: none; color: var(--ink); letter-spacing: 0.08em; }
 
 .scard.urgent { background: var(--ink); color: var(--paper); }
 .scard.urgent .scard-name,

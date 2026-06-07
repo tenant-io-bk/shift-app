@@ -471,13 +471,13 @@ export default function EmployerDashboard() {
             <ShiftCard
               role={s.role}
               time={s.time}
-              loc="Bed-Stuy"
               venue="Padmore's"
               brief={`${s.workers} workers confirmed · ${s.status} · ${s.eta}`}
               pay="$130"
               rate="$26/hr"
               family="bar"
               state="confirmed"
+              timeRight={true}
               href="/employer/roster"
             />
           </div>

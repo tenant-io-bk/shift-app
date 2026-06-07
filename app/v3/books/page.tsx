@@ -31,16 +31,10 @@ export default function Books() {
       </div>
 
       {/* Monthly total header */}
-      <div style={{ padding: '52px 22px 40px', background: 'var(--ink)' }}>
-        <p style={{
-          fontFamily: 'var(--body)',
-          fontSize: 10,
-          fontWeight: 600,
-          textTransform: 'uppercase',
-          letterSpacing: '0.1em',
-          color: '#fff',
-          marginBottom: 4,
-        }}>MAY 2026</p>
+      <div style={{ padding: '52px 22px 52px', background: 'var(--ink)' }}>
+        <div style={{ display: 'inline-block', border: '1px solid rgba(255,255,255,0.3)', borderRadius: 99, padding: '5px 14px', marginBottom: 18 }}>
+          <p style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em', color: '#fff', margin: 0 }}>MAY 2026</p>
+        </div>
 
         <div style={{
           fontFamily: 'var(--sans)',
@@ -49,19 +43,16 @@ export default function Books() {
           color: '#fff',
           letterSpacing: '-0.05em',
           lineHeight: 1,
-          marginBottom: 6,
+          marginBottom: 16,
         }}>$2,847.00</div>
 
-        <p style={{
-          fontFamily: 'var(--body)',
-          fontSize: 13,
-          color: '#fff',
-          marginBottom: 0,
-        }}>Across 18 Shifts</p>
+        <div style={{ display: 'inline-block', background: 'rgba(255,255,255,0.15)', borderRadius: 99, padding: '5px 14px' }}>
+          <span style={{ fontFamily: 'var(--body)', fontSize: 12, color: '#fff' }}>18 shifts</span>
+        </div>
       </div>
 
       {/* Statement list */}
-      <div style={{ padding: '0 22px', background: 'var(--card)' }}>
+      <div style={{ padding: '0 22px', background: 'var(--card)', borderRadius: '24px 24px 0 0', marginTop: -24 }}>
         <p style={{
           fontFamily: 'var(--body)',
           fontSize: 10,

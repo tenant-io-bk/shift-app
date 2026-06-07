@@ -12,7 +12,7 @@ const WORKERS = [
 
 export default function Page() {
   return (
-    <div style={{ maxWidth: 390, height: '100dvh', margin: '0 auto', position: 'relative', overflow: 'hidden', background: 'var(--paper)', display: 'flex', flexDirection: 'column' }}>
+    <div style={{ maxWidth: 390, height: '100dvh', margin: '0 auto', position: 'relative', overflow: 'hidden', background: '#E8EAF0', display: 'flex', flexDirection: 'column' }}>
       <style>{`
         @keyframes worker-pulse {
           0% { transform: scale(1); opacity: 0.6; }

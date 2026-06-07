@@ -48,7 +48,7 @@ export default function PaidOut() {
           Padmore&apos;s Coffee.
         </div>
 
-        <div style={{ fontFamily: 'var(--sans)', fontWeight: 400, fontSize: 64, color: 'var(--green)', letterSpacing: '-0.05em', lineHeight: 1 }}>
+        <div style={{ fontFamily: 'var(--sans)', fontWeight: 400, fontSize: 64, color: 'var(--ink)', letterSpacing: '-0.05em', lineHeight: 1 }}>
           $174.00
         </div>
       </div>
@@ -104,7 +104,7 @@ export default function PaidOut() {
             { label: 'Base', value: '5h × $28', amount: '$140.00', green: false, muted: false, bold: true },
             { label: 'Tips', value: null, amount: '+$34.00', green: true, muted: false, bold: false },
             { label: 'Shift fee', value: null, amount: '$0.00', green: false, muted: true, bold: false },
-          ].map((row) => (
+          ].map((row, i) => (
             <div
               key={row.label}
               style={{
@@ -112,7 +112,7 @@ export default function PaidOut() {
                 justifyContent: 'space-between',
                 alignItems: 'center',
                 padding: '10px 0',
-                borderBottom: '1.5px dashed var(--ink)',
+                borderBottom: i < 2 ? '1.5px dashed var(--ink)' : 'none',
               }}
             >
               <div>

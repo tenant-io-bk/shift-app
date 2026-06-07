@@ -10,6 +10,7 @@ export default function DayOf() {
   const router = useRouter();
   const [alertDismissed, setAlertDismissed] = useState(false);
   const [proximity, setProximity] = useState<'far' | 'near'>('far');
+  const [noteOpen, setNoteOpen] = useState(false);
   const isNear = proximity === 'near';
 
   return (
@@ -82,7 +83,7 @@ export default function DayOf() {
         </div>
 
         {/* Shift card */}
-        <div style={{ padding: '0 14px' }}>
+        <div style={{ padding: '0 22px' }}>
           <ShiftCard
             state="confirmed"
             role="Barista"
@@ -96,7 +97,7 @@ export default function DayOf() {
         </div>
 
         {/* Clock-in radius indicator (no distance text) */}
-        <div style={{ margin: '14px 22px', padding: '14px 16px', background: isNear ? 'var(--green)' : 'var(--card)', border: isNear ? 'none' : '2px solid var(--ink)', borderRadius: 12, display: 'flex', alignItems: 'center', gap: 12, transition: 'all 0.3s ease' }}>
+        <div style={{ margin: '14px 22px', padding: '14px 20px', background: isNear ? 'var(--green)' : 'var(--card)', border: isNear ? 'none' : '2px solid var(--ink)', borderRadius: 99, display: 'flex', alignItems: 'center', gap: 12, transition: 'all 0.3s ease' }}>
           <div style={{ position: 'relative', width: 38, height: 38, flexShrink: 0 }}>
             <svg width="38" height="38" viewBox="0 0 38 38">
               <circle cx="19" cy="19" r="17" fill="none" stroke={isNear ? 'rgba(0,0,0,0.2)' : 'var(--ink)'} strokeWidth="1.5" opacity="0.3" />
@@ -138,21 +139,27 @@ export default function DayOf() {
           ))}
         </div>
 
-        {/* Message from Tomás */}
-        <div style={{ margin: '14px 22px', padding: 16, background: 'var(--card)', border: '2px solid var(--ink)', borderRadius: 12 }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 10 }}>
+        {/* Message from Tomás — tap to expand */}
+        <button
+          onClick={() => setNoteOpen(o => !o)}
+          style={{ margin: '14px 22px', padding: 16, background: 'var(--card)', border: '2px solid var(--ink)', borderRadius: 12, width: 'calc(100% - 44px)', textAlign: 'left', cursor: 'pointer' }}
+        >
+          <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: noteOpen ? 10 : 0 }}>
             <div style={{ width: 32, height: 32, borderRadius: '50%', background: 'var(--ink)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
               <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 14, color: 'white' }}>T</span>
             </div>
-            <div>
+            <div style={{ flex: 1 }}>
               <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 14, color: 'var(--ink)' }}>Tomás</span>
               <span style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)', marginLeft: 8 }}>sent this morning</span>
             </div>
+            <span style={{ fontFamily: 'var(--body)', fontSize: 18, color: 'var(--mute)', lineHeight: 1, transform: noteOpen ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s' }}>⌄</span>
           </div>
-          <p style={{ fontFamily: 'var(--body)', fontSize: 14, color: 'var(--ink)', lineHeight: 1.5 }}>
-            Door&apos;s on Tompkins, ring the bell — I&apos;ll be downstairs. Coffee&apos;s already going.
-          </p>
-        </div>
+          {noteOpen && (
+            <p style={{ fontFamily: 'var(--body)', fontSize: 14, color: 'var(--ink)', lineHeight: 1.5, margin: 0 }}>
+              Door&apos;s on Tompkins, ring the bell — I&apos;ll be downstairs. Coffee&apos;s already going.
+            </p>
+          )}
+        </button>
 
         {/* Bottom links */}
         <div style={{ padding: '0 22px 8px', display: 'flex', justifyContent: 'center', gap: 24 }}>
