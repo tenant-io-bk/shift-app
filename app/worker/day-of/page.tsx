@@ -26,6 +26,10 @@ export default function DayOf() {
           100% { transform: translateX(0) rotate(0deg); }
         }
         .check-in-jiggle { animation: jiggle 0.5s cubic-bezier(0.36,0.07,0.19,0.97) both; }
+        @keyframes note-up {
+          from { transform: translateX(-50%) translateY(100%); }
+          to   { transform: translateX(-50%) translateY(0); }
+        }
       `}</style>
 
       <StatusBar time="10:12" />
@@ -139,12 +143,12 @@ export default function DayOf() {
           ))}
         </div>
 
-        {/* Message from Tomás — tap to expand */}
+        {/* Message from Tomás — tap to open bottom sheet */}
         <button
-          onClick={() => setNoteOpen(o => !o)}
-          style={{ margin: '14px 22px', padding: 16, background: 'var(--card)', border: '2px solid var(--ink)', borderRadius: 12, width: 'calc(100% - 44px)', textAlign: 'left', cursor: 'pointer' }}
+          onClick={() => setNoteOpen(true)}
+          style={{ margin: '14px 22px', padding: 16, background: 'none', border: '2px solid var(--ink)', borderRadius: 12, width: 'calc(100% - 44px)', textAlign: 'left', cursor: 'pointer' }}
         >
-          <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: noteOpen ? 10 : 0 }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
             <div style={{ width: 32, height: 32, borderRadius: '50%', background: 'var(--ink)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
               <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 14, color: 'white' }}>T</span>
             </div>
@@ -152,14 +156,51 @@ export default function DayOf() {
               <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 14, color: 'var(--ink)' }}>Tomás</span>
               <span style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)', marginLeft: 8 }}>sent this morning</span>
             </div>
-            <span style={{ fontFamily: 'var(--body)', fontSize: 18, color: 'var(--mute)', lineHeight: 1, transform: noteOpen ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s' }}>⌄</span>
+            <span style={{ fontFamily: 'var(--body)', fontSize: 18, color: 'var(--mute)', lineHeight: 1 }}>⌄</span>
           </div>
-          {noteOpen && (
-            <p style={{ fontFamily: 'var(--body)', fontSize: 14, color: 'var(--ink)', lineHeight: 1.5, margin: 0 }}>
-              Door&apos;s on Tompkins, ring the bell — I&apos;ll be downstairs. Coffee&apos;s already going.
-            </p>
-          )}
         </button>
+
+        {/* Tomás note bottom sheet */}
+        {noteOpen && (
+          <>
+            <div
+              onClick={() => setNoteOpen(false)}
+              style={{ position: 'fixed', inset: 0, background: 'rgba(13,14,18,0.45)', zIndex: 50, backdropFilter: 'blur(2px)', WebkitBackdropFilter: 'blur(2px)' }}
+            />
+            <div style={{
+              position: 'fixed', bottom: 0, left: '50%',
+              transform: 'translateX(-50%)',
+              width: '100%', maxWidth: 390, zIndex: 51,
+              background: 'var(--paper)',
+              borderRadius: '24px 24px 0 0',
+              padding: '14px 22px 52px',
+              boxShadow: '0 -8px 40px rgba(13,14,18,0.18)',
+              animation: 'note-up 0.32s cubic-bezier(0.22, 1, 0.36, 1)',
+            }}>
+              {/* Handle */}
+              <div style={{ width: 36, height: 4, borderRadius: 99, background: 'var(--line-2)', margin: '0 auto 22px' }} />
+
+              {/* Header */}
+              <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 18 }}>
+                <div style={{ width: 44, height: 44, borderRadius: '50%', background: 'var(--ink)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                  <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 17, color: 'white' }}>T</span>
+                </div>
+                <div>
+                  <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 16, color: 'var(--ink)', letterSpacing: '-0.01em' }}>Tomás</div>
+                  <div style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)', marginTop: 1 }}>Owner · Padmore&apos;s Coffee · sent this morning</div>
+                </div>
+              </div>
+
+              {/* Divider */}
+              <div style={{ height: 1, background: 'var(--line)', marginBottom: 18 }} />
+
+              {/* Message */}
+              <p style={{ fontFamily: 'var(--body)', fontSize: 16, color: 'var(--ink)', lineHeight: 1.6, margin: 0 }}>
+                Door&apos;s on Tompkins, ring the bell — I&apos;ll be downstairs. Coffee&apos;s already going.
+              </p>
+            </div>
+          </>
+        )}
 
         {/* Bottom links */}
         <div style={{ padding: '0 22px 8px', display: 'flex', justifyContent: 'center', gap: 24 }}>
