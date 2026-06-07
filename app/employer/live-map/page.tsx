@@ -123,8 +123,10 @@ export default function Page() {
             </div>
             <Link href="/employer/post-shift" style={{
               padding: '8px 16px', borderRadius: 99,
-              border: '2px solid var(--ink)', background: 'transparent',
-              fontFamily: 'var(--sans)', fontSize: 14, fontWeight: 600, color: 'var(--ink)',
+              border: '2px solid var(--ink)',
+              background: worker.action === 'Book' ? 'var(--ink)' : 'transparent',
+              fontFamily: 'var(--sans)', fontSize: 14, fontWeight: 600,
+              color: worker.action === 'Book' ? '#fff' : 'var(--ink)',
               flexShrink: 0, display: 'flex', alignItems: 'center', textDecoration: 'none',
             }}>
               {worker.action}

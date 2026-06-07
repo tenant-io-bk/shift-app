@@ -140,8 +140,8 @@ export default function NoShow() {
 
           {/* Progress bar */}
           <div style={{
-            height: 3,
-            background: 'rgba(255,255,255,0.12)',
+            height: 4,
+            background: 'rgba(255,255,255,0.28)',
             borderRadius: 99,
             overflow: 'hidden',
             marginBottom: 12,

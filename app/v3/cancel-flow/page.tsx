@@ -155,6 +155,29 @@ export default function CancelFlow() {
         }}>
           Canceling 4+ hours ahead = no penalty to your Bed-Stuy standing
         </p>
+
+        {/* Shift summary card */}
+        <div style={{
+          marginTop: 28,
+          padding: '18px 20px',
+          background: 'var(--paper-2)',
+          borderRadius: 18,
+          border: '1.5px solid var(--line)',
+        }}>
+          <div style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--mute)', marginBottom: 10 }}>Your shift</div>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 12 }}>
+            <div>
+              <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 20, color: 'var(--ink)', letterSpacing: '-0.03em', lineHeight: 1 }}>Padmore&apos;s Coffee</div>
+              <div style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--mute)', marginTop: 3 }}>Barista · 172 Tompkins Ave</div>
+            </div>
+            <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 22, color: 'var(--ink)', letterSpacing: '-0.04em' }}>$140</div>
+          </div>
+          <div style={{ display: 'flex', gap: 8 }}>
+            {['Today 11A–4P', '5 hrs', '$28/hr'].map(tag => (
+              <span key={tag} style={{ background: 'var(--paper-3)', borderRadius: 99, padding: '5px 11px', fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, color: 'var(--ink)' }}>{tag}</span>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );

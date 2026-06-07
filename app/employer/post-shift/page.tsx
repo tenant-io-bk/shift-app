@@ -381,7 +381,7 @@ export default function PostShift() {
                 <span style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--ink)' }}>$0 to post</span>
               </div>
               <button
-                onClick={() => router.push('/employer/posting')}
+                onClick={() => router.push('/employer/roster')}
                 style={{ width: '100%', padding: '18px', background: 'var(--ink)', border: 'none', borderRadius: 99, fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 18, color: '#fff', cursor: 'pointer', letterSpacing: '-0.02em' }}
               >
                 Post this shift.

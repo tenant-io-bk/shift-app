@@ -22,7 +22,7 @@ export default function OnShift() {
     <div style={{
       maxWidth: 390, minHeight: '100vh', margin: '0 auto',
       background: 'var(--paper)', display: 'flex', flexDirection: 'column',
-      padding: '0 24px 40px',
+      padding: '0 0 0',
     }}>
       <style>{`
         @keyframes dot-pulse {
@@ -37,7 +37,7 @@ export default function OnShift() {
       {/* Status row */}
       <div style={{
         display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-        marginTop: 12,
+        marginTop: 12, padding: '0 24px',
       }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 7 }}>
           <div className="on-dot" style={{
@@ -140,61 +140,61 @@ export default function OnShift() {
         </div>
       </div>
 
-      {/* Contact row */}
+      {/* Fixed footer: contact + controls */}
       <div style={{
-        display: 'flex', alignItems: 'center', gap: 10,
-        paddingBottom: 20,
+        borderTop: '1px solid var(--line)',
+        padding: '14px 24px 36px',
+        background: 'var(--paper)',
       }}>
-        <div style={{
-          width: 32, height: 32, borderRadius: '50%', background: 'var(--ink)',
-          display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0,
-        }}>
-          <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 13, color: 'white' }}>T</span>
+        {/* Contact row */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 16 }}>
+          <div style={{
+            width: 32, height: 32, borderRadius: '50%', background: 'var(--ink)',
+            display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0,
+          }}>
+            <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 13, color: 'white' }}>T</span>
+          </div>
+          <div style={{ flex: 1 }}>
+            <div style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 14, color: 'var(--ink)', letterSpacing: '-0.01em' }}>Tomás</div>
+            <div style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)' }}>Owner · Padmore&apos;s</div>
+          </div>
+          <Link href="/worker/report" style={{
+            fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)',
+            textDecoration: 'underline', textDecorationColor: 'var(--line-2)',
+          }}>
+            Report issue
+          </Link>
         </div>
-        <div style={{ flex: 1 }}>
-          <div style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 14, color: 'var(--ink)', letterSpacing: '-0.01em' }}>Tomás</div>
-          <div style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)' }}>Owner · Padmore&apos;s</div>
-        </div>
-        <Link href="/worker/report" style={{
-          fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)',
-          textDecoration: 'underline', textDecorationColor: 'var(--line-2)',
-        }}>
-          Report issue
-        </Link>
-      </div>
 
-      {/* Bottom controls: message (small outline) + clock out (large filled) */}
-      <div style={{
-        display: 'flex', alignItems: 'center',
-        justifyContent: 'space-between', padding: '0 16px',
-      }}>
-        {/* Message — small outline */}
-        <Link href="/worker/messages" style={{
-          width: 56, height: 56, border: '1.5px solid var(--ink)',
-          borderRadius: '50%', background: 'transparent',
-          display: 'flex', alignItems: 'center', justifyContent: 'center',
-          textDecoration: 'none', flexShrink: 0,
-        }}>
-          <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-            <path d="M2.5 2.5h13c.55 0 1 .45 1 1v7.5c0 .55-.45 1-1 1H5l-3.7 3.7V3.5c0-.55.45-1 1.2-1Z"
-              stroke="var(--ink)" strokeWidth="1.3" strokeLinejoin="round" />
-          </svg>
-        </Link>
-
-        {/* Clock out — large filled */}
-        <button
-          onClick={() => router.push('/worker/paid-out')}
-          style={{
-            width: 72, height: 72, background: 'var(--ink)',
-            borderRadius: '50%', border: 'none',
+        {/* Controls: message (small outline) + clock out (large filled) */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+          <Link href="/worker/messages" style={{
+            width: 56, height: 56, border: '1.5px solid var(--ink)',
+            borderRadius: '50%', background: 'transparent',
             display: 'flex', alignItems: 'center', justifyContent: 'center',
-            cursor: 'pointer', flexShrink: 0,
-          }}
-        >
-          <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
-            <rect x="5.5" y="5.5" width="11" height="11" rx="2.5" fill="white" />
-          </svg>
-        </button>
+            textDecoration: 'none', flexShrink: 0,
+          }}>
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+              <path d="M2.5 2.5h13c.55 0 1 .45 1 1v7.5c0 .55-.45 1-1 1H5l-3.7 3.7V3.5c0-.55.45-1 1.2-1Z"
+                stroke="var(--ink)" strokeWidth="1.3" strokeLinejoin="round" />
+            </svg>
+          </Link>
+
+          <button
+            onClick={() => router.push('/worker/paid-out')}
+            style={{
+              flex: 1, height: 56, background: 'var(--ink)',
+              borderRadius: 99, border: 'none',
+              display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 10,
+              cursor: 'pointer',
+            }}
+          >
+            <svg width="18" height="18" viewBox="0 0 22 22" fill="none">
+              <rect x="5.5" y="5.5" width="11" height="11" rx="2.5" fill="white" />
+            </svg>
+            <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 16, color: '#fff', letterSpacing: '-0.02em' }}>Clock out</span>
+          </button>
+        </div>
       </div>
     </div>
   );

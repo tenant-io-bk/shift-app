@@ -177,9 +177,9 @@ export default function WorkerPending() {
           href="/worker/map"
           style={{
             display: 'block', width: '100%', padding: '14px', textAlign: 'center',
-            border: '2px solid var(--line)', borderRadius: 99, background: 'transparent',
+            border: '2px solid var(--ink)', borderRadius: 99, background: 'transparent',
             fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 15,
-            color: 'var(--mute)', textDecoration: 'none', letterSpacing: '-0.01em',
+            color: 'var(--ink)', textDecoration: 'none', letterSpacing: '-0.01em',
           }}
         >
           Withdraw claim

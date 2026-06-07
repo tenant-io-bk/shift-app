@@ -167,7 +167,7 @@ export default function EmployerDashboard() {
       {/* Header */}
       <div style={{ padding: '16px 22px 16px', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
         <div>
-          <div style={{ fontFamily: 'var(--sans)', fontWeight: 200, fontSize: 38, color: 'var(--ink)', letterSpacing: '-0.075em', lineHeight: 0.88 }}>Good Morning</div>
+          <div style={{ fontFamily: 'var(--sans)', fontWeight: 200, fontSize: 38, color: 'var(--ink)', letterSpacing: '-0.075em', lineHeight: 0.88 }}>Good morning</div>
           <div style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 38, color: 'var(--ink)', letterSpacing: '-0.075em', lineHeight: 0.95 }}>Padmore&apos;s Coffee</div>
           <div style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--ink)', marginTop: 8 }}>172 Tompkins Ave | Bed-Stuy</div>
         </div>
@@ -436,7 +436,7 @@ export default function EmployerDashboard() {
                     <span style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)' }}>$0 to post</span>
                   </div>
                   <button
-                    onClick={() => router.push('/employer/posting')}
+                    onClick={() => router.push('/employer/roster')}
                     style={{ width: '100%', padding: '15px', background: 'var(--ink)', border: 'none', borderRadius: 99, fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 16, color: '#fff', cursor: 'pointer', letterSpacing: '-0.02em' }}
                   >
                     Post this shift.

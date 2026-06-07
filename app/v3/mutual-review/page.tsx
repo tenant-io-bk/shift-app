@@ -155,7 +155,8 @@ export default function MutualReview() {
           textTransform: 'uppercase',
           letterSpacing: '0.08em',
           color: 'var(--ink)',
-          marginBottom: 10,
+          marginTop: 8,
+          marginBottom: 12,
         }}>What Went Well?</p>
 
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginBottom: 20 }}>
