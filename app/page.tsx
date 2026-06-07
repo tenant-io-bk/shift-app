@@ -1,85 +1,44 @@
 import Link from 'next/link';
 import StatusBar from '@/app/components/StatusBar';
 
-export default function Home() {
+export default function Splash() {
   return (
-    <div style={{
-      maxWidth: 390, minHeight: '100vh', margin: '0 auto',
-      background: 'var(--paper)', display: 'flex', flexDirection: 'column',
-      padding: '0 22px 52px',
-    }}>
+    <Link
+      href="/worker/slides"
+      style={{
+        maxWidth: 390,
+        minHeight: '100vh',
+        margin: '0 auto',
+        background: 'var(--green)',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        textDecoration: 'none',
+        position: 'relative',
+        overflow: 'hidden',
+      }}
+    >
       <StatusBar time="10:12" />
 
-      {/* Logo — centered, small */}
-      <div style={{ textAlign: 'center', paddingTop: 8, marginBottom: 28 }}>
-        <img src="/LOGO-blsck.svg" alt="SHIFT" style={{ width: 72, display: 'inline-block' }} />
-      </div>
+      <img
+        src="/LOGO-blsck.svg"
+        alt="SHIFT"
+        style={{ width: 160, display: 'block' }}
+      />
 
-      {/* Main typographic display */}
-      <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-        <div style={{
-          fontFamily: 'var(--sans)',
-          fontWeight: 400,
-          fontSize: 80,
-          color: 'var(--ink)',
-          letterSpacing: '-0.03em',
-          lineHeight: 1.05,
-        }}>
-          <div>Are you</div>
-
-          {/* "looking" — green pill */}
-          <div style={{ marginTop: 4, marginBottom: 4 }}>
-            <Link href="/worker/slides" style={{
-              display: 'inline-block',
-              background: 'var(--green)',
-              borderRadius: 99,
-              padding: '6px 22px 10px',
-              textDecoration: 'none',
-              color: 'var(--ink)',
-              fontFamily: 'var(--sans)',
-              fontWeight: 400,
-              fontSize: 80,
-              letterSpacing: '-0.03em',
-              lineHeight: 1.05,
-            }}>
-              looking
-            </Link>
-          </div>
-
-          <div>for a SHIFT,</div>
-
-          {/* "or filling" row */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginTop: 4, marginBottom: 4 }}>
-            <span>or</span>
-            <Link href="/employer/slides" style={{
-              display: 'inline-block',
-              background: 'var(--ink)',
-              borderRadius: 99,
-              padding: '6px 22px 10px',
-              textDecoration: 'none',
-              color: '#fff',
-              fontFamily: 'var(--sans)',
-              fontWeight: 400,
-              fontSize: 80,
-              letterSpacing: '-0.03em',
-              lineHeight: 1.05,
-            }}>
-              filling
-            </Link>
-          </div>
-
-          <div>a SHIFT?</div>
-        </div>
-      </div>
-
-      {/* Bottom caption */}
       <p style={{
+        position: 'absolute',
+        bottom: 52,
         fontFamily: 'var(--body)',
-        fontSize: 14,
-        color: 'var(--mute)',
+        fontSize: 11,
+        color: 'rgba(0,0,0,0.45)',
+        letterSpacing: '0.1em',
+        textTransform: 'uppercase',
+        margin: 0,
       }}>
-        Pick your path. You can always switch later.
+        tap to continue
       </p>
-    </div>
+    </Link>
   );
 }

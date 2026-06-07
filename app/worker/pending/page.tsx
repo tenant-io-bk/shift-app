@@ -126,17 +126,17 @@ export default function WorkerPending() {
 
         {/* Shift card */}
         <div style={{ width: '100%', background: 'var(--steel-soft)', borderRadius: 20, padding: '20px 20px 22px', marginBottom: 16 }}>
-          <div style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--mute)', marginBottom: 10 }}>Your claim</div>
+          <div style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--ink)', marginBottom: 10 }}>Your claim</div>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 14 }}>
             <div>
               <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 22, color: 'var(--ink)', letterSpacing: '-0.04em', lineHeight: 1 }}>Padmore&apos;s Coffee</div>
-              <div style={{ fontFamily: 'var(--body)', fontSize: 13, color: 'var(--mute)', marginTop: 4 }}>Barista · Bed-Stuy · 0.6 mi</div>
+              <div style={{ fontFamily: 'var(--body)', fontSize: 13, color: 'var(--ink)', marginTop: 4 }}>Barista · Bed-Stuy · 0.6 mi</div>
             </div>
             <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 24, color: 'var(--ink)', letterSpacing: '-0.04em' }}>$140</div>
           </div>
           <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
             {['Today 11A–4P', '5 hrs', '$28/hr'].map(tag => (
-              <span key={tag} style={{ background: 'var(--paper-3)', borderRadius: 99, padding: '5px 12px', fontFamily: 'var(--body)', fontSize: 12, fontWeight: 600, color: 'var(--ink)' }}>{tag}</span>
+              <span key={tag} style={{ background: 'var(--ink)', borderRadius: 99, padding: '5px 12px', fontFamily: 'var(--body)', fontSize: 12, fontWeight: 600, color: '#fff' }}>{tag}</span>
             ))}
           </div>
         </div>
