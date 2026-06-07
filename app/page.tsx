@@ -19,11 +19,11 @@ export default function Home() {
       <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
         <div style={{
           fontFamily: 'var(--sans)',
-          fontWeight: 700,
-          fontSize: 90,
+          fontWeight: 400,
+          fontSize: 80,
           color: 'var(--ink)',
-          letterSpacing: '-0.04em',
-          lineHeight: 1.0,
+          letterSpacing: '-0.03em',
+          lineHeight: 1.05,
         }}>
           <div>Are you</div>
 
@@ -32,14 +32,14 @@ export default function Home() {
             <Link href="/worker/slides" style={{
               display: 'inline-block',
               background: 'var(--green)',
-              borderRadius: 24,
+              borderRadius: 99,
               padding: '6px 22px 10px',
               textDecoration: 'none',
               color: 'var(--ink)',
               fontFamily: 'var(--sans)',
-              fontWeight: 700,
-              fontSize: 90,
-              letterSpacing: '-0.04em',
+              fontWeight: 400,
+              fontSize: 80,
+              letterSpacing: '-0.03em',
               lineHeight: 1.05,
             }}>
               looking
@@ -54,14 +54,14 @@ export default function Home() {
             <Link href="/employer/slides" style={{
               display: 'inline-block',
               background: 'var(--ink)',
-              borderRadius: 24,
+              borderRadius: 99,
               padding: '6px 22px 10px',
               textDecoration: 'none',
               color: '#fff',
               fontFamily: 'var(--sans)',
-              fontWeight: 700,
-              fontSize: 90,
-              letterSpacing: '-0.04em',
+              fontWeight: 400,
+              fontSize: 80,
+              letterSpacing: '-0.03em',
               lineHeight: 1.05,
             }}>
               filling
