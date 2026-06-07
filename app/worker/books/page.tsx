@@ -21,9 +21,7 @@ export default function WorkerBooks() {
         {/* Profile row */}
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '14px 20px 16px' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-            <Link href="/worker/home" style={{ width: 40, height: 40, borderRadius: '50%', background: 'rgba(255,255,255,0.45)', display: 'flex', alignItems: 'center', justifyContent: 'center', textDecoration: 'none', flexShrink: 0 }}>
-              <span style={{ fontSize: 18, color: 'var(--ink)', lineHeight: 1 }}>←</span>
-            </Link>
+            <Link href="/worker/home" style={{ fontSize: 20, color: 'var(--ink)', textDecoration: 'none', lineHeight: 1, flexShrink: 0 }}>←</Link>
             <div style={{ width: 40, height: 40, borderRadius: '50%', overflow: 'hidden', flexShrink: 0, background: 'var(--ink)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 15, color: 'white' }}>JS</span>
             </div>
@@ -32,15 +30,13 @@ export default function WorkerBooks() {
               <div style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'rgba(13,14,18,0.5)', marginTop: 1 }}>Barista · Bed-Stuy</div>
             </div>
           </div>
-          <div style={{ width: 36, height: 36, borderRadius: '50%', background: 'rgba(255,255,255,0.45)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-              <path d="M8 2a1.5 1.5 0 110 3 1.5 1.5 0 010-3zM8 6.5a1.5 1.5 0 110 3 1.5 1.5 0 010-3zM8 11a1.5 1.5 0 110 3 1.5 1.5 0 010-3z" fill="var(--ink)" opacity="0.6"/>
-            </svg>
-          </div>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M8 2a1.5 1.5 0 110 3 1.5 1.5 0 010-3zM8 6.5a1.5 1.5 0 110 3 1.5 1.5 0 010-3zM8 11a1.5 1.5 0 110 3 1.5 1.5 0 010-3z" fill="var(--ink)" opacity="0.6"/>
+          </svg>
         </div>
 
         {/* Search bar */}
-        <div style={{ margin: '0 20px 20px', background: 'rgba(255,255,255,0.45)', borderRadius: 14, padding: '11px 14px', display: 'flex', alignItems: 'center', gap: 10 }}>
+        <div style={{ margin: '0 20px 20px', border: '1.5px solid var(--ink)', borderRadius: 14, padding: '11px 14px', display: 'flex', alignItems: 'center', gap: 10 }}>
           <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
             <circle cx="6.5" cy="6.5" r="4.5" stroke="var(--ink)" strokeWidth="1.4" opacity="0.45"/>
             <path d="M10.5 10.5l2.5 2.5" stroke="var(--ink)" strokeWidth="1.4" strokeLinecap="round" opacity="0.45"/>
