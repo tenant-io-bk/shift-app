@@ -1,6 +1,5 @@
 'use client';
 
-import { useEffect, useState } from 'react';
 import Link from 'next/link';
 
 const LETTERS = [
@@ -12,14 +11,6 @@ const LETTERS = [
 ];
 
 export default function Home() {
-  const [settled, setSettled] = useState(false);
-
-  useEffect(() => {
-    // Letters finish animating ~1050ms; settle after that so colors are clearly visible
-    const t = setTimeout(() => setSettled(true), 1300);
-    return () => clearTimeout(t);
-  }, []);
-
   return (
     <div style={{
       maxWidth: 390, minHeight: '100vh', margin: '0 auto',
@@ -53,8 +44,6 @@ export default function Home() {
               fontSize: 84,
               lineHeight: 1,
               color: l.color,
-              filter: settled ? 'grayscale(1) brightness(0)' : 'none',
-              transition: `filter 0.3s ease ${i * 40}ms`,
               animationDelay: `${i * 70}ms`,
               display: 'inline-block',
               '--r': `${l.rot}deg`,

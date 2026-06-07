@@ -397,12 +397,12 @@ html, body {
   padding-top: 4px;
 }
 .scard-price .big {
-  font-family: var(--sans); font-weight: 700;
-  font-size: 48px; letter-spacing: -0.06em; line-height: 0.9;
+  font-family: var(--sans); font-weight: 400;
+  font-size: 48px; letter-spacing: -0.05em; line-height: 0.9;
   color: var(--ink); display: inline-flex; align-items: baseline;
 }
 .scard-price .big .d {
-  font-size: 0.5em; font-weight: 700; letter-spacing: -0.04em;
+  font-size: 0.5em; font-weight: 400; letter-spacing: -0.04em;
   margin-right: 1px; transform: translateY(-5px); display: inline-block;
 }
 .scard-price .rate {
