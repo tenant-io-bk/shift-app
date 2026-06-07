@@ -19,9 +19,9 @@ export default function OnShift() {
   const CIRC = 2 * Math.PI * R;
 
   return (
-    <div style={{
+    <div className="shift-gradient" style={{
       maxWidth: 390, minHeight: '100vh', margin: '0 auto',
-      background: 'linear-gradient(160deg, var(--steel) 0%, var(--paper) 62%)', display: 'flex', flexDirection: 'column',
+      display: 'flex', flexDirection: 'column',
       padding: '0 0 0',
     }}>
       <style>{`
@@ -51,7 +51,7 @@ export default function OnShift() {
             On the clock
           </span>
         </div>
-        <span style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)' }}>
+        <span style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--ink)' }}>
           Padmore&apos;s · #4471
         </span>
       </div>
@@ -89,7 +89,7 @@ export default function OnShift() {
             <span style={{
               fontFamily: 'var(--body)', fontSize: 10, fontWeight: 600,
               textTransform: 'uppercase', letterSpacing: '0.12em',
-              color: 'var(--mute)', marginBottom: 8,
+              color: 'var(--ink)', marginBottom: 8,
             }}>
               Time elapsed
             </span>
@@ -101,7 +101,7 @@ export default function OnShift() {
             </div>
             <span style={{
               fontFamily: 'var(--body)', fontSize: 12,
-              color: 'var(--mute)', marginTop: 10,
+              color: 'var(--ink)', marginTop: 10,
             }}>
               $28/hr · Barista
             </span>
@@ -113,7 +113,7 @@ export default function OnShift() {
           <div style={{
             fontFamily: 'var(--body)', fontSize: 10, fontWeight: 600,
             textTransform: 'uppercase', letterSpacing: '0.1em',
-            color: 'var(--mute)', marginBottom: 6,
+            color: 'var(--ink)', marginBottom: 6,
           }}>
             Earned so far
           </div>
@@ -127,7 +127,7 @@ export default function OnShift() {
             }}>
               $62.00
             </span>
-            <span style={{ fontFamily: 'var(--body)', fontSize: 14, color: 'var(--mute)' }}>
+            <span style={{ fontFamily: 'var(--body)', fontSize: 14, color: 'var(--ink)' }}>
               of $140
             </span>
           </div>
@@ -156,11 +156,11 @@ export default function OnShift() {
           </div>
           <div style={{ flex: 1 }}>
             <div style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 14, color: 'var(--ink)', letterSpacing: '-0.01em' }}>Tomás</div>
-            <div style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)' }}>Owner · Padmore&apos;s</div>
+            <div style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--ink)' }}>Owner · Padmore&apos;s</div>
           </div>
           <Link href="/worker/report" style={{
-            fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)',
-            textDecoration: 'underline', textDecorationColor: 'var(--line-2)',
+            fontFamily: 'var(--body)', fontSize: 11, color: 'var(--ink)',
+            textDecoration: 'underline', textDecorationColor: 'var(--ink)',
           }}>
             Report Issue
           </Link>

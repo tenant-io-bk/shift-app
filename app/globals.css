@@ -521,12 +521,25 @@ html, body {
 }
 
 @keyframes gradientMove {
-  0%   { background-position: 0% 50%; }
-  50%  { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  0%   { background-position: 0% 0%; }
+  50%  { background-position: 100% 100%; }
+  100% { background-position: 0% 0%; }
 }
+
+@keyframes booksGradientMove {
+  0%   { background-position: 50% 0%; }
+  50%  { background-position: 50% 100%; }
+  100% { background-position: 50% 0%; }
+}
+
 .books-gradient {
-  background: linear-gradient(90deg, #E2F1DD 0%, #ffffff 50%, #E2F1DD 100%);
-  background-size: 250% 100%;
-  animation: gradientMove 8s ease infinite;
+  background: linear-gradient(180deg, #3d8a2d 0%, #72c15f 35%, #e8f5e3 70%, #f4fbf2 100%);
+  background-size: 100% 200%;
+  animation: booksGradientMove 8s ease infinite;
+}
+
+.shift-gradient {
+  background: linear-gradient(135deg, #b8cfeb 0%, #d4e6f5 30%, var(--paper) 60%, #eaf1fa 100%);
+  background-size: 300% 300%;
+  animation: gradientMove 10s ease infinite;
 }
