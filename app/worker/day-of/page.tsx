@@ -63,8 +63,8 @@ export default function DayOf() {
           animation: cursor-blink 0.65s ease-in-out infinite;
         }
         .shift-card-override .scard.confirmed {
-          background: var(--paper) !important;
-          border: 2px solid var(--ink) !important;
+          background: var(--steel) !important;
+          border: none !important;
         }
         .shift-card-override .scard-name {
           font-size: 32px !important;

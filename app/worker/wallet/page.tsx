@@ -94,37 +94,37 @@ export default function WorkerWallet() {
       {/* Wallet card — taller */}
       <div style={{ padding: '16px 16px 0' }}>
         <div style={{
-          background: 'var(--ink)', borderRadius: 20, padding: '30px 22px 26px',
-          color: '#fff', position: 'relative', overflow: 'hidden',
+          background: 'var(--steel)', borderRadius: 20, padding: '30px 22px 26px',
+          position: 'relative', overflow: 'hidden',
         }}>
-          <div style={{ position: 'absolute', top: 0, right: -20, width: 120, height: '100%', background: 'rgba(255,255,255,0.03)', transform: 'skewX(-12deg)' }} />
-          <div style={{ position: 'absolute', top: 0, right: 40, width: 60, height: '100%', background: 'rgba(255,255,255,0.02)', transform: 'skewX(-12deg)' }} />
+          <div style={{ position: 'absolute', top: 0, right: -20, width: 120, height: '100%', background: 'rgba(13,14,18,0.04)', transform: 'skewX(-12deg)' }} />
+          <div style={{ position: 'absolute', top: 0, right: 40, width: 60, height: '100%', background: 'rgba(13,14,18,0.03)', transform: 'skewX(-12deg)' }} />
 
           {/* Card top row */}
           <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', marginBottom: 8 }}>
-            <p style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em', color: '#fff' }}>
+            <p style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--ink)' }}>
               Available balance
             </p>
-            <span style={{ fontFamily: 'var(--body)', fontSize: 9, fontWeight: 600, color: 'rgba(255,255,255,0.3)', letterSpacing: '0.1em', textTransform: 'uppercase', marginTop: 1 }}>SHIFT Wallet</span>
+            <span style={{ fontFamily: 'var(--body)', fontSize: 9, fontWeight: 600, color: 'rgba(13,14,18,0.45)', letterSpacing: '0.1em', textTransform: 'uppercase', marginTop: 1 }}>SHIFT Wallet</span>
           </div>
 
           <div style={{ display: 'flex', alignItems: 'baseline', marginBottom: 28 }}>
-            <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 56, color: '#fff', letterSpacing: '-0.075em', lineHeight: 1 }}>
+            <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 56, color: 'var(--ink)', letterSpacing: '-0.075em', lineHeight: 1 }}>
               $247
             </span>
-            <span style={{ color: '#72c15f', fontSize: 56, fontFamily: 'var(--sans)', fontWeight: 600, lineHeight: 1, letterSpacing: '-0.075em' }}>.</span>
-            <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 32, color: '#fff', letterSpacing: '-0.05em', marginLeft: 3 }}>50</span>
+            <span style={{ color: '#2a9e18', fontSize: 56, fontFamily: 'var(--sans)', fontWeight: 600, lineHeight: 1, letterSpacing: '-0.075em' }}>.</span>
+            <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 32, color: 'var(--ink)', letterSpacing: '-0.05em', marginLeft: 3 }}>50</span>
           </div>
 
           <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between' }}>
             <div>
-              <div style={{ fontFamily: 'var(--body)', fontSize: 9, fontWeight: 700, color: 'rgba(255,255,255,0.45)', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: 3 }}>Linked account</div>
-              <div style={{ fontFamily: 'var(--body)', fontSize: 13, color: '#fff', letterSpacing: '0.06em' }}>CHASE ·· 4471</div>
+              <div style={{ fontFamily: 'var(--body)', fontSize: 9, fontWeight: 700, color: 'rgba(13,14,18,0.45)', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: 3 }}>Linked account</div>
+              <div style={{ fontFamily: 'var(--body)', fontSize: 13, color: 'var(--ink)', letterSpacing: '0.06em' }}>CHASE ·· 4471</div>
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: 4 }}>
               <button style={{
-                background: 'rgba(255,255,255,0.12)', border: '1px solid rgba(255,255,255,0.2)',
-                color: '#fff', fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600,
+                background: 'rgba(13,14,18,0.1)', border: '1px solid rgba(13,14,18,0.2)',
+                color: 'var(--ink)', fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600,
                 borderRadius: 99, padding: '6px 12px', cursor: 'pointer',
               }}>
                 Change →

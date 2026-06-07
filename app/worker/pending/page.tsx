@@ -125,7 +125,7 @@ export default function WorkerPending() {
         </div>
 
         {/* Shift card */}
-        <div style={{ width: '100%', background: 'var(--paper-2)', borderRadius: 20, padding: '20px 20px 22px', marginBottom: 16 }}>
+        <div style={{ width: '100%', background: 'var(--steel-soft)', borderRadius: 20, padding: '20px 20px 22px', marginBottom: 16 }}>
           <div style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--mute)', marginBottom: 10 }}>Your claim</div>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 14 }}>
             <div>

@@ -1,8 +1,23 @@
+'use client';
+
 import Link from 'next/link';
 
 export default function NoShow() {
   return (
     <div style={{ maxWidth: 390, minHeight: '100vh', margin: '0 auto', background: 'var(--paper)' }}>
+      <style>{`
+        @keyframes pulse-card {
+          0%, 100% { box-shadow: 0 0 0 0 rgba(229,57,31,0.18); }
+          50% { box-shadow: 0 0 0 10px rgba(229,57,31,0); }
+        }
+        .pulse-card { animation: pulse-card 2.2s ease-in-out infinite; }
+        @keyframes bar-pulse {
+          0%, 100% { opacity: 1; }
+          50% { opacity: 0.65; }
+        }
+        .bar-pulse { animation: bar-pulse 1.4s ease-in-out infinite; }
+      `}</style>
+
       {/* Nav */}
       <div style={{
         height: 44,
@@ -33,15 +48,15 @@ export default function NoShow() {
               fontFamily: 'var(--body)',
               fontSize: 11,
               fontWeight: 700,
-              color: 'var(--red)',
+              color: 'var(--ink)',
               textTransform: 'uppercase',
               letterSpacing: '0.07em',
-            }}>MARCO HASN'T ARRIVED</span>
+            }}>MARCO HASN&apos;T ARRIVED</span>
           </div>
           <p style={{
             fontFamily: 'var(--body)',
             fontSize: 12,
-            color: 'var(--red)',
+            color: 'var(--ink)',
             marginTop: 2,
           }}>T+10 · Standby ready in 04:52</p>
         </div>
@@ -104,17 +119,18 @@ export default function NoShow() {
         </div>
 
         {/* Countdown timer */}
-        <div style={{
+        <div className="pulse-card" style={{
           marginTop: 20,
           padding: 20,
-          background: 'var(--ink)',
+          background: 'var(--paper)',
+          border: '2px solid var(--ink)',
           borderRadius: 14,
         }}>
           <p style={{
             fontFamily: 'var(--body)',
             fontSize: 10,
             fontWeight: 700,
-            color: 'rgba(255,255,255,0.5)',
+            color: 'var(--mute)',
             textTransform: 'uppercase',
             letterSpacing: '0.08em',
             marginBottom: 8,
@@ -125,14 +141,14 @@ export default function NoShow() {
               fontFamily: 'var(--sans)',
               fontWeight: 400,
               fontSize: 52,
-              color: '#fff',
+              color: 'var(--ink)',
               letterSpacing: '-0.05em',
               lineHeight: 1,
             }}>04:52</span>
             <span style={{
               fontFamily: 'var(--body)',
               fontSize: 12,
-              color: 'rgba(255,255,255,0.5)',
+              color: 'var(--mute)',
               textAlign: 'right',
               lineHeight: 1.5,
             }}>auto-replaces{'\n'}at 11:10A</span>
@@ -141,12 +157,12 @@ export default function NoShow() {
           {/* Progress bar */}
           <div style={{
             height: 4,
-            background: 'rgba(255,255,255,0.28)',
+            background: 'rgba(13,14,18,0.1)',
             borderRadius: 99,
             overflow: 'hidden',
             marginBottom: 12,
           }}>
-            <div style={{
+            <div className="bar-pulse" style={{
               width: '48%',
               height: '100%',
               background: 'var(--red)',
@@ -157,7 +173,7 @@ export default function NoShow() {
           <p style={{
             fontFamily: 'var(--body)',
             fontSize: 12,
-            color: 'rgba(255,255,255,0.6)',
+            color: 'var(--mute)',
           }}>⚡ Sam confirmed · 0.4 mi away · ETA 4 min</p>
         </div>
 
@@ -165,7 +181,8 @@ export default function NoShow() {
         <div style={{ display: 'flex', flexDirection: 'column', gap: 10, marginTop: 20 }}>
           <button style={{
             width: '100%',
-            padding: '15px',
+            height: 54,
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
             background: 'transparent',
             border: '2px solid var(--ink)',
             borderRadius: 99,
@@ -178,9 +195,10 @@ export default function NoShow() {
 
           <button style={{
             width: '100%',
-            padding: '15px',
+            height: 54,
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
             background: 'var(--ink)',
-            border: 'none',
+            border: '2px solid var(--ink)',
             borderRadius: 99,
             fontFamily: 'var(--sans)',
             fontWeight: 700,

@@ -102,7 +102,7 @@ export default function PaidOut() {
           {/* KV rows */}
           {[
             { label: 'Base', value: '5h × $28', amount: '$140.00', green: false, muted: false, bold: true },
-            { label: 'Tips', value: null, amount: '+$34.00', green: true, muted: false, bold: false },
+            { label: 'Tips', value: null, amount: '+$34.00', green: true, muted: false, bold: true },
             { label: 'Shift fee', value: null, amount: '$0.00', green: false, muted: true, bold: false },
           ].map((row, i) => (
             <div
@@ -144,7 +144,7 @@ export default function PaidOut() {
               <span
                 style={{
                   fontFamily: 'var(--sans)',
-                  fontWeight: row.bold ? 600 : 400,
+                  fontWeight: row.bold ? 700 : 400,
                   fontSize: 15,
                   color: row.green ? 'var(--green)' : row.muted ? 'var(--mute)' : 'var(--ink)',
                   letterSpacing: '-0.01em',

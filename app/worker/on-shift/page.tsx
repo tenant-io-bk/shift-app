@@ -21,7 +21,7 @@ export default function OnShift() {
   return (
     <div style={{
       maxWidth: 390, minHeight: '100vh', margin: '0 auto',
-      background: 'var(--paper)', display: 'flex', flexDirection: 'column',
+      background: 'linear-gradient(160deg, var(--steel-soft) 0%, var(--paper) 52%)', display: 'flex', flexDirection: 'column',
       padding: '0 0 0',
     }}>
       <style>{`
@@ -73,7 +73,7 @@ export default function OnShift() {
               fill="none" stroke="rgba(13,14,18,0.07)" strokeWidth={9} />
             {/* Progress arc */}
             <circle cx={CX} cy={CY} r={R}
-              fill="none" stroke="var(--green)" strokeWidth={9}
+              fill="none" stroke="var(--ink)" strokeWidth={9}
               strokeLinecap="round"
               strokeDasharray={`${CIRC}`}
               strokeDashoffset={`${CIRC * (1 - progress)}`}
@@ -135,7 +135,7 @@ export default function OnShift() {
             width: 140, height: 3, background: 'rgba(13,14,18,0.09)',
             borderRadius: 99, overflow: 'hidden', margin: '10px auto 0',
           }}>
-            <div style={{ height: '100%', width: '44%', background: 'var(--green)', borderRadius: 99 }} />
+            <div style={{ height: '100%', width: '44%', background: 'var(--ink)', borderRadius: 99 }} />
           </div>
         </div>
       </div>
