@@ -59,8 +59,8 @@ export default function EmployerAccount() {
         <Section title="Billing">
           <Row label="Payment method" value="Visa ·· 4471" />
           <Row label="Billing cycle" value="Per shift" />
+          <RowLink label="Books & statements" href="/employer/books" />
           <RowLink label="Update payment method" href="/employer/billing" />
-          <RowLink label="View invoices" href="#" />
         </Section>
 
         <Section title="Notifications">
