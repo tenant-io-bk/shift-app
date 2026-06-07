@@ -105,7 +105,7 @@ export default function WorkerConfirm() {
             color: 'var(--ink)',
             letterSpacing: '-0.05em',
             lineHeight: 1.05,
-            marginBottom: 12,
+            marginBottom: 20,
           }}>
             Padmore&apos;s Coffee.
           </div>
@@ -118,7 +118,7 @@ export default function WorkerConfirm() {
             letterSpacing: '-0.05em',
             lineHeight: 1,
             textAlign: 'center',
-            marginTop: 8,
+            marginBottom: 20,
           }}>
             $140.00
           </div>

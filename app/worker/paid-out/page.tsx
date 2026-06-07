@@ -43,12 +43,12 @@ export default function PaidOut() {
           color: 'var(--ink)',
           letterSpacing: '-0.05em',
           lineHeight: 1.05,
-          marginBottom: 16,
+          marginBottom: 20,
         }}>
           Padmore&apos;s Coffee.
         </div>
 
-        <div style={{ fontFamily: 'var(--sans)', fontWeight: 400, fontSize: 64, color: 'var(--ink)', letterSpacing: '-0.05em', lineHeight: 1, textAlign: 'center', marginTop: 8 }}>
+        <div style={{ fontFamily: 'var(--sans)', fontWeight: 400, fontSize: 64, color: 'var(--ink)', letterSpacing: '-0.05em', lineHeight: 1, textAlign: 'center', marginBottom: 20 }}>
           $174.00
         </div>
       </div>
@@ -340,7 +340,7 @@ export default function PaidOut() {
             marginTop: 8,
           }}
         >
-          7 open within a mile
+          7 Open Within a Mile
         </p>
         <Link href="/v3/dispute" style={{
           display: 'block', textAlign: 'center',
@@ -349,7 +349,7 @@ export default function PaidOut() {
           textDecorationColor: 'rgba(13,14,18,0.25)',
           marginTop: 8
         }}>
-          Flag a payment issue
+          Flag a Payment Issue
         </Link>
       </div>
     </div>

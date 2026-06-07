@@ -80,7 +80,7 @@ function SlideToConfirm({ label = 'Slide to confirm', href, locked, onLockedAtte
         transition: dragging ? 'none' : 'opacity 0.25s ease',
         pointerEvents: 'none',
       }}>
-        {locked ? 'Complete profile to confirm' : label} {!locked && <span style={{ marginLeft: 10, opacity: 0.6 }}>→</span>}
+        {locked ? 'Complete Profile to Confirm' : label} {!locked && <span style={{ marginLeft: 10, opacity: 0.6 }}>→</span>}
       </div>
       {/* Done label */}
       <div style={{
@@ -151,7 +151,7 @@ function ProfileGate({ onClose }: { onClose: () => void }) {
 
         <div style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--hydrant)', marginBottom: 8 }}>Before you confirm</div>
         <h2 style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 26, color: 'var(--ink)', letterSpacing: '-0.04em', lineHeight: 1.1, marginBottom: 6 }}>
-          2 quick things
+          2 Quick Things
         </h2>
         <p style={{ fontFamily: 'var(--body)', fontSize: 13, color: 'var(--mute)', marginBottom: 22, lineHeight: 1.5 }}>
           Employers need to see who they&apos;re booking. Takes 2 minutes.
@@ -190,7 +190,7 @@ function ProfileGate({ onClose }: { onClose: () => void }) {
           fontFamily: 'var(--body)', fontSize: 13, color: 'var(--mute)',
           cursor: 'pointer', letterSpacing: '0.02em',
         }}>
-          Not now
+          Not Now
         </button>
       </div>
     </>
@@ -201,6 +201,7 @@ const PROFILE_COMPLETE = false; // flip to true once photo + credentials are don
 
 export default function JobDetail() {
   const [gateOpen, setGateOpen] = useState(false);
+  const [saved, setSaved] = useState(false);
 
   return (
     <div style={{
@@ -236,9 +237,14 @@ export default function JobDetail() {
               <line x1="5.3" y1="8.7" x2="10.7" y2="12.3" stroke="var(--ink)" strokeWidth="1.4" />
             </svg>
           </button>
-          <button style={{ width: 36, height: 36, border: '2px solid var(--ink)', borderRadius: 99, background: 'transparent', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' }}>
+          <button
+            onClick={() => setSaved(s => !s)}
+            style={{ width: 36, height: 36, border: `2px solid ${saved ? '#B91C1C' : 'var(--ink)'}`, borderRadius: 99, background: saved ? '#FEF2F2' : 'transparent', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', transition: 'all 0.15s ease' }}>
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-              <path d="M8 13.5C8 13.5 2 9.5 2 5.5C2 3.57 3.57 2 5.5 2C6.61 2 7.6 2.53 8 3.25C8.4 2.53 9.39 2 10.5 2C12.43 2 14 3.57 14 5.5C14 9.5 8 13.5 8 13.5Z" stroke="var(--ink)" strokeWidth="1.4" strokeLinejoin="round" />
+              <path d="M8 13.5C8 13.5 2 9.5 2 5.5C2 3.57 3.57 2 5.5 2C6.61 2 7.6 2.53 8 3.25C8.4 2.53 9.39 2 10.5 2C12.43 2 14 3.57 14 5.5C14 9.5 8 13.5 8 13.5Z"
+                fill={saved ? '#B91C1C' : 'none'}
+                stroke={saved ? '#B91C1C' : 'var(--ink)'}
+                strokeWidth="1.4" strokeLinejoin="round" />
             </svg>
           </button>
         </div>
@@ -322,7 +328,7 @@ export default function JobDetail() {
         background: 'linear-gradient(to bottom, transparent, var(--paper) 38%)',
       }}>
         <SlideToConfirm
-          label="Slide to claim shift"
+          label="Slide to Claim Shift"
           href="/worker/pending"
           locked={!PROFILE_COMPLETE}
           onLockedAttempt={() => setGateOpen(true)}
@@ -331,7 +337,7 @@ export default function JobDetail() {
           Employer confirms within 15 min · no interview
         </p>
         <p style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)', textAlign: 'center', marginTop: 6 }}>
-          <Link href="/worker/report" style={{ color: 'var(--mute)', textDecoration: 'underline' }}>Report an issue with this posting</Link>
+          <Link href="/worker/report" style={{ color: 'var(--mute)', textDecoration: 'underline' }}>Report an Issue with This Posting</Link>
         </p>
       </div>
 
