@@ -5,7 +5,7 @@ export type ShiftState = 'pending' | 'confirmed' | 'urgent' | 'past';
 
 export interface ShiftCardProps {
   role: string;
-  time: string;
+  time?: string;
   loc?: string;
   venue: string;
   brief?: string | string[];
@@ -57,12 +57,12 @@ export default function ShiftCard({
     <>
       <div className="scard-pills">
         <span className="pill pill-role">{venue}</span>
-        {!timeRight && <span className="pill pill-time">{time}</span>}
+        {!timeRight && time && <span className="pill pill-time">{time}</span>}
         {statusLabel && <span className="pill pill-status">{statusLabel}</span>}
       </div>
       <div className="scard-loc">
         {timeRight
-          ? <span className="pill pill-time">{time}</span>
+          ? (time ? <span className="pill pill-time">{time}</span> : null)
           : <span className="pill pill-loc">{loc}</span>
         }
       </div>

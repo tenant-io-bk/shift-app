@@ -32,9 +32,9 @@ export default function WorkerBooks() {
 
       {/* Monthly total header — green bg */}
       <div style={{ padding: '44px 22px 52px', background: 'var(--green)', textAlign: 'center' }}>
-        <p style={{ fontFamily: 'var(--sans)', fontWeight: 400, fontSize: 38, color: 'var(--ink)', letterSpacing: '-0.04em', lineHeight: 1.1, marginBottom: 10 }}>
+        <p style={{ fontFamily: 'var(--sans)', fontWeight: 400, fontSize: 20, color: 'var(--ink)', letterSpacing: '-0.02em', lineHeight: 1.2, marginBottom: 10, whiteSpace: 'nowrap' }}>
           You&apos;ve Worked{' '}
-          <span style={{ textDecoration: 'underline', fontWeight: 700 }}>18</span>
+          <span style={{ textDecoration: 'underline', fontWeight: 400 }}>18</span>
           {' '}Shifts May 2026
         </p>
 
