@@ -1,2 +1,2 @@
 import { redirect } from 'next/navigation';
-export default function V3Books() { redirect('/employer/books'); }
+export default function V3Books() { redirect('/worker/books'); }

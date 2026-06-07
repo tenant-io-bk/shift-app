@@ -184,10 +184,14 @@ export default function WorkerBooks() {
 
         {/* Balance hero */}
         <div style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '16px 22px 0' }}>
-          <p style={{ fontFamily: 'var(--sans)', fontWeight: 400, fontSize: 20, color: 'var(--ink)', letterSpacing: '-0.02em', lineHeight: 1.2, marginBottom: 12, whiteSpace: 'nowrap' }}>
+          {/* Date pill */}
+          <div style={{ background: 'rgba(13,14,18,0.1)', borderRadius: 99, padding: '4px 12px', marginBottom: 14, display: 'inline-flex', alignItems: 'center' }}>
+            <span style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 700, color: 'var(--ink)', letterSpacing: '0.06em', textTransform: 'uppercase' }}>May 2026</span>
+          </div>
+          <p style={{ fontFamily: 'var(--sans)', fontWeight: 400, fontSize: 18, color: 'var(--ink)', letterSpacing: '-0.02em', lineHeight: 1.2, marginBottom: 8 }}>
             You&apos;ve Filled{' '}
             <span style={{ textDecoration: 'underline' }}>18</span>
-            {' '}Shifts May 2026
+            {' '}Shifts
           </p>
           <div style={{ fontFamily: 'var(--sans)', fontWeight: 400, fontSize: 64, color: 'var(--ink)', letterSpacing: '-0.05em', lineHeight: 1, marginBottom: 18 }}>$2,847.00</div>
           <div style={{ background: 'rgba(13,14,18,0.12)', borderRadius: 99, padding: '5px 12px', display: 'inline-flex', alignItems: 'center', gap: 5, marginBottom: 24 }}>
