@@ -15,7 +15,8 @@ export default function Home() {
   const [settled, setSettled] = useState(false);
 
   useEffect(() => {
-    const t = setTimeout(() => setSettled(true), 850);
+    // Letters finish animating ~1050ms; settle after that so colors are clearly visible
+    const t = setTimeout(() => setSettled(true), 1300);
     return () => clearTimeout(t);
   }, []);
 
@@ -27,21 +28,21 @@ export default function Home() {
     }}>
       <style>{`
         @keyframes letter-drop {
-          0%   { opacity: 0; transform: translateY(-80px) rotate(var(--r)) scale(0.5); }
-          55%  { opacity: 1; transform: translateY(8px) rotate(calc(var(--r)*-0.15)) scale(1.12); }
-          72%  { transform: translateY(-4px) rotate(0deg) scale(0.96); }
-          86%  { transform: translateY(2px) scale(1.02); }
+          0%   { opacity: 0; transform: translateY(-120px) rotate(var(--r)) scale(0.4); }
+          50%  { opacity: 1; transform: translateY(10px) rotate(calc(var(--r)*-0.2)) scale(1.15); }
+          70%  { transform: translateY(-5px) rotate(0deg) scale(0.97); }
+          85%  { transform: translateY(3px) scale(1.02); }
           100% { opacity: 1; transform: translateY(0) scale(1); }
         }
         @keyframes cta-in {
           from { opacity: 0; transform: translateY(12px); }
           to   { opacity: 1; transform: translateY(0); }
         }
-        .letter-drop { animation: letter-drop 0.72s cubic-bezier(0.34,1.4,0.64,1) both; }
+        .letter-drop { animation: letter-drop 0.8s cubic-bezier(0.34,1.4,0.64,1) both; }
         .cta-in { animation: cta-in 0.4s ease forwards; opacity: 0; }
       `}</style>
 
-      <div style={{ display: 'flex', marginBottom: 36 }}>
+      <div style={{ display: 'flex', gap: 2, marginBottom: 36 }}>
         {LETTERS.map((l, i) => (
           <span
             key={l.char}
@@ -50,11 +51,11 @@ export default function Home() {
               fontFamily: 'var(--sans)',
               fontWeight: 800,
               fontSize: 84,
-              letterSpacing: '-0.06em',
               lineHeight: 1,
-              color: settled ? 'var(--ink)' : l.color,
-              transition: settled ? `color 0.25s ease ${i * 30}ms` : 'none',
-              animationDelay: `${i * 65}ms`,
+              color: l.color,
+              filter: settled ? 'grayscale(1) brightness(0)' : 'none',
+              transition: `filter 0.3s ease ${i * 40}ms`,
+              animationDelay: `${i * 70}ms`,
               display: 'inline-block',
               '--r': `${l.rot}deg`,
             } as React.CSSProperties}
