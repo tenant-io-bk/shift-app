@@ -21,7 +21,7 @@ export default function OnShift() {
   return (
     <div style={{
       maxWidth: 390, minHeight: '100vh', margin: '0 auto',
-      background: 'linear-gradient(160deg, var(--steel-soft) 0%, var(--paper) 52%)', display: 'flex', flexDirection: 'column',
+      background: 'linear-gradient(160deg, var(--steel) 0%, var(--paper) 62%)', display: 'flex', flexDirection: 'column',
       padding: '0 0 0',
     }}>
       <style>{`
