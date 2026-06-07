@@ -16,7 +16,7 @@ export default function PaidOut() {
       }}
     >
       {/* Light header */}
-      <div style={{ background: 'var(--paper)', padding: '0 22px 24px', flexShrink: 0 }}>
+      <div style={{ background: 'var(--paper)', padding: '0 22px 0', flexShrink: 0 }}>
         <StatusBar time="4:11 PM" />
 
         <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 10, marginTop: 8 }}>
@@ -48,7 +48,7 @@ export default function PaidOut() {
           Padmore&apos;s Coffee.
         </div>
 
-        <div style={{ fontFamily: 'var(--sans)', fontWeight: 400, fontSize: 64, color: 'var(--ink)', letterSpacing: '-0.05em', lineHeight: 1, textAlign: 'center', marginBottom: 20 }}>
+        <div style={{ fontFamily: 'var(--sans)', fontWeight: 400, fontSize: 64, color: 'var(--ink)', letterSpacing: '-0.05em', lineHeight: 1, textAlign: 'center', marginBottom: 0 }}>
           $174.00
         </div>
       </div>
@@ -59,7 +59,7 @@ export default function PaidOut() {
         {/* Paystub card */}
         <div
           style={{
-            margin: '16px 22px',
+            margin: '20px 22px',
             padding: 20,
             background: 'var(--paper)',
             border: '1.5px dashed var(--ink)',
