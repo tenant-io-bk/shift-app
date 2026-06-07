@@ -257,13 +257,11 @@ export default function JobDetail() {
         <div style={{ display: 'flex', gap: 10, padding: '0 22px 20px' }}>
           <div style={{ flex: 1, background: 'var(--green-soft)', borderRadius: 16, padding: '14px 16px', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
             <div style={{ fontFamily: 'var(--body)', fontSize: 9.5, fontWeight: 700, letterSpacing: '0.10em', textTransform: 'uppercase', color: 'var(--ink)', marginBottom: 5 }}>When</div>
-            <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 16, color: 'var(--ink)', letterSpacing: '-0.02em', lineHeight: 1.2 }}>Today</div>
-            <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 16, color: 'var(--ink)', letterSpacing: '-0.02em', lineHeight: 1.2 }}>11A–4P</div>
+            <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 16, color: 'var(--ink)', letterSpacing: '-0.02em', lineHeight: 1.2, whiteSpace: 'nowrap' }}>Today, 11A–4P</div>
           </div>
           <div style={{ flex: 1, background: 'var(--steel-soft)', borderRadius: 16, padding: '14px 16px', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
             <div style={{ fontFamily: 'var(--body)', fontSize: 9.5, fontWeight: 700, letterSpacing: '0.10em', textTransform: 'uppercase', color: 'var(--ink)', marginBottom: 5 }}>Hours</div>
-            <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 28, color: 'var(--ink)', letterSpacing: '-0.04em', lineHeight: 1 }}>5</div>
-            <div style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--ink)', marginTop: 2 }}>Hour Shift</div>
+            <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 16, color: 'var(--ink)', letterSpacing: '-0.02em', lineHeight: 1.2, whiteSpace: 'nowrap' }}>5 Hour Shift</div>
           </div>
         </div>
 
