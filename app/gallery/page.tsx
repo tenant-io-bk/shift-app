@@ -612,7 +612,7 @@ export default function Gallery() {
           ))}
         </div>
 
-        {tab === 'screens' && tab !== 'flow' && (
+        {tab === 'screens' && (
           <>
             {!lockMode && (
               <input
