@@ -126,16 +126,19 @@ export default function WorkerConfirm() {
 
           {/* Receipt card */}
           <div className="receipt-card" style={{ padding: 20, marginBottom: 12 }}>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 0 }}>
-              <div style={{ padding: '0 16px 16px 0', borderRight: '1.5px dashed var(--ink)', borderBottom: '1.5px dashed var(--ink)' }}>
+            {/* Single continuous cross lines via absolute positioning — avoids independent dash patterns per cell */}
+            <div style={{ position: 'relative', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 0 }}>
+              <div style={{ position: 'absolute', left: 'calc(50% - 0.75px)', top: 0, bottom: 0, width: 0, borderLeft: '1.5px dashed var(--ink)', pointerEvents: 'none' }} />
+              <div style={{ position: 'absolute', top: '50%', left: 0, right: 0, height: 0, borderTop: '1.5px dashed var(--ink)', pointerEvents: 'none' }} />
+              <div style={{ padding: '0 16px 16px 0' }}>
                 <p style={{ fontFamily: 'var(--body)', fontSize: 9.5, fontWeight: 600, letterSpacing: '0.10em', textTransform: 'uppercase', color: 'var(--ink)', marginBottom: 4 }}>When</p>
                 <p style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 15, color: 'var(--ink)', letterSpacing: '-0.01em' }}>Today · 11A – 4P</p>
               </div>
-              <div style={{ padding: '0 0 16px 16px', borderBottom: '1.5px dashed var(--ink)' }}>
+              <div style={{ padding: '0 0 16px 16px' }}>
                 <p style={{ fontFamily: 'var(--body)', fontSize: 9.5, fontWeight: 600, letterSpacing: '0.10em', textTransform: 'uppercase', color: 'var(--ink)', marginBottom: 4 }}>Hours</p>
                 <p style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 15, color: 'var(--ink)', letterSpacing: '-0.01em' }}>5 hrs</p>
               </div>
-              <div style={{ padding: '16px 16px 0 0', borderRight: '1.5px dashed var(--ink)' }}>
+              <div style={{ padding: '16px 16px 0 0' }}>
                 <p style={{ fontFamily: 'var(--body)', fontSize: 9.5, fontWeight: 600, letterSpacing: '0.10em', textTransform: 'uppercase', color: 'var(--ink)', marginBottom: 4 }}>Get there</p>
                 <p style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 14, color: 'var(--ink)', letterSpacing: '-0.01em' }}>25 min away</p>
               </div>
