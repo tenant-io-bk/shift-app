@@ -190,7 +190,7 @@ export default function DayOf() {
                 {isNear && <text x="19" y="23" textAnchor="middle" fill="var(--ink)" fontSize="7" fontWeight="700" fontFamily="system-ui">✓</text>}
               </svg>
             </div>
-            <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 17, color: isNear ? 'white' : 'var(--ink)' }}>
+            <div style={{ fontFamily: 'var(--sans)', fontWeight: 300, fontSize: 22, color: isNear ? 'white' : 'var(--ink)' }}>
               {isNear ? "You're here — clock in." : 'Unlocks When You Arrive'}
             </div>
           </div>
