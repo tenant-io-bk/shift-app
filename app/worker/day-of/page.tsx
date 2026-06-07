@@ -67,8 +67,29 @@ export default function DayOf() {
           border: none !important;
         }
         .shift-card-override .scard-name {
-          font-size: 32px !important;
-          letter-spacing: -0.04em !important;
+          font-size: 46px !important;
+          letter-spacing: -0.05em !important;
+        }
+        .shift-card-override .scard-brief {
+          font-size: 22px !important;
+          letter-spacing: -0.03em !important;
+          opacity: 1 !important;
+          color: var(--ink) !important;
+        }
+        .shift-card-override .scard-price .big {
+          font-size: 68px !important;
+        }
+        .shift-card-override .scard-price .rate {
+          font-size: 11px !important;
+          opacity: 1 !important;
+          color: var(--ink) !important;
+        }
+        .shift-card-override .scard-loc {
+          display: none !important;
+        }
+        .shift-card-override .pill-role {
+          font-size: 10px !important;
+          padding: 3px 10px !important;
         }
       `}</style>
 
@@ -79,7 +100,6 @@ export default function DayOf() {
         <div style={{ padding: '12px 16px 0' }}>
           <div style={{
             background: '#FEF2F2',
-            border: '2px solid var(--red)',
             borderRadius: 12,
             padding: '10px 14px',
             display: 'flex',
@@ -101,7 +121,7 @@ export default function DayOf() {
       {/* Top nav */}
       <div style={{ height: 44, display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 16px', background: 'var(--paper)', borderBottom: '1px solid var(--line)', flexShrink: 0 }}>
         <Link href="/worker/map" style={{ width: 36, height: 36, display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--ink)', textDecoration: 'none', fontSize: 20 }}>←</Link>
-        <span style={{ fontFamily: 'var(--body)', fontSize: 12, fontWeight: 600, color: 'var(--mute)', letterSpacing: '0.06em', textTransform: 'uppercase' }}>Your Shift</span>
+        <span style={{ fontFamily: 'var(--body)', fontSize: 12, fontWeight: 600, color: 'var(--ink)', letterSpacing: '0.06em', textTransform: 'uppercase' }}>Your Shift</span>
         <div style={{ width: 36 }} />
       </div>
 

@@ -72,7 +72,7 @@ export default function ShiftCard({
       </div>
       <div className="scard-price">
         <div className="big"><span className="d">$</span>{payNum}</div>
-        <div className="rate">{rate} BASE PAY</div>
+        <div className="rate">{rate}</div>
         {rateNote && <div className="rate" style={{ opacity: 0.55 }}>{rateNote}</div>}
       </div>
     </>
