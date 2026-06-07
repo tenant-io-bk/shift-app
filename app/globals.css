@@ -521,12 +521,12 @@ html, body {
 }
 
 @keyframes gradientMove {
-  0%   { background-position: 0% 0%; }
-  50%  { background-position: 100% 100%; }
-  100% { background-position: 0% 0%; }
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 .books-gradient {
-  background: linear-gradient(135deg, #4aad36 0%, #e8f5e3 40%, #72c15f 70%, #c5e8ba 100%);
-  background-size: 400% 400%;
-  animation: gradientMove 5s ease infinite;
+  background: linear-gradient(90deg, #E2F1DD 0%, #ffffff 50%, #E2F1DD 100%);
+  background-size: 250% 100%;
+  animation: gradientMove 8s ease infinite;
 }

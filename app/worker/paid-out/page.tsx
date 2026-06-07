@@ -48,7 +48,7 @@ export default function PaidOut() {
           Padmore&apos;s Coffee.
         </div>
 
-        <div style={{ fontFamily: 'var(--sans)', fontWeight: 400, fontSize: 64, color: 'var(--ink)', letterSpacing: '-0.05em', lineHeight: 1 }}>
+        <div style={{ fontFamily: 'var(--sans)', fontWeight: 400, fontSize: 64, color: 'var(--ink)', letterSpacing: '-0.05em', lineHeight: 1, textAlign: 'center', marginTop: 8 }}>
           $174.00
         </div>
       </div>
