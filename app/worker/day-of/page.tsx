@@ -179,7 +179,7 @@ export default function DayOf() {
               </svg>
             </div>
             <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 17, color: isNear ? 'white' : 'var(--ink)' }}>
-              {isNear ? "You're here — clock in." : 'Unlocks when you arrive'}
+              {isNear ? "You're here — clock in." : 'Unlocks When You Arrive'}
             </div>
           </div>
           <p style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--ink)', textAlign: 'center', marginTop: 8 }}>
