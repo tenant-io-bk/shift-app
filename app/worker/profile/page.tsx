@@ -154,13 +154,12 @@ export default function WorkerProfile() {
         <div style={{ flex: 1, overflowY: 'auto', paddingBottom: 80, background: 'var(--paper)' }}>
           {/* Summary */}
           <div style={{ padding: '20px 20px 16px' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
-              <div style={{ width: 52, height: 52, borderRadius: 99, background: 'var(--ink)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 22, color: '#fff', letterSpacing: '-0.04em' }}>12</span>
-              </div>
-              <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 32, color: 'var(--ink)', letterSpacing: '-0.04em', lineHeight: 1 }}>Shifts Worked</span>
+            <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 32, color: 'var(--ink)', letterSpacing: '-0.04em', lineHeight: 1 }}>
+              18 Shifts Worked
             </div>
-            <div style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--ink)', marginTop: 12 }}>Since January</div>
+            <div style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--ink)', marginTop: 12 }}>
+              Since {new Date(new Date().getFullYear(), 0, 1).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
+            </div>
           </div>
 
           {/* Stacked wallet cards */}
