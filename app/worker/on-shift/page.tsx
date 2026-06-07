@@ -24,6 +24,9 @@ export default function OnShift() {
       display: 'flex', flexDirection: 'column',
       padding: '0 0 0',
     }}>
+      <div className="mesh-blob" />
+      <div className="mesh-blob" />
+      <div className="mesh-blob" />
       <style>{`
         @keyframes dot-pulse {
           0%, 100% { opacity: 1; transform: scale(1); }
@@ -192,7 +195,7 @@ export default function OnShift() {
             <svg width="18" height="18" viewBox="0 0 22 22" fill="none">
               <rect x="5.5" y="5.5" width="11" height="11" rx="2.5" fill="white" />
             </svg>
-            <span style={{ fontFamily: 'var(--body)', fontWeight: 700, fontSize: 16, color: '#fff', letterSpacing: '-0.02em' }}>Clock Out</span>
+            <span style={{ fontFamily: 'var(--body)', fontWeight: 500, fontSize: 16, color: '#fff', letterSpacing: '-0.02em' }}>Clock Out</span>
           </button>
         </div>
       </div>

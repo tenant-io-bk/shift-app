@@ -169,10 +169,10 @@ export default function EmployerCreateAccount() {
           <Link href="/employer/onboarding" style={{
             display: 'block', width: '100%', padding: '15px 22px', borderRadius: 99,
             background: 'var(--ink)', color: '#fff', fontFamily: 'var(--body)',
-            fontWeight: 700, fontSize: 16, textAlign: 'center', textDecoration: 'none',
+            fontWeight: 500, fontSize: 16, textAlign: 'center', textDecoration: 'none',
           }}>Continue →</Link>
         ) : (
-          <div style={{ width: '100%', padding: '15px 22px', borderRadius: 99, background: 'var(--paper-3)', color: 'var(--ink)', fontFamily: 'var(--body)', fontWeight: 700, fontSize: 16, textAlign: 'center' }}>
+          <div style={{ width: '100%', padding: '15px 22px', borderRadius: 99, background: 'var(--paper-3)', color: 'var(--ink)', fontFamily: 'var(--body)', fontWeight: 500, fontSize: 16, textAlign: 'center' }}>
             {!bizType ? 'Pick Your Business Type' : 'Fill in All Fields'}
           </div>
         )}

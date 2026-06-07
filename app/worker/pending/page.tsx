@@ -178,7 +178,7 @@ export default function WorkerPending() {
           style={{
             display: 'block', width: '100%', padding: '14px', textAlign: 'center',
             border: '2px solid var(--ink)', borderRadius: 99, background: 'transparent',
-            fontFamily: 'var(--body)', fontWeight: 600, fontSize: 15,
+            fontFamily: 'var(--body)', fontWeight: 500, fontSize: 15,
             color: 'var(--ink)', textDecoration: 'none', letterSpacing: '-0.01em',
           }}
         >

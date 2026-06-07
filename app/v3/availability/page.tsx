@@ -198,7 +198,7 @@ export default function Availability() {
           background: 'var(--ink)',
           borderRadius: 99,
           fontFamily: 'var(--body)',
-          fontWeight: 700,
+          fontWeight: 500,
           fontSize: 22,
           color: '#fff',
           textDecoration: 'none',

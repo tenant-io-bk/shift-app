@@ -162,7 +162,7 @@ export default function PhoneVerify() {
           color: '#fff',
           borderRadius: 99,
           fontFamily: 'var(--body)',
-          fontWeight: 700,
+          fontWeight: 500,
           fontSize: 18,
           textDecoration: 'none',
           letterSpacing: '-0.01em',

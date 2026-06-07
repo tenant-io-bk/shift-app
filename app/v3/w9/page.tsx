@@ -131,14 +131,14 @@ export default function W9() {
             style={{
               display: 'block', width: '100%', padding: '15px 22px',
               borderRadius: 99, background: 'var(--ink)', color: '#FFFFFF',
-              fontFamily: 'var(--body)', fontWeight: 700, fontSize: 16,
+              fontFamily: 'var(--body)', fontWeight: 500, fontSize: 16,
               textAlign: 'center', textDecoration: 'none', letterSpacing: '-0.01em',
             }}
           >
             I&apos;m In. Show Me Shifts.
           </Link>
         ) : (
-          <div style={{ width: '100%', padding: '15px 22px', borderRadius: 99, background: 'var(--paper-3)', color: 'var(--mute)', fontFamily: 'var(--body)', fontWeight: 700, fontSize: 16, textAlign: 'center' }}>
+          <div style={{ width: '100%', padding: '15px 22px', borderRadius: 99, background: 'var(--paper-3)', color: 'var(--mute)', fontFamily: 'var(--body)', fontWeight: 500, fontSize: 16, textAlign: 'center' }}>
             Fill in the Fields Above
           </div>
         )}

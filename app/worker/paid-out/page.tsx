@@ -321,7 +321,7 @@ export default function PaidOut() {
             background: 'var(--ink)',
             borderRadius: 99,
             fontFamily: 'var(--body)',
-            fontWeight: 700,
+            fontWeight: 500,
             fontSize: 16,
             color: '#FFFFFF',
             textAlign: 'center',

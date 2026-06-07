@@ -96,10 +96,10 @@ export default function Page() {
 
       {/* CTA row */}
       <div style={{ padding: '32px 22px 16px', display: 'flex', flexDirection: 'column', gap: 10 }}>
-        <Link href="/employer/dashboard" style={{ display: 'block', background: 'var(--ink)', color: 'white', borderRadius: 99, padding: '16px 22px', textAlign: 'center', textDecoration: 'none', fontFamily: 'var(--body)', fontWeight: 700, fontSize: 16, letterSpacing: '-0.01em' }}>
+        <Link href="/employer/dashboard" style={{ display: 'block', background: 'var(--ink)', color: 'white', borderRadius: 99, padding: '16px 22px', textAlign: 'center', textDecoration: 'none', fontFamily: 'var(--body)', fontWeight: 500, fontSize: 16, letterSpacing: '-0.01em' }}>
           Rebook Marco.
         </Link>
-        <button style={{ display: 'block', background: 'transparent', border: '2px solid var(--ink)', color: 'var(--ink)', borderRadius: 99, padding: '14px 22px', textAlign: 'center', fontFamily: 'var(--body)', fontWeight: 600, fontSize: 15, letterSpacing: '-0.01em', cursor: 'pointer', width: '100%' }}>
+        <button style={{ display: 'block', background: 'transparent', border: '2px solid var(--ink)', color: 'var(--ink)', borderRadius: 99, padding: '14px 22px', textAlign: 'center', fontFamily: 'var(--body)', fontWeight: 500, fontSize: 15, letterSpacing: '-0.01em', cursor: 'pointer', width: '100%' }}>
           Add To Favorites
         </button>
       </div>

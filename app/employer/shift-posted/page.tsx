@@ -66,10 +66,10 @@ export default function Page() {
 
       {/* CTAs */}
       <div style={{ padding: '24px 16px 0', display: 'flex', flexDirection: 'column', gap: 10 }}>
-        <Link href="/employer/roster" style={{ display: 'block', background: 'var(--ink)', color: 'white', borderRadius: 24, padding: '16px 22px', textAlign: 'center', textDecoration: 'none', fontFamily: 'var(--body)', fontWeight: 700, fontSize: 16, letterSpacing: '-0.01em' }}>
+        <Link href="/employer/roster" style={{ display: 'block', background: 'var(--ink)', color: 'white', borderRadius: 24, padding: '16px 22px', textAlign: 'center', textDecoration: 'none', fontFamily: 'var(--body)', fontWeight: 500, fontSize: 16, letterSpacing: '-0.01em' }}>
           Track This Shift →
         </Link>
-        <Link href="/employer/post-shift" style={{ display: 'block', background: 'var(--paper-2)', borderRadius: 24, padding: '15px 22px', textAlign: 'center', textDecoration: 'none', fontFamily: 'var(--body)', fontWeight: 600, fontSize: 13, color: 'var(--ink)' }}>
+        <Link href="/employer/post-shift" style={{ display: 'block', background: 'var(--paper-2)', borderRadius: 24, padding: '15px 22px', textAlign: 'center', textDecoration: 'none', fontFamily: 'var(--body)', fontWeight: 500, fontSize: 13, color: 'var(--ink)' }}>
           Post Another Shift
         </Link>
       </div>

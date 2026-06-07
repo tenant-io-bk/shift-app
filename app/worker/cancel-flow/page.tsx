@@ -23,7 +23,7 @@ export default function CancelFlow() {
         <div style={{ padding: '10px 16px', background: 'rgba(234,75,42,0.08)', borderRadius: 10, fontFamily: 'var(--body)', fontSize: 11, color: '#EA4B2A', lineHeight: 1.5 }}>
           7-day block from Padmore&apos;s · −6 spots in Bed-Stuy standing
         </div>
-        <Link href="/worker/home" style={{ marginTop: 16, display: 'block', width: '100%', padding: '15px', background: 'var(--ink)', color: '#fff', borderRadius: 99, fontFamily: 'var(--body)', fontWeight: 700, fontSize: 16, textAlign: 'center', textDecoration: 'none', letterSpacing: '-0.01em' }}>
+        <Link href="/worker/home" style={{ marginTop: 16, display: 'block', width: '100%', padding: '15px', background: 'var(--ink)', color: '#fff', borderRadius: 99, fontFamily: 'var(--body)', fontWeight: 500, fontSize: 16, textAlign: 'center', textDecoration: 'none', letterSpacing: '-0.01em' }}>
           Back to Home
         </Link>
       </div>

@@ -212,7 +212,7 @@ export default function Page() {
             textAlign: 'center',
             textDecoration: 'none',
             fontFamily: 'var(--body)',
-            fontWeight: 700,
+            fontWeight: 500,
             fontSize: 16,
             letterSpacing: '-0.01em',
           }}

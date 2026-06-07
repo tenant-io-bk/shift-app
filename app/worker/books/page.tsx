@@ -110,7 +110,7 @@ function EarningsChart({ filter, scrubbedIdx, onScrub }: {
   };
 
   return (
-    <div style={{ padding: '0 22px 44px' }}>
+    <div style={{ padding: '0 22px 72px' }}>
       <svg width={W} height={H + 28} viewBox={`0 0 ${W} ${H + 28}`} style={{ display: 'block', overflow: 'visible' }}>
 
         {/* Line */}
@@ -195,6 +195,10 @@ export default function WorkerBooks() {
   return (
     <div style={{ maxWidth: 390, minHeight: '100vh', margin: '0 auto', background: 'var(--paper)', display: 'flex', flexDirection: 'column' }}>
       <div className="books-gradient">
+        <div className="mesh-blob" />
+        <div className="mesh-blob" />
+        <div className="mesh-blob" />
+        <div style={{ position: 'relative', zIndex: 1 }}>
 
         {/* Nav row */}
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '14px 20px 14px' }}>
@@ -260,6 +264,7 @@ export default function WorkerBooks() {
         {/* Earnings sparkline */}
         <EarningsChart filter={activeFilter} scrubbedIdx={scrubbedIdx} onScrub={setScrubbedIdx} />
 
+        </div>{/* end content wrapper */}
       </div>
 
       {/* Statements list — white card slides up */}

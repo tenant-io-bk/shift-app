@@ -77,7 +77,7 @@ export default function EmployerAccount() {
           <RowLink label="Privacy policy" href="#" />
         </Section>
 
-        <Link href="/worker/role" style={{ display: 'block', padding: '16px 18px', fontFamily: 'var(--body)', fontWeight: 700, fontSize: 16, color: 'var(--ink)', textDecoration: 'none', textAlign: 'center', border: '2px solid var(--ink)', borderRadius: 99 }}>
+        <Link href="/worker/role" style={{ display: 'block', padding: '16px 18px', fontFamily: 'var(--body)', fontWeight: 500, fontSize: 16, color: 'var(--ink)', textDecoration: 'none', textAlign: 'center', border: '2px solid var(--ink)', borderRadius: 99 }}>
           Sign out
         </Link>
 

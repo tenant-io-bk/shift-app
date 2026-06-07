@@ -289,11 +289,11 @@ export default function DayOf() {
       {/* Sticky CTA */}
       <div style={{ position: 'fixed', bottom: 0, left: '50%', transform: 'translateX(-50%)', width: '100%', maxWidth: 390, padding: '12px 22px 36px', background: 'linear-gradient(to bottom, transparent, var(--paper) 35%)' }}>
         {isNear ? (
-          <button onClick={() => router.push('/worker/on-shift')} style={{ display: 'block', width: '100%', padding: '16px 22px', background: 'var(--ink)', borderRadius: 99, fontFamily: 'var(--body)', fontWeight: 700, fontSize: 16, color: '#FFFFFF', textAlign: 'center', border: 'none', cursor: 'pointer', letterSpacing: '-0.01em' }}>
+          <button onClick={() => router.push('/worker/on-shift')} style={{ display: 'block', width: '100%', padding: '16px 22px', background: 'var(--ink)', borderRadius: 99, fontFamily: 'var(--body)', fontWeight: 500, fontSize: 16, color: '#FFFFFF', textAlign: 'center', border: 'none', cursor: 'pointer', letterSpacing: '-0.01em' }}>
             Clock In Now. →
           </button>
         ) : (
-          <Link href="/worker/on-shift" style={{ display: 'block', width: '100%', padding: '16px 22px', background: 'var(--ink)', borderRadius: 99, fontFamily: 'var(--body)', fontWeight: 700, fontSize: 16, color: '#FFFFFF', textAlign: 'center', textDecoration: 'none', letterSpacing: '-0.01em' }}>
+          <Link href="/worker/on-shift" style={{ display: 'block', width: '100%', padding: '16px 22px', background: 'var(--ink)', borderRadius: 99, fontFamily: 'var(--body)', fontWeight: 500, fontSize: 16, color: '#FFFFFF', textAlign: 'center', textDecoration: 'none', letterSpacing: '-0.01em' }}>
             I&apos;m Heading There.
           </Link>
         )}

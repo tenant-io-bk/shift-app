@@ -37,7 +37,7 @@ export default function EmployerVerify() {
           <Link href="/employer/business-profile" style={{
             display: 'block', padding: '16px 22px', borderRadius: 99,
             background: 'var(--hydrant)', color: '#000', fontFamily: 'var(--body)',
-            fontWeight: 700, fontSize: 16, textAlign: 'center', textDecoration: 'none', letterSpacing: '-0.01em',
+            fontWeight: 500, fontSize: 16, textAlign: 'center', textDecoration: 'none', letterSpacing: '-0.01em',
           }}>
             Continue →
           </Link>
@@ -186,10 +186,10 @@ export default function EmployerVerify() {
           <button onClick={() => setVerified(true)} style={{
             display: 'block', width: '100%', padding: '15px 22px', borderRadius: 99,
             background: 'var(--ink)', color: '#fff', fontFamily: 'var(--body)',
-            fontWeight: 700, fontSize: 16, textAlign: 'center', border: 'none', cursor: 'pointer',
+            fontWeight: 500, fontSize: 16, textAlign: 'center', border: 'none', cursor: 'pointer',
           }}>Submit for Review →</button>
         ) : (
-          <div style={{ width: '100%', padding: '15px 22px', borderRadius: 99, background: 'var(--paper-3)', color: 'var(--ink)', fontFamily: 'var(--body)', fontWeight: 700, fontSize: 16, textAlign: 'center' }}>
+          <div style={{ width: '100%', padding: '15px 22px', borderRadius: 99, background: 'var(--paper-3)', color: 'var(--ink)', fontFamily: 'var(--body)', fontWeight: 500, fontSize: 16, textAlign: 'center' }}>
             Choose a Verification Method
           </div>
         )}

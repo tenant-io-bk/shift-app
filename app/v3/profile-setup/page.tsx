@@ -34,7 +34,7 @@ export default function ProfileSetup() {
           <Link href="/v3/payout-setup" style={{
             display: 'block', padding: '16px 22px', borderRadius: 99,
             background: 'var(--hydrant)', color: '#000', fontFamily: 'var(--body)',
-            fontWeight: 700, fontSize: 16, textAlign: 'center', textDecoration: 'none', letterSpacing: '-0.01em',
+            fontWeight: 500, fontSize: 16, textAlign: 'center', textDecoration: 'none', letterSpacing: '-0.01em',
           }}>
             Set Up Payout →
           </Link>
@@ -174,14 +174,14 @@ export default function ProfileSetup() {
             style={{
               display: 'block', width: '100%', padding: '15px 22px',
               borderRadius: 99, background: 'var(--ink)', color: '#FFFFFF',
-              fontFamily: 'var(--body)', fontWeight: 700, fontSize: 16,
+              fontFamily: 'var(--body)', fontWeight: 500, fontSize: 16,
               textAlign: 'center', border: 'none', cursor: 'pointer', letterSpacing: '-0.01em',
             }}
           >
             Looking Good. Next →
           </button>
         ) : (
-          <div style={{ width: '100%', padding: '15px 22px', borderRadius: 99, background: 'var(--paper-3)', color: 'var(--mute)', fontFamily: 'var(--body)', fontWeight: 700, fontSize: 16, textAlign: 'center' }}>
+          <div style={{ width: '100%', padding: '15px 22px', borderRadius: 99, background: 'var(--paper-3)', color: 'var(--mute)', fontFamily: 'var(--body)', fontWeight: 500, fontSize: 16, textAlign: 'center' }}>
             Write Something About Yourself
           </div>
         )}

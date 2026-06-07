@@ -214,7 +214,7 @@ export default function MutualReview() {
           border: 'none',
           borderRadius: 99,
           fontFamily: 'var(--body)',
-          fontWeight: 700,
+          fontWeight: 500,
           fontSize: 18,
           color: '#fff',
           cursor: 'pointer',
