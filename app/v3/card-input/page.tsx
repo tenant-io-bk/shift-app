@@ -106,38 +106,38 @@ export default function CardInput() {
         <h1 style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 34, color: 'var(--ink)', letterSpacing: '-0.07em', lineHeight: 1, marginBottom: 28 }}>Where do we send your pay?</h1>
 
         {/* Live card preview */}
-        <div style={{ background: 'var(--steel)', borderRadius: 18, padding: '24px 22px 20px', marginBottom: 28, position: 'relative', overflow: 'hidden' }}>
+        <div style={{ background: 'var(--ink)', borderRadius: 18, padding: '24px 22px 20px', marginBottom: 28, position: 'relative', overflow: 'hidden' }}>
           {/* Background pattern */}
-          <div style={{ position: 'absolute', top: -40, right: -40, width: 160, height: 160, borderRadius: '50%', background: 'rgba(13,14,18,0.04)' }} />
-          <div style={{ position: 'absolute', top: 10, right: -20, width: 120, height: 120, borderRadius: '50%', background: 'rgba(13,14,18,0.04)' }} />
+          <div style={{ position: 'absolute', top: -40, right: -40, width: 160, height: 160, borderRadius: '50%', background: 'rgba(255,255,255,0.05)' }} />
+          <div style={{ position: 'absolute', top: 10, right: -20, width: 120, height: 120, borderRadius: '50%', background: 'rgba(255,255,255,0.04)' }} />
 
           {/* Network logo */}
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 28 }}>
-            <div style={{ width: 36, height: 24, borderRadius: 4, background: 'rgba(13,14,18,0.12)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              <div style={{ width: 8, height: 8, borderRadius: '50%', background: 'rgba(13,14,18,0.45)' }} />
-              <div style={{ width: 8, height: 8, borderRadius: '50%', background: 'rgba(13,14,18,0.25)', marginLeft: -3 }} />
+            <div style={{ width: 36, height: 24, borderRadius: 4, background: 'rgba(255,255,255,0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <div style={{ width: 8, height: 8, borderRadius: '50%', background: 'rgba(255,255,255,0.7)' }} />
+              <div style={{ width: 8, height: 8, borderRadius: '50%', background: 'rgba(255,255,255,0.4)', marginLeft: -3 }} />
             </div>
             {network && (
-              <span style={{ fontFamily: 'var(--body)', fontWeight: 700, fontSize: 13, color: 'rgba(13,14,18,0.55)', letterSpacing: '0.1em' }}>{network}</span>
+              <span style={{ fontFamily: 'var(--body)', fontWeight: 700, fontSize: 13, color: 'rgba(255,255,255,0.7)', letterSpacing: '0.1em' }}>{network}</span>
             )}
           </div>
 
           {/* Card number */}
-          <div style={{ fontFamily: 'var(--body)', fontSize: 20, color: 'var(--ink)', letterSpacing: '0.14em', marginBottom: 20, fontWeight: 600 }}>
+          <div style={{ fontFamily: 'var(--body)', fontSize: 20, color: '#fff', letterSpacing: '0.14em', marginBottom: 20, fontWeight: 600 }}>
             {previewNum}
           </div>
 
           {/* Name + Expiry */}
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }}>
             <div>
-              <div style={{ fontFamily: 'var(--body)', fontSize: 9, color: 'rgba(13,14,18,0.45)', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 2 }}>Cardholder</div>
-              <div style={{ fontFamily: 'var(--body)', fontSize: 13, color: name ? 'var(--ink)' : 'rgba(13,14,18,0.35)', letterSpacing: '0.06em', textTransform: 'uppercase', fontWeight: 600 }}>
+              <div style={{ fontFamily: 'var(--body)', fontSize: 9, color: 'rgba(255,255,255,0.5)', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 2 }}>Cardholder</div>
+              <div style={{ fontFamily: 'var(--body)', fontSize: 13, color: name ? '#fff' : 'rgba(255,255,255,0.4)', letterSpacing: '0.06em', textTransform: 'uppercase', fontWeight: 600 }}>
                 {name || 'YOUR NAME'}
               </div>
             </div>
             <div style={{ textAlign: 'right' }}>
-              <div style={{ fontFamily: 'var(--body)', fontSize: 9, color: 'rgba(13,14,18,0.45)', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 2 }}>Expires</div>
-              <div style={{ fontFamily: 'var(--body)', fontSize: 13, color: expiry ? 'var(--ink)' : 'rgba(13,14,18,0.35)', fontWeight: 600 }}>{previewExp}</div>
+              <div style={{ fontFamily: 'var(--body)', fontSize: 9, color: 'rgba(255,255,255,0.5)', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 2 }}>Expires</div>
+              <div style={{ fontFamily: 'var(--body)', fontSize: 13, color: expiry ? '#fff' : 'rgba(255,255,255,0.4)', fontWeight: 600 }}>{previewExp}</div>
             </div>
           </div>
         </div>
@@ -170,9 +170,9 @@ export default function CardInput() {
           disabled={!isValid}
           style={{
             width: '100%', padding: '16px', border: 'none', borderRadius: 99, cursor: isValid ? 'pointer' : 'default',
-            background: isValid ? 'var(--ink)' : 'var(--paper-3)',
+            background: 'var(--ink)',
             fontFamily: 'var(--body)', fontWeight: 500, fontSize: 18,
-            color: isValid ? '#fff' : 'var(--ink)',
+            color: '#fff',
             transition: 'all 0.2s', letterSpacing: '-0.02em',
           }}
         >
