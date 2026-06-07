@@ -71,7 +71,7 @@ function PinSheet({ shift, onClose }: { shift: Shift; onClose: () => void }) {
           borderRadius: 99,
           fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 16,
           textDecoration: 'none', letterSpacing: '-0.01em',
-        }}>View full listing →</Link>
+        }}>View Full Listing →</Link>
       </div>
     </>
   );
@@ -283,7 +283,7 @@ export default function WorkerMap() {
         <div style={{ marginBottom: 28 }}>
           <div style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--mute)', marginBottom: 10 }}>Sort by</div>
           <div style={{ display: 'flex', gap: 8 }}>
-            {[{ val: 'none', label: 'Default' }, { val: 'pay', label: 'Highest pay' }].map(opt => (
+            {[{ val: 'none', label: 'Default' }, { val: 'pay', label: 'Highest Pay' }].map(opt => (
               <button key={opt.val} onClick={() => setDraftSort(opt.val as 'pay' | 'none')} style={{
                 padding: '11px 18px', borderRadius: 99, border: '2px solid var(--ink)',
                 background: draftSort === opt.val ? 'var(--ink)' : 'transparent',
@@ -297,7 +297,7 @@ export default function WorkerMap() {
         {/* Actions */}
         <div style={{ display: 'flex', gap: 10 }}>
           <button onClick={clearFilter} style={{ flex: 1, padding: '14px', borderRadius: 24, border: '1.5px solid var(--line)', background: 'transparent', fontFamily: 'var(--body)', fontSize: 14, fontWeight: 600, color: 'var(--mute)', cursor: 'pointer' }}>Clear</button>
-          <button onClick={applyFilter} style={{ flex: 2, padding: '14px', borderRadius: 24, border: 'none', background: 'var(--ink)', fontFamily: 'var(--sans)', fontSize: 15, fontWeight: 700, color: '#fff', cursor: 'pointer', letterSpacing: '-0.01em' }}>Show shifts</button>
+          <button onClick={applyFilter} style={{ flex: 2, padding: '14px', borderRadius: 24, border: 'none', background: 'var(--ink)', fontFamily: 'var(--sans)', fontSize: 15, fontWeight: 700, color: '#fff', cursor: 'pointer', letterSpacing: '-0.01em' }}>Show Shifts</button>
         </div>
       </div>
     </>
@@ -395,7 +395,7 @@ export default function WorkerMap() {
           </div>
           <div style={{ display: 'flex', alignItems: 'baseline', gap: 8 }}>
             <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 48, color: 'var(--ink)', letterSpacing: '-0.05em', lineHeight: 1 }}>{filteredShifts.length}</span>
-            <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 28, color: 'var(--ink)', letterSpacing: '-0.035em', lineHeight: 1 }}>shifts ready.</span>
+            <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 28, color: 'var(--ink)', letterSpacing: '-0.035em', lineHeight: 1 }}>Shifts Ready.</span>
           </div>
         </div>
 

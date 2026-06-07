@@ -141,7 +141,7 @@ export default function EmployerSlides() {
               letterSpacing: '-0.01em',
             }}
           >
-            Get started →
+            Get Started →
           </button>
         ) : (
           <div style={{ display: 'flex', gap: 10 }}>

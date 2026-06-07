@@ -48,7 +48,7 @@ export default function SMSVerify() {
           STEP 2 OF 4
         </div>
         <h1 style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 36, letterSpacing: '-0.075em', lineHeight: 0.95, color: 'var(--ink)', marginBottom: 10 }}>
-          Enter the code.
+          Enter the Code.
         </h1>
         <p style={{ fontFamily: 'var(--body)', fontSize: 13, color: 'var(--mute)', marginBottom: 28, lineHeight: 1.5 }}>
           Sent to <strong style={{ color: 'var(--ink)' }}>347 514 2898</strong>. Takes about 10 seconds.
@@ -154,7 +154,7 @@ export default function SMSVerify() {
               textAlign: 'center',
               letterSpacing: '-0.01em',
             }}>
-              Enter all 6 digits
+              Enter All 6 Digits
             </div>
           )}
         </div>

@@ -233,7 +233,7 @@ export default function WorkerProfile() {
                             onClick={e => e.stopPropagation()}
                             style={{ display: 'block', textAlign: 'center', padding: '13px', background: 'var(--ink)', color: '#fff', borderRadius: 99, fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 15, textDecoration: 'none', letterSpacing: '-0.02em' }}
                           >
-                            View details →
+                            View Details →
                           </Link>
                         </div>
                       )}
@@ -259,7 +259,7 @@ export default function WorkerProfile() {
                 <circle cx="14" cy="14" r="13" stroke="white" strokeWidth="1.5" />
                 <path d="M14 9v10M9 14h10" stroke="white" strokeWidth="1.5" strokeLinecap="round" />
               </svg>
-              <span style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, color: '#fff', letterSpacing: '0.06em' }}>Change photo</span>
+              <span style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, color: '#fff', letterSpacing: '0.06em' }}>Change Photo</span>
             </div>
           </div>
         )}
@@ -307,10 +307,10 @@ export default function WorkerProfile() {
         <div style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--ink)', marginBottom: 12 }}>Finish setting up</div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
           {[
-            { label: 'Add a photo to get booked faster', href: '#', done: false },
-            { label: 'Add credentials to unlock higher-paying shifts', href: '/v3/credentials', done: false },
-            { label: 'Set availability so we only show shifts that fit', href: '/v3/availability', done: false },
-            { label: 'W-9 required once you earn $600', href: '/v3/w9', done: false },
+            { label: 'Add a Photo to Get Booked Faster', href: '#', done: false },
+            { label: 'Add Credentials to Unlock Higher-Paying Shifts', href: '/v3/credentials', done: false },
+            { label: 'Set Availability so We Only Show Shifts That Fit', href: '/v3/availability', done: false },
+            { label: 'W-9 Required Once You Earn $600', href: '/v3/w9', done: false },
           ].map((item, i) => (
             <Link key={i} href={item.href} style={{
               display: 'flex',
@@ -403,11 +403,11 @@ export default function WorkerProfile() {
         </div>
 
         <Link href="/worker/settings" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '16px 0', marginTop: 16, borderTop: '1px solid var(--line)', textDecoration: 'none' }}>
-          <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 15, color: 'var(--ink)' }}>Settings & account</span>
+          <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 15, color: 'var(--ink)' }}>Settings & Account</span>
           <span style={{ color: 'var(--ink)', fontSize: 18 }}>→</span>
         </Link>
         <Link href="/worker/report" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '16px 0', borderTop: '1px solid var(--line)', textDecoration: 'none' }}>
-          <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 15, color: 'var(--ink)' }}>File a report</span>
+          <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 15, color: 'var(--ink)' }}>File a Report</span>
           <span style={{ color: 'var(--ink)', fontSize: 18 }}>→</span>
         </Link>
       </div>

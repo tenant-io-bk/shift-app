@@ -18,43 +18,43 @@ type Notification = {
 const INITIAL: Notification[] = [
   {
     id: 1, type: 'match', read: false,
-    title: '3 new shifts match your skills',
+    title: '3 New Shifts Match Your Skills',
     sub: 'Barista · within 1.2 miles · starting 11A today',
     time: '8 min ago', href: '/worker/map',
   },
   {
     id: 2, type: 'payment', read: false,
-    title: 'Paid out $174.00',
+    title: 'Paid Out $174.00',
     sub: "Padmore's Coffee · Barista · Mon 12 May",
     time: '2 hrs ago', href: '/worker/wallet',
   },
   {
     id: 3, type: 'rebook', read: false,
-    title: "Padmore's wants to rebook you",
+    title: "Padmore's Wants to Rebook You",
     sub: 'Same role · Wed 14 May · 11A–4P · $26/hr',
     time: '3 hrs ago', href: '/worker/job-detail',
   },
   {
     id: 4, type: 'review', read: true,
-    title: 'New review from The Wren',
+    title: 'New Review from The Wren',
     sub: '★★★★★ — "Fast, professional, great with customers."',
     time: 'Sat 10 May', href: '/worker/profile',
   },
   {
     id: 5, type: 'reminder', read: true,
-    title: 'Shift starts in 2 hours',
+    title: 'Shift Starts in 2 Hours',
     sub: "Padmore's Coffee · 11A · 172 Tompkins Ave",
     time: 'Mon 12 May', href: '/worker/day-of',
   },
   {
     id: 6, type: 'match', read: true,
-    title: '5 new shifts near you',
+    title: '5 New Shifts Near You',
     sub: 'Bartender, Server · Bed-Stuy + Crown Heights',
     time: 'Sun 11 May', href: '/worker/map',
   },
   {
     id: 7, type: 'payment', read: true,
-    title: 'Paid out $96.00',
+    title: 'Paid Out $96.00',
     sub: 'The Wren · Server · Sat 10 May',
     time: 'Sat 10 May', href: '/worker/wallet',
   },
@@ -96,7 +96,7 @@ export default function Notifications() {
         </span>
         {unreadCount > 0 ? (
           <button onClick={markAllRead} style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, color: 'var(--mute)', background: 'none', border: 'none', cursor: 'pointer', width: 60, textAlign: 'right' }}>
-            Read all
+            Read All
           </button>
         ) : <div style={{ width: 60 }} />}
       </div>

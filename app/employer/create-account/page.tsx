@@ -57,7 +57,7 @@ export default function EmployerCreateAccount() {
       <div style={{ padding: '20px 22px 140px', flex: 1, overflowY: 'auto' }}>
         <div style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--hydrant)', marginBottom: 10 }}>EMPLOYER</div>
         <h1 style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 34, letterSpacing: '-0.075em', lineHeight: 0.95, color: 'var(--ink)', marginBottom: 24 }}>
-          Let's get you set up.
+          Let's Get You Set Up.
         </h1>
 
         {/* Business type pills — collapse once selected */}
@@ -173,7 +173,7 @@ export default function EmployerCreateAccount() {
           }}>Continue →</Link>
         ) : (
           <div style={{ width: '100%', padding: '15px 22px', borderRadius: 99, background: 'var(--paper-3)', color: 'var(--ink)', fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 16, textAlign: 'center' }}>
-            {!bizType ? 'Pick your business type' : 'Fill in all fields'}
+            {!bizType ? 'Pick Your Business Type' : 'Fill in All Fields'}
           </div>
         )}
       </div>

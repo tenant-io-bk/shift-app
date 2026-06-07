@@ -35,7 +35,7 @@ export default function BusinessProfile() {
       <div style={{ padding: '20px 22px 140px', flex: 1, overflowY: 'auto' }}>
         <div style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--hydrant)', marginBottom: 10 }}>YOUR BUSINESS</div>
         <h1 style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 34, letterSpacing: '-0.075em', lineHeight: 0.95, color: 'var(--ink)', marginBottom: 10 }}>
-          Make a great first impression.
+          Make a Great First Impression.
         </h1>
         <p style={{ fontFamily: 'var(--body)', fontSize: 13, color: 'var(--mute)', marginBottom: 28, lineHeight: 1.5 }}>
           Workers see this before accepting a shift. Strong profiles attract better talent.
@@ -55,14 +55,14 @@ export default function BusinessProfile() {
             }
           </div>
           <div style={{ flex: 1 }}>
-            <div style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 15, color: 'var(--ink)', marginBottom: 4 }}>Business logo</div>
+            <div style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 15, color: 'var(--ink)', marginBottom: 4 }}>Business Logo</div>
             <div style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--mute)', marginBottom: 8 }}>Square image works best</div>
             <button onClick={() => setHasLogo(true)} style={{
               fontFamily: 'var(--body)', fontSize: 12, fontWeight: 600, color: 'var(--hydrant)',
               background: 'var(--hydrant-soft)', border: '1px solid var(--hydrant)',
               borderRadius: 99, padding: '6px 12px', cursor: 'pointer',
             }}>
-              {hasLogo ? '✓ Logo added' : 'Upload logo'}
+              {hasLogo ? '✓ Logo Added' : 'Upload Logo'}
             </button>
           </div>
         </div>
@@ -110,7 +110,7 @@ export default function BusinessProfile() {
           }}>Continue →</Link>
         ) : (
           <div style={{ width: '100%', padding: '15px 22px', borderRadius: 99, background: 'var(--paper-3)', color: 'var(--mute)', fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 16, textAlign: 'center' }}>
-            Fill in all fields
+            Fill in All Fields
           </div>
         )}
       </div>

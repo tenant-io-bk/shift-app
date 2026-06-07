@@ -114,7 +114,7 @@ export default function MutualReview() {
           color: 'var(--ink)',
           letterSpacing: '-0.01em',
           marginBottom: 14,
-        }}>How was working here?</p>
+        }}>How Was Working Here?</p>
 
         <div style={{ display: 'flex', gap: 8, marginBottom: 24 }}>
           {[1, 2, 3, 4, 5].map((star) => (
@@ -221,7 +221,7 @@ export default function MutualReview() {
           letterSpacing: '-0.01em',
           textAlign: 'center',
           textDecoration: 'none',
-        }}>Submit review.</Link>
+        }}>Submit Review.</Link>
       </div>
     </div>
   );

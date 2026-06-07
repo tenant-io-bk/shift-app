@@ -36,7 +36,7 @@ export default function ProfileSetup() {
             background: 'var(--hydrant)', color: '#000', fontFamily: 'var(--sans)',
             fontWeight: 700, fontSize: 16, textAlign: 'center', textDecoration: 'none', letterSpacing: '-0.01em',
           }}>
-            Set up payout →
+            Set Up Payout →
           </Link>
         </div>
       </div>
@@ -63,7 +63,7 @@ export default function ProfileSetup() {
           PROFILE
         </div>
         <h1 style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 34, letterSpacing: '-0.075em', lineHeight: 0.95, color: 'var(--ink)', marginBottom: 10 }}>
-          Put your best foot forward.
+          Put Your Best Foot Forward.
         </h1>
         <p style={{ fontFamily: 'var(--body)', fontSize: 13, color: 'var(--mute)', marginBottom: 28, lineHeight: 1.5 }}>
           Employers see this before booking you. A strong profile means more shifts.
@@ -86,7 +86,7 @@ export default function ProfileSetup() {
           </div>
 
           <div style={{ flex: 1 }}>
-            <div style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 15, color: 'var(--ink)', marginBottom: 4 }}>Profile photo</div>
+            <div style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 15, color: 'var(--ink)', marginBottom: 4 }}>Profile Photo</div>
             <div style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--mute)', lineHeight: 1.4, marginBottom: 8 }}>
               A clear headshot increases booking rate by 3×
             </div>
@@ -99,7 +99,7 @@ export default function ProfileSetup() {
                 padding: '6px 12px', cursor: 'pointer',
               }}
             >
-              {hasPhoto ? '✓ Photo added' : 'Add photo'}
+              {hasPhoto ? '✓ Photo Added' : 'Add Photo'}
             </button>
           </div>
         </div>
@@ -178,11 +178,11 @@ export default function ProfileSetup() {
               textAlign: 'center', border: 'none', cursor: 'pointer', letterSpacing: '-0.01em',
             }}
           >
-            Looking good. Next →
+            Looking Good. Next →
           </button>
         ) : (
           <div style={{ width: '100%', padding: '15px 22px', borderRadius: 99, background: 'var(--paper-3)', color: 'var(--mute)', fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 16, textAlign: 'center' }}>
-            Write something about yourself
+            Write Something About Yourself
           </div>
         )}
         <p style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)', textAlign: 'center', marginTop: 8 }}>

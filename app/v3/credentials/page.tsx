@@ -79,7 +79,7 @@ export default function Credentials() {
           CREDENTIALS
         </div>
         <h1 style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 34, letterSpacing: '-0.075em', lineHeight: 0.95, color: 'var(--ink)', marginBottom: 10 }}>
-          What are you certified in?
+          What Are You Certified In?
         </h1>
         <p style={{ fontFamily: 'var(--body)', fontSize: 13, color: 'var(--mute)', marginBottom: 24, lineHeight: 1.5 }}>
           Credentials unlock more shifts and higher pay. Add now or later — you can always update.
@@ -172,7 +172,7 @@ export default function Credentials() {
             textAlign: 'center', textDecoration: 'none', letterSpacing: '-0.01em',
           }}
         >
-          {selected.size > 0 ? `Continue with ${selected.size} credential${selected.size > 1 ? 's' : ''}` : 'Continue'}
+          {selected.size > 0 ? `Continue with ${selected.size} Credential${selected.size > 1 ? 's' : ''}` : 'Continue'}
         </Link>
         <p style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)', textAlign: 'center', marginTop: 8 }}>
           You can add more later in your profile

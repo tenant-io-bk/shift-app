@@ -162,7 +162,7 @@ export default function OnShift() {
             fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)',
             textDecoration: 'underline', textDecorationColor: 'var(--line-2)',
           }}>
-            Report issue
+            Report Issue
           </Link>
         </div>
 
@@ -192,7 +192,7 @@ export default function OnShift() {
             <svg width="18" height="18" viewBox="0 0 22 22" fill="none">
               <rect x="5.5" y="5.5" width="11" height="11" rx="2.5" fill="white" />
             </svg>
-            <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 16, color: '#fff', letterSpacing: '-0.02em' }}>Clock out</span>
+            <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 16, color: '#fff', letterSpacing: '-0.02em' }}>Clock Out</span>
           </button>
         </div>
       </div>

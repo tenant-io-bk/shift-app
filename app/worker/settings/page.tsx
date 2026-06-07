@@ -44,7 +44,7 @@ export default function Settings() {
         <Section title="Payout">
           <Row label="Method" value="Debit card" />
           <Row label="Account" value="CHASE ·· 4471" />
-          <RowLink label="Change payout method" href="/v3/payout-setup" />
+          <RowLink label="Change Payout Method" href="/v3/payout-setup" />
         </Section>
 
         {/* Notifications */}
@@ -59,15 +59,15 @@ export default function Settings() {
         <Section title="Verification">
           <RowStatus label="ID Verification" status="Verified" ok />
           <RowStatus label="Tax info (W-9)" status="Complete" ok />
-          <RowStatus label="Background check" status="Not started" ok={false} href="/v3/w9" />
+          <RowStatus label="Background Check" status="Not started" ok={false} href="/v3/w9" />
         </Section>
 
         {/* Support */}
         <Section title="Support">
           <RowLink label="Help & FAQ" href="#" />
-          <RowLink label="Contact support" href="#" />
-          <RowLink label="Terms of service" href="#" />
-          <RowLink label="Privacy policy" href="#" />
+          <RowLink label="Contact Support" href="#" />
+          <RowLink label="Terms of Service" href="#" />
+          <RowLink label="Privacy Policy" href="#" />
         </Section>
 
         {/* Sign out */}
@@ -80,7 +80,7 @@ export default function Settings() {
               color: '#EA4B2A', textDecoration: 'none', textAlign: 'center',
             }}
           >
-            Sign out
+            Sign Out
           </Link>
         </div>
 

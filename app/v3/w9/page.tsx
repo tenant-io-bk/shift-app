@@ -135,11 +135,11 @@ export default function W9() {
               textAlign: 'center', textDecoration: 'none', letterSpacing: '-0.01em',
             }}
           >
-            I&apos;m in. Show me shifts.
+            I&apos;m In. Show Me Shifts.
           </Link>
         ) : (
           <div style={{ width: '100%', padding: '15px 22px', borderRadius: 99, background: 'var(--paper-3)', color: 'var(--mute)', fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 16, textAlign: 'center' }}>
-            Fill in the fields above
+            Fill in the Fields Above
           </div>
         )}
         <p style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)', textAlign: 'center', marginTop: 8 }}>

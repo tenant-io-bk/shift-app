@@ -195,8 +195,8 @@ export default function EmployerDashboard() {
           onClick={isPosting ? cancelPosting : startPosting}
           style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '18px 20px', background: 'var(--ink)', border: 'none', cursor: 'pointer' }}
         >
-          <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 24, color: '#fff', letterSpacing: '-0.04em' }}>Post A Shift.</span>
-          {!isPosting && <span style={{ flex: 1, paddingLeft: 12, textAlign: 'left' }}><span style={{ border: '1px solid rgba(255,255,255,0.3)', borderRadius: 99, padding: '3px 10px', fontFamily: 'var(--body)', fontSize: 11, color: 'rgba(255,255,255,0.6)' }}>Workers confirmed in minutes</span></span>}
+          <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 24, color: '#fff', letterSpacing: '-0.04em' }}>Post a Shift.</span>
+          {!isPosting && <span style={{ flex: 1, paddingLeft: 12, textAlign: 'left' }}><span style={{ border: '1px solid rgba(255,255,255,0.3)', borderRadius: 99, padding: '3px 10px', fontFamily: 'var(--body)', fontSize: 11, color: 'rgba(255,255,255,0.6)' }}>Workers Confirmed in Minutes</span></span>}
           <span style={{ fontFamily: 'var(--sans)', fontWeight: 300, fontSize: 32, color: '#fff', lineHeight: 1 }}>{isPosting ? '×' : '+'}</span>
         </button>
 
@@ -232,7 +232,7 @@ export default function EmployerDashboard() {
               {/* ROLE */}
               {step === 'role' && (
                 <>
-                  <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 20, letterSpacing: '-0.04em', color: 'var(--ink)', marginBottom: 14 }}>What role do you need?</div>
+                  <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 20, letterSpacing: '-0.04em', color: 'var(--ink)', marginBottom: 14 }}>What Role Do You Need?</div>
                   <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8 }}>
                     {ROLES.map((r, idx) => {
                       const rots = [-8, 10, -12, 7, -6, 9, -10, 6];
@@ -296,7 +296,7 @@ export default function EmployerDashboard() {
               {/* PAY */}
               {step === 'pay' && (
                 <>
-                  <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 20, letterSpacing: '-0.04em', color: 'var(--ink)', marginBottom: 18 }}>How much per hour?</div>
+                  <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 20, letterSpacing: '-0.04em', color: 'var(--ink)', marginBottom: 18 }}>How Much Per Hour?</div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: 18 }}>
                     <button onClick={() => setRate(r => Math.max(15, r-1))} style={{ width: 48, height: 48, borderRadius: 12, border: '2px solid var(--ink)', background: 'transparent', fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 22, color: 'var(--ink)', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>−</button>
                     <div style={{ flex: 1 }}>
@@ -317,7 +317,7 @@ export default function EmployerDashboard() {
               {/* COUNT */}
               {step === 'count' && (
                 <>
-                  <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 20, letterSpacing: '-0.04em', color: 'var(--ink)', marginBottom: 20 }}>How many workers?</div>
+                  <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 20, letterSpacing: '-0.04em', color: 'var(--ink)', marginBottom: 20 }}>How Many Workers?</div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: 22 }}>
                     <button onClick={() => setCount(Math.max(1, count-1))} style={{ width: 52, height: 52, borderRadius: 12, border: '2px solid var(--ink)', background: 'transparent', fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 24, color: 'var(--ink)', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>−</button>
                     <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 64, color: 'var(--ink)', letterSpacing: '-0.05em', minWidth: 52, textAlign: 'center' }}>{count}</span>
@@ -330,7 +330,7 @@ export default function EmployerDashboard() {
               {/* BRIEF */}
               {step === 'brief' && !isDrafting && (
                 <>
-                  <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 20, letterSpacing: '-0.04em', color: 'var(--ink)', marginBottom: 6 }}>Describe the shift in one line</div>
+                  <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 20, letterSpacing: '-0.04em', color: 'var(--ink)', marginBottom: 6 }}>Describe the Shift in One Line</div>
                   <p style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--ink)', marginBottom: 12 }}>SHIFT will write the full posting from this.</p>
                   <textarea
                     value={brief} onChange={e => setBrief(e.target.value)} rows={3} autoFocus
@@ -350,7 +350,7 @@ export default function EmployerDashboard() {
                     mask: 'radial-gradient(transparent 54%, black 55%)',
                     animation: 'brand-spin 1s linear infinite',
                   }} />
-                  <p style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 17, color: 'var(--ink)', letterSpacing: '-0.02em' }}>Writing your posting…</p>
+                  <p style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 17, color: 'var(--ink)', letterSpacing: '-0.02em' }}>Writing Your Posting…</p>
                   <p style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)' }}>Task list, attire, and rate — 2 sec</p>
                 </div>
               )}
@@ -416,7 +416,7 @@ export default function EmployerDashboard() {
               {step === 'confirm' && (
                 <>
                   <div style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--hydrant)', marginBottom: 6 }}>Confirm your shift</div>
-                  <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 26, letterSpacing: '-0.04em', color: 'var(--ink)', marginBottom: 18, lineHeight: 1 }}>Looks good?</div>
+                  <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 26, letterSpacing: '-0.04em', color: 'var(--ink)', marginBottom: 18, lineHeight: 1 }}>Looks Good?</div>
                   <div style={{ display: 'flex', flexDirection: 'column', marginBottom: 18 }}>
                     {[
                       { label: 'Role',    value: role },
@@ -439,7 +439,7 @@ export default function EmployerDashboard() {
                     onClick={() => router.push('/employer/roster')}
                     style={{ width: '100%', padding: '15px', background: 'var(--ink)', border: 'none', borderRadius: 99, fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 16, color: '#fff', cursor: 'pointer', letterSpacing: '-0.02em' }}
                   >
-                    Post this shift.
+                    Post This Shift.
                   </button>
                 </>
               )}
@@ -455,7 +455,7 @@ export default function EmployerDashboard() {
                   onClick={next} disabled={!canNext}
                   style={{ flex: 2, padding: '13px', borderRadius: 99, border: 'none', background: canNext ? 'var(--ink)' : 'var(--paper-3)', fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 16, color: canNext ? '#fff' : 'var(--ink)', cursor: canNext ? 'pointer' : 'default', transition: 'all 0.2s', letterSpacing: '-0.02em' }}
                 >
-                  {step === 'brief' ? 'Draft it →' : 'Next →'}
+                  {step === 'brief' ? 'Draft It →' : 'Next →'}
                 </button>
               </div>
             )}

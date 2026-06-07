@@ -51,7 +51,7 @@ export default function Dispute() {
           letterSpacing: '-0.02em',
           lineHeight: 1.05,
           marginBottom: 8,
-        }}>Flag an issue with this shift.</h1>
+        }}>Flag an Issue with This Shift.</h1>
 
         <p style={{
           fontFamily: 'var(--body)',
@@ -188,7 +188,7 @@ export default function Dispute() {
           color: '#fff',
           cursor: 'pointer',
           letterSpacing: '-0.01em',
-        }}>File dispute.</button>
+        }}>File Dispute.</button>
       </div>
     </div>
   );

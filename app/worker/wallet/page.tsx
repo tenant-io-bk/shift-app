@@ -192,7 +192,7 @@ export default function WorkerWallet() {
             fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 15,
             color: 'rgba(255,255,255,0.45)', letterSpacing: '-0.01em', pointerEvents: 'none',
           }}>
-            Slide to cash out →
+            Slide to Cash Out →
           </div>
           <div style={{
             position: 'absolute', top: 4, left: 4 + slideX,

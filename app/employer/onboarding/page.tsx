@@ -95,7 +95,7 @@ export default function Page() {
             whiteSpace: 'pre-line',
           }}
         >
-          {'Where are you\nhiring?'}
+          {'Where Are You\nHiring?'}
         </h1>
 
         {/* Search input */}
@@ -195,7 +195,7 @@ export default function Page() {
             cursor: 'pointer',
           }}
         >
-          Don&apos;t see yours? Add it →
+          Don&apos;t See Yours? Add It →
         </p>
       </div>
 

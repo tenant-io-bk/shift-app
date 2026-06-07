@@ -29,7 +29,7 @@ export default function NoShow() {
         background: 'var(--paper)',
       }}>
         <Link href="/employer/roster" style={{ fontSize: 20, color: 'var(--ink)', textDecoration: 'none', width: 32 }}>←</Link>
-        <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 16, color: 'var(--ink)' }}>Roster alert</span>
+        <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 16, color: 'var(--ink)' }}>Roster Alert</span>
         <div style={{ width: 32 }} />
       </div>
 
@@ -206,7 +206,7 @@ export default function NoShow() {
             color: '#fff',
             cursor: 'pointer',
             letterSpacing: '-0.01em',
-          }}>Replace now — Sam O.</button>
+          }}>Replace Now — Sam O.</button>
         </div>
       </div>
     </div>

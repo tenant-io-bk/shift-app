@@ -131,7 +131,7 @@ export default function PostShift() {
       {/* Nav */}
       <div style={{ height: 44, display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 16px', borderBottom: '1px solid var(--line)' }}>
         <button onClick={back} style={{ fontSize: 20, color: 'var(--ink)', background: 'none', border: 'none', cursor: 'pointer', padding: 0, width: 32 }}>←</button>
-        <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 15, color: 'var(--ink)' }}>Post a shift</span>
+        <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 15, color: 'var(--ink)' }}>Post a Shift</span>
         <div style={{ width: 32 }} />
       </div>
 
@@ -149,7 +149,7 @@ export default function PostShift() {
         {step === 'role' && (
           <>
             <div style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--mute)', marginBottom: 12 }}>Role</div>
-            <h1 style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 36, letterSpacing: '-0.075em', lineHeight: 1, color: 'var(--ink)', marginBottom: 28 }}>What role do you need?</h1>
+            <h1 style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 36, letterSpacing: '-0.075em', lineHeight: 1, color: 'var(--ink)', marginBottom: 28 }}>What Role Do You Need?</h1>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10 }}>
               {ROLES.map((r, i) => (
                 <button
@@ -231,7 +231,7 @@ export default function PostShift() {
         {step === 'pay' && (
           <>
             <div style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--mute)', marginBottom: 12 }}>Pay</div>
-            <h1 style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 36, letterSpacing: '-0.075em', lineHeight: 1, color: 'var(--ink)', marginBottom: 32 }}>How much per hour?</h1>
+            <h1 style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 36, letterSpacing: '-0.075em', lineHeight: 1, color: 'var(--ink)', marginBottom: 32 }}>How Much Per Hour?</h1>
 
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 24, marginBottom: 16 }}>
               <button onClick={() => setRate(r => Math.max(15, r - 1))} style={{ width: 52, height: 52, borderRadius: 99, border: '2px solid var(--ink)', background: 'transparent', fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 28, color: 'var(--ink)', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>−</button>
@@ -252,7 +252,7 @@ export default function PostShift() {
         {step === 'count' && (
           <>
             <div style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--mute)', marginBottom: 12 }}>How many</div>
-            <h1 style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 36, letterSpacing: '-0.075em', lineHeight: 1, color: 'var(--ink)', marginBottom: 40 }}>How many workers?</h1>
+            <h1 style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 36, letterSpacing: '-0.075em', lineHeight: 1, color: 'var(--ink)', marginBottom: 40 }}>How Many Workers?</h1>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 28 }}>
               <button onClick={() => setCount(Math.max(1, count - 1))} style={{ width: 56, height: 56, borderRadius: 99, border: '2px solid var(--ink)', background: 'transparent', fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 28, color: 'var(--ink)', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>−</button>
               <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 64, color: 'var(--ink)', letterSpacing: '-0.05em', minWidth: 60, textAlign: 'center' }}>{count}</span>
@@ -266,7 +266,7 @@ export default function PostShift() {
         {step === 'brief' && !isDrafting && (
           <>
             <div style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--mute)', marginBottom: 12 }}>Brief</div>
-            <h1 style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 36, letterSpacing: '-0.075em', lineHeight: 1, color: 'var(--ink)', marginBottom: 8 }}>Describe the shift in one line</h1>
+            <h1 style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 36, letterSpacing: '-0.075em', lineHeight: 1, color: 'var(--ink)', marginBottom: 8 }}>Describe the Shift in One Line</h1>
             <p style={{ fontFamily: 'var(--body)', fontSize: 13, color: 'var(--ink)', marginBottom: 20 }}>SHIFT will write the full posting from this.</p>
             <textarea
               value={brief}
@@ -289,7 +289,7 @@ export default function PostShift() {
               mask: 'radial-gradient(transparent 52%, black 53%)',
               animation: 'brand-spin 1s linear infinite',
             }} />
-            <p style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 22, color: 'var(--ink)', letterSpacing: '-0.04em' }}>Writing your posting…</p>
+            <p style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 22, color: 'var(--ink)', letterSpacing: '-0.04em' }}>Writing Your Posting…</p>
             <p style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--mute)' }}>Task list, attire, and rate — 2 sec</p>
           </div>
         )}
@@ -298,7 +298,7 @@ export default function PostShift() {
         {step === 'review' && (
           <>
             <div style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--mute)', marginBottom: 12 }}>Review</div>
-            <h1 style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 36, letterSpacing: '-0.075em', lineHeight: 1, color: 'var(--ink)', marginBottom: 16 }}>SHIFT drafted this.</h1>
+            <h1 style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 36, letterSpacing: '-0.075em', lineHeight: 1, color: 'var(--ink)', marginBottom: 16 }}>SHIFT Drafted This.</h1>
 
             <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 16, padding: '8px 12px', background: 'var(--hydrant-soft)', borderRadius: 8 }}>
               <svg width="9" height="9" viewBox="0 0 10 10" fill="none"><path d="M5 0L6.18 3.82L10 5L6.18 6.18L5 10L3.82 6.18L0 5L3.82 3.82L5 0Z" fill="var(--hydrant)" /></svg>
@@ -358,7 +358,7 @@ export default function PostShift() {
         {step === 'confirm' && (
           <>
             <div style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--hydrant)', marginBottom: 8 }}>Confirm your shift</div>
-            <h1 style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 40, letterSpacing: '-0.075em', lineHeight: 1, color: 'var(--ink)', marginBottom: 28 }}>Looks good?</h1>
+            <h1 style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 40, letterSpacing: '-0.075em', lineHeight: 1, color: 'var(--ink)', marginBottom: 28 }}>Looks Good?</h1>
 
             <div style={{ display: 'flex', flexDirection: 'column', marginBottom: 28 }}>
               {[
@@ -384,7 +384,7 @@ export default function PostShift() {
                 onClick={() => router.push('/employer/roster')}
                 style={{ width: '100%', padding: '18px', background: 'var(--ink)', border: 'none', borderRadius: 99, fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 18, color: '#fff', cursor: 'pointer', letterSpacing: '-0.02em' }}
               >
-                Post this shift.
+                Post This Shift.
               </button>
               <p style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--ink)', textAlign: 'center', marginTop: 10 }}>$0 posted · billed when filled</p>
             </div>
@@ -400,7 +400,7 @@ export default function PostShift() {
             disabled={!canNext}
             style={{ flex: 2, padding: '16px', borderRadius: 99, border: 'none', background: canNext ? 'var(--ink)' : 'var(--paper-3)', fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 18, color: canNext ? '#fff' : 'var(--ink)', cursor: canNext ? 'pointer' : 'default', transition: 'all 0.2s', letterSpacing: '-0.02em' }}
           >
-            {step === 'brief' ? 'Draft it →' : 'Next →'}
+            {step === 'brief' ? 'Draft It →' : 'Next →'}
           </button>
         </div>
       )}

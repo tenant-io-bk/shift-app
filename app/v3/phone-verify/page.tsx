@@ -72,7 +72,7 @@ export default function PhoneVerify() {
           letterSpacing: '-0.075em',
           lineHeight: 0.95,
           marginBottom: 12,
-        }}>What&apos;s your number?</h1>
+        }}>What&apos;s Your Number?</h1>
 
         <p style={{
           fontFamily: 'var(--body)',

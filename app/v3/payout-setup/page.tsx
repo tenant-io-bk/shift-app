@@ -53,7 +53,7 @@ export default function PayoutSetup() {
           background: 'var(--ink)', color: '#fff', fontFamily: 'var(--sans)',
           fontWeight: 700, fontSize: 16, textAlign: 'center', textDecoration: 'none', letterSpacing: '-0.01em', width: '100%',
         }}>
-          Start earning →
+          Start Earning →
         </Link>
       </div>
     );
@@ -72,7 +72,7 @@ export default function PayoutSetup() {
         background: 'var(--paper)',
       }}>
         <Link href="/v3/neighborhood" style={{ fontSize: 20, color: 'var(--ink)', textDecoration: 'none', width: 32 }}>←</Link>
-        <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 16, color: 'var(--ink)' }}>Get paid</span>
+        <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 16, color: 'var(--ink)' }}>Get Paid</span>
         <div style={{ width: 32 }} />
       </div>
 
@@ -100,7 +100,7 @@ export default function PayoutSetup() {
           letterSpacing: '-0.075em',
           lineHeight: 0.95,
           marginBottom: 10,
-        }}>Where should we send it?</h1>
+        }}>Where Should We Send It?</h1>
 
         <p style={{
           fontFamily: 'var(--body)',
@@ -200,7 +200,7 @@ export default function PayoutSetup() {
           border: 'none',
           cursor: 'pointer',
           letterSpacing: '-0.01em',
-        }}>Start earning →</button>
+        }}>Start Earning →</button>
 
         <p style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)', textAlign: 'center', marginTop: 12 }}>
           W-9 required once you earn $600. We&apos;ll remind you.

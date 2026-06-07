@@ -93,7 +93,7 @@ export default function CardInput() {
       {/* Nav */}
       <div style={{ height: 44, display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 16px', borderBottom: '1px solid var(--line)' }}>
         <Link href="/v3/payout-setup" style={{ fontSize: 20, color: 'var(--ink)', textDecoration: 'none', width: 32 }}>←</Link>
-        <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 15, color: 'var(--ink)' }}>Add debit card</span>
+        <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 15, color: 'var(--ink)' }}>Add Debit Card</span>
         <div style={{ width: 32 }} />
       </div>
 
@@ -176,7 +176,7 @@ export default function CardInput() {
             transition: 'all 0.2s', letterSpacing: '-0.02em',
           }}
         >
-          Save card →
+          Save Card →
         </button>
       </div>
     </div>

@@ -243,7 +243,7 @@ export default function Page() {
             marginBottom: 14,
           }}
         >
-          How was Jordan?
+          How Was Jordan?
         </div>
         <div style={{ display: 'flex', gap: 0 }}>
           {[1, 2, 3, 4, 5].map((star) => (
@@ -349,7 +349,7 @@ export default function Page() {
             marginBottom: 12,
           }}
         >
-          Would you rebook Jordan?
+          Would You Rebook Jordan?
         </div>
         <div style={{ display: 'flex', gap: 10 }}>
           <button
@@ -369,7 +369,7 @@ export default function Page() {
               letterSpacing: '-0.01em',
             }}
           >
-            Yes, rebook
+            Yes, Rebook
           </button>
           <button
             onClick={() => setRebook('no')}
@@ -388,7 +388,7 @@ export default function Page() {
               letterSpacing: '-0.01em',
             }}
           >
-            Not this time
+            Not This Time
           </button>
         </div>
       </div>
@@ -424,7 +424,7 @@ export default function Page() {
             letterSpacing: '-0.01em',
           }}
         >
-          Submit review →
+          Submit Review →
         </Link>
       </div>
 

@@ -71,7 +71,7 @@ export default function Availability() {
         zIndex: 10,
       }}>
         <Link href="/v3/credentials" style={{ fontSize: 20, color: 'var(--ink)', textDecoration: 'none', width: 32 }}>←</Link>
-        <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 16, color: 'var(--ink)' }}>Get started</span>
+        <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 16, color: 'var(--ink)' }}>Get Started</span>
         <div style={{ width: 32 }} />
       </div>
 
@@ -100,7 +100,7 @@ export default function Availability() {
           letterSpacing: '-0.075em',
           lineHeight: 1,
           marginBottom: 32,
-        }}>When can you work?</h1>
+        }}>When Can You Work?</h1>
 
         {TIME_BLOCKS.map((block, rowIdx) => (
           <div key={rowIdx} style={{ marginBottom: 36 }}>

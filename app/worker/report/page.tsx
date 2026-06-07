@@ -4,11 +4,11 @@ import { useState } from 'react';
 import Link from 'next/link';
 
 const ISSUE_TYPES = [
-  { id: 'safety', label: 'Safety concern', icon: '⚠' },
-  { id: 'uncomfortable', label: 'Uncomfortable situation', icon: '🔒' },
-  { id: 'venue', label: 'Venue or conditions issue', icon: '🏠' },
-  { id: 'unfair', label: 'Unfair treatment', icon: '⚖' },
-  { id: 'other', label: 'Something else', icon: '···' },
+  { id: 'safety', label: 'Safety Concern', icon: '⚠' },
+  { id: 'uncomfortable', label: 'Uncomfortable Situation', icon: '🔒' },
+  { id: 'venue', label: 'Venue or Conditions Issue', icon: '🏠' },
+  { id: 'unfair', label: 'Unfair Treatment', icon: '⚖' },
+  { id: 'other', label: 'Something Else', icon: '···' },
 ];
 
 export default function WorkerReport() {
@@ -70,7 +70,7 @@ export default function WorkerReport() {
         {step === 'type' && (
           <>
             <h2 style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 26, color: 'var(--ink)', letterSpacing: '-0.04em', lineHeight: 1.1, marginBottom: 6 }}>
-              What happened?
+              What Happened?
             </h2>
             <p style={{ fontFamily: 'var(--body)', fontSize: 13, color: 'var(--mute)', marginBottom: 24, lineHeight: 1.5 }}>
               Reports are reviewed by SHIFT — the venue never sees your name.
@@ -134,7 +134,7 @@ export default function WorkerReport() {
         {step === 'details' && (
           <>
             <h2 style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 26, color: 'var(--ink)', letterSpacing: '-0.04em', lineHeight: 1.1, marginBottom: 6 }}>
-              Tell us more.
+              Tell Us More.
             </h2>
             <p style={{ fontFamily: 'var(--body)', fontSize: 13, color: 'var(--mute)', marginBottom: 20, lineHeight: 1.5 }}>
               Be as specific as you&apos;re comfortable with. No names are required.
@@ -209,7 +209,7 @@ export default function WorkerReport() {
                 letterSpacing: '-0.01em',
               }}
             >
-              Submit report
+              Submit Report
             </button>
           </>
         )}
@@ -278,7 +278,7 @@ export default function WorkerReport() {
                 letterSpacing: '-0.01em',
               }}
             >
-              Back to shifts
+              Back to Shifts
             </Link>
           </div>
         )}

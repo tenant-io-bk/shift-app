@@ -24,7 +24,7 @@ export default function CancelFlow() {
           7-day block from Padmore&apos;s · −6 spots in Bed-Stuy standing
         </div>
         <Link href="/worker/home" style={{ marginTop: 16, display: 'block', width: '100%', padding: '15px', background: 'var(--ink)', color: '#fff', borderRadius: 99, fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 16, textAlign: 'center', textDecoration: 'none', letterSpacing: '-0.01em' }}>
-          Back to home
+          Back to Home
         </Link>
       </div>
     );
@@ -62,7 +62,7 @@ export default function CancelFlow() {
           color: 'var(--ink)',
           letterSpacing: '-0.02em',
           marginBottom: 16,
-        }}>Running behind?</h1>
+        }}>Running Behind?</h1>
 
         {/* Option rows */}
         {[

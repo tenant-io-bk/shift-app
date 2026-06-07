@@ -57,7 +57,7 @@ export default function WorkerOnboarding() {
         zIndex: 10,
       }}>
         <Link href="/v3/phone-verify" style={{ fontSize: 20, color: 'var(--ink)', textDecoration: 'none', width: 32 }}>←</Link>
-        <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 16, color: 'var(--ink)' }}>Get started</span>
+        <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 16, color: 'var(--ink)' }}>Get Started</span>
         <div style={{ width: 32 }} />
       </div>
 
@@ -86,7 +86,7 @@ export default function WorkerOnboarding() {
           letterSpacing: '-0.075em',
           lineHeight: 1,
           marginBottom: 10,
-        }}>What can you do?</h1>
+        }}>What Can You Do?</h1>
 
         {/* Chip grid — 2 columns */}
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10, marginTop: 16 }}>

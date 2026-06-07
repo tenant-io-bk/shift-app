@@ -19,7 +19,7 @@ export default function Neighborhood() {
         borderBottom: '1px solid var(--line)',
       }}>
         <Link href="/worker/onboarding" style={{ fontSize: 20, color: 'var(--ink)', textDecoration: 'none', width: 32 }}>←</Link>
-        <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 16, color: 'var(--ink)' }}>Your area</span>
+        <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 16, color: 'var(--ink)' }}>Your Area</span>
         <div style={{ width: 32 }} />
       </div>
 
@@ -38,7 +38,7 @@ export default function Neighborhood() {
           letterSpacing: '-0.075em',
           lineHeight: 1,
           marginBottom: 8,
-        }}>Where do you work?</h1>
+        }}>Where Do You Work?</h1>
         <p style={{
           fontFamily: 'var(--body)',
           fontSize: 13,
@@ -153,7 +153,7 @@ export default function Neighborhood() {
           color: '#fff',
           letterSpacing: '-0.01em',
           textDecoration: 'none',
-        }}>One more step →</Link>
+        }}>One More Step →</Link>
         <p style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)', textAlign: 'center', marginTop: 12 }}>
           Just payout info, then you&apos;re in.
         </p>

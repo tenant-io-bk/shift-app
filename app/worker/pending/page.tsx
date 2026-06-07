@@ -182,7 +182,7 @@ export default function WorkerPending() {
             color: 'var(--ink)', textDecoration: 'none', letterSpacing: '-0.01em',
           }}
         >
-          Withdraw claim
+          Withdraw Claim
         </Link>
         <p style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--ink)', textAlign: 'center', marginTop: 10 }}>
           No penalty for withdrawing before confirmation.

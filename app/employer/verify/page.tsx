@@ -63,7 +63,7 @@ export default function EmployerVerify() {
       <div style={{ padding: '20px 22px 140px', flex: 1, overflowY: 'auto' }}>
         <div style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--mute)', marginBottom: 10 }}>VERIFICATION</div>
         <h1 style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 34, letterSpacing: '-0.075em', lineHeight: 0.95, color: 'var(--ink)', marginBottom: 10 }}>
-          Prove it's your business.
+          Prove It's Your Business.
         </h1>
         <p style={{ fontFamily: 'var(--body)', fontSize: 13, color: 'var(--ink)', lineHeight: 1.6, marginBottom: 28 }}>
           SHIFT only works with legitimate businesses. Pick one way to verify — takes 60 seconds.
@@ -163,7 +163,7 @@ export default function EmployerVerify() {
               }}
             >
               <span style={{ fontFamily: 'var(--body)', fontSize: 13, fontWeight: 600, color: uploaded ? '#000' : 'var(--ink)' }}>
-                {uploaded ? '✓ license.jpg uploaded' : 'Tap to upload photo'}
+                {uploaded ? '✓ license.jpg uploaded' : 'Tap to Upload Photo'}
               </span>
             </button>
           </div>
@@ -187,10 +187,10 @@ export default function EmployerVerify() {
             display: 'block', width: '100%', padding: '15px 22px', borderRadius: 99,
             background: 'var(--ink)', color: '#fff', fontFamily: 'var(--sans)',
             fontWeight: 700, fontSize: 16, textAlign: 'center', border: 'none', cursor: 'pointer',
-          }}>Submit for review →</button>
+          }}>Submit for Review →</button>
         ) : (
           <div style={{ width: '100%', padding: '15px 22px', borderRadius: 99, background: 'var(--paper-3)', color: 'var(--ink)', fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 16, textAlign: 'center' }}>
-            Choose a verification method
+            Choose a Verification Method
           </div>
         )}
       </div>

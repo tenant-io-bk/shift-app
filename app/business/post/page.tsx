@@ -182,7 +182,7 @@ function InputStep({ onDraft }: { onDraft: (role: string, brief: string, time: s
             border: 'none', cursor: 'pointer', letterSpacing: '-0.01em',
           }}
         >
-          Draft it →
+          Draft It →
         </button>
       </div>
     </div>
@@ -209,7 +209,7 @@ function DraftingStep() {
       </div>
       <div style={{ textAlign: 'center' }}>
         <p style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 22, color: 'var(--ink)', letterSpacing: '-0.04em', lineHeight: 1.2 }}>
-          Writing your posting...
+          Writing Your Posting...
         </p>
         <p style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--mute)', marginTop: 8 }}>
           Pulling task lists, attire, and market rate
@@ -398,13 +398,13 @@ function PostedStep({ role, time }: { role: string; time: string }) {
             background: 'var(--ink)', color: '#fff',
             fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 15,
             textDecoration: 'none', textAlign: 'center', letterSpacing: '-0.01em',
-          }}>View roster</Link>
+          }}>View Roster</Link>
           <Link href="/business/post" style={{
             flex: 1, padding: '14px', borderRadius: 99,
             border: '2px solid var(--ink)', color: 'var(--ink)',
             fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 15,
             textDecoration: 'none', textAlign: 'center', letterSpacing: '-0.01em',
-          }}>Post another</Link>
+          }}>Post Another</Link>
         </div>
       </div>
     </div>
