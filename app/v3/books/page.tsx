@@ -15,36 +15,54 @@ const LINE_ITEMS = [
 export default function Books() {
   return (
     <div style={{ maxWidth: 390, minHeight: '100vh', margin: '0 auto', background: 'var(--paper)', display: 'flex', flexDirection: 'column' }}>
-      {/* Nav — part of green header */}
-      <div style={{
-        height: 44,
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        padding: '0 16px',
-        background: 'var(--green)',
-      }}>
-        <Link href="/employer/billing" style={{ fontSize: 20, color: 'var(--ink)', textDecoration: 'none', width: 32 }}>←</Link>
-        <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 16, color: 'var(--ink)' }}>Books</span>
-        <div style={{ width: 32 }} />
-      </div>
+      {/* Green header: profile row + search + hero */}
+      <div style={{ background: 'var(--green)' }}>
 
-      {/* Monthly total header — green bg, tall hero */}
-      <div style={{ background: 'var(--green)', textAlign: 'center', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', minHeight: '44vh', padding: '32px 22px 56px' }}>
-        <p style={{ fontFamily: 'var(--sans)', fontWeight: 400, fontSize: 20, color: 'var(--ink)', letterSpacing: '-0.02em', lineHeight: 1.2, marginBottom: 16, whiteSpace: 'nowrap' }}>
-          You&apos;ve Filled{' '}
-          <span style={{ textDecoration: 'underline', fontWeight: 400 }}>18</span>
-          {' '}Shifts May 2026
-        </p>
+        {/* Profile row */}
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '14px 20px 16px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+            <Link href="/employer/billing" style={{ width: 40, height: 40, borderRadius: '50%', background: 'rgba(255,255,255,0.45)', display: 'flex', alignItems: 'center', justifyContent: 'center', textDecoration: 'none', flexShrink: 0 }}>
+              <span style={{ fontSize: 18, color: 'var(--ink)', lineHeight: 1 }}>←</span>
+            </Link>
+            <div style={{ width: 40, height: 40, borderRadius: '50%', background: 'var(--ink)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+              <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 14, color: 'white' }}>PC</span>
+            </div>
+            <div>
+              <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 14, color: 'var(--ink)', letterSpacing: '-0.01em' }}>Padmore&apos;s Coffee</div>
+              <div style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'rgba(13,14,18,0.5)', marginTop: 1 }}>Brooklyn, NY · Active</div>
+            </div>
+          </div>
+          <div style={{ width: 36, height: 36, borderRadius: '50%', background: 'rgba(255,255,255,0.45)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M8 2a1.5 1.5 0 110 3 1.5 1.5 0 010-3zM8 6.5a1.5 1.5 0 110 3 1.5 1.5 0 010-3zM8 11a1.5 1.5 0 110 3 1.5 1.5 0 010-3z" fill="var(--ink)" opacity="0.6"/>
+            </svg>
+          </div>
+        </div>
 
-        <div style={{
-          fontFamily: 'var(--sans)',
-          fontWeight: 400,
-          fontSize: 64,
-          color: 'var(--ink)',
-          letterSpacing: '-0.05em',
-          lineHeight: 1,
-        }}>$2,847.00</div>
+        {/* Search bar */}
+        <div style={{ margin: '0 20px 20px', background: 'rgba(255,255,255,0.45)', borderRadius: 14, padding: '11px 14px', display: 'flex', alignItems: 'center', gap: 10 }}>
+          <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
+            <circle cx="6.5" cy="6.5" r="4.5" stroke="var(--ink)" strokeWidth="1.4" opacity="0.45"/>
+            <path d="M10.5 10.5l2.5 2.5" stroke="var(--ink)" strokeWidth="1.4" strokeLinecap="round" opacity="0.45"/>
+          </svg>
+          <span style={{ fontFamily: 'var(--body)', fontSize: 14, color: 'rgba(13,14,18,0.38)' }}>Search statements…</span>
+        </div>
+
+        {/* Balance hero */}
+        <div style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '8px 22px 60px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 14 }}>
+            <p style={{ fontFamily: 'var(--sans)', fontWeight: 400, fontSize: 20, color: 'var(--ink)', letterSpacing: '-0.02em', lineHeight: 1.2, whiteSpace: 'nowrap' }}>
+              You&apos;ve Filled{' '}
+              <span style={{ textDecoration: 'underline' }}>18</span>
+              {' '}Shifts May 2026
+            </p>
+          </div>
+          <div style={{ background: '#2a9e18', borderRadius: 99, padding: '5px 12px', display: 'inline-flex', alignItems: 'center', gap: 5, marginBottom: 16 }}>
+            <span style={{ fontSize: 12, color: 'white', lineHeight: 1 }}>↗</span>
+            <span style={{ fontFamily: 'var(--body)', fontWeight: 700, fontSize: 12, color: 'white', letterSpacing: '0.01em' }}>+8.4% vs last month</span>
+          </div>
+          <div style={{ fontFamily: 'var(--sans)', fontWeight: 400, fontSize: 64, color: 'var(--ink)', letterSpacing: '-0.05em', lineHeight: 1 }}>$2,847.00</div>
+        </div>
       </div>
 
       {/* Statement list — white card slides up */}
