@@ -93,8 +93,8 @@ function EarningsChart({ filter }: { filter: Filter }) {
   const peakPt = pts[peakIdx];
 
   return (
-    <div style={{ padding: '0 22px 32px' }}>
-      <svg width={W} height={H + 22} viewBox={`0 0 ${W} ${H + 22}`} style={{ display: 'block', overflow: 'visible' }}>
+    <div style={{ padding: '0 22px 44px' }}>
+      <svg width={W} height={H + 28} viewBox={`0 0 ${W} ${H + 28}`} style={{ display: 'block', overflow: 'visible' }}>
 
         {/* Clean flat line — no fill, no shadow */}
         <path d={linePath} fill="none" stroke="rgba(13,14,18,0.55)" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
@@ -107,8 +107,8 @@ function EarningsChart({ filter }: { filter: Filter }) {
 
         {/* Month labels */}
         {data.map((d, i) => (
-          <text key={i} x={toX(i)} y={H + 18} textAnchor="middle"
-            fill="rgba(13,14,18,0.45)"
+          <text key={i} x={toX(i)} y={H + 20} textAnchor="middle"
+            fill="#0D0E12"
             fontFamily="var(--body)" fontSize="9" fontWeight="600">
             {d.label.toUpperCase()}
           </text>

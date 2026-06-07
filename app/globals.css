@@ -533,13 +533,13 @@ html, body {
 }
 
 .books-gradient {
-  background: linear-gradient(180deg, #3d8a2d 0%, #72c15f 35%, #e8f5e3 70%, #f4fbf2 100%);
-  background-size: 100% 200%;
-  animation: booksGradientMove 8s ease infinite;
+  background: linear-gradient(180deg, #5aaa47 0%, #72c15f 40%, #edf7ea 80%, #f4fbf2 100%);
+  background-size: 100% 180%;
+  animation: booksGradientMove 14s ease-in-out infinite;
 }
 
 .shift-gradient {
-  background: linear-gradient(135deg, #b8cfeb 0%, #d4e6f5 30%, var(--paper) 60%, #eaf1fa 100%);
-  background-size: 300% 300%;
-  animation: gradientMove 10s ease infinite;
+  background: linear-gradient(135deg, #cddff4 0%, #ddeaf8 35%, var(--paper) 65%, #eef4fb 100%);
+  background-size: 250% 250%;
+  animation: gradientMove 16s ease-in-out infinite;
 }
