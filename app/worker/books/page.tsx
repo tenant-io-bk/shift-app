@@ -195,10 +195,6 @@ export default function WorkerBooks() {
   return (
     <div style={{ maxWidth: 390, minHeight: '100vh', margin: '0 auto', background: 'var(--paper)', display: 'flex', flexDirection: 'column' }}>
       <div className="books-gradient">
-        <div className="mesh-blob" />
-        <div className="mesh-blob" />
-        <div className="mesh-blob" />
-        <div style={{ position: 'relative', zIndex: 1 }}>
 
         {/* Nav row */}
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '14px 20px 14px' }}>
@@ -264,12 +260,11 @@ export default function WorkerBooks() {
         {/* Earnings sparkline */}
         <EarningsChart filter={activeFilter} scrubbedIdx={scrubbedIdx} onScrub={setScrubbedIdx} />
 
-        </div>{/* end content wrapper */}
       </div>
 
       {/* Statements list — white card slides up */}
       <div style={{ flex: 1, padding: '0 22px 80px', background: 'var(--card)', borderRadius: '24px 24px 0 0', marginTop: -28 }}>
-        <p style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--ink)', padding: '28px 0 10px' }}>
+        <p style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--ink)', padding: '36px 0 12px' }}>
           Statements
         </p>
 

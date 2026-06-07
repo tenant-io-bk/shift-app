@@ -520,85 +520,12 @@ html, body {
   padding-right: 48px;
 }
 
-/* Mesh gradient blobs */
-.mesh-blob {
-  position: absolute;
-  border-radius: 50%;
-  pointer-events: none;
-  will-change: transform;
-}
-
-@keyframes blobDrift1 {
-  from { transform: translate(0, 0) scale(1); }
-  to   { transform: translate(70px, 90px) scale(1.2); }
-}
-@keyframes blobDrift2 {
-  from { transform: translate(0, 0) scale(1.05); }
-  to   { transform: translate(-65px, 65px) scale(0.85); }
-}
-@keyframes blobDrift3 {
-  from { transform: translate(0, 0) scale(0.95); }
-  to   { transform: translate(45px, -70px) scale(1.15); }
-}
-
-/* Books mesh gradient */
+/* Books solid background */
 .books-gradient {
-  background: #6ab84d;
-  position: relative;
-  overflow: hidden;
-}
-.books-gradient > .mesh-blob:nth-child(1) {
-  width: 340px; height: 340px;
-  background: #1b5a0c;
-  top: -100px; left: -80px;
-  filter: blur(72px);
-  opacity: 0.82;
-  animation: blobDrift1 18s ease-in-out infinite alternate;
-}
-.books-gradient > .mesh-blob:nth-child(2) {
-  width: 280px; height: 280px;
-  background: #9be472;
-  top: -20px; right: -60px;
-  filter: blur(65px);
-  opacity: 0.6;
-  animation: blobDrift2 22s ease-in-out infinite alternate;
-}
-.books-gradient > .mesh-blob:nth-child(3) {
-  width: 250px; height: 250px;
-  background: #3f8f28;
-  bottom: 20px; left: 10%;
-  filter: blur(58px);
-  opacity: 0.75;
-  animation: blobDrift3 16s ease-in-out infinite alternate;
+  background: var(--green-soft);
 }
 
-/* On-shift mesh gradient */
+/* On-shift soft blue */
 .shift-gradient {
-  background: #bed5ee;
-  position: relative;
-  overflow: hidden;
-}
-.shift-gradient > .mesh-blob:nth-child(1) {
-  width: 340px; height: 340px;
-  background: #3d78bc;
-  top: -100px; left: -80px;
-  filter: blur(90px);
-  opacity: 0.5;
-  animation: blobDrift1 20s ease-in-out infinite alternate;
-}
-.shift-gradient > .mesh-blob:nth-child(2) {
-  width: 280px; height: 280px;
-  background: #7ab3de;
-  top: 20px; right: -70px;
-  filter: blur(80px);
-  opacity: 0.45;
-  animation: blobDrift2 24s ease-in-out infinite alternate;
-}
-.shift-gradient > .mesh-blob:nth-child(3) {
-  width: 250px; height: 250px;
-  background: #2558a0;
-  bottom: 160px; left: -20px;
-  filter: blur(75px);
-  opacity: 0.4;
-  animation: blobDrift3 17s ease-in-out infinite alternate;
+  background: linear-gradient(160deg, var(--steel-soft) 0%, var(--paper) 70%);
 }

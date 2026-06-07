@@ -24,9 +24,6 @@ export default function OnShift() {
       display: 'flex', flexDirection: 'column',
       padding: '0 0 0',
     }}>
-      <div className="mesh-blob" />
-      <div className="mesh-blob" />
-      <div className="mesh-blob" />
       <style>{`
         @keyframes dot-pulse {
           0%, 100% { opacity: 1; transform: scale(1); }
