@@ -146,7 +146,7 @@ export default function DayOf() {
         {/* Message from Tomás — tap to open bottom sheet */}
         <button
           onClick={() => setNoteOpen(true)}
-          style={{ margin: '14px 22px', padding: 16, background: 'none', border: '2px solid var(--ink)', borderRadius: 12, width: 'calc(100% - 44px)', textAlign: 'left', cursor: 'pointer' }}
+          style={{ margin: '14px 22px', padding: 16, background: 'none', border: '2px solid var(--ink)', borderRadius: 99, width: 'calc(100% - 44px)', textAlign: 'left', cursor: 'pointer' }}
         >
           <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
             <div style={{ width: 32, height: 32, borderRadius: '50%', background: 'var(--ink)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
