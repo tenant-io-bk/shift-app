@@ -78,7 +78,11 @@ function smoothPath(pts: { x: number; y: number }[]): string {
   return d;
 }
 
-function EarningsChart({ filter }: { filter: Filter }) {
+function EarningsChart({ filter, scrubbedIdx, onScrub }: {
+  filter: Filter;
+  scrubbedIdx: number | null;
+  onScrub: (idx: number | null) => void;
+}) {
   const data = CHART_DATA[filter] ?? CHART_DATA['3 Mo'];
   const W = 346, H = 72, padX = 0, padY = 10;
   const vals = data.map(d => d.value);
@@ -90,50 +94,103 @@ function EarningsChart({ filter }: { filter: Filter }) {
   const linePath = smoothPath(pts);
 
   const peakIdx = vals.indexOf(Math.max(...vals));
-  const peakPt = pts[peakIdx];
+  const activeIdx = scrubbedIdx ?? peakIdx;
+  const activePt = pts[activeIdx];
+  const isScrubbing = scrubbedIdx !== null;
+
+  const handlePointerMove = (e: React.PointerEvent<SVGRectElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = (e.clientX - rect.left) * (W / rect.width);
+    let nearest = 0, nearestDist = Infinity;
+    pts.forEach((pt, i) => {
+      const d = Math.abs(pt.x - x);
+      if (d < nearestDist) { nearestDist = d; nearest = i; }
+    });
+    onScrub(nearest);
+  };
 
   return (
     <div style={{ padding: '0 22px 44px' }}>
       <svg width={W} height={H + 28} viewBox={`0 0 ${W} ${H + 28}`} style={{ display: 'block', overflow: 'visible' }}>
 
-        {/* Clean flat line — no fill, no shadow */}
+        {/* Line */}
         <path d={linePath} fill="none" stroke="rgba(13,14,18,0.55)" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
 
-        {/* Tick marks at bottom */}
+        {/* Scrubber vertical line */}
+        {isScrubbing && (
+          <line x1={activePt.x} y1={padY} x2={activePt.x} y2={H - 6}
+            stroke="rgba(13,14,18,0.3)" strokeWidth="1.5" strokeDasharray="3,3" />
+        )}
+
+        {/* Tick marks */}
         {pts.map((pt, i) => (
           <rect key={i} x={pt.x - 1} y={H - 6} width={2} height={6} rx={1}
-            fill="rgba(13,14,18,0.25)" />
+            fill={i === activeIdx ? '#0D0E12' : 'rgba(13,14,18,0.25)'} />
         ))}
 
         {/* Month labels */}
         {data.map((d, i) => (
           <text key={i} x={toX(i)} y={H + 20} textAnchor="middle"
             fill="#0D0E12"
-            fontFamily="var(--body)" fontSize="9" fontWeight="600">
+            fontFamily="var(--body)"
+            fontSize={i === activeIdx ? '10' : '9'}
+            fontWeight={i === activeIdx ? '700' : '500'}>
             {d.label.toUpperCase()}
           </text>
         ))}
 
-        {/* Peak dot */}
-        <circle cx={peakPt.x} cy={peakPt.y} r={3} fill="rgba(13,14,18,0.7)" />
+        {/* Active dot */}
+        <circle cx={activePt.x} cy={activePt.y} r={isScrubbing ? 5 : 3}
+          fill="#0D0E12" />
+        {isScrubbing && (
+          <circle cx={activePt.x} cy={activePt.y} r={9}
+            fill="rgba(13,14,18,0.1)" />
+        )}
 
-        {/* Peak label */}
-        <g transform={`translate(${Math.min(peakPt.x + 6, W - 68)}, ${peakPt.y - 24})`}>
-          <rect x={0} y={0} width={62} height={18} rx={9} fill="rgba(13,14,18,0.08)" />
-          <text x={31} y={12.5} textAnchor="middle"
-            fill="#0D0E12" fontFamily="var(--body)" fontSize="9" fontWeight="700">
-            ↑ {filter === 'Month' ? '+12.1%' : filter === '3 Mo' ? '+15.4%' : '+29.2%'} peak
-          </text>
-        </g>
+        {/* Peak label — hidden while scrubbing */}
+        {!isScrubbing && (
+          <g transform={`translate(${Math.min(pts[peakIdx].x + 6, W - 68)}, ${pts[peakIdx].y - 24})`}>
+            <rect x={0} y={0} width={62} height={18} rx={9} fill="rgba(13,14,18,0.08)" />
+            <text x={31} y={12.5} textAnchor="middle"
+              fill="#0D0E12" fontFamily="var(--body)" fontSize="9" fontWeight="700">
+              ↑ {filter === 'Month' ? '+12.1%' : filter === '3 Mo' ? '+15.4%' : '+29.2%'} peak
+            </text>
+          </g>
+        )}
+
+        {/* Transparent overlay — captures all pointer events */}
+        <rect x={0} y={0} width={W} height={H + 20} fill="transparent"
+          style={{ touchAction: 'none', cursor: 'crosshair' }}
+          onPointerDown={handlePointerMove}
+          onPointerMove={handlePointerMove}
+          onPointerLeave={() => onScrub(null)}
+          onPointerUp={() => onScrub(null)}
+        />
       </svg>
     </div>
   );
 }
 
+const FILTER_YEAR: Record<string, string> = {
+  'Jan': '2026', 'Feb': '2026', 'Mar': '2026', 'Apr': '2026', 'May': '2026',
+  'Jun': '2025', 'Jul': '2025', 'Aug': '2025', 'Sep': '2025', 'Oct': '2025', 'Nov': '2025', 'Dec': '2025',
+  'W1': '2026', 'W2': '2026', 'W3': '2026', 'W4': '2026',
+};
+
 export default function WorkerBooks() {
   const [activeFilter, setActiveFilter] = useState<Filter>('3 Mo');
   const [expanded, setExpanded] = useState<string | null>(null);
+  const [scrubbedIdx, setScrubbedIdx] = useState<number | null>(null);
   const statements = filterStatements(activeFilter);
+
+  const chartData = CHART_DATA[activeFilter] ?? CHART_DATA['3 Mo'];
+  const scrubbedPoint = scrubbedIdx !== null ? chartData[scrubbedIdx] : null;
+  const displayAmount = scrubbedPoint
+    ? `$${scrubbedPoint.value.toLocaleString('en-US', { minimumFractionDigits: 2 })}`
+    : statements[0]?.totalFull ?? '$2,847.00';
+  const displayLabel = scrubbedPoint
+    ? `${scrubbedPoint.label.toUpperCase()} ${FILTER_YEAR[scrubbedPoint.label] ?? '2026'}`
+    : 'May 2026';
 
   return (
     <div style={{ maxWidth: 390, minHeight: '100vh', margin: '0 auto', background: 'var(--paper)', display: 'flex', flexDirection: 'column' }}>
@@ -162,7 +219,7 @@ export default function WorkerBooks() {
           {FILTERS.map(f => (
             <button
               key={f}
-              onClick={() => setActiveFilter(f)}
+              onClick={() => { setActiveFilter(f); setScrubbedIdx(null); }}
               style={{
                 padding: '6px 14px',
                 borderRadius: 99,
@@ -185,15 +242,15 @@ export default function WorkerBooks() {
         {/* Balance hero */}
         <div style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '16px 22px 0' }}>
           {/* Date pill */}
-          <div style={{ background: 'rgba(13,14,18,0.1)', borderRadius: 99, padding: '4px 12px', marginBottom: 14, display: 'inline-flex', alignItems: 'center' }}>
-            <span style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 700, color: 'var(--ink)', letterSpacing: '0.06em', textTransform: 'uppercase' }}>May 2026</span>
+          <div style={{ background: 'rgba(13,14,18,0.1)', borderRadius: 99, padding: '4px 12px', marginBottom: 14, display: 'inline-flex', alignItems: 'center', transition: 'opacity 0.15s' }}>
+            <span style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 700, color: 'var(--ink)', letterSpacing: '0.06em', textTransform: 'uppercase' }}>{displayLabel}</span>
           </div>
-          <p style={{ fontFamily: 'var(--sans)', fontWeight: 400, fontSize: 18, color: 'var(--ink)', letterSpacing: '-0.02em', lineHeight: 1.2, marginBottom: 8 }}>
+          <p style={{ fontFamily: 'var(--sans)', fontWeight: 400, fontSize: 18, color: 'var(--ink)', letterSpacing: '-0.02em', lineHeight: 1.2, marginBottom: 8, opacity: scrubbedIdx !== null ? 0 : 1, transition: 'opacity 0.15s' }}>
             You&apos;ve Filled{' '}
             <span style={{ textDecoration: 'underline' }}>18</span>
             {' '}Shifts
           </p>
-          <div style={{ fontFamily: 'var(--sans)', fontWeight: 400, fontSize: 64, color: 'var(--ink)', letterSpacing: '-0.05em', lineHeight: 1, marginBottom: 18 }}>$2,847.00</div>
+          <div style={{ fontFamily: 'var(--sans)', fontWeight: 400, fontSize: 64, color: 'var(--ink)', letterSpacing: '-0.05em', lineHeight: 1, marginBottom: 18, transition: 'opacity 0.1s' }}>{displayAmount}</div>
           <div style={{ background: 'rgba(13,14,18,0.12)', borderRadius: 99, padding: '5px 12px', display: 'inline-flex', alignItems: 'center', gap: 5, marginBottom: 24 }}>
             <span style={{ fontSize: 12, color: 'var(--ink)', lineHeight: 1 }}>↗</span>
             <span style={{ fontFamily: 'var(--body)', fontWeight: 700, fontSize: 12, color: 'var(--ink)', letterSpacing: '0.01em' }}>+8.4% vs last month</span>
@@ -201,7 +258,7 @@ export default function WorkerBooks() {
         </div>
 
         {/* Earnings sparkline */}
-        <EarningsChart filter={activeFilter} />
+        <EarningsChart filter={activeFilter} scrubbedIdx={scrubbedIdx} onScrub={setScrubbedIdx} />
 
       </div>
 
