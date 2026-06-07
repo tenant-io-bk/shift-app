@@ -182,6 +182,19 @@ export default function DayOf() {
           ))}
         </div>
 
+        {/* Backup clock-in PIN */}
+        <div style={{ margin: '16px 22px 0', padding: '14px 18px', background: 'var(--paper-2)', borderRadius: 16, border: '1px solid var(--line)' }}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+            <div>
+              <div style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--mute)', marginBottom: 6 }}>Clock-in PIN</div>
+              <div style={{ fontFamily: 'var(--sans)', fontWeight: 400, fontSize: 36, color: 'var(--ink)', letterSpacing: '0.18em', lineHeight: 1 }}>4821</div>
+            </div>
+            <p style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)', maxWidth: 130, textAlign: 'right', lineHeight: 1.5, margin: 0 }}>
+              Phone dead? Give this to Tomás to clock you in
+            </p>
+          </div>
+        </div>
+
         {/* Message from Tomás — tap to open bottom sheet */}
         <button
           onClick={() => setNoteOpen(true)}

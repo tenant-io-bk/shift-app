@@ -30,24 +30,26 @@ export default function Books() {
         <div style={{ width: 32 }} />
       </div>
 
-      {/* Monthly total header */}
-      <div style={{ padding: '52px 22px 52px', background: 'var(--ink)' }}>
-        <div style={{ display: 'inline-block', border: '1px solid rgba(255,255,255,0.3)', borderRadius: 99, padding: '5px 14px', marginBottom: 18 }}>
+      {/* Monthly total header — green bg */}
+      <div style={{ padding: '44px 22px 52px', background: 'var(--green)' }}>
+        {/* Date pill — black bg, white text */}
+        <div style={{ display: 'inline-block', background: 'var(--ink)', borderRadius: 99, padding: '5px 14px', marginBottom: 18 }}>
           <p style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em', color: '#fff', margin: 0 }}>MAY 2026</p>
         </div>
 
         <div style={{
           fontFamily: 'var(--sans)',
           fontWeight: 400,
-          fontSize: 48,
-          color: '#fff',
+          fontSize: 56,
+          color: 'var(--ink)',
           letterSpacing: '-0.05em',
           lineHeight: 1,
-          marginBottom: 16,
+          marginBottom: 18,
         }}>$2,847.00</div>
 
-        <div style={{ display: 'inline-block', background: 'rgba(255,255,255,0.15)', borderRadius: 99, padding: '5px 14px' }}>
-          <span style={{ fontFamily: 'var(--body)', fontSize: 12, color: '#fff' }}>18 shifts</span>
+        {/* 18 shifts — Inter, dark on green */}
+        <div style={{ display: 'inline-block', background: 'rgba(0,0,0,0.12)', borderRadius: 99, padding: '5px 14px' }}>
+          <span style={{ fontFamily: 'var(--body)', fontSize: 12, fontWeight: 600, color: 'var(--ink)' }}>18 shifts</span>
         </div>
       </div>
 
@@ -60,7 +62,7 @@ export default function Books() {
           textTransform: 'uppercase',
           letterSpacing: '0.1em',
           color: 'var(--ink)',
-          padding: '14px 0 10px',
+          padding: '28px 0 10px',
         }}>STATEMENTS</p>
 
         {STATEMENTS.map((stmt) => (
@@ -70,28 +72,30 @@ export default function Books() {
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'space-between',
-              padding: '14px 0',
-              borderBottom: '1px solid var(--ink)',
+              padding: '16px 0',
+              borderBottom: '1px solid var(--line)',
             }}
           >
             <div>
               <p style={{
                 fontFamily: 'var(--body)',
-                fontSize: 10,
+                fontSize: 12,
                 textTransform: 'uppercase',
                 letterSpacing: '0.06em',
-                color: 'var(--ink)',
-                marginBottom: 3,
+                color: 'var(--mute)',
+                marginBottom: 4,
               }}>{stmt.month}</p>
-              <p style={{
-                fontFamily: 'var(--sans)',
-                fontWeight: 600,
-                fontSize: 15,
-                color: 'var(--ink)',
-              }}>{stmt.shifts} Shifts · {stmt.total}</p>
+              <p style={{ margin: 0, display: 'flex', alignItems: 'baseline', gap: 4 }}>
+                <span style={{ fontFamily: 'var(--body)', fontWeight: 600, fontSize: 19, color: 'var(--ink)' }}>
+                  {stmt.shifts} Shifts
+                </span>
+                <span style={{ fontFamily: 'var(--sans)', fontWeight: 400, fontSize: 19, color: 'var(--ink)', letterSpacing: '-0.03em' }}>
+                  · {stmt.total}
+                </span>
+              </p>
             </div>
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-              <path d="M6 3l5 5-5 5" stroke="var(--ink)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              <path d="M6 3l5 5-5 5" stroke="var(--mute)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </div>
         ))}
@@ -105,7 +109,6 @@ export default function Books() {
           border: '1.5px dashed var(--ink)',
           borderRadius: 16,
           background: 'var(--card)',
-          position: 'relative',
         }}>
           <p style={{
             fontFamily: 'var(--body)',
@@ -117,16 +120,13 @@ export default function Books() {
             marginBottom: 10,
           }}>STATEMENT #2026-04</p>
 
-          {/* Total row */}
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 12 }}>
             <span style={{ fontFamily: 'var(--body)', fontSize: 12, fontWeight: 600, color: 'var(--ink)', textTransform: 'uppercase' }}>TOTAL</span>
             <span style={{ fontFamily: 'var(--sans)', fontWeight: 400, fontSize: 24, color: 'var(--ink)', letterSpacing: '-0.05em' }}>$3,412.00</span>
           </div>
 
-          {/* Dashed separator */}
           <div style={{ borderTop: '1.5px dashed var(--ink)', marginBottom: 12 }} />
 
-          {/* Line items */}
           {LINE_ITEMS.map((item, i) => (
             <div key={i} style={{
               display: 'flex',
@@ -139,10 +139,8 @@ export default function Books() {
             </div>
           ))}
 
-          {/* Dashed separator */}
           <div style={{ borderTop: '1.5px dashed var(--ink)', marginTop: 12, marginBottom: 12 }} />
 
-          {/* Export buttons */}
           <div style={{ display: 'flex', gap: 8 }}>
             {['PDF', 'CSV', 'QuickBooks'].map((label) => (
               <button
