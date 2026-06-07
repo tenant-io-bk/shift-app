@@ -122,10 +122,10 @@ export default function OnShift() {
             justifyContent: 'center', gap: 8,
           }}>
             <span style={{
-              fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 48,
-              color: 'var(--ink)', letterSpacing: '-0.04em', lineHeight: 1,
+              fontFamily: 'var(--sans)', fontWeight: 400, fontSize: 48,
+              color: 'var(--ink)', letterSpacing: '-0.05em', lineHeight: 1,
             }}>
-              $62<span style={{ color: 'var(--green)' }}>.</span>
+              $62.00
             </span>
             <span style={{ fontFamily: 'var(--body)', fontSize: 14, color: 'var(--mute)' }}>
               of $140

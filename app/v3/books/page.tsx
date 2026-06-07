@@ -44,10 +44,10 @@ export default function Books() {
 
         <div style={{
           fontFamily: 'var(--sans)',
-          fontWeight: 600,
+          fontWeight: 400,
           fontSize: 48,
           color: '#fff',
-          letterSpacing: '-0.04em',
+          letterSpacing: '-0.05em',
           lineHeight: 1,
           marginBottom: 6,
         }}>$2,847.00</div>
@@ -129,7 +129,7 @@ export default function Books() {
           {/* Total row */}
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 12 }}>
             <span style={{ fontFamily: 'var(--body)', fontSize: 12, fontWeight: 600, color: 'var(--ink)', textTransform: 'uppercase' }}>TOTAL</span>
-            <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 24, color: 'var(--ink)', letterSpacing: '-0.02em' }}>$3,412.00</span>
+            <span style={{ fontFamily: 'var(--sans)', fontWeight: 400, fontSize: 24, color: 'var(--ink)', letterSpacing: '-0.05em' }}>$3,412.00</span>
           </div>
 
           {/* Dashed separator */}

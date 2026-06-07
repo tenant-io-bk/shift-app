@@ -48,10 +48,8 @@ export default function PaidOut() {
           Padmore&apos;s Coffee.
         </div>
 
-        <div style={{ display: 'flex', alignItems: 'baseline' }}>
-          <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 64, color: 'var(--green)', letterSpacing: '-0.04em', lineHeight: 1 }}>$174</span>
-          <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 64, color: 'var(--green)', letterSpacing: '-0.04em', lineHeight: 1 }}>.</span>
-          <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 36, color: 'var(--green)', letterSpacing: '-0.03em', marginLeft: 2, lineHeight: 1 }}>00</span>
+        <div style={{ fontFamily: 'var(--sans)', fontWeight: 400, fontSize: 64, color: 'var(--green)', letterSpacing: '-0.05em', lineHeight: 1 }}>
+          $174.00
         </div>
       </div>
 
@@ -183,10 +181,10 @@ export default function PaidOut() {
             <span
               style={{
                 fontFamily: 'var(--sans)',
-                fontWeight: 600,
+                fontWeight: 400,
                 fontSize: 40,
                 color: 'var(--ink)',
-                letterSpacing: '-0.075em',
+                letterSpacing: '-0.05em',
                 lineHeight: 1,
               }}
             >

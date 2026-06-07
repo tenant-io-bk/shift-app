@@ -275,8 +275,7 @@ export default function JobDetail() {
 
         <div style={{ margin: '0 22px', padding: '20px 0', borderBottom: '1px solid var(--line)', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
           <div style={{ lineHeight: 1 }}>
-            <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 64, color: 'var(--ink)', letterSpacing: '-0.075em' }}>$140</span>
-            <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 64, color: '#72c15f', letterSpacing: '-0.075em' }}>.</span>
+            <span style={{ fontFamily: 'var(--sans)', fontWeight: 400, fontSize: 64, color: 'var(--ink)', letterSpacing: '-0.05em' }}>$140.00</span>
           </div>
           <p style={{ fontFamily: 'var(--body)', fontSize: 13, color: 'var(--mute)', marginTop: 8 }}>$28/hr · pre-tips</p>
           <div style={{ marginTop: 14, display: 'flex', alignItems: 'center', gap: 8 }}>

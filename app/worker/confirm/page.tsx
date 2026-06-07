@@ -112,12 +112,12 @@ export default function WorkerConfirm() {
 
           <div style={{
             fontFamily: 'var(--sans)',
-            fontWeight: 700,
+            fontWeight: 400,
             fontSize: 36,
             color: 'var(--ink)',
-            letterSpacing: '-0.055em',
+            letterSpacing: '-0.05em',
           }}>
-            $140<span style={{ color: 'var(--green)' }}>.</span><span style={{ fontSize: 20, fontWeight: 600, opacity: 0.5 }}>00</span>
+            $140.00
           </div>
         </div>
 
