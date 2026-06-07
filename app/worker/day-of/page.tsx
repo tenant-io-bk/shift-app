@@ -8,7 +8,7 @@ import ShiftCard from '@/app/components/ShiftCard';
 
 export default function DayOf() {
   const router = useRouter();
-  const [alertDismissed, setAlertDismissed] = useState(false);
+  const [alertIdx, setAlertIdx] = useState(0);
   const [proximity, setProximity] = useState<'far' | 'near'>('far');
   const [noteOpen, setNoteOpen] = useState(false);
   const isNear = proximity === 'near';
@@ -21,6 +21,11 @@ export default function DayOf() {
   const [countdownSec, setCountdownSec] = useState(23 * 60);
   const isTyped = typedLen >= TYPEOUT.length;
   const mins = Math.floor(countdownSec / 60);
+
+  useEffect(() => {
+    const id = setInterval(() => setAlertIdx(i => (i + 1) % 2), 4500);
+    return () => clearInterval(id);
+  }, []);
 
   useEffect(() => {
     if (typedLen < TYPEOUT.length) {
@@ -51,6 +56,10 @@ export default function DayOf() {
         @keyframes note-up {
           from { transform: translateX(-50%) translateY(100%); }
           to   { transform: translateX(-50%) translateY(0); }
+        }
+        @keyframes roll-in {
+          from { transform: translateY(10px); opacity: 0; }
+          to   { transform: translateY(0); opacity: 1; }
         }
         @keyframes cursor-blink {
           0%, 100% { opacity: 1; }
@@ -95,17 +104,10 @@ export default function DayOf() {
 
       <StatusBar time="10:12" />
 
-      {/* Delay alert — red */}
-      {!alertDismissed && (
-        <div style={{ padding: '12px 16px 0' }}>
-          <div style={{
-            background: '#FEF2F2',
-            borderRadius: 12,
-            padding: '10px 14px',
-            display: 'flex',
-            alignItems: 'center',
-            gap: 10,
-          }}>
+      {/* Rolling alerts */}
+      <div style={{ padding: '12px 16px 0', overflow: 'hidden' }}>
+        {alertIdx === 0 ? (
+          <div key="delay" style={{ background: '#FEF2F2', borderRadius: 12, padding: '10px 14px', display: 'flex', alignItems: 'center', gap: 10, animation: 'roll-in 0.35s cubic-bezier(0.22,1,0.36,1)' }}>
             <div style={{ width: 28, height: 28, borderRadius: 8, background: 'var(--red)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
               <span style={{ fontSize: 13, color: '#fff', fontWeight: 700 }}>!</span>
             </div>
@@ -113,10 +115,20 @@ export default function DayOf() {
               <span style={{ fontFamily: 'var(--body)', fontSize: 12, fontWeight: 700, color: 'var(--ink)' }}>Transit delay — </span>
               <span style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--ink)' }}>allow 10 extra min</span>
             </div>
-            <button onClick={() => setAlertDismissed(true)} style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--ink)', fontSize: 18, padding: '2px 4px', lineHeight: 1, flexShrink: 0 }}>×</button>
           </div>
-        </div>
-      )}
+        ) : (
+          <button key="tomas" onClick={() => setNoteOpen(true)} style={{ width: '100%', background: 'var(--yellow-soft)', borderRadius: 12, padding: '10px 14px', display: 'flex', alignItems: 'center', gap: 10, border: 'none', cursor: 'pointer', animation: 'roll-in 0.35s cubic-bezier(0.22,1,0.36,1)' }}>
+            <div style={{ width: 28, height: 28, borderRadius: '50%', background: 'var(--ink)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+              <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 13, color: 'white' }}>T</span>
+            </div>
+            <div style={{ flex: 1, textAlign: 'left' }}>
+              <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 12, color: 'var(--ink)' }}>Tomás</span>
+              <span style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--ink)', marginLeft: 6 }}>sent this morning</span>
+            </div>
+            <span style={{ color: 'var(--ink)', fontSize: 16, flexShrink: 0 }}>›</span>
+          </button>
+        )}
+      </div>
 
       {/* Top nav */}
       <div style={{ height: 44, display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 16px', background: 'var(--paper)', borderBottom: '1px solid var(--line)', flexShrink: 0 }}>
@@ -224,23 +236,6 @@ export default function DayOf() {
             </div>
           ))}
         </div>
-
-        {/* Message from Tomás — tap to open bottom sheet */}
-        <button
-          onClick={() => setNoteOpen(true)}
-          style={{ margin: '14px 22px', padding: 16, background: 'none', border: '2px solid var(--ink)', borderRadius: 99, width: 'calc(100% - 44px)', textAlign: 'left', cursor: 'pointer' }}
-        >
-          <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-            <div style={{ width: 32, height: 32, borderRadius: '50%', background: 'var(--ink)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-              <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 14, color: 'white' }}>T</span>
-            </div>
-            <div style={{ flex: 1 }}>
-              <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 14, color: 'var(--ink)' }}>Tomás</span>
-              <span style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)', marginLeft: 8 }}>sent this morning</span>
-            </div>
-            <span style={{ fontFamily: 'var(--body)', fontSize: 18, color: 'var(--mute)', lineHeight: 1 }}>⌄</span>
-          </div>
-        </button>
 
         {/* Tomás note bottom sheet */}
         {noteOpen && (
