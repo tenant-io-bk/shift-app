@@ -205,7 +205,7 @@ export default function DayOf() {
         {/* Checklist */}
         <div style={{ padding: '0 22px', marginTop: 4 }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
-            <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 18, color: 'var(--ink)', letterSpacing: '-0.01em' }}>Before you go</span>
+            <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 18, color: 'var(--ink)', letterSpacing: '-0.01em' }}>Before You Go</span>
             <span style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)' }}>2 of 4</span>
           </div>
 
@@ -286,7 +286,7 @@ export default function DayOf() {
 
         {/* Bottom links */}
         <div style={{ padding: '0 22px 8px', display: 'flex', justifyContent: 'center', gap: 24 }}>
-          <Link href="/worker/cancel-flow" style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)', textDecoration: 'none', borderBottom: '1px solid var(--line)', paddingBottom: 2 }}>Running late or need to cancel?</Link>
+          <Link href="/worker/cancel-flow" style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)', textDecoration: 'none', borderBottom: '1px solid var(--line)', paddingBottom: 2 }}>Running Late or Need to Cancel?</Link>
           <Link href="/worker/report" style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)', textDecoration: 'none', borderBottom: '1px solid var(--line)', paddingBottom: 2 }}>Report an issue</Link>
         </div>
       </div>
@@ -295,11 +295,11 @@ export default function DayOf() {
       <div style={{ position: 'fixed', bottom: 0, left: '50%', transform: 'translateX(-50%)', width: '100%', maxWidth: 390, padding: '12px 22px 36px', background: 'linear-gradient(to bottom, transparent, var(--paper) 35%)' }}>
         {isNear ? (
           <button onClick={() => router.push('/worker/on-shift')} style={{ display: 'block', width: '100%', padding: '16px 22px', background: 'var(--ink)', borderRadius: 99, fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 16, color: '#FFFFFF', textAlign: 'center', border: 'none', cursor: 'pointer', letterSpacing: '-0.01em' }}>
-            Clock in now. →
+            Clock In Now. →
           </button>
         ) : (
           <Link href="/worker/on-shift" style={{ display: 'block', width: '100%', padding: '16px 22px', background: 'var(--ink)', borderRadius: 99, fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 16, color: '#FFFFFF', textAlign: 'center', textDecoration: 'none', letterSpacing: '-0.01em' }}>
-            I&apos;m heading there.
+            I&apos;m Heading There.
           </Link>
         )}
       </div>
