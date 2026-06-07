@@ -131,11 +131,11 @@ export default function EmployerBilling() {
         {canContinue ? (
           <Link href="/employer/dashboard" style={{
             display: 'block', width: '100%', padding: '15px 22px', borderRadius: 99,
-            background: 'var(--ink)', color: '#fff', fontFamily: 'var(--sans)',
+            background: 'var(--ink)', color: '#fff', fontFamily: 'var(--body)',
             fontWeight: 700, fontSize: 16, textAlign: 'center', textDecoration: 'none',
           }}>Let's go. Post a shift →</Link>
         ) : (
-          <div style={{ width: '100%', padding: '15px 22px', borderRadius: 99, background: 'var(--paper-3)', color: 'var(--mute)', fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 16, textAlign: 'center' }}>
+          <div style={{ width: '100%', padding: '15px 22px', borderRadius: 99, background: 'var(--paper-3)', color: 'var(--mute)', fontFamily: 'var(--body)', fontWeight: 700, fontSize: 16, textAlign: 'center' }}>
             {method === 'card' ? 'Enter card details' : 'Connect bank account'}
           </div>
         )}

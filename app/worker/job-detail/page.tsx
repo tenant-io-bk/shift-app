@@ -74,7 +74,7 @@ function SlideToConfirm({ label = 'Slide to confirm', href, locked, onLockedAtte
       {/* Label */}
       <div style={{
         position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center',
-        fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 16, color: locked ? 'var(--mute)' : '#fff',
+        fontFamily: 'var(--body)', fontWeight: 600, fontSize: 16, color: locked ? 'var(--mute)' : '#fff',
         letterSpacing: '-0.01em', paddingLeft: THUMB,
         opacity: done ? 0 : Math.max(0, 1 - progress * 1.6),
         transition: dragging ? 'none' : 'opacity 0.25s ease',
@@ -85,7 +85,7 @@ function SlideToConfirm({ label = 'Slide to confirm', href, locked, onLockedAtte
       {/* Done label */}
       <div style={{
         position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center',
-        fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 16, color: 'var(--ink)',
+        fontFamily: 'var(--body)', fontWeight: 700, fontSize: 16, color: 'var(--ink)',
         opacity: done ? 1 : 0, transition: 'opacity 0.2s ease 0.1s',
         letterSpacing: '-0.01em', pointerEvents: 'none',
       }}>Confirmed.</div>

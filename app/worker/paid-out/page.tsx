@@ -320,7 +320,7 @@ export default function PaidOut() {
             padding: '15px 22px',
             background: 'var(--ink)',
             borderRadius: 99,
-            fontFamily: 'var(--sans)',
+            fontFamily: 'var(--body)',
             fontWeight: 700,
             fontSize: 16,
             color: '#FFFFFF',

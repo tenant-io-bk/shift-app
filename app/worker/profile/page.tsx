@@ -231,7 +231,7 @@ export default function WorkerProfile() {
                           <Link
                             href="/worker/job-detail"
                             onClick={e => e.stopPropagation()}
-                            style={{ display: 'block', textAlign: 'center', padding: '13px', background: 'var(--ink)', color: '#fff', borderRadius: 99, fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 15, textDecoration: 'none', letterSpacing: '-0.02em' }}
+                            style={{ display: 'block', textAlign: 'center', padding: '13px', background: 'var(--ink)', color: '#fff', borderRadius: 99, fontFamily: 'var(--body)', fontWeight: 700, fontSize: 15, textDecoration: 'none', letterSpacing: '-0.02em' }}
                           >
                             View Details →
                           </Link>

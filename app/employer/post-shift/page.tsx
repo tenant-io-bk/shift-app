@@ -382,7 +382,7 @@ export default function PostShift() {
               </div>
               <button
                 onClick={() => router.push('/employer/roster')}
-                style={{ width: '100%', padding: '18px', background: 'var(--ink)', border: 'none', borderRadius: 99, fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 18, color: '#fff', cursor: 'pointer', letterSpacing: '-0.02em' }}
+                style={{ width: '100%', padding: '18px', background: 'var(--ink)', border: 'none', borderRadius: 99, fontFamily: 'var(--body)', fontWeight: 700, fontSize: 18, color: '#fff', cursor: 'pointer', letterSpacing: '-0.02em' }}
               >
                 Post This Shift.
               </button>
@@ -398,7 +398,7 @@ export default function PostShift() {
           <button
             onClick={next}
             disabled={!canNext}
-            style={{ flex: 2, padding: '16px', borderRadius: 99, border: 'none', background: canNext ? 'var(--ink)' : 'var(--paper-3)', fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 18, color: canNext ? '#fff' : 'var(--ink)', cursor: canNext ? 'pointer' : 'default', transition: 'all 0.2s', letterSpacing: '-0.02em' }}
+            style={{ flex: 2, padding: '16px', borderRadius: 99, border: 'none', background: canNext ? 'var(--ink)' : 'var(--paper-3)', fontFamily: 'var(--body)', fontWeight: 700, fontSize: 18, color: canNext ? '#fff' : 'var(--ink)', cursor: canNext ? 'pointer' : 'default', transition: 'all 0.2s', letterSpacing: '-0.02em' }}
           >
             {step === 'brief' ? 'Draft It →' : 'Next →'}
           </button>

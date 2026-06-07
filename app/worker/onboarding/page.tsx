@@ -131,7 +131,7 @@ export default function WorkerOnboarding() {
           background: 'var(--ink)',
           color: '#fff',
           borderRadius: 99,
-          fontFamily: 'var(--sans)',
+          fontFamily: 'var(--body)',
           fontWeight: 700,
           fontSize: 22,
           textDecoration: 'none',

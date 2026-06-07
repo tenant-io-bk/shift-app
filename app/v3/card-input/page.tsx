@@ -171,7 +171,7 @@ export default function CardInput() {
           style={{
             width: '100%', padding: '16px', border: 'none', borderRadius: 99, cursor: isValid ? 'pointer' : 'default',
             background: isValid ? 'var(--ink)' : 'var(--paper-3)',
-            fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 18,
+            fontFamily: 'var(--body)', fontWeight: 700, fontSize: 18,
             color: isValid ? '#fff' : 'var(--ink)',
             transition: 'all 0.2s', letterSpacing: '-0.02em',
           }}

@@ -187,10 +187,10 @@ export default function WorkerConfirm() {
           borderTop: '1px solid var(--line)',
           display: 'flex', flexDirection: 'column', gap: 10,
         }}>
-          <button style={{ width: '100%', padding: '14px 22px', border: '2px solid var(--ink)', borderRadius: 99, background: 'transparent', fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 15, color: 'var(--ink)', cursor: 'pointer', letterSpacing: '-0.01em' }}>
+          <button style={{ width: '100%', padding: '14px 22px', border: '2px solid var(--ink)', borderRadius: 99, background: 'transparent', fontFamily: 'var(--body)', fontWeight: 600, fontSize: 15, color: 'var(--ink)', cursor: 'pointer', letterSpacing: '-0.01em' }}>
             Message Tomás
           </button>
-          <Link href="/worker/day-of" style={{ width: '100%', padding: '14px 22px', background: 'var(--ink)', borderRadius: 99, fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 16, color: '#FFFFFF', textAlign: 'center', textDecoration: 'none', letterSpacing: '-0.01em', display: 'block' }}>
+          <Link href="/worker/day-of" style={{ width: '100%', padding: '14px 22px', background: 'var(--ink)', borderRadius: 99, fontFamily: 'var(--body)', fontWeight: 700, fontSize: 16, color: '#FFFFFF', textAlign: 'center', textDecoration: 'none', letterSpacing: '-0.01em', display: 'block' }}>
             Done.
           </Link>
         </div>

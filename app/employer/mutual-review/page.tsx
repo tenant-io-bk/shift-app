@@ -418,7 +418,7 @@ export default function Page() {
             padding: '16px 22px',
             textAlign: 'center',
             textDecoration: 'none',
-            fontFamily: 'var(--sans)',
+            fontFamily: 'var(--body)',
             fontWeight: 700,
             fontSize: 16,
             letterSpacing: '-0.01em',

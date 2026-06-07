@@ -105,11 +105,11 @@ export default function BusinessProfile() {
         {canContinue ? (
           <Link href="/employer/billing" style={{
             display: 'block', width: '100%', padding: '15px 22px', borderRadius: 99,
-            background: 'var(--ink)', color: '#fff', fontFamily: 'var(--sans)',
+            background: 'var(--ink)', color: '#fff', fontFamily: 'var(--body)',
             fontWeight: 700, fontSize: 16, textAlign: 'center', textDecoration: 'none',
           }}>Continue →</Link>
         ) : (
-          <div style={{ width: '100%', padding: '15px 22px', borderRadius: 99, background: 'var(--paper-3)', color: 'var(--mute)', fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 16, textAlign: 'center' }}>
+          <div style={{ width: '100%', padding: '15px 22px', borderRadius: 99, background: 'var(--paper-3)', color: 'var(--mute)', fontFamily: 'var(--body)', fontWeight: 700, fontSize: 16, textAlign: 'center' }}>
             Fill in All Fields
           </div>
         )}

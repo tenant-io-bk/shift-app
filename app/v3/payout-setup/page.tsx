@@ -50,7 +50,7 @@ export default function PayoutSetup() {
         </p>
         <Link href="/worker/map" style={{
           display: 'block', padding: '16px 22px', borderRadius: 99,
-          background: 'var(--ink)', color: '#fff', fontFamily: 'var(--sans)',
+          background: 'var(--ink)', color: '#fff', fontFamily: 'var(--body)',
           fontWeight: 700, fontSize: 16, textAlign: 'center', textDecoration: 'none', letterSpacing: '-0.01em', width: '100%',
         }}>
           Start Earning →
@@ -194,7 +194,7 @@ export default function PayoutSetup() {
           background: 'var(--ink)',
           color: '#fff',
           borderRadius: 99,
-          fontFamily: 'var(--sans)',
+          fontFamily: 'var(--body)',
           fontWeight: 700,
           fontSize: 18,
           border: 'none',
