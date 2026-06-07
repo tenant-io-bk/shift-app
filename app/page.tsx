@@ -4,23 +4,17 @@ export default function Home() {
   return (
     <div style={{
       maxWidth: 390, minHeight: '100vh', margin: '0 auto',
-      background: 'var(--paper)', display: 'flex', flexDirection: 'column',
+      background: 'var(--green)', display: 'flex', flexDirection: 'column',
       alignItems: 'center', justifyContent: 'center', overflow: 'hidden',
+      padding: '0 32px',
     }}>
       <img
         src="/LOGO-blsck.svg"
         alt="SHIFT"
-        style={{ width: 180, display: 'block', marginBottom: 36 }}
+        style={{ width: 180, display: 'block', marginBottom: 48 }}
       />
 
-      <p style={{
-        fontFamily: 'var(--body)', fontSize: 14, color: 'var(--mute)',
-        marginBottom: 32, textAlign: 'center',
-      }}>
-        NYC hyperlocal labor marketplace
-      </p>
-
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 10, width: '82%' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 10, width: '100%' }}>
         <Link href="/worker/splash" style={{
           display: 'block', padding: '15px', background: 'var(--ink)', borderRadius: 99,
           fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 16, color: '#fff',
