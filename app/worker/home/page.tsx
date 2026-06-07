@@ -80,7 +80,7 @@ export default function WorkerHome() {
               fontWeight: 600,
               textTransform: 'uppercase',
               letterSpacing: '0.1em',
-              color: 'var(--mute)',
+              color: 'var(--ink)',
               marginBottom: 6,
             }}
           >
@@ -170,7 +170,7 @@ export default function WorkerHome() {
             alignItems: 'center',
             gap: 10,
             padding: '10px 14px',
-            background: 'var(--ink)',
+            background: 'var(--green-soft)',
             border: 'none',
             borderRadius: 12,
             textDecoration: 'none',
@@ -181,7 +181,7 @@ export default function WorkerHome() {
               width: 22,
               height: 22,
               borderRadius: '50%',
-              border: '2px solid rgba(255,255,255,0.3)',
+              border: '2px solid rgba(13,14,18,0.2)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
@@ -193,7 +193,7 @@ export default function WorkerHome() {
                 width: 10,
                 height: 10,
                 borderRadius: '50%',
-                background: '#fff',
+                background: 'var(--ink)',
                 clipPath: 'inset(0 50% 0 0)',
               }}
             />
@@ -202,14 +202,14 @@ export default function WorkerHome() {
             style={{
               fontFamily: 'var(--body)',
               fontSize: 12,
-              color: '#fff',
+              color: 'var(--ink)',
               fontWeight: 600,
               flex: 1,
             }}
           >
             Profile 75% — add photo to unlock all shifts
           </span>
-          <span style={{ fontFamily: 'var(--body)', fontSize: 13, color: '#000' }}>→</span>
+          <span style={{ fontFamily: 'var(--body)', fontSize: 13, color: 'var(--ink)' }}>→</span>
         </Link>
       )}
 
@@ -217,10 +217,9 @@ export default function WorkerHome() {
       <div
         style={{
           margin: '0 16px 14px',
-          background: 'var(--ink)',
+          background: 'var(--steel-soft)',
           borderRadius: 18,
           padding: '20px 20px 18px',
-          color: '#fff',
         }}
       >
         <div
@@ -230,7 +229,7 @@ export default function WorkerHome() {
             fontWeight: 600,
             textTransform: 'uppercase',
             letterSpacing: '0.12em',
-            color: 'rgba(255,255,255,0.35)',
+            color: 'var(--ink)',
             marginBottom: 14,
             display: 'flex',
             alignItems: 'center',
@@ -256,7 +255,7 @@ export default function WorkerHome() {
             fontSize: 28,
             letterSpacing: '-0.045em',
             lineHeight: 1.05,
-            color: '#fff',
+            color: 'var(--ink)',
             marginBottom: 4,
           }}
         >
@@ -266,7 +265,7 @@ export default function WorkerHome() {
           style={{
             fontFamily: 'var(--body)',
             fontSize: 13,
-            color: 'rgba(255,255,255,0.45)',
+            color: 'var(--ink)',
             marginBottom: 18,
           }}
         >
@@ -287,7 +286,7 @@ export default function WorkerHome() {
                 fontWeight: 700,
                 fontSize: 36,
                 letterSpacing: '-0.055em',
-                color: 'var(--hydrant)',
+                color: 'var(--ink)',
                 lineHeight: 1,
               }}
             >
@@ -297,7 +296,7 @@ export default function WorkerHome() {
               style={{
                 fontFamily: 'var(--body)',
                 fontSize: 12,
-                color: 'rgba(255,255,255,0.4)',
+                color: 'var(--ink)',
                 marginTop: 4,
               }}
             >
@@ -308,8 +307,8 @@ export default function WorkerHome() {
           <Link
             href={next.href}
             style={{
-              background: 'rgba(255,255,255,0.08)',
-              border: '1px solid rgba(255,255,255,0.14)',
+              background: 'var(--ink)',
+              border: 'none',
               borderRadius: 99,
               padding: '10px 18px',
               fontFamily: 'var(--body)',
@@ -334,7 +333,7 @@ export default function WorkerHome() {
             fontWeight: 600,
             textTransform: 'uppercase',
             letterSpacing: '0.12em',
-            color: 'var(--mute)',
+            color: 'var(--ink)',
             marginBottom: 10,
             padding: '0 2px',
           }}
@@ -392,7 +391,7 @@ export default function WorkerHome() {
                   style={{
                     fontFamily: 'var(--body)',
                     fontSize: 12,
-                    color: 'var(--mute)',
+                    color: 'var(--ink)',
                   }}
                 >
                   {shift.date}
@@ -414,7 +413,7 @@ export default function WorkerHome() {
                   style={{
                     fontFamily: 'var(--body)',
                     fontSize: 11,
-                    color: 'var(--mute)',
+                    color: 'var(--ink)',
                     marginTop: 1,
                   }}
                 >
@@ -435,8 +434,8 @@ export default function WorkerHome() {
           alignItems: 'center',
           justifyContent: 'space-between',
           padding: '15px 18px',
-          background: 'var(--lilac)',
-          border: '2px solid var(--lilac)',
+          background: 'var(--ink)',
+          border: 'none',
           borderRadius: 14,
           textDecoration: 'none',
         }}
@@ -449,11 +448,11 @@ export default function WorkerHome() {
               fontWeight: 700,
               textTransform: 'uppercase',
               letterSpacing: '0.1em',
-              color: 'rgba(255,255,255,0.65)',
+              color: 'rgba(255,255,255,0.55)',
               marginBottom: 4,
             }}
           >
-            Browse shifts
+            Browse Shifts
           </div>
           <div
             style={{
@@ -464,7 +463,7 @@ export default function WorkerHome() {
               letterSpacing: '-0.02em',
             }}
           >
-            18 near you on the map
+            18 Near You on the Map
           </div>
           <div
             style={{
@@ -498,16 +497,16 @@ export default function WorkerHome() {
       {/* Quick stats */}
       <div style={{ margin: '0 16px', display: 'flex', gap: 8 }}>
         {[
-          { label: 'This week', value: '$408.', bg: 'var(--green-soft)', accent: 'var(--green)' },
-          { label: 'Shifts', value: '3 booked', bg: 'var(--steel-soft)', accent: 'var(--steel)' },
-          { label: 'Rating', value: '4.9★', bg: 'var(--lilac-soft)', accent: 'transparent' },
+          { label: 'This week', value: '$408.', bg: 'var(--green-soft)' },
+          { label: 'Shifts', value: '3 Booked', bg: 'var(--steel-soft)' },
+          { label: 'Rating', value: '4.9★', bg: 'var(--lilac-soft)' },
         ].map((stat) => (
           <div
             key={stat.label}
             style={{
               flex: 1,
               background: stat.bg,
-              border: `2px solid ${stat.accent}`,
+              border: 'none',
               borderRadius: 12,
               padding: '12px 8px',
               textAlign: 'center',
@@ -529,7 +528,7 @@ export default function WorkerHome() {
               style={{
                 fontFamily: 'var(--body)',
                 fontSize: 10,
-                color: 'var(--mute)',
+                color: 'var(--ink)',
                 marginTop: 5,
                 textTransform: 'uppercase',
                 letterSpacing: '0.06em',
