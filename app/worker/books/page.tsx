@@ -31,8 +31,8 @@ export default function WorkerBooks() {
       </div>
 
       {/* Monthly total header — green bg */}
-      <div style={{ padding: '44px 22px 52px', background: 'var(--green)' }}>
-        <p style={{ fontFamily: 'var(--body)', fontSize: 14, color: 'var(--ink)', marginBottom: 10 }}>
+      <div style={{ padding: '44px 22px 52px', background: 'var(--green)', textAlign: 'center' }}>
+        <p style={{ fontFamily: 'var(--sans)', fontWeight: 400, fontSize: 38, color: 'var(--ink)', letterSpacing: '-0.04em', lineHeight: 1.1, marginBottom: 10 }}>
           You&apos;ve Worked{' '}
           <span style={{ textDecoration: 'underline', fontWeight: 700 }}>18</span>
           {' '}Shifts May 2026
