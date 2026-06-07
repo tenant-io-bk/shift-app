@@ -80,8 +80,7 @@ export default function BottomNav({ active }: { active: Tab }) {
             background: 'var(--paper)',
             borderRadius: '20px 20px 0 0',
             zIndex: 160,
-            border: '2px solid var(--ink)',
-            borderBottom: 'none',
+            borderTop: '1px solid var(--line)',
             overflow: 'hidden',
           }}>
             <div style={{ display: 'flex', justifyContent: 'center', padding: '12px 0 8px' }}>
