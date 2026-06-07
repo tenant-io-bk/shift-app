@@ -55,6 +55,7 @@ const TABS = [
 
 const MENU_ITEMS = [
   { label: 'My Profile',    href: '/worker/profile' },
+  { label: 'My Earnings',   href: '/worker/books' },
   { label: 'Documents',     href: '/v3/credentials' },
   { label: 'Availability',  href: '/v3/availability' },
   { label: 'File a Report', href: '/worker/report' },

@@ -12,7 +12,7 @@ const LINE_ITEMS = [
   { desc: 'The Wren · Apr 22 · Server · 6h', amount: '+$144.00' },
 ];
 
-export default function Books() {
+export default function WorkerBooks() {
   return (
     <div style={{ maxWidth: 390, minHeight: '100vh', margin: '0 auto', background: 'var(--paper)' }}>
       {/* Nav */}
@@ -22,17 +22,16 @@ export default function Books() {
         alignItems: 'center',
         justifyContent: 'space-between',
         padding: '0 16px',
-        borderBottom: '1px solid var(--ink)',
+        borderBottom: '1px solid var(--line)',
         background: 'var(--paper)',
       }}>
-        <Link href="/employer/billing" style={{ fontSize: 20, color: 'var(--ink)', textDecoration: 'none', width: 32 }}>←</Link>
-        <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 16, color: 'var(--ink)' }}>Books</span>
+        <Link href="/worker/home" style={{ fontSize: 20, color: 'var(--ink)', textDecoration: 'none', width: 32 }}>←</Link>
+        <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 16, color: 'var(--ink)' }}>My Earnings</span>
         <div style={{ width: 32 }} />
       </div>
 
       {/* Monthly total header — green bg */}
       <div style={{ padding: '44px 22px 52px', background: 'var(--green)' }}>
-        {/* Date pill — black bg, white text */}
         <div style={{ display: 'inline-block', background: 'var(--ink)', borderRadius: 99, padding: '5px 14px', marginBottom: 18 }}>
           <p style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em', color: '#fff', margin: 0 }}>MAY 2026</p>
         </div>
@@ -47,7 +46,6 @@ export default function Books() {
           marginBottom: 18,
         }}>$2,847.00</div>
 
-        {/* 18 shifts — Inter, dark on green */}
         <div style={{ display: 'inline-block', background: 'rgba(0,0,0,0.12)', borderRadius: 99, padding: '5px 14px' }}>
           <span style={{ fontFamily: 'var(--body)', fontSize: 12, fontWeight: 600, color: 'var(--ink)' }}>18 shifts</span>
         </div>
@@ -63,7 +61,7 @@ export default function Books() {
           letterSpacing: '0.1em',
           color: 'var(--ink)',
           padding: '28px 0 10px',
-        }}>STATEMENTS</p>
+        }}>EARNINGS BY MONTH</p>
 
         {STATEMENTS.map((stmt) => (
           <div
@@ -101,8 +99,8 @@ export default function Books() {
         ))}
       </div>
 
-      {/* Statement detail preview */}
-      <div style={{ padding: '0 22px 32px' }}>
+      {/* Earnings detail preview */}
+      <div style={{ padding: '0 22px 120px' }}>
         <div style={{
           marginTop: 20,
           padding: 18,
@@ -118,10 +116,10 @@ export default function Books() {
             letterSpacing: '0.12em',
             color: 'var(--ink)',
             marginBottom: 10,
-          }}>STATEMENT #2026-04</p>
+          }}>APRIL 2026</p>
 
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 12 }}>
-            <span style={{ fontFamily: 'var(--body)', fontSize: 12, fontWeight: 600, color: 'var(--ink)', textTransform: 'uppercase' }}>TOTAL</span>
+            <span style={{ fontFamily: 'var(--body)', fontSize: 12, fontWeight: 600, color: 'var(--ink)', textTransform: 'uppercase' }}>TOTAL EARNED</span>
             <span style={{ fontFamily: 'var(--sans)', fontWeight: 400, fontSize: 24, color: 'var(--ink)', letterSpacing: '-0.05em' }}>$3,412.00</span>
           </div>
 
@@ -142,11 +140,11 @@ export default function Books() {
           <div style={{ borderTop: '1.5px dashed var(--ink)', marginTop: 12, marginBottom: 12 }} />
 
           <div style={{ display: 'flex', gap: 8 }}>
-            {['PDF', 'CSV', 'QuickBooks'].map((label) => (
+            {['PDF', 'CSV'].map((label) => (
               <button
                 key={label}
                 style={{
-                  padding: '5px 10px',
+                  padding: '5px 14px',
                   background: 'transparent',
                   border: '2px solid var(--ink)',
                   borderRadius: 99,
