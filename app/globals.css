@@ -525,7 +525,7 @@ html, body {
   background: var(--green-soft);
 }
 
-/* On-shift soft blue */
+/* On-shift solid steel */
 .shift-gradient {
-  background: linear-gradient(160deg, var(--steel-soft) 0%, var(--paper) 70%);
+  background: var(--steel-soft);
 }
