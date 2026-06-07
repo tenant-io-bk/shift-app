@@ -36,86 +36,25 @@ export default function CancelFlow() {
       minHeight: '100vh',
       margin: '0 auto',
       background: 'var(--paper)',
-      position: 'relative',
-      overflow: 'hidden',
       display: 'flex',
       flexDirection: 'column',
     }}>
-      {/* Back button */}
+      {/* Nav */}
       <div style={{
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        right: 0,
         height: 44,
         display: 'flex',
         alignItems: 'center',
         padding: '0 16px',
-        zIndex: 20,
+        borderBottom: '1px solid var(--line)',
       }}>
-        <Link href="/worker/day-of" style={{ fontSize: 20, color: 'white', textDecoration: 'none', opacity: 0.8 }}>←</Link>
+        <Link href="/worker/day-of" style={{ fontSize: 20, color: 'var(--ink)', textDecoration: 'none' }}>←</Link>
       </div>
 
-      {/* Ghosted on-shift screen behind */}
+      {/* Sheet */}
       <div style={{
-        height: 280,
-        background: 'var(--ink)',
-        opacity: 0.6,
-        position: 'relative',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        flexShrink: 0,
-      }}>
-        <p style={{
-          fontFamily: 'var(--body)',
-          fontSize: 12,
-          color: 'rgba(255,255,255,0.6)',
-          marginBottom: 8,
-          letterSpacing: '0.04em',
-        }}>On shift · Padmore's · #4471</p>
-        <div style={{
-          fontFamily: 'var(--sans)',
-          fontWeight: 400,
-          fontSize: 72,
-          color: '#fff',
-          opacity: 0.5,
-          letterSpacing: '-0.05em',
-          lineHeight: 1,
-        }}>02:14:38</div>
-      </div>
-
-      {/* Blur overlay */}
-      <div style={{
-        position: 'absolute',
-        top: 200,
-        left: 0,
-        right: 0,
-        height: 80,
-        background: 'linear-gradient(to bottom, transparent, rgba(247,248,250,0.9))',
-        zIndex: 5,
-      }} />
-
-      {/* Bottom sheet */}
-      <div style={{
-        background: 'var(--card)',
-        borderRadius: '18px 18px 0 0',
-        padding: '20px 22px 32px',
-        boxShadow: '0 -8px 40px rgba(13,14,18,0.18)',
-        position: 'relative',
-        zIndex: 10,
+        padding: '24px 22px 32px',
         flex: 1,
       }}>
-        {/* Handle */}
-        <div style={{
-          width: 36,
-          height: 4,
-          background: 'var(--paper-3)',
-          borderRadius: 99,
-          margin: '0 auto 16px',
-        }} />
-
         <h1 style={{
           fontFamily: 'var(--sans)',
           fontWeight: 700,
