@@ -467,7 +467,7 @@ export default function EmployerDashboard() {
 
       <Section id="active" label="Active now">
         {ACTIVE_SHIFTS.map((s, i) => (
-          <div key={i} style={{ border: '2px solid var(--ink)', borderRadius: 14, overflow: 'hidden' }}>
+          <div key={i} style={{ border: '2px solid var(--ink)', borderRadius: 22, overflow: 'hidden' }}>
             <ShiftCard
               role={s.role}
               time={s.time}
