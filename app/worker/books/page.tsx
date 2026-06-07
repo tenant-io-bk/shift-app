@@ -43,6 +43,103 @@ function filterStatements(filter: Filter) {
   }
 }
 
+// Data for the chart indexed by filter — monthly buckets
+const CHART_DATA: Record<string, { label: string; value: number }[]> = {
+  'Month': [
+    { label: 'W1', value: 680 }, { label: 'W2', value: 920 }, { label: 'W3', value: 740 }, { label: 'W4', value: 507 },
+  ],
+  '3 Mo': [
+    { label: 'Mar', value: 2956 }, { label: 'Apr', value: 3412 }, { label: 'May', value: 2847 },
+  ],
+  '6 Mo': [
+    { label: 'Dec', value: 3255 }, { label: 'Jan', value: 2170 }, { label: 'Feb', value: 2488 },
+    { label: 'Mar', value: 2956 }, { label: 'Apr', value: 3412 }, { label: 'May', value: 2847 },
+  ],
+  '1 Year': [
+    { label: 'Jun', value: 2100 }, { label: 'Jul', value: 1800 }, { label: 'Aug', value: 2400 },
+    { label: 'Sep', value: 2750 }, { label: 'Oct', value: 2300 }, { label: 'Nov', value: 2635 },
+    { label: 'Dec', value: 3255 }, { label: 'Jan', value: 2170 }, { label: 'Feb', value: 2488 },
+    { label: 'Mar', value: 2956 }, { label: 'Apr', value: 3412 }, { label: 'May', value: 2847 },
+  ],
+  'YTD': [
+    { label: 'Jan', value: 2170 }, { label: 'Feb', value: 2488 }, { label: 'Mar', value: 2956 },
+    { label: 'Apr', value: 3412 }, { label: 'May', value: 2847 },
+  ],
+};
+
+function smoothPath(pts: { x: number; y: number }[]): string {
+  if (pts.length < 2) return '';
+  let d = `M ${pts[0].x} ${pts[0].y}`;
+  for (let i = 1; i < pts.length; i++) {
+    const prev = pts[i - 1], cur = pts[i];
+    const cpx = (prev.x + cur.x) / 2;
+    d += ` C ${cpx} ${prev.y} ${cpx} ${cur.y} ${cur.x} ${cur.y}`;
+  }
+  return d;
+}
+
+function EarningsChart({ filter }: { filter: Filter }) {
+  const data = CHART_DATA[filter] ?? CHART_DATA['3 Mo'];
+  const W = 346, H = 80, padX = 0, padY = 8;
+  const vals = data.map(d => d.value);
+  const minV = Math.min(...vals) * 0.85;
+  const maxV = Math.max(...vals) * 1.05;
+  const toX = (i: number) => padX + (i / (data.length - 1)) * (W - padX * 2);
+  const toY = (v: number) => padY + (1 - (v - minV) / (maxV - minV)) * (H - padY * 2);
+  const pts = data.map((d, i) => ({ x: toX(i), y: toY(d.value) }));
+  const linePath = smoothPath(pts);
+  const areaPath = linePath + ` L ${pts[pts.length - 1].x} ${H} L ${pts[0].x} ${H} Z`;
+
+  // Peak point for tooltip
+  const peakIdx = vals.indexOf(Math.max(...vals));
+  const peakPt = pts[peakIdx];
+
+  return (
+    <div style={{ padding: '0 22px 28px', position: 'relative' }}>
+      <svg width={W} height={H + 20} viewBox={`0 0 ${W} ${H + 20}`} style={{ overflow: 'visible', display: 'block' }}>
+        <defs>
+          <linearGradient id="chartFill" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="rgba(13,14,18,0.18)" />
+            <stop offset="100%" stopColor="rgba(13,14,18,0)" />
+          </linearGradient>
+        </defs>
+
+        {/* Area fill */}
+        <path d={areaPath} fill="url(#chartFill)" />
+
+        {/* Line */}
+        <path d={linePath} fill="none" stroke="rgba(13,14,18,0.7)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+
+        {/* Tick bars at bottom */}
+        {pts.map((pt, i) => (
+          <rect key={i} x={pt.x - 1} y={H - 10} width={2} height={10} rx={1}
+            fill={i === data.length - 1 ? 'rgba(13,14,18,0.7)' : 'rgba(13,14,18,0.25)'} />
+        ))}
+
+        {/* Month labels */}
+        {data.map((d, i) => (
+          <text key={i} x={toX(i)} y={H + 16} textAnchor="middle"
+            style={{ fontFamily: 'var(--body)', fontSize: 9, fill: 'rgba(13,14,18,0.45)', fontWeight: 600, letterSpacing: '0.04em' }}>
+            {d.label.toUpperCase()}
+          </text>
+        ))}
+
+        {/* Peak dot */}
+        <circle cx={peakPt.x} cy={peakPt.y} r={3.5} fill="var(--ink)" />
+
+        {/* Peak tooltip */}
+        <g transform={`translate(${Math.min(peakPt.x + 8, W - 72)}, ${peakPt.y - 26})`}>
+          <rect x={0} y={0} width={68} height={20} rx={10} fill="white" opacity="0.92" />
+          <text x={34} y={13.5} textAnchor="middle"
+            style={{ fontFamily: 'var(--body)', fontSize: 10, fill: '#0D0E12', fontWeight: 700 }}>
+            ↑ {filter === 'Month' ? '+12.1%' : filter === '3 Mo' ? '+15.4%' : '+29.2%'} peak
+          </text>
+        </g>
+      </svg>
+    </div>
+  );
+}
+
 export default function WorkerBooks() {
   const [activeFilter, setActiveFilter] = useState<Filter>('3 Mo');
   const [expanded, setExpanded] = useState<string | null>(null);
@@ -96,18 +193,22 @@ export default function WorkerBooks() {
         </div>
 
         {/* Balance hero */}
-        <div style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '4px 22px 56px' }}>
+        <div style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '4px 22px 0' }}>
           <p style={{ fontFamily: 'var(--sans)', fontWeight: 400, fontSize: 20, color: 'var(--ink)', letterSpacing: '-0.02em', lineHeight: 1.2, marginBottom: 12, whiteSpace: 'nowrap' }}>
             You&apos;ve Filled{' '}
             <span style={{ textDecoration: 'underline' }}>18</span>
             {' '}Shifts May 2026
           </p>
           <div style={{ fontFamily: 'var(--sans)', fontWeight: 400, fontSize: 64, color: 'var(--ink)', letterSpacing: '-0.05em', lineHeight: 1, marginBottom: 14 }}>$2,847.00</div>
-          <div style={{ background: '#2a9e18', borderRadius: 99, padding: '5px 12px', display: 'inline-flex', alignItems: 'center', gap: 5 }}>
+          <div style={{ background: '#2a9e18', borderRadius: 99, padding: '5px 12px', display: 'inline-flex', alignItems: 'center', gap: 5, marginBottom: 20 }}>
             <span style={{ fontSize: 12, color: 'white', lineHeight: 1 }}>↗</span>
             <span style={{ fontFamily: 'var(--body)', fontWeight: 700, fontSize: 12, color: 'white', letterSpacing: '0.01em' }}>+8.4% vs last month</span>
           </div>
         </div>
+
+        {/* Earnings sparkline */}
+        <EarningsChart filter={activeFilter} />
+
       </div>
 
       {/* Statements list — white card slides up */}
