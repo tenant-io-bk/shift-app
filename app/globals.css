@@ -388,7 +388,7 @@ html, body {
 .scard-body { grid-column: 1 / 2; display: flex; flex-direction: column; gap: 8px; }
 .scard-name {
   font-family: var(--sans); font-weight: 500;
-  font-size: 52px; letter-spacing: -0.075em; line-height: 0.88;
+  font-size: 40px; letter-spacing: -0.065em; line-height: 0.9;
   color: var(--ink); text-wrap: balance; margin: 0;
 }
 .scard-brief {
