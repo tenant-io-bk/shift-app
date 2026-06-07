@@ -45,10 +45,10 @@ export default function DayOf() {
               <span style={{ fontSize: 13, color: '#fff', fontWeight: 700 }}>!</span>
             </div>
             <div style={{ flex: 1 }}>
-              <span style={{ fontFamily: 'var(--body)', fontSize: 12, fontWeight: 700, color: 'var(--red)' }}>Transit delay — </span>
-              <span style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--red)' }}>allow 10 extra min</span>
+              <span style={{ fontFamily: 'var(--body)', fontSize: 12, fontWeight: 700, color: 'var(--ink)' }}>Transit delay — </span>
+              <span style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--ink)' }}>allow 10 extra min</span>
             </div>
-            <button onClick={() => setAlertDismissed(true)} style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--red)', fontSize: 18, padding: '2px 4px', lineHeight: 1, flexShrink: 0 }}>×</button>
+            <button onClick={() => setAlertDismissed(true)} style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--ink)', fontSize: 18, padding: '2px 4px', lineHeight: 1, flexShrink: 0 }}>×</button>
           </div>
         </div>
       )}
@@ -65,6 +65,9 @@ export default function DayOf() {
 
         {/* Countdown */}
         <div style={{ background: 'var(--paper)', padding: '20px 22px 18px', textAlign: 'center' }}>
+          <div style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--mute)', marginBottom: 8 }}>
+            Leave in
+          </div>
           <div style={{ fontFamily: 'var(--sans)', fontWeight: 400, fontSize: 64, color: 'var(--ink)', lineHeight: 1, letterSpacing: '-0.05em' }}>
             23 min.
           </div>
