@@ -107,14 +107,14 @@ export default function WorkerBooks() {
           <div key={stmt.month} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '16px 0', borderBottom: '1px solid var(--line)' }}>
             <div>
               <p style={{ fontFamily: 'var(--body)', fontSize: 12, textTransform: 'uppercase', letterSpacing: '0.06em', color: 'var(--mute)', marginBottom: 4 }}>{stmt.month}</p>
-              <p style={{ margin: 0, display: 'flex', alignItems: 'baseline', gap: 4 }}>
-                <span style={{ fontFamily: 'var(--body)', fontWeight: 600, fontSize: 19, color: 'var(--ink)' }}>{stmt.shifts} Shifts</span>
-                <span style={{ fontFamily: 'var(--sans)', fontWeight: 400, fontSize: 19, color: 'var(--ink)', letterSpacing: '-0.03em' }}>· {stmt.total}</span>
-              </p>
+              <span style={{ fontFamily: 'var(--body)', fontWeight: 600, fontSize: 19, color: 'var(--ink)' }}>{stmt.shifts} Shifts ·</span>
             </div>
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-              <path d="M6 3l5 5-5 5" stroke="var(--mute)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+              <span style={{ fontFamily: 'var(--sans)', fontWeight: 400, fontSize: 19, color: 'var(--ink)', letterSpacing: '-0.03em' }}>{stmt.total}</span>
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M6 3l5 5-5 5" stroke="var(--mute)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </div>
           </div>
         ))}
       </div>
