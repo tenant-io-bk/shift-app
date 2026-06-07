@@ -37,7 +37,19 @@ export default function WorkerBooks() {
 
   return (
     <div style={{ maxWidth: 390, minHeight: '100vh', margin: '0 auto', background: 'var(--paper)', display: 'flex', flexDirection: 'column' }}>
-      <div style={{ background: 'linear-gradient(160deg, var(--green) 0%, var(--green-soft) 100%)' }}>
+      <style>{`
+        @keyframes gradientMove {
+          0%   { background-position: 0% 0%; }
+          50%  { background-position: 100% 100%; }
+          100% { background-position: 0% 0%; }
+        }
+        .books-gradient {
+          background: linear-gradient(135deg, #72c15f 0%, #E2F1DD 50%, #72c15f 100%);
+          background-size: 300% 300%;
+          animation: gradientMove 6s ease infinite;
+        }
+      `}</style>
+      <div className="books-gradient">
 
         {/* Nav row */}
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '14px 20px 14px' }}>
