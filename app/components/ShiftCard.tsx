@@ -6,7 +6,7 @@ export type ShiftState = 'pending' | 'confirmed' | 'urgent' | 'past';
 export interface ShiftCardProps {
   role: string;
   time: string;
-  loc: string;
+  loc?: string;
   venue: string;
   brief?: string | string[];
   pay: string;
