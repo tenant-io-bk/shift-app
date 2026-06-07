@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import StatusBar from '@/app/components/StatusBar';
@@ -12,6 +12,25 @@ export default function DayOf() {
   const [proximity, setProximity] = useState<'far' | 'near'>('far');
   const [noteOpen, setNoteOpen] = useState(false);
   const isNear = proximity === 'near';
+
+  const TYPEOUT = "Your Shift at Padmore's Coffee Starts in ";
+  const [typedLen, setTypedLen] = useState(0);
+  const [countdownSec, setCountdownSec] = useState(23 * 60);
+  const isTyped = typedLen >= TYPEOUT.length;
+  const mins = Math.floor(countdownSec / 60);
+
+  useEffect(() => {
+    if (typedLen < TYPEOUT.length) {
+      const t = setTimeout(() => setTypedLen(l => l + 1), 26);
+      return () => clearTimeout(t);
+    }
+  }, [typedLen]);
+
+  useEffect(() => {
+    if (!isTyped) return;
+    const id = setInterval(() => setCountdownSec(s => Math.max(0, s - 1)), 1000);
+    return () => clearInterval(id);
+  }, [isTyped]);
 
   return (
     <div style={{ maxWidth: 390, minHeight: '100vh', margin: '0 auto', background: 'var(--paper)', display: 'flex', flexDirection: 'column' }}>
@@ -29,6 +48,20 @@ export default function DayOf() {
         @keyframes note-up {
           from { transform: translateX(-50%) translateY(100%); }
           to   { transform: translateX(-50%) translateY(0); }
+        }
+        @keyframes cursor-blink {
+          0%, 100% { opacity: 1; }
+          50% { opacity: 0; }
+        }
+        .type-cursor {
+          display: inline-block; width: 2px; height: 0.85em;
+          background: var(--ink); vertical-align: text-bottom;
+          margin-left: 2px;
+          animation: cursor-blink 0.65s ease-in-out infinite;
+        }
+        .shift-card-override .scard.confirmed {
+          background: var(--paper) !important;
+          border: 2px solid var(--ink) !important;
         }
       `}</style>
 
@@ -68,26 +101,25 @@ export default function DayOf() {
       {/* Scrollable content */}
       <div style={{ flex: 1, overflowY: 'auto', paddingBottom: 120 }}>
 
-        {/* Countdown */}
-        <div style={{ background: 'var(--paper)', padding: '20px 22px 18px', textAlign: 'center' }}>
-          <div style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--mute)', marginBottom: 8 }}>
-            Leave in
-          </div>
-          <div style={{ fontFamily: 'var(--sans)', fontWeight: 400, fontSize: 64, color: 'var(--ink)', lineHeight: 1, letterSpacing: '-0.05em' }}>
-            23 min.
-          </div>
-          <div style={{ display: 'flex', gap: 8, marginTop: 14, justifyContent: 'center', flexWrap: 'wrap' }}>
-            <span style={{ background: 'var(--ink)', borderRadius: 99, padding: '7px 16px', fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, color: '#fff', letterSpacing: '0.04em' }}>
-              Head out by 10:35A
-            </span>
-            <span style={{ background: 'transparent', border: '1.5px solid var(--ink)', borderRadius: 99, padding: '7px 16px', fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, color: 'var(--ink)', letterSpacing: '0.04em' }}>
-              Starts at 11A
-            </span>
-          </div>
+        {/* Typeout headline */}
+        <div style={{ padding: '20px 22px 14px' }}>
+          <h1 style={{
+            fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 26,
+            color: 'var(--ink)', letterSpacing: '-0.03em', lineHeight: 1.2, margin: 0,
+          }}>
+            {TYPEOUT.slice(0, typedLen)}
+            {!isTyped && <span className="type-cursor" />}
+            {isTyped && (
+              <>
+                <span style={{ fontSize: 60, fontWeight: 400, letterSpacing: '-0.05em', lineHeight: 1 }}>{mins}</span>
+                {' Min.'}
+              </>
+            )}
+          </h1>
         </div>
 
         {/* Shift card */}
-        <div style={{ padding: '0 22px' }}>
+        <div className="shift-card-override" style={{ padding: '0 22px' }}>
           <ShiftCard
             state="confirmed"
             role="Barista"
@@ -100,24 +132,31 @@ export default function DayOf() {
           />
         </div>
 
-        {/* Clock-in radius indicator (no distance text) */}
-        <div style={{ margin: '14px 22px', padding: '14px 20px', background: isNear ? 'var(--green)' : 'var(--card)', border: isNear ? 'none' : '2px solid var(--ink)', borderRadius: 99, display: 'flex', alignItems: 'center', gap: 12, transition: 'all 0.3s ease' }}>
-          <div style={{ position: 'relative', width: 38, height: 38, flexShrink: 0 }}>
-            <svg width="38" height="38" viewBox="0 0 38 38">
-              <circle cx="19" cy="19" r="17" fill="none" stroke={isNear ? 'rgba(0,0,0,0.2)' : 'var(--ink)'} strokeWidth="1.5" opacity="0.3" />
-              <circle cx="19" cy="19" r="10" fill="none" stroke={isNear ? 'rgba(0,0,0,0.2)' : 'var(--ink)'} strokeWidth="1.5" opacity="0.5" />
-              <circle cx="19" cy="19" r={isNear ? 6 : 4} fill={isNear ? 'var(--ink)' : 'var(--ink)'} />
-              {isNear && <text x="19" y="23" textAnchor="middle" fill="white" fontSize="7" fontWeight="700" fontFamily="system-ui">✓</text>}
-            </svg>
-          </div>
-          <div style={{ flex: 1 }}>
-            <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 14, color: isNear ? 'var(--ink)' : 'var(--ink)' }}>
-              {isNear ? "You're here." : 'Unlocks when you arrive'}
+        {/* Clock-in proximity indicator */}
+        <div style={{ margin: '14px 22px 4px' }}>
+          <div style={{
+            padding: '16px 20px',
+            background: isNear ? 'var(--ink)' : 'var(--green)',
+            border: 'none',
+            borderRadius: 99,
+            display: 'flex', alignItems: 'center', gap: 12,
+            transition: 'all 0.3s ease',
+          }}>
+            <div style={{ position: 'relative', width: 38, height: 38, flexShrink: 0 }}>
+              <svg width="38" height="38" viewBox="0 0 38 38">
+                <circle cx="19" cy="19" r="17" fill="none" stroke="rgba(0,0,0,0.2)" strokeWidth="1.5" opacity="0.5" />
+                <circle cx="19" cy="19" r="10" fill="none" stroke="rgba(0,0,0,0.2)" strokeWidth="1.5" opacity="0.7" />
+                <circle cx="19" cy="19" r={isNear ? 6 : 4} fill={isNear ? 'white' : 'var(--ink)'} />
+                {isNear && <text x="19" y="23" textAnchor="middle" fill="var(--ink)" fontSize="7" fontWeight="700" fontFamily="system-ui">✓</text>}
+              </svg>
             </div>
-            <div style={{ fontFamily: 'var(--body)', fontSize: 11, color: isNear ? 'var(--ink)' : 'var(--ink)', marginTop: 2, opacity: 0.6 }}>
-              {isNear ? 'Clock-in is ready' : 'Within 500 ft of venue'}
+            <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 17, color: isNear ? 'white' : 'var(--ink)' }}>
+              {isNear ? "You're here — clock in." : 'Unlocks when you arrive'}
             </div>
           </div>
+          <p style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--mute)', textAlign: 'center', marginTop: 8 }}>
+            {isNear ? 'Geofence confirmed · 0 ft from venue' : 'Within 500 ft of venue'}
+          </p>
         </div>
 
         {/* Checklist */}
