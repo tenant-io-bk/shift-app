@@ -3,20 +3,32 @@ import { useState } from 'react';
 import Link from 'next/link';
 
 const ALL_STATEMENTS = [
-  { month: 'MAY 2026', shifts: 18, total: '$2,847', monthsAgo: 0 },
-  { month: 'APR 2026', shifts: 22, total: '$3,412', monthsAgo: 1 },
-  { month: 'MAR 2026', shifts: 19, total: '$2,956', monthsAgo: 2 },
-  { month: 'FEB 2026', shifts: 16, total: '$2,488', monthsAgo: 3 },
-  { month: 'JAN 2026', shifts: 14, total: '$2,170', monthsAgo: 4 },
-  { month: 'DEC 2025', shifts: 21, total: '$3,255', monthsAgo: 5 },
-  { month: 'NOV 2025', shifts: 17, total: '$2,635', monthsAgo: 6 },
+  { month: 'MAY 2026', shifts: 18, total: '$2,847', totalFull: '$2,847.00', monthsAgo: 0 },
+  { month: 'APR 2026', shifts: 22, total: '$3,412', totalFull: '$3,412.00', monthsAgo: 1 },
+  { month: 'MAR 2026', shifts: 19, total: '$2,956', totalFull: '$2,956.00', monthsAgo: 2 },
+  { month: 'FEB 2026', shifts: 16, total: '$2,488', totalFull: '$2,488.00', monthsAgo: 3 },
+  { month: 'JAN 2026', shifts: 14, total: '$2,170', totalFull: '$2,170.00', monthsAgo: 4 },
+  { month: 'DEC 2025', shifts: 21, total: '$3,255', totalFull: '$3,255.00', monthsAgo: 5 },
+  { month: 'NOV 2025', shifts: 17, total: '$2,635', totalFull: '$2,635.00', monthsAgo: 6 },
 ];
 
-const LINE_ITEMS = [
-  { desc: "Padmore's Coffee · Apr 28 · Barista · 5h", amount: '+$130.00' },
-  { desc: "Padmore's Coffee · Apr 25 · Barista · 5h", amount: '+$130.00' },
-  { desc: 'The Wren · Apr 22 · Server · 6h', amount: '+$144.00' },
-];
+const LINE_ITEMS: Record<string, { desc: string; amount: string }[]> = {
+  'MAY 2026': [
+    { desc: "Padmore's Coffee · May 12 · Barista · 5h", amount: '+$130.00' },
+    { desc: 'The Wren · May 8 · Server · 6h', amount: '+$144.00' },
+    { desc: 'Bar Blondeau · May 3 · Barback · 4h', amount: '+$96.00' },
+  ],
+  'APR 2026': [
+    { desc: "Padmore's Coffee · Apr 28 · Barista · 5h", amount: '+$130.00' },
+    { desc: "Padmore's Coffee · Apr 25 · Barista · 5h", amount: '+$130.00' },
+    { desc: 'The Wren · Apr 22 · Server · 6h', amount: '+$144.00' },
+  ],
+  'MAR 2026': [
+    { desc: "Padmore's Coffee · Mar 30 · Barista · 5h", amount: '+$130.00' },
+    { desc: 'Bar Blondeau · Mar 22 · Barback · 4h', amount: '+$96.00' },
+    { desc: 'The Wren · Mar 15 · Server · 6h', amount: '+$144.00' },
+  ],
+};
 
 const FILTERS = ['Month', '3 Mo', '6 Mo', '1 Year', 'YTD'] as const;
 type Filter = typeof FILTERS[number];
@@ -33,22 +45,11 @@ function filterStatements(filter: Filter) {
 
 export default function WorkerBooks() {
   const [activeFilter, setActiveFilter] = useState<Filter>('3 Mo');
+  const [expanded, setExpanded] = useState<string | null>(null);
   const statements = filterStatements(activeFilter);
 
   return (
     <div style={{ maxWidth: 390, minHeight: '100vh', margin: '0 auto', background: 'var(--paper)', display: 'flex', flexDirection: 'column' }}>
-      <style>{`
-        @keyframes gradientMove {
-          0%   { background-position: 0% 0%; }
-          50%  { background-position: 100% 100%; }
-          100% { background-position: 0% 0%; }
-        }
-        .books-gradient {
-          background: linear-gradient(135deg, #72c15f 0%, #E2F1DD 50%, #72c15f 100%);
-          background-size: 300% 300%;
-          animation: gradientMove 6s ease infinite;
-        }
-      `}</style>
       <div className="books-gradient">
 
         {/* Nav row */}
@@ -109,52 +110,81 @@ export default function WorkerBooks() {
         </div>
       </div>
 
-      {/* Earnings list — white card slides up */}
-      <div style={{ flex: 1, padding: '0 22px', background: 'var(--card)', borderRadius: '24px 24px 0 0', marginTop: -28 }}>
+      {/* Statements list — white card slides up */}
+      <div style={{ flex: 1, padding: '0 22px 80px', background: 'var(--card)', borderRadius: '24px 24px 0 0', marginTop: -28 }}>
         <p style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--ink)', padding: '28px 0 10px' }}>
-          EARNINGS BY MONTH
+          Statements
         </p>
 
-        {statements.map((stmt) => (
-          <div key={stmt.month} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '16px 0', borderBottom: '1px solid var(--line)' }}>
-            <div>
-              <p style={{ fontFamily: 'var(--body)', fontSize: 12, textTransform: 'uppercase', letterSpacing: '0.06em', color: 'var(--mute)', marginBottom: 4 }}>{stmt.month}</p>
-              <span style={{ fontFamily: 'var(--body)', fontWeight: 600, fontSize: 19, color: 'var(--ink)' }}>{stmt.shifts} Shifts ·</span>
-            </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-              <span style={{ fontFamily: 'var(--sans)', fontWeight: 400, fontSize: 19, color: 'var(--ink)', letterSpacing: '-0.03em' }}>{stmt.total}</span>
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                <path d="M6 3l5 5-5 5" stroke="var(--mute)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      {/* Earnings detail preview */}
-      <div style={{ padding: '0 22px 120px' }}>
-        <div style={{ marginTop: 20, padding: 18, border: '1.5px dashed var(--ink)', borderRadius: 16, background: 'var(--card)' }}>
-          <p style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--ink)', marginBottom: 10 }}>APRIL 2026</p>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 12 }}>
-            <span style={{ fontFamily: 'var(--body)', fontSize: 12, fontWeight: 600, color: 'var(--ink)', textTransform: 'uppercase' }}>TOTAL EARNED</span>
-            <span style={{ fontFamily: 'var(--sans)', fontWeight: 400, fontSize: 24, color: 'var(--ink)', letterSpacing: '-0.05em' }}>$3,412.00</span>
-          </div>
-          <div style={{ borderTop: '1.5px dashed var(--ink)', marginBottom: 12 }} />
-          {LINE_ITEMS.map((item, i) => (
-            <div key={i} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 }}>
-              <span style={{ fontFamily: 'var(--body)', fontSize: 13, color: 'var(--ink)', flex: 1, marginRight: 8 }}>{item.desc}</span>
-              <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 15, color: 'var(--ink)', flexShrink: 0 }}>{item.amount}</span>
-            </div>
-          ))}
-          <div style={{ borderTop: '1.5px dashed var(--ink)', marginTop: 12, marginBottom: 12 }} />
-          <div style={{ display: 'flex', gap: 8 }}>
-            {['PDF', 'CSV'].map((label) => (
-              <button key={label} style={{ padding: '5px 14px', background: 'transparent', border: '2px solid var(--ink)', borderRadius: 99, fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, color: 'var(--ink)', cursor: 'pointer' }}>
-                {label}
+        {statements.map((stmt, idx) => {
+          const isOpen = expanded === stmt.month;
+          const items = LINE_ITEMS[stmt.month] ?? [];
+          return (
+            <div key={stmt.month}>
+              {/* Month row — tap to expand */}
+              <button
+                onClick={() => setExpanded(isOpen ? null : stmt.month)}
+                style={{
+                  width: '100%',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                  padding: '16px 0',
+                  borderBottom: isOpen ? 'none' : idx < statements.length - 1 ? '1px solid var(--line)' : 'none',
+                  background: 'transparent',
+                  border: 'none',
+                  borderBottomColor: undefined,
+                  cursor: 'pointer',
+                  textAlign: 'left',
+                }}
+              >
+                <div>
+                  <p style={{ fontFamily: 'var(--body)', fontSize: 12, textTransform: 'uppercase', letterSpacing: '0.06em', color: 'var(--ink)', marginBottom: 4 }}>{stmt.month}</p>
+                  <span style={{ fontFamily: 'var(--body)', fontWeight: 600, fontSize: 19, color: 'var(--ink)' }}>{stmt.shifts} Shifts ·</span>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+                  <span style={{ fontFamily: 'var(--sans)', fontWeight: 400, fontSize: 19, color: 'var(--ink)', letterSpacing: '-0.03em' }}>{stmt.total}</span>
+                  <svg
+                    width="16" height="16" viewBox="0 0 16 16" fill="none"
+                    style={{ transition: 'transform 0.2s', transform: isOpen ? 'rotate(90deg)' : 'rotate(0deg)', flexShrink: 0 }}
+                  >
+                    <path d="M6 3l5 5-5 5" stroke="var(--ink)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </div>
               </button>
-            ))}
-          </div>
-        </div>
+
+              {/* Expanded statement detail */}
+              {isOpen && (
+                <div style={{ margin: '0 0 16px', padding: 18, border: '1.5px dashed var(--ink)', borderRadius: 16, background: 'var(--card)' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 12 }}>
+                    <span style={{ fontFamily: 'var(--body)', fontSize: 12, fontWeight: 600, color: 'var(--ink)', textTransform: 'uppercase', letterSpacing: '0.08em' }}>Total Earned</span>
+                    <span style={{ fontFamily: 'var(--sans)', fontWeight: 400, fontSize: 24, color: 'var(--ink)', letterSpacing: '-0.05em' }}>{stmt.totalFull}</span>
+                  </div>
+                  <div style={{ borderTop: '1.5px dashed var(--ink)', marginBottom: 12 }} />
+                  {items.map((item, i) => (
+                    <div key={i} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 }}>
+                      <span style={{ fontFamily: 'var(--body)', fontSize: 13, color: 'var(--ink)', flex: 1, marginRight: 8 }}>{item.desc}</span>
+                      <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 15, color: 'var(--ink)', flexShrink: 0 }}>{item.amount}</span>
+                    </div>
+                  ))}
+                  <div style={{ borderTop: '1.5px dashed var(--ink)', marginTop: 12, marginBottom: 12 }} />
+                  <div style={{ display: 'flex', gap: 8 }}>
+                    {['PDF', 'CSV'].map((label) => (
+                      <button key={label} style={{ padding: '5px 14px', background: 'transparent', border: '2px solid var(--ink)', borderRadius: 99, fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, color: 'var(--ink)', cursor: 'pointer' }}>
+                        {label}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* separator when not expanded */}
+              {!isOpen && idx < statements.length - 1 && (
+                <div style={{ borderBottom: '1px solid var(--line)' }} />
+              )}
+            </div>
+          );
+        })}
       </div>
     </div>
   );

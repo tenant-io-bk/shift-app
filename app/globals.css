@@ -519,3 +519,14 @@ html, body {
   color: rgba(255,255,255,0.6);
   padding-right: 48px;
 }
+
+@keyframes gradientMove {
+  0%   { background-position: 0% 0%; }
+  50%  { background-position: 100% 100%; }
+  100% { background-position: 0% 0%; }
+}
+.books-gradient {
+  background: linear-gradient(135deg, #72c15f 0%, #E2F1DD 50%, #72c15f 100%);
+  background-size: 300% 300%;
+  animation: gradientMove 6s ease infinite;
+}
