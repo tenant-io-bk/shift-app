@@ -311,7 +311,7 @@ export default function Page() {
         >
           {[
             { label: 'Message both', href: '/employer/messages' },
-            { label: 'Replace no-show', href: '/v3/no-show' },
+            { label: 'Replace no-show', href: '/employer/no-show' },
           ].map(({ label, href }) =>
             href ? (
               <Link
@@ -355,6 +355,25 @@ export default function Page() {
               </button>
             )
           )}
+
+          {/* Rate Jordan link */}
+          <Link
+            href="/employer/mutual-review"
+            style={{
+              display: 'block',
+              background: 'var(--ink)',
+              color: 'white',
+              borderRadius: 99,
+              padding: 12,
+              fontFamily: 'var(--body)',
+              fontSize: 13,
+              fontWeight: 600,
+              textAlign: 'center',
+              textDecoration: 'none',
+            }}
+          >
+            Rate Jordan →
+          </Link>
 
           {/* Rate link */}
           <Link

@@ -76,7 +76,7 @@ export default function Availability() {
       </div>
 
       <div style={{ padding: '12px 22px 4px' }}>
-        <StepProgress step={5} total={8} />
+        <StepProgress step={4} total={10} />
       </div>
 
       <div style={{ padding: '24px 22px 40px' }}>

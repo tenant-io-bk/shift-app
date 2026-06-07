@@ -98,7 +98,7 @@ export default function CardInput() {
       </div>
 
       <div style={{ padding: '12px 22px 4px' }}>
-        <StepProgress step={6} total={8} />
+        <StepProgress step={9} total={10} />
       </div>
 
       <div style={{ padding: '24px 22px 40px', display: 'flex', flexDirection: 'column', gap: 0 }}>

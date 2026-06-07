@@ -55,7 +55,7 @@ export default function ProfileSetup() {
       </div>
 
       <div style={{ padding: '12px 22px 4px' }}>
-        <StepProgress step={7} total={8} />
+        <StepProgress step={7} total={10} />
       </div>
 
       <div style={{ padding: '16px 22px 140px', flex: 1, overflowY: 'auto' }}>

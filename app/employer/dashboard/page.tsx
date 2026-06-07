@@ -463,6 +463,21 @@ export default function EmployerDashboard() {
         )}
       </div>
 
+      {/* AI draft link */}
+      {!isPosting && (
+        <div style={{ display: 'flex', justifyContent: 'center', marginTop: 10, marginBottom: 2 }}>
+          <Link href="/business/post" style={{
+            display: 'inline-flex', alignItems: 'center', gap: 6,
+            fontFamily: 'var(--body)', fontSize: 12, fontWeight: 600,
+            color: 'var(--ink)', padding: '7px 14px',
+            border: '1.5px solid var(--ink)', borderRadius: 99,
+            textDecoration: 'none', letterSpacing: '0.01em',
+          }}>
+            ✦ AI draft
+          </Link>
+        </div>
+      )}
+
       {/* ── Collapsible sections ──────────────────────────────────────────── */}
 
       <Section id="active" label="Active now">

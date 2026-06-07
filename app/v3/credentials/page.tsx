@@ -71,7 +71,7 @@ export default function Credentials() {
       </div>
 
       <div style={{ padding: '12px 22px 4px' }}>
-        <StepProgress step={4} total={8} />
+        <StepProgress step={6} total={10} />
       </div>
 
       <div style={{ padding: '16px 22px 140px', flex: 1, overflowY: 'auto' }}>

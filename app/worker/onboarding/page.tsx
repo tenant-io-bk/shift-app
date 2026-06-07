@@ -64,7 +64,7 @@ export default function WorkerOnboarding() {
       {/* Step 1 */}
       <div style={{ padding: 22 }}>
         <div style={{ marginBottom: 24 }}>
-          <StepProgress step={3} total={4} />
+          <StepProgress step={3} total={10} />
         </div>
 
         <span style={{

@@ -24,7 +24,7 @@ export default function Neighborhood() {
       </div>
 
       <div style={{ padding: '12px 22px 4px' }}>
-        <StepProgress step={4} total={4} />
+        <StepProgress step={5} total={10} />
       </div>
 
       {/* Headline */}

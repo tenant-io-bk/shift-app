@@ -76,6 +76,10 @@ export default function PayoutSetup() {
         <div style={{ width: 32 }} />
       </div>
 
+      <div style={{ padding: '12px 22px 4px' }}>
+        <StepProgress step={8} total={10} />
+      </div>
+
       <div style={{ padding: '18px 22px 32px' }}>
         <span style={{
           fontFamily: 'var(--body)',

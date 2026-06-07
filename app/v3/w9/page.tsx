@@ -23,7 +23,7 @@ export default function W9() {
       </div>
 
       <div style={{ padding: '12px 22px 4px' }}>
-        <StepProgress step={7} total={8} />
+        <StepProgress step={10} total={10} />
       </div>
 
       <div style={{ padding: '16px 22px 120px', flex: 1, overflowY: 'auto' }}>
@@ -127,7 +127,7 @@ export default function W9() {
       <div style={{ position: 'fixed', bottom: 0, left: '50%', transform: 'translateX(-50%)', width: '100%', maxWidth: 390, padding: '16px 22px 36px', background: 'linear-gradient(to bottom, transparent, var(--paper) 40%)' }}>
         {complete ? (
           <Link
-            href="/v3/profile-setup"
+            href="/worker/home"
             style={{
               display: 'block', width: '100%', padding: '15px 22px',
               borderRadius: 99, background: 'var(--ink)', color: '#FFFFFF',

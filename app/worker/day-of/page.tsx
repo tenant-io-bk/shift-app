@@ -280,7 +280,7 @@ export default function DayOf() {
 
         {/* Bottom links */}
         <div style={{ padding: '0 22px 8px', display: 'flex', justifyContent: 'center', gap: 24 }}>
-          <Link href="/v3/cancel-flow" style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)', textDecoration: 'none', borderBottom: '1px solid var(--line)', paddingBottom: 2 }}>Running late or need to cancel?</Link>
+          <Link href="/worker/cancel-flow" style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)', textDecoration: 'none', borderBottom: '1px solid var(--line)', paddingBottom: 2 }}>Running late or need to cancel?</Link>
           <Link href="/worker/report" style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)', textDecoration: 'none', borderBottom: '1px solid var(--line)', paddingBottom: 2 }}>Report an issue</Link>
         </div>
       </div>

@@ -342,6 +342,15 @@ export default function PaidOut() {
         >
           7 open within a mile
         </p>
+        <Link href="/v3/dispute" style={{
+          display: 'block', textAlign: 'center',
+          fontFamily: 'var(--body)', fontSize: 11,
+          color: 'var(--ink)', textDecoration: 'underline',
+          textDecorationColor: 'rgba(13,14,18,0.25)',
+          marginTop: 8
+        }}>
+          Flag a payment issue
+        </Link>
       </div>
     </div>
   );

@@ -126,7 +126,7 @@ export default function EmployerSlides() {
 
         {isLast ? (
           <button
-            onClick={() => router.push('/employer/dashboard')}
+            onClick={() => router.push('/employer/create-account')}
             style={{
               width: '100%',
               padding: '16px',
@@ -146,7 +146,7 @@ export default function EmployerSlides() {
         ) : (
           <div style={{ display: 'flex', gap: 10 }}>
             <button
-              onClick={() => router.push('/employer/dashboard')}
+              onClick={() => router.push('/employer/create-account')}
               style={{
                 flex: 1,
                 padding: '16px',

@@ -39,7 +39,7 @@ export default function Dispute() {
           fontWeight: 700,
           textTransform: 'uppercase',
           letterSpacing: '0.08em',
-          color: 'var(--mute)',
+          color: 'var(--ink)',
           marginBottom: 10,
         }}>DISPUTE #4471</p>
 
@@ -56,7 +56,7 @@ export default function Dispute() {
         <p style={{
           fontFamily: 'var(--body)',
           fontSize: 13,
-          color: 'var(--mute)',
+          color: 'var(--ink)',
           lineHeight: 1.5,
           marginBottom: 20,
         }}>SHIFT Trust reviews all disputes. Funds held for 72 hours.</p>
@@ -101,7 +101,7 @@ export default function Dispute() {
                   <div style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 14, color: 'var(--ink)' }}>
                     {reason.label}
                   </div>
-                  <div style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--mute)', marginTop: 2 }}>
+                  <div style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--ink)', marginTop: 2 }}>
                     {reason.desc}
                   </div>
                 </div>
@@ -118,7 +118,7 @@ export default function Dispute() {
             fontWeight: 600,
             textTransform: 'uppercase',
             letterSpacing: '0.08em',
-            color: 'var(--mute)',
+            color: 'var(--ink)',
             marginBottom: 6,
           }}>ADD CONTEXT (optional)</p>
           <textarea
@@ -143,7 +143,7 @@ export default function Dispute() {
           <p style={{
             fontFamily: 'var(--body)',
             fontSize: 11,
-            color: 'var(--mute)',
+            color: 'var(--ink)',
             textAlign: 'right',
             marginTop: 4,
           }}>{text.length} / 800</p>
@@ -162,14 +162,14 @@ export default function Dispute() {
           <p style={{
             fontFamily: 'var(--body)',
             fontSize: 12,
-            color: 'var(--hydrant)',
+            color: 'var(--ink)',
             fontWeight: 500,
           }}>Funds held · auto-releases in</p>
           <div style={{
             fontFamily: 'var(--sans)',
             fontWeight: 700,
             fontSize: 20,
-            color: 'var(--hydrant)',
+            color: 'var(--ink)',
             letterSpacing: '-0.02em',
           }}>72:00:00</div>
         </div>

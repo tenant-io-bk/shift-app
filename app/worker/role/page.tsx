@@ -50,7 +50,7 @@ export default function RolePicker() {
           for a SHIFT,<br />
           or{' '}
           <Link
-            href="/employer/create-account"
+            href="/employer/slides"
             style={{
               background: 'var(--ink)',
               borderRadius: 99,
