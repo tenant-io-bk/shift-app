@@ -310,13 +310,13 @@ export default function WorkerBooks() {
                 <div style={{ margin: '0 0 16px', padding: 18, border: '1.5px dashed var(--ink)', borderRadius: 16, background: 'var(--card)' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 12 }}>
                     <span style={{ fontFamily: 'var(--body)', fontSize: 12, fontWeight: 600, color: 'var(--ink)', textTransform: 'uppercase', letterSpacing: '0.08em' }}>Total Earned</span>
-                    <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 24, color: 'var(--ink)', letterSpacing: '-0.03em' }}>{stmt.totalFull}</span>
+                    <span style={{ fontFamily: 'var(--sans)', fontWeight: 400, fontSize: 24, color: 'var(--ink)', letterSpacing: '-0.03em' }}>{stmt.totalFull}</span>
                   </div>
                   <div style={{ borderTop: '1.5px dashed var(--ink)', marginBottom: 12 }} />
                   {items.map((item, i) => (
                     <div key={i} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 }}>
                       <span style={{ fontFamily: 'var(--body)', fontSize: 13, color: 'var(--ink)', flex: 1, marginRight: 8 }}>{item.desc}</span>
-                      <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 20, color: 'var(--ink)', letterSpacing: '-0.03em', flexShrink: 0 }}>{item.amount}</span>
+                      <span style={{ fontFamily: 'var(--sans)', fontWeight: 400, fontSize: 20, color: 'var(--ink)', letterSpacing: '-0.03em', flexShrink: 0 }}>{item.amount}</span>
                     </div>
                   ))}
                   <div style={{ borderTop: '1.5px dashed var(--ink)', marginTop: 12, marginBottom: 12 }} />
