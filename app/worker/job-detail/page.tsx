@@ -183,7 +183,7 @@ export default function JobDetail() {
   const [workOpen, setWorkOpen] = useState(false);
   const [bringOpen, setBringOpen] = useState(false);
 
-  const tasks = ['Espresso and pour-over service', 'Bar setup and breakdown', 'Stock and mise en place', "Team communication (it's busy)"];
+  const tasks = ['Espresso', 'Pour-over', 'Bar setup', 'Bar breakdown', 'Stocking', 'Mise en place', 'Team comms', "It's busy"];
   const bring = [
     { key: 'Attire', value: 'All black, closed-toe shoes' },
     { key: 'Experience', value: '2+ years espresso' },
@@ -282,22 +282,22 @@ export default function JobDetail() {
             onClick={() => setWorkOpen(o => !o)}
             style={{
               width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-              padding: '14px 18px', borderRadius: 14,
-              border: '2px solid var(--ink)', background: 'var(--ink)',
+              padding: '13px 20px', borderRadius: 99,
+              border: 'none', background: 'var(--lilac-soft)',
               cursor: 'pointer',
             }}
           >
             <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-              <span style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.10em', color: '#fff' }}>The Work</span>
-              <span style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'rgba(255,255,255,0.55)' }}>{tasks.length} tasks</span>
+              <span style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.10em', color: 'var(--ink)' }}>The Work</span>
+              <span style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--ink)', opacity: 0.5 }}>{tasks.length} tasks</span>
             </div>
-            <span style={{ color: '#fff', fontSize: 18, lineHeight: 1, display: 'inline-block', transform: workOpen ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s' }}>↓</span>
+            <span style={{ color: 'var(--ink)', fontSize: 18, lineHeight: 1, display: 'inline-block', transform: workOpen ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s' }}>↓</span>
           </button>
           {workOpen && (
-            <div className="expand-in" style={{ padding: '12px 0 0', display: 'flex', flexDirection: 'column', gap: 8 }}>
+            <div className="expand-in" style={{ paddingTop: 10, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10 }}>
               {tasks.map((task, i) => (
-                <div key={i} style={{ background: 'var(--lilac)', borderRadius: 99, padding: '13px 20px' }}>
-                  <span style={{ fontFamily: 'var(--sans)', fontWeight: 400, fontSize: 17, color: 'var(--ink)' }}>{task}</span>
+                <div key={i} style={{ background: 'var(--lilac-soft)', borderRadius: 99, padding: '14px 18px', textAlign: 'center' }}>
+                  <span style={{ fontFamily: 'var(--sans)', fontWeight: 400, fontSize: 16, color: 'var(--ink)', letterSpacing: '-0.02em' }}>{task}</span>
                 </div>
               ))}
             </div>
