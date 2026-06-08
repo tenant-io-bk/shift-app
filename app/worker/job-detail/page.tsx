@@ -282,9 +282,9 @@ export default function JobDetail() {
             onClick={() => setWorkOpen(o => !o)}
             style={{
               width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-              padding: '14px 18px', borderRadius: workOpen ? '14px 14px 0 0' : 14,
+              padding: '14px 18px', borderRadius: 14,
               border: '2px solid var(--ink)', background: 'var(--ink)',
-              cursor: 'pointer', transition: 'border-radius 0.2s',
+              cursor: 'pointer',
             }}
           >
             <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
@@ -294,11 +294,10 @@ export default function JobDetail() {
             <span style={{ color: '#fff', fontSize: 18, lineHeight: 1, display: 'inline-block', transform: workOpen ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s' }}>↓</span>
           </button>
           {workOpen && (
-            <div className="expand-in" style={{ border: '2px solid var(--ink)', borderTop: 'none', borderRadius: '0 0 14px 14px', padding: '12px 14px', display: 'flex', flexDirection: 'column', gap: 8 }}>
+            <div className="expand-in" style={{ padding: '12px 0 0', display: 'flex', flexDirection: 'column', gap: 8 }}>
               {tasks.map((task, i) => (
-                <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 12, background: 'var(--green-soft)', borderRadius: 99, padding: '10px 16px' }}>
-                  <span style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 700, color: 'var(--ink)', flexShrink: 0, opacity: 0.5 }}>{String(i + 1).padStart(2, '0')}</span>
-                  <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 14, color: 'var(--ink)' }}>{task}</span>
+                <div key={i} style={{ background: 'var(--lilac)', borderRadius: 99, padding: '13px 20px' }}>
+                  <span style={{ fontFamily: 'var(--sans)', fontWeight: 400, fontSize: 17, color: 'var(--ink)' }}>{task}</span>
                 </div>
               ))}
             </div>
@@ -311,9 +310,9 @@ export default function JobDetail() {
             onClick={() => setBringOpen(o => !o)}
             style={{
               width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-              padding: '14px 18px', borderRadius: bringOpen ? '14px 14px 0 0' : 14,
+              padding: '14px 18px', borderRadius: 14,
               border: '2px solid var(--ink)', background: 'var(--ink)',
-              cursor: 'pointer', transition: 'border-radius 0.2s',
+              cursor: 'pointer',
             }}
           >
             <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
@@ -323,11 +322,11 @@ export default function JobDetail() {
             <span style={{ color: '#fff', fontSize: 18, lineHeight: 1, display: 'inline-block', transform: bringOpen ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s' }}>↓</span>
           </button>
           {bringOpen && (
-            <div className="expand-in" style={{ border: '2px solid var(--ink)', borderTop: 'none', borderRadius: '0 0 14px 14px', padding: '12px 14px', display: 'flex', flexDirection: 'column', gap: 8 }}>
+            <div className="expand-in" style={{ padding: '12px 0 0', display: 'flex', flexDirection: 'column', gap: 8 }}>
               {bring.map((row, i) => (
-                <div key={i} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: 'var(--steel-soft)', borderRadius: 99, padding: '10px 16px' }}>
-                  <span style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--ink)' }}>{row.key}</span>
-                  <span style={{ fontFamily: 'var(--body)', fontSize: 13, color: 'var(--ink)' }}>{row.value}</span>
+                <div key={i} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: 'var(--steel-soft)', borderRadius: 99, padding: '13px 20px' }}>
+                  <span style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--ink)' }}>{row.key}</span>
+                  <span style={{ fontFamily: 'var(--sans)', fontWeight: 400, fontSize: 17, color: 'var(--ink)' }}>{row.value}</span>
                 </div>
               ))}
             </div>
