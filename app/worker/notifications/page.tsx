@@ -62,10 +62,10 @@ const INITIAL: Notification[] = [
 
 const TYPE_BG: Record<Notification['type'], string> = {
   match:   'var(--steel-soft)',
-  payment: 'var(--green-soft)',
+  payment: 'var(--green)',
   reminder:'var(--yellow-soft)',
   review:  'var(--lilac-soft)',
-  rebook:  'var(--pink-soft)',
+  rebook:  'var(--pink)',
 };
 
 const TYPE_BORDER: Record<Notification['type'], string> = {
