@@ -68,6 +68,14 @@ const TYPE_BG: Record<Notification['type'], string> = {
   rebook:  'var(--pink-soft)',
 };
 
+const TYPE_BORDER: Record<Notification['type'], string> = {
+  match:   'var(--steel)',
+  payment: 'var(--green)',
+  reminder:'var(--yellow)',
+  review:  'var(--lilac)',
+  rebook:  'var(--pink)',
+};
+
 // How many px of each stacked card peek below the one above
 const PEEK = 14;
 
@@ -122,7 +130,7 @@ export default function Notifications() {
                 marginBottom: i < today.length - 1 ? 0 : 20,
               }}
             >
-              <NotifCard n={n} onRead={markRead} stackDepth={i} />
+              <NotifCard n={n} onRead={markRead} stackDepth={i} isEarlier={false} />
             </div>
           ))}
         </div>
@@ -143,7 +151,7 @@ export default function Notifications() {
                 marginBottom: i < earlier.length - 1 ? 0 : 20,
               }}
             >
-              <NotifCard n={n} onRead={markRead} stackDepth={i} />
+              <NotifCard n={n} onRead={markRead} stackDepth={i} isEarlier={true} />
             </div>
           ))}
         </div>
@@ -155,7 +163,7 @@ export default function Notifications() {
   );
 }
 
-function NotifCard({ n, onRead, stackDepth }: { n: Notification; onRead: (id: number) => void; stackDepth: number }) {
+function NotifCard({ n, onRead, stackDepth, isEarlier }: { n: Notification; onRead: (id: number) => void; stackDepth: number; isEarlier: boolean }) {
   const scale = 1 - stackDepth * 0.015;
   return (
     <Link
@@ -164,7 +172,8 @@ function NotifCard({ n, onRead, stackDepth }: { n: Notification; onRead: (id: nu
       style={{
         display: 'block',
         padding: '16px 18px 18px',
-        background: TYPE_BG[n.type],
+        background: isEarlier ? 'var(--card)' : TYPE_BG[n.type],
+        border: isEarlier ? `2px solid ${TYPE_BORDER[n.type]}` : 'none',
         borderRadius: 18,
         textDecoration: 'none',
         marginBottom: 10,

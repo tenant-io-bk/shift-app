@@ -106,7 +106,7 @@ export default function Credentials() {
                 >
                   {/* Checkbox */}
                   <div style={{
-                    width: 22, height: 22, borderRadius: 6, flexShrink: 0,
+                    width: 24, height: 24, borderRadius: '50%', flexShrink: 0,
                     border: '2px solid var(--ink)',
                     background: on ? 'var(--ink)' : 'transparent',
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
