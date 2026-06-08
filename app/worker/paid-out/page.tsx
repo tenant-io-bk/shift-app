@@ -144,10 +144,10 @@ export default function PaidOut() {
               <span
                 style={{
                   fontFamily: 'var(--sans)',
-                  fontWeight: row.bold ? 700 : 400,
-                  fontSize: 15,
-                  color: row.green ? 'var(--green)' : row.muted ? 'var(--ink)' : 'var(--ink)',
-                  letterSpacing: '-0.01em',
+                  fontWeight: 700,
+                  fontSize: 20,
+                  color: row.green ? 'var(--green)' : 'var(--ink)',
+                  letterSpacing: '-0.03em',
                 }}
               >
                 {row.amount}

@@ -28,6 +28,11 @@ export default function WorkerConfirm() {
           60%  { transform: scale(1.08); }
           100% { opacity: 1; transform: scale(1); }
         }
+        @keyframes dot-pulse {
+          0%, 100% { opacity: 1; transform: scale(1); }
+          50% { opacity: 0.35; transform: scale(0.7); }
+        }
+        .on-dot { animation: dot-pulse 2s ease-in-out infinite; }
         @keyframes bounce-off {
           0%   { transform: translateX(0); }
           20%  { transform: translateX(-12px); }
@@ -83,11 +88,8 @@ export default function WorkerConfirm() {
 
         {/* Light header */}
         <div style={{ padding: '16px 22px 20px', flexShrink: 0 }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 10 }}>
-            <div style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--online)' }} />
-            <span style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, color: 'var(--ink)', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
-              Just now · Barista · Today 11A–4P
-            </span>
+          <div style={{ display: 'flex', alignItems: 'center', marginBottom: 10 }}>
+            <div className="on-dot" style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--online)' }} />
           </div>
 
           <div style={{
@@ -139,7 +141,7 @@ export default function WorkerConfirm() {
             ].map((row, i) => (
               <div key={i} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', padding: '14px 20px', borderBottom: '1.5px dashed var(--ink)' }}>
                 <p style={{ fontFamily: 'var(--body)', fontSize: 9.5, fontWeight: 600, letterSpacing: '0.10em', textTransform: 'uppercase', color: 'var(--ink)' }}>{row.label}</p>
-                <p style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 15, color: 'var(--ink)', letterSpacing: '-0.01em' }}>{row.value}</p>
+                <p style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 20, color: 'var(--ink)', letterSpacing: '-0.03em' }}>{row.value}</p>
               </div>
             ))}
 
