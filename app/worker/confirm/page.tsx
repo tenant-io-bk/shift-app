@@ -160,24 +160,20 @@ export default function WorkerConfirm() {
             </div>
           </div>
 
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginTop: 12, gap: 10 }}>
-            <div style={{
-              flex: 1,
-              background: penaltyActive ? 'var(--red-soft)' : 'var(--yellow-soft)',
-              borderRadius: 99,
-              padding: '8px 14px',
-              transition: 'background 0.4s ease',
-            }}>
-              <span style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--ink)', lineHeight: 1.4 }}>
-                {penaltyActive
-                  ? 'Cancellation now incurs a penalty.'
-                  : 'Back out within 15 min — no penalty.'}
-              </span>
-            </div>
-            <Link href="/v3/cancel-flow" style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--ink)', textDecoration: 'underline', flexShrink: 0 }}>
-              Cancel
-            </Link>
-          </div>
+          <Link href="/v3/cancel-flow" style={{
+            display: 'block', marginTop: 12,
+            background: penaltyActive ? 'var(--red-soft)' : 'var(--yellow-soft)',
+            borderRadius: 99,
+            padding: '14px 20px',
+            textDecoration: 'none',
+            transition: 'background 0.4s ease',
+          }}>
+            <span style={{ fontFamily: 'var(--body)', fontSize: 15, fontWeight: 700, color: 'var(--ink)', lineHeight: 1.4 }}>
+              {penaltyActive
+                ? 'Cancellation now incurs a penalty.'
+                : 'Back out within 15 min — no penalty.'}
+            </span>
+          </Link>
 
           <div style={{ marginTop: 20 }}>
             <p style={{ fontFamily: 'var(--body)', fontSize: 10.5, fontWeight: 600, letterSpacing: '0.10em', textTransform: 'uppercase', color: 'var(--ink)', marginBottom: 12 }}>What&apos;s next</p>
