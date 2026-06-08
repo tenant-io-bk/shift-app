@@ -3,6 +3,56 @@
 import Link from 'next/link';
 import { useState } from 'react';
 
+const TOMAS_TAGS = [
+  { label: 'Clear Communicator', red: false },
+  { label: 'Punctual', red: false },
+  { label: 'Respectful', red: false },
+  { label: 'Late Start', red: true },
+  { label: 'Unclear Brief', red: true },
+  { label: 'Skipped Break', red: true },
+  { label: 'Good Energy', red: false },
+];
+
+function TomasStars() {
+  const [rating, setRating] = useState(0);
+  const [hovered, setHovered] = useState(0);
+  const display = hovered || rating;
+  return (
+    <div style={{ display: 'flex', gap: 8 }}>
+      {[1,2,3,4,5].map(star => (
+        <button key={star}
+          onMouseEnter={() => setHovered(star)} onMouseLeave={() => setHovered(0)}
+          onClick={() => setRating(star)}
+          style={{ width: 44, height: 44, background: 'transparent', border: 'none', cursor: 'pointer', padding: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+        >
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+            <path d="M16 3l3.8 7.7 8.5 1.2-6.1 6 1.4 8.5L16 22.4l-7.6 4-0.3.2 1.4-8.5-6.1-6 8.5-1.2z"
+              fill={star <= display ? 'var(--yellow)' : 'var(--paper-3)'}
+              stroke={star <= display ? 'var(--yellow)' : 'var(--paper-3)'} strokeWidth="1"/>
+          </svg>
+        </button>
+      ))}
+    </div>
+  );
+}
+
+function TomasTags() {
+  const [tags, setTags] = useState(TOMAS_TAGS.map(t => ({ ...t, selected: false })));
+  return (
+    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+      {tags.map((tag, i) => (
+        <button key={i} onClick={() => setTags(prev => { const n = [...prev]; n[i] = { ...n[i], selected: !n[i].selected }; return n; })}
+          style={{ padding: '11px 18px', borderRadius: 99, fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 16, cursor: 'pointer',
+            border: `2px solid ${tag.red ? 'var(--red)' : 'var(--ink)'}`,
+            background: tag.selected ? (tag.red ? 'var(--red)' : 'var(--ink)') : 'transparent',
+            color: tag.selected ? '#fff' : (tag.red ? 'var(--red)' : 'var(--ink)'),
+            transition: 'all 0.15s ease' }}
+        >{tag.label}</button>
+      ))}
+    </div>
+  );
+}
+
 const TAGS = [
   { label: 'Organized Rush', selected: true, red: false },
   { label: 'Good Briefing', selected: true, red: false },
@@ -92,7 +142,7 @@ export default function MutualReview() {
               fontWeight: 600,
               textTransform: 'uppercase',
               letterSpacing: '0.08em',
-              color: 'var(--mute)',
+              color: 'var(--ink)',
               marginBottom: 3,
             }}>{stat.label}</p>
             <p style={{
@@ -188,22 +238,39 @@ export default function MutualReview() {
           ))}
         </div>
 
-        {/* Anonymity notice */}
-        <div style={{
-          marginTop: 16,
-          padding: 12,
-          background: 'var(--paper-2)',
-          borderRadius: 14,
-          marginBottom: 24,
-        }}>
-          <p style={{
-            fontFamily: 'var(--body)',
-            fontSize: 12,
-            color: 'var(--mute)',
-            fontStyle: 'italic',
-            lineHeight: 1.5,
-          }}>Padmore's can't see who left a rating — only the aggregate.</p>
+        <p style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--ink)', fontStyle: 'italic', lineHeight: 1.5, marginBottom: 32 }}>
+          Padmore&apos;s can&apos;t see who left a rating — only the aggregate.
+        </p>
+
+        {/* Divider */}
+        <div style={{ borderTop: '1px solid var(--line)', marginBottom: 28 }} />
+
+        {/* Rate Tomás */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 16 }}>
+          <div style={{ width: 40, height: 40, borderRadius: '50%', background: 'var(--ink)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+            <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 16, color: '#fff' }}>T</span>
+          </div>
+          <div>
+            <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 16, color: 'var(--ink)', letterSpacing: '-0.02em' }}>Tomás</div>
+            <div style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--ink)' }}>Owner · Padmore&apos;s</div>
+          </div>
         </div>
+
+        <p style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 22, color: 'var(--ink)', letterSpacing: '-0.01em', marginBottom: 14 }}>
+          How Was Working With Tomás?
+        </p>
+
+        <TomasStars />
+
+        <p style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--ink)', marginTop: 20, marginBottom: 12 }}>
+          What stood out?
+        </p>
+
+        <TomasTags />
+
+        <p style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--ink)', fontStyle: 'italic', lineHeight: 1.5, marginBottom: 32 }}>
+          Tomás can&apos;t see who left a rating — only the aggregate.
+        </p>
 
         {/* CTA */}
         <Link href="/worker/map" style={{
