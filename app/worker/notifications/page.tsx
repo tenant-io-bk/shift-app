@@ -60,13 +60,16 @@ const INITIAL: Notification[] = [
   },
 ];
 
-const TYPE_CONFIG = {
-  match:   { bg: 'var(--steel)',      color: 'var(--navy)', icon: '⚡' },
-  payment: { bg: 'var(--green)',      color: 'var(--ink)', icon: '$' },
-  reminder:{ bg: 'var(--yellow)',     color: 'var(--ink)', icon: '!' },
-  review:  { bg: 'var(--lilac)',      color: '#fff', icon: '★' },
-  rebook:  { bg: 'var(--pink)',       color: 'var(--ink)', icon: '↩' },
+const TYPE_BG: Record<Notification['type'], string> = {
+  match:   'var(--steel-soft)',
+  payment: 'var(--green-soft)',
+  reminder:'var(--yellow-soft)',
+  review:  'var(--lilac-soft)',
+  rebook:  'var(--pink-soft)',
 };
+
+// How many px of each stacked card peek below the one above
+const PEEK = 14;
 
 export default function Notifications() {
   const [items, setItems] = useState(INITIAL);
@@ -76,23 +79,22 @@ export default function Notifications() {
   function markAllRead() {
     setItems(prev => prev.map(n => ({ ...n, read: true })));
   }
-
   function markRead(id: number) {
     setItems(prev => prev.map(n => n.id === id ? { ...n, read: true } : n));
   }
 
-  const today = items.filter(n => ['8 min ago', '2 hrs ago', '3 hrs ago'].includes(n.time));
+  const today   = items.filter(n => ['8 min ago', '2 hrs ago', '3 hrs ago'].includes(n.time));
   const earlier = items.filter(n => !['8 min ago', '2 hrs ago', '3 hrs ago'].includes(n.time));
 
   return (
-    <div style={{ maxWidth: 390, minHeight: '100vh', margin: '0 auto', background: 'var(--paper)', display: 'flex', flexDirection: 'column', paddingBottom: 80 }}>
+    <div style={{ maxWidth: 390, minHeight: '100vh', margin: '0 auto', background: 'var(--paper)', display: 'flex', flexDirection: 'column' }}>
       <StatusBar time="10:12" />
 
       {/* Nav */}
-      <div style={{ height: 44, display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 16px', borderBottom: '1px solid var(--line)', background: 'var(--paper)' }}>
+      <div style={{ height: 44, display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 16px', borderBottom: '1px solid var(--line)', background: 'var(--paper)', flexShrink: 0 }}>
         <div style={{ width: 60 }} />
         <span style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--ink)' }}>
-          Alerts {unreadCount > 0 && <span style={{ color: 'var(--ink)' }}>· {unreadCount}</span>}
+          Alerts {unreadCount > 0 && <span>· {unreadCount}</span>}
         </span>
         {unreadCount > 0 ? (
           <button onClick={markAllRead} style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, color: 'var(--ink)', background: 'none', border: 'none', cursor: 'pointer', width: 60, textAlign: 'right' }}>
@@ -101,14 +103,51 @@ export default function Notifications() {
         ) : <div style={{ width: 60 }} />}
       </div>
 
-      <div style={{ flex: 1, overflowY: 'auto', padding: '8px 16px 16px' }}>
-        {/* Today */}
-        <div style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--ink)', padding: '10px 4px 8px' }}>Today</div>
-        {today.map(n => <NotifRow key={n.id} n={n} onRead={markRead} />)}
+      {/* Scrollable list */}
+      <div style={{ flex: 1, overflowY: 'auto', paddingBottom: 100 }}>
 
-        {/* Earlier */}
-        <div style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--ink)', padding: '16px 4px 8px' }}>Earlier</div>
-        {earlier.map(n => <NotifRow key={n.id} n={n} onRead={markRead} />)}
+        {/* TODAY */}
+        <div style={{ position: 'sticky', top: 0, zIndex: 30, background: 'var(--paper)', padding: '12px 20px 8px' }}>
+          <span style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--ink)' }}>Today</span>
+        </div>
+
+        <div style={{ padding: '0 16px', position: 'relative' }}>
+          {today.map((n, i) => (
+            <div
+              key={n.id}
+              style={{
+                position: 'sticky',
+                top: 34 + i * PEEK,
+                zIndex: 20 - i,
+                marginBottom: i < today.length - 1 ? 0 : 20,
+              }}
+            >
+              <NotifCard n={n} onRead={markRead} stackDepth={i} />
+            </div>
+          ))}
+        </div>
+
+        {/* EARLIER */}
+        <div style={{ position: 'sticky', top: 0, zIndex: 30, background: 'var(--paper)', padding: '4px 20px 8px' }}>
+          <span style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--ink)' }}>Earlier</span>
+        </div>
+
+        <div style={{ padding: '0 16px' }}>
+          {earlier.map((n, i) => (
+            <div
+              key={n.id}
+              style={{
+                position: 'sticky',
+                top: 34 + i * PEEK,
+                zIndex: 20 - i,
+                marginBottom: i < earlier.length - 1 ? 0 : 20,
+              }}
+            >
+              <NotifCard n={n} onRead={markRead} stackDepth={i} />
+            </div>
+          ))}
+        </div>
+
       </div>
 
       <BottomNav active="menu" />
@@ -116,44 +155,34 @@ export default function Notifications() {
   );
 }
 
-function NotifRow({ n, onRead }: { n: Notification; onRead: (id: number) => void }) {
-  const cfg = TYPE_CONFIG[n.type];
+function NotifCard({ n, onRead, stackDepth }: { n: Notification; onRead: (id: number) => void; stackDepth: number }) {
+  const scale = 1 - stackDepth * 0.015;
   return (
     <Link
       href={n.href}
       onClick={() => onRead(n.id)}
       style={{
-        display: 'flex', alignItems: 'flex-start', gap: 12,
-        padding: '14px 16px',
-        background: 'var(--paper)',
-        border: `2px solid ${n.read ? 'var(--line)' : 'var(--ink)'}`,
-        borderRadius: 14,
+        display: 'block',
+        padding: '16px 18px 18px',
+        background: TYPE_BG[n.type],
+        borderRadius: 18,
         textDecoration: 'none',
         marginBottom: 10,
+        transform: `scale(${scale})`,
+        transformOrigin: 'top center',
+        boxShadow: stackDepth > 0 ? '0 -2px 12px rgba(0,0,0,0.07)' : 'none',
       }}
     >
-      {/* Icon */}
-      <div style={{
-        width: 40, height: 40, borderRadius: 10, flexShrink: 0,
-        background: cfg.bg, display: 'flex', alignItems: 'center', justifyContent: 'center',
-        fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 16, color: cfg.color,
-      }}>
-        {cfg.icon}
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 8, marginBottom: 5 }}>
+        <span style={{ fontFamily: 'var(--sans)', fontWeight: n.read ? 400 : 700, fontSize: 16, color: 'var(--ink)', lineHeight: 1.25, letterSpacing: '-0.02em' }}>
+          {n.title}
+        </span>
+        {!n.read && (
+          <div style={{ width: 7, height: 7, borderRadius: '50%', background: 'var(--ink)', flexShrink: 0, marginTop: 5 }} />
+        )}
       </div>
-
-      {/* Text */}
-      <div style={{ flex: 1, minWidth: 0 }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 8, marginBottom: 3 }}>
-          <span style={{ fontFamily: 'var(--sans)', fontWeight: n.read ? 500 : 700, fontSize: 14, color: 'var(--ink)', lineHeight: 1.3 }}>
-            {n.title}
-          </span>
-          {!n.read && (
-            <div style={{ width: 7, height: 7, borderRadius: '50%', background: 'var(--ink)', flexShrink: 0, marginTop: 4 }} />
-          )}
-        </div>
-        <div style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--ink)', lineHeight: 1.4 }}>{n.sub}</div>
-        <div style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--ink)', marginTop: 4, opacity: 0.7 }}>{n.time}</div>
-      </div>
+      <div style={{ fontFamily: 'var(--body)', fontSize: 13, color: 'var(--ink)', lineHeight: 1.45 }}>{n.sub}</div>
+      <div style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--ink)', marginTop: 8, opacity: 0.55 }}>{n.time}</div>
     </Link>
   );
 }
