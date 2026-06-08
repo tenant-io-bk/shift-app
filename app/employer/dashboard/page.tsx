@@ -482,20 +482,30 @@ export default function EmployerDashboard() {
 
       <Section id="active" label="Active now">
         {ACTIVE_SHIFTS.map((s, i) => (
-          <div key={i} style={{ border: '2px solid var(--ink)', borderRadius: 22, overflow: 'hidden' }}>
-            <ShiftCard
-              role={s.role}
-              time={s.time}
-              venue="Padmore's"
-              brief={`${s.workers} workers confirmed · ${s.status} · ${s.eta}`}
-              pay="$130"
-              rate="$26/hr"
-              family="bar"
-              state="confirmed"
-              timeRight={true}
-              href="/employer/roster"
-            />
-          </div>
+          <Link key={i} href="/employer/day-of" style={{
+            display: 'grid', gridTemplateColumns: '1fr auto',
+            background: 'var(--green)', borderRadius: 22,
+            padding: '18px 20px 20px', textDecoration: 'none',
+            color: 'var(--ink)', alignItems: 'start', gap: '4px 12px',
+          }}>
+            <div style={{ gridColumn: '1/2' }}>
+              <p style={{ fontFamily: 'var(--sans)', fontWeight: 500, fontSize: 40, letterSpacing: '-0.065em', lineHeight: 0.9, color: 'var(--ink)', margin: 0 }}>
+                {s.role}
+              </p>
+              <p style={{ fontFamily: 'var(--body)', fontSize: 15, color: 'var(--ink)', marginTop: 10 }}>
+                {s.time}
+              </p>
+              <p style={{ fontFamily: 'var(--body)', fontSize: 13, color: 'var(--ink)', opacity: 0.7, marginTop: 6 }}>
+                {s.workers} workers confirmed · {s.status} · {s.eta}
+              </p>
+            </div>
+            <div style={{ gridColumn: '2/3', textAlign: 'right', paddingTop: 4 }}>
+              <div style={{ fontFamily: 'var(--sans)', fontWeight: 400, fontSize: 48, letterSpacing: '-0.05em', lineHeight: 0.9, color: 'var(--ink)', display: 'inline-flex', alignItems: 'baseline' }}>
+                <span style={{ fontSize: 24, display: 'inline-block', transform: 'translateY(-4px)' }}>$</span>130
+              </div>
+              <div style={{ fontFamily: 'var(--body)', fontSize: 9, fontWeight: 700, letterSpacing: '0.04em', textTransform: 'uppercase', color: 'var(--ink)', opacity: 0.6, marginTop: 4 }}>$26/HR</div>
+            </div>
+          </Link>
         ))}
       </Section>
 

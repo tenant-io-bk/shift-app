@@ -223,36 +223,21 @@ export default function ShiftPosted() {
           </div>
         </div>
 
-        {/* What's next / filled info */}
-        <div style={{ padding: '4px 22px 0' }}>
-          {isFilled ? (
-            <>
-              <p style={{ fontFamily: 'var(--body)', fontSize: 10.5, fontWeight: 600, letterSpacing: '0.10em', textTransform: 'uppercase', color: 'var(--ink)', marginBottom: 12 }}>You&apos;re Set</p>
-              {[
-                'Marcus gets directions and shift details now.',
-                'A standby worker is on deck — auto-notified if he cancels.',
-                'Message him directly or track arrival on the day.',
-              ].map((text, i) => (
-                <p key={i} style={{ fontFamily: 'var(--body)', fontSize: 14, color: 'var(--ink)', lineHeight: 1.55, marginBottom: 8 }}>
-                  {String(i + 1).padStart(2, '0')}. {text}
-                </p>
-              ))}
-            </>
-          ) : (
-            <>
-              <p style={{ fontFamily: 'var(--body)', fontSize: 10.5, fontWeight: 600, letterSpacing: '0.10em', textTransform: 'uppercase', color: 'var(--ink)', marginBottom: 12 }}>What&apos;s Next</p>
-              {[
-                'Workers nearby get an instant push notification.',
-                "First to accept locks in — you'll see them on your roster.",
-                'Standby worker is on deck in case of no-show.',
-              ].map((text, i) => (
-                <p key={i} style={{ fontFamily: 'var(--body)', fontSize: 14, color: 'var(--ink)', lineHeight: 1.55, marginBottom: 8 }}>
-                  {String(i + 1).padStart(2, '0')}. {text}
-                </p>
-              ))}
-            </>
-          )}
-        </div>
+        {/* What's next — only shown while matching */}
+        {!isFilled && (
+          <div style={{ padding: '4px 22px 0' }}>
+            <p style={{ fontFamily: 'var(--body)', fontSize: 10.5, fontWeight: 600, letterSpacing: '0.10em', textTransform: 'uppercase', color: 'var(--ink)', marginBottom: 12 }}>What&apos;s Next</p>
+            {[
+              'Workers nearby get an instant push notification.',
+              "First to accept locks in — you'll see them on your roster.",
+              'Standby worker is on deck in case of no-show.',
+            ].map((text, i) => (
+              <p key={i} style={{ fontFamily: 'var(--body)', fontSize: 14, color: 'var(--ink)', lineHeight: 1.55, marginBottom: 8 }}>
+                {String(i + 1).padStart(2, '0')}. {text}
+              </p>
+            ))}
+          </div>
+        )}
       </div>
 
       {/* Fixed CTAs */}
@@ -274,14 +259,9 @@ export default function ShiftPosted() {
             </Link>
           </>
         ) : (
-          <>
-            <Link href="/employer/day-of" style={{ display: 'block', background: 'var(--ink)', color: 'white', borderRadius: 99, padding: '15px 22px', textAlign: 'center', textDecoration: 'none', fontFamily: 'var(--body)', fontWeight: 500, fontSize: 15, letterSpacing: '-0.01em' }}>
-              Track This Shift →
-            </Link>
-            <Link href="/employer/post-shift" style={{ display: 'block', border: '2px solid var(--ink)', borderRadius: 99, padding: '14px 22px', textAlign: 'center', textDecoration: 'none', fontFamily: 'var(--body)', fontWeight: 500, fontSize: 15, color: 'var(--ink)' }}>
-              Post Another Shift
-            </Link>
-          </>
+          <Link href="/employer/day-of" style={{ display: 'block', background: 'var(--ink)', color: 'white', borderRadius: 99, padding: '15px 22px', textAlign: 'center', textDecoration: 'none', fontFamily: 'var(--body)', fontWeight: 500, fontSize: 15, letterSpacing: '-0.01em' }}>
+            Track This Shift →
+          </Link>
         )}
       </div>
 
