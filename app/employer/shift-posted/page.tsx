@@ -266,8 +266,8 @@ export default function ShiftPosted() {
       }}>
         {isFilled ? (
           <>
-            <Link href="/employer/roster" style={{ display: 'block', background: 'var(--ink)', color: 'white', borderRadius: 99, padding: '15px 22px', textAlign: 'center', textDecoration: 'none', fontFamily: 'var(--body)', fontWeight: 500, fontSize: 15, letterSpacing: '-0.01em' }}>
-              Message Marcus →
+            <Link href="/employer/day-of" style={{ display: 'block', background: 'var(--ink)', color: 'white', borderRadius: 99, padding: '15px 22px', textAlign: 'center', textDecoration: 'none', fontFamily: 'var(--body)', fontWeight: 500, fontSize: 15, letterSpacing: '-0.01em' }}>
+              Track Shift →
             </Link>
             <Link href="/employer/roster" style={{ display: 'block', border: '2px solid var(--ink)', borderRadius: 99, padding: '14px 22px', textAlign: 'center', textDecoration: 'none', fontFamily: 'var(--body)', fontWeight: 500, fontSize: 15, color: 'var(--ink)' }}>
               View Roster
@@ -275,7 +275,7 @@ export default function ShiftPosted() {
           </>
         ) : (
           <>
-            <Link href="/employer/roster" style={{ display: 'block', background: 'var(--ink)', color: 'white', borderRadius: 99, padding: '15px 22px', textAlign: 'center', textDecoration: 'none', fontFamily: 'var(--body)', fontWeight: 500, fontSize: 15, letterSpacing: '-0.01em' }}>
+            <Link href="/employer/day-of" style={{ display: 'block', background: 'var(--ink)', color: 'white', borderRadius: 99, padding: '15px 22px', textAlign: 'center', textDecoration: 'none', fontFamily: 'var(--body)', fontWeight: 500, fontSize: 15, letterSpacing: '-0.01em' }}>
               Track This Shift →
             </Link>
             <Link href="/employer/post-shift" style={{ display: 'block', border: '2px solid var(--ink)', borderRadius: 99, padding: '14px 22px', textAlign: 'center', textDecoration: 'none', fontFamily: 'var(--body)', fontWeight: 500, fontSize: 15, color: 'var(--ink)' }}>
