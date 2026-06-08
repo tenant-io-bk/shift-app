@@ -168,7 +168,7 @@ export default function WorkerConfirm() {
             textDecoration: 'none',
             transition: 'background 0.4s ease',
           }}>
-            <span style={{ fontFamily: 'var(--body)', fontSize: 15, fontWeight: 700, color: 'var(--ink)', lineHeight: 1.4 }}>
+            <span style={{ fontFamily: 'var(--body)', fontSize: 15, fontWeight: 700, color: 'var(--ink)', lineHeight: 1.4, display: 'block', textAlign: 'center' }}>
               {penaltyActive
                 ? 'Cancellation now incurs a penalty.'
                 : 'Back out within 15 min — no penalty.'}
