@@ -54,8 +54,8 @@ export default function OnShift() {
             <span style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--ink)', display: 'block', marginBottom: 6 }}>
               Time elapsed
             </span>
-            <div style={{ fontFamily: 'var(--sans)', fontWeight: 400, fontSize: 96, color: 'var(--ink)', letterSpacing: '0.04em', lineHeight: 1 }}>
-              2H 14M
+            <div style={{ fontFamily: 'var(--sans)', fontWeight: 400, fontSize: 64, color: 'var(--ink)', letterSpacing: '0.04em', lineHeight: 1 }}>
+              2h 14m
             </div>
             <span style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--ink)', marginTop: 8, display: 'block' }}>
               $28/hr · Barista
