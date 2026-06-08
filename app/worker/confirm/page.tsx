@@ -129,30 +129,21 @@ export default function WorkerConfirm() {
         {/* Scrollable content */}
         <div style={{ flex: 1, padding: '0 22px 22px', paddingBottom: 120, overflowY: 'auto' }}>
 
-          {/* Receipt card — grid is flush against card border so absolute dividers span edge-to-edge */}
+          {/* Receipt card */}
           <div className="receipt-card" style={{ marginBottom: 12 }}>
-            <div style={{ position: 'relative', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 0 }}>
-              <div style={{ position: 'absolute', left: 'calc(50% - 0.75px)', top: 0, bottom: 0, width: 0, borderLeft: '1.5px dashed var(--ink)', pointerEvents: 'none' }} />
-              <div style={{ position: 'absolute', top: '50%', left: 0, right: 0, height: 0, borderTop: '1.5px dashed var(--ink)', pointerEvents: 'none' }} />
-              <div style={{ padding: '20px 16px 16px 20px' }}>
-                <p style={{ fontFamily: 'var(--body)', fontSize: 9.5, fontWeight: 600, letterSpacing: '0.10em', textTransform: 'uppercase', color: 'var(--ink)', marginBottom: 4 }}>When</p>
-                <p style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 15, color: 'var(--ink)', letterSpacing: '-0.01em' }}>Today · 11A – 4P</p>
+            {[
+              { label: 'When',     value: 'Today · 11A – 4P' },
+              { label: 'Hours',    value: '5 hrs' },
+              { label: 'Get there',value: '25 min away' },
+              { label: 'Address',  value: '172 Tompkins Ave' },
+            ].map((row, i) => (
+              <div key={i} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', padding: '14px 20px', borderBottom: '1.5px dashed var(--ink)' }}>
+                <p style={{ fontFamily: 'var(--body)', fontSize: 9.5, fontWeight: 600, letterSpacing: '0.10em', textTransform: 'uppercase', color: 'var(--ink)' }}>{row.label}</p>
+                <p style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 15, color: 'var(--ink)', letterSpacing: '-0.01em' }}>{row.value}</p>
               </div>
-              <div style={{ padding: '20px 20px 16px 16px' }}>
-                <p style={{ fontFamily: 'var(--body)', fontSize: 9.5, fontWeight: 600, letterSpacing: '0.10em', textTransform: 'uppercase', color: 'var(--ink)', marginBottom: 4 }}>Hours</p>
-                <p style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 15, color: 'var(--ink)', letterSpacing: '-0.01em' }}>5 hrs</p>
-              </div>
-              <div style={{ padding: '16px 16px 20px 20px' }}>
-                <p style={{ fontFamily: 'var(--body)', fontSize: 9.5, fontWeight: 600, letterSpacing: '0.10em', textTransform: 'uppercase', color: 'var(--ink)', marginBottom: 4 }}>Get there</p>
-                <p style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 14, color: 'var(--ink)', letterSpacing: '-0.01em' }}>25 min away</p>
-              </div>
-              <div style={{ padding: '16px 20px 20px 16px' }}>
-                <p style={{ fontFamily: 'var(--body)', fontSize: 9.5, fontWeight: 600, letterSpacing: '0.10em', textTransform: 'uppercase', color: 'var(--ink)', marginBottom: 4 }}>Address</p>
-                <p style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 14, color: 'var(--ink)', letterSpacing: '-0.01em' }}>172 Tompkins Ave</p>
-              </div>
-            </div>
+            ))}
 
-            <div style={{ borderTop: '1.5px dashed var(--ink)', padding: '14px 20px 20px', display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
+            <div style={{ padding: '14px 20px 20px', display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
               <span style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 600, letterSpacing: '0.10em', textTransform: 'uppercase', color: 'var(--ink)' }}>Take home</span>
               <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 22, color: 'var(--ink)', letterSpacing: '-0.02em' }}>
                 $140<span style={{ color: 'var(--green)' }}>.</span>
