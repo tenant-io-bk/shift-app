@@ -188,21 +188,25 @@ export default function EmployerDashboard() {
       </div>
 
       {/* ── Post A Shift card ─────────────────────────────────────────────── */}
-      <div style={{ borderRadius: '14px 14px 0 0', overflow: 'hidden', margin: '0 0 4px' }}>
+      <div style={{ margin: '0 16px 4px' }}>
 
-        {/* Black bar / toggle */}
+        {/* Pill toggle button */}
         <button
           onClick={isPosting ? cancelPosting : startPosting}
-          style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '18px 20px', background: 'var(--ink)', border: 'none', cursor: 'pointer' }}
+          style={{
+            width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+            padding: '16px 22px', background: 'var(--ink)', border: 'none', cursor: 'pointer',
+            borderRadius: isPosting ? '99px 99px 0 0' : 99,
+            transition: 'border-radius 0.2s',
+          }}
         >
           <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 24, color: '#fff', letterSpacing: '-0.04em' }}>Post a Shift.</span>
-          {!isPosting && <span style={{ flex: 1, paddingLeft: 12, textAlign: 'left' }}><span style={{ border: '1px solid rgba(255,255,255,0.3)', borderRadius: 99, padding: '3px 10px', fontFamily: 'var(--body)', fontSize: 11, color: 'rgba(255,255,255,0.6)' }}>Workers Confirmed in Minutes</span></span>}
           <span style={{ fontFamily: 'var(--sans)', fontWeight: 300, fontSize: 32, color: '#fff', lineHeight: 1 }}>{isPosting ? '×' : '+'}</span>
         </button>
 
         {/* Inline form */}
         {isPosting && (
-          <div style={{ background: 'var(--paper)', padding: '18px 20px 20px' }}>
+          <div style={{ background: 'var(--paper)', padding: '18px 20px 24px', borderRadius: '0 0 24px 24px', boxShadow: '0 6px 20px rgba(0,0,0,0.1)' }}>
             <style>{`
               @keyframes pill-land-post {
                 0%   { opacity: 0; transform: translateY(32px) rotate(var(--r)) scale(0.84); }
@@ -484,7 +488,7 @@ export default function EmployerDashboard() {
         {ACTIVE_SHIFTS.map((s, i) => (
           <Link key={i} href="/employer/day-of" style={{
             display: 'grid', gridTemplateColumns: '1fr auto',
-            background: 'var(--green)', borderRadius: 22,
+            background: 'var(--steel)', borderRadius: 22,
             padding: '18px 20px 20px', textDecoration: 'none',
             color: 'var(--ink)', alignItems: 'start', gap: '4px 12px',
           }}>
@@ -495,7 +499,7 @@ export default function EmployerDashboard() {
               <p style={{ fontFamily: 'var(--body)', fontSize: 15, color: 'var(--ink)', marginTop: 10 }}>
                 {s.time}
               </p>
-              <p style={{ fontFamily: 'var(--body)', fontSize: 13, color: 'var(--ink)', opacity: 0.7, marginTop: 6 }}>
+              <p style={{ fontFamily: 'var(--body)', fontSize: 13, color: 'var(--ink)', marginTop: 6 }}>
                 {s.workers} workers confirmed · {s.status} · {s.eta}
               </p>
             </div>
@@ -503,7 +507,7 @@ export default function EmployerDashboard() {
               <div style={{ fontFamily: 'var(--sans)', fontWeight: 400, fontSize: 48, letterSpacing: '-0.05em', lineHeight: 0.9, color: 'var(--ink)', display: 'inline-flex', alignItems: 'baseline' }}>
                 <span style={{ fontSize: 24, display: 'inline-block', transform: 'translateY(-4px)' }}>$</span>130
               </div>
-              <div style={{ fontFamily: 'var(--body)', fontSize: 9, fontWeight: 700, letterSpacing: '0.04em', textTransform: 'uppercase', color: 'var(--ink)', opacity: 0.6, marginTop: 4 }}>$26/HR</div>
+              <div style={{ fontFamily: 'var(--body)', fontSize: 9, fontWeight: 700, letterSpacing: '0.04em', textTransform: 'uppercase', color: 'var(--ink)', marginTop: 4 }}>$26/HR</div>
             </div>
           </Link>
         ))}
