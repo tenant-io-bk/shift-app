@@ -54,7 +54,7 @@ export default function OnShift() {
             <span style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--ink)', display: 'block', marginBottom: 6 }}>
               Time elapsed
             </span>
-            <div style={{ fontFamily: 'var(--sans)', fontWeight: 400, fontSize: 72, color: 'var(--ink)', letterSpacing: '-0.05em', lineHeight: 1 }}>
+            <div style={{ fontFamily: 'var(--sans)', fontWeight: 400, fontSize: 96, color: 'var(--ink)', letterSpacing: '-0.05em', lineHeight: 1 }}>
               2:14
             </div>
             <span style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--ink)', marginTop: 8, display: 'block' }}>
