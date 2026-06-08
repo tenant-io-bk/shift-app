@@ -175,15 +175,6 @@ export default function WorkerConfirm() {
             </span>
           </Link>
 
-          <div style={{ marginTop: 20 }}>
-            <p style={{ fontFamily: 'var(--body)', fontSize: 10.5, fontWeight: 600, letterSpacing: '0.10em', textTransform: 'uppercase', color: 'var(--ink)', marginBottom: 12 }}>What&apos;s next</p>
-            {[
-              "01. Head out by 10:35A to arrive on time.",
-              "02. Tomás will have your name at the door.",
-            ].map((item) => (
-              <p key={item} style={{ fontFamily: 'var(--body)', fontSize: 14, color: 'var(--ink)', lineHeight: 1.55, marginBottom: 8 }}>{item}</p>
-            ))}
-          </div>
         </div>
 
         {/* Fixed bottom actions */}
