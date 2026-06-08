@@ -6,12 +6,14 @@ import StatusBar from '@/app/components/StatusBar';
 
 export default function WorkerConfirm() {
   const [phase, setPhase] = useState<'fill' | 'text' | 'bounce' | 'done'>('fill');
+  const [penaltyActive, setPenaltyActive] = useState(false);
 
   useEffect(() => {
     const t1 = setTimeout(() => setPhase('text'), 500);
     const t2 = setTimeout(() => setPhase('bounce'), 1600);
     const t3 = setTimeout(() => setPhase('done'), 2200);
-    return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); };
+    const t4 = setTimeout(() => setPenaltyActive(true), 15 * 60 * 1000);
+    return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); clearTimeout(t4); };
   }, []);
 
   return (
@@ -158,11 +160,21 @@ export default function WorkerConfirm() {
             </div>
           </div>
 
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginTop: 12 }}>
-            <p style={{ fontFamily: 'var(--body)', fontSize: 13, color: 'var(--ink)', lineHeight: 1.5 }}>
-              You can back out within 15 min. No penalty.
-            </p>
-            <Link href="/v3/cancel-flow" style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--ink)', textDecoration: 'underline', flexShrink: 0, marginLeft: 12 }}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginTop: 12, gap: 10 }}>
+            <div style={{
+              flex: 1,
+              background: penaltyActive ? 'var(--red-soft)' : 'var(--yellow-soft)',
+              borderRadius: 99,
+              padding: '8px 14px',
+              transition: 'background 0.4s ease',
+            }}>
+              <span style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--ink)', lineHeight: 1.4 }}>
+                {penaltyActive
+                  ? 'Cancellation now incurs a penalty.'
+                  : 'Back out within 15 min — no penalty.'}
+              </span>
+            </div>
+            <Link href="/v3/cancel-flow" style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--ink)', textDecoration: 'underline', flexShrink: 0 }}>
               Cancel
             </Link>
           </div>
