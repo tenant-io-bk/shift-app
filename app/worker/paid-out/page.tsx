@@ -59,7 +59,7 @@ export default function PaidOut() {
         {/* Paystub card */}
         <div
           style={{
-            margin: '20px 22px',
+            margin: '40px 22px',
             padding: 20,
             background: 'var(--paper)',
             border: '1.5px dashed var(--ink)',
