@@ -112,9 +112,8 @@ export default function EmployerDayOf() {
         <div style={{ margin: '16px 22px 0' }}>
           <div className="receipt-card">
             {[
-              { label: 'When',    value: 'Today · 11A – 4P' },
-              { label: 'Hours',   value: '5 hrs' },
-              { label: 'Address', value: '172 Tompkins Ave' },
+              { label: 'When',  value: 'Today · 11A – 4P' },
+              { label: 'Hours', value: '5 hrs' },
             ].map((row, i) => (
               <div key={i} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', padding: '14px 20px', borderBottom: '1.5px dashed var(--ink)' }}>
                 <p style={{ fontFamily: 'var(--body)', fontSize: 9.5, fontWeight: 600, letterSpacing: '0.10em', textTransform: 'uppercase', color: 'var(--ink)' }}>{row.label}</p>
