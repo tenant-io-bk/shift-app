@@ -47,7 +47,7 @@ export default function OnShift() {
 
           {/* Hourglass image */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/hourglass.png" alt="" width={160} height={220} style={{ objectFit: 'contain' }} />
+          <img src="/hourglass.png" alt="" width={100} height={140} style={{ objectFit: 'contain' }} />
 
           {/* Time elapsed */}
           <div style={{ textAlign: 'center' }}>
