@@ -42,15 +42,21 @@ function SMSVerifyInner() {
   async function verify(digits: string[]) {
     const token = digits.join('');
     if (token.length !== 6) return;
+
+    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+    const configured = supabaseUrl && supabaseUrl !== 'your-project-url-here';
+
+    // Skip Supabase if not configured yet — navigate directly
+    if (!configured) {
+      router.push('/worker/onboarding');
+      return;
+    }
+
     setLoading(true);
     setError('');
 
     const supabase = createClient();
-    const { error: err } = await supabase.auth.verifyOtp({
-      phone,
-      token,
-      type: 'sms',
-    });
+    const { error: err } = await supabase.auth.verifyOtp({ phone, token, type: 'sms' });
 
     if (err) {
       setError("That code isn't right. Try again or resend.");

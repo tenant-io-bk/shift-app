@@ -35,12 +35,21 @@ export default function PhoneVerify() {
 
   async function handleContinue() {
     if (digits.length !== 10) return;
+    const phone = `+1${digits}`;
+
+    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+    const configured = supabaseUrl && supabaseUrl !== 'your-project-url-here';
+
+    // Skip Supabase if not configured yet — navigate directly
+    if (!configured) {
+      router.push(`/v3/sms-verify?phone=${encodeURIComponent(phone)}`);
+      return;
+    }
+
     setLoading(true);
     setError('');
 
     const supabase = createClient();
-    const phone = `+1${digits}`;
-
     const { error: err } = await supabase.auth.signInWithOtp({ phone });
 
     if (err) {
@@ -49,7 +58,6 @@ export default function PhoneVerify() {
       return;
     }
 
-    // Pass phone to next step via URL param
     router.push(`/v3/sms-verify?phone=${encodeURIComponent(phone)}`);
   }
 
