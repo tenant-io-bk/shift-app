@@ -100,14 +100,35 @@ export default function WorkerProfile() {
   const [tab, setTab] = useState<'profile' | 'history'>('profile');
   const [historyExpanded, setHistoryExpanded] = useState<string | null>(null);
   const [editing, setEditing] = useState(false);
+
+  // Saved values
   const [name, setName] = useState('Marcus Rivera');
   const [bio, setBio] = useState('Hospitality pro. 6 years bar + floor experience across Brooklyn and Manhattan. Fast learner, fast learner, fast when it counts.');
-  const [nameInput, setNameInput] = useState(name);
-  const [bioInput, setBioInput] = useState(bio);
+  const [age, setAge] = useState('29');
+  const [pronouns, setPronouns] = useState('He/Him');
+
+  // Draft values (in sheet)
+  const [draftName, setDraftName] = useState(name);
+  const [draftBio, setDraftBio] = useState(bio);
+  const [draftAge, setDraftAge] = useState(age);
+  const [draftPronouns, setDraftPronouns] = useState(pronouns);
+  const [customPronouns, setCustomPronouns] = useState('');
+
+  const PRONOUN_OPTIONS = ['He/Him', 'She/Her', 'They/Them', 'He/They', 'She/They', 'Custom'];
+
+  function openEdit() {
+    setDraftName(name);
+    setDraftBio(bio);
+    setDraftAge(age);
+    setDraftPronouns(pronouns);
+    setEditing(true);
+  }
 
   function saveEdits() {
-    setName(nameInput);
-    setBio(bioInput);
+    setName(draftName);
+    setBio(draftBio);
+    setAge(draftAge);
+    setPronouns(draftPronouns === 'Custom' ? customPronouns || pronouns : draftPronouns);
     setEditing(false);
   }
 
@@ -268,30 +289,22 @@ export default function WorkerProfile() {
       <div style={{ padding: '20px 20px 0' }}>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 12, marginBottom: 6 }}>
           <div style={{ flex: 1 }}>
-            {editing ? (
-              <input
-                value={nameInput}
-                onChange={e => setNameInput(e.target.value)}
-                style={{ width: '100%', fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 28, color: 'var(--ink)', border: 'none', borderBottom: '2px solid var(--ink)', background: 'transparent', outline: 'none', letterSpacing: '-0.04em' }}
-              />
-            ) : (
-              <span style={{ fontFamily: 'var(--sans)', fontWeight: 300, fontSize: 28, color: 'var(--ink)', letterSpacing: '-0.04em' }}>{name}</span>
-            )}
+            <span style={{ fontFamily: 'var(--sans)', fontWeight: 300, fontSize: 28, color: 'var(--ink)', letterSpacing: '-0.04em' }}>{name}</span>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8, flexShrink: 0 }}>
             <span style={{ color: 'var(--ink)', fontSize: 15, letterSpacing: 1 }}>{'★'.repeat(5)}</span>
             <button
-              onClick={() => editing ? saveEdits() : setEditing(true)}
+              onClick={openEdit}
               style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 700, color: 'var(--ink)', background: 'var(--paper)', border: '2px solid var(--ink)', borderRadius: 99, padding: '5px 12px', cursor: 'pointer', letterSpacing: '0.06em', textTransform: 'uppercase' }}
             >
-              {editing ? 'Save' : 'Edit'}
+              Edit
             </button>
           </div>
         </div>
 
         {/* Sub-info */}
         <div style={{ fontFamily: 'var(--body)', fontSize: 13, color: 'var(--ink)', marginBottom: 14 }}>
-          29 · He/Him · Bed-Stuy, Brooklyn
+          {age} · {pronouns} · Bed-Stuy, Brooklyn
         </div>
 
         {/* Online now */}
@@ -343,24 +356,12 @@ export default function WorkerProfile() {
               <span style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--ink)', fontWeight: 400 }}>{s.count}×</span>
             </span>
           ))}
-          {editing && (
-            <span style={{ display: 'inline-flex', alignItems: 'center', fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 14, color: 'var(--ink)', border: '2px dashed var(--line-2)', borderRadius: 99, padding: '6px 14px', cursor: 'pointer' }}>+ Add</span>
-          )}
         </div>
       </div>
 
       {/* Bio */}
       <div style={{ padding: '18px 20px', borderBottom: '1px solid var(--line)' }}>
-        {editing ? (
-          <textarea
-            value={bioInput}
-            onChange={e => setBioInput(e.target.value)}
-            rows={4}
-            style={{ width: '100%', fontFamily: 'var(--body)', fontSize: 14, color: 'var(--ink)', border: '2px solid var(--ink)', borderRadius: 14, padding: '10px 12px', background: 'var(--card)', outline: 'none', resize: 'none', lineHeight: 1.6, boxSizing: 'border-box' }}
-          />
-        ) : (
-          <p style={{ fontFamily: 'var(--body)', fontSize: 14, color: 'var(--ink)', lineHeight: 1.65, margin: 0 }}>{bio}</p>
-        )}
+        <p style={{ fontFamily: 'var(--body)', fontSize: 14, color: 'var(--ink)', lineHeight: 1.65, margin: 0 }}>{bio}</p>
       </div>
 
       {/* Stats */}
@@ -414,6 +415,128 @@ export default function WorkerProfile() {
       </>}
 
       <BottomNav active="menu" />
+
+      {/* Edit profile bottom sheet */}
+      {editing && (
+        <>
+          <style>{`
+            @keyframes sheet-up {
+              from { transform: translateX(-50%) translateY(100%); }
+              to   { transform: translateX(-50%) translateY(0); }
+            }
+          `}</style>
+
+          {/* Backdrop */}
+          <div
+            onClick={() => setEditing(false)}
+            style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.4)', zIndex: 200 }}
+          />
+
+          {/* Sheet */}
+          <div style={{
+            position: 'fixed', bottom: 0, left: '50%',
+            transform: 'translateX(-50%)',
+            width: '100%', maxWidth: 390,
+            background: 'var(--paper)',
+            borderRadius: '24px 24px 0 0',
+            zIndex: 201,
+            animation: 'sheet-up 0.28s cubic-bezier(0.32,0.72,0,1) both',
+            maxHeight: '85vh', overflowY: 'auto',
+            paddingBottom: 40,
+          }}>
+            {/* Handle */}
+            <div style={{ display: 'flex', justifyContent: 'center', paddingTop: 12, paddingBottom: 4 }}>
+              <div style={{ width: 36, height: 4, borderRadius: 99, background: 'var(--line)' }} />
+            </div>
+
+            {/* Header */}
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '10px 22px 20px' }}>
+              <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 22, color: 'var(--ink)', letterSpacing: '-0.04em' }}>Edit Profile</span>
+              <button onClick={() => setEditing(false)} style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: 22, color: 'var(--ink)', lineHeight: 1 }}>×</button>
+            </div>
+
+            <div style={{ padding: '0 22px', display: 'flex', flexDirection: 'column', gap: 22 }}>
+
+              {/* Name */}
+              <div>
+                <label style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--ink)', display: 'block', marginBottom: 8 }}>Name</label>
+                <input
+                  value={draftName}
+                  onChange={e => setDraftName(e.target.value)}
+                  style={{ width: '100%', padding: '12px 14px', background: 'var(--card)', border: '2px solid var(--ink)', borderRadius: 12, fontFamily: 'var(--sans)', fontSize: 16, color: 'var(--ink)', outline: 'none', boxSizing: 'border-box' }}
+                />
+              </div>
+
+              {/* Age */}
+              <div>
+                <label style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--ink)', display: 'block', marginBottom: 8 }}>Age</label>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
+                  <button
+                    onClick={() => setDraftAge(a => String(Math.max(18, parseInt(a) - 1)))}
+                    style={{ width: 44, height: 44, borderRadius: 12, border: '2px solid var(--ink)', background: 'var(--card)', fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 20, color: 'var(--ink)', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}
+                  >−</button>
+                  <span style={{ fontFamily: 'var(--sans)', fontWeight: 400, fontSize: 44, color: 'var(--ink)', letterSpacing: '-0.05em', lineHeight: 1, minWidth: 60, textAlign: 'center' }}>{draftAge}</span>
+                  <button
+                    onClick={() => setDraftAge(a => String(Math.min(99, parseInt(a) + 1)))}
+                    style={{ width: 44, height: 44, borderRadius: 12, border: '2px solid var(--ink)', background: 'var(--card)', fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 20, color: 'var(--ink)', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}
+                  >+</button>
+                </div>
+              </div>
+
+              {/* Pronouns */}
+              <div>
+                <label style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--ink)', display: 'block', marginBottom: 10 }}>Pronouns</label>
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8 }}>
+                  {PRONOUN_OPTIONS.map(p => (
+                    <button
+                      key={p}
+                      onClick={() => setDraftPronouns(p)}
+                      style={{
+                        padding: '11px 14px', borderRadius: 99, cursor: 'pointer', textAlign: 'center',
+                        fontFamily: 'var(--body)', fontWeight: 600, fontSize: 14,
+                        border: '2px solid var(--ink)',
+                        background: draftPronouns === p ? 'var(--ink)' : 'var(--card)',
+                        color: draftPronouns === p ? '#fff' : 'var(--ink)',
+                        transition: 'background 0.12s, color 0.12s',
+                      }}
+                    >
+                      {p}
+                    </button>
+                  ))}
+                </div>
+                {draftPronouns === 'Custom' && (
+                  <input
+                    value={customPronouns}
+                    onChange={e => setCustomPronouns(e.target.value)}
+                    placeholder="e.g. Xe/Xem"
+                    autoFocus
+                    style={{ marginTop: 10, width: '100%', padding: '12px 14px', background: 'var(--card)', border: '2px solid var(--ink)', borderRadius: 12, fontFamily: 'var(--body)', fontSize: 15, color: 'var(--ink)', outline: 'none', boxSizing: 'border-box' }}
+                  />
+                )}
+              </div>
+
+              {/* Bio */}
+              <div>
+                <label style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--ink)', display: 'block', marginBottom: 8 }}>About You</label>
+                <textarea
+                  value={draftBio}
+                  onChange={e => setDraftBio(e.target.value)}
+                  rows={4}
+                  style={{ width: '100%', padding: '12px 14px', background: 'var(--card)', border: '2px solid var(--ink)', borderRadius: 12, fontFamily: 'var(--body)', fontSize: 14, color: 'var(--ink)', outline: 'none', resize: 'none', lineHeight: 1.6, boxSizing: 'border-box' }}
+                />
+              </div>
+
+              {/* Save */}
+              <button
+                onClick={saveEdits}
+                style={{ width: '100%', padding: '15px', background: 'var(--ink)', border: 'none', borderRadius: 99, fontFamily: 'var(--body)', fontWeight: 500, fontSize: 16, color: '#fff', cursor: 'pointer', letterSpacing: '-0.01em' }}
+              >
+                Save Changes
+              </button>
+            </div>
+          </div>
+        </>
+      )}
     </div>
   );
 }
