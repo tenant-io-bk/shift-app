@@ -98,17 +98,29 @@ export default function WorkerHome() {
           >
             Good morning
           </div>
-          <div
-            style={{
-              fontFamily: 'var(--sans)',
-              fontWeight: 700,
-              fontSize: 38,
-              color: 'var(--ink)',
-              letterSpacing: '-0.06em',
-              lineHeight: 1,
-            }}
-          >
-            Jordan.
+          <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+            <div
+              style={{
+                fontFamily: 'var(--sans)',
+                fontWeight: 700,
+                fontSize: 38,
+                color: 'var(--ink)',
+                letterSpacing: '-0.06em',
+                lineHeight: 1,
+              }}
+            >
+              Jordan.
+            </div>
+            <Link href="/worker/profile" style={{
+              flexShrink: 0,
+              fontFamily: 'var(--body)', fontSize: 10, fontWeight: 700,
+              color: 'var(--ink)', border: '1.5px solid var(--ink)',
+              borderRadius: 99, padding: '4px 10px',
+              textDecoration: 'none', letterSpacing: '0.06em', textTransform: 'uppercase',
+              alignSelf: 'center', marginTop: 2,
+            }}>
+              Edit
+            </Link>
           </div>
         </div>
 

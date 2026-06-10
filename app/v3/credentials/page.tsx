@@ -45,7 +45,6 @@ const CREDS = [
 
 export default function Credentials() {
   const [selected, setSelected] = useState<Set<string>>(new Set());
-  const [expiries, setExpiries] = useState<Record<string, string>>({});
   const [uploads, setUploads] = useState<Record<string, string>>({});
   const fileInputRef = useRef<HTMLInputElement>(null);
   const uploadingFor = useRef<string | null>(null);
@@ -56,10 +55,6 @@ export default function Credentials() {
       next.has(id) ? next.delete(id) : next.add(id);
       return next;
     });
-  }
-
-  function setExpiry(id: string, val: string) {
-    setExpiries(prev => ({ ...prev, [id]: val }));
   }
 
   function triggerUpload(id: string) {
@@ -142,38 +137,21 @@ export default function Credentials() {
                   </div>
                 </button>
 
-                {/* Expanded: expiry + upload */}
+                {/* Expanded: upload only */}
                 {on && (
-                  <div style={{ padding: '0 16px 14px', display: 'flex', alignItems: 'center', gap: 10 }}>
-                    <div style={{ flex: 1 }}>
-                      <div style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--ink)', marginBottom: 6 }}>Expiry date</div>
-                      <input
-                        type="month"
-                        value={expiries[cred.id] || ''}
-                        onChange={e => setExpiry(cred.id, e.target.value)}
-                        style={{
-                          height: 38, padding: '0 12px', background: 'var(--paper)',
-                          border: '2px solid var(--ink)', borderRadius: 12,
-                          fontFamily: 'var(--body)', fontSize: 13, color: 'var(--ink)',
-                          outline: 'none', width: '100%', boxSizing: 'border-box',
-                        }}
-                      />
-                    </div>
-                    <div style={{ flexShrink: 0, paddingTop: 22 }}>
-                      <button
-                        onClick={() => triggerUpload(cred.id)}
-                        style={{
-                          height: 32, padding: '0 10px',
-                          background: uploads[cred.id] ? 'var(--green-soft)' : 'var(--card)',
-                          border: '2px solid var(--ink)', borderRadius: 99,
-                          fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600,
-                          color: 'var(--ink)', cursor: 'pointer', whiteSpace: 'nowrap',
-                          maxWidth: 110, overflow: 'hidden', textOverflow: 'ellipsis',
-                        }}
-                      >
-                        {uploads[cred.id] ? '✓ Uploaded' : '↑ Doc'}
-                      </button>
-                    </div>
+                  <div style={{ padding: '0 16px 14px' }}>
+                    <button
+                      onClick={() => triggerUpload(cred.id)}
+                      style={{
+                        height: 32, padding: '0 14px',
+                        background: uploads[cred.id] ? 'var(--green-soft)' : 'var(--card)',
+                        border: '2px solid var(--ink)', borderRadius: 99,
+                        fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600,
+                        color: 'var(--ink)', cursor: 'pointer', whiteSpace: 'nowrap',
+                      }}
+                    >
+                      {uploads[cred.id] ? `✓ ${uploads[cred.id].slice(0, 18)}` : '↑ Upload Document'}
+                    </button>
                   </div>
                 )}
               </div>
