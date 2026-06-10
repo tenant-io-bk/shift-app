@@ -18,7 +18,7 @@ export default function BusinessProfile() {
       <StatusBar />
 
       <div style={{ height: 44, padding: '0 16px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderBottom: '1px solid var(--line)' }}>
-        <Link href="/employer/onboarding" style={{ fontSize: 20, color: 'var(--ink)', textDecoration: 'none' }}>←</Link>
+        <Link href="/employer/verify" style={{ fontSize: 20, color: 'var(--ink)', textDecoration: 'none' }}>←</Link>
         <span style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--ink)' }}>Business profile</span>
         <div style={{ width: 20 }} />
       </div>

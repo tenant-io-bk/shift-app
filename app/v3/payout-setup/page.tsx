@@ -32,32 +32,6 @@ const METHODS = [
 
 export default function PayoutSetup() {
   const [selected, setSelected] = useState('debit');
-  const [cardAdded, setCardAdded] = useState(false);
-
-  if (cardAdded) {
-    return (
-      <div style={{ maxWidth: 390, minHeight: '100vh', margin: '0 auto', background: 'var(--green)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '0 32px', textAlign: 'center' }}>
-        <style>{`
-          @keyframes pop-in { 0%{transform:scale(0.6);opacity:0} 70%{transform:scale(1.1)} 100%{transform:scale(1);opacity:1} }
-          .pop-in { animation: pop-in 0.5s cubic-bezier(0.34,1.4,0.64,1) forwards; }
-        `}</style>
-        <div className="pop-in" style={{ fontSize: 64, marginBottom: 24 }}>✓</div>
-        <h1 style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 52, color: 'var(--ink)', letterSpacing: '-0.075em', lineHeight: 0.9, marginBottom: 24 }}>
-          CARD<br />ADDED.
-        </h1>
-        <p style={{ fontFamily: 'var(--body)', fontSize: 14, color: 'var(--ink)', lineHeight: 1.6, marginBottom: 40}}>
-          You&apos;ll get paid within 11 minutes of clocking out. First shift starts now.
-        </p>
-        <Link href="/v3/w9" style={{
-          display: 'block', padding: '16px 22px', borderRadius: 99,
-          background: 'var(--ink)', color: '#fff', fontFamily: 'var(--body)',
-          fontWeight: 500, fontSize: 16, textAlign: 'center', textDecoration: 'none', letterSpacing: '-0.01em', width: '100%',
-        }}>
-          Start Earning →
-        </Link>
-      </div>
-    );
-  }
 
   return (
     <div style={{ maxWidth: 390, minHeight: '100vh', margin: '0 auto', background: 'var(--paper)' }}>
@@ -184,10 +158,8 @@ export default function PayoutSetup() {
         </div>
 
         {/* CTA */}
-        <button onClick={() => setCardAdded(true)} style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
+        <Link href="/v3/card-input" style={{
+          display: 'block',
           width: '100%',
           padding: '16px',
           marginTop: 24,
@@ -197,10 +169,10 @@ export default function PayoutSetup() {
           fontFamily: 'var(--body)',
           fontWeight: 500,
           fontSize: 18,
-          border: 'none',
-          cursor: 'pointer',
+          textDecoration: 'none',
+          textAlign: 'center',
           letterSpacing: '-0.01em',
-        }}>Start Earning →</button>
+        }}>Start Earning →</Link>
 
         <p style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--ink)', textAlign: 'center', marginTop: 12 }}>
           W-9 required once you earn $600. We&apos;ll remind you.

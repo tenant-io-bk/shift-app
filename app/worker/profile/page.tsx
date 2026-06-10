@@ -319,7 +319,7 @@ export default function WorkerProfile() {
         <div style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--ink)', marginBottom: 12 }}>Finish setting up</div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
           {[
-            { label: 'Add a Photo to Get Booked Faster', href: '#', done: false },
+            { label: 'Add a Photo to Get Booked Faster', href: '/v3/profile-setup', done: false },
             { label: 'Add Credentials to Unlock Higher-Paying Shifts', href: '/v3/credentials', done: false },
             { label: 'Set Availability so We Only Show Shifts That Fit', href: '/v3/availability', done: false },
             { label: 'W-9 Required Once You Earn $600', href: '/v3/w9', done: false },
