@@ -79,7 +79,7 @@ function SlideToConfirm({ label = 'Slide to Confirm', href, locked, onLockedAtte
         pointerEvents: 'none',
       }}>
         {locked ? 'Complete Profile to Confirm' : label}
-        {!locked && <span style={{ marginLeft: 10, opacity: 0.5 }}>→</span>}
+        {!locked && <span style={{ marginLeft: 10}}>→</span>}
       </div>
       {/* Done label */}
       <div style={{
@@ -289,7 +289,7 @@ export default function JobDetail() {
           >
             <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
               <span style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.10em', color: 'var(--ink)' }}>The Work</span>
-              <span style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--ink)', opacity: 0.5 }}>{tasks.length} tasks</span>
+              <span style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--ink)'}}>{tasks.length} tasks</span>
             </div>
             <span style={{ color: 'var(--ink)', fontSize: 18, lineHeight: 1, display: 'inline-block', transform: workOpen ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s' }}>↓</span>
           </button>

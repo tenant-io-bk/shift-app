@@ -121,7 +121,7 @@ export default function WorkerOnboarding() {
         </div>
 
         {/* Continue */}
-        <Link href="/v3/neighborhood" style={{
+        <Link href="/v3/availability" style={{
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',

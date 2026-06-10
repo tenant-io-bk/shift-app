@@ -145,7 +145,7 @@ export default function Neighborhood() {
 
       {/* Nav */}
       <div style={{ height: 44, display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 16px', borderBottom: '1px solid var(--line)' }}>
-        <Link href="/worker/onboarding" style={{ fontSize: 20, color: 'var(--ink)', textDecoration: 'none', width: 32 }}>←</Link>
+        <Link href="/v3/availability" style={{ fontSize: 20, color: 'var(--ink)', textDecoration: 'none', width: 32 }}>←</Link>
         <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 16, color: 'var(--ink)' }}>Your Area</span>
         <div style={{ width: 32 }} />
       </div>
@@ -232,7 +232,7 @@ export default function Neighborhood() {
 
       {/* CTA */}
       <div style={{ padding: '24px 22px 40px', marginTop: 'auto' }}>
-        <Link href="/v3/payout-setup" style={{
+        <Link href="/v3/credentials" style={{
           display: 'flex', alignItems: 'center', justifyContent: 'center',
           width: '100%', padding: '16px', background: 'var(--ink)', borderRadius: 99,
           fontFamily: 'var(--body)', fontWeight: 500, fontSize: 18,

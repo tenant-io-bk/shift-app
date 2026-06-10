@@ -140,7 +140,7 @@ export default function WorkerProfile() {
         <StatusBar time="10:12" />
 
         <div style={{ height: 44, display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 16px' }}>
-          <Link href="/" style={{ color: 'var(--ink)', textDecoration: 'none', fontSize: 20, width: 32 }}>←</Link>
+          <Link href="/worker/home" style={{ color: 'var(--ink)', textDecoration: 'none', fontSize: 20, width: 32 }}>←</Link>
           <span style={{ fontFamily: 'var(--body)', fontSize: 13, fontWeight: 600, color: 'var(--ink)', letterSpacing: '0.02em' }}>@marcov</span>
           <button style={{ background: 'none', border: 'none', cursor: 'pointer', width: 32, display: 'flex', justifyContent: 'flex-end' }}>
             <svg width="18" height="18" viewBox="0 0 18 18" fill="none">

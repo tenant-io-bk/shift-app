@@ -5,7 +5,7 @@ import Link from 'next/link';
 type Tab = 'dashboard' | 'post' | 'shifts' | 'messages' | 'account';
 
 const ACTIVE = 'var(--ink)';
-const INACTIVE = 'rgba(13,14,18,0.45)';
+const INACTIVE = 'var(--ink)';
 
 const TABS: { id: Tab; label: string; href: string; icon: React.ReactNode }[] = [
   {

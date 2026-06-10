@@ -70,7 +70,7 @@ export default function RolePicker() {
         <p style={{
           fontFamily: 'var(--body)',
           fontSize: 13,
-          color: 'var(--mute)',
+          color: 'var(--ink)',
           lineHeight: 1.5,
           textAlign: 'left',
           paddingBottom: 48,

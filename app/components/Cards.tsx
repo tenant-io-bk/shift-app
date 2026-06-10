@@ -53,7 +53,7 @@ export function HeroCard({ venue, time, loc, role, brief, pay, rate, family, sta
       <div className="scard-price">
         <div className="big"><span className="d">$</span>{payNum}</div>
         <div className="rate">{rate} BASE PAY</div>
-        {rateNote && <div className="rate" style={{ opacity: 0.55 }}>{rateNote}</div>}
+        {rateNote && <div className="rate">{rateNote}</div>}
       </div>
     </>
   );
@@ -97,7 +97,7 @@ export function StackCard({ icon, iconBg = 'var(--green)', title, sub, cta }: St
       </div>
       <div style={{ flex: 1, minWidth: 0 }}>
         <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 14, color: 'var(--ink)', letterSpacing: '-0.01em' }}>{title}</div>
-        <div style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--mute)', marginTop: 1 }}>{sub}</div>
+        <div style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--ink)', marginTop: 1 }}>{sub}</div>
       </div>
       {cta.href
         ? <Link href={cta.href} style={ctaStyle}>{cta.label}</Link>
@@ -163,8 +163,8 @@ export function SectionHeader({ label, action, onAction, actionHref, count }: {
   return (
     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 0 10px' }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-        <span style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--mute)' }}>{label}</span>
-        {count !== undefined && <span style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 700, color: 'var(--mute)', opacity: 0.6 }}>{count}</span>}
+        <span style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--ink)' }}>{label}</span>
+        {count !== undefined && <span style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 700, color: 'var(--ink)' }}>{count}</span>}
       </div>
       {action && (actionHref
         ? <Link href={actionHref} style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, color: 'var(--ink)', textDecoration: 'none' }}>{action}</Link>

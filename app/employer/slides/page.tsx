@@ -117,7 +117,7 @@ export default function EmployerSlides() {
         <p style={{
           fontFamily: 'var(--body)',
           fontSize: 13,
-          color: 'var(--mute)',
+          color: 'var(--ink)',
           lineHeight: 1.6,
           marginBottom: 20,
         }}>
@@ -156,7 +156,7 @@ export default function EmployerSlides() {
                 fontFamily: 'var(--body)',
                 fontWeight: 500,
                 fontSize: 15,
-                color: 'var(--mute)',
+                color: 'var(--ink)',
                 cursor: 'pointer',
               }}
             >

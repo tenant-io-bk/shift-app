@@ -191,7 +191,7 @@ function NotifCard({ n, onRead, stackDepth, isEarlier }: { n: Notification; onRe
         )}
       </div>
       <div style={{ fontFamily: 'var(--body)', fontSize: 13, color: 'var(--ink)', lineHeight: 1.45 }}>{n.sub}</div>
-      <div style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--ink)', marginTop: 8, opacity: 0.55 }}>{n.time}</div>
+      <div style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--ink)', marginTop: 8}}>{n.time}</div>
     </Link>
   );
 }

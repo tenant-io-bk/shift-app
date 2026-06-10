@@ -45,10 +45,10 @@ export default function PayoutSetup() {
         <h1 style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 52, color: 'var(--ink)', letterSpacing: '-0.075em', lineHeight: 0.9, marginBottom: 24 }}>
           CARD<br />ADDED.
         </h1>
-        <p style={{ fontFamily: 'var(--body)', fontSize: 14, color: 'var(--ink)', lineHeight: 1.6, marginBottom: 40, opacity: 0.8 }}>
+        <p style={{ fontFamily: 'var(--body)', fontSize: 14, color: 'var(--ink)', lineHeight: 1.6, marginBottom: 40}}>
           You&apos;ll get paid within 11 minutes of clocking out. First shift starts now.
         </p>
-        <Link href="/worker/map" style={{
+        <Link href="/v3/w9" style={{
           display: 'block', padding: '16px 22px', borderRadius: 99,
           background: 'var(--ink)', color: '#fff', fontFamily: 'var(--body)',
           fontWeight: 500, fontSize: 16, textAlign: 'center', textDecoration: 'none', letterSpacing: '-0.01em', width: '100%',
@@ -71,7 +71,7 @@ export default function PayoutSetup() {
         borderBottom: '1px solid var(--line)',
         background: 'var(--paper)',
       }}>
-        <Link href="/v3/neighborhood" style={{ fontSize: 20, color: 'var(--ink)', textDecoration: 'none', width: 32 }}>←</Link>
+        <Link href="/v3/profile-setup" style={{ fontSize: 20, color: 'var(--ink)', textDecoration: 'none', width: 32 }}>←</Link>
         <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 16, color: 'var(--ink)' }}>Get Paid</span>
         <div style={{ width: 32 }} />
       </div>
@@ -85,7 +85,7 @@ export default function PayoutSetup() {
           fontFamily: 'var(--body)',
           fontSize: 11,
           fontWeight: 600,
-          color: 'var(--mute)',
+          color: 'var(--ink)',
           textTransform: 'uppercase',
           letterSpacing: '0.08em',
           display: 'block',
@@ -105,7 +105,7 @@ export default function PayoutSetup() {
         <p style={{
           fontFamily: 'var(--body)',
           fontSize: 13,
-          color: 'var(--mute)',
+          color: 'var(--ink)',
           marginBottom: 20,
         }}>Set this up before your first shift. Tax info comes later.</p>
 
@@ -133,7 +133,7 @@ export default function PayoutSetup() {
                   <div style={{ flexShrink: 0 }}>{method.icon}</div>
                   <div>
                     <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 16, color: 'var(--ink)' }}>{method.title}</div>
-                    <div style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--ink)', marginTop: 2, opacity: 0.6 }}>{method.sub}</div>
+                    <div style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--ink)', marginTop: 2}}>{method.sub}</div>
                   </div>
                 </div>
                 <div style={{
@@ -176,7 +176,7 @@ export default function PayoutSetup() {
               <p style={{ fontFamily: 'var(--body)', fontSize: 13, color: 'var(--ink)' }}>
                 Stripe collects your card details next.
               </p>
-              <p style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)', marginTop: 4 }}>
+              <p style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--ink)', marginTop: 4 }}>
                 SHIFT never sees it · same Stripe your bank uses · 256-bit · 30 sec
               </p>
             </div>
@@ -202,7 +202,7 @@ export default function PayoutSetup() {
           letterSpacing: '-0.01em',
         }}>Start Earning →</button>
 
-        <p style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)', textAlign: 'center', marginTop: 12 }}>
+        <p style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--ink)', textAlign: 'center', marginTop: 12 }}>
           W-9 required once you earn $600. We&apos;ll remind you.
         </p>
       </div>

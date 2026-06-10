@@ -81,7 +81,7 @@ export default function CardInput() {
         <div style={{ fontFamily: 'var(--body)', fontSize: 14, color: 'var(--ink)' }}>
           {network || 'Debit'} ••••{last4}
         </div>
-        <div style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--ink)', marginTop: 20, opacity: 0.4 }}>Continuing…</div>
+        <div style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--ink)', marginTop: 20}}>Continuing…</div>
       </div>
     );
   }

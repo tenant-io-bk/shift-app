@@ -152,7 +152,7 @@ function Row({ n, onRead }: { n: Notif; onRead: (id: number) => void }) {
           {!n.read && <div style={{ width: 7, height: 7, borderRadius: '50%', background: 'var(--ink)', flexShrink: 0, marginTop: 4 }} />}
         </div>
         <div style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--ink)', marginTop: 3, lineHeight: 1.4 }}>{n.sub}</div>
-        <div style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--ink)', marginTop: 4, opacity: 0.7 }}>{n.time}</div>
+        <div style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--ink)', marginTop: 4}}>{n.time}</div>
       </div>
     </Link>
   );

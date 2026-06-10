@@ -76,8 +76,8 @@ export default function Credentials() {
 
       {/* Nav */}
       <div style={{ height: 44, padding: '0 16px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderBottom: '1px solid var(--line)' }}>
-        <Link href="/worker/onboarding" style={{ fontFamily: 'var(--sans)', fontSize: 20, color: 'var(--ink)', textDecoration: 'none' }}>←</Link>
-        <span style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--mute)' }}>Credentials</span>
+        <Link href="/v3/neighborhood" style={{ fontFamily: 'var(--sans)', fontSize: 20, color: 'var(--ink)', textDecoration: 'none' }}>←</Link>
+        <span style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--ink)' }}>Credentials</span>
         <div style={{ width: 20 }} />
       </div>
 
@@ -92,7 +92,7 @@ export default function Credentials() {
         <h1 style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 34, letterSpacing: '-0.075em', lineHeight: 0.95, color: 'var(--ink)', marginBottom: 10 }}>
           What Are You Certified In?
         </h1>
-        <p style={{ fontFamily: 'var(--body)', fontSize: 13, color: 'var(--mute)', marginBottom: 24, lineHeight: 1.5 }}>
+        <p style={{ fontFamily: 'var(--body)', fontSize: 13, color: 'var(--ink)', marginBottom: 24, lineHeight: 1.5 }}>
           Credentials unlock more shifts and higher pay. Add now or later — you can always update.
         </p>
 
@@ -132,8 +132,8 @@ export default function Credentials() {
                         <span style={{ fontFamily: 'var(--body)', fontSize: 9, fontWeight: 600, color: '#EA4B2A', background: 'rgba(234,75,42,0.1)', borderRadius: 4, padding: '2px 6px', letterSpacing: '0.06em' }}>REQUIRED</span>
                       )}
                     </div>
-                    <div style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)', marginTop: 2 }}>{cred.issuer}</div>
-                    <div style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--mute)', marginTop: 3, lineHeight: 1.4 }}>{cred.detail}</div>
+                    <div style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--ink)', marginTop: 2 }}>{cred.issuer}</div>
+                    <div style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--ink)', marginTop: 3, lineHeight: 1.4 }}>{cred.detail}</div>
                   </div>
                 </button>
 
@@ -171,7 +171,7 @@ export default function Credentials() {
       {/* CTA */}
       <div style={{ position: 'fixed', bottom: 0, left: '50%', transform: 'translateX(-50%)', width: '100%', maxWidth: 390, padding: '16px 22px 36px', background: 'linear-gradient(to bottom, transparent, var(--paper) 40%)' }}>
         <Link
-          href="/v3/availability"
+          href="/v3/profile-setup"
           style={{
             display: 'block', width: '100%', padding: '15px 22px',
             borderRadius: 99, background: 'var(--ink)', color: '#FFFFFF',
@@ -181,7 +181,7 @@ export default function Credentials() {
         >
           {selected.size > 0 ? `Continue with ${selected.size} Credential${selected.size > 1 ? 's' : ''}` : 'Continue'}
         </Link>
-        <p style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--mute)', textAlign: 'center', marginTop: 8 }}>
+        <p style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--ink)', textAlign: 'center', marginTop: 8 }}>
           You can add more later in your profile
         </p>
       </div>

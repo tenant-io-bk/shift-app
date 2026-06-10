@@ -70,7 +70,7 @@ export default function Availability() {
         top: 0,
         zIndex: 10,
       }}>
-        <Link href="/v3/credentials" style={{ fontSize: 20, color: 'var(--ink)', textDecoration: 'none', width: 32 }}>←</Link>
+        <Link href="/worker/onboarding" style={{ fontSize: 20, color: 'var(--ink)', textDecoration: 'none', width: 32 }}>←</Link>
         <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 16, color: 'var(--ink)' }}>Get Started</span>
         <div style={{ width: 32 }} />
       </div>
@@ -116,7 +116,7 @@ export default function Availability() {
               <span style={{
                 fontFamily: 'var(--body)',
                 fontSize: 12,
-                color: 'var(--mute)',
+                color: 'var(--ink)',
                 fontWeight: 500,
               }}>{block.range}</span>
             </div>
@@ -208,7 +208,7 @@ export default function Availability() {
         <p style={{
           fontFamily: 'var(--body)',
           fontSize: 13,
-          color: 'var(--mute)',
+          color: 'var(--ink)',
           marginTop: 14,
         }}>Pick everything you can do. More shifts that way.</p>
       </div>

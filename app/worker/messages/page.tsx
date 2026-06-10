@@ -79,7 +79,7 @@ export default function Messages() {
           </div>
           <div style={{ flex: 1 }}>
             <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 15, color: 'var(--ink)', letterSpacing: '-0.02em' }}>{thread.name}</div>
-            <div style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--ink)', marginTop: 1, opacity: 0.5 }}>{thread.role}</div>
+            <div style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--ink)', marginTop: 1}}>{thread.role}</div>
           </div>
           {thread.online && (
             <div style={{ display: 'flex', alignItems: 'center', gap: 5, flexShrink: 0 }}>
@@ -105,7 +105,7 @@ export default function Messages() {
           {messages.length === 0 ? (
             <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 8, paddingTop: 80 }}>
               <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 22, color: 'var(--ink)', letterSpacing: '-0.04em' }}>No messages yet</div>
-              <div style={{ fontFamily: 'var(--body)', fontSize: 13, color: 'var(--ink)', textAlign: 'center', opacity: 0.5 }}>Start the conversation below.</div>
+              <div style={{ fontFamily: 'var(--body)', fontSize: 13, color: 'var(--ink)', textAlign: 'center'}}>Start the conversation below.</div>
             </div>
           ) : messages.map((msg, i) => (
             <div key={i} style={{ display: 'flex', flexDirection: 'column', alignItems: msg.from === 'me' ? 'flex-end' : 'flex-start' }}>
@@ -117,7 +117,7 @@ export default function Messages() {
               }}>
                 <span style={{ fontFamily: 'var(--body)', fontSize: 14, color: msg.from === 'me' ? '#fff' : 'var(--ink)', lineHeight: 1.45 }}>{msg.text}</span>
               </div>
-              <span style={{ fontFamily: 'var(--body)', fontSize: 10, color: 'var(--ink)', marginTop: 3, opacity: 0.4 }}>{msg.time}</span>
+              <span style={{ fontFamily: 'var(--body)', fontSize: 10, color: 'var(--ink)', marginTop: 3}}>{msg.time}</span>
             </div>
           ))}
         </div>
@@ -187,9 +187,9 @@ export default function Messages() {
             <div style={{ flex: 1, minWidth: 0 }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 2 }}>
                 <span style={{ fontFamily: 'var(--sans)', fontWeight: t.unread > 0 ? 700 : 600, fontSize: 15, color: 'var(--ink)', letterSpacing: '-0.02em' }}>{t.name}</span>
-                <span style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--ink)', flexShrink: 0, marginLeft: 8, opacity: 0.45 }}>{t.time}</span>
+                <span style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--ink)', flexShrink: 0, marginLeft: 8}}>{t.time}</span>
               </div>
-              <div style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--ink)', opacity: 0.45, marginBottom: 2 }}>{t.role}</div>
+              <div style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--ink)', marginBottom: 2 }}>{t.role}</div>
               <div style={{ fontFamily: 'var(--body)', fontSize: 13, color: 'var(--ink)', fontWeight: t.unread > 0 ? 600 : 400, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
                 {t.last}
               </div>

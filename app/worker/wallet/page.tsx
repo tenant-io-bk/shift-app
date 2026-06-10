@@ -64,7 +64,7 @@ export default function WorkerWallet() {
         <h1 style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 26, color: 'var(--ink)', letterSpacing: '-0.04em', lineHeight: 1.2, marginBottom: 16 }}>
           You transferred $247.50 on {dateLine} at {timeLine} to CHASE ··4471.
         </h1>
-        <p style={{ fontFamily: 'var(--body)', fontSize: 14, color: 'var(--ink)', lineHeight: 1.6, marginBottom: 40, opacity: 0.7 }}>
+        <p style={{ fontFamily: 'var(--body)', fontSize: 14, color: 'var(--ink)', lineHeight: 1.6, marginBottom: 40}}>
           Email confirmation to follow.
         </p>
         <Link href="/worker/map" style={{

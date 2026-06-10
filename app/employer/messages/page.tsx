@@ -192,7 +192,7 @@ export default function EmployerMessages() {
               style={{
                 fontFamily: 'var(--body)',
                 fontSize: 11,
-                color: 'var(--mute)',
+                color: 'var(--ink)',
               }}
             >
               {activeThread.role} · {activeThread.shiftDate}
@@ -243,7 +243,7 @@ export default function EmployerMessages() {
                     style={{
                       fontFamily: 'var(--body)',
                       fontSize: 10,
-                      color: 'var(--mute)',
+                      color: 'var(--ink)',
                       marginTop: 4,
                       textAlign: isEmployer ? 'right' : 'left',
                       padding: '0 4px',
@@ -363,7 +363,7 @@ export default function EmployerMessages() {
             fontWeight: 600,
             letterSpacing: '0.08em',
             textTransform: 'uppercase',
-            color: 'var(--mute)',
+            color: 'var(--ink)',
           }}
         >
           Messages{' '}
@@ -438,7 +438,7 @@ export default function EmployerMessages() {
                   style={{
                     fontFamily: 'var(--body)',
                     fontSize: 11,
-                    color: 'var(--mute)',
+                    color: 'var(--ink)',
                     flexShrink: 0,
                     marginLeft: 8,
                   }}
@@ -460,7 +460,7 @@ export default function EmployerMessages() {
                 style={{
                   fontFamily: 'var(--body)',
                   fontSize: 12,
-                  color: thread.unread ? 'var(--ink)' : 'var(--mute)',
+                  color: 'var(--ink)',
                   fontWeight: thread.unread ? 600 : 400,
                   overflow: 'hidden',
                   textOverflow: 'ellipsis',
