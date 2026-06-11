@@ -216,7 +216,7 @@ export default function DayOf() {
 
         {/* Checklist */}
         <div style={{ padding: '0 22px', marginTop: 4 }}>
-          <div style={{ background: 'var(--lilac-soft)', borderRadius: 18, border: '2px solid var(--ink)', padding: '18px 18px' }}>
+          <div style={{ background: 'var(--lilac-soft)', borderRadius: 18, padding: '18px 18px' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
               <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 18, color: 'var(--ink)', letterSpacing: '-0.01em' }}>Before You Go</span>
               <span style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--ink)' }}>2 of 4</span>
@@ -229,8 +229,8 @@ export default function DayOf() {
               { label: 'Cash for tips out', checked: false, optional: true },
             ].map((item, i, arr) => (
               <div key={item.label} style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '12px 0', borderBottom: i < arr.length - 1 ? '1px solid rgba(13,14,18,0.1)' : 'none' }}>
-                <div style={{ width: 22, height: 22, borderRadius: 6, background: item.checked ? 'var(--ink)' : 'transparent', border: item.checked ? 'none' : '2px solid var(--ink)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                  {item.checked && <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l2.5 2.5L10 4" stroke="white" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" /></svg>}
+                <div style={{ width: 22, height: 22, borderRadius: '50%', background: 'var(--ink)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                  {item.checked && <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l2.5 2.5L10 4" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>}
                 </div>
                 <span style={{ fontFamily: 'var(--body)', fontSize: 14, color: 'var(--ink)', textDecoration: item.checked ? 'line-through' : 'none', flex: 1 }}>{item.label}</span>
                 {item.optional && <span style={{ fontFamily: 'var(--body)', fontSize: 9, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--ink)', background: 'rgba(13,14,18,0.08)', padding: '2px 6px', borderRadius: 4 }}>optional</span>}
