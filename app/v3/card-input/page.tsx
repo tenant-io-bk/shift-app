@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { SystemRow } from '@/app/components/Cards';
 import StepProgress from '@/app/components/StepProgress';
+import { ScreenFlash } from '@/app/components/ScreenFlash';
 
 function fmtCard(val: string) {
   const d = val.replace(/\D/g, '').slice(0, 16);
@@ -47,6 +48,7 @@ export default function CardInput() {
   const [cvv,    setCvv]    = useState('');
   const [name,   setName]   = useState('');
   const [done,   setDone]   = useState(false);
+  const [flash,  setFlash]  = useState(0);
   const [focused, setFocused] = useState<string | null>(null);
 
   const digits  = card.replace(/\D/g, '');
@@ -61,6 +63,7 @@ export default function CardInput() {
   function submit() {
     if (!isValid) return;
     setDone(true);
+    setFlash(f => f + 1);
     setTimeout(() => router.push('/v3/w9'), 2000);
   }
 
@@ -68,6 +71,7 @@ export default function CardInput() {
   if (done) {
     return (
       <div style={{ maxWidth: 390, minHeight: '100vh', margin: '0 auto', background: 'var(--paper)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '0 32px' }}>
+        <ScreenFlash trigger={flash} />
         <style>{`
           @keyframes pop { 0%{transform:scale(0.6);opacity:0} 70%{transform:scale(1.12)} 100%{transform:scale(1);opacity:1} }
           .pop { animation: pop 0.45s cubic-bezier(0.34,1.4,0.64,1) forwards; }

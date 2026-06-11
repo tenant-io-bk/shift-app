@@ -3,21 +3,24 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import StatusBar from '@/app/components/StatusBar';
+import { ScreenFlash } from '@/app/components/ScreenFlash';
 
 export default function WorkerConfirm() {
   const [phase, setPhase] = useState<'fill' | 'text' | 'bounce' | 'done'>('fill');
   const [penaltyActive, setPenaltyActive] = useState(false);
+  const [flash, setFlash] = useState(0);
 
   useEffect(() => {
     const t1 = setTimeout(() => setPhase('text'), 500);
     const t2 = setTimeout(() => setPhase('bounce'), 1600);
-    const t3 = setTimeout(() => setPhase('done'), 2200);
+    const t3 = setTimeout(() => { setPhase('done'); setFlash(f => f + 1); }, 2200);
     const t4 = setTimeout(() => setPenaltyActive(true), 15 * 60 * 1000);
     return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); clearTimeout(t4); };
   }, []);
 
   return (
     <div style={{ maxWidth: 390, minHeight: '100vh', margin: '0 auto', position: 'relative', overflow: 'hidden' }}>
+      <ScreenFlash trigger={flash} />
       <style>{`
         @keyframes fill-down {
           0%   { transform: translateY(-100%); }

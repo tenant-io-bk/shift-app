@@ -3,6 +3,7 @@
 import { useState, useRef } from 'react';
 import Link from 'next/link';
 import BottomNav from '@/app/components/BottomNav';
+import { CountUp } from '@/app/components/CountUp';
 
 const TRANSACTIONS = [
   { name: "Padmore's Coffee", detail: 'Barista · Mon 12 May', amount: '+$174.00', positive: true },
@@ -110,10 +111,10 @@ export default function WorkerWallet() {
 
           <div style={{ display: 'flex', alignItems: 'baseline', marginBottom: 28 }}>
             <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 56, color: '#fff', letterSpacing: '-0.075em', lineHeight: 1 }}>
-              $247
+              $<CountUp to={247} duration={1200} />
             </span>
             <span style={{ color: 'var(--green)', fontSize: 56, fontFamily: 'var(--sans)', fontWeight: 600, lineHeight: 1, letterSpacing: '-0.075em' }}>.</span>
-            <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 32, color: '#fff', letterSpacing: '-0.05em', marginLeft: 3 }}>50</span>
+            <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 32, color: '#fff', letterSpacing: '-0.05em', marginLeft: 3 }}><CountUp to={50} duration={1200} /></span>
           </div>
 
           <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between' }}>

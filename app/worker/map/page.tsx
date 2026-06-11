@@ -1,10 +1,12 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import Link from 'next/link';
 import StatusBar from '@/app/components/StatusBar';
 import BottomNav from '@/app/components/BottomNav';
 import ShiftCard, { CompactCard, ShiftFamily } from '@/app/components/ShiftCard';
+import { SwipeCard } from '@/app/components/SwipeCard';
+import { ScreenFlash } from '@/app/components/ScreenFlash';
 
 const SHIFTS = [
   { name: "Padmore's Coffee",  shortName: "Padmore's",      loc: 'Bedstuy, BK',        type: 'Barista',   hours: '11A–4P',  pay: '$140', rate: '$28/HR', brief: ['Coffee bar needs a barista for the lunch rush.', 'Latte art experience preferred.', 'Wear all black.'],         priority: false, pinX: 195, pinY: 380 },
@@ -39,19 +41,60 @@ function familyFor(role: string): ShiftFamily {
 type Shift = typeof SHIFTS[0];
 
 function PinSheet({ shift, onClose }: { shift: Shift; onClose: () => void }) {
+  const [dragY, setDragY] = useState(0);
+  const dragStartY = useRef(0);
+  const isDragging = useRef(false);
+  const velocity = useRef(0);
+  const lastY = useRef(0);
+  const lastT = useRef(0);
+
+  function onHandlePointerDown(e: React.PointerEvent) {
+    e.currentTarget.setPointerCapture(e.pointerId);
+    dragStartY.current = e.clientY;
+    lastY.current = e.clientY;
+    lastT.current = e.timeStamp;
+    velocity.current = 0;
+    isDragging.current = true;
+  }
+  function onHandlePointerMove(e: React.PointerEvent) {
+    if (!isDragging.current) return;
+    const dy = Math.max(0, e.clientY - dragStartY.current);
+    if (e.timeStamp > lastT.current) velocity.current = (e.clientY - lastY.current) / (e.timeStamp - lastT.current);
+    lastY.current = e.clientY;
+    lastT.current = e.timeStamp;
+    setDragY(dy);
+  }
+  function onHandlePointerUp() {
+    if (!isDragging.current) return;
+    isDragging.current = false;
+    const projected = dragY + velocity.current * 200;
+    if (projected > 110 || velocity.current > 0.8) { onClose(); }
+    else setDragY(0);
+  }
+
   return (
     <>
-      <div onClick={onClose} style={{ position: 'fixed', inset: 0, zIndex: 105, background: 'rgba(0,0,0,0.35)' }} />
+      <div onClick={onClose} style={{ position: 'fixed', inset: 0, zIndex: 105, background: `rgba(0,0,0,${Math.max(0.35 - dragY / 400, 0)})` }} />
       <div style={{
-        position: 'fixed', bottom: 0, left: '50%', transform: 'translateX(-50%)',
+        position: 'fixed', bottom: 0, left: '50%',
+        transform: `translateX(-50%) translateY(${dragY}px)`,
+        transition: isDragging.current ? 'none' : 'transform 0.4s cubic-bezier(0.22,1,0.36,1)',
         width: '100%', maxWidth: 390,
         background: 'var(--paper)',
         borderRadius: '20px 20px 0 0',
-        padding: '16px 14px 100px',
+        padding: '0 14px 100px',
         zIndex: 110,
-        animation: 'slideUp 0.3s cubic-bezier(0.22,1,0.36,1)',
+        animation: dragY === 0 ? 'slideUp 0.3s cubic-bezier(0.22,1,0.36,1)' : 'none',
       }}>
-        <div style={{ width: 36, height: 4, borderRadius: 99, background: 'var(--line-2)', margin: '0 auto 16px' }} />
+        <div
+          onPointerDown={onHandlePointerDown}
+          onPointerMove={onHandlePointerMove}
+          onPointerUp={onHandlePointerUp}
+          onPointerCancel={onHandlePointerUp}
+          style={{ padding: '14px 0 12px', cursor: 'grab', touchAction: 'none', display: 'flex', justifyContent: 'center' }}
+        >
+          <div style={{ width: 36, height: 4, borderRadius: 99, background: 'var(--line-2)' }} />
+        </div>
         <ShiftCard
           family={familyFor(shift.type)}
           state={shift.priority ? 'urgent' : undefined}
@@ -105,6 +148,48 @@ export default function WorkerMap() {
   const [viewMode, setViewMode] = useState<'map' | 'list'>('map');
   const [selectedShift, setSelectedShift] = useState<Shift | null>(null);
   const [filterOpen, setFilterOpen] = useState(false);
+  const [dismissed, setDismissed] = useState<Set<string>>(new Set());
+  const [flash, setFlash] = useState(0);
+
+  // Filter sheet drag-to-dismiss
+  const filterDragY = useRef(0);
+  const [filterDragYState, setFilterDragYState] = useState(0);
+  const filterDragStart = useRef(0);
+  const filterIsDragging = useRef(false);
+  const filterVelocity = useRef(0);
+  const filterLastY = useRef(0);
+  const filterLastT = useRef(0);
+
+  function onFilterHandlePointerDown(e: React.PointerEvent) {
+    e.currentTarget.setPointerCapture(e.pointerId);
+    filterDragStart.current = e.clientY;
+    filterLastY.current = e.clientY;
+    filterLastT.current = e.timeStamp;
+    filterVelocity.current = 0;
+    filterIsDragging.current = true;
+  }
+  function onFilterHandlePointerMove(e: React.PointerEvent) {
+    if (!filterIsDragging.current) return;
+    const dy = Math.max(0, e.clientY - filterDragStart.current);
+    if (e.timeStamp > filterLastT.current) filterVelocity.current = (e.clientY - filterLastY.current) / (e.timeStamp - filterLastT.current);
+    filterLastY.current = e.clientY;
+    filterLastT.current = e.timeStamp;
+    filterDragY.current = dy;
+    setFilterDragYState(dy);
+  }
+  function onFilterHandlePointerUp() {
+    if (!filterIsDragging.current) return;
+    filterIsDragging.current = false;
+    const projected = filterDragY.current + filterVelocity.current * 200;
+    if (projected > 110 || filterVelocity.current > 0.8) {
+      setFilterOpen(false);
+      filterDragY.current = 0;
+      setFilterDragYState(0);
+    } else {
+      filterDragY.current = 0;
+      setFilterDragYState(0);
+    }
+  }
 
   // draft state (inside sheet before Save)
   const [draftRole, setDraftRole] = useState('All');
@@ -228,15 +313,25 @@ export default function WorkerMap() {
 
   const filterSheet = filterOpen && (
     <>
-      <div onClick={() => setFilterOpen(false)} style={{ position: 'fixed', inset: 0, zIndex: 105, background: 'rgba(0,0,0,0.4)' }} />
+      <div onClick={() => { setFilterOpen(false); setFilterDragYState(0); filterDragY.current = 0; }} style={{ position: 'fixed', inset: 0, zIndex: 105, background: `rgba(0,0,0,${Math.max(0.4 - filterDragYState / 400, 0)})` }} />
       <div style={{
-        position: 'fixed', bottom: 0, left: '50%', transform: 'translateX(-50%)',
+        position: 'fixed', bottom: 0, left: '50%',
+        transform: `translateX(-50%) translateY(${filterDragYState}px)`,
+        transition: filterIsDragging.current ? 'none' : 'transform 0.4s cubic-bezier(0.22,1,0.36,1)',
         width: '100%', maxWidth: 390,
         background: 'var(--paper)', borderRadius: '20px 20px 0 0',
         padding: '0 20px 36px', zIndex: 110,
-        animation: 'slideUp 0.28s cubic-bezier(0.22,1,0.36,1)',
+        animation: filterDragYState === 0 ? 'slideUp 0.28s cubic-bezier(0.22,1,0.36,1)' : 'none',
       }}>
-        <div style={{ width: 36, height: 4, borderRadius: 99, background: 'var(--line-2)', margin: '12px auto 20px' }} />
+        <div
+          onPointerDown={onFilterHandlePointerDown}
+          onPointerMove={onFilterHandlePointerMove}
+          onPointerUp={onFilterHandlePointerUp}
+          onPointerCancel={onFilterHandlePointerUp}
+          style={{ padding: '12px 0 8px', cursor: 'grab', touchAction: 'none', display: 'flex', justifyContent: 'center' }}
+        >
+          <div style={{ width: 36, height: 4, borderRadius: 99, background: 'var(--line-2)' }} />
+        </div>
 
         {/* Role */}
         <div style={{ marginBottom: 22 }}>
@@ -400,6 +495,7 @@ export default function WorkerMap() {
         </div>
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: 10, padding: '0 14px 20px' }}>
+          <ScreenFlash trigger={flash} />
           <CompactCard
             icon="W"
             title="Wade @ Padmore's"
@@ -417,20 +513,26 @@ export default function WorkerMap() {
             rate="$24/h + tips"
             statusLabel="Pending"
           />
-          {filteredShifts.map((shift, i) => (
-            <ShiftCard
-              key={i}
-              family={familyFor(shift.type)}
-              state={shift.priority ? 'urgent' : undefined}
-              role={shift.type}
-              time={shift.hours}
-              loc={shift.loc}
+          {filteredShifts.filter(s => !dismissed.has(s.name)).map((shift, i) => (
+            <SwipeCard
+              key={shift.name}
               venue={shift.shortName}
-              brief={shift.brief}
-              pay={shift.pay}
-              rate={shift.rate}
-              href="/worker/job-detail"
-            />
+              onApply={() => setFlash(f => f + 1)}
+              onSkip={() => setDismissed(prev => new Set([...prev, shift.name]))}
+            >
+              <ShiftCard
+                family={familyFor(shift.type)}
+                state={shift.priority ? 'urgent' : undefined}
+                role={shift.type}
+                time={shift.hours}
+                loc={shift.loc}
+                venue={shift.shortName}
+                brief={shift.brief}
+                pay={shift.pay}
+                rate={shift.rate}
+                href="/worker/job-detail"
+              />
+            </SwipeCard>
           ))}
         </div>
       </div>

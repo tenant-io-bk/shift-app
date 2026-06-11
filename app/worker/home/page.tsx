@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import StatusBar from '@/app/components/StatusBar';
 import BottomNav from '@/app/components/BottomNav';
+import { CountUp } from '@/app/components/CountUp';
 
 const UPCOMING = [
   {
@@ -509,9 +510,9 @@ export default function WorkerHome() {
       {/* Quick stats */}
       <div style={{ margin: '0 16px', display: 'flex', gap: 8 }}>
         {[
-          { label: 'This week', value: '$408.', bg: 'var(--green-soft)' },
-          { label: 'Shifts', value: '3 Booked', bg: 'var(--steel-soft)' },
-          { label: 'Rating', value: '4.9★', bg: 'var(--lilac-soft)' },
+          { label: 'This week', to: 408, prefix: '$', suffix: '.', bg: 'var(--green-soft)' },
+          { label: 'Shifts', to: 3, suffix: ' Booked', bg: 'var(--steel-soft)' },
+          { label: 'Rating', to: 4.9, suffix: '★', decimals: 1, bg: 'var(--lilac-soft)' },
         ].map((stat) => (
           <div
             key={stat.label}
@@ -534,7 +535,7 @@ export default function WorkerHome() {
                 lineHeight: 1,
               }}
             >
-              {stat.value}
+              <CountUp to={stat.to} prefix={stat.prefix} suffix={stat.suffix} decimals={stat.decimals} duration={1100} />
             </div>
             <div
               style={{

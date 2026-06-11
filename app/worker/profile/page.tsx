@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import Link from 'next/link';
 import StatusBar from '@/app/components/StatusBar';
 import BottomNav from '@/app/components/BottomNav';
@@ -101,6 +101,45 @@ export default function WorkerProfile() {
   const [historyExpanded, setHistoryExpanded] = useState<string | null>(null);
   const [editing, setEditing] = useState(false);
 
+  // Edit sheet drag-to-dismiss
+  const [editDragY, setEditDragY] = useState(0);
+  const [editDragMode, setEditDragMode] = useState(false);
+  const editDragStart = useRef(0);
+  const editIsDragging = useRef(false);
+  const editVelocity = useRef(0);
+  const editLastY = useRef(0);
+  const editLastT = useRef(0);
+
+  function onEditHandlePointerDown(e: React.PointerEvent) {
+    e.currentTarget.setPointerCapture(e.pointerId);
+    if (!editDragMode) setEditDragMode(true);
+    editDragStart.current = e.clientY;
+    editLastY.current = e.clientY;
+    editLastT.current = e.timeStamp;
+    editVelocity.current = 0;
+    editIsDragging.current = true;
+  }
+  function onEditHandlePointerMove(e: React.PointerEvent) {
+    if (!editIsDragging.current) return;
+    const dy = Math.max(0, e.clientY - editDragStart.current);
+    if (e.timeStamp > editLastT.current) editVelocity.current = (e.clientY - editLastY.current) / (e.timeStamp - editLastT.current);
+    editLastY.current = e.clientY;
+    editLastT.current = e.timeStamp;
+    setEditDragY(dy);
+  }
+  function onEditHandlePointerUp() {
+    if (!editIsDragging.current) return;
+    editIsDragging.current = false;
+    const projected = editDragY + editVelocity.current * 200;
+    if (projected > 110 || editVelocity.current > 0.8) {
+      setEditing(false);
+      setEditDragY(0);
+      setEditDragMode(false);
+    } else {
+      setEditDragY(0);
+    }
+  }
+
   // Saved values
   const [name, setName] = useState('Marcus Rivera');
   const [bio, setBio] = useState('Hospitality pro. 6 years bar + floor experience across Brooklyn and Manhattan. Fast learner, fast learner, fast when it counts.');
@@ -121,7 +160,15 @@ export default function WorkerProfile() {
     setDraftBio(bio);
     setDraftAge(age);
     setDraftPronouns(pronouns);
+    setEditDragY(0);
+    setEditDragMode(false);
     setEditing(true);
+  }
+
+  function closeEdit() {
+    setEditing(false);
+    setEditDragY(0);
+    setEditDragMode(false);
   }
 
   function saveEdits() {
@@ -129,7 +176,7 @@ export default function WorkerProfile() {
     setBio(draftBio);
     setAge(draftAge);
     setPronouns(draftPronouns === 'Custom' ? customPronouns || pronouns : draftPronouns);
-    setEditing(false);
+    closeEdit();
   }
 
   return (
@@ -428,31 +475,38 @@ export default function WorkerProfile() {
 
           {/* Backdrop */}
           <div
-            onClick={() => setEditing(false)}
-            style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.4)', zIndex: 200 }}
+            onClick={() => { setEditing(false); setEditDragY(0); setEditDragMode(false); }}
+            style={{ position: 'fixed', inset: 0, background: `rgba(0,0,0,${Math.max(0.4 - editDragY / 400, 0)})`, zIndex: 200 }}
           />
 
           {/* Sheet */}
           <div style={{
             position: 'fixed', bottom: 0, left: '50%',
-            transform: 'translateX(-50%)',
+            transform: `translateX(-50%) translateY(${editDragY}px)`,
+            transition: editIsDragging.current ? 'none' : 'transform 0.4s cubic-bezier(0.22,1,0.36,1)',
             width: '100%', maxWidth: 390,
             background: 'var(--paper)',
             borderRadius: '24px 24px 0 0',
             zIndex: 201,
-            animation: 'sheet-up 0.28s cubic-bezier(0.32,0.72,0,1) both',
+            animation: editDragMode ? 'none' : 'sheet-up 0.28s cubic-bezier(0.32,0.72,0,1) both',
             maxHeight: '85vh', overflowY: 'auto',
             paddingBottom: 40,
           }}>
-            {/* Handle */}
-            <div style={{ display: 'flex', justifyContent: 'center', paddingTop: 12, paddingBottom: 4 }}>
+            {/* Handle — drag to dismiss */}
+            <div
+              onPointerDown={onEditHandlePointerDown}
+              onPointerMove={onEditHandlePointerMove}
+              onPointerUp={onEditHandlePointerUp}
+              onPointerCancel={onEditHandlePointerUp}
+              style={{ display: 'flex', justifyContent: 'center', paddingTop: 12, paddingBottom: 4, cursor: 'grab', touchAction: 'none' }}
+            >
               <div style={{ width: 36, height: 4, borderRadius: 99, background: 'var(--line)' }} />
             </div>
 
             {/* Header */}
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '10px 22px 20px' }}>
               <span style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 22, color: 'var(--ink)', letterSpacing: '-0.04em' }}>Edit Profile</span>
-              <button onClick={() => setEditing(false)} style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: 22, color: 'var(--ink)', lineHeight: 1 }}>×</button>
+              <button onClick={closeEdit} style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: 22, color: 'var(--ink)', lineHeight: 1 }}>×</button>
             </div>
 
             <div style={{ padding: '0 22px', display: 'flex', flexDirection: 'column', gap: 22 }}>
