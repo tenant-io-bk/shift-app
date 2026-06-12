@@ -2,7 +2,6 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
-import StepProgress from '@/app/components/StepProgress';
 
 const METHODS = [
   {
@@ -45,13 +44,9 @@ export default function PayoutSetup() {
         borderBottom: '1px solid var(--line)',
         background: 'var(--paper)',
       }}>
-        <Link href="/v3/profile-setup" style={{ fontSize: 20, color: 'var(--ink)', textDecoration: 'none', width: 32 }}>←</Link>
+        <Link href="/worker/home" style={{ fontSize: 20, color: 'var(--ink)', textDecoration: 'none', width: 32 }}>←</Link>
         <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 16, color: 'var(--ink)' }}>Get Paid</span>
         <div style={{ width: 32 }} />
-      </div>
-
-      <div style={{ padding: '12px 22px 4px' }}>
-        <StepProgress step={8} total={10} />
       </div>
 
       <div style={{ padding: '18px 22px 32px' }}>
@@ -64,7 +59,7 @@ export default function PayoutSetup() {
           letterSpacing: '0.08em',
           display: 'block',
           marginBottom: 10,
-        }}>LAST STEP</span>
+        }}>GET PAID</span>
 
         <h1 style={{
           fontFamily: 'var(--sans)',
@@ -81,7 +76,7 @@ export default function PayoutSetup() {
           fontSize: 13,
           color: 'var(--ink)',
           marginBottom: 20,
-        }}>Set this up before your first shift. Tax info comes later.</p>
+        }}>Add this to get paid for the shift you just booked. Takes 30 seconds — tax info comes later.</p>
 
         {/* Method options */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>

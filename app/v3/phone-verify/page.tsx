@@ -75,7 +75,7 @@ export default function PhoneVerify() {
       </div>
 
       <div style={{ padding: '12px 22px 4px' }}>
-        <StepProgress step={1} total={10} />
+        <StepProgress step={1} total={4} />
       </div>
 
       <div style={{ padding: '18px 22px 0', flex: 1 }}>

@@ -4,7 +4,6 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { SystemRow } from '@/app/components/Cards';
-import StepProgress from '@/app/components/StepProgress';
 import { ScreenFlash } from '@/app/components/ScreenFlash';
 
 function fmtCard(val: string) {
@@ -64,7 +63,7 @@ export default function CardInput() {
     if (!isValid) return;
     setDone(true);
     setFlash(f => f + 1);
-    setTimeout(() => router.push('/v3/w9'), 2000);
+    setTimeout(() => router.push('/worker/home'), 2000);
   }
 
   // ── Success state ────────────────────────────────────────────────────────
@@ -85,7 +84,7 @@ export default function CardInput() {
         <div style={{ fontFamily: 'var(--body)', fontSize: 14, color: 'var(--ink)' }}>
           {network || 'Debit'} ••••{last4}
         </div>
-        <div style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--ink)', marginTop: 20}}>Continuing…</div>
+        <div style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--ink)', marginTop: 20}}>You&apos;re all set — taking you home…</div>
       </div>
     );
   }
@@ -99,10 +98,6 @@ export default function CardInput() {
         <Link href="/v3/payout-setup" style={{ fontSize: 20, color: 'var(--ink)', textDecoration: 'none', width: 32 }}>←</Link>
         <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 15, color: 'var(--ink)' }}>Add Debit Card</span>
         <div style={{ width: 32 }} />
-      </div>
-
-      <div style={{ padding: '12px 22px 4px' }}>
-        <StepProgress step={9} total={10} />
       </div>
 
       <div style={{ padding: '24px 22px 40px', display: 'flex', flexDirection: 'column', gap: 0 }}>

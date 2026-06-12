@@ -64,7 +64,7 @@ export default function WorkerOnboarding() {
       {/* Step 1 */}
       <div style={{ padding: 22 }}>
         <div style={{ marginBottom: 24 }}>
-          <StepProgress step={3} total={10} />
+          <StepProgress step={3} total={4} />
         </div>
 
         <span style={{
@@ -121,7 +121,7 @@ export default function WorkerOnboarding() {
         </div>
 
         {/* Continue */}
-        <Link href="/v3/availability" style={{
+        <Link href="/v3/profile-setup" style={{
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',

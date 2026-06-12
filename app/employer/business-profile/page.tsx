@@ -18,18 +18,9 @@ export default function BusinessProfile() {
       <StatusBar />
 
       <div style={{ height: 44, padding: '0 16px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderBottom: '1px solid var(--line)' }}>
-        <Link href="/employer/verify" style={{ fontSize: 20, color: 'var(--ink)', textDecoration: 'none' }}>←</Link>
+        <Link href="/employer/dashboard" style={{ fontSize: 20, color: 'var(--ink)', textDecoration: 'none' }}>←</Link>
         <span style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--ink)' }}>Business profile</span>
         <div style={{ width: 20 }} />
-      </div>
-
-      <div style={{ padding: '8px 22px 4px', display: 'flex', alignItems: 'center', gap: 10 }}>
-        <div style={{ flex: 1, height: 3, background: 'var(--paper-3)', borderRadius: 99, overflow: 'hidden' }}>
-          <div style={{ width: '60%', height: '100%', background: 'var(--ink)', borderRadius: 99 }} />
-        </div>
-        <span style={{ fontFamily: 'var(--body)', fontSize: 10, color: 'var(--ink)', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
-          <span style={{ color: 'var(--green)', fontWeight: 600 }}>3</span> / 5
-        </span>
       </div>
 
       <div style={{ padding: '20px 22px 140px', flex: 1, overflowY: 'auto' }}>
@@ -103,11 +94,11 @@ export default function BusinessProfile() {
 
       <div style={{ position: 'fixed', bottom: 0, left: '50%', transform: 'translateX(-50%)', width: '100%', maxWidth: 390, padding: '16px 22px 36px', background: 'linear-gradient(to bottom, transparent, var(--paper) 40%)' }}>
         {canContinue ? (
-          <Link href="/employer/billing" style={{
+          <Link href="/employer/dashboard" style={{
             display: 'block', width: '100%', padding: '15px 22px', borderRadius: 99,
             background: 'var(--ink)', color: '#fff', fontFamily: 'var(--body)',
             fontWeight: 500, fontSize: 16, textAlign: 'center', textDecoration: 'none',
-          }}>Continue →</Link>
+          }}>Save Profile →</Link>
         ) : (
           <div style={{ width: '100%', padding: '15px 22px', borderRadius: 99, background: 'var(--paper-3)', color: 'var(--ink)', fontFamily: 'var(--body)', fontWeight: 500, fontSize: 16, textAlign: 'center' }}>
             Fill in All Fields

@@ -89,7 +89,7 @@ function SMSVerifyInner() {
       </div>
 
       <div style={{ padding: '12px 22px 4px' }}>
-        <StepProgress step={2} total={10} />
+        <StepProgress step={2} total={4} />
       </div>
 
       <div style={{ padding: '20px 22px 0', flex: 1 }}>

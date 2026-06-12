@@ -157,6 +157,29 @@ export default function WorkerConfirm() {
             </div>
           </div>
 
+          {/* Just-in-time payout nudge — first time you book, set up how you get paid */}
+          <Link href="/v3/payout-setup" style={{
+            display: 'flex', alignItems: 'center', gap: 12,
+            background: 'var(--green-soft)', borderRadius: 18,
+            padding: '16px 18px', textDecoration: 'none',
+          }}>
+            <div style={{ width: 34, height: 34, borderRadius: '50%', background: 'var(--ink)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <rect x="2" y="4" width="12" height="8" rx="1.5" stroke="#fff" strokeWidth="1.4" />
+                <path d="M2 7h12" stroke="#fff" strokeWidth="1.4" />
+              </svg>
+            </div>
+            <div style={{ flex: 1 }}>
+              <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 15, color: 'var(--ink)', letterSpacing: '-0.02em' }}>
+                Add your payout method
+              </div>
+              <div style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--ink)', marginTop: 2 }}>
+                30 seconds so you get paid after this shift
+              </div>
+            </div>
+            <span style={{ fontFamily: 'var(--body)', fontSize: 16, color: 'var(--ink)', flexShrink: 0 }}>→</span>
+          </Link>
+
           <Link href="/v3/cancel-flow" style={{
             display: 'block', marginTop: 12,
             background: penaltyActive ? 'var(--red-soft)' : 'var(--yellow-soft)',

@@ -36,14 +36,14 @@ export default function ProfileSetup() {
             PROFILE<br />LIVE<span style={{ color: 'var(--green)' }}>.</span>
           </h1>
           <p style={{ fontFamily: 'var(--body)', fontSize: 14, color: 'rgba(255,255,255,0.6)', lineHeight: 1.6, marginBottom: 40 }}>
-            Employers can see your profile now. Set your payout method to unlock shifts.
+            You&apos;re in. Start browsing shifts now — add your payout method when you book your first one.
           </p>
-          <Link href="/v3/payout-setup" style={{
+          <Link href="/worker/home" style={{
             display: 'block', padding: '16px 22px', borderRadius: 99,
             background: '#fff', color: 'var(--ink)', fontFamily: 'var(--body)',
             fontWeight: 500, fontSize: 16, textAlign: 'center', textDecoration: 'none', letterSpacing: '-0.01em',
           }}>
-            Set Up Payout →
+            Show Me Shifts →
           </Link>
         </div>
       </div>
@@ -55,13 +55,13 @@ export default function ProfileSetup() {
       <StatusBar />
 
       <div style={{ height: 44, padding: '0 16px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderBottom: '1px solid var(--line)' }}>
-        <Link href="/v3/credentials" style={{ fontFamily: 'var(--sans)', fontSize: 20, color: 'var(--ink)', textDecoration: 'none' }}>←</Link>
+        <Link href="/worker/onboarding" style={{ fontFamily: 'var(--sans)', fontSize: 20, color: 'var(--ink)', textDecoration: 'none' }}>←</Link>
         <span style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--ink)' }}>Your profile</span>
         <div style={{ width: 20 }} />
       </div>
 
       <div style={{ padding: '12px 22px 4px' }}>
-        <StepProgress step={7} total={10} />
+        <StepProgress step={4} total={4} />
       </div>
 
       <div style={{ padding: '16px 22px 140px', flex: 1, overflowY: 'auto' }}>

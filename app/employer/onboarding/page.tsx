@@ -43,7 +43,7 @@ export default function Page() {
             textTransform: 'uppercase',
           }}
         >
-          2 of 5
+          2 of 4
         </span>
         <div style={{ width: 32 }} />
       </div>
@@ -51,7 +51,7 @@ export default function Page() {
       {/* Progress bar */}
       <div style={{ padding: '8px 22px 0' }}>
         <div style={{ height: 3, background: 'var(--paper-3)', borderRadius: 99, overflow: 'hidden' }}>
-          <div style={{ width: '40%', height: '100%', background: 'var(--ink)', borderRadius: 99 }} />
+          <div style={{ width: '50%', height: '100%', background: 'var(--ink)', borderRadius: 99 }} />
         </div>
       </div>
 

@@ -34,7 +34,7 @@ export default function EmployerVerify() {
           <p style={{ fontFamily: 'var(--body)', fontSize: 14, color: 'rgba(255,255,255,0.6)', lineHeight: 1.6, marginBottom: 40 }}>
             We&apos;ll review within one business day. You&apos;ll get a text when you&apos;re approved to post.
           </p>
-          <Link href="/employer/business-profile" style={{
+          <Link href="/employer/billing" style={{
             display: 'block', padding: '16px 22px', borderRadius: 99,
             background: 'var(--hydrant)', color: '#000', fontFamily: 'var(--body)',
             fontWeight: 500, fontSize: 16, textAlign: 'center', textDecoration: 'none', letterSpacing: '-0.01em',
@@ -57,7 +57,7 @@ export default function EmployerVerify() {
       </div>
 
       <div style={{ padding: '12px 22px 4px' }}>
-        <StepProgress step={3} total={5} />
+        <StepProgress step={3} total={4} />
       </div>
 
       <div style={{ padding: '20px 22px 140px', flex: 1, overflowY: 'auto' }}>

@@ -187,6 +187,20 @@ export default function EmployerDashboard() {
         </div>
       </div>
 
+      {/* Deferred setup nudge — business profile can be completed later */}
+      <Link href="/employer/business-profile" style={{
+        margin: '0 16px 12px', display: 'flex', alignItems: 'center', gap: 10,
+        padding: '10px 14px', background: 'var(--green-soft)', borderRadius: 12, textDecoration: 'none',
+      }}>
+        <div style={{ width: 22, height: 22, borderRadius: '50%', border: '2px solid rgba(13,14,18,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+          <div style={{ width: 10, height: 10, borderRadius: '50%', background: 'var(--ink)', clipPath: 'inset(0 50% 0 0)' }} />
+        </div>
+        <span style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--ink)', fontWeight: 600, flex: 1 }}>
+          Add your business profile — workers see it before accepting
+        </span>
+        <span style={{ fontFamily: 'var(--body)', fontSize: 13, color: 'var(--ink)' }}>→</span>
+      </Link>
+
       {/* ── Post A Shift card ─────────────────────────────────────────────── */}
       <div style={{ margin: '0 16px 4px' }}>
 

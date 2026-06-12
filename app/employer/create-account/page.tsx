@@ -51,7 +51,7 @@ export default function EmployerCreateAccount() {
       </div>
 
       <div style={{ padding: '12px 22px 4px' }}>
-        <StepProgress step={1} total={5} />
+        <StepProgress step={1} total={4} />
       </div>
 
       <div style={{ padding: '20px 22px 140px', flex: 1, overflowY: 'auto' }}>

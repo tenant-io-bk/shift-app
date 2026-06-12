@@ -31,17 +31,17 @@ export default function EmployerBilling() {
       <StatusBar />
 
       <div style={{ height: 44, padding: '0 16px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderBottom: '1px solid var(--line)' }}>
-        <Link href="/employer/business-profile" style={{ fontSize: 20, color: 'var(--ink)', textDecoration: 'none' }}>←</Link>
+        <Link href="/employer/verify" style={{ fontSize: 20, color: 'var(--ink)', textDecoration: 'none' }}>←</Link>
         <span style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--ink)' }}>Billing</span>
         <div style={{ width: 20 }} />
       </div>
 
       <div style={{ padding: '8px 22px 4px', display: 'flex', alignItems: 'center', gap: 10 }}>
         <div style={{ flex: 1, height: 3, background: 'var(--paper-3)', borderRadius: 99, overflow: 'hidden' }}>
-          <div style={{ width: '80%', height: '100%', background: 'var(--ink)', borderRadius: 99 }} />
+          <div style={{ width: '100%', height: '100%', background: 'var(--ink)', borderRadius: 99 }} />
         </div>
         <span style={{ fontFamily: 'var(--body)', fontSize: 10, color: 'var(--ink)', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
-          <span style={{ color: 'var(--green)', fontWeight: 600 }}>4</span> / 5
+          <span style={{ color: 'var(--green)', fontWeight: 600 }}>4</span> / 4
         </span>
       </div>
 
