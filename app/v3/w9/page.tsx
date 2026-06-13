@@ -2,7 +2,6 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import StatusBar from '@/app/components/StatusBar';
-import StepProgress from '@/app/components/StepProgress';
 
 export default function W9() {
   const [ssn, setSsn] = useState('');
@@ -17,13 +16,9 @@ export default function W9() {
       <StatusBar />
 
       <div style={{ height: 44, padding: '0 16px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderBottom: '1px solid var(--line)', background: 'var(--paper)' }}>
-        <Link href="/v3/card-input" style={{ fontFamily: 'var(--sans)', fontSize: 20, color: 'var(--ink)', textDecoration: 'none' }}>←</Link>
+        <Link href="/worker/profile" style={{ fontFamily: 'var(--sans)', fontSize: 20, color: 'var(--ink)', textDecoration: 'none' }}>←</Link>
         <span style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--ink)' }}>Tax info</span>
         <div style={{ width: 20 }} />
-      </div>
-
-      <div style={{ padding: '12px 22px 4px' }}>
-        <StepProgress step={10} total={10} />
       </div>
 
       <div style={{ padding: '16px 22px 120px', flex: 1, overflowY: 'auto' }}>
@@ -127,7 +122,7 @@ export default function W9() {
       <div style={{ position: 'fixed', bottom: 0, left: '50%', transform: 'translateX(-50%)', width: '100%', maxWidth: 390, padding: '16px 22px 36px', background: 'linear-gradient(to bottom, transparent, var(--paper) 40%)' }}>
         {complete ? (
           <Link
-            href="/worker/home"
+            href="/worker/profile"
             style={{
               display: 'block', width: '100%', padding: '15px 22px',
               borderRadius: 99, background: 'var(--ink)', color: '#FFFFFF',
@@ -135,7 +130,7 @@ export default function W9() {
               textAlign: 'center', textDecoration: 'none', letterSpacing: '-0.01em',
             }}
           >
-            I&apos;m In. Show Me Shifts.
+            Submit W-9
           </Link>
         ) : (
           <div style={{ width: '100%', padding: '15px 22px', borderRadius: 99, background: 'var(--paper-3)', color: 'var(--ink)', fontFamily: 'var(--body)', fontWeight: 500, fontSize: 16, textAlign: 'center' }}>

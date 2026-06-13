@@ -3,7 +3,6 @@
 import { useState, useRef } from 'react';
 import Link from 'next/link';
 import StatusBar from '@/app/components/StatusBar';
-import StepProgress from '@/app/components/StepProgress';
 
 const CREDS = [
   {
@@ -76,13 +75,9 @@ export default function Credentials() {
 
       {/* Nav */}
       <div style={{ height: 44, padding: '0 16px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderBottom: '1px solid var(--line)' }}>
-        <Link href="/v3/neighborhood" style={{ fontFamily: 'var(--sans)', fontSize: 20, color: 'var(--ink)', textDecoration: 'none' }}>←</Link>
+        <Link href="/worker/profile" style={{ fontFamily: 'var(--sans)', fontSize: 20, color: 'var(--ink)', textDecoration: 'none' }}>←</Link>
         <span style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--ink)' }}>Credentials</span>
         <div style={{ width: 20 }} />
-      </div>
-
-      <div style={{ padding: '12px 22px 4px' }}>
-        <StepProgress step={6} total={10} />
       </div>
 
       <div style={{ padding: '16px 22px 140px', flex: 1, overflowY: 'auto' }}>
@@ -171,7 +166,7 @@ export default function Credentials() {
       {/* CTA */}
       <div style={{ position: 'fixed', bottom: 0, left: '50%', transform: 'translateX(-50%)', width: '100%', maxWidth: 390, padding: '16px 22px 36px', background: 'linear-gradient(to bottom, transparent, var(--paper) 40%)' }}>
         <Link
-          href="/v3/profile-setup"
+          href="/worker/profile"
           style={{
             display: 'block', width: '100%', padding: '15px 22px',
             borderRadius: 99, background: 'var(--ink)', color: '#FFFFFF',
@@ -179,7 +174,7 @@ export default function Credentials() {
             textAlign: 'center', textDecoration: 'none', letterSpacing: '-0.01em',
           }}
         >
-          {selected.size > 0 ? `Continue with ${selected.size} Credential${selected.size > 1 ? 's' : ''}` : 'Continue'}
+          {selected.size > 0 ? `Save ${selected.size} Credential${selected.size > 1 ? 's' : ''}` : 'Save'}
         </Link>
         <p style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--ink)', textAlign: 'center', marginTop: 8 }}>
           You can add more later in your profile

@@ -2,7 +2,6 @@
 
 import { useState, useEffect, useRef, useCallback } from 'react';
 import Link from 'next/link';
-import StepProgress from '@/app/components/StepProgress';
 
 // Default: Bed-Stuy center
 const DEFAULT_LAT = 40.6872;
@@ -145,17 +144,13 @@ export default function Neighborhood() {
 
       {/* Nav */}
       <div style={{ height: 44, display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 16px', borderBottom: '1px solid var(--line)' }}>
-        <Link href="/v3/availability" style={{ fontSize: 20, color: 'var(--ink)', textDecoration: 'none', width: 32 }}>←</Link>
+        <Link href="/worker/profile" style={{ fontSize: 20, color: 'var(--ink)', textDecoration: 'none', width: 32 }}>←</Link>
         <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 16, color: 'var(--ink)' }}>Your Area</span>
         <div style={{ width: 32 }} />
       </div>
 
-      <div style={{ padding: '12px 22px 4px' }}>
-        <StepProgress step={5} total={10} />
-      </div>
-
       <div style={{ padding: '16px 22px 0' }}>
-        <span style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, color: 'var(--ink)', textTransform: 'uppercase', letterSpacing: '0.08em', display: 'block', marginBottom: 10 }}>STEP 4 OF 4</span>
+        <span style={{ fontFamily: 'var(--body)', fontSize: 11, fontWeight: 600, color: 'var(--ink)', textTransform: 'uppercase', letterSpacing: '0.08em', display: 'block', marginBottom: 10 }}>YOUR AREA</span>
         <h1 style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 36, color: 'var(--ink)', letterSpacing: '-0.075em', lineHeight: 1, marginBottom: 8 }}>
           Where Do You Work?
         </h1>
@@ -232,16 +227,16 @@ export default function Neighborhood() {
 
       {/* CTA */}
       <div style={{ padding: '24px 22px 40px', marginTop: 'auto' }}>
-        <Link href="/v3/credentials" style={{
+        <Link href="/worker/profile" style={{
           display: 'flex', alignItems: 'center', justifyContent: 'center',
           width: '100%', padding: '16px', background: 'var(--ink)', borderRadius: 99,
           fontFamily: 'var(--body)', fontWeight: 500, fontSize: 18,
           color: '#fff', letterSpacing: '-0.01em', textDecoration: 'none',
         }}>
-          One More Step →
+          Save →
         </Link>
         <p style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--ink)', textAlign: 'center', marginTop: 12 }}>
-          Just payout info, then you&apos;re in.
+          You can change this any time.
         </p>
       </div>
     </div>

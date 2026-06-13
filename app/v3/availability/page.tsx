@@ -2,7 +2,6 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
-import StepProgress from '@/app/components/StepProgress';
 
 const DAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
@@ -70,13 +69,9 @@ export default function Availability() {
         top: 0,
         zIndex: 10,
       }}>
-        <Link href="/worker/onboarding" style={{ fontSize: 20, color: 'var(--ink)', textDecoration: 'none', width: 32 }}>←</Link>
-        <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 16, color: 'var(--ink)' }}>Get Started</span>
+        <Link href="/worker/profile" style={{ fontSize: 20, color: 'var(--ink)', textDecoration: 'none', width: 32 }}>←</Link>
+        <span style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 16, color: 'var(--ink)' }}>Availability</span>
         <div style={{ width: 32 }} />
-      </div>
-
-      <div style={{ padding: '12px 22px 4px' }}>
-        <StepProgress step={4} total={10} />
       </div>
 
       <div style={{ padding: '24px 22px 40px' }}>
@@ -188,7 +183,7 @@ export default function Availability() {
           </div>
         ))}
 
-        <Link href="/v3/neighborhood" style={{
+        <Link href="/worker/profile" style={{
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
@@ -199,18 +194,18 @@ export default function Availability() {
           borderRadius: 99,
           fontFamily: 'var(--body)',
           fontWeight: 500,
-          fontSize: 22,
+          fontSize: 18,
           color: '#fff',
           textDecoration: 'none',
           letterSpacing: '-0.01em',
-        }}>→</Link>
+        }}>Save →</Link>
 
         <p style={{
           fontFamily: 'var(--body)',
           fontSize: 13,
           color: 'var(--ink)',
           marginTop: 14,
-        }}>Pick everything you can do. More shifts that way.</p>
+        }}>Pick everything that works. We&apos;ll only show shifts that fit.</p>
       </div>
     </div>
   );
