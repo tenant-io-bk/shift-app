@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import StatusBar from '@/app/components/StatusBar';
+import { markTaskComplete } from '@/lib/setupProgress';
 
 export default function W9() {
   const [ssn, setSsn] = useState('');
@@ -123,6 +124,7 @@ export default function W9() {
         {complete ? (
           <Link
             href="/worker/profile"
+            onClick={() => markTaskComplete('w9')}
             style={{
               display: 'block', width: '100%', padding: '15px 22px',
               borderRadius: 99, background: 'var(--ink)', color: '#FFFFFF',

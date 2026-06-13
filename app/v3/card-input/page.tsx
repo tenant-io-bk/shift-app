@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { SystemRow } from '@/app/components/Cards';
 import { ScreenFlash } from '@/app/components/ScreenFlash';
+import { markTaskComplete } from '@/lib/setupProgress';
 
 function fmtCard(val: string) {
   const d = val.replace(/\D/g, '').slice(0, 16);
@@ -61,6 +62,7 @@ export default function CardInput() {
 
   function submit() {
     if (!isValid) return;
+    markTaskComplete('payout');
     setDone(true);
     setFlash(f => f + 1);
     setTimeout(() => router.push('/worker/home'), 2000);

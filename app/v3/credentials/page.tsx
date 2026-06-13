@@ -3,6 +3,7 @@
 import { useState, useRef } from 'react';
 import Link from 'next/link';
 import StatusBar from '@/app/components/StatusBar';
+import { markTaskComplete } from '@/lib/setupProgress';
 
 const CREDS = [
   {
@@ -167,6 +168,7 @@ export default function Credentials() {
       <div style={{ position: 'fixed', bottom: 0, left: '50%', transform: 'translateX(-50%)', width: '100%', maxWidth: 390, padding: '16px 22px 36px', background: 'linear-gradient(to bottom, transparent, var(--paper) 40%)' }}>
         <Link
           href="/worker/profile"
+          onClick={() => markTaskComplete('credentials')}
           style={{
             display: 'block', width: '100%', padding: '15px 22px',
             borderRadius: 99, background: 'var(--ink)', color: '#FFFFFF',

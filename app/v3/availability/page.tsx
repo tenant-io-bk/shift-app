@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
+import { markTaskComplete } from '@/lib/setupProgress';
 
 const DAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
@@ -183,7 +184,7 @@ export default function Availability() {
           </div>
         ))}
 
-        <Link href="/worker/profile" style={{
+        <Link href="/worker/profile" onClick={() => markTaskComplete('availability')} style={{
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',

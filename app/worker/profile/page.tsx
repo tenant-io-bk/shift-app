@@ -1,9 +1,10 @@
 'use client';
 
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import StatusBar from '@/app/components/StatusBar';
 import BottomNav from '@/app/components/BottomNav';
+import { getCompletedTasks, type SetupTask } from '@/lib/setupProgress';
 
 const SKILLS = [
   { label: 'Barista', count: 28 },
@@ -100,6 +101,11 @@ export default function WorkerProfile() {
   const [tab, setTab] = useState<'profile' | 'history'>('profile');
   const [historyExpanded, setHistoryExpanded] = useState<string | null>(null);
   const [editing, setEditing] = useState(false);
+
+  // Optional setup tasks completed so far (persisted in localStorage).
+  // Starts empty so SSR and first client render match; filled after mount.
+  const [completed, setCompleted] = useState<Record<string, boolean>>({});
+  useEffect(() => { setCompleted(getCompletedTasks()); }, []);
 
   // Edit sheet drag-to-dismiss
   const [editDragY, setEditDragY] = useState(0);
@@ -361,39 +367,55 @@ export default function WorkerProfile() {
         </div>
       </div>
 
-      {/* Profile completion checklist */}
-      <div style={{ margin: '0 20px 20px', padding: '16px', background: 'var(--card)', borderRadius: 14, border: '2px solid var(--ink)' }}>
-        <div style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--ink)', marginBottom: 12 }}>Finish setting up</div>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
-          {[
-            { label: 'Add a Payout Method so You Get Paid', href: '/v3/payout-setup', done: false },
-            { label: 'Set Your Availability for Better Matches', href: '/v3/availability', done: false },
-            { label: 'Set Your Area to See Nearby Shifts', href: '/v3/neighborhood', done: false },
-            { label: 'Add Credentials to Unlock Higher Pay', href: '/v3/credentials', done: false },
-            { label: 'W-9 — Required Once You Earn $600', href: '/v3/w9', done: false },
-          ].map((item, i) => (
-            <Link key={i} href={item.href} style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: 10,
-              textDecoration: 'none',
-            }}>
-              <div style={{
-                width: 20,
-                height: 20,
-                borderRadius: '50%',
-                border: '2px solid var(--line-2)',
-                flexShrink: 0,
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-              }} />
-              <span style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--ink)', lineHeight: 1.4 }}>{item.label}</span>
-              <span style={{ marginLeft: 'auto', color: 'var(--ink)', fontSize: 14, flexShrink: 0 }}>→</span>
-            </Link>
-          ))}
-        </div>
-      </div>
+      {/* Profile completion checklist — hidden once everything is done */}
+      {(() => {
+        const TASKS: { id: SetupTask; label: string; href: string }[] = [
+          { id: 'payout',       label: 'Add a Payout Method so You Get Paid',     href: '/v3/payout-setup' },
+          { id: 'availability', label: 'Set Your Availability for Better Matches', href: '/v3/availability' },
+          { id: 'neighborhood', label: 'Set Your Area to See Nearby Shifts',       href: '/v3/neighborhood' },
+          { id: 'credentials',  label: 'Add Credentials to Unlock Higher Pay',     href: '/v3/credentials' },
+          { id: 'w9',           label: 'W-9 — Required Once You Earn $600',         href: '/v3/w9' },
+        ];
+        const doneCount = TASKS.filter(t => completed[t.id]).length;
+        if (doneCount === TASKS.length) return null;
+        return (
+          <div style={{ margin: '0 20px 20px', padding: '16px', background: 'var(--card)', borderRadius: 14, border: '2px solid var(--ink)' }}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 12 }}>
+              <span style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--ink)' }}>Finish setting up</span>
+              <span style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 700, color: 'var(--ink)' }}>{doneCount} of {TASKS.length} done</span>
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+              {TASKS.map((item) => {
+                const done = !!completed[item.id];
+                return (
+                  <Link key={item.id} href={item.href} style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: 10,
+                    textDecoration: 'none',
+                  }}>
+                    <div style={{
+                      width: 20,
+                      height: 20,
+                      borderRadius: '50%',
+                      border: done ? 'none' : '2px solid var(--line-2)',
+                      background: done ? 'var(--ink)' : 'transparent',
+                      flexShrink: 0,
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                    }}>
+                      {done && <svg width="10" height="8" viewBox="0 0 11 9" fill="none"><path d="M1 4.5L4 7.5L10 1" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/></svg>}
+                    </div>
+                    <span style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--ink)', lineHeight: 1.4, textDecoration: done ? 'line-through' : 'none', opacity: done ? 0.5 : 1 }}>{item.label}</span>
+                    {!done && <span style={{ marginLeft: 'auto', color: 'var(--ink)', fontSize: 14, flexShrink: 0 }}>→</span>}
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
+        );
+      })()}
 
       {/* Skills */}
       <div style={{ padding: '0 20px 20px', borderBottom: '1px solid var(--line)' }}>
