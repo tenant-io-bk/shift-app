@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import StatusBar from '@/app/components/StatusBar';
 import BottomNav from '@/app/components/BottomNav';
-import { getCompletedTasks, type SetupTask } from '@/lib/setupProgress';
+import { getCompletedTasks, getBadges, type SetupTask, type Badge } from '@/lib/setupProgress';
 
 const SKILLS = [
   { label: 'Barista', count: 28 },
@@ -105,7 +105,11 @@ export default function WorkerProfile() {
   // Optional setup tasks completed so far (persisted in localStorage).
   // Starts empty so SSR and first client render match; filled after mount.
   const [completed, setCompleted] = useState<Record<string, boolean>>({});
-  useEffect(() => { setCompleted(getCompletedTasks()); }, []);
+  const [badges, setBadges] = useState<Record<string, Badge>>({});
+  useEffect(() => {
+    setCompleted(getCompletedTasks());
+    setBadges(getBadges());
+  }, []);
 
   // Edit sheet drag-to-dismiss
   const [editDragY, setEditDragY] = useState(0);
@@ -370,6 +374,7 @@ export default function WorkerProfile() {
       {/* Profile completion checklist — hidden once everything is done */}
       {(() => {
         const TASKS: { id: SetupTask; label: string; href: string }[] = [
+          { id: 'quiz',         label: 'Take a Skills Quiz to Earn a Verified Badge', href: '/v3/skills-quiz' },
           { id: 'payout',       label: 'Add a Payout Method so You Get Paid',     href: '/v3/payout-setup' },
           { id: 'availability', label: 'Set Your Availability for Better Matches', href: '/v3/availability' },
           { id: 'neighborhood', label: 'Set Your Area to See Nearby Shifts',       href: '/v3/neighborhood' },
@@ -420,12 +425,20 @@ export default function WorkerProfile() {
       {/* Skills */}
       <div style={{ padding: '0 20px 20px', borderBottom: '1px solid var(--line)' }}>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
-          {SKILLS.map(s => (
-            <span key={s.label} style={{ display: 'inline-flex', alignItems: 'center', gap: 6, fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 14, color: 'var(--ink)', border: '2px solid var(--ink)', borderRadius: 99, padding: '6px 14px', background: 'var(--paper)' }}>
-              {s.label}
-              <span style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--ink)', fontWeight: 400 }}>{s.count}×</span>
-            </span>
-          ))}
+          {SKILLS.map(s => {
+            const verified = !!badges[s.label];
+            return (
+              <span key={s.label} style={{ display: 'inline-flex', alignItems: 'center', gap: 6, fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 14, color: 'var(--ink)', border: `2px solid ${verified ? 'var(--green)' : 'var(--ink)'}`, borderRadius: 99, padding: '6px 14px', background: verified ? 'var(--green-soft)' : 'var(--paper)' }}>
+                {verified && (
+                  <span style={{ width: 15, height: 15, borderRadius: '50%', background: 'var(--green)', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                    <svg width="8" height="6" viewBox="0 0 11 9" fill="none"><path d="M1 4.5L4 7.5L10 1" stroke="#0D0E12" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                  </span>
+                )}
+                {s.label}
+                <span style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--ink)', fontWeight: 400 }}>{verified ? 'Verified' : `${s.count}×`}</span>
+              </span>
+            );
+          })}
         </div>
       </div>
 
