@@ -4,12 +4,18 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import StatusBar from '@/app/components/StatusBar';
 import EmployerNav from '@/app/components/EmployerNav';
+import VerifiedBadge from '@/app/components/VerifiedBadge';
+import { getBadges, type Badge } from '@/lib/setupProgress';
 
 export default function ShiftPosted() {
   const [phase, setPhase] = useState<'matching' | 'filling' | 'filled'>('matching');
   const [tier, setTier] = useState<'favorites' | 'past' | 'network'>('favorites');
   const [elapsed, setElapsed] = useState(0);
   const [fillTime, setFillTime] = useState('');
+
+  // If the matched worker's role was verified via the skills quiz, surface it.
+  const [baristaBadge, setBaristaBadge] = useState<Badge | null>(null);
+  useEffect(() => { setBaristaBadge(getBadges()['Barista'] ?? null); }, []);
 
   useEffect(() => {
     const start = Date.now();
@@ -146,6 +152,11 @@ export default function ShiftPosted() {
               <div style={{ flex: 1, minWidth: 0 }}>
                 <div style={{ fontFamily: 'var(--sans)', fontWeight: 700, fontSize: 17, color: 'var(--ink)', letterSpacing: '-0.02em' }}>Marcus T.</div>
                 <div style={{ fontFamily: 'var(--body)', fontSize: 12, color: 'var(--ink)', marginTop: 2 }}>Barista · 3 yrs exp · 127 shifts</div>
+                {baristaBadge && (
+                  <div style={{ marginTop: 6 }}>
+                    <VerifiedBadge role="Barista" />
+                  </div>
+                )}
               </div>
               <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: 2 }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
@@ -157,6 +168,19 @@ export default function ShiftPosted() {
                 <div style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.06em', color: 'var(--ink)', background: 'var(--green-soft)', borderRadius: 99, padding: '3px 8px' }}>Confirmed</div>
               </div>
             </div>
+
+            {/* Why this match — consumes the verified skill badge */}
+            {baristaBadge && (
+              <div style={{ marginTop: 10, display: 'flex', gap: 9, alignItems: 'flex-start', background: 'var(--green-soft)', borderRadius: 12, padding: '11px 13px' }}>
+                <svg width="13" height="13" viewBox="0 0 10 10" fill="none" style={{ flexShrink: 0, marginTop: 1 }}><path d="M5 0L6.18 3.82L10 5L6.18 6.18L5 10L3.82 6.18L0 5L3.82 3.82L5 0Z" fill="var(--green)" /></svg>
+                <div>
+                  <div style={{ fontFamily: 'var(--body)', fontSize: 10, fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--ink)', marginBottom: 2 }}>Why Marcus</div>
+                  <div style={{ fontFamily: 'var(--body)', fontSize: 12.5, color: 'var(--ink)', lineHeight: 1.45 }}>
+                    Passed SHIFT&apos;s Barista skills check at <strong>{baristaBadge.score}%</strong> — surfaced ahead of unverified workers for this role.
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
         )}
 
