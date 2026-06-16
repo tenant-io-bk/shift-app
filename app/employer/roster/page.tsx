@@ -1,17 +1,7 @@
-'use client';
-
-import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import EmployerNav from '@/app/components/EmployerNav';
-import VerifiedBadge from '@/app/components/VerifiedBadge';
-import { getBadges } from '@/lib/setupProgress';
 
 export default function Page() {
-  // Badges earned via the AI skills quiz (persisted in localStorage). Loaded
-  // after mount so SSR and first client render match.
-  const [badges, setBadges] = useState<Record<string, unknown>>({});
-  useEffect(() => { setBadges(getBadges()); }, []);
-
   return (
     <div style={{ maxWidth: 390, minHeight: '100vh', margin: '0 auto', background: 'var(--paper)', display: 'flex', flexDirection: 'column', paddingBottom: 80 }}>
       <div style={{ display: 'flex', flexDirection: 'column', flex: 1 }}>
@@ -132,7 +122,6 @@ export default function Page() {
                 gradient: 'var(--ink)',
                 name: 'Marco Reyes',
                 meta: 'Barista · 4.9★ · en route',
-                role: 'Barista',
                 eta: '6 min',
                 reliable: 97,
               },
@@ -141,7 +130,6 @@ export default function Page() {
                 gradient: 'var(--ink)',
                 name: 'Sam Ortiz',
                 meta: 'Barista · 4.8★ · en route',
-                role: 'Barista',
                 eta: '8 min',
                 reliable: 94,
               },
@@ -199,11 +187,8 @@ export default function Page() {
                   >
                     {worker.meta}
                   </div>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginTop: 3, flexWrap: 'wrap' }}>
-                    <span style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--ink)', fontWeight: 600 }}>
-                      {worker.reliable}% reliable
-                    </span>
-                    {!!badges[worker.role] && <VerifiedBadge role={worker.role} />}
+                  <div style={{ fontFamily: 'var(--body)', fontSize: 11, color: 'var(--ink)', marginTop: 3, fontWeight: 600 }}>
+                    {worker.reliable}% reliable
                   </div>
                 </div>
                 {/* ETA pill */}
