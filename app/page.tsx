@@ -9,7 +9,7 @@ export default function Splash() {
         maxWidth: 390,
         minHeight: '100vh',
         margin: '0 auto',
-        background: 'var(--red)',
+        background: 'var(--green)',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
