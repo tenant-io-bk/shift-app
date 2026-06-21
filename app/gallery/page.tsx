@@ -1,6 +1,8 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import * as htmlToImage from 'html-to-image';
+import JSZip from 'jszip';
 import ShiftCard, { CompactCard } from '@/app/components/ShiftCard';
 import FlowMap from './FlowMap';
 
@@ -93,6 +95,9 @@ const SCREENS = [
 const SCALE = 0.28;
 const PHONE_W = 390;
 const PHONE_H = 844;
+const EXPORT_W = 1080;
+const EXPORT_H = 1920;
+const EXPORT_BG = '#ffffff';
 const COMMENTS_KEY  = 'shift-gallery-comments';
 const ADDRESSED_KEY = 'shift-gallery-addressed';
 const LOCKED_KEY    = 'shift-gallery-locked';
@@ -117,6 +122,10 @@ function loadLocked(): Set<string> {
 }
 function saveLocked(l: Set<string>) {
   localStorage.setItem(LOCKED_KEY, JSON.stringify([...l]));
+}
+
+function slug(s: string): string {
+  return s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 }
 
 /* ── Color Guide data ──────────────────────────────────────────────────────── */
@@ -513,6 +522,9 @@ export default function Gallery() {
   const [locked, setLocked]        = useState<Set<string>>(new Set());
   const [lockMode, setLockMode]    = useState(false);
   const [hideLocked, setHideLocked] = useState(false);
+  const [downloading, setDownloading] = useState(false);
+  const [dlDone, setDlDone]        = useState(0);
+  const [dlTotal, setDlTotal]      = useState(0);
 
   useEffect(() => {
     setComments(loadComments());
@@ -566,6 +578,131 @@ export default function Gallery() {
     );
     if (!lines.length) return;
     navigator.clipboard.writeText(lines.join('\n\n'));
+  }
+
+  async function downloadAllScreens() {
+    if (downloading) return;
+
+    // Every screen, in gallery order, regardless of search/lock filters.
+    const all = SCREENS.flatMap(g => g.screens.map(s => ({ ...s, group: g.group })));
+
+    setDownloading(true);
+    setDlTotal(all.length);
+    setDlDone(0);
+
+    // Offscreen iframe rendered at the phone's native size, then upscaled into
+    // a 1080×1920 frame so every export is exactly that resolution.
+    const frame = document.createElement('iframe');
+    frame.setAttribute('scrolling', 'no');
+    Object.assign(frame.style, {
+      position: 'fixed', left: '-10000px', top: '0',
+      width: `${PHONE_W}px`, height: `${PHONE_H}px`, border: 'none',
+      background: EXPORT_BG,
+    });
+    document.body.appendChild(frame);
+
+    const loadPath = (path: string) => new Promise<void>(resolve => {
+      let settled = false;
+      const finish = () => { if (settled) return; settled = true; resolve(); };
+      frame.onload = finish;
+      frame.src = path;
+      // Safety net in case a screen never fires load (e.g. a redirect).
+      setTimeout(finish, 8000);
+    });
+
+    // Transparent 1×1 used in place of any image html-to-image can't fetch,
+    // so a single broken/cross-origin asset never aborts a capture.
+    const BLANK_PX = 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==';
+    const withTimeout = <T,>(p: Promise<T>, ms: number) =>
+      Promise.race([p, new Promise<T>((_, rej) => setTimeout(() => rej(new Error('capture timed out')), ms))]);
+
+    // Compose the phone-sized shot (or a labelled placeholder) into a 1080×1920 frame.
+    const compose = (shot: HTMLCanvasElement | null, label: string) => {
+      const out = document.createElement('canvas');
+      out.width = EXPORT_W;
+      out.height = EXPORT_H;
+      const ctx = out.getContext('2d')!;
+      ctx.fillStyle = EXPORT_BG;
+      ctx.fillRect(0, 0, EXPORT_W, EXPORT_H);
+      if (shot) {
+        // Fit the full phone screen by height; centre it horizontally.
+        const drawScale = EXPORT_H / PHONE_H;
+        const drawW = PHONE_W * drawScale;
+        ctx.imageSmoothingEnabled = true;
+        ctx.imageSmoothingQuality = 'high';
+        ctx.drawImage(shot, (EXPORT_W - drawW) / 2, 0, drawW, EXPORT_H);
+      } else {
+        ctx.fillStyle = '#9aa0a6';
+        ctx.textAlign = 'center';
+        ctx.font = '600 44px sans-serif';
+        ctx.fillText('Preview unavailable', EXPORT_W / 2, EXPORT_H / 2 - 30);
+        ctx.font = '400 36px sans-serif';
+        ctx.fillText(label, EXPORT_W / 2, EXPORT_H / 2 + 30);
+      }
+      return new Promise<Blob | null>(res => out.toBlob(res, 'image/jpeg', 0.92));
+    };
+
+    try {
+      const zip = new JSZip();
+      let fontEmbedCSS: string | undefined;
+
+      for (let i = 0; i < all.length; i++) {
+        const s = all[i];
+        let shot: HTMLCanvasElement | null = null;
+
+        try {
+          await loadPath(s.path);
+          // Let fonts swap in, images decode, and any mount animation settle.
+          await new Promise(r => setTimeout(r, 700));
+          const doc = frame.contentDocument;
+
+          if (doc) {
+            // Compute the (same-origin, self-hosted) font CSS once and reuse it,
+            // so each screen isn't re-scanning stylesheets for web fonts.
+            if (fontEmbedCSS === undefined) {
+              try { fontEmbedCSS = await htmlToImage.getFontEmbedCSS(doc.documentElement); }
+              catch { fontEmbedCSS = ''; }
+            }
+            // Render at 3× for a crisp downscale into the export frame.
+            shot = await withTimeout(htmlToImage.toCanvas(doc.documentElement, {
+              width: PHONE_W,
+              height: PHONE_H,
+              pixelRatio: 3,
+              backgroundColor: EXPORT_BG,
+              cacheBust: true,
+              fontEmbedCSS,
+              imagePlaceholder: BLANK_PX,
+            }), 20000);
+          }
+        } catch (err) {
+          console.warn(`Capture failed for ${s.path}; using placeholder.`, err);
+          shot = null;
+        }
+
+        const blob = await compose(shot, `${s.label} — ${s.path}`);
+        if (blob) {
+          const name = `${String(i + 1).padStart(2, '0')}-${slug(s.group)}-${slug(s.label)}.jpg`;
+          zip.file(name, blob);
+        }
+        setDlDone(i + 1);
+      }
+
+      const zipBlob = await zip.generateAsync({ type: 'blob' });
+      const url = URL.createObjectURL(zipBlob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `shift-screens-${EXPORT_W}x${EXPORT_H}.zip`;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+    } catch (err) {
+      console.error('Screen export failed', err);
+      alert('Screen export failed — see console for details.');
+    } finally {
+      frame.remove();
+      setDownloading(false);
+    }
   }
 
   const allWithNotes = Object.keys(comments).length;
@@ -663,6 +800,25 @@ export default function Gallery() {
                   style={{ fontSize: 12, background: hideLocked ? '#0D0E12' : 'rgba(13,14,18,0.06)', color: hideLocked ? '#fff' : '#0D0E12', border: '1px solid rgba(13,14,18,0.12)', borderRadius: 99, padding: '4px 12px', cursor: 'pointer', fontFamily: 'var(--body)' }}
                 >
                   {hideLocked ? 'Show all' : 'Hide locked'}
+                </button>
+              )}
+
+              {!lockMode && (
+                <button
+                  onClick={downloadAllScreens}
+                  disabled={downloading}
+                  style={{
+                    fontSize: 12, fontFamily: 'var(--body)', fontWeight: 700,
+                    padding: '5px 14px', borderRadius: 99,
+                    cursor: downloading ? 'default' : 'pointer', border: 'none',
+                    background: downloading ? 'rgba(13,14,18,0.07)' : '#72c15f',
+                    color: downloading ? '#0D0E12' : '#0D0E12',
+                    opacity: downloading ? 0.8 : 1,
+                    transition: 'all 0.15s', whiteSpace: 'nowrap',
+                  }}
+                  title={`Export every screen as a ${EXPORT_W}×${EXPORT_H} JPG (zipped)`}
+                >
+                  {downloading ? `Exporting ${dlDone}/${dlTotal}…` : `⤓ Download screens`}
                 </button>
               )}
 
